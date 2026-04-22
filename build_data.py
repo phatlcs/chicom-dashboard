@@ -16,7 +16,7 @@ BASE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(BASE, 'backend'))
 from compute import compute_all  # noqa: E402
 
-CSV_PATH = os.path.join(BASE, 'output', 'filtered', 'all_groups_classified_annotated.csv')
+CSV_PATH = os.path.join(BASE, 'output', 'filtered', 'all_groups_final_annotated.csv')
 OUT_PATH = os.path.join(BASE, 'dashboard', 'data_computed.js')
 
 print('Loading CSV…')

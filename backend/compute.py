@@ -120,6 +120,28 @@ def _j(v):
     return json.dumps(v, ensure_ascii=False, indent=2)
 
 
+def _normalize_sub_topics(series: pd.Series) -> pd.Series:
+    """Cluster near-duplicate sub_topic values (LLM typo artifacts).
+    Walks from highest-count label down; for each, pulls in variants with
+    difflib similarity >= 0.88 and re-labels them to the dominant form."""
+    import difflib
+    clean = series.fillna('').astype(str).str.strip()
+    vc = clean[clean != ''].value_counts()
+    labels = list(vc.index)
+    canonical = {}
+    unassigned = set(labels)
+    for label in labels:  # descending by count
+        if label not in unassigned:
+            continue
+        canonical[label] = label
+        unassigned.discard(label)
+        close = difflib.get_close_matches(label, list(unassigned), n=20, cutoff=0.88)
+        for m in close:
+            canonical[m] = label
+            unassigned.discard(m)
+    return clean.map(lambda x: canonical.get(x, x) if x else x)
+
+
 def compute_all(df: pd.DataFrame):
     """
     df: raw DataFrame from uploaded CSV (or from file).
@@ -129,6 +151,8 @@ def compute_all(df: pd.DataFrame):
     df['created_date'] = pd.to_datetime(df['created_date'], errors='coerce')
     df['mt_id']       = df['master_topic'].map(TOPIC_MAP) if 'master_topic' in df.columns else None
     df['persona_id']  = df['persona'].map(PERSONA_MAP)    if 'persona'       in df.columns else None
+    if 'sub_topic' in df.columns:
+        df['sub_topic'] = _normalize_sub_topics(df['sub_topic'])
 
     # Determine relevant column
     if 'relevant' in df.columns:
@@ -244,22 +268,34 @@ def compute_all(df: pd.DataFrame):
     q5_by_day  = [{'day': DAYS_VN[d], 'en': DAYS_EN[d], 'count': sum(heatmap[d])} for d in range(7)]
     q6_by_hour = [{'hour': h, 'count': sum(heatmap[d][h] for d in range(7))} for h in range(24)]
 
-    # Top negative topics
-    neg_by_topic = sorted(
-        [{'vn': mt['vn'], 'count': int((neg_df['mt_id'] == mt['id']).sum())} for mt in MASTER_TOPICS if 'mt_id' in neg_df.columns],
-        key=lambda x: -x['count']
-    )
+    # Top negative topics — use sub_topic when populated (Q5/Q6 ask for sub-topic level),
+    # fall back to master_topic when not
+    from keywords import _column_populated
+    use_subtopic = 'sub_topic' in neg_df.columns and _column_populated(neg_df['sub_topic'])
+    if use_subtopic:
+        sub_counts = neg_df['sub_topic'].fillna('').astype(str).str.strip()
+        sub_counts = sub_counts[sub_counts != ''].value_counts().head(15)
+        neg_by_topic = [{'vn': k, 'count': int(v)} for k, v in sub_counts.items()]
+    else:
+        neg_by_topic = sorted(
+            [{'vn': mt['vn'], 'count': int((neg_df['mt_id'] == mt['id']).sum())} for mt in MASTER_TOPICS if 'mt_id' in neg_df.columns],
+            key=lambda x: -x['count']
+        )
     neg_by_topic = [t for t in neg_by_topic if t['count'] > 0]
 
-    # Real early-morning (hours 0-5) negative post counts per master topic
+    # Real early-morning (hours 0-5) negative post counts per topic
     vn_to_id = {mt['vn']: mt['id'] for mt in MASTER_TOPICS}
     q5_early_dist = []
     for t in neg_by_topic[:6]:
-        mt_id = vn_to_id.get(t['vn'])
-        if mt_id and 'mt_id' in neg_df.columns and 'hour' in neg_df.columns:
-            slot = int(((neg_df['mt_id'] == mt_id) & (neg_df['hour'].between(0, 5, inclusive='both'))).sum())
+        if use_subtopic:
+            mask = (neg_df['sub_topic'] == t['vn']) & (neg_df['hour'].between(0, 5, inclusive='both'))
+            slot = int(mask.sum())
         else:
-            slot = 0
+            mt_id = vn_to_id.get(t['vn'])
+            if mt_id and 'mt_id' in neg_df.columns and 'hour' in neg_df.columns:
+                slot = int(((neg_df['mt_id'] == mt_id) & (neg_df['hour'].between(0, 5, inclusive='both'))).sum())
+            else:
+                slot = 0
         q5_early_dist.append({'vn': t['vn'], 'count': t['count'], 'slot': slot})
 
     # Fallback: if all slots are 0, use a fraction so donut still renders
