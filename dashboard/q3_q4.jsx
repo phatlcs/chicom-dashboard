@@ -254,11 +254,11 @@ function Q4() {
               <text key={w} x={wpad.l + (i / (D.WEEKS.length - 1)) * wPlotW} y={WH - 10} textAnchor="middle" className="axis-tick">{w}</text>
             ))}
             {weekly.map((t, i) => {
-              const label = t.vn.length > 32 ? t.vn.slice(0, 30) + '…' : t.vn;
+              const label = t.vn.length > 24 ? t.vn.slice(0, 22) + '…' : t.vn;
               return (
                 <g key={t.id + 'leg'}>
                   <rect x={WW - wpad.r + 10} y={wpad.t + i * 22} width={10} height={10} fill={t.color} rx={2} />
-                  <text x={WW - wpad.r + 26} y={wpad.t + i * 22 + 9} className="axis-tick" style={{ fontSize: 11 }}>
+                  <text x={WW - wpad.r + 26} y={wpad.t + i * 22 + 9} className="axis-tick" style={{ fontSize: 10 }}>
                     <title>{t.vn}</title>{label}
                   </text>
                 </g>

@@ -141,7 +141,7 @@ function Q2() {
 
   const cellW = 96, cellH = 42;
   const leftPad = 340;
-  const topPad = 80;
+  const topPad = 120;  // extra room for rotated persona labels
   const w = leftPad + personas.length * cellW + 20;
   const h = topPad + mts.length * cellH + 20;
 
@@ -168,12 +168,17 @@ function Q2() {
             <svg width={w} height={h} style={{ display: 'block' }}>
               {personas.map((p, pi) => {
                 const x = leftPad + pi * cellW + cellW / 2;
+                // Steeper rotation + bigger anchor offset so the rotated label
+                // doesn't overlap the first row of cells
+                const anchorY = topPad - 14;
+                const label = p.vn.length > 22 ? p.vn.slice(0, 21) + '…' : p.vn;
                 return (
                   <g key={p.id}>
-                    <text x={x} y={topPad - 10}
-                      textAnchor="end" className="axis-tick"
-                      transform={`rotate(-35 ${x} ${topPad - 10})`}>
-                      {p.vn}
+                    <text x={x} y={anchorY}
+                      textAnchor="start" className="axis-tick"
+                      style={{ fontSize: 11 }}
+                      transform={`rotate(-45 ${x} ${anchorY})`}>
+                      <title>{p.vn}</title>{label}
                     </text>
                   </g>
                 );

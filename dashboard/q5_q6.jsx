@@ -103,18 +103,35 @@ function Q56() {
               const y = 180 - (d.count / maxHour) * 150;
               return (
                 <circle key={i} cx={x} cy={y} r={3} fill="var(--neg)"
-                  onMouseEnter={e => tt.show(e, `<b>${d.hour}h</b><br/>${d.count} mentions`)}
+                  onMouseEnter={e => tt.show(e, `<b>${d.hour}h</b><br/>${d.count} bài`)}
                   onMouseMove={tt.move} onMouseLeave={tt.hide} style={{ cursor: 'pointer' }} />
               );
             })}
             {[0, 4, 8, 12, 16, 20, 23].map(h => (
               <text key={h} x={30 + (h / 23) * 630} y={200} textAnchor="middle" className="axis-tick">{h}h</text>
             ))}
-            {/* highlight peak band 2–6am */}
-            <rect x={30 + (2 / 23) * 630} y={30} width={(4 / 23) * 630} height={150} fill="var(--neg)" opacity={0.06} />
-            <text x={30 + (4 / 23) * 630} y={26} textAnchor="middle" className="axis-tick" style={{ fill: 'var(--neg)', fontSize: 10 }}>
-              2h–6h peak
-            </text>
+            {/* highlight the auto-detected peak band */}
+            {D.Q5_PEAK_WINDOW && D.Q5_PEAK_WINDOW.windowSize > 0 && (() => {
+              const ph = D.Q5_PEAK_WINDOW;
+              // Handle wraparound (peak crosses midnight)
+              const bands = [];
+              if (ph.startHour + ph.windowSize <= 24) {
+                bands.push([ph.startHour, ph.windowSize]);
+              } else {
+                bands.push([ph.startHour, 24 - ph.startHour]);
+                bands.push([0, ph.windowSize - (24 - ph.startHour)]);
+              }
+              return (
+                <>
+                  {bands.map(([s, w], i) => (
+                    <rect key={i} x={30 + (s / 23) * 630} y={30} width={(w / 23) * 630} height={150} fill="var(--neg)" opacity={0.06} />
+                  ))}
+                  <text x={30 + ((ph.startHour + ph.windowSize / 2) / 23) * 630} y={26} textAnchor="middle" className="axis-tick" style={{ fill: 'var(--neg)', fontSize: 10 }}>
+                    {ph.startHour}h–{ph.endHour}h cao điểm
+                  </text>
+                </>
+              );
+            })()}
           </svg>
         </div>
       </div>
@@ -149,7 +166,7 @@ function Q56() {
                     width={24} height={22}
                     fill={window.heatColor(intensity, 'rose')}
                     rx={2}
-                    onMouseEnter={e => tt.show(e, `<b>${d} · ${h}h</b><br/>${v} mentions`)}
+                    onMouseEnter={e => tt.show(e, `<b>${d} · ${h}h</b><br/>${v} bài`)}
                     onMouseMove={tt.move} onMouseLeave={tt.hide}
                     style={{ cursor: 'pointer' }}
                   />
@@ -161,7 +178,9 @@ function Q56() {
             ))}
           </svg>
           <div style={{ fontSize: 11, color: 'var(--text-3)', marginTop: 4 }}>
-            Highest concentration: <b style={{ color: 'var(--text)' }}>Mon–Fri, 2h–6h</b> — matches US business-day when sellers find account issues overnight VN time.
+            {D.Q5_PEAK_WINDOW && D.Q5_PEAK_WINDOW.windowSize > 0
+              ? <>Khung cao điểm: <b style={{ color: 'var(--text)' }}>T2–CN, {D.Q5_PEAK_WINDOW.startHour}h–{D.Q5_PEAK_WINDOW.endHour}h</b> — {D.Q5_PEAK_WINDOW.totalMentions.toLocaleString()} bài tiêu cực trong {D.Q5_PEAK_WINDOW.windowSize} giờ này.</>
+              : <>Chưa đủ dữ liệu để phát hiện khung cao điểm.</>}
           </div>
         </div>
       </div>
@@ -177,7 +196,7 @@ function Q56() {
           <div>
             {D.Q5_TOP_NEG.map(t => (
               <div key={t.vn} className="rowbar" style={{ gridTemplateColumns: '1fr 60px' }}
-                onMouseEnter={e => tt.show(e, `<b>${t.vn}</b><br/>${t.count} negative mentions`)}
+                onMouseEnter={e => tt.show(e, `<b>${t.vn}</b><br/>${t.count} bài tiêu cực`)}
                 onMouseMove={tt.move} onMouseLeave={tt.hide}>
                 <div>
                   <div style={{ fontSize: 11, marginBottom: 4, color: 'var(--text)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{t.vn}</div>
