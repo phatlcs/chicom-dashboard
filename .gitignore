@@ -1,6 +1,7 @@
 *.xlsx
 *.xls
 *.csv
+!question_coverage.xlsx
 *.ipynb
 output/
 dashboard/uploads/

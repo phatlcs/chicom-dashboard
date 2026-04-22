@@ -1456,6 +1456,65 @@ window.ChiComData2 = (() => {
     "count": 13
   }
 ];
+  const Q9_Q7_PERSONAS = [
+  {
+    "name": "Seller (Amazon)",
+    "count": 1130,
+    "color": "oklch(0.55 0.17 260)"
+  },
+  {
+    "name": "Service Provider (CBEC)",
+    "count": 541,
+    "color": "oklch(0.60 0.20 25)"
+  },
+  {
+    "name": "Prospect (Others)",
+    "count": 469,
+    "color": "oklch(0.68 0.17 60)"
+  },
+  {
+    "name": "Seller (Others)",
+    "count": 437,
+    "color": "oklch(0.58 0.14 190)"
+  },
+  {
+    "name": "Prospect (Amazon)",
+    "count": 340,
+    "color": "oklch(0.62 0.15 155)"
+  },
+  {
+    "name": "Service Provider (Amazon)",
+    "count": 160,
+    "color": "oklch(0.55 0.17 290)"
+  }
+];
+  const Q9_Q8_PERSONAS = [
+  {
+    "name": "Seller (Amazon)",
+    "count": 367,
+    "color": "oklch(0.55 0.17 260)"
+  },
+  {
+    "name": "Seller (Others)",
+    "count": 183,
+    "color": "oklch(0.60 0.20 25)"
+  },
+  {
+    "name": "Prospect (Amazon)",
+    "count": 27,
+    "color": "oklch(0.68 0.17 60)"
+  },
+  {
+    "name": "Prospect (Others)",
+    "count": 3,
+    "color": "oklch(0.58 0.14 190)"
+  },
+  {
+    "name": "Service Provider (CBEC)",
+    "count": 1,
+    "color": "oklch(0.62 0.15 155)"
+  }
+];
   const Q10_TOP        = [
   {
     "vn": "Apparel",
@@ -2023,7 +2082,7 @@ window.ChiComData2 = (() => {
   return {
     Q7_TOPICS, Q7_BENEFITS, Q7_SENTIMENT,
     Q8_TRIGGERS, Q8_PERSONA, Q8_TREND,
-    Q9_BARRIERS,
+    Q9_BARRIERS, Q9_Q7_PERSONAS, Q9_Q8_PERSONAS,
     Q10_TOP, Q10_WEEKS, Q10_WEEKLY,
     Q11_TOOLS, Q11_ISSUES, Q11_SATISFACTION,
     Q12_SERVICES, Q13_COURSES, Q14_GROWTH,

@@ -200,32 +200,69 @@ function Q8() {
 }
 window.Q8 = Q8;
 
-// ============ Q9 — entry barriers ============
+// ============ Q9 — active participants by persona ============
 function Q9() {
   const tt = window.useTooltip();
-  return (
-    <div className="grid-12">
-      <div className="col-12">
-        <div className="card">
-          <div className="card-head">
-            <div className="card-title">Rào cản gia nhập — Entry Barriers <span className="en">what's stopping prospects from starting</span></div>
-            <span className="card-meta">Prospect persona · inferred sub-topic</span>
-          </div>
-          <div className="grid-2">
-            <HBars items={D2.Q9_BARRIERS.map(b => ({ ...b, color: 'oklch(0.68 0.17 60)' }))} labelKey="vn" valueKey="count" tooltip={tt} />
-            <div>
-              {D2.Q9_BARRIERS.map(b => (
-                <div key={b.vn} style={{ padding: '8px 12px', borderBottom: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <div>
-                    <div style={{ fontSize: 12 }}>{b.vn}</div>
-                    <div style={{ fontSize: 10, color: 'var(--text-3)' }}>{b.en}</div>
-                  </div>
-                  <span className="mono" style={{ fontSize: 11, color: 'var(--text-2)' }}>{b.count}</span>
-                </div>
-              ))}
-            </div>
+  const q7Personas = D2.Q9_Q7_PERSONAS || [];
+  const q8Personas = D2.Q9_Q8_PERSONAS || [];
+
+  const arc = (cx, cy, r, r2, a0, a1) => {
+    const large = a1 - a0 > 0.5 ? 1 : 0;
+    const sx = cx + Math.cos(a0 * Math.PI * 2 - Math.PI / 2) * r;
+    const sy = cy + Math.sin(a0 * Math.PI * 2 - Math.PI / 2) * r;
+    const ex = cx + Math.cos(a1 * Math.PI * 2 - Math.PI / 2) * r;
+    const ey = cy + Math.sin(a1 * Math.PI * 2 - Math.PI / 2) * r;
+    const sx2 = cx + Math.cos(a1 * Math.PI * 2 - Math.PI / 2) * r2;
+    const sy2 = cy + Math.sin(a1 * Math.PI * 2 - Math.PI / 2) * r2;
+    const ex2 = cx + Math.cos(a0 * Math.PI * 2 - Math.PI / 2) * r2;
+    const ey2 = cy + Math.sin(a0 * Math.PI * 2 - Math.PI / 2) * r2;
+    return `M${sx},${sy} A${r},${r} 0 ${large} 1 ${ex},${ey} L${sx2},${sy2} A${r2},${r2} 0 ${large} 0 ${ex2},${ey2} Z`;
+  };
+
+  const Donut = ({ title, items }) => {
+    const total = items.reduce((a, b) => a + b.count, 0) || 1;
+    let acc = 0;
+    const seg = items.map(it => {
+      const start = acc; acc += it.count / total;
+      return { ...it, start, end: acc };
+    });
+    return (
+      <div className="card">
+        <div className="card-head">
+          <div className="card-title">{title}</div>
+          <span className="card-meta">{total.toLocaleString()} posts</span>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 20, padding: '8px 0' }}>
+          <svg width={200} height={200}>
+            {seg.map(s => (
+              <path key={s.name} d={arc(100, 100, 85, 50, s.start, s.end)} fill={s.color}
+                onMouseEnter={e => tt.show(e, `<b>${s.name}</b> · ${s.count.toLocaleString()} (${Math.round((s.count / total) * 100)}%)`)}
+                onMouseMove={tt.move} onMouseLeave={tt.hide} style={{ cursor: 'pointer' }} />
+            ))}
+            <text x={100} y={96} textAnchor="middle" style={{ fontSize: 22, fontWeight: 600, fill: 'var(--text)' }}>{total.toLocaleString()}</text>
+            <text x={100} y={114} textAnchor="middle" style={{ fontSize: 10, fill: 'var(--text-3)' }}>posts</text>
+          </svg>
+          <div style={{ flex: 1, fontSize: 11 }}>
+            {seg.map(s => (
+              <div key={s.name} style={{ display: 'flex', gap: 8, marginBottom: 6, alignItems: 'center' }}>
+                <span style={{ width: 10, height: 10, background: s.color, borderRadius: 2, flexShrink: 0 }}></span>
+                <span style={{ flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{s.name}</span>
+                <span className="mono" style={{ color: 'var(--text-3)' }}>{Math.round((s.count / total) * 100)}%</span>
+              </div>
+            ))}
           </div>
         </div>
+      </div>
+    );
+  };
+
+  return (
+    <div className="grid-12">
+      <div className="col-6">
+        <Donut title={<span>Active participants — Q7 <span className="en">who discusses joining</span></span>} items={q7Personas} />
+      </div>
+      <div className="col-6">
+        <Donut title={<span>Active participants — Q8 <span className="en">who signals abandoning</span></span>} items={q8Personas} />
       </div>
       {tt.node}
     </div>

@@ -546,6 +546,65 @@ def extract_q9(df: pd.DataFrame):
     return _extract(prospects['content'], Q9_BARRIER_KW)
 
 
+def extract_q9_personas(df: pd.DataFrame) -> dict:
+    """
+    Q9 — persona breakdown of active participants in Q7 (join-trigger) and
+    Q8 (abandonment-signal) posts. Returns two arrays of {name, count, color}
+    suitable for donut charts.
+    """
+    COLORS = [
+        'oklch(0.55 0.17 260)',  # Seller AZ — blue
+        'oklch(0.60 0.20 25)',   # Prospect AZ — red
+        'oklch(0.68 0.17 60)',   # Service Provider AZ — amber
+        'oklch(0.58 0.14 190)',  # Service Provider CBEC — teal
+        'oklch(0.62 0.15 155)',  # Prospect Others — green
+        'oklch(0.55 0.17 290)',  # Seller Others — violet
+    ]
+
+    text = df['content'].fillna('').str.lower()
+
+    # Q7-like posts: contain any join-trigger or benefit keyword
+    q7_kw = []
+    for kws in list(Q7_TRIGGER_KW.values()) + list(Q7_BENEFIT_KW.values()):
+        q7_kw.extend(kws)
+    q7_parts = []
+    for k in q7_kw:
+        esc = re.escape(k.lower())
+        if len(k) <= 6 and ' ' not in k:
+            q7_parts.append(r'\b' + esc + r'\b')
+        else:
+            q7_parts.append(esc)
+    q7_mask = text.str.contains('|'.join(q7_parts), regex=True, na=False)
+
+    # Q8-like posts: negative sentiment + abandonment keyword (or just negative if no keywords hit)
+    q8_kw = []
+    for kws in Q8_TRIGGER_KW.values():
+        q8_kw.extend(kws)
+    q8_parts = []
+    for k in q8_kw:
+        esc = re.escape(k.lower())
+        if len(k) <= 6 and ' ' not in k:
+            q8_parts.append(r'\b' + esc + r'\b')
+        else:
+            q8_parts.append(esc)
+    q8_text_mask = text.str.contains('|'.join(q8_parts), regex=True, na=False)
+    neg_mask = df['sentiment'] == 'negative' if 'sentiment' in df.columns else pd.Series(False, index=df.index)
+    q8_mask = q8_text_mask & neg_mask
+
+    def _persona_breakdown(mask):
+        sub = df[mask]
+        counts = sub['persona'].value_counts() if 'persona' in sub.columns else pd.Series(dtype=int)
+        return [
+            {'name': str(p), 'count': int(c), 'color': COLORS[i % len(COLORS)]}
+            for i, (p, c) in enumerate(counts.items())
+        ]
+
+    return {
+        'q7': _persona_breakdown(q7_mask),
+        'q8': _persona_breakdown(q8_mask),
+    }
+
+
 def extract_q10(df: pd.DataFrame):
     # Prefer real 'Product Category' column if populated
     if 'Product Category' in df.columns and _column_populated(df['Product Category']):

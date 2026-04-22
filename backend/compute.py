@@ -11,7 +11,7 @@ import pandas as pd
 
 from keywords import (
     extract_q3_subs,
-    extract_q7, extract_q8, extract_q9,
+    extract_q7, extract_q8, extract_q9, extract_q9_personas,
     extract_q10, extract_q11, extract_q11_issues, extract_q11_satisfaction,
     extract_q12, extract_q13, extract_q14,
 )
@@ -271,6 +271,7 @@ def compute_all(df: pd.DataFrame):
     q7_topics, q7_benefits, q7_sentiment = extract_q7(rel)
     q8_triggers, q8_persona, q8_trend    = extract_q8(rel, months)
     q9_barriers  = extract_q9(rel)
+    q9_personas  = extract_q9_personas(rel)
     q10_top      = extract_q10(rel)
     q11_tools         = extract_q11(rel)
     q11_issues        = extract_q11_issues(rel)
@@ -371,6 +372,8 @@ window.ChiComData2 = (() => {{
   const Q8_PERSONA     = {_j(q8_persona)};
   const Q8_TREND       = {_j(q8_trend)};
   const Q9_BARRIERS    = {_j(q9_barriers)};
+  const Q9_Q7_PERSONAS = {_j(q9_personas['q7'])};
+  const Q9_Q8_PERSONAS = {_j(q9_personas['q8'])};
   const Q10_TOP        = {_j(q10_top)};
   const Q10_WEEKS      = {_j(q10_weeks)};
   const Q10_WEEKLY     = {_j(q10_weekly)};
@@ -383,7 +386,7 @@ window.ChiComData2 = (() => {{
   return {{
     Q7_TOPICS, Q7_BENEFITS, Q7_SENTIMENT,
     Q8_TRIGGERS, Q8_PERSONA, Q8_TREND,
-    Q9_BARRIERS,
+    Q9_BARRIERS, Q9_Q7_PERSONAS, Q9_Q8_PERSONAS,
     Q10_TOP, Q10_WEEKS, Q10_WEEKLY,
     Q11_TOOLS, Q11_ISSUES, Q11_SATISFACTION,
     Q12_SERVICES, Q13_COURSES, Q14_GROWTH,

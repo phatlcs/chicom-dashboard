@@ -59,12 +59,12 @@ function UploadPanel() {
     upload(e.dataTransfer.files[0]);
   };
 
-  const staticPosts = (window.ChiComData && window.ChiComData.KPI && window.ChiComData.KPI.relevantPosts) || 0;
-  const pillLabel = backendUp && info
+  // On Vercel / any deployment without the FastAPI backend, hide the upload UI entirely
+  if (!backendUp) return null;
+
+  const pillLabel = info
     ? `${Number(info.relevantPosts).toLocaleString()} posts · ${(info.months || []).length}mo`
-    : backendUp
-      ? 'Upload CSV'
-      : `${Number(staticPosts).toLocaleString()} posts · static`;
+    : 'Upload CSV';
 
   return (
     <>
