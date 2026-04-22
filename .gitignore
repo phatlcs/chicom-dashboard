@@ -1,0 +1,11 @@
+*.xlsx
+*.xls
+*.csv
+*.ipynb
+output/
+dashboard/uploads/
+dashboard/scraps/
+blacklist*
+amazon_sellers*
+all_groups*
+ChiCom dashboard.zip
