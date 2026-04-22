@@ -96,8 +96,8 @@ function App() {
         <window.Section id="Q14" num="Q14"><Q14 /></window.Section>
 
         <div style={{ padding: '24px 0', borderTop: '1px solid var(--border)', color: 'var(--text-3)', fontSize: 12, display: 'flex', justifyContent: 'space-between' }}>
-          <span>ChiCom Insights · sample data — replace via data.js when CSV/JSON is ready</span>
-          <span className="mono">14 questions · 9 communities</span>
+          <span>ChiCom Insights · dữ liệu từ {(window.ChiComData && window.ChiComData.KPI && window.ChiComData.KPI.totalPosts.toLocaleString()) || '—'} bài</span>
+          <span className="mono">14 câu hỏi · {(window.ChiComData && window.ChiComData.ALL_GROUPS && window.ChiComData.ALL_GROUPS.length) || 9} cộng đồng</span>
         </div>
       </div>
 

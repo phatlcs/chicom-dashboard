@@ -111,11 +111,6 @@ window.ChiComData = (() => {
     "id": "mt8",
     "vn": "Kinh doanh, vận hành và tối ưu hóa bán hàng Amazon",
     "en": "Business, ops & Amazon optimization"
-  },
-  {
-    "id": "mt9",
-    "vn": "Khóa học và thách thức kinh doanh Amazon",
-    "en": "Courses & Amazon challenges"
   }
 ];
   const Q1_WEIGHTS          = {
@@ -131,15 +126,15 @@ window.ChiComData = (() => {
     "ec7": 7.7
   },
   "mt2": {
-    "soa1": 0.0,
-    "soa2": 0.0,
-    "ec1": 0.0,
+    "soa1": 0.7,
+    "soa2": 0.8,
+    "ec1": 1.8,
     "ec2": 0.0,
-    "ec3": 0.0,
-    "ec4": 0.0,
-    "ec5": 0.0,
+    "ec3": 1.0,
+    "ec4": 1.7,
+    "ec5": 0.5,
     "ec6": 0.0,
-    "ec7": 0.0
+    "ec7": 0.7
   },
   "mt3": {
     "soa1": 25.3,
@@ -176,20 +171,20 @@ window.ChiComData = (() => {
   },
   "mt6": {
     "soa1": 16.0,
-    "soa2": 6.8,
+    "soa2": 6.9,
     "ec1": 1.3,
     "ec2": 33.1,
-    "ec3": 18.6,
-    "ec4": 26.1,
+    "ec3": 18.7,
+    "ec4": 26.5,
     "ec5": 10.5,
     "ec6": 29.5,
     "ec7": 19.4
   },
   "mt7": {
     "soa1": 5.9,
-    "soa2": 10.4,
+    "soa2": 11.2,
     "ec1": 9.4,
-    "ec2": 41.5,
+    "ec2": 41.7,
     "ec3": 37.0,
     "ec4": 14.1,
     "ec5": 20.6,
@@ -201,22 +196,11 @@ window.ChiComData = (() => {
     "soa2": 11.2,
     "ec1": 2.1,
     "ec2": 7.2,
-    "ec3": 10.0,
+    "ec3": 10.1,
     "ec4": 20.6,
     "ec5": 7.9,
     "ec6": 5.7,
     "ec7": 10.0
-  },
-  "mt9": {
-    "soa1": 0.0,
-    "soa2": 0.0,
-    "ec1": 0.0,
-    "ec2": 0.0,
-    "ec3": 0.0,
-    "ec4": 0.0,
-    "ec5": 0.0,
-    "ec6": 0.0,
-    "ec7": 0.0
   }
 };
   const Q1_MASTER           = [
@@ -224,14 +208,14 @@ window.ChiComData = (() => {
     "id": "mt7",
     "vn": "Kinh doanh xuất nhập khẩu & TMĐT xuyên biên giới",
     "en": "Import-export & cross-border",
-    "weight": 19.8,
+    "weight": 19.9,
     "color": "oklch(0.62 0.15 90)"
   },
   {
     "id": "mt6",
     "vn": "Thanh toán, tài khoản và tài chính quốc tế",
     "en": "Payment, accounts & int'l finance",
-    "weight": 17.9,
+    "weight": 18.0,
     "color": "oklch(0.62 0.15 200)"
   },
   {
@@ -273,15 +257,8 @@ window.ChiComData = (() => {
     "id": "mt2",
     "vn": "Cảnh báo rủi ro & lừa đảo khi kinh doanh Amazon",
     "en": "Risk warnings & fraud",
-    "weight": 0.0,
+    "weight": 0.8,
     "color": "oklch(0.62 0.15 25)"
-  },
-  {
-    "id": "mt9",
-    "vn": "Khóa học và thách thức kinh doanh Amazon",
-    "en": "Courses & Amazon challenges",
-    "weight": 0.0,
-    "color": "oklch(0.62 0.15 0)"
   }
 ];
   const SUBTOPICS           = {
@@ -381,23 +358,23 @@ window.ChiComData = (() => {
   const Q2_MATRIX           = {
   "mt1": {
     "p_seller_az": 1473,
-    "p_prospect_az": 331,
-    "p_svc_az": 384,
+    "p_prospect_az": 333,
+    "p_svc_az": 385,
     "p_svc_cbec": 527,
-    "p_prospect_ot": 989,
-    "p_seller_ot": 2977
+    "p_prospect_ot": 990,
+    "p_seller_ot": 2979
   },
   "mt2": {
-    "p_seller_az": 0,
-    "p_prospect_az": 0,
+    "p_seller_az": 16,
+    "p_prospect_az": 25,
     "p_svc_az": 0,
-    "p_svc_cbec": 0,
-    "p_prospect_ot": 0,
-    "p_seller_ot": 0
+    "p_svc_cbec": 4,
+    "p_prospect_ot": 118,
+    "p_seller_ot": 243
   },
   "mt3": {
-    "p_seller_az": 3022,
-    "p_prospect_az": 569,
+    "p_seller_az": 3024,
+    "p_prospect_az": 570,
     "p_svc_az": 103,
     "p_svc_cbec": 151,
     "p_prospect_ot": 942,
@@ -421,35 +398,27 @@ window.ChiComData = (() => {
   },
   "mt6": {
     "p_seller_az": 935,
-    "p_prospect_az": 229,
+    "p_prospect_az": 230,
     "p_svc_az": 11,
     "p_svc_cbec": 318,
-    "p_prospect_ot": 2615,
-    "p_seller_ot": 3354
+    "p_prospect_ot": 2628,
+    "p_seller_ot": 3397
   },
   "mt7": {
     "p_seller_az": 61,
     "p_prospect_az": 36,
     "p_svc_az": 11,
-    "p_svc_cbec": 2141,
-    "p_prospect_ot": 2763,
-    "p_seller_ot": 2294
+    "p_svc_cbec": 2143,
+    "p_prospect_ot": 2767,
+    "p_seller_ot": 2331
   },
   "mt8": {
     "p_seller_az": 980,
-    "p_prospect_az": 646,
+    "p_prospect_az": 647,
     "p_svc_az": 39,
     "p_svc_cbec": 140,
-    "p_prospect_ot": 899,
+    "p_prospect_ot": 900,
     "p_seller_ot": 2462
-  },
-  "mt9": {
-    "p_seller_az": 0,
-    "p_prospect_az": 0,
-    "p_svc_az": 0,
-    "p_svc_cbec": 0,
-    "p_prospect_ot": 0,
-    "p_seller_ot": 0
   }
 };
   const Q3_SELLER_PROSPECT  = [
@@ -457,31 +426,31 @@ window.ChiComData = (() => {
     "id": "mt1",
     "vn": "Chiến lược, kinh nghiệm & hỗ trợ cộng đồng bán hàng",
     "en": "Strategy, experience & community support",
-    "seller": 4450,
-    "prospect": 1320,
-    "sellerPct": 21.5,
-    "prospectPct": 12.2,
-    "diff": 9.3
+    "seller": 4452,
+    "prospect": 1323,
+    "sellerPct": 21.2,
+    "prospectPct": 12.1,
+    "diff": 9.1
   },
   {
     "id": "mt2",
     "vn": "Cảnh báo rủi ro & lừa đảo khi kinh doanh Amazon",
     "en": "Risk warnings & fraud",
-    "seller": 0,
-    "prospect": 0,
-    "sellerPct": 0.0,
-    "prospectPct": 0.0,
-    "diff": 0.0
+    "seller": 259,
+    "prospect": 143,
+    "sellerPct": 1.2,
+    "prospectPct": 1.3,
+    "diff": -0.1
   },
   {
     "id": "mt3",
     "vn": "Vận hành và quản lý tài khoản Amazon Seller",
     "en": "Account operations & management",
-    "seller": 5178,
-    "prospect": 1511,
-    "sellerPct": 25.0,
-    "prospectPct": 14.0,
-    "diff": 11.0
+    "seller": 5180,
+    "prospect": 1512,
+    "sellerPct": 24.6,
+    "prospectPct": 13.8,
+    "diff": 10.8
   },
   {
     "id": "mt4",
@@ -499,49 +468,39 @@ window.ChiComData = (() => {
     "en": "Shipping, logistics & fulfillment",
     "seller": 907,
     "prospect": 675,
-    "sellerPct": 4.4,
+    "sellerPct": 4.3,
     "prospectPct": 6.2,
-    "diff": -1.8
+    "diff": -1.9
   },
   {
     "id": "mt6",
     "vn": "Thanh toán, tài khoản và tài chính quốc tế",
     "en": "Payment, accounts & int'l finance",
-    "seller": 4289,
-    "prospect": 2844,
-    "sellerPct": 20.7,
-    "prospectPct": 26.3,
-    "diff": -5.6
+    "seller": 4332,
+    "prospect": 2858,
+    "sellerPct": 20.6,
+    "prospectPct": 26.1,
+    "diff": -5.5
   },
   {
     "id": "mt7",
     "vn": "Kinh doanh xuất nhập khẩu & TMĐT xuyên biên giới",
     "en": "Import-export & cross-border",
-    "seller": 2355,
-    "prospect": 2799,
+    "seller": 2392,
+    "prospect": 2803,
     "sellerPct": 11.4,
-    "prospectPct": 25.9,
-    "diff": -14.5
+    "prospectPct": 25.6,
+    "diff": -14.2
   },
   {
     "id": "mt8",
     "vn": "Kinh doanh, vận hành và tối ưu hóa bán hàng Amazon",
     "en": "Business, ops & Amazon optimization",
     "seller": 3442,
-    "prospect": 1545,
-    "sellerPct": 16.6,
-    "prospectPct": 14.3,
+    "prospect": 1547,
+    "sellerPct": 16.4,
+    "prospectPct": 14.1,
     "diff": 2.3
-  },
-  {
-    "id": "mt9",
-    "vn": "Khóa học và thách thức kinh doanh Amazon",
-    "en": "Courses & Amazon challenges",
-    "seller": 0,
-    "prospect": 0,
-    "sellerPct": 0.0,
-    "prospectPct": 0.0,
-    "diff": 0.0
   }
 ];
   const Q3_SUBS             = [
@@ -703,9 +662,9 @@ window.ChiComData = (() => {
     "vn": "Chiến lược, kinh nghiệm & hỗ trợ cộng đồng bán hàng",
     "points": [
       149,
-      2277,
-      1758,
-      2445,
+      2280,
+      1759,
+      2447,
       58
     ],
     "color": "oklch(0.62 0.15 260)"
@@ -714,11 +673,11 @@ window.ChiComData = (() => {
     "id": "mt2",
     "vn": "Cảnh báo rủi ro & lừa đảo khi kinh doanh Amazon",
     "points": [
-      0,
-      0,
-      0,
-      0,
-      0
+      5,
+      187,
+      70,
+      140,
+      4
     ],
     "color": "oklch(0.62 0.15 25)"
   },
@@ -727,8 +686,8 @@ window.ChiComData = (() => {
     "vn": "Vận hành và quản lý tài khoản Amazon Seller",
     "points": [
       185,
-      2120,
-      1866,
+      2122,
+      1867,
       2492,
       280
     ],
@@ -763,10 +722,10 @@ window.ChiComData = (() => {
     "vn": "Thanh toán, tài khoản và tài chính quốc tế",
     "points": [
       252,
-      1775,
-      2060,
-      3185,
-      190
+      1782,
+      2061,
+      3233,
+      191
     ],
     "color": "oklch(0.62 0.15 200)"
   },
@@ -775,9 +734,9 @@ window.ChiComData = (() => {
     "vn": "Kinh doanh xuất nhập khẩu & TMĐT xuyên biên giới",
     "points": [
       175,
-      1721,
+      1761,
       1702,
-      3483,
+      3486,
       225
     ],
     "color": "oklch(0.62 0.15 90)"
@@ -787,24 +746,12 @@ window.ChiComData = (() => {
     "vn": "Kinh doanh, vận hành và tối ưu hóa bán hàng Amazon",
     "points": [
       176,
-      1352,
+      1353,
       1194,
-      2293,
+      2294,
       151
     ],
     "color": "oklch(0.62 0.15 290)"
-  },
-  {
-    "id": "mt9",
-    "vn": "Khóa học và thách thức kinh doanh Amazon",
-    "points": [
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "color": "oklch(0.62 0.15 0)"
   }
 ];
   const WEEKS               = [
@@ -847,19 +794,19 @@ window.ChiComData = (() => {
     "points": [
       3,
       420,
-      410,
+      415,
       432,
-      300,
-      513,
+      301,
+      514,
       634,
       524,
       221,
+      695,
       694,
-      647,
       1015,
-      641,
+      642,
       747,
-      252,
+      253,
       9
     ]
   },
@@ -870,18 +817,18 @@ window.ChiComData = (() => {
     "points": [
       22,
       307,
-      555,
-      429,
-      319,
-      305,
+      592,
+      430,
+      320,
+      306,
       412,
       364,
       231,
       710,
-      678,
+      680,
       941,
       900,
-      799,
+      800,
       319,
       15
     ]
@@ -893,14 +840,14 @@ window.ChiComData = (() => {
     "points": [
       6,
       411,
-      642,
+      644,
       461,
       383,
       429,
       464,
       417,
       440,
-      542,
+      543,
       411,
       543,
       611,
@@ -916,18 +863,18 @@ window.ChiComData = (() => {
     "points": [
       7,
       447,
-      473,
-      433,
+      475,
+      434,
       514,
       605,
       455,
       495,
       419,
-      392,
-      559,
+      393,
+      560,
       635,
       518,
-      552,
+      553,
       178,
       5
     ]
@@ -1337,7 +1284,7 @@ window.ChiComData = (() => {
   "analysedGroups": 9,
   "soaGroups": 2,
   "ecGroups": 7,
-  "masterTopics": 9,
+  "masterTopics": 8,
   "subTopics": 24
 };
   return {

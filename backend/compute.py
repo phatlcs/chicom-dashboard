@@ -32,6 +32,7 @@ GROUP_INFO = {
 
 TOPIC_MAP = {
     'Chiến lược, kinh nghiệm và hỗ trợ cộng đồng bán hàng Amazon':             'mt1',
+    'Cảnh báo rủi ro và lừa đảo khi kinh doanh Amazon':                         'mt2',
     'Vận hành và quản lý tài khoản Amazon Seller':                               'mt3',
     'Dịch vụ và giải pháp pháp lý, thương hiệu và công cụ cho Seller Amazon':   'mt4',
     'Vận chuyển, logistics và fulfillment Amazon':                                'mt5',
@@ -40,6 +41,7 @@ TOPIC_MAP = {
     'Kinh doanh, vận hành và tối ưu hóa bán hàng Amazon':                        'mt8',
 }
 
+# Official 8-topic taxonomy (no MT9 — classifier doesn't emit it)
 MASTER_TOPICS = [
     {'id': 'mt1', 'vn': 'Chiến lược, kinh nghiệm & hỗ trợ cộng đồng bán hàng',  'en': 'Strategy, experience & community support'},
     {'id': 'mt2', 'vn': 'Cảnh báo rủi ro & lừa đảo khi kinh doanh Amazon',        'en': 'Risk warnings & fraud'},
@@ -49,7 +51,6 @@ MASTER_TOPICS = [
     {'id': 'mt6', 'vn': 'Thanh toán, tài khoản và tài chính quốc tế',             'en': "Payment, accounts & int'l finance"},
     {'id': 'mt7', 'vn': 'Kinh doanh xuất nhập khẩu & TMĐT xuyên biên giới',       'en': 'Import-export & cross-border'},
     {'id': 'mt8', 'vn': 'Kinh doanh, vận hành và tối ưu hóa bán hàng Amazon',     'en': 'Business, ops & Amazon optimization'},
-    {'id': 'mt9', 'vn': 'Khóa học và thách thức kinh doanh Amazon',               'en': 'Courses & Amazon challenges'},
 ]
 
 PERSONAS = [
@@ -120,6 +121,27 @@ def _j(v):
     return json.dumps(v, ensure_ascii=False, indent=2)
 
 
+def _normalize_master_topic(series: pd.Series) -> pd.Series:
+    """Strip numbered prefixes ('6. …') and fuzzy-merge typo variants
+    ('rủi ko/zo' → 'rủi ro', 'tài khoán' → 'tài khoản', etc.) into the
+    canonical TOPIC_MAP keys so they all route to the right mt_id."""
+    import difflib
+    clean = series.fillna('').astype(str).str.strip()
+    # Strip leading "N. " or "N) " numbering
+    clean = clean.str.replace(r'^\d+\s*[\.\)]\s*', '', regex=True)
+
+    canonical_keys = list(TOPIC_MAP.keys())
+
+    def match(val: str) -> str:
+        if not val or val in TOPIC_MAP:
+            return val
+        # Try fuzzy match against the canonical MT labels
+        m = difflib.get_close_matches(val, canonical_keys, n=1, cutoff=0.82)
+        return m[0] if m else val
+
+    return clean.map(match)
+
+
 def _normalize_sub_topics(series: pd.Series) -> pd.Series:
     """Cluster near-duplicate sub_topic values (LLM typo artifacts).
     Walks from highest-count label down; for each, pulls in variants with
@@ -149,6 +171,8 @@ def compute_all(df: pd.DataFrame):
     """
     df = df.copy()
     df['created_date'] = pd.to_datetime(df['created_date'], errors='coerce')
+    if 'master_topic' in df.columns:
+        df['master_topic'] = _normalize_master_topic(df['master_topic'])
     df['mt_id']       = df['master_topic'].map(TOPIC_MAP) if 'master_topic' in df.columns else None
     df['persona_id']  = df['persona'].map(PERSONA_MAP)    if 'persona'       in df.columns else None
     if 'sub_topic' in df.columns:

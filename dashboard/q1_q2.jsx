@@ -13,9 +13,9 @@ function Q1() {
     <div className="card" style={{ minHeight: 440 }}>
       <div className="card-head">
         <div>
-          <div className="card-title">Master topics — overall weight <span className="en">Trọng số chủ đề tổng</span></div>
+          <div className="card-title">Trọng số chủ đề tổng thể</div>
         </div>
-        <span className="card-meta">% of mentions · avg across groups</span>
+        <span className="card-meta">% đề cập · trung bình qua các nhóm</span>
       </div>
       <div>
         {q1.map((m, i) => (
@@ -35,7 +35,7 @@ function Q1() {
         ))}
       </div>
       <div style={{ marginTop: 14, paddingTop: 12, borderTop: '1px solid var(--border)', fontSize: 11, color: 'var(--text-3)' }}>
-        {D.MASTER_TOPICS.length} master topics · {(D.KPI && D.KPI.subTopics) || 0} sub-topics indexed
+        {D.MASTER_TOPICS.length} chủ đề chính · {(D.KPI && D.KPI.subTopics) || 0} chủ đề phụ
       </div>
     </div>
   );
@@ -50,7 +50,7 @@ function Q1() {
       <div className="card" style={{ minHeight: cardMinHeight }}>
         <div className="card-head">
           <div>
-            <div className="card-title">{title} <span className="en">{en}</span></div>
+            <div className="card-title">{title}</div>
           </div>
           <div className="legend legend-bins">
             {['0-5%', '5-10%', '10-20%', '20-30%', '30-50%'].map((label, i) => (
@@ -103,7 +103,7 @@ function Q1() {
           </svg>
         </div>
         <div style={{ marginTop: 10, fontSize: 11, color: 'var(--text-3)' }}>
-          MT1–MT{D.MASTER_TOPICS.length} = master topics · hover any cell for details
+          MT1–MT{D.MASTER_TOPICS.length} = chủ đề chính · di chuột lên ô để xem chi tiết
         </div>
       </div>
     );
@@ -116,14 +116,12 @@ function Q1() {
       </div>
       <div className="grid-2" style={{ marginTop: 16 }}>
         <HeatGrid
-          title={<>SOA groups — topic weight <span className="badge soa">{D.SOA_GROUPS.length} groups</span></>}
-          en="Selling on Amazon communities"
+          title={<>Nhóm SOA — Trọng số chủ đề <span className="badge soa">{D.SOA_GROUPS.length} nhóm</span></>}
           groups={D.SOA_GROUPS}
           accent="rose"
         />
         <HeatGrid
-          title={<>EC groups — topic weight <span className="badge ec">{D.EC_GROUPS.length} groups</span></>}
-          en="E-commerce / cross-border communities"
+          title={<>Nhóm EC — Trọng số chủ đề <span className="badge ec">{D.EC_GROUPS.length} nhóm</span></>}
           groups={D.EC_GROUPS}
           accent="teal"
         />
@@ -155,7 +153,7 @@ function Q2() {
         <div className="card">
           <div className="card-head">
             <div>
-              <div className="card-title">Master Topics theo Persona <span className="en">— Heatmap</span></div>
+              <div className="card-title">Master Topics theo Persona</div>
             </div>
             <div className="legend legend-bins">
               {bins.map((label, i) => (

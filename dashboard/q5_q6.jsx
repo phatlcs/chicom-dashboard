@@ -41,7 +41,7 @@ function Q56() {
         <div className="card">
           <div className="card-head">
             <div>
-              <div className="card-title">Phân Bố Theo Ngày Trong Tuần <span className="en">— by day of week</span></div>
+              <div className="card-title">Phân Bố Theo Ngày Trong Tuần</div>
             </div>
             <span className="card-meta mono">Q5</span>
           </div>
@@ -72,7 +72,7 @@ function Q56() {
         <div className="card">
           <div className="card-head">
             <div>
-              <div className="card-title">Phân Bố Theo Giờ (Giờ VN) <span className="en">— by hour of day</span></div>
+              <div className="card-title">Phân Bố Theo Giờ (Giờ VN)</div>
             </div>
             <span className="card-meta mono">Q6</span>
           </div>
@@ -124,7 +124,7 @@ function Q56() {
         <div className="card">
           <div className="card-head">
             <div>
-              <div className="card-title">Bản Đồ Nhiệt — Ngày × Giờ <span className="en">day-of-week × hour</span></div>
+              <div className="card-title">Bản Đồ Nhiệt — Ngày × Giờ</div>
             </div>
             <div className="legend legend-bins">
               {['Thấp', 'Trung bình', 'Cao'].map((l, i) => (
@@ -171,7 +171,7 @@ function Q56() {
         <div className="card">
           <div className="card-head">
             <div>
-              <div className="card-title">Top 6 Chủ Đề Tiêu Cực <span className="en">— most frequent negative topics</span></div>
+              <div className="card-title">Top 6 Chủ Đề Tiêu Cực</div>
             </div>
           </div>
           <div>
@@ -197,7 +197,7 @@ function Q56() {
         <div className="card">
           <div className="card-head">
             <div>
-              <div className="card-title">Mon–Fri 2h–6h: Topic Distribution <span className="en">negative mentions in peak window</span></div>
+              <div className="card-title">Mon–Fri 2h–6h: Topic Distribution</div>
             </div>
             <span className="card-meta mono">{earlyTotal} mentions in peak window</span>
           </div>

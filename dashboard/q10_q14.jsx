@@ -15,7 +15,7 @@ function Q10() {
       <div className="col-5">
         <div className="card">
           <div className="card-head">
-            <div className="card-title">Top 10 Ngành Hàng — Q4 2025 <span className="en">top product categories</span></div>
+            <div className="card-title">Top 10 Ngành Hàng — Q4 2025</div>
           </div>
           <HBars items={Q10_TOP} labelKey="name" valueKey="count" tooltip={tt} />
         </div>
@@ -23,7 +23,7 @@ function Q10() {
       <div className="col-7">
         <div className="card">
           <div className="card-head">
-            <div className="card-title">Xu hướng theo Tuần — Top 8 ngành hàng <span className="en">weekly trend</span></div>
+            <div className="card-title">Xu hướng theo Tuần — Top 8 ngành hàng</div>
           </div>
           <svg width="100%" viewBox={`0 0 ${WW} ${WH}`}>
             {[0, 0.5, 1].map((f, i) => (
@@ -76,17 +76,17 @@ function Q11() {
     <div className="grid-12">
       <div className="col-6">
         <div className="card">
-          <div className="card-head"><div className="card-title">Tool Usage Volume <span className="en">top tools adopted</span></div></div>
+          <div className="card-head"><div className="card-title">Mức sử dụng Tools</div></div>
           <HBars items={Q11_TOOLS.map(t => ({ ...t, color: 'var(--accent)' }))} labelKey="name" valueKey="use" tooltip={tt} />
         </div>
       </div>
       <div className="col-6">
         <div className="card">
           <div className="card-head">
-            <div className="card-title">Satisfaction vs Issues <span className="en">paired bars per tool</span></div>
+            <div className="card-title">Hài lòng vs Vấn đề (theo tool)</div>
             <div className="legend-inline">
-              <span><span className="dot" style={{ background: green }}></span>Satisfied</span>
-              <span><span className="dot" style={{ background: red }}></span>Issues</span>
+              <span><span className="dot" style={{ background: green }}></span>Hài lòng</span>
+              <span><span className="dot" style={{ background: red }}></span>Vấn đề</span>
             </div>
           </div>
           <svg width="100%" viewBox={`0 0 ${W} ${H}`}>
@@ -118,13 +118,13 @@ function Q11() {
       </div>
       <div className="col-6">
         <div className="card">
-          <div className="card-head"><div className="card-title">Top Issues Across All Tools <span className="en">pain points</span></div></div>
+          <div className="card-head"><div className="card-title">Top vấn đề phổ biến</div></div>
           <HBars items={Q11_ISSUES.map(t => ({ ...t, color: red }))} labelKey="name" valueKey="count" tooltip={tt} />
         </div>
       </div>
       <div className="col-6">
         <div className="card">
-          <div className="card-head"><div className="card-title">Top Satisfaction Factors <span className="en">what sellers praise</span></div></div>
+          <div className="card-head"><div className="card-title">Top yếu tố hài lòng</div></div>
           <HBars items={Q11_SATISFACTION.map(t => ({ ...t, color: green }))} labelKey="name" valueKey="count" tooltip={tt} />
         </div>
       </div>
@@ -147,7 +147,7 @@ function Q12() {
     <div className="grid-12">
       <div className="col-12">
         <div className="card">
-          <div className="card-head"><div className="card-title">3rd-Party Services — Key Insights <span className="en">seller demand analysis</span></div></div>
+          <div className="card-head"><div className="card-title">Dịch vụ bên thứ ba — Tổng quan</div></div>
           <div className="grid-3" style={{ gap: 12 }}>
             {[
               { title: 'High Priority (High Demand)', items: ['Review Service — 61.8% demand', 'Product Sourcing — 54.2%', 'Software/Tools — 53.6%', 'VA/Assistant — 52.0%'], color: red },
@@ -165,10 +165,10 @@ function Q12() {
       <div className="col-6">
         <div className="card">
           <div className="card-head">
-            <div className="card-title">Service Mentions vs Need <span className="en">mentions vs demand</span></div>
+            <div className="card-title">Đề cập vs Nhu cầu</div>
             <div className="legend-inline">
-              <span><span className="dot" style={{ background: blue }}></span>Total Mentions</span>
-              <span><span className="dot" style={{ background: red }}></span>Need/Looking For</span>
+              <span><span className="dot" style={{ background: blue }}></span>Tổng đề cập</span>
+              <span><span className="dot" style={{ background: red }}></span>Đang tìm</span>
             </div>
           </div>
           <svg width="100%" viewBox={`0 0 ${W} ${H}`}>
@@ -200,7 +200,7 @@ function Q12() {
       </div>
       <div className="col-6">
         <div className="card">
-          <div className="card-head"><div className="card-title">Demand % by Service <span className="en">unmet demand</span></div></div>
+          <div className="card-head"><div className="card-title">% Nhu cầu theo dịch vụ</div></div>
           <HBars items={Q12_SERVICES.map(s => ({ name: s.name, count: s.demand, color: 'oklch(0.75 0.17 75)' }))} tooltip={tt} />
         </div>
       </div>
@@ -244,10 +244,10 @@ function Q13() {
       <div className="col-6">
         <div className="card">
           <div className="card-head">
-            <div className="card-title">Mentions vs Seeking <span className="en">demand gap</span></div>
+            <div className="card-title">Đề cập vs Tìm kiếm</div>
             <div className="legend-inline">
-              <span><span className="dot" style={{ background: blue }}></span>Mentions</span>
-              <span><span className="dot" style={{ background: green }}></span>Seeking</span>
+              <span><span className="dot" style={{ background: blue }}></span>Đề cập</span>
+              <span><span className="dot" style={{ background: green }}></span>Tìm kiếm</span>
             </div>
           </div>
           <svg width="100%" viewBox={`0 0 ${W} ${H}`}>
@@ -272,17 +272,17 @@ function Q13() {
       </div>
       <div className="col-6">
         <div className="card">
-          <div className="card-head"><div className="card-title">Interest Level % <span className="en">how interested sellers are</span></div></div>
+          <div className="card-head"><div className="card-title">% Mức độ quan tâm</div></div>
           <HBars items={Q13_COURSES.map(c => ({ name: c.name, count: c.interest, color: 'oklch(0.75 0.17 75)' }))} tooltip={tt} />
         </div>
       </div>
       <div className="col-6">
         <div className="card">
           <div className="card-head">
-            <div className="card-title">Sentiment Analysis <span className="en">positive vs negative</span></div>
+            <div className="card-title">Phân tích Sentiment</div>
             <div className="legend-inline">
-              <span><span className="dot" style={{ background: green }}></span>Positive</span>
-              <span><span className="dot" style={{ background: red }}></span>Negative</span>
+              <span><span className="dot" style={{ background: green }}></span>Tích cực</span>
+              <span><span className="dot" style={{ background: red }}></span>Tiêu cực</span>
             </div>
           </div>
           <div style={{ padding: '10px 0' }}>
@@ -306,7 +306,7 @@ function Q13() {
       </div>
       <div className="col-6">
         <div className="card">
-          <div className="card-head"><div className="card-title">Category Breakdown <span className="en">share of course mentions</span></div></div>
+          <div className="card-head"><div className="card-title">Phân loại khóa học</div></div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
             <svg width={200} height={200}>
               {donutSeg.map(s => (
@@ -364,7 +364,7 @@ function Q14() {
     <div className="grid-12">
       <div className="col-5">
         <div className="card">
-          <div className="card-head"><div className="card-title">Growth Topics Distribution <span className="en">share of growth posts</span></div></div>
+          <div className="card-head"><div className="card-title">Phân bố chủ đề Tăng trưởng</div></div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
             <svg width={220} height={220}>
               {seg.map(s => (
@@ -386,19 +386,19 @@ function Q14() {
       </div>
       <div className="col-7">
         <div className="card">
-          <div className="card-head"><div className="card-title">Top 6 Topics Comparison <span className="en">volume per topic</span></div></div>
+          <div className="card-head"><div className="card-title">So sánh Top 6 chủ đề</div></div>
           <HBars items={Q14_GROWTH.map(g => ({ name: g.name, count: g.count, color: 'var(--accent)' }))} tooltip={tt} />
         </div>
       </div>
       <div className="col-12">
         <div className="card">
           <div className="card-head">
-            <div className="card-title">Sentiment Breakdown by Growth Topic <span className="en">seeking help · positive · mixed · negative</span></div>
+            <div className="card-title">Sentiment theo chủ đề tăng trưởng</div>
             <div className="legend-inline">
-              <span><span className="dot" style={{ background: red }}></span>Seeking Help</span>
-              <span><span className="dot" style={{ background: green }}></span>Positive</span>
-              <span><span className="dot" style={{ background: yellow }}></span>Mixed</span>
-              <span><span className="dot" style={{ background: gray }}></span>Negative</span>
+              <span><span className="dot" style={{ background: red }}></span>Cần hỗ trợ</span>
+              <span><span className="dot" style={{ background: green }}></span>Tích cực</span>
+              <span><span className="dot" style={{ background: yellow }}></span>Trung tính</span>
+              <span><span className="dot" style={{ background: gray }}></span>Tiêu cực</span>
             </div>
           </div>
           <div>

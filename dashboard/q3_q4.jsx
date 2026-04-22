@@ -20,7 +20,7 @@ function Q3() {
         <div className="card">
           <div className="card-head">
             <div>
-              <div className="card-title">9 Master Topics — Seller vs Prospect <span className="en">(% share within persona)</span></div>
+              <div className="card-title">{D.MASTER_TOPICS.length} Chủ đề chính — Seller vs Prospect</div>
             </div>
             <div className="legend-inline">
               <span><span className="dot" style={{ background: sellerColor }}></span>Seller</span>
@@ -58,9 +58,9 @@ function Q3() {
         <div className="card" style={{ minHeight: 520 }}>
           <div className="card-head">
             <div>
-              <div className="card-title">Sub-topic difference <span className="en">(positive = seller dominant · negative = prospect dominant)</span></div>
+              <div className="card-title">Khác biệt theo chủ đề phụ</div>
             </div>
-            <span className="card-meta">19 sub-topics</span>
+            <span className="card-meta">{subs.length} chủ đề phụ</span>
           </div>
           <svg width="100%" height={subs.length * 20 + 30} viewBox={`0 0 640 ${subs.length * 20 + 30}`} preserveAspectRatio="none">
             <line x1={320} y1={0} x2={320} y2={subs.length * 20} className="axis-line" />
@@ -130,9 +130,12 @@ function Q4() {
   // weekly with events
   const weekly = D.Q4_WEEKLY;
   const weeks = D.Q4_EVENTS;
-  const WW = 720, WH = 280, wpad = { t: 44, r: 140, b: 32, l: 44 };
+  const WW = 820, WH = 320, wpad = { t: 64, r: 240, b: 32, l: 44 };
   const maxWY = Math.max(...weekly.flatMap(t => t.points));
   const wPlotW = WW - wpad.l - wpad.r, wPlotH = WH - wpad.t - wpad.b;
+  const weekRangeLabel = (D.WEEKS && D.WEEKS.length)
+    ? `${D.WEEKS[0]} — ${D.WEEKS[D.WEEKS.length - 1]} · theo tuần`
+    : 'theo tuần';
 
   return (
     <div className="grid-12">
@@ -140,9 +143,9 @@ function Q4() {
         <div className="card">
           <div className="card-head">
             <div>
-              <div className="card-title">Master topics — absolute counts <span className="en">Oct '25 → Apr '26</span></div>
+              <div className="card-title">Chủ đề chính — số lượng tuyệt đối</div>
             </div>
-            <span className="card-meta">monthly</span>
+            <span className="card-meta">theo tháng</span>
           </div>
           <svg width="100%" viewBox={`0 0 ${W} ${H}`} style={{ display: 'block' }}>
             {[0, 0.25, 0.5, 0.75, 1].map((f, i) => (
@@ -186,7 +189,7 @@ function Q4() {
         <div className="card">
           <div className="card-head">
             <div>
-              <div className="card-title">Master topics — % distribution <span className="en">stacked share</span></div>
+              <div className="card-title">Chủ đề chính — phân bố %</div>
             </div>
           </div>
           <svg width="100%" viewBox={`0 0 ${W} ${H}`} style={{ display: 'block' }}>
@@ -211,9 +214,9 @@ function Q4() {
         <div className="card">
           <div className="card-head">
             <div>
-              <div className="card-title">Weekly topic trend during Q4 sales events <span className="en">Top 4 topics</span></div>
+              <div className="card-title">Xu hướng chủ đề theo tuần</div>
             </div>
-            <span className="card-meta">Oct — Jan · weekly</span>
+            <span className="card-meta">{weekRangeLabel}</span>
           </div>
           <svg width="100%" viewBox={`0 0 ${WW} ${WH}`} style={{ display: 'block' }}>
             {[0, 0.25, 0.5, 0.75, 1].map((f, i) => (
@@ -221,8 +224,8 @@ function Q4() {
             ))}
             {weeks.map((ev, i) => {
               const x = wpad.l + (ev.week / (D.WEEKS.length - 1)) * wPlotW;
-              // stagger labels vertically to avoid overlap (Black Friday / Cyber Monday are adjacent)
-              const yOffset = (i % 2 === 0) ? -22 : -6;
+              // 3-row stagger so adjacent spike labels don't collide
+              const yOffset = [-46, -30, -14][i % 3];
               return (
                 <g key={i}>
                   <line x1={x} y1={wpad.t} x2={x} y2={wpad.t + wPlotH} stroke="var(--neg)" strokeDasharray="3 3" strokeWidth={1} opacity={0.6} />
@@ -250,12 +253,17 @@ function Q4() {
             {D.WEEKS.map((w, i) => i % 2 === 0 && (
               <text key={w} x={wpad.l + (i / (D.WEEKS.length - 1)) * wPlotW} y={WH - 10} textAnchor="middle" className="axis-tick">{w}</text>
             ))}
-            {weekly.map((t, i) => (
-              <g key={t.id + 'leg'}>
-                <rect x={WW - wpad.r + 10} y={wpad.t + i * 22} width={10} height={10} fill={t.color} rx={2} />
-                <text x={WW - wpad.r + 26} y={wpad.t + i * 22 + 9} className="axis-tick" style={{ fontSize: 11 }}>{t.vn}</text>
-              </g>
-            ))}
+            {weekly.map((t, i) => {
+              const label = t.vn.length > 32 ? t.vn.slice(0, 30) + '…' : t.vn;
+              return (
+                <g key={t.id + 'leg'}>
+                  <rect x={WW - wpad.r + 10} y={wpad.t + i * 22} width={10} height={10} fill={t.color} rx={2} />
+                  <text x={WW - wpad.r + 26} y={wpad.t + i * 22 + 9} className="axis-tick" style={{ fontSize: 11 }}>
+                    <title>{t.vn}</title>{label}
+                  </text>
+                </g>
+              );
+            })}
           </svg>
         </div>
       </div>

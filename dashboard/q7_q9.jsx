@@ -35,9 +35,9 @@ function Q7() {
   const total = Q7_SENTIMENT.positive + Q7_SENTIMENT.neutral + Q7_SENTIMENT.negative;
   let acc = 0;
   const segs = [
-    { label: 'Positive', v: Q7_SENTIMENT.positive, color: green },
-    { label: 'Neutral', v: Q7_SENTIMENT.neutral, color: gray },
-    { label: 'Negative', v: Q7_SENTIMENT.negative, color: red },
+    { label: 'Tích cực', v: Q7_SENTIMENT.positive, color: green },
+    { label: 'Trung lập', v: Q7_SENTIMENT.neutral, color: gray },
+    { label: 'Tiêu cực', v: Q7_SENTIMENT.negative, color: red },
   ].map(s => {
     const start = acc; acc += s.v / total;
     return { ...s, start, end: acc };
@@ -61,7 +61,7 @@ function Q7() {
       <div className="col-4">
         <div className="card">
           <div className="card-head">
-            <div className="card-title">Top Chủ Đề Kêu Gọi <span className="en">top join triggers</span></div>
+            <div className="card-title">Top Chủ Đề Kêu Gọi</div>
           </div>
           <HBars items={Q7_TOPICS.map(t => ({ ...t, color: green }))} labelKey="vn" valueKey="count" tooltip={tt} />
         </div>
@@ -69,7 +69,7 @@ function Q7() {
       <div className="col-4">
         <div className="card">
           <div className="card-head">
-            <div className="card-title">Benefit Được Nhắc Đến <span className="en">benefits cited</span></div>
+            <div className="card-title">Benefit Được Nhắc Đến</div>
           </div>
           <HBars items={Q7_BENEFITS.map(t => ({ ...t, color: green }))} labelKey="vn" valueKey="count" tooltip={tt} />
         </div>
@@ -77,7 +77,7 @@ function Q7() {
       <div className="col-4">
         <div className="card">
           <div className="card-head">
-            <div className="card-title">Phân Bố Sentiment <span className="en">join sentiment</span></div>
+            <div className="card-title">Phân Bố Sentiment</div>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '10px 0' }}>
             <svg width={200} height={200}>
@@ -88,7 +88,7 @@ function Q7() {
                   style={{ cursor: 'pointer' }} />
               ))}
               <text x={100} y={96} textAnchor="middle" className="mono" style={{ fontSize: 22, fontWeight: 600, fill: 'var(--text)' }}>{Q7_SENTIMENT.positive}%</text>
-              <text x={100} y={114} textAnchor="middle" className="axis-tick">positive</text>
+              <text x={100} y={114} textAnchor="middle" className="axis-tick">tích cực</text>
             </svg>
           </div>
           <div className="legend-inline" style={{ justifyContent: 'center' }}>
@@ -129,7 +129,7 @@ function Q8() {
       <div className="col-6">
         <div className="card">
           <div className="card-head">
-            <div className="card-title">Top Triggers Abandonment <span className="en">reasons for quitting</span></div>
+            <div className="card-title">Top lý do rời bỏ Amazon</div>
           </div>
           <HBars items={Q8_TRIGGERS} labelKey="vn" valueKey="count" tooltip={tt} />
         </div>
@@ -137,7 +137,7 @@ function Q8() {
       <div className="col-6">
         <div className="card">
           <div className="card-head">
-            <div className="card-title">Phân Bố Persona <span className="en">who's abandoning</span></div>
+            <div className="card-title">Phân Bố Persona</div>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
             <svg width={220} height={220}>
@@ -163,7 +163,7 @@ function Q8() {
       <div className="col-12">
         <div className="card">
           <div className="card-head">
-            <div className="card-title">Xu Hướng Theo Thời Gian <span className="en">abandonment trend</span></div>
+            <div className="card-title">Xu Hướng Theo Thời Gian</div>
           </div>
           <svg width="100%" viewBox="0 0 720 180">
             {[0, 0.5, 1].map((f, i) => (
@@ -230,7 +230,7 @@ function Q9() {
       <div className="card">
         <div className="card-head">
           <div className="card-title">{title}</div>
-          <span className="card-meta">{total.toLocaleString()} posts</span>
+          <span className="card-meta">{total.toLocaleString()} bài</span>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 20, padding: '8px 0' }}>
           <svg width={200} height={200}>
@@ -259,10 +259,10 @@ function Q9() {
   return (
     <div className="grid-12">
       <div className="col-6">
-        <Donut title={<span>Active participants — Q7 <span className="en">who discusses joining</span></span>} items={q7Personas} />
+        <Donut title={<span>Nhóm tham gia — Q7 (kêu gọi gia nhập)</span>} items={q7Personas} />
       </div>
       <div className="col-6">
-        <Donut title={<span>Active participants — Q8 <span className="en">who signals abandoning</span></span>} items={q8Personas} />
+        <Donut title={<span>Nhóm tham gia — Q8 (dấu hiệu rời bỏ)</span>} items={q8Personas} />
       </div>
       {tt.node}
     </div>

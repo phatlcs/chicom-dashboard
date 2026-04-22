@@ -96,30 +96,30 @@ function KpiStrip() {
   return (
     <div className="kpi-strip">
       <div className="kpi">
-        <div className="kpi-label">Total Posts</div>
+        <div className="kpi-label">Tổng bài</div>
         <div className="kpi-value mono">{fmt(kpi.totalPosts)}</div>
-        <div className="kpi-delta mono" style={{ color: 'var(--text-3)' }}>{fmt(kpi.relevantPosts)} relevant</div>
+        <div className="kpi-delta mono" style={{ color: 'var(--text-3)' }}>{fmt(kpi.relevantPosts)} liên quan</div>
       </div>
       <div className="kpi">
-        <div className="kpi-label">Analysed Posts</div>
+        <div className="kpi-label">Bài phân tích</div>
         <div className="kpi-value mono">{fmt(kpi.relevantPosts)}</div>
-        <div className="kpi-delta up mono">spam filtered out</div>
+        <div className="kpi-delta up mono">đã lọc spam</div>
       </div>
       <div className="kpi">
-        <div className="kpi-label">Master Topics</div>
+        <div className="kpi-label">Chủ đề chính</div>
         <div className="kpi-value mono">{kpi.masterTopics ?? '—'}</div>
-        <div className="kpi-delta mono" style={{ color: 'var(--text-3)' }}>{kpi.subTopics ?? 0} sub-topics</div>
+        <div className="kpi-delta mono" style={{ color: 'var(--text-3)' }}>{kpi.subTopics ?? 0} chủ đề phụ</div>
       </div>
       <div className="kpi">
-        <div className="kpi-label">Negative Mentions</div>
+        <div className="kpi-label">Đề cập tiêu cực</div>
         <div className="kpi-value mono">{fmt(kpi.negativeMentions)}</div>
-        <div className="kpi-delta down mono">{negPct}% of relevant posts</div>
+        <div className="kpi-delta down mono">{negPct}% bài liên quan</div>
       </div>
       <div className="kpi">
-        <div className="kpi-label">Active Groups</div>
+        <div className="kpi-label">Nhóm đang hoạt động</div>
         <div className="kpi-value mono">{kpi.activeGroups ?? '—'}</div>
         <div className="kpi-delta mono" style={{ color: 'var(--text-3)' }}>
-          {kpi.analysedGroups ?? 0} analysed · {kpi.soaGroups ?? 0} SOA + {kpi.ecGroups ?? 0} EC
+          {kpi.analysedGroups ?? 0} phân tích · {kpi.soaGroups ?? 0} SOA + {kpi.ecGroups ?? 0} EC
         </div>
       </div>
     </div>
@@ -134,24 +134,24 @@ window.FilterRail = FilterRail;
 
 function AnchorRail() {
   const items = [
-    ['Q1', 'Topic weights'],
-    ['Q2', 'Persona × Topics'],
+    ['Q1', 'Trọng số chủ đề'],
+    ['Q2', 'Persona × Chủ đề'],
     ['Q3', 'Seller vs Prospect'],
-    ['Q4', 'Trends'],
-    ['Q5', 'Negative timing'],
-    ['Q7', 'Join triggers'],
-    ['Q8', 'Abandon signals'],
-    ['Q9', '—'],
-    ['Q10', 'Categories'],
+    ['Q4', 'Xu hướng'],
+    ['Q5', 'Thời điểm tiêu cực'],
+    ['Q7', 'Lý do gia nhập'],
+    ['Q8', 'Dấu hiệu rời bỏ'],
+    ['Q9', 'Nhóm tham gia'],
+    ['Q10', 'Ngành hàng'],
     ['Q11', 'Tools'],
-    ['Q12', 'Services'],
-    ['Q13', 'Courses'],
-    ['Q14', 'Growth'],
+    ['Q12', 'Dịch vụ'],
+    ['Q13', 'Khóa học'],
+    ['Q14', 'Tăng trưởng'],
   ];
   return (
     <div className="anchor-rail">
       <div className="anchor-list">
-        <span className="filter-rail-label" style={{ marginRight: 6 }}>Jump to</span>
+        <span className="filter-rail-label" style={{ marginRight: 6 }}>Đi đến</span>
         {items.map(([q, label]) => (
           <a key={q} href={`#${q}`}>{q} · {label}</a>
         ))}
