@@ -7,18 +7,28 @@ function UploadPanel() {
   const [uploading, setUploading] = useUpState(false);
   const [info,      setInfo]      = useUpState(null);
   const [msg,       setMsg]       = useUpState(null);
+  const [backendUp, setBackendUp] = useUpState(false);
   const inputRef = useUpRef(null);
 
-  // Fetch current dataset info on mount (only when backend is running)
+  // Probe backend on mount — if absent, we're on Vercel/static and uploads are disabled
   useUpEffect(() => {
     fetch('/api/status')
-      .then(r => r.json())
-      .then(d => { if (d.status === 'ok') setInfo(d); })
-      .catch(() => {}); // running statically — ignore
+      .then(r => r.ok ? r.json() : null)
+      .then(d => {
+        if (d && d.status === 'ok') {
+          setBackendUp(true);
+          setInfo(d);
+        }
+      })
+      .catch(() => { /* static mode — leave backendUp false */ });
   }, []);
 
   const upload = async (file) => {
     if (!file) return;
+    if (!backendUp) {
+      setMsg({ type: 'info', text: 'Live upload needs the local backend. Run: python backend/main.py' });
+      return;
+    }
     if (!file.name.match(/\.(csv|xlsx?)$/i)) {
       setMsg({ type: 'error', text: 'Please upload a CSV or Excel file.' });
       return;
@@ -37,7 +47,7 @@ function UploadPanel() {
         setMsg({ type: 'error', text: data.detail || 'Upload failed.' });
       }
     } catch (e) {
-      setMsg({ type: 'error', text: 'Backend not reachable. Run: python backend/main.py' });
+      setMsg({ type: 'info', text: 'Backend went offline. Run: python backend/main.py' });
     } finally {
       setUploading(false);
     }
@@ -49,9 +59,12 @@ function UploadPanel() {
     upload(e.dataTransfer.files[0]);
   };
 
-  const pillLabel = info
+  const staticPosts = (window.ChiComData && window.ChiComData.KPI && window.ChiComData.KPI.relevantPosts) || 0;
+  const pillLabel = backendUp && info
     ? `${Number(info.relevantPosts).toLocaleString()} posts · ${(info.months || []).length}mo`
-    : 'Upload CSV';
+    : backendUp
+      ? 'Upload CSV'
+      : `${Number(staticPosts).toLocaleString()} posts · static`;
 
   return (
     <>
@@ -82,35 +95,48 @@ function UploadPanel() {
           borderRadius: 12, padding: 20, width: 300,
           boxShadow: '0 8px 32px oklch(0 0 0 / .18)',
         }}>
-          <div style={{ fontWeight: 600, fontSize: 13, marginBottom: 4 }}>Upload dataset</div>
-          {info && (
+          <div style={{ fontWeight: 600, fontSize: 13, marginBottom: 4 }}>
+            {backendUp ? 'Upload dataset' : 'Static deployment'}
+          </div>
+          {backendUp && info && (
             <div style={{ fontSize: 11, color: 'var(--text-3)', marginBottom: 12 }}>
               Current: <b style={{ color: 'var(--text-2)' }}>{info.filename}</b>
               <br/>{Number(info.totalPosts).toLocaleString()} total · {Number(info.relevantPosts).toLocaleString()} relevant
             </div>
           )}
+          {!backendUp && (
+            <div style={{ fontSize: 11, color: 'var(--text-3)', marginBottom: 12, lineHeight: 1.5 }}>
+              Showing pre-computed data from<br/>
+              <code style={{ fontSize: 10 }}>all_groups_classified_annotated.csv</code>.
+              <br/><br/>
+              To upload a new dataset live, run:
+              <br/><code style={{ fontSize: 10, color: 'var(--text-2)' }}>python backend/main.py</code>
+            </div>
+          )}
 
-          {/* Drop zone */}
-          <div
-            onClick={() => inputRef.current?.click()}
-            onDragOver={e => { e.preventDefault(); setDragging(true); }}
-            onDragLeave={() => setDragging(false)}
-            onDrop={onDrop}
-            style={{
-              border: `2px dashed ${dragging ? 'var(--accent)' : 'var(--border)'}`,
-              borderRadius: 8, padding: '24px 16px', textAlign: 'center',
-              cursor: 'pointer', transition: 'border-color .15s',
-              background: dragging ? 'oklch(0.55 0.19 265 / .06)' : 'transparent',
-            }}>
-            {uploading
-              ? <span style={{ color: 'var(--text-2)', fontSize: 12 }}>⏳ Processing…</span>
-              : <>
-                  <div style={{ fontSize: 11, color: 'var(--text-2)' }}>
-                    Drop <code style={{ fontSize: 10 }}>.csv</code> or <code style={{ fontSize: 10 }}>.xlsx</code> here
-                  </div>
-                  <div style={{ fontSize: 10, color: 'var(--text-3)', marginTop: 6 }}>or click to browse</div>
-                </>}
-          </div>
+          {/* Drop zone (only in live mode) */}
+          {backendUp && (
+            <div
+              onClick={() => inputRef.current?.click()}
+              onDragOver={e => { e.preventDefault(); setDragging(true); }}
+              onDragLeave={() => setDragging(false)}
+              onDrop={onDrop}
+              style={{
+                border: `2px dashed ${dragging ? 'var(--accent)' : 'var(--border)'}`,
+                borderRadius: 8, padding: '24px 16px', textAlign: 'center',
+                cursor: 'pointer', transition: 'border-color .15s',
+                background: dragging ? 'oklch(0.55 0.19 265 / .06)' : 'transparent',
+              }}>
+              {uploading
+                ? <span style={{ color: 'var(--text-2)', fontSize: 12 }}>⏳ Processing…</span>
+                : <>
+                    <div style={{ fontSize: 11, color: 'var(--text-2)' }}>
+                      Drop <code style={{ fontSize: 10 }}>.csv</code> or <code style={{ fontSize: 10 }}>.xlsx</code> here
+                    </div>
+                    <div style={{ fontSize: 10, color: 'var(--text-3)', marginTop: 6 }}>or click to browse</div>
+                  </>}
+            </div>
+          )}
           <input ref={inputRef} type="file" accept=".csv,.xlsx,.xls"
             style={{ display: 'none' }} onChange={onFileInput} />
 
