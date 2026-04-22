@@ -57,8 +57,6 @@ function App() {
   }/*EDITMODE-END*/;
   const [theme, setTheme] = useStateApp(saved.theme);
   const [accent, setAccent] = useStateApp(saved.accent);
-  const [groupType, setGroupType] = useStateApp('All');
-  const [dateRange, setDateRange] = useStateApp('6m');
 
   useEffectApp(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -81,7 +79,6 @@ function App() {
         </div>
 
         <window.KpiStrip />
-        <window.FilterRail groupType={groupType} setGroupType={setGroupType} dateRange={dateRange} setDateRange={setDateRange} />
         <window.AnchorRail />
 
         <window.Section id="Q1" num="Q1"><Q1 /></window.Section>

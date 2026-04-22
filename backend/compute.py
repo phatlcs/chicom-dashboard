@@ -21,13 +21,13 @@ from keywords import (
 GROUP_INFO = {
     1: {'id': 'soa1', 'name': 'Amazon Sellers Viet Nam',             'short': 'Amazon Sellers VN', 'type': 'SOA'},
     2: {'id': 'soa2', 'name': 'Cộng đồng Amazon Sellers VN',         'short': 'CĐ Amazon Sellers', 'type': 'SOA'},
-    3: {'id': 'soa3', 'name': 'Cộng Đồng MMO',                       'short': 'MMO',                'type': 'SOA'},
-    4: {'id': 'ec1',  'name': 'Cuồng Phong Hội (Crossborder CBEC)',  'short': 'Cuồng Phong Hội',   'type': 'EC'},
-    5: {'id': 'ec2',  'name': 'Cộng Đồng Dropshipping & Shopify VN', 'short': 'Dropship & Shopify', 'type': 'EC'},
-    6: {'id': 'ec3',  'name': 'Chuyện Nhà Bán (Shopee/TikTok)',      'short': 'Chuyện Nhà Bán',    'type': 'EC'},
-    7: {'id': 'oth1', 'name': 'Etsy To Go',                          'short': 'Etsy To Go',         'type': 'Other'},
-    8: {'id': 'oth2', 'name': 'Etsy E-Z Cộng Đồng Etsy Việt',        'short': 'Etsy E-Z',           'type': 'Other'},
-    9: {'id': 'oth3', 'name': 'Cộng đồng ETSY Việt Nam',             'short': 'ETSY VN',            'type': 'Other'},
+    3: {'id': 'ec1',  'name': 'Cộng Đồng MMO',                       'short': 'MMO',                'type': 'EC'},
+    4: {'id': 'ec2',  'name': 'Cuồng Phong Hội (Crossborder CBEC)',  'short': 'Cuồng Phong Hội',   'type': 'EC'},
+    5: {'id': 'ec3',  'name': 'Cộng Đồng Dropshipping & Shopify VN', 'short': 'Dropship & Shopify', 'type': 'EC'},
+    6: {'id': 'ec4',  'name': 'Chuyện Nhà Bán (Shopee/TikTok)',      'short': 'Chuyện Nhà Bán',    'type': 'EC'},
+    7: {'id': 'ec5',  'name': 'Etsy To Go',                          'short': 'Etsy To Go',         'type': 'EC'},
+    8: {'id': 'ec6',  'name': 'Etsy E-Z Cộng Đồng Etsy Việt',        'short': 'Etsy E-Z',           'type': 'EC'},
+    9: {'id': 'ec7',  'name': 'Cộng đồng ETSY Việt Nam',             'short': 'ETSY VN',            'type': 'EC'},
 }
 
 TOPIC_MAP = {
@@ -79,8 +79,8 @@ TC = [
 DAYS_VN = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN']
 DAYS_EN = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 
-SOA_IDS = [1, 2, 3]
-EC_IDS   = [4, 5, 6]
+SOA_IDS = [1, 2]
+EC_IDS  = [3, 4, 5, 6, 7, 8, 9]
 
 SUBTOPICS = {
     'mt1': ['Chia sẻ chiến lược Amazon','Kinh nghiệm launch SP mới','Hỗ trợ seller mới bắt đầu','Networking seller VN'],
@@ -161,15 +161,24 @@ def compute_all(df: pd.DataFrame):
         rel = df.copy()
 
     # ── KPIs ────────────────────────────────────────────────────────────────
+    # Real sub-topic count (after fuzzy normalization, excluding blanks)
+    if 'sub_topic' in rel.columns:
+        st = rel['sub_topic'].dropna().astype(str).str.strip()
+        n_sub = int(st[st != ''].nunique())
+    else:
+        n_sub = 0
+
     kpi = {
         'totalPosts':       int(len(df)),
         'relevantPosts':    int(len(rel)),
         'negativeMentions': int((rel['sentiment'] == 'negative').sum()) if 'sentiment' in rel.columns else 0,
         'positiveMentions': int((rel['sentiment'] == 'positive').sum()) if 'sentiment' in rel.columns else 0,
-        'activeGroups':     9,
-        'analysedGroups':   6,
-        'masterTopics':     int(rel['mt_id'].nunique()) if 'mt_id' in rel.columns else 7,
-        'subTopics':        142,
+        'activeGroups':     len(GROUP_INFO),
+        'analysedGroups':   len(SOA_IDS) + len(EC_IDS),
+        'soaGroups':        len(SOA_IDS),
+        'ecGroups':         len(EC_IDS),
+        'masterTopics':     len(MASTER_TOPICS),
+        'subTopics':        n_sub,
     }
 
     # ── Months & weeks ──────────────────────────────────────────────────────

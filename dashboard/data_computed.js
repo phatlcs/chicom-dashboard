@@ -24,31 +24,49 @@ window.ChiComData = (() => {
     "name": "Cộng đồng Amazon Sellers VN",
     "short": "CĐ Amazon Sellers",
     "type": "SOA"
-  },
-  {
-    "id": "soa3",
-    "name": "Cộng Đồng MMO",
-    "short": "MMO",
-    "type": "SOA"
   }
 ];
   const EC_GROUPS  = [
   {
     "id": "ec1",
+    "name": "Cộng Đồng MMO",
+    "short": "MMO",
+    "type": "EC"
+  },
+  {
+    "id": "ec2",
     "name": "Cuồng Phong Hội (Crossborder CBEC)",
     "short": "Cuồng Phong Hội",
     "type": "EC"
   },
   {
-    "id": "ec2",
+    "id": "ec3",
     "name": "Cộng Đồng Dropshipping & Shopify VN",
     "short": "Dropship & Shopify",
     "type": "EC"
   },
   {
-    "id": "ec3",
+    "id": "ec4",
     "name": "Chuyện Nhà Bán (Shopee/TikTok)",
     "short": "Chuyện Nhà Bán",
+    "type": "EC"
+  },
+  {
+    "id": "ec5",
+    "name": "Etsy To Go",
+    "short": "Etsy To Go",
+    "type": "EC"
+  },
+  {
+    "id": "ec6",
+    "name": "Etsy E-Z Cộng Đồng Etsy Việt",
+    "short": "Etsy E-Z",
+    "type": "EC"
+  },
+  {
+    "id": "ec7",
+    "name": "Cộng đồng ETSY Việt Nam",
+    "short": "ETSY VN",
     "type": "EC"
   }
 ];
@@ -104,74 +122,101 @@ window.ChiComData = (() => {
   "mt1": {
     "soa1": 19.2,
     "soa2": 37.5,
-    "soa3": 14.8,
-    "ec1": 7.0,
-    "ec2": 14.0,
-    "ec3": 21.3
+    "ec1": 14.8,
+    "ec2": 7.0,
+    "ec3": 14.0,
+    "ec4": 21.3,
+    "ec5": 11.6,
+    "ec6": 3.8,
+    "ec7": 7.7
   },
   "mt2": {
     "soa1": 0.0,
     "soa2": 0.0,
-    "soa3": 0.0,
     "ec1": 0.0,
     "ec2": 0.0,
-    "ec3": 0.0
+    "ec3": 0.0,
+    "ec4": 0.0,
+    "ec5": 0.0,
+    "ec6": 0.0,
+    "ec7": 0.0
   },
   "mt3": {
     "soa1": 25.3,
     "soa2": 26.9,
-    "soa3": 8.4,
-    "ec1": 0.7,
-    "ec2": 4.0,
-    "ec3": 8.0
+    "ec1": 8.4,
+    "ec2": 0.7,
+    "ec3": 4.0,
+    "ec4": 8.0,
+    "ec5": 20.3,
+    "ec6": 13.5,
+    "ec7": 27.1
   },
   "mt4": {
     "soa1": 5.9,
     "soa2": 1.2,
-    "soa3": 1.4,
-    "ec1": 9.6,
-    "ec2": 1.7,
-    "ec3": 0.4
+    "ec1": 1.4,
+    "ec2": 9.6,
+    "ec3": 1.7,
+    "ec4": 0.4,
+    "ec5": 3.1,
+    "ec6": 0.0,
+    "ec7": 1.1
   },
   "mt5": {
     "soa1": 8.7,
     "soa2": 3.5,
-    "soa3": 7.0,
-    "ec1": 0.5,
-    "ec2": 12.0,
-    "ec3": 6.6
+    "ec1": 7.0,
+    "ec2": 0.5,
+    "ec3": 12.0,
+    "ec4": 6.6,
+    "ec5": 19.9,
+    "ec6": 24.5,
+    "ec7": 17.1
   },
   "mt6": {
     "soa1": 16.0,
     "soa2": 6.8,
-    "soa3": 1.3,
-    "ec1": 33.1,
-    "ec2": 18.6,
-    "ec3": 26.1
+    "ec1": 1.3,
+    "ec2": 33.1,
+    "ec3": 18.6,
+    "ec4": 26.1,
+    "ec5": 10.5,
+    "ec6": 29.5,
+    "ec7": 19.4
   },
   "mt7": {
     "soa1": 5.9,
     "soa2": 10.4,
-    "soa3": 9.4,
-    "ec1": 41.5,
-    "ec2": 37.0,
-    "ec3": 14.1
+    "ec1": 9.4,
+    "ec2": 41.5,
+    "ec3": 37.0,
+    "ec4": 14.1,
+    "ec5": 20.6,
+    "ec6": 22.3,
+    "ec7": 16.8
   },
   "mt8": {
     "soa1": 17.9,
     "soa2": 11.2,
-    "soa3": 2.1,
-    "ec1": 7.2,
-    "ec2": 10.0,
-    "ec3": 20.6
+    "ec1": 2.1,
+    "ec2": 7.2,
+    "ec3": 10.0,
+    "ec4": 20.6,
+    "ec5": 7.9,
+    "ec6": 5.7,
+    "ec7": 10.0
   },
   "mt9": {
     "soa1": 0.0,
     "soa2": 0.0,
-    "soa3": 0.0,
     "ec1": 0.0,
     "ec2": 0.0,
-    "ec3": 0.0
+    "ec3": 0.0,
+    "ec4": 0.0,
+    "ec5": 0.0,
+    "ec6": 0.0,
+    "ec7": 0.0
   }
 };
   const Q1_MASTER           = [
@@ -179,49 +224,49 @@ window.ChiComData = (() => {
     "id": "mt7",
     "vn": "Kinh doanh xuất nhập khẩu & TMĐT xuyên biên giới",
     "en": "Import-export & cross-border",
-    "weight": 19.7,
+    "weight": 19.8,
     "color": "oklch(0.62 0.15 90)"
-  },
-  {
-    "id": "mt1",
-    "vn": "Chiến lược, kinh nghiệm & hỗ trợ cộng đồng bán hàng",
-    "en": "Strategy, experience & community support",
-    "weight": 19.0,
-    "color": "oklch(0.62 0.15 260)"
   },
   {
     "id": "mt6",
     "vn": "Thanh toán, tài khoản và tài chính quốc tế",
     "en": "Payment, accounts & int'l finance",
-    "weight": 17.0,
+    "weight": 17.9,
     "color": "oklch(0.62 0.15 200)"
+  },
+  {
+    "id": "mt1",
+    "vn": "Chiến lược, kinh nghiệm & hỗ trợ cộng đồng bán hàng",
+    "en": "Strategy, experience & community support",
+    "weight": 15.2,
+    "color": "oklch(0.62 0.15 260)"
   },
   {
     "id": "mt3",
     "vn": "Vận hành và quản lý tài khoản Amazon Seller",
     "en": "Account operations & management",
-    "weight": 12.2,
+    "weight": 14.9,
     "color": "oklch(0.62 0.15 155)"
-  },
-  {
-    "id": "mt8",
-    "vn": "Kinh doanh, vận hành và tối ưu hóa bán hàng Amazon",
-    "en": "Business, ops & Amazon optimization",
-    "weight": 11.5,
-    "color": "oklch(0.62 0.15 290)"
   },
   {
     "id": "mt5",
     "vn": "Vận chuyển, logistics và fulfillment",
     "en": "Shipping, logistics & fulfillment",
-    "weight": 6.4,
+    "weight": 11.1,
     "color": "oklch(0.62 0.15 320)"
+  },
+  {
+    "id": "mt8",
+    "vn": "Kinh doanh, vận hành và tối ưu hóa bán hàng Amazon",
+    "en": "Business, ops & Amazon optimization",
+    "weight": 10.3,
+    "color": "oklch(0.62 0.15 290)"
   },
   {
     "id": "mt4",
     "vn": "Dịch vụ & giải pháp pháp lý, thương hiệu",
     "en": "Legal, branding & services",
-    "weight": 3.4,
+    "weight": 2.7,
     "color": "oklch(0.62 0.15 60)"
   },
   {
@@ -1289,9 +1334,11 @@ window.ChiComData = (() => {
   "negativeMentions": 8838,
   "positiveMentions": 5157,
   "activeGroups": 9,
-  "analysedGroups": 6,
-  "masterTopics": 7,
-  "subTopics": 142
+  "analysedGroups": 9,
+  "soaGroups": 2,
+  "ecGroups": 7,
+  "masterTopics": 9,
+  "subTopics": 24
 };
   return {
     SOA_GROUPS, EC_GROUPS, ALL_GROUPS,

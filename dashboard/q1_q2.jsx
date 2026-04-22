@@ -35,15 +35,19 @@ function Q1() {
         ))}
       </div>
       <div style={{ marginTop: 14, paddingTop: 12, borderTop: '1px solid var(--border)', fontSize: 11, color: 'var(--text-3)' }}>
-        9 master topics · 142 sub-topics indexed
+        {D.MASTER_TOPICS.length} master topics · {(D.KPI && D.KPI.subTopics) || 0} sub-topics indexed
       </div>
     </div>
   );
 
   const HeatGrid = ({ title, en, groups, accent }) => {
     const bins = [5, 10, 20, 30, 50];
+    const cellH = 52;
+    const rowGap = 6;
+    const svgHeight = 30 + groups.length * (cellH + rowGap) + 40; // label row at bottom
+    const cardMinHeight = Math.max(440, svgHeight + 120);
     return (
-      <div className="card" style={{ minHeight: 440 }}>
+      <div className="card" style={{ minHeight: cardMinHeight }}>
         <div className="card-head">
           <div>
             <div className="card-title">{title} <span className="en">{en}</span></div>
@@ -58,26 +62,24 @@ function Q1() {
           </div>
         </div>
         <div style={{ overflowX: 'auto' }}>
-          <svg width={640} height={260} style={{ display: 'block' }}>
+          <svg width={640} height={svgHeight} style={{ display: 'block' }}>
             {groups.map((g, gi) => (
-              <text key={g.id} x={4} y={40 + gi * 60 + 28} className="axis-tick">{g.short}</text>
+              <text key={g.id} x={4} y={30 + gi * (cellH + rowGap) + cellH / 2 + 4} className="axis-tick">{g.short}</text>
             ))}
             {D.MASTER_TOPICS.map((mt, mi) => {
-              const cellW = 46, cellH = 52, x0 = 120 + mi * (cellW + 4);
+              const cellW = 46, x0 = 120 + mi * (cellW + 4);
               return groups.map((g, gi) => {
                 const v = D.Q1_WEIGHTS[mt.id][g.id];
                 const fill = window.binColor(v, bins, accent);
                 return (
-                  <g key={g.id + mt.id}>
-                    <rect
-                      x={x0} y={30 + gi * (cellH + 6)} width={cellW} height={cellH}
-                      fill={fill} rx={3}
-                      onMouseEnter={e => tt.show(e, `<b>${g.short}</b> × ${mt.vn.slice(0, 40)}…<br/>${v}% of mentions`)}
-                      onMouseMove={tt.move} onMouseLeave={tt.hide}
-                      style={{ cursor: 'pointer' }}
-                    />
-                    <text x={x0 + cellW / 2} y={30 + gi * (cellH + 6) + cellH / 2 + 4}
+                  <g key={g.id + mt.id}
+                    onMouseEnter={e => tt.show(e, `<b>${g.short}</b> × ${mt.vn.slice(0, 40)}…<br/>${v}% of mentions`)}
+                    onMouseMove={tt.move} onMouseLeave={tt.hide}
+                    style={{ cursor: 'pointer' }}>
+                    <rect x={x0} y={30 + gi * (cellH + rowGap)} width={cellW} height={cellH} fill={fill} rx={3} />
+                    <text x={x0 + cellW / 2} y={30 + gi * (cellH + rowGap) + cellH / 2 + 4}
                       textAnchor="middle" className="axis-tick"
+                      pointerEvents="none"
                       style={{ fill: v > 20 ? 'white' : 'var(--text-2)', fontSize: 10 }}>
                       {v}
                     </text>
@@ -85,20 +87,23 @@ function Q1() {
                 );
               });
             })}
-            {D.MASTER_TOPICS.map((mt, mi) => (
-              <text key={mt.id}
-                x={120 + mi * 50 + 23}
-                y={30 + groups.length * 58 + 14}
-                className="axis-tick"
-                textAnchor="end"
-                transform={`rotate(-45 ${120 + mi * 50 + 23} ${30 + groups.length * 58 + 14})`}>
-                MT{mi + 1}
-              </text>
-            ))}
+            {D.MASTER_TOPICS.map((mt, mi) => {
+              const labelY = 30 + groups.length * (cellH + rowGap) + 14;
+              return (
+                <text key={mt.id}
+                  x={120 + mi * 50 + 23}
+                  y={labelY}
+                  className="axis-tick"
+                  textAnchor="end"
+                  transform={`rotate(-45 ${120 + mi * 50 + 23} ${labelY})`}>
+                  MT{mi + 1}
+                </text>
+              );
+            })}
           </svg>
         </div>
         <div style={{ marginTop: 10, fontSize: 11, color: 'var(--text-3)' }}>
-          MT1–MT9 = master topics · hover any cell for details
+          MT1–MT{D.MASTER_TOPICS.length} = master topics · hover any cell for details
         </div>
       </div>
     );
@@ -111,13 +116,13 @@ function Q1() {
       </div>
       <div className="grid-2" style={{ marginTop: 16 }}>
         <HeatGrid
-          title={<>SOA groups — topic weight <span className="badge soa">3 groups</span></>}
+          title={<>SOA groups — topic weight <span className="badge soa">{D.SOA_GROUPS.length} groups</span></>}
           en="Selling on Amazon communities"
           groups={D.SOA_GROUPS}
           accent="rose"
         />
         <HeatGrid
-          title={<>EC groups — topic weight <span className="badge ec">3 groups</span></>}
+          title={<>EC groups — topic weight <span className="badge ec">{D.EC_GROUPS.length} groups</span></>}
           en="E-commerce / cross-border communities"
           groups={D.EC_GROUPS}
           accent="teal"

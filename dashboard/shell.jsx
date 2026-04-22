@@ -9,7 +9,23 @@ function useTooltip() {
   const [tt, setTt] = useState({ x: 0, y: 0, html: '', show: false });
   const show = (e, html) => setTt({ x: e.clientX, y: e.clientY, html, show: true });
   const move = (e) => setTt(t => ({ ...t, x: e.clientX, y: e.clientY }));
-  const hide = () => setTt(t => ({ ...t, show: false }));
+  const hide = () => setTt(t => (t.show ? { ...t, show: false } : t));
+
+  // Auto-hide on scroll / mouse leaving the document (stops stuck tooltips)
+  useEffect(() => {
+    const onDismiss = () => setTt(t => (t.show ? { ...t, show: false } : t));
+    window.addEventListener('scroll', onDismiss, true);
+    window.addEventListener('wheel', onDismiss, { passive: true });
+    document.addEventListener('mouseleave', onDismiss);
+    window.addEventListener('blur', onDismiss);
+    return () => {
+      window.removeEventListener('scroll', onDismiss, true);
+      window.removeEventListener('wheel', onDismiss);
+      document.removeEventListener('mouseleave', onDismiss);
+      window.removeEventListener('blur', onDismiss);
+    };
+  }, []);
+
   const node = React.createElement('div', {
     className: clsx('tt', tt.show && 'show'),
     style: { left: tt.x + 12, top: tt.y + 12 },
@@ -57,8 +73,8 @@ function binColor(v, bins = [5, 10, 20, 30, 50], accent = 'indigo') {
 }
 window.binColor = binColor;
 
-// Header / KPI / filters
-function TopBar({ section, sections, onNav }) {
+// Header — just the brand, no fake nav pills or status chips
+function TopBar() {
   return (
     <div className="topbar">
       <div className="topbar-inner">
@@ -66,17 +82,6 @@ function TopBar({ section, sections, onNav }) {
           <div className="brand-mark">CC</div>
           <span>ChiCom</span>
           <span className="brand-sub">/ Community Insights</span>
-        </div>
-        <div className="nav-pills">
-          <button className="nav-pill active">Overview</button>
-          <button className="nav-pill">Topics</button>
-          <button className="nav-pill">Personas</button>
-          <button className="nav-pill">Trends</button>
-          <button className="nav-pill">Sentiment</button>
-        </div>
-        <div className="topbar-right">
-          <span className="chip"><span className="chip-dot"></span>Live · last sync 3m ago</span>
-          <span className="chip">Oct 2025 — Apr 2026</span>
         </div>
       </div>
     </div>
@@ -102,8 +107,8 @@ function KpiStrip() {
       </div>
       <div className="kpi">
         <div className="kpi-label">Master Topics</div>
-        <div className="kpi-value mono">{kpi.masterTopics || 7}</div>
-        <div className="kpi-delta mono" style={{ color: 'var(--text-3)' }}>{kpi.subTopics || 142} sub-topics</div>
+        <div className="kpi-value mono">{kpi.masterTopics ?? '—'}</div>
+        <div className="kpi-delta mono" style={{ color: 'var(--text-3)' }}>{kpi.subTopics ?? 0} sub-topics</div>
       </div>
       <div className="kpi">
         <div className="kpi-label">Negative Mentions</div>
@@ -112,38 +117,19 @@ function KpiStrip() {
       </div>
       <div className="kpi">
         <div className="kpi-label">Active Groups</div>
-        <div className="kpi-value mono">{kpi.activeGroups || 9}</div>
-        <div className="kpi-delta mono" style={{ color: 'var(--text-3)' }}>{kpi.analysedGroups || 6} analysed · 3 SOA + 3 EC</div>
+        <div className="kpi-value mono">{kpi.activeGroups ?? '—'}</div>
+        <div className="kpi-delta mono" style={{ color: 'var(--text-3)' }}>
+          {kpi.analysedGroups ?? 0} analysed · {kpi.soaGroups ?? 0} SOA + {kpi.ecGroups ?? 0} EC
+        </div>
       </div>
     </div>
   );
 }
 window.KpiStrip = KpiStrip;
 
-function FilterRail({ groupType, setGroupType, dateRange, setDateRange }) {
-  return (
-    <div className="filter-rail">
-      <span className="filter-rail-label">Group type</span>
-      <div className="seg">
-        {['All', 'SOA', 'EC'].map(g => (
-          <button key={g} className={groupType === g ? 'on' : ''} onClick={() => setGroupType(g)}>{g}</button>
-        ))}
-      </div>
-      <span className="filter-rail-label" style={{ marginLeft: 12 }}>Date range</span>
-      <div className="seg">
-        {['7d', '30d', '90d', '6m', 'All'].map(r => (
-          <button key={r} className={dateRange === r ? 'on' : ''} onClick={() => setDateRange(r)}>{r}</button>
-        ))}
-      </div>
-      <span className="filter-rail-label" style={{ marginLeft: 12 }}>Persona</span>
-      <div className="seg">
-        {['All', 'Seller', 'Prospect', 'Service Provider'].map(p => (
-          <button key={p} className={p === 'All' ? 'on' : ''}>{p}</button>
-        ))}
-      </div>
-    </div>
-  );
-}
+// FilterRail removed — the segmented controls didn't actually filter any charts.
+// Keep a stub so app.jsx's reference doesn't crash if cached.
+function FilterRail() { return null; }
 window.FilterRail = FilterRail;
 
 function AnchorRail() {
