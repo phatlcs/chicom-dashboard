@@ -111,6 +111,11 @@ window.ChiComData = (() => {
     "id": "mt8",
     "vn": "Kinh doanh, vận hành và tối ưu hóa bán hàng Amazon",
     "en": "Business, ops & Amazon optimization"
+  },
+  {
+    "id": "mt9",
+    "vn": "Khóa học và thách thức kinh doanh Amazon",
+    "en": "Courses & Amazon challenges"
   }
 ];
   const Q1_WEIGHTS          = {
@@ -201,6 +206,17 @@ window.ChiComData = (() => {
     "ec5": 7.9,
     "ec6": 5.7,
     "ec7": 10.0
+  },
+  "mt9": {
+    "soa1": 0.0,
+    "soa2": 0.0,
+    "ec1": 0.0,
+    "ec2": 0.0,
+    "ec3": 0.0,
+    "ec4": 0.0,
+    "ec5": 0.0,
+    "ec6": 0.0,
+    "ec7": 0.0
   }
 };
   const Q1_MASTER           = [
@@ -259,6 +275,13 @@ window.ChiComData = (() => {
     "en": "Risk warnings & fraud",
     "weight": 0.8,
     "color": "oklch(0.62 0.15 25)"
+  },
+  {
+    "id": "mt9",
+    "vn": "Khóa học và thách thức kinh doanh Amazon",
+    "en": "Courses & Amazon challenges",
+    "weight": 0.0,
+    "color": "oklch(0.62 0.15 0)"
   }
 ];
   const SUBTOPICS           = {
@@ -419,6 +442,14 @@ window.ChiComData = (() => {
     "p_svc_cbec": 140,
     "p_prospect_ot": 900,
     "p_seller_ot": 2462
+  },
+  "mt9": {
+    "p_seller_az": 0,
+    "p_prospect_az": 0,
+    "p_svc_az": 0,
+    "p_svc_cbec": 0,
+    "p_prospect_ot": 0,
+    "p_seller_ot": 0
   }
 };
   const Q3_SELLER_PROSPECT  = [
@@ -501,6 +532,16 @@ window.ChiComData = (() => {
     "sellerPct": 16.4,
     "prospectPct": 14.1,
     "diff": 2.3
+  },
+  {
+    "id": "mt9",
+    "vn": "Khóa học và thách thức kinh doanh Amazon",
+    "en": "Courses & Amazon challenges",
+    "seller": 0,
+    "prospect": 0,
+    "sellerPct": 0.0,
+    "prospectPct": 0.0,
+    "diff": 0.0
   }
 ];
   const Q3_SUBS             = [
@@ -752,6 +793,18 @@ window.ChiComData = (() => {
       151
     ],
     "color": "oklch(0.62 0.15 290)"
+  },
+  {
+    "id": "mt9",
+    "vn": "Khóa học và thách thức kinh doanh Amazon",
+    "points": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "color": "oklch(0.62 0.15 0)"
   }
 ];
   const WEEKS               = [
@@ -1322,7 +1375,7 @@ window.ChiComData = (() => {
   "analysedGroups": 9,
   "soaGroups": 2,
   "ecGroups": 7,
-  "masterTopics": 8,
+  "masterTopics": 9,
   "subTopics": 24
 };
   return {

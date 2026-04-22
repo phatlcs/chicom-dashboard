@@ -41,7 +41,9 @@ TOPIC_MAP = {
     'Kinh doanh, vận hành và tối ưu hóa bán hàng Amazon':                        'mt8',
 }
 
-# Official 8-topic taxonomy (no MT9 — classifier doesn't emit it)
+# Official 9-topic taxonomy. MT9 stays in the list even though the current
+# classifier never emits it — shown at 0% rather than hidden, so stakeholders
+# see the full taxonomy and know the slot exists.
 MASTER_TOPICS = [
     {'id': 'mt1', 'vn': 'Chiến lược, kinh nghiệm & hỗ trợ cộng đồng bán hàng',  'en': 'Strategy, experience & community support'},
     {'id': 'mt2', 'vn': 'Cảnh báo rủi ro & lừa đảo khi kinh doanh Amazon',        'en': 'Risk warnings & fraud'},
@@ -51,6 +53,7 @@ MASTER_TOPICS = [
     {'id': 'mt6', 'vn': 'Thanh toán, tài khoản và tài chính quốc tế',             'en': "Payment, accounts & int'l finance"},
     {'id': 'mt7', 'vn': 'Kinh doanh xuất nhập khẩu & TMĐT xuyên biên giới',       'en': 'Import-export & cross-border'},
     {'id': 'mt8', 'vn': 'Kinh doanh, vận hành và tối ưu hóa bán hàng Amazon',     'en': 'Business, ops & Amazon optimization'},
+    {'id': 'mt9', 'vn': 'Khóa học và thách thức kinh doanh Amazon',               'en': 'Courses & Amazon challenges'},
 ]
 
 PERSONAS = [
