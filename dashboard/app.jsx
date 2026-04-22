@@ -105,6 +105,7 @@ function App() {
       </div>
 
       <TweaksPanel theme={theme} setTheme={setTheme} accent={accent} setAccent={setAccent} />
+      <window.UploadPanel />
     </>
   );
 }

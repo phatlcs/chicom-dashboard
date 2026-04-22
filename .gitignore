@@ -9,3 +9,6 @@ blacklist*
 amazon_sellers*
 all_groups*
 ChiCom dashboard.zip
+
+.vercel
+backend/__pycache__/
