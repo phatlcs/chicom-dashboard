@@ -10,8 +10,10 @@ from collections import defaultdict
 import pandas as pd
 
 from keywords import (
+    extract_q3_subs,
     extract_q7, extract_q8, extract_q9,
-    extract_q10, extract_q11, extract_q12, extract_q13, extract_q14,
+    extract_q10, extract_q11, extract_q11_issues, extract_q11_satisfaction,
+    extract_q12, extract_q13, extract_q14,
 )
 
 # ── Static lookups ──────────────────────────────────────────────────────────
@@ -114,14 +116,6 @@ Q3_SUBS_VN = [
     'Ưu đãi Helium 10, tool seller Amazon',
 ]
 
-Q4_EVENTS = [
-    {'week': 2, 'label': 'Prime Big Deal'},
-    {'week': 6, 'label': 'Black Friday'},
-    {'week': 7, 'label': 'Cyber Monday'},
-    {'week': 10, 'label': 'Boxing Day'},
-]
-
-
 def _j(v):
     return json.dumps(v, ensure_ascii=False, indent=2)
 
@@ -164,6 +158,22 @@ def compute_all(df: pd.DataFrame):
     week_starts = sorted(rel['week_start'].dropna().unique().tolist())
     weeks = [ws.strftime('%b %d').replace(' 0', ' ') for ws in week_starts]
 
+    # Auto-detect spike weeks (volume > 1.5× average baseline)
+    weekly_totals = [int((rel['week_start'] == ws).sum()) for ws in week_starts]
+    q4_events = []
+    if weekly_totals:
+        avg = sum(weekly_totals) / len(weekly_totals)
+        threshold = avg * 1.5
+        for i, cnt in enumerate(weekly_totals):
+            if cnt > threshold and i < len(weeks):
+                pct = round((cnt / avg - 1) * 100)
+                q4_events.append({
+                    'week':  i,
+                    'label': f'Spike {weeks[i]} · +{pct}%',
+                })
+        q4_events = sorted(q4_events, key=lambda e: -weekly_totals[e['week']])[:5]
+        q4_events.sort(key=lambda e: e['week'])
+
     # ── Q1 weights ──────────────────────────────────────────────────────────
     q1_weights = {mt['id']: {} for mt in MASTER_TOPICS}
     for gid in SOA_IDS + EC_IDS:
@@ -203,12 +213,7 @@ def compute_all(df: pd.DataFrame):
                       'seller': seller, 'prospect': prospect,
                       'sellerPct': spct, 'prospectPct': ppct, 'diff': round(spct - ppct, 1)})
 
-    q3_subs = []
-    for i, vn in enumerate(Q3_SUBS_VN):
-        seed = (i * 13 + 7) % 17
-        seller   = max(0.2, round(6 + math.sin(i * 1.3) * 4 + seed * 0.3, 1))
-        prospect = max(0.2, round(4 + math.cos(i * 0.9) * 3 + seed * 0.25, 1))
-        q3_subs.append({'vn': vn, 'seller': seller, 'prospect': prospect, 'diff': round(seller - prospect, 1)})
+    q3_subs = extract_q3_subs(rel) if 'content' in rel.columns and 'persona' in rel.columns else []
 
     # ── Q4 trends ───────────────────────────────────────────────────────────
     q4_trends = []
@@ -245,27 +250,74 @@ def compute_all(df: pd.DataFrame):
         key=lambda x: -x['count']
     )
     neg_by_topic = [t for t in neg_by_topic if t['count'] > 0]
-    q5_early_dist = [{'vn': t['vn'], 'count': t['count'], 'slot': int(t['count'] * 0.35)} for t in neg_by_topic[:6]]
+
+    # Real early-morning (hours 0-5) negative post counts per master topic
+    vn_to_id = {mt['vn']: mt['id'] for mt in MASTER_TOPICS}
+    q5_early_dist = []
+    for t in neg_by_topic[:6]:
+        mt_id = vn_to_id.get(t['vn'])
+        if mt_id and 'mt_id' in neg_df.columns and 'hour' in neg_df.columns:
+            slot = int(((neg_df['mt_id'] == mt_id) & (neg_df['hour'].between(0, 5, inclusive='both'))).sum())
+        else:
+            slot = 0
+        q5_early_dist.append({'vn': t['vn'], 'count': t['count'], 'slot': slot})
+
+    # Fallback: if all slots are 0, use a fraction so donut still renders
+    if q5_early_dist and sum(e['slot'] for e in q5_early_dist) == 0:
+        for e in q5_early_dist:
+            e['slot'] = max(1, int(e['count'] * 0.1))
 
     # ── Q7–Q14 (keyword extraction from content) ────────────────────────────
     q7_topics, q7_benefits, q7_sentiment = extract_q7(rel)
     q8_triggers, q8_persona, q8_trend    = extract_q8(rel, months)
     q9_barriers  = extract_q9(rel)
     q10_top      = extract_q10(rel)
-    q11_tools    = extract_q11(rel)
+    q11_tools         = extract_q11(rel)
+    q11_issues        = extract_q11_issues(rel)
+    q11_satisfaction  = extract_q11_satisfaction(rel)
     q12_services = extract_q12(rel)
     q13_courses  = extract_q13(rel)
     q14_growth   = extract_q14(rel)
 
-    # Weekly Q10 trend
+    # Weekly Q10 trend — use real 'Product Category' column if populated,
+    # otherwise fall back to keyword matching on content
+    from keywords import Q10_CATEGORY_KW, _column_populated
     q10_weeks  = weeks
     q10_weekly = []
     COLORS10 = ['oklch(0.60 0.20 25)','oklch(0.68 0.17 50)','oklch(0.75 0.17 90)',
                 'oklch(0.62 0.15 155)','oklch(0.58 0.14 190)','oklch(0.55 0.17 290)',
                 'oklch(0.60 0.20 320)']
+
+    use_pc_col = 'Product Category' in rel.columns and _column_populated(rel['Product Category'])
+    content_lc = rel['content'].fillna('').str.lower() if 'content' in rel.columns else pd.Series([], dtype=str)
+    pc_col = rel['Product Category'].fillna('').astype(str).str.strip() if use_pc_col else None
+
     for ci, cat in enumerate(q10_top[:7]):
-        pts = [round(max(0.5, math.sin((i + ci*2)*0.6)*4 + cat['count']*0.002 + math.cos(i*0.4)*2), 2)
-               for i in range(len(weeks))]
+        if use_pc_col:
+            # Match rows whose Product Category contains this label (multi-value safe)
+            esc = re.escape(cat['name'])
+            match = pc_col.str.contains(rf'(?:^|[,;|]\s*){esc}(?:\s*[,;|]|$)', regex=True, na=False)
+            if not match.any():
+                match = pc_col == cat['name']
+        else:
+            kws = Q10_CATEGORY_KW.get(cat['name'], [])
+            parts = []
+            for k in kws:
+                kesc = re.escape(k.lower())
+                if len(k) <= 6 and ' ' not in k:
+                    parts.append(r'\b' + kesc + r'\b')
+                else:
+                    parts.append(kesc)
+            pattern = '|'.join(parts) if parts else None
+            match = content_lc.str.contains(pattern, regex=True, na=False) if pattern is not None and not content_lc.empty else None
+
+        pts = []
+        for ws in week_starts:
+            if match is None:
+                pts.append(0)
+            else:
+                week_mask = rel['week_start'] == ws
+                pts.append(int((match & week_mask).sum()))
         q10_weekly.append({'name': cat['name'], 'color': COLORS10[ci % len(COLORS10)], 'points': pts})
 
     # ── Groups ──────────────────────────────────────────────────────────────
@@ -291,7 +343,7 @@ window.ChiComData = (() => {{
   const MONTHS              = {_j(months)};
   const Q4_TRENDS           = {_j(q4_trends)};
   const WEEKS               = {_j(weeks)};
-  const Q4_EVENTS           = {_j(Q4_EVENTS)};
+  const Q4_EVENTS           = {_j(q4_events)};
   const Q4_WEEKLY           = {_j(q4_weekly)};
   const DAYS_VN             = {_j(DAYS_VN)};
   const DAYS_EN             = {_j(DAYS_EN)};
@@ -322,9 +374,9 @@ window.ChiComData2 = (() => {{
   const Q10_TOP        = {_j(q10_top)};
   const Q10_WEEKS      = {_j(q10_weeks)};
   const Q10_WEEKLY     = {_j(q10_weekly)};
-  const Q11_TOOLS      = {_j(q11_tools)};
-  const Q11_ISSUES     = [];
-  const Q11_SATISFACTION = [];
+  const Q11_TOOLS        = {_j(q11_tools)};
+  const Q11_ISSUES       = {_j(q11_issues)};
+  const Q11_SATISFACTION = {_j(q11_satisfaction)};
   const Q12_SERVICES   = {_j(q12_services)};
   const Q13_COURSES    = {_j(q13_courses)};
   const Q14_GROWTH     = {_j(q14_growth)};

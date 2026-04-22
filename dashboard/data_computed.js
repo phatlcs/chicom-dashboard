@@ -502,117 +502,117 @@ window.ChiComData = (() => {
   const Q3_SUBS             = [
   {
     "vn": "Cảnh báo rủi ro & lừa đảo khi kinh doanh Amazon",
-    "seller": 8.1,
-    "prospect": 8.8,
-    "diff": -0.7
-  },
-  {
-    "vn": "Kinh nghiệm & chiến lược bán hàng trên Amazon",
-    "seller": 10.8,
-    "prospect": 6.6,
-    "diff": 4.2
-  },
-  {
-    "vn": "Dịch vụ & giải pháp pháp lý, thương hiệu",
-    "seller": 12.9,
-    "prospect": 7.3,
-    "diff": 5.6
-  },
-  {
-    "vn": "Thuế và chi phí kinh doanh trên Amazon",
-    "seller": 6.8,
-    "prospect": 4.3,
-    "diff": 2.5
-  },
-  {
-    "vn": "Khó khăn & thách thức khi bán hàng Amazon",
-    "seller": 4.9,
-    "prospect": 3.3,
-    "diff": 1.6
-  },
-  {
-    "vn": "Dịch vụ hỗ trợ & tối ưu tài khoản",
-    "seller": 8.1,
-    "prospect": 4.4,
-    "diff": 3.7
-  },
-  {
-    "vn": "Hợp tác, hỗ trợ & vận hành bán hàng",
-    "seller": 10.0,
-    "prospect": 5.9,
-    "diff": 4.1
-  },
-  {
-    "vn": "Vấn đề xác minh, khoá, rủi ro tài khoản",
-    "seller": 11.2,
-    "prospect": 10.2,
-    "diff": 1.0
-  },
-  {
-    "vn": "Sự kiện, đào tạo và kết nối cộng đồng",
-    "seller": 5.4,
-    "prospect": 8.1,
-    "diff": -2.7
-  },
-  {
-    "vn": "Kinh doanh xuất nhập khẩu & quốc tế",
-    "seller": 4.5,
-    "prospect": 4.5,
+    "seller": 1.29,
+    "prospect": 1.29,
     "diff": 0.0
   },
   {
+    "vn": "Kinh nghiệm & chiến lược bán hàng trên Amazon",
+    "seller": 1.43,
+    "prospect": 2.16,
+    "diff": -0.73
+  },
+  {
+    "vn": "Dịch vụ & giải pháp pháp lý, thương hiệu",
+    "seller": 0.48,
+    "prospect": 0.29,
+    "diff": 0.19
+  },
+  {
+    "vn": "Thuế và chi phí kinh doanh trên Amazon",
+    "seller": 6.84,
+    "prospect": 7.04,
+    "diff": -0.2
+  },
+  {
+    "vn": "Khó khăn & thách thức khi bán hàng Amazon",
+    "seller": 1.91,
+    "prospect": 1.1,
+    "diff": 0.81
+  },
+  {
+    "vn": "Dịch vụ hỗ trợ & tối ưu tài khoản",
+    "seller": 0.04,
+    "prospect": 0.01,
+    "diff": 0.03
+  },
+  {
+    "vn": "Hợp tác, hỗ trợ & vận hành bán hàng",
+    "seller": 1.0,
+    "prospect": 1.3,
+    "diff": -0.3
+  },
+  {
+    "vn": "Vấn đề xác minh, khoá, rủi ro tài khoản",
+    "seller": 1.55,
+    "prospect": 1.44,
+    "diff": 0.11
+  },
+  {
+    "vn": "Sự kiện, đào tạo và kết nối cộng đồng",
+    "seller": 0.33,
+    "prospect": 0.54,
+    "diff": -0.21
+  },
+  {
+    "vn": "Kinh doanh xuất nhập khẩu & quốc tế",
+    "seller": 0.22,
+    "prospect": 0.57,
+    "diff": -0.35
+  },
+  {
     "vn": "Dịch vụ vận chuyển và fulfillment",
-    "seller": 8.0,
-    "prospect": 1.5,
-    "diff": 6.5
+    "seller": 1.65,
+    "prospect": 2.83,
+    "diff": -1.18
   },
   {
     "vn": "Chia sẻ, học hỏi và hợp tác kinh nghiệm",
-    "seller": 14.1,
-    "prospect": 4.8,
-    "diff": 9.3
+    "seller": 1.71,
+    "prospect": 1.84,
+    "diff": -0.13
   },
   {
     "vn": "Hướng dẫn & hỗ trợ người mới bắt đầu",
-    "seller": 9.4,
-    "prospect": 5.9,
-    "diff": 3.5
+    "seller": 1.42,
+    "prospect": 3.32,
+    "diff": -1.9
   },
   {
     "vn": "Kinh doanh Amazon FBA và FBM",
-    "seller": 4.1,
-    "prospect": 7.4,
-    "diff": -3.3
+    "seller": 0.42,
+    "prospect": 0.31,
+    "diff": 0.11
   },
   {
     "vn": "Vấn đề & thủ tục thanh toán, mở OTP",
-    "seller": 4.2,
-    "prospect": 7.5,
-    "diff": -3.3
+    "seller": 0.12,
+    "prospect": 0.05,
+    "diff": 0.07
   },
   {
     "vn": "Bán hàng và vận hành Amazon",
-    "seller": 12.9,
-    "prospect": 9.5,
-    "diff": 3.4
+    "seller": 1.21,
+    "prospect": 0.57,
+    "diff": 0.64
   },
   {
     "vn": "Thanh toán Amazon qua Payoneer",
-    "seller": 13.0,
-    "prospect": 6.0,
-    "diff": 7.0
+    "seller": 0.06,
+    "prospect": 0.17,
+    "diff": -0.11
   },
   {
     "vn": "Vấn đề thanh toán quốc tế",
-    "seller": 7.7,
-    "prospect": 3.0,
-    "diff": 4.7
+    "seller": 0.46,
+    "prospect": 0.84,
+    "diff": -0.38
   },
   {
     "vn": "Ưu đãi Helium 10, tool seller Amazon",
-    "seller": 3.0,
-    "prospect": 2.1,
-    "diff": 0.9
+    "seller": 0.03,
+    "prospect": 0.01,
+    "diff": 0.02
   }
 ];
   const MONTHS              = [
@@ -752,20 +752,16 @@ window.ChiComData = (() => {
 ];
   const Q4_EVENTS           = [
   {
-    "week": 2,
-    "label": "Prime Big Deal"
+    "week": 11,
+    "label": "Spike Mar 9 · +69%"
   },
   {
-    "week": 6,
-    "label": "Black Friday"
+    "week": 12,
+    "label": "Spike Mar 16 · +70%"
   },
   {
-    "week": 7,
-    "label": "Cyber Monday"
-  },
-  {
-    "week": 10,
-    "label": "Boxing Day"
+    "week": 13,
+    "label": "Spike Mar 23 · +56%"
   }
 ];
   const Q4_WEEKLY           = [
@@ -1229,32 +1225,32 @@ window.ChiComData = (() => {
   {
     "vn": "Vận hành và quản lý tài khoản Amazon Seller",
     "count": 3491,
-    "slot": 1221
+    "slot": 178
   },
   {
     "vn": "Kinh doanh xuất nhập khẩu & TMĐT xuyên biên giới",
     "count": 1896,
-    "slot": 663
+    "slot": 97
   },
   {
     "vn": "Thanh toán, tài khoản và tài chính quốc tế",
     "count": 1673,
-    "slot": 585
+    "slot": 82
   },
   {
     "vn": "Chiến lược, kinh nghiệm & hỗ trợ cộng đồng bán hàng",
     "count": 1237,
-    "slot": 432
+    "slot": 66
   },
   {
     "vn": "Kinh doanh, vận hành và tối ưu hóa bán hàng Amazon",
     "count": 567,
-    "slot": 198
+    "slot": 36
   },
   {
     "vn": "Vận chuyển, logistics và fulfillment",
     "count": 49,
-    "slot": 17
+    "slot": 4
   }
 ];
   const KPI                 = {
@@ -1545,158 +1541,158 @@ window.ChiComData2 = (() => {
     "name": "Apparel",
     "color": "oklch(0.60 0.20 25)",
     "points": [
-      2.64,
-      4.74,
-      5.76,
-      5.26,
-      3.28,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      1.27,
-      3.99,
-      5.57,
-      5.61,
-      4.21
+      1,
+      9,
+      16,
+      16,
+      9,
+      12,
+      21,
+      17,
+      13,
+      18,
+      41,
+      64,
+      38,
+      32,
+      13,
+      0
     ]
   },
   {
     "name": "Electronics & Gadgets",
     "color": "oklch(0.68 0.17 50)",
     "points": [
-      6.19,
-      6.2,
-      4.56,
-      1.75,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      2.33,
-      3.84,
-      4.06,
-      3.05,
-      1.32,
-      0.5
+      2,
+      17,
+      7,
+      14,
+      19,
+      11,
+      21,
+      24,
+      5,
+      20,
+      18,
+      23,
+      14,
+      30,
+      7,
+      0
     ]
   },
   {
     "name": "Home & Kitchen",
     "color": "oklch(0.75 0.17 90)",
     "points": [
-      5.11,
-      2.81,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      1.58,
-      2.6,
-      2.52,
-      1.44,
-      0.5,
-      0.5,
-      0.5,
-      0.5
+      2,
+      5,
+      10,
+      9,
+      9,
+      5,
+      15,
+      9,
+      5,
+      13,
+      21,
+      24,
+      30,
+      31,
+      14,
+      0
     ]
   },
   {
     "name": "Health & Beauty",
     "color": "oklch(0.62 0.15 155)",
     "points": [
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      0.64,
-      1.92,
-      2.33,
-      1.64,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      2.28
+      1,
+      6,
+      8,
+      6,
+      3,
+      1,
+      10,
+      7,
+      1,
+      4,
+      2,
+      20,
+      23,
+      15,
+      4,
+      0
     ]
   },
   {
     "name": "Grocery & Food",
     "color": "oklch(0.58 0.14 190)",
     "points": [
-      0.5,
-      0.5,
-      0.5,
-      2.17,
-      3.32,
-      3.37,
-      2.15,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      1.28,
-      4.12,
-      5.9
+      1,
+      4,
+      1,
+      10,
+      4,
+      9,
+      21,
+      17,
+      3,
+      5,
+      6,
+      8,
+      6,
+      6,
+      1,
+      0
     ]
   },
   {
     "name": "Toys & Kids",
     "color": "oklch(0.55 0.17 290)",
     "points": [
-      1.05,
-      3.26,
-      4.74,
-      4.89,
-      3.53,
-      0.98,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      2.71,
-      4.88,
-      5.58,
-      4.69
+      0,
+      2,
+      9,
+      5,
+      4,
+      2,
+      3,
+      5,
+      0,
+      6,
+      12,
+      8,
+      14,
+      6,
+      8,
+      0
     ]
   },
   {
     "name": "Pet Supplies",
     "color": "oklch(0.60 0.20 320)",
     "points": [
-      5.29,
-      5.95,
-      4.92,
-      2.49,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      1.17,
-      3.27,
-      4.15,
-      3.65,
-      2.09,
-      0.5
+      0,
+      3,
+      3,
+      4,
+      5,
+      3,
+      7,
+      5,
+      0,
+      2,
+      5,
+      5,
+      6,
+      8,
+      0,
+      0
     ]
   }
 ];
-  const Q11_TOOLS      = [
+  const Q11_TOOLS        = [
   {
     "vn": "FBA",
     "name": "FBA",
@@ -1778,8 +1774,90 @@ window.ChiComData2 = (() => {
     "issues": 0.6
   }
 ];
-  const Q11_ISSUES     = [];
-  const Q11_SATISFACTION = [];
+  const Q11_ISSUES       = [
+  {
+    "vn": "Lỗi hệ thống / Bug",
+    "name": "Lỗi hệ thống / Bug",
+    "count": 471
+  },
+  {
+    "vn": "Phí & chi phí cao",
+    "name": "Phí & chi phí cao",
+    "count": 125
+  },
+  {
+    "vn": "Tài khoản bị khóa / suspend",
+    "name": "Tài khoản bị khóa / suspend",
+    "count": 122
+  },
+  {
+    "vn": "Khó dùng / phức tạp",
+    "name": "Khó dùng / phức tạp",
+    "count": 84
+  },
+  {
+    "vn": "Cập nhật chậm / outdated",
+    "name": "Cập nhật chậm / outdated",
+    "count": 13
+  },
+  {
+    "vn": "Hỗ trợ chậm / kém",
+    "name": "Hỗ trợ chậm / kém",
+    "count": 10
+  },
+  {
+    "vn": "Thiếu tính năng",
+    "name": "Thiếu tính năng",
+    "count": 7
+  },
+  {
+    "vn": "Dữ liệu sai / không chính xác",
+    "name": "Dữ liệu sai / không chính xác",
+    "count": 2
+  }
+];
+  const Q11_SATISFACTION = [
+  {
+    "vn": "Giá hợp lý / đáng tiền",
+    "name": "Giá hợp lý / đáng tiền",
+    "count": 267
+  },
+  {
+    "vn": "Hiệu quả rõ rệt",
+    "name": "Hiệu quả rõ rệt",
+    "count": 234
+  },
+  {
+    "vn": "Dễ dùng / trực quan",
+    "name": "Dễ dùng / trực quan",
+    "count": 201
+  },
+  {
+    "vn": "Tiết kiệm thời gian",
+    "name": "Tiết kiệm thời gian",
+    "count": 119
+  },
+  {
+    "vn": "Dữ liệu chính xác",
+    "name": "Dữ liệu chính xác",
+    "count": 84
+  },
+  {
+    "vn": "Cộng đồng & tài liệu tốt",
+    "name": "Cộng đồng & tài liệu tốt",
+    "count": 56
+  },
+  {
+    "vn": "Hỗ trợ tận tình",
+    "name": "Hỗ trợ tận tình",
+    "count": 26
+  },
+  {
+    "vn": "Nhiều tính năng / đầy đủ",
+    "name": "Nhiều tính năng / đầy đủ",
+    "count": 10
+  }
+];
   const Q12_SERVICES   = [
   {
     "vn": "Accountant/Tax",
