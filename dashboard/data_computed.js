@@ -1247,46 +1247,71 @@ window.ChiComData = (() => {
   {
     "vn": "Vấn đề xác minh, khoá, rủi ro tài khoản Amazon",
     "count": 1413,
-    "slot": 601
+    "slot": 432
   },
   {
     "vn": "Khó khăn và thách thức khi bán hàng trên Amazon",
     "count": 1323,
-    "slot": 566
+    "slot": 428
   },
   {
     "vn": "Bán hàng và vận hành kinh doanh trên Amazon",
     "count": 816,
-    "slot": 314
+    "slot": 239
   },
   {
     "vn": "Thuế và Chi phí Kinh doanh trên Amazon cho Seller Việt Nam",
     "count": 662,
-    "slot": 249
+    "slot": 183
   },
   {
     "vn": "Vận hành tài khoản và thanh toán quốc tế cho seller",
     "count": 434,
-    "slot": 209
+    "slot": 148
   },
   {
     "vn": "Dịch vụ vận chuyển và fulfillment",
     "count": 393,
-    "slot": 130
+    "slot": 107
   }
 ];
   const Q5_PEAK_WINDOW      = {
   "startHour": 9,
-  "endHour": 15,
+  "endHour": 13,
   "hours": [
     9,
     10,
     11,
-    12,
-    13,
-    14
+    12
   ],
-  "totalMentions": 3658
+  "windowSize": 4,
+  "totalMentions": 2727,
+  "hourlyCounts": [
+    203,
+    74,
+    53,
+    50,
+    33,
+    44,
+    123,
+    290,
+    399,
+    632,
+    714,
+    755,
+    626,
+    415,
+    516,
+    532,
+    498,
+    425,
+    375,
+    414,
+    432,
+    475,
+    453,
+    307
+  ]
 };
   const KPI                 = {
   "totalPosts": 46636,

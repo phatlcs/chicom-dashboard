@@ -316,23 +316,59 @@ def compute_all(df: pd.DataFrame):
         )
     neg_by_topic = [t for t in neg_by_topic if t['count'] > 0]
 
-    # ── Auto-detect peak 6-hour window for negative posts ──────────────────
+    # ── Auto-detect peak-hour window for negative posts ────────────────────
+    # Both WINDOW SIZE and POSITION are data-driven:
+    # 1) hourly histogram of negative posts (24 bins, across all 7 days)
+    # 2) threshold = mean hourly count × 1.3 (hours above = "peak hours")
+    # 3) find the longest contiguous run of above-threshold hours; that IS the
+    #    peak window. Natural for concentrated data (narrow) or flat (wide).
+    # 4) wraparound-safe (handles midnight-spanning peaks)
+    # Fallback: if nothing exceeds threshold (flat hourly distribution),
+    # default to the top-6 contiguous window by raw sum.
     hourly = [int((neg_df['hour'] == h).sum()) for h in range(24)] if 'hour' in neg_df.columns else [0] * 24
-    WINDOW = 6
-    best_start, best_sum = 0, -1
-    for start in range(24):
-        s = sum(hourly[(start + k) % 24] for k in range(WINDOW))
-        if s > best_sum:
-            best_sum, best_start = s, start
-    peak_start = best_start
-    peak_end   = (best_start + WINDOW) % 24  # exclusive
-    peak_hours = [(peak_start + k) % 24 for k in range(WINDOW)]
+    total_neg = sum(hourly)
+
+    if total_neg > 0:
+        avg = total_neg / 24
+        threshold = avg * 1.3
+        # Double the hourly array so we can detect runs crossing midnight
+        ext = hourly + hourly
+        runs = []  # (start, length, sum)
+        i = 0
+        while i < 48:
+            if ext[i] >= threshold:
+                j = i
+                while j < 48 and ext[j] >= threshold and (j - i) < 24:
+                    j += 1
+                runs.append((i % 24, j - i, sum(ext[i:j])))
+                i = j
+            else:
+                i += 1
+
+        if runs:
+            peak_start, peak_len, _ = max(runs, key=lambda r: r[2])
+        else:
+            # Fallback: largest contiguous 6-hour block
+            WINDOW = 6
+            best_s, best_sum = 0, -1
+            for s in range(24):
+                ssum = sum(hourly[(s + k) % 24] for k in range(WINDOW))
+                if ssum > best_sum:
+                    best_sum, best_s = ssum, s
+            peak_start, peak_len = best_s, WINDOW
+    else:
+        peak_start, peak_len = 0, 0
+
+    peak_hours = [(peak_start + k) % 24 for k in range(peak_len)]
+    peak_end   = (peak_start + peak_len) % 24  # exclusive
     peak_hour_mask = neg_df['hour'].isin(peak_hours) if 'hour' in neg_df.columns else pd.Series(False, index=neg_df.index)
     peak_window = {
-        'startHour': int(peak_start),
-        'endHour':   int(peak_end),
-        'hours':     [int(h) for h in peak_hours],
+        'startHour':     int(peak_start),
+        'endHour':       int(peak_end),
+        'hours':         [int(h) for h in peak_hours],
+        'windowSize':    int(peak_len),
         'totalMentions': int(peak_hour_mask.sum()),
+        'hourlyCounts':  hourly,  # full 24-bin histogram, for reference
     }
 
     # Topic distribution within the real peak window
