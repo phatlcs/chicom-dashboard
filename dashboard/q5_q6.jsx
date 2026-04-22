@@ -197,9 +197,13 @@ function Q56() {
         <div className="card">
           <div className="card-head">
             <div>
-              <div className="card-title">Mon–Fri 2h–6h: Topic Distribution</div>
+              <div className="card-title">
+                Khung giờ cao điểm tiêu cực (T2–CN, {D.Q5_PEAK_WINDOW ? `${D.Q5_PEAK_WINDOW.startHour}h–${D.Q5_PEAK_WINDOW.endHour}h` : '—'}) — phân bố chủ đề
+              </div>
             </div>
-            <span className="card-meta mono">{earlyTotal} mentions in peak window</span>
+            <span className="card-meta mono">
+              {(D.Q5_PEAK_WINDOW && D.Q5_PEAK_WINDOW.totalMentions) || earlyTotal} bài trong khung cao điểm
+            </span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 48 }}>
             <svg width={220} height={220}>
@@ -213,7 +217,7 @@ function Q56() {
                 />
               ))}
               <text x={110} y={106} textAnchor="middle" className="mono" style={{ fontSize: 22, fontWeight: 600, fill: 'var(--text)' }}>{earlyTotal}</text>
-              <text x={110} y={124} textAnchor="middle" className="axis-tick" style={{ fontSize: 10 }}>peak window</text>
+              <text x={110} y={124} textAnchor="middle" className="axis-tick" style={{ fontSize: 10 }}>khung cao điểm</text>
             </svg>
             <div style={{ flex: 1 }}>
               {donutSeg.map(s => (

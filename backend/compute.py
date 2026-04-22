@@ -316,22 +316,41 @@ def compute_all(df: pd.DataFrame):
         )
     neg_by_topic = [t for t in neg_by_topic if t['count'] > 0]
 
-    # Real early-morning (hours 0-5) negative post counts per topic
+    # ── Auto-detect peak 6-hour window for negative posts ──────────────────
+    hourly = [int((neg_df['hour'] == h).sum()) for h in range(24)] if 'hour' in neg_df.columns else [0] * 24
+    WINDOW = 6
+    best_start, best_sum = 0, -1
+    for start in range(24):
+        s = sum(hourly[(start + k) % 24] for k in range(WINDOW))
+        if s > best_sum:
+            best_sum, best_start = s, start
+    peak_start = best_start
+    peak_end   = (best_start + WINDOW) % 24  # exclusive
+    peak_hours = [(peak_start + k) % 24 for k in range(WINDOW)]
+    peak_hour_mask = neg_df['hour'].isin(peak_hours) if 'hour' in neg_df.columns else pd.Series(False, index=neg_df.index)
+    peak_window = {
+        'startHour': int(peak_start),
+        'endHour':   int(peak_end),
+        'hours':     [int(h) for h in peak_hours],
+        'totalMentions': int(peak_hour_mask.sum()),
+    }
+
+    # Topic distribution within the real peak window
     vn_to_id = {mt['vn']: mt['id'] for mt in MASTER_TOPICS}
     q5_early_dist = []
     for t in neg_by_topic[:6]:
         if use_subtopic:
-            mask = (neg_df['sub_topic'] == t['vn']) & (neg_df['hour'].between(0, 5, inclusive='both'))
+            mask = (neg_df['sub_topic'] == t['vn']) & peak_hour_mask
             slot = int(mask.sum())
         else:
             mt_id = vn_to_id.get(t['vn'])
-            if mt_id and 'mt_id' in neg_df.columns and 'hour' in neg_df.columns:
-                slot = int(((neg_df['mt_id'] == mt_id) & (neg_df['hour'].between(0, 5, inclusive='both'))).sum())
+            if mt_id and 'mt_id' in neg_df.columns:
+                slot = int(((neg_df['mt_id'] == mt_id) & peak_hour_mask).sum())
             else:
                 slot = 0
         q5_early_dist.append({'vn': t['vn'], 'count': t['count'], 'slot': slot})
 
-    # Fallback: if all slots are 0, use a fraction so donut still renders
+    # If peak-window slots are all zero (no data), fall back to overall count ratio
     if q5_early_dist and sum(e['slot'] for e in q5_early_dist) == 0:
         for e in q5_early_dist:
             e['slot'] = max(1, int(e['count'] * 0.1))
@@ -422,6 +441,7 @@ window.ChiComData = (() => {{
   const Q6_BY_HOUR          = {_j(q6_by_hour)};
   const Q5_TOP_NEG          = {_j(neg_by_topic[:6])};
   const Q5_EARLY_DIST       = {_j(q5_early_dist)};
+  const Q5_PEAK_WINDOW      = {_j(peak_window)};
   const KPI                 = {_j(kpi)};
   return {{
     SOA_GROUPS, EC_GROUPS, ALL_GROUPS,
@@ -429,7 +449,7 @@ window.ChiComData = (() => {{
     PERSONAS, Q2_MATRIX, Q3_SELLER_PROSPECT, Q3_SUBS,
     MONTHS, Q4_TRENDS, WEEKS, Q4_EVENTS, Q4_WEEKLY,
     DAYS_VN, DAYS_EN, Q56_HEATMAP, Q5_BY_DAY, Q6_BY_HOUR,
-    Q5_TOP_NEG, Q5_EARLY_DIST, KPI,
+    Q5_TOP_NEG, Q5_EARLY_DIST, Q5_PEAK_WINDOW, KPI,
   }};
 }})();
 

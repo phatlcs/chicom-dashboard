@@ -163,11 +163,19 @@ function Q8() {
       <div className="col-12">
         <div className="card">
           <div className="card-head">
-            <div className="card-title">Xu Hướng Theo Thời Gian</div>
+            <div>
+              <div className="card-title">Bài tiêu cực nhắc đến rời bỏ — theo tháng</div>
+            </div>
+            <span className="card-meta">số bài · tối đa {maxTrend}</span>
           </div>
           <svg width="100%" viewBox="0 0 720 180">
-            {[0, 0.5, 1].map((f, i) => (
-              <line key={i} x1={40} y1={20 + 130 * f} x2={700} y2={20 + 130 * f} className="grid-line" />
+            {[0, 0.25, 0.5, 0.75, 1].map((f, i) => (
+              <g key={i}>
+                <line x1={40} y1={20 + 130 * f} x2={700} y2={20 + 130 * f} className="grid-line" />
+                <text x={34} y={20 + 130 * f + 3} textAnchor="end" className="axis-tick">
+                  {Math.round(maxTrend * (1 - f))}
+                </text>
+              </g>
             ))}
             <path d={Q8_TREND.map((v, i) => {
               const x = 40 + (i / (Q8_TREND.length - 1)) * 660;
@@ -185,7 +193,7 @@ function Q8() {
               const x = 40 + (i / (Q8_TREND.length - 1)) * 660;
               const y = 150 - (v / maxTrend) * 130;
               return <circle key={i} cx={x} cy={y} r={3} fill="oklch(0.60 0.20 25)"
-                onMouseEnter={e => tt.show(e, `<b>${months[i] || `M${i}`}</b><br/>${v} mentions`)}
+                onMouseEnter={e => tt.show(e, `<b>${months[i] || `M${i}`}</b><br/>${v} bài đề cập rời bỏ`)}
                 onMouseMove={tt.move} onMouseLeave={tt.hide} style={{ cursor: 'pointer' }} />;
             })}
             {months.map((m, i) => i % 2 === 0 && (

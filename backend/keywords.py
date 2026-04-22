@@ -123,45 +123,45 @@ Q9_BARRIER_KW = {
 
 # ── Q10 — Product categories ─────────────────────────────────────────────────
 Q10_CATEGORY_KW = {
-    'Health & Beauty': [
+    'Làm đẹp & Sức khỏe': [
         'làm đẹp', 'mỹ phẩm', 'skincare', 'collagen', 'vitamin',
         'supplement', 'beauty', 'serum', 'kem dưỡng', 'thực phẩm chức năng',
         'health supplement', 'organic', 'wellness',
     ],
-    'Apparel': [
+    'Thời trang': [
         'quần áo', 'thời trang', 'clothing', 'fashion', 'áo thun',
         'áo khoác', 'giày', 'túi xách', 'phụ kiện thời trang', 'apparel',
         'garment', 't-shirt', 'hoodie',
     ],
-    'Home & Kitchen': [
+    'Gia dụng & Bếp': [
         'gia dụng', 'nhà bếp', 'home', 'kitchen', 'nội thất',
         'đồ dùng nhà', 'cleaning', 'organizer', 'storage', 'decor',
     ],
-    'Electronics & Gadgets': [
+    'Điện tử & Gadget': [
         'điện tử', 'electronics', 'gadget', 'cable', 'charger',
         'phụ kiện điện thoại', 'tech', 'smart home', 'led light',
     ],
-    'Toys & Kids': [
+    'Đồ chơi & Trẻ em': [
         'đồ chơi', 'toys', 'kids', 'children', 'baby', 'trẻ em',
         'educational toy', 'lego', 'puzzle',
     ],
-    'Sports & Outdoors': [
+    'Thể thao & Ngoài trời': [
         'thể thao', 'sports', 'fitness', 'gym', 'outdoor', 'camping',
         'yoga', 'exercise', 'dụng cụ thể thao',
     ],
-    'Grocery & Food': [
+    'Thực phẩm': [
         'thực phẩm', 'grocery', 'food', 'đồ ăn', 'snack',
         'cà phê', 'coffee', 'nước uống', 'organic food',
     ],
-    'Pet Supplies': [
+    'Thú cưng': [
         'thú cưng', 'pet', 'dog', 'cat', 'chó mèo', 'pet supplies',
         'dog food', 'cat food',
     ],
-    'Furniture': [
+    'Nội thất': [
         'nội thất', 'furniture', 'bàn ghế', 'giường', 'tủ',
         'sofa', 'desk', 'chair',
     ],
-    'Luggage & Bags': [
+    'Vali & Túi xách': [
         'túi xách', 'luggage', 'bag', 'backpack', 'balo', 'vali',
         'travel bag', 'handbag',
     ],
@@ -197,7 +197,7 @@ Q11_TOOL_KW = {
     'Jungle Scout': [
         'jungle scout', 'junglescout', 'js ', 'jungle',
     ],
-    'Inventory Management': [
+    'Quản lý tồn kho': [
         'inventory', 'tồn kho', 'stock management', 'reorder point',
         'inventory report', 'stranded inventory',
     ],
@@ -212,38 +212,38 @@ Q11_TOOL_KW = {
 
 # ── Q12 — 3rd-party services ─────────────────────────────────────────────────
 Q12_SERVICE_KW = {
-    'Accountant/Tax': [
+    'Kế toán / Thuế': [
         'kế toán', 'thuế', 'tax', 'accounting', 'sales tax', 'income tax',
         'bookkeeper', 'cpa', 'accountant', 'tax return', 'khai thuế',
     ],
-    'Legal/Trademark': [
+    'Pháp lý / Nhãn hiệu': [
         'pháp lý', 'trademark', 'đăng ký nhãn hiệu', 'brand registration',
         'attorney', 'lawyer', 'patent', 'luật sư', 'ip protection',
     ],
-    'Listing Optimization': [
+    'Tối ưu Listing': [
         'tối ưu listing', 'listing optimization', 'seo listing',
         'copywriter', 'bullet point', 'product description', 'a+ content',
         'enhanced brand content', 'tối ưu từ khóa',
     ],
-    'Product Sourcing': [
+    'Nguồn hàng / Sourcing': [
         'nguồn hàng', 'tìm nhà cung cấp', 'sourcing', 'supplier',
         'alibaba', 'nhà máy', 'factory', '1688', 'private label',
         'tìm hàng', 'nhập hàng',
     ],
-    'Software/Tools': [
+    'Phần mềm / Tool': [
         'phần mềm', 'tool', 'software', 'automation tool',
         'repricing', 'feedvisor', 'seller board', 'sellerboard',
     ],
-    'Freight Forwarder': [
+    'Vận chuyển / Forwarder': [
         'forwarder', 'vận chuyển', 'freight', 'shipping agent',
         'logistics', 'gửi hàng', 'sea freight', 'air freight',
         'đơn vị vận chuyển',
     ],
-    'Photography': [
+    'Chụp ảnh sản phẩm': [
         'chụp ảnh sản phẩm', 'product photo', 'photography',
         'hình ảnh sản phẩm', 'main image', 'infographic',
     ],
-    'VA/Assistant': [
+    'Trợ lý ảo / VA': [
         'virtual assistant', 'va ', 'trợ lý ảo', 'outsource',
         'thuê người', 'part time', 'freelancer',
     ],
@@ -251,19 +251,19 @@ Q12_SERVICE_KW = {
 
 # ── Q13 — Courses ────────────────────────────────────────────────────────────
 Q13_COURSE_KW = {
-    'Mentorship/Coaching': [
+    'Mentor / Coaching': [
         'mentor', 'mentorship', 'coaching', 'coach', 'tư vấn 1-1',
         'hướng dẫn riêng', 'private coaching', 'được mentor',
     ],
-    'General Training': [
+    'Đào tạo tổng quát': [
         'khóa học', 'đào tạo', 'training', 'course', 'học amazon',
         'lớp học', 'chương trình đào tạo', 'bootcamp',
     ],
-    'Listing Optimization Course': [
+    'Khóa tối ưu Listing': [
         'học listing', 'course listing', 'tối ưu hóa listing',
         'học seo amazon', 'listing course',
     ],
-    'Amazon FBA Course': [
+    'Khóa Amazon FBA': [
         'khóa học amazon fba', 'amazon fba course', 'khóa amazon',
         'chương trình amazon', 'học fba',
     ],
@@ -425,27 +425,27 @@ Q11_SAT_KW = {
 
 # ── Q14 — Growth topics ──────────────────────────────────────────────────────
 Q14_GROWTH_KW = {
-    'Scaling Operations': [
+    'Scale vận hành': [
         'scale', 'mở rộng', 'tăng quy mô', 'expand', 'growth hacking',
         'tăng trưởng nhanh', 'scale business', 'nhân đôi',
     ],
-    'Marketing & Ads': [
+    'Marketing & Quảng cáo': [
         'marketing', 'brand building', 'ppc chiến lược', 'influencer',
         'social media', 'content marketing', 'tăng traffic',
     ],
-    'Automation & Tools': [
+    'Tự động hóa & Tool': [
         'tự động hóa', 'automation', 'automate', 'workflow',
         'zapier', 'api', 'tool tự động', 'hệ thống',
     ],
-    'Revenue Growth': [
+    'Tăng doanh thu': [
         'tăng doanh thu', 'revenue growth', 'tăng profit',
         'lợi nhuận cao hơn', 'tăng sales', 'double revenue',
     ],
-    'Team Building': [
+    'Xây dựng Team': [
         'tuyển dụng', 'team', 'hiring', 'nhân viên', 'outsource team',
         'xây dựng team', 'thuê thêm người', 'employee',
     ],
-    'Market Expansion': [
+    'Mở rộng thị trường': [
         'mở thị trường mới', 'uk marketplace', 'europe', 'canada',
         'australia', 'japan', 'thị trường mới', 'global',
     ],
@@ -622,42 +622,146 @@ def extract_q10(df: pd.DataFrame):
     return [r for r in results if r['count'] > 0]
 
 
+# Seeking-help phrases (Vietnamese + English) — used as the "seeking/need" signal
+# across Q12 / Q13 / Q14 instead of a fixed fraction of count.
+SEEK_PHRASES = [
+    'cho hỏi', 'cho mình hỏi', 'cho em hỏi', 'ai biết', 'nhờ ae', 'nhờ a e',
+    'cần giúp', 'cần tư vấn', 'cần hỗ trợ', 'có ai', 'anh chị nào',
+    'xin hướng dẫn', 'ai có kinh nghiệm', 'mong anh chị', 'hỏi xíu',
+    'tư vấn giúp', 'giúp với', 'looking for', 'need help', 'anyone know',
+    'help me', 'how to', 'how do i',
+]
+
+
+def _build_pattern(keywords):
+    parts = []
+    for k in keywords:
+        esc = re.escape(k.lower())
+        if len(k) <= 6 and ' ' not in k:
+            parts.append(r'\b' + esc + r'\b')
+        else:
+            parts.append(esc)
+    return '|'.join(parts) if parts else None
+
+
+def _mask_any(text_lower: pd.Series, keywords) -> pd.Series:
+    pattern = _build_pattern(keywords)
+    if not pattern:
+        return pd.Series(False, index=text_lower.index)
+    return text_lower.str.contains(pattern, regex=True, na=False)
+
+
+def _sentiment_masks(df: pd.DataFrame):
+    sent = df['sentiment'].fillna('') if 'sentiment' in df.columns else pd.Series('', index=df.index)
+    return {
+        'pos':  (sent == 'positive'),
+        'neg':  (sent == 'negative'),
+        'neu':  (sent == 'neutral'),
+    }
+
+
 def extract_q11(df: pd.DataFrame):
-    # Prefer 'brand_mentions' column if populated
-    if 'brand_mentions' in df.columns and _column_populated(df['brand_mentions']):
-        tools = _extract_from_column(df['brand_mentions'])
+    """Per-tool REAL sentiment cross-tab.
+    use = total posts mentioning tool; satisfied = pos-sentiment count;
+    issues = neg-sentiment count. No synthetic fractions."""
+    text = df['content'].fillna('').str.lower()
+    sent = _sentiment_masks(df)
+
+    results = []
+    use_col = 'brand_mentions' in df.columns and _column_populated(df['brand_mentions'])
+
+    if use_col:
+        brand_col = df['brand_mentions'].fillna('').astype(str).str.strip()
+        flat = _split_multivalue(brand_col)
+        top_brands = list(flat.value_counts().head(20).index)
+        for brand in top_brands:
+            esc = re.escape(brand)
+            mask = brand_col.str.contains(
+                rf'(?:^|[,;|]\s*){esc}(?:\s*[,;|]|$)', regex=True, na=False)
+            if not mask.any():
+                mask = brand_col == brand
+            cnt = int(mask.sum())
+            if cnt == 0:
+                continue
+            results.append({
+                'name': brand, 'vn': brand,
+                'count': cnt, 'use': cnt,
+                'satisfied': int((sent['pos'] & mask).sum()),
+                'issues':    int((sent['neg'] & mask).sum()),
+            })
     else:
-        tools = _extract(df['content'], Q11_TOOL_KW)
-    # Generate satisfied/issues as rough fractions of use count
-    import math
-    for i, t in enumerate(tools):
-        t['use'] = t['count']
-        t['satisfied'] = round(t['count'] * (0.3 - i * 0.02), 1)
-        t['issues']    = round(t['count'] * (0.1 + i * 0.01), 1)
-    return [t for t in tools if t['use'] > 0]
+        for tool_name, kws in Q11_TOOL_KW.items():
+            mask = _mask_any(text, kws)
+            cnt = int(mask.sum())
+            if cnt == 0:
+                continue
+            results.append({
+                'name': tool_name, 'vn': tool_name,
+                'count': cnt, 'use': cnt,
+                'satisfied': int((sent['pos'] & mask).sum()),
+                'issues':    int((sent['neg'] & mask).sum()),
+            })
+
+    results.sort(key=lambda x: -x['use'])
+    return results
 
 
 def extract_q12(df: pd.DataFrame):
-    services = _extract(df['content'], Q12_SERVICE_KW)
-    for t in services:
-        total = max(1, t['count'])
-        t['mentions']     = t['count']
-        t['need']         = round(total * 0.35)
-        t['satisfaction'] = min(95, 60 + round(total * 0.02))
-        t['demand']       = round(total * 0.30)
-    return [s for s in services if s['mentions'] > 0]
+    """Per-service real counts. mentions = match count; need = posts matching
+    service AND seeking phrase; satisfaction = pos-sentiment % of mentions;
+    demand = need / mentions. No synthetic fractions."""
+    text = df['content'].fillna('').str.lower()
+    sent = _sentiment_masks(df)
+    seek_mask = _mask_any(text, SEEK_PHRASES)
+
+    results = []
+    for svc_name, kws in Q12_SERVICE_KW.items():
+        mask = _mask_any(text, kws)
+        cnt = int(mask.sum())
+        if cnt == 0:
+            continue
+        pos_cnt = int((sent['pos'] & mask).sum())
+        neg_cnt = int((sent['neg'] & mask).sum())
+        need_cnt = int((seek_mask & mask).sum())
+        sat_base = pos_cnt + neg_cnt
+        satisfaction = int(round(pos_cnt / sat_base * 100)) if sat_base > 0 else 0
+        results.append({
+            'name': svc_name, 'vn': svc_name, 'count': cnt,
+            'mentions':     cnt,
+            'need':         need_cnt,
+            'satisfaction': satisfaction,
+            'demand':       int(round(need_cnt / max(1, cnt) * 100)),
+        })
+    results.sort(key=lambda x: -x['mentions'])
+    return results
 
 
 def extract_q13(df: pd.DataFrame):
-    courses = _extract(df['content'], Q13_COURSE_KW)
-    for c in courses:
-        total = max(1, c['count'])
-        c['mentions']  = c['count']
-        c['seeking']   = round(total * 0.60)
-        c['interest']  = min(95, 50 + round(total * 0.03))
-        c['positive']  = round(total * 0.55)
-        c['negative']  = round(total * 0.10)
-    return [c for c in courses if c['mentions'] > 0]
+    """Per-course real counts. mentions = match; seeking = match AND seek-phrase;
+    interest = seeking / mentions %; positive/negative from sentiment cross-tab."""
+    text = df['content'].fillna('').str.lower()
+    sent = _sentiment_masks(df)
+    seek_mask = _mask_any(text, SEEK_PHRASES)
+
+    results = []
+    for course_name, kws in Q13_COURSE_KW.items():
+        mask = _mask_any(text, kws)
+        cnt = int(mask.sum())
+        if cnt == 0:
+            continue
+        seeking = int((seek_mask & mask).sum())
+        pos_cnt = int((sent['pos'] & mask).sum())
+        neg_cnt = int((sent['neg'] & mask).sum())
+        results.append({
+            'name':     course_name, 'vn': course_name, 'count': cnt,
+            'mentions': cnt,
+            'seeking':  seeking,
+            'interest': int(round(seeking / max(1, cnt) * 100)),
+            'positive': pos_cnt,
+            'negative': neg_cnt,
+        })
+    results.sort(key=lambda x: -x['mentions'])
+    return results
 
 
 def extract_q3_subs(df: pd.DataFrame) -> list:
@@ -732,21 +836,30 @@ def extract_q11_satisfaction(df: pd.DataFrame):
 
 
 def extract_q14(df: pd.DataFrame):
+    """Per growth-topic real cross-tab. seeking = topic AND seek-phrase;
+    positive/mixed/negative from sentiment column."""
     COLORS = [
         'oklch(0.55 0.17 260)', 'oklch(0.62 0.15 155)', 'oklch(0.75 0.17 60)',
         'oklch(0.62 0.15 200)', 'oklch(0.55 0.17 290)', 'oklch(0.60 0.20 25)',
     ]
-    items = _extract(df['content'], Q14_GROWTH_KW)
+    text = df['content'].fillna('').str.lower()
+    sent = _sentiment_masks(df)
+    seek_mask = _mask_any(text, SEEK_PHRASES)
+
     result = []
-    for i, it in enumerate(items):
-        total = max(1, it['count'])
+    for i, (topic_name, kws) in enumerate(Q14_GROWTH_KW.items()):
+        mask = _mask_any(text, kws)
+        cnt = int(mask.sum())
+        if cnt == 0:
+            continue
         result.append({
-            'name':     it['name'],
-            'count':    it['count'],
+            'name':     topic_name,
+            'count':    cnt,
             'color':    COLORS[i % len(COLORS)],
-            'seeking':  round(total * 0.55),
-            'positive': round(total * 0.18),
-            'mixed':    round(total * 0.17),
-            'negative': round(total * 0.10),
+            'seeking':  int((seek_mask & mask).sum()),
+            'positive': int((sent['pos'] & mask).sum()),
+            'mixed':    int((sent['neu'] & mask).sum()),
+            'negative': int((sent['neg'] & mask).sum()),
         })
-    return [r for r in result if r['count'] > 0]
+    result.sort(key=lambda x: -x['count'])
+    return result

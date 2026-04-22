@@ -1247,34 +1247,47 @@ window.ChiComData = (() => {
   {
     "vn": "Vấn đề xác minh, khoá, rủi ro tài khoản Amazon",
     "count": 1413,
-    "slot": 62
+    "slot": 601
   },
   {
     "vn": "Khó khăn và thách thức khi bán hàng trên Amazon",
     "count": 1323,
-    "slot": 59
+    "slot": 566
   },
   {
     "vn": "Bán hàng và vận hành kinh doanh trên Amazon",
     "count": 816,
-    "slot": 56
+    "slot": 314
   },
   {
     "vn": "Thuế và Chi phí Kinh doanh trên Amazon cho Seller Việt Nam",
     "count": 662,
-    "slot": 51
+    "slot": 249
   },
   {
     "vn": "Vận hành tài khoản và thanh toán quốc tế cho seller",
     "count": 434,
-    "slot": 15
+    "slot": 209
   },
   {
     "vn": "Dịch vụ vận chuyển và fulfillment",
     "count": 393,
-    "slot": 24
+    "slot": 130
   }
 ];
+  const Q5_PEAK_WINDOW      = {
+  "startHour": 9,
+  "endHour": 15,
+  "hours": [
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "totalMentions": 3658
+};
   const KPI                 = {
   "totalPosts": 46636,
   "relevantPosts": 40258,
@@ -1293,7 +1306,7 @@ window.ChiComData = (() => {
     PERSONAS, Q2_MATRIX, Q3_SELLER_PROSPECT, Q3_SUBS,
     MONTHS, Q4_TRENDS, WEEKS, Q4_EVENTS, Q4_WEEKLY,
     DAYS_VN, DAYS_EN, Q56_HEATMAP, Q5_BY_DAY, Q6_BY_HOUR,
-    Q5_TOP_NEG, Q5_EARLY_DIST, KPI,
+    Q5_TOP_NEG, Q5_EARLY_DIST, Q5_PEAK_WINDOW, KPI,
   };
 })();
 
@@ -1551,62 +1564,62 @@ window.ChiComData2 = (() => {
 ];
   const Q10_TOP        = [
   {
-    "vn": "Apparel",
-    "name": "Apparel",
+    "vn": "Thời trang",
+    "name": "Thời trang",
     "count": 320,
     "color": "oklch(0.60 0.20 25)"
   },
   {
-    "vn": "Electronics & Gadgets",
-    "name": "Electronics & Gadgets",
+    "vn": "Điện tử & Gadget",
+    "name": "Điện tử & Gadget",
     "count": 232,
     "color": "oklch(0.68 0.17 50)"
   },
   {
-    "vn": "Home & Kitchen",
-    "name": "Home & Kitchen",
+    "vn": "Gia dụng & Bếp",
+    "name": "Gia dụng & Bếp",
     "count": 202,
     "color": "oklch(0.75 0.17 90)"
   },
   {
-    "vn": "Health & Beauty",
-    "name": "Health & Beauty",
+    "vn": "Làm đẹp & Sức khỏe",
+    "name": "Làm đẹp & Sức khỏe",
     "count": 111,
     "color": "oklch(0.62 0.15 155)"
   },
   {
-    "vn": "Grocery & Food",
-    "name": "Grocery & Food",
+    "vn": "Thực phẩm",
+    "name": "Thực phẩm",
     "count": 102,
     "color": "oklch(0.58 0.14 190)"
   },
   {
-    "vn": "Toys & Kids",
-    "name": "Toys & Kids",
+    "vn": "Đồ chơi & Trẻ em",
+    "name": "Đồ chơi & Trẻ em",
     "count": 84,
     "color": "oklch(0.55 0.17 290)"
   },
   {
-    "vn": "Pet Supplies",
-    "name": "Pet Supplies",
+    "vn": "Thú cưng",
+    "name": "Thú cưng",
     "count": 56,
     "color": "oklch(0.60 0.20 320)"
   },
   {
-    "vn": "Sports & Outdoors",
-    "name": "Sports & Outdoors",
+    "vn": "Thể thao & Ngoài trời",
+    "name": "Thể thao & Ngoài trời",
     "count": 51,
     "color": "oklch(0.55 0.15 230)"
   },
   {
-    "vn": "Luggage & Bags",
-    "name": "Luggage & Bags",
+    "vn": "Vali & Túi xách",
+    "name": "Vali & Túi xách",
     "count": 42,
     "color": "oklch(0.55 0.17 260)"
   },
   {
-    "vn": "Furniture",
-    "name": "Furniture",
+    "vn": "Nội thất",
+    "name": "Nội thất",
     "count": 40,
     "color": "oklch(0.65 0.12 60)"
   }
@@ -1631,7 +1644,7 @@ window.ChiComData2 = (() => {
 ];
   const Q10_WEEKLY     = [
   {
-    "name": "Apparel",
+    "name": "Thời trang",
     "color": "oklch(0.60 0.20 25)",
     "points": [
       1,
@@ -1653,7 +1666,7 @@ window.ChiComData2 = (() => {
     ]
   },
   {
-    "name": "Electronics & Gadgets",
+    "name": "Điện tử & Gadget",
     "color": "oklch(0.68 0.17 50)",
     "points": [
       2,
@@ -1675,7 +1688,7 @@ window.ChiComData2 = (() => {
     ]
   },
   {
-    "name": "Home & Kitchen",
+    "name": "Gia dụng & Bếp",
     "color": "oklch(0.75 0.17 90)",
     "points": [
       2,
@@ -1697,7 +1710,7 @@ window.ChiComData2 = (() => {
     ]
   },
   {
-    "name": "Health & Beauty",
+    "name": "Làm đẹp & Sức khỏe",
     "color": "oklch(0.62 0.15 155)",
     "points": [
       1,
@@ -1719,7 +1732,7 @@ window.ChiComData2 = (() => {
     ]
   },
   {
-    "name": "Grocery & Food",
+    "name": "Thực phẩm",
     "color": "oklch(0.58 0.14 190)",
     "points": [
       1,
@@ -1741,7 +1754,7 @@ window.ChiComData2 = (() => {
     ]
   },
   {
-    "name": "Toys & Kids",
+    "name": "Đồ chơi & Trẻ em",
     "color": "oklch(0.55 0.17 290)",
     "points": [
       0,
@@ -1763,7 +1776,7 @@ window.ChiComData2 = (() => {
     ]
   },
   {
-    "name": "Pet Supplies",
+    "name": "Thú cưng",
     "color": "oklch(0.60 0.20 320)",
     "points": [
       0,
@@ -1787,84 +1800,84 @@ window.ChiComData2 = (() => {
 ];
   const Q11_TOOLS        = [
   {
-    "vn": "FBA",
     "name": "FBA",
+    "vn": "FBA",
     "count": 161,
     "use": 161,
-    "satisfied": 48.3,
-    "issues": 16.1
+    "satisfied": 20,
+    "issues": 13
   },
   {
-    "vn": "PPC/Ads",
     "name": "PPC/Ads",
+    "vn": "PPC/Ads",
     "count": 126,
     "use": 126,
-    "satisfied": 35.3,
-    "issues": 13.9
+    "satisfied": 43,
+    "issues": 19
   },
   {
-    "vn": "FBM",
     "name": "FBM",
+    "vn": "FBM",
     "count": 104,
     "use": 104,
-    "satisfied": 27.0,
-    "issues": 12.5
+    "satisfied": 7,
+    "issues": 12
   },
   {
-    "vn": "Inventory Management",
-    "name": "Inventory Management",
+    "name": "Quản lý tồn kho",
+    "vn": "Quản lý tồn kho",
     "count": 102,
     "use": 102,
-    "satisfied": 24.5,
-    "issues": 13.3
+    "satisfied": 27,
+    "issues": 17
   },
   {
-    "vn": "Amazon Support",
     "name": "Amazon Support",
+    "vn": "Amazon Support",
     "count": 92,
     "use": 92,
-    "satisfied": 20.2,
-    "issues": 12.9
+    "satisfied": 3,
+    "issues": 57
   },
   {
-    "vn": "Helium 10",
     "name": "Helium 10",
+    "vn": "Helium 10",
     "count": 33,
     "use": 33,
-    "satisfied": 6.6,
-    "issues": 5.0
+    "satisfied": 9,
+    "issues": 0
   },
   {
-    "vn": "Seller Central",
     "name": "Seller Central",
+    "vn": "Seller Central",
     "count": 17,
     "use": 17,
-    "satisfied": 3.1,
-    "issues": 2.7
+    "satisfied": 2,
+    "issues": 4
   },
   {
-    "vn": "Brand Registry",
     "name": "Brand Registry",
+    "vn": "Brand Registry",
     "count": 16,
     "use": 16,
-    "satisfied": 2.6,
-    "issues": 2.7
+    "satisfied": 2,
+    "issues": 4
   },
   {
-    "vn": "Jungle Scout",
     "name": "Jungle Scout",
+    "vn": "Jungle Scout",
     "count": 5,
     "use": 5,
-    "satisfied": 0.7,
-    "issues": 0.9
+    "satisfied": 1,
+    "issues": 0
   },
   {
-    "vn": "Amazon Vine",
     "name": "Amazon Vine",
+    "vn": "Amazon Vine",
     "count": 3,
     "use": 3,
-    "satisfied": 0.4,
-    "issues": 0.6
+    "satisfied": 0,
+    "issues": 0
   }
 ];
   const Q11_ISSUES       = [
@@ -1953,164 +1966,164 @@ window.ChiComData2 = (() => {
 ];
   const Q12_SERVICES   = [
   {
-    "vn": "Accountant/Tax",
-    "name": "Accountant/Tax",
+    "name": "Kế toán / Thuế",
+    "vn": "Kế toán / Thuế",
     "count": 2357,
     "mentions": 2357,
-    "need": 825,
-    "satisfaction": 95,
-    "demand": 707
+    "need": 142,
+    "satisfaction": 20,
+    "demand": 6
   },
   {
-    "vn": "Freight Forwarder",
-    "name": "Freight Forwarder",
+    "name": "Vận chuyển / Forwarder",
+    "vn": "Vận chuyển / Forwarder",
     "count": 1124,
     "mentions": 1124,
-    "need": 393,
-    "satisfaction": 82,
-    "demand": 337
+    "need": 72,
+    "satisfaction": 36,
+    "demand": 6
   },
   {
-    "vn": "Software/Tools",
-    "name": "Software/Tools",
+    "name": "Phần mềm / Tool",
+    "vn": "Phần mềm / Tool",
     "count": 356,
     "mentions": 356,
-    "need": 125,
-    "satisfaction": 67,
-    "demand": 107
+    "need": 24,
+    "satisfaction": 79,
+    "demand": 7
   },
   {
-    "vn": "Product Sourcing",
-    "name": "Product Sourcing",
+    "name": "Nguồn hàng / Sourcing",
+    "vn": "Nguồn hàng / Sourcing",
     "count": 308,
     "mentions": 308,
-    "need": 108,
-    "satisfaction": 66,
-    "demand": 92
+    "need": 22,
+    "satisfaction": 70,
+    "demand": 7
   },
   {
-    "vn": "Legal/Trademark",
-    "name": "Legal/Trademark",
+    "name": "Pháp lý / Nhãn hiệu",
+    "vn": "Pháp lý / Nhãn hiệu",
     "count": 190,
     "mentions": 190,
-    "need": 66,
-    "satisfaction": 64,
-    "demand": 57
+    "need": 13,
+    "satisfaction": 39,
+    "demand": 7
   },
   {
-    "vn": "VA/Assistant",
-    "name": "VA/Assistant",
+    "name": "Trợ lý ảo / VA",
+    "vn": "Trợ lý ảo / VA",
     "count": 66,
     "mentions": 66,
-    "need": 23,
-    "satisfaction": 61,
-    "demand": 20
-  },
-  {
-    "vn": "Photography",
-    "name": "Photography",
-    "count": 27,
-    "mentions": 27,
-    "need": 9,
-    "satisfaction": 61,
+    "need": 5,
+    "satisfaction": 71,
     "demand": 8
   },
   {
-    "vn": "Listing Optimization",
-    "name": "Listing Optimization",
+    "name": "Chụp ảnh sản phẩm",
+    "vn": "Chụp ảnh sản phẩm",
+    "count": 27,
+    "mentions": 27,
+    "need": 0,
+    "satisfaction": 100,
+    "demand": 0
+  },
+  {
+    "name": "Tối ưu Listing",
+    "vn": "Tối ưu Listing",
     "count": 24,
     "mentions": 24,
-    "need": 8,
-    "satisfaction": 60,
-    "demand": 7
+    "need": 6,
+    "satisfaction": 86,
+    "demand": 25
   }
 ];
   const Q13_COURSES    = [
   {
-    "vn": "General Training",
-    "name": "General Training",
+    "name": "Đào tạo tổng quát",
+    "vn": "Đào tạo tổng quát",
     "count": 94,
     "mentions": 94,
-    "seeking": 56,
-    "interest": 53,
-    "positive": 52,
-    "negative": 9
+    "seeking": 7,
+    "interest": 7,
+    "positive": 42,
+    "negative": 5
   },
   {
-    "vn": "Mentorship/Coaching",
-    "name": "Mentorship/Coaching",
+    "name": "Mentor / Coaching",
+    "vn": "Mentor / Coaching",
     "count": 18,
     "mentions": 18,
-    "seeking": 11,
-    "interest": 51,
-    "positive": 10,
-    "negative": 2
+    "seeking": 1,
+    "interest": 6,
+    "positive": 7,
+    "negative": 1
   },
   {
-    "vn": "Amazon FBA Course",
-    "name": "Amazon FBA Course",
+    "name": "Khóa Amazon FBA",
+    "vn": "Khóa Amazon FBA",
     "count": 3,
     "mentions": 3,
-    "seeking": 2,
-    "interest": 50,
+    "seeking": 0,
+    "interest": 0,
     "positive": 2,
     "negative": 0
   }
 ];
   const Q14_GROWTH     = [
   {
-    "name": "Team Building",
+    "name": "Xây dựng Team",
     "count": 492,
-    "color": "oklch(0.55 0.17 260)",
-    "seeking": 271,
-    "positive": 89,
-    "mixed": 84,
-    "negative": 49
-  },
-  {
-    "name": "Automation & Tools",
-    "count": 442,
-    "color": "oklch(0.62 0.15 155)",
-    "seeking": 243,
-    "positive": 80,
-    "mixed": 75,
-    "negative": 44
-  },
-  {
-    "name": "Scaling Operations",
-    "count": 378,
-    "color": "oklch(0.75 0.17 60)",
-    "seeking": 208,
-    "positive": 68,
-    "mixed": 64,
-    "negative": 38
-  },
-  {
-    "name": "Market Expansion",
-    "count": 226,
-    "color": "oklch(0.62 0.15 200)",
-    "seeking": 124,
-    "positive": 41,
-    "mixed": 38,
-    "negative": 23
-  },
-  {
-    "name": "Marketing & Ads",
-    "count": 96,
     "color": "oklch(0.55 0.17 290)",
-    "seeking": 53,
-    "positive": 17,
-    "mixed": 16,
-    "negative": 10
+    "seeking": 19,
+    "positive": 159,
+    "mixed": 271,
+    "negative": 62
   },
   {
-    "name": "Revenue Growth",
-    "count": 14,
+    "name": "Tự động hóa & Tool",
+    "count": 442,
+    "color": "oklch(0.75 0.17 60)",
+    "seeking": 16,
+    "positive": 173,
+    "mixed": 234,
+    "negative": 35
+  },
+  {
+    "name": "Scale vận hành",
+    "count": 378,
+    "color": "oklch(0.55 0.17 260)",
+    "seeking": 10,
+    "positive": 258,
+    "mixed": 112,
+    "negative": 8
+  },
+  {
+    "name": "Mở rộng thị trường",
+    "count": 226,
     "color": "oklch(0.60 0.20 25)",
-    "seeking": 8,
-    "positive": 3,
-    "mixed": 2,
-    "negative": 1
+    "seeking": 19,
+    "positive": 30,
+    "mixed": 187,
+    "negative": 9
+  },
+  {
+    "name": "Marketing & Quảng cáo",
+    "count": 96,
+    "color": "oklch(0.62 0.15 155)",
+    "seeking": 4,
+    "positive": 45,
+    "mixed": 47,
+    "negative": 4
+  },
+  {
+    "name": "Tăng doanh thu",
+    "count": 14,
+    "color": "oklch(0.62 0.15 200)",
+    "seeking": 0,
+    "positive": 6,
+    "mixed": 6,
+    "negative": 2
   }
 ];
   return {
