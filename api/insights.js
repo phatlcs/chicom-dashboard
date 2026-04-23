@@ -10,7 +10,21 @@
  * or add a shared-secret header before shipping to a public URL.
  */
 
-import { kv } from '@vercel/kv';
+import { Redis } from '@upstash/redis';
+
+// Redis.fromEnv() auto-reads UPSTASH_REDIS_REST_URL + UPSTASH_REDIS_REST_TOKEN
+// (the env vars Vercel injects when you link a Redis marketplace DB).
+// Falls back to KV_REST_API_URL + KV_REST_API_TOKEN for legacy Vercel KV stores.
+const kv = (() => {
+  const url =
+    process.env.UPSTASH_REDIS_REST_URL ||
+    process.env.KV_REST_API_URL;
+  const token =
+    process.env.UPSTASH_REDIS_REST_TOKEN ||
+    process.env.KV_REST_API_TOKEN;
+  if (!url || !token) return null;
+  return new Redis({ url, token });
+})();
 
 // Accept both legacy Q-level ids (Q1..Q14) and per-chart ids like
 // "Q1_1:a" (chartId:slot). Pattern caps length and restricts charset.
@@ -41,15 +55,22 @@ export default async function handler(req, res) {
     return res.status(204).end();
   }
 
+  if (!kv) {
+    return res.status(503).json({
+      error: 'Redis not configured — link a Redis database in Vercel dashboard → Storage tab',
+    });
+  }
+
   try {
     if (req.method === 'GET') {
-      // Scan all insight:* keys in KV and return as a flat map.
+      // Scan all insight:* keys and return as a flat map.
+      // @upstash/redis returns cursor as a string; stop when it's "0".
       const out = {};
-      let cursor = 0;
+      let cursor = '0';
       do {
         const [next, batch] = await kv.scan(cursor, { match: 'insight:*', count: 200 });
-        cursor = Number(next);
-        if (batch.length) {
+        cursor = String(next);
+        if (batch && batch.length) {
           const values = await kv.mget(...batch);
           batch.forEach((key, i) => {
             const id = key.replace(/^insight:/, '');
@@ -57,7 +78,7 @@ export default async function handler(req, res) {
             if (typeof v === 'string' && v.trim()) out[id] = v;
           });
         }
-      } while (cursor !== 0);
+      } while (cursor !== '0');
       return res.status(200).json(out);
     }
 

@@ -4,7 +4,7 @@
   "private": true,
   "description": "ChiCom Community Insights Dashboard — static frontend + /api/insights serverless function for team-editable AI-insight paragraphs.",
   "dependencies": {
-    "@vercel/kv": "^3.0.0"
+    "@upstash/redis": "^1.35.0"
   },
   "engines": {
     "node": ">=20"
