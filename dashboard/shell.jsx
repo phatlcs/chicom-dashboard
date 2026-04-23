@@ -230,26 +230,295 @@ function ScopeBadge() {
 }
 window.ScopeBadge = ScopeBadge;
 
+// ── Team-shared insight overrides (Vercel KV via /api/insights) ───────────
+// Fetched once on page load. Each <Insight qId="Q1"/> merges KV overrides
+// on top of the baked-in window.ChiComData.INSIGHTS, and in-place edits
+// POST back to the same endpoint so every teammate sees the latest.
+
+window.__kvInsights = window.__kvInsights || { loaded: false, data: {}, listeners: new Set() };
+
+async function _fetchKvInsights() {
+  if (window.__kvInsights.loaded || window.__kvInsights.loading) return;
+  window.__kvInsights.loading = true;
+  try {
+    const r = await fetch('/api/insights', { cache: 'no-store' });
+    if (r.ok) {
+      window.__kvInsights.data = await r.json();
+    }
+  } catch (e) {
+    /* endpoint not reachable (local / static) — silently fall back */
+  } finally {
+    window.__kvInsights.loaded = true;
+    window.__kvInsights.loading = false;
+    for (const fn of window.__kvInsights.listeners) fn();
+  }
+}
+_fetchKvInsights();
+
+async function _saveKvInsight(qId, text) {
+  try {
+    const r = await fetch('/api/insights', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ qId, text }),
+    });
+    if (!r.ok) throw new Error((await r.json()).error || `HTTP ${r.status}`);
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+async function _deleteKvInsight(qId) {
+  try {
+    await fetch('/api/insights', {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ qId }),
+    });
+    return true;
+  } catch { return false; }
+}
+
+// ── CardComments: pair of collapsible editable comment boxes under a chart ─
+// Each has:
+//   - compact state: single-line placeholder, auto-height
+//   - expanded state on focus / when it has text: multi-line auto-grow
+//   - only vertical height changes; width stays 50% of its row
+// Saves on blur to /api/insights with id = `${chartId}:${slot}` (slot = a|b).
+// Also mirrors to localStorage so edits survive refresh even offline.
+
+function CommentBox({ chartId, slot, label }) {
+  const [, forceRefresh] = useState(0);
+  const [value, setValue] = useState('');
+  const [focused, setFocused] = useState(false);
+  const [status, setStatus] = useState(null);
+  const ref = useRef(null);
+  const id = `${chartId}:${slot}`;
+  const storageKey = `chicom_note_${id}`;
+
+  // Subscribe to the global KV fetch — once it lands we refresh
+  useEffect(() => {
+    const fn = () => forceRefresh(n => n + 1);
+    window.__kvInsights.listeners.add(fn);
+    return () => window.__kvInsights.listeners.delete(fn);
+  }, []);
+
+  // Initial value: localStorage → KV → empty
+  useEffect(() => {
+    const local = localStorage.getItem(storageKey);
+    const remote = window.__kvInsights.data[id];
+    setValue(local ?? remote ?? '');
+  }, [id, storageKey, window.__kvInsights.loaded]);
+
+  // Auto-grow textarea height to content
+  const resize = () => {
+    const el = ref.current;
+    if (!el) return;
+    el.style.height = 'auto';
+    el.style.height = Math.min(600, el.scrollHeight) + 'px';
+  };
+  useEffect(resize, [value, focused]);
+
+  const flashStatus = (type, text, ms = 1500) => {
+    setStatus({ type, text });
+    if (ms) setTimeout(() => setStatus(s => (s && s.text === text ? null : s)), ms);
+  };
+
+  const save = async () => {
+    const next = (ref.current?.value ?? '').trim();
+    const prior = (localStorage.getItem(storageKey) || '').trim();
+    if (next === prior) return;
+    if (!next) {
+      localStorage.removeItem(storageKey);
+    } else {
+      localStorage.setItem(storageKey, next);
+    }
+    setValue(next);
+    flashStatus('saving', 'Đang lưu…', 0);
+    try {
+      const r = await fetch('/api/insights', {
+        method: next ? 'POST' : 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(next ? { id, text: next } : { id }),
+      });
+      if (!r.ok) throw new Error((await r.json()).error || `HTTP ${r.status}`);
+      window.__kvInsights.data[id] = next || null;
+      flashStatus('ok', 'Đã lưu');
+    } catch (e) {
+      flashStatus('err', 'Lỗi mạng — thử lại', 3500);
+    }
+  };
+
+  const hasText = value.trim().length > 0;
+  const expanded = focused || hasText;
+
+  const statusColor =
+    status?.type === 'ok'     ? 'oklch(0.55 0.14 155)' :
+    status?.type === 'err'    ? 'oklch(0.55 0.18 25)'  :
+    status?.type === 'saving' ? 'oklch(0.55 0.02 260)' :
+    'var(--text-3)';
+
+  return (
+    <div style={{ flex: 1, minWidth: 0 }}>
+      <div style={{
+        display: 'flex', alignItems: 'center', gap: 6,
+        fontSize: 9, fontWeight: 600, textTransform: 'uppercase',
+        letterSpacing: '0.05em', color: 'var(--text-3)',
+        marginBottom: 3,
+      }}>
+        <span>{label || `Ghi chú ${slot.toUpperCase()}`}</span>
+        {status && <span style={{ color: statusColor, textTransform: 'none' }}>{status.text}</span>}
+      </div>
+      <textarea
+        ref={ref}
+        value={value}
+        placeholder={expanded ? 'Nhập ghi chú…' : '+ thêm ghi chú'}
+        onChange={e => setValue(e.target.value)}
+        onFocus={() => setFocused(true)}
+        onBlur={() => { setFocused(false); save(); }}
+        rows={1}
+        style={{
+          width: '100%',
+          minHeight: expanded ? 56 : 28,
+          padding: expanded ? '8px 10px' : '5px 10px',
+          border: `1px solid ${expanded ? 'oklch(0.75 0.06 260)' : 'var(--border)'}`,
+          borderRadius: 4,
+          background: expanded ? 'var(--panel)' : 'oklch(0.98 0.005 260)',
+          fontSize: 11.5,
+          fontFamily: 'inherit',
+          color: 'var(--text)',
+          resize: 'none',          // vertical size controlled by us only
+          overflow: 'hidden',
+          outline: 'none',
+          lineHeight: 1.5,
+          transition: 'min-height 120ms, padding 120ms, border-color 120ms, background 120ms',
+          boxSizing: 'border-box',
+        }}
+      />
+    </div>
+  );
+}
+
+function CardComments({ chartId }) {
+  if (!chartId) return null;
+  return (
+    <div style={{
+      display: 'flex',
+      gap: 10,
+      alignItems: 'flex-start',
+      marginTop: 8,
+      paddingTop: 8,
+      borderTop: '1px dashed var(--border)',
+    }}>
+      <CommentBox chartId={chartId} slot="a" label="Ghi chú A" />
+      <CommentBox chartId={chartId} slot="b" label="Ghi chú B" />
+    </div>
+  );
+}
+window.CardComments = CardComments;
+
+
 // Insight text-box under every chart.
-// When `qId` is provided and an LLM-generated paragraph exists in
-// window.ChiComData.INSIGHTS[qId], that paragraph is rendered (labeled
-// "AI Insight"). Otherwise falls back to the `children` terse template
-// (labeled "Insight"). No layout change either way.
+// Resolution order per qId:
+//   1. localStorage edit (instant, per-device)
+//   2. KV override fetched from /api/insights (team-shared)
+//   3. window.ChiComData.INSIGHTS[qId]   (baked-in LLM / manual)
+//   4. children (terse fallback template)
+// contentEditable → on blur, saves to localStorage + KV.
+// "↺ Reset" button → clears both and falls back to the default.
 function Insight({ qId, children }) {
-  const llmText = qId
-    ? (((window.ChiComData || {}).INSIGHTS || {})[qId] || null)
-    : null;
+  const [, forceRefresh] = useState(0);
+  const [status, setStatus] = useState(null);          // {type,text} or null
+  const [edited, setEdited] = useState(null);          // local override text
+  const ref = useRef(null);
 
-  const hasChildren =
-    children &&
-    !(Array.isArray(children) && children.every(c => !c));
+  const storageKey = qId ? `chicom_insight_${qId}` : null;
+  const kvText = qId ? (window.__kvInsights.data[qId] || null) : null;
+  const llmText = qId ? (((window.ChiComData || {}).INSIGHTS || {})[qId] || null) : null;
 
-  if (!llmText && !hasChildren) return null;
+  // Subscribe to KV-load event so the first fetch triggers a re-render
+  useEffect(() => {
+    const fn = () => forceRefresh(n => n + 1);
+    window.__kvInsights.listeners.add(fn);
+    return () => window.__kvInsights.listeners.delete(fn);
+  }, []);
 
-  const label = llmText ? 'AI Insight' : 'Insight';
-  const accent = llmText ? 'oklch(0.55 0.17 290)' : 'oklch(0.55 0.17 260)';
-  const accentDark = llmText ? 'oklch(0.45 0.17 290)' : 'oklch(0.45 0.17 260)';
-  const bg = llmText ? 'oklch(0.97 0.02 290)' : 'oklch(0.97 0.01 260)';
+  // Load localStorage override once
+  useEffect(() => {
+    if (!storageKey) return;
+    const saved = localStorage.getItem(storageKey);
+    if (saved) setEdited(saved);
+  }, [storageKey]);
+
+  const defaultText = kvText || llmText || null;
+  const currentText = edited ?? defaultText;
+  const hasChildren = children && !(Array.isArray(children) && children.every(c => !c));
+  const isOverridden = edited !== null || (kvText && kvText !== llmText);
+
+  if (!currentText && !hasChildren) return null;
+
+  const isAI = !!(currentText || llmText);
+  const label = isAI ? (isOverridden ? 'AI Insight · đã chỉnh' : 'AI Insight') : 'Insight';
+  const accent     = isAI ? 'oklch(0.55 0.17 290)' : 'oklch(0.55 0.17 260)';
+  const accentDark = isAI ? 'oklch(0.45 0.17 290)' : 'oklch(0.45 0.17 260)';
+  const bg         = isAI ? 'oklch(0.97 0.02 290)' : 'oklch(0.97 0.01 260)';
+
+  const flashStatus = (type, text, ms = 1800) => {
+    setStatus({ type, text });
+    if (ms) setTimeout(() => setStatus(s => s && s.text === text ? null : s), ms);
+  };
+
+  const saveEdit = async () => {
+    if (!ref.current || !qId) return;
+    const next = ref.current.innerText.trim();
+    const baseline = (defaultText || '').trim();
+    if (next === baseline) {
+      // Reverted to default — clean up
+      localStorage.removeItem(storageKey);
+      setEdited(null);
+      if (kvText) {
+        await _deleteKvInsight(qId);
+        window.__kvInsights.data[qId] = null;
+        flashStatus('ok', 'Đã khôi phục mặc định');
+      }
+      return;
+    }
+    if (next === (edited || '').trim()) return; // unchanged from prior edit
+
+    // Save locally first (instant, refresh-proof)
+    localStorage.setItem(storageKey, next);
+    setEdited(next);
+    flashStatus('saving', 'Đang lưu…', 0);
+    const ok = await _saveKvInsight(qId, next);
+    if (ok) {
+      window.__kvInsights.data[qId] = next;
+      flashStatus('ok', 'Đã lưu');
+    } else {
+      flashStatus('err', 'Lỗi lưu — thử lại', 4000);
+    }
+  };
+
+  const resetToDefault = async (e) => {
+    e.stopPropagation();
+    if (!qId) return;
+    if (!confirm('Khôi phục insight AI gốc? Bản chỉnh sửa hiện tại sẽ bị xoá.')) return;
+    localStorage.removeItem(storageKey);
+    setEdited(null);
+    flashStatus('saving', 'Đang xoá…', 0);
+    const ok = await _deleteKvInsight(qId);
+    window.__kvInsights.data[qId] = null;
+    if (ref.current) ref.current.innerText = llmText || '';
+    flashStatus(ok ? 'ok' : 'err', ok ? 'Đã khôi phục' : 'Lỗi mạng — thử lại', ok ? 1800 : 4000);
+  };
+
+  const editable = !!qId; // only Qs with an id are persistable
+
+  const statusColor =
+    status?.type === 'ok'     ? 'oklch(0.55 0.14 155)' :
+    status?.type === 'err'    ? 'oklch(0.55 0.18 25)'  :
+    status?.type === 'saving' ? 'oklch(0.55 0.02 260)' :
+    'transparent';
 
   return (
     <div style={{
@@ -262,10 +531,48 @@ function Insight({ qId, children }) {
       color: 'var(--text-2)',
       lineHeight: 1.55,
     }}>
-      <span style={{ fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: accentDark, marginRight: 6 }}>
-        {label}
-      </span>
-      {llmText || children}
+      <div style={{
+        display: 'flex', alignItems: 'center', gap: 8,
+        fontSize: 9, fontWeight: 700, textTransform: 'uppercase',
+        letterSpacing: '0.06em', color: accentDark, marginBottom: 4,
+      }}>
+        <span>{label}</span>
+        {editable && isOverridden && (
+          <button
+            onClick={resetToDefault}
+            title="Khôi phục insight AI gốc"
+            style={{
+              border: 'none', background: 'transparent', cursor: 'pointer',
+              color: accentDark, fontSize: 10, padding: '0 4px',
+              fontWeight: 600, textDecoration: 'underline',
+            }}
+          >↺ Reset</button>
+        )}
+        {status && (
+          <span style={{ color: statusColor, fontWeight: 600, textTransform: 'none' }}>
+            {status.text}
+          </span>
+        )}
+        {editable && !status && (
+          <span style={{ marginLeft: 'auto', color: 'var(--text-3)', fontWeight: 500, textTransform: 'none' }}>
+            bấm để chỉnh
+          </span>
+        )}
+      </div>
+      {editable && currentText != null ? (
+        <div
+          ref={ref}
+          contentEditable
+          suppressContentEditableWarning
+          onBlur={saveEdit}
+          style={{
+            outline: 'none', cursor: 'text',
+            minHeight: 18, whiteSpace: 'pre-wrap',
+          }}
+        >{currentText}</div>
+      ) : (
+        <div>{currentText || children}</div>
+      )}
     </div>
   );
 }
@@ -396,7 +703,9 @@ function OverviewPanel() {
               </div>
             ))}
           </div>
-        </div>
+        
+        <window.CardComments chartId="overview_1" />
+      </div>
 
         <div className="card">
           <div className="card-head">
@@ -422,7 +731,9 @@ function OverviewPanel() {
               ))}
             </div>
           </div>
-        </div>
+        
+        <window.CardComments chartId="overview_2" />
+      </div>
       </div>
 
       <Narrative>
@@ -458,7 +769,9 @@ function OverviewPanel() {
               ))}
             </tbody>
           </table>
-        </div>
+        
+        <window.CardComments chartId="overview_3" />
+      </div>
 
         <div className="card">
           <div className="card-head">
@@ -483,7 +796,9 @@ function OverviewPanel() {
               ))}
             </div>
           </div>
-        </div>
+        
+        <window.CardComments chartId="overview_4" />
+      </div>
       </div>
       {tt.node}
     </div>

@@ -42,7 +42,9 @@ function Q1() {
         Thấp nhất có dữ liệu: <b>{[...q1].reverse().find(m => m.weight > 0)?.vn || '—'}</b>.
         Chênh lệch giữa top và bottom: {(q1[0].weight - (q1[q1.length - 1].weight || 0)).toFixed(1)} điểm.
       </window.Insight>
-    </div>
+    
+        <window.CardComments chartId="Q1_1" />
+      </div>
   );
 
   const HeatGrid = ({ title, groups, accent }) => {
@@ -149,6 +151,8 @@ function Q1() {
             </window.Insight>
           );
         })()}
+      
+        <window.CardComments chartId="Q1_2" />
       </div>
     );
   };
@@ -282,7 +286,9 @@ function Q2() {
               </window.Insight>
             );
           })()}
-        </div>
+        
+        <window.CardComments chartId="Q2_1" />
+      </div>
       </div>
       {tt.node}
     </div>
