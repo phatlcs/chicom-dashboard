@@ -83,7 +83,7 @@ function App() {
 
         {/* ── Section 1: Thông tin sơ bộ ─────────────────────────── */}
         <window.SectionBanner label="Phần 1 — Thông tin sơ bộ" sublabel="Overview · SOV community · Phân bố persona" />
-        <window.OverviewPanel />
+        <section id="overview"><window.OverviewPanel /></section>
 
         {/* ── Section 2: Thông tin chi tiết (14 câu hỏi) ─────────── */}
         <window.SectionBanner label="Phần 2 — Thông tin chi tiết" sublabel="14 câu hỏi nghiên cứu" />
