@@ -51,6 +51,16 @@ function Q3() {
               </div>
             ))}
           </div>
+          {(() => {
+            const sellerLead = [...q3].sort((a, b) => b.diff - a.diff)[0];
+            const prospectLead = [...q3].sort((a, b) => a.diff - b.diff)[0];
+            return (
+              <window.Insight>
+                Seller dominates: <b>{sellerLead.vn}</b> (+{sellerLead.diff}pp) ·
+                Prospect dominates: <b>{prospectLead.vn}</b> ({prospectLead.diff}pp).
+              </window.Insight>
+            );
+          })()}
         </div>
       </div>
 
@@ -85,6 +95,14 @@ function Q3() {
               );
             })}
           </svg>
+          {(() => {
+            const biggestGap = [...subs].sort((a, b) => Math.abs(b.diff) - Math.abs(a.diff))[0];
+            return (
+              <window.Insight>
+                Sub-topic có khoảng cách Seller/Prospect lớn nhất: <b>{biggestGap.vn}</b> ({biggestGap.diff > 0 ? '+' : ''}{biggestGap.diff}pp).
+              </window.Insight>
+            );
+          })()}
         </div>
       </div>
 
@@ -265,6 +283,20 @@ function Q4() {
               );
             })}
           </svg>
+          {(() => {
+            const spikeCount = (D.Q4_EVENTS || []).length;
+            const topTrend = [...trends].sort((a, b) => b.points[b.points.length - 1] - a.points[a.points.length - 1])[0];
+            const lastIdx = topTrend ? topTrend.points.length - 1 : 0;
+            const first = topTrend?.points[0] || 0;
+            const last  = topTrend?.points[lastIdx] || 0;
+            const delta = first > 0 ? Math.round((last / first - 1) * 100) : 0;
+            return (
+              <window.Insight>
+                Phát hiện <b>{spikeCount}</b> tuần có volume vượt 1.5× trung bình.
+                {topTrend && <> Topic dẫn đầu tháng cuối: <b>{topTrend.vn}</b> ({last.toLocaleString()} Lượt Thảo Luận, {delta >= 0 ? '+' : ''}{delta}% so với tháng đầu).</>}
+              </window.Insight>
+            );
+          })()}
         </div>
       </div>
 

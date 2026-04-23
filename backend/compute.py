@@ -430,17 +430,28 @@ def compute_all(df: pd.DataFrame):
             e['slot'] = max(1, int(e['count'] * 0.1))
 
     # ── Q7–Q14 (keyword extraction from content) ────────────────────────────
+    # Per team spec: Q8, Q11, Q12, Q13, Q14 are SOA-only (Amazon-seller specific).
+    # Compute those from SOA-filtered subset so they reflect only SOA community discussion.
+    soa_rel = rel[rel['group_id'].isin(SOA_IDS)].copy() if 'group_id' in rel.columns else rel.iloc[0:0].copy()
+
     q7_topics, q7_benefits, q7_sentiment = extract_q7(rel)
-    q8_triggers, q8_persona, q8_trend    = extract_q8(rel, months)
+    q8_triggers, q8_persona, q8_trend    = extract_q8(soa_rel, months)     # SOA only
     q9_barriers  = extract_q9(rel)
     q9_personas  = extract_q9_personas(rel)
     q10_top      = extract_q10(rel)
-    q11_tools         = extract_q11(rel)
-    q11_issues        = extract_q11_issues(rel)
-    q11_satisfaction  = extract_q11_satisfaction(rel)
-    q12_services = extract_q12(rel)
-    q13_courses  = extract_q13(rel)
-    q14_growth   = extract_q14(rel)
+    q11_tools         = extract_q11(soa_rel)                                # SOA only
+    q11_issues        = extract_q11_issues(soa_rel)                         # SOA only
+    q11_satisfaction  = extract_q11_satisfaction(soa_rel)                   # SOA only
+    q12_services = extract_q12(soa_rel)                                     # SOA only
+    q13_courses  = extract_q13(soa_rel)                                     # SOA only
+    q14_growth   = extract_q14(soa_rel)                                     # SOA only
+
+    # Expose SOA-only totals so UI can show 'Tính trên X bài SOA'
+    soa_scope = {
+        'totalRelevant': int(len(soa_rel)),
+        'groupIds':      list(SOA_IDS),
+        'groupNames':    [GROUP_INFO[g]['short'] for g in SOA_IDS],
+    }
 
     # Weekly Q10 trend — use real 'Product Category' column if populated,
     # otherwise fall back to keyword matching on content
@@ -518,6 +529,7 @@ window.ChiComData = (() => {{
   const Q5_PEAK_WINDOW      = {_j(peak_window)};
   const KPI                 = {_j(kpi)};
   const OVERVIEW            = {_j(overview)};
+  const SOA_SCOPE           = {_j(soa_scope)};
   const DATE_RANGE          = {_j({
       'start': str(rel['created_date'].min().date()) if len(rel) and pd.notna(rel['created_date'].min()) else None,
       'end':   str(rel['created_date'].max().date()) if len(rel) and pd.notna(rel['created_date'].max()) else None,
@@ -530,7 +542,7 @@ window.ChiComData = (() => {{
     MONTHS, Q4_TRENDS, WEEKS, Q4_EVENTS, Q4_WEEKLY,
     DAYS_VN, DAYS_EN, Q56_HEATMAP, Q5_BY_DAY, Q6_BY_HOUR,
     Q5_TOP_NEG, Q5_EARLY_DIST, Q5_PEAK_WINDOW, KPI,
-    OVERVIEW, DATE_RANGE,
+    OVERVIEW, DATE_RANGE, SOA_SCOPE,
   }};
 }})();
 

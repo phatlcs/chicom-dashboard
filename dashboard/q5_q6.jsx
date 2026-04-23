@@ -252,6 +252,23 @@ function Q56() {
         </div>
       </div>
 
+      {(() => {
+        const topDay  = [...daily].sort((a, b) => b.count - a.count)[0];
+        const topHour = [...hourly].sort((a, b) => b.count - a.count)[0];
+        const topNeg  = D.Q5_TOP_NEG[0];
+        const pw = D.Q5_PEAK_WINDOW;
+        return (
+          <div style={{ marginTop: 12, gridColumn: '1 / -1' }}>
+            <window.Insight>
+              Ngày cao nhất: <b>{topDay.day}</b> ({topDay.count.toLocaleString()} Lượt Thảo Luận tiêu cực) ·
+              Giờ cao nhất: <b>{topHour.hour}h</b> ({topHour.count.toLocaleString()}) ·
+              Topic tiêu cực hàng đầu: <b>{topNeg.vn}</b> ({topNeg.count.toLocaleString()}).
+              {pw && pw.windowSize > 0 && <> Khung cao điểm auto-detect: <b>{pw.startHour}h–{pw.endHour}h</b> ({pw.totalMentions.toLocaleString()} Lượt Thảo Luận).</>}
+            </window.Insight>
+          </div>
+        );
+      })()}
+
       {tt.node}
     </div>
   );

@@ -56,6 +56,12 @@ function Q10() {
           </svg>
         </div>
       </div>
+      <div style={{ gridColumn: '1 / -1' }}>
+        <window.Insight>
+          Ngành hàng dẫn đầu: <b>{Q10_TOP[0]?.name || '—'}</b> ({Q10_TOP[0]?.count.toLocaleString() || 0} Lượt Thảo Luận) ·
+          Top-3: {Q10_TOP.slice(0, 3).map(c => c.name).join(', ')}.
+        </window.Insight>
+      </div>
       {tt.node}
     </div>
   );
@@ -127,6 +133,13 @@ function Q11() {
           <div className="card-head"><div className="card-title">Top yếu tố hài lòng</div></div>
           <HBars items={Q11_SATISFACTION.map(t => ({ ...t, color: green }))} labelKey="name" valueKey="count" tooltip={tt} />
         </div>
+      </div>
+      <div style={{ gridColumn: '1 / -1' }}>
+        <window.Insight>
+          Tool được dùng nhiều nhất: <b>{Q11_TOOLS[0]?.name || '—'}</b> (use {Q11_TOOLS[0]?.use.toLocaleString() || 0}, satisfied {Q11_TOOLS[0]?.satisfied || 0}, issues {Q11_TOOLS[0]?.issues || 0}) ·
+          Vấn đề hàng đầu: <b>{Q11_ISSUES[0]?.name || '—'}</b> ({Q11_ISSUES[0]?.count.toLocaleString() || 0}) ·
+          Yếu tố hài lòng hàng đầu: <b>{Q11_SATISFACTION[0]?.name || '—'}</b> ({Q11_SATISFACTION[0]?.count.toLocaleString() || 0}).
+        </window.Insight>
       </div>
       {tt.node}
     </div>
@@ -204,6 +217,20 @@ function Q12() {
           <HBars items={Q12_SERVICES.map(s => ({ name: s.name, count: s.demand, color: 'oklch(0.75 0.17 75)' }))} tooltip={tt} />
         </div>
       </div>
+      {(() => {
+        const topDemand = [...Q12_SERVICES].sort((a, b) => b.demand - a.demand)[0];
+        const topMent = Q12_SERVICES[0];
+        const topSat = [...Q12_SERVICES].sort((a, b) => b.satisfaction - a.satisfaction)[0];
+        return (
+          <div style={{ gridColumn: '1 / -1' }}>
+            <window.Insight>
+              Dịch vụ được đề cập nhiều nhất: <b>{topMent?.name || '—'}</b> ({topMent?.mentions.toLocaleString() || 0} Lượt Thảo Luận) ·
+              Cầu cao nhất: <b>{topDemand?.name || '—'}</b> ({topDemand?.demand || 0}% demand) ·
+              Hài lòng nhất: <b>{topSat?.name || '—'}</b> ({topSat?.satisfaction || 0}%).
+            </window.Insight>
+          </div>
+        );
+      })()}
       {tt.node}
     </div>
   );
@@ -327,6 +354,20 @@ function Q13() {
           </div>
         </div>
       </div>
+      {(() => {
+        const topCourse = Q13_COURSES[0];
+        const topSeeking = [...Q13_COURSES].sort((a, b) => b.seeking - a.seeking)[0];
+        const topPositive = [...Q13_COURSES].sort((a, b) => b.positive - a.positive)[0];
+        return (
+          <div style={{ gridColumn: '1 / -1' }}>
+            <window.Insight>
+              Khóa được nhắc nhiều nhất: <b>{topCourse?.name || '—'}</b> ({topCourse?.mentions.toLocaleString() || 0}) ·
+              Tìm kiếm nhiều nhất: <b>{topSeeking?.name || '—'}</b> ({topSeeking?.seeking || 0} Lượt Thảo Luận chủ động hỏi) ·
+              Sentiment tích cực nhất: <b>{topPositive?.name || '—'}</b> (+{topPositive?.positive || 0}).
+            </window.Insight>
+          </div>
+        );
+      })()}
       {tt.node}
     </div>
   );
@@ -425,6 +466,20 @@ function Q14() {
           </div>
         </div>
       </div>
+      {(() => {
+        const topGrowth = Q14_GROWTH[0];
+        const mostPositive = [...Q14_GROWTH].sort((a, b) => b.positive - a.positive)[0];
+        const mostSeeking = [...Q14_GROWTH].sort((a, b) => b.seeking - a.seeking)[0];
+        return (
+          <div style={{ gridColumn: '1 / -1' }}>
+            <window.Insight>
+              Chủ đề tăng trưởng dẫn đầu: <b>{topGrowth?.name || '—'}</b> ({topGrowth?.count.toLocaleString() || 0} Lượt Thảo Luận) ·
+              Sentiment tích cực nhất: <b>{mostPositive?.name || '—'}</b> (+{mostPositive?.positive || 0}) ·
+              Seller cần hỗ trợ nhiều nhất về: <b>{mostSeeking?.name || '—'}</b> ({mostSeeking?.seeking || 0} Lượt Thảo Luận chủ động hỏi).
+            </window.Insight>
+          </div>
+        );
+      })()}
       {tt.node}
     </div>
   );

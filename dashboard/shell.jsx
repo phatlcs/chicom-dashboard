@@ -161,17 +161,33 @@ function AnchorRail() {
 }
 window.AnchorRail = AnchorRail;
 
-function Section({ id, num, title, indication, children }) {
+function Section({ id, num, title, indication, soaOnly, children }) {
+  const soaScope = (window.ChiComData || {}).SOA_SCOPE;
   return (
     <section className="qsection" id={id}>
       {title ? (
         <div className="qhead">
           <span className="qnum">{num}</span>
           <div className="qtitle"><h2>{title}</h2></div>
+          {soaOnly && <ScopeBadge />}
         </div>
       ) : (
-        <div style={{ marginBottom: 14 }}>
+        <div style={{ marginBottom: 14, display: 'flex', alignItems: 'center', gap: 10 }}>
           <span className="qnum">{num}</span>
+          {soaOnly && <ScopeBadge />}
+        </div>
+      )}
+      {soaOnly && soaScope && (
+        <div style={{
+          margin: '0 0 10px',
+          padding: '8px 14px',
+          background: 'oklch(0.96 0.04 25 / 0.4)',
+          border: '1px solid oklch(0.80 0.08 25)',
+          borderRadius: 4,
+          fontSize: 11,
+          color: 'var(--text-2)',
+        }}>
+          <b>Phạm vi dữ liệu:</b> Chỉ tính trên <b>{soaScope.totalRelevant.toLocaleString()}</b> Lượt Thảo Luận từ <b>{soaScope.groupIds.length} nhóm SOA</b> ({soaScope.groupNames.join(', ')}) — câu hỏi này đặc thù cho Amazon sellers.
         </div>
       )}
       {indication && (
@@ -196,6 +212,46 @@ function Section({ id, num, title, indication, children }) {
   );
 }
 window.Section = Section;
+
+function ScopeBadge() {
+  return (
+    <span style={{
+      display: 'inline-flex', alignItems: 'center', gap: 4,
+      padding: '3px 8px', borderRadius: 4,
+      background: 'oklch(0.60 0.20 25 / 0.15)',
+      color: 'oklch(0.45 0.20 25)',
+      fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em',
+      border: '1px solid oklch(0.80 0.12 25)',
+    }}>
+      <span style={{ width: 5, height: 5, background: 'oklch(0.55 0.20 25)', borderRadius: '50%' }}></span>
+      Chỉ SOA
+    </span>
+  );
+}
+window.ScopeBadge = ScopeBadge;
+
+// Insight text-box under every chart — auto-generated from the data passed in
+function Insight({ children }) {
+  if (!children || (Array.isArray(children) && children.every(c => !c))) return null;
+  return (
+    <div style={{
+      marginTop: 10,
+      padding: '8px 12px',
+      background: 'oklch(0.97 0.01 260)',
+      borderLeft: '3px solid oklch(0.55 0.17 260)',
+      borderRadius: 3,
+      fontSize: 11,
+      color: 'var(--text-2)',
+      lineHeight: 1.5,
+    }}>
+      <span style={{ fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'oklch(0.45 0.17 260)', marginRight: 6 }}>
+        Insight
+      </span>
+      {children}
+    </div>
+  );
+}
+window.Insight = Insight;
 
 // Divider banner between sections (Thông tin sơ bộ / Thông tin chi tiết)
 function SectionBanner({ label, sublabel }) {

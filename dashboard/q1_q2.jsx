@@ -37,6 +37,11 @@ function Q1() {
       <div style={{ marginTop: 14, paddingTop: 12, borderTop: '1px solid var(--border)', fontSize: 11, color: 'var(--text-3)' }}>
         {D.MASTER_TOPICS.length} Master Topics · {(D.KPI && D.KPI.subTopics) || 0} chủ đề phụ
       </div>
+      <window.Insight>
+        Master topic chiếm tỉ trọng cao nhất: <b>{q1[0].vn}</b> ({q1[0].weight}%).
+        Thấp nhất có dữ liệu: <b>{[...q1].reverse().find(m => m.weight > 0)?.vn || '—'}</b>.
+        Chênh lệch giữa top và bottom: {(q1[0].weight - (q1[q1.length - 1].weight || 0)).toFixed(1)} điểm.
+      </window.Insight>
     </div>
   );
 
@@ -122,6 +127,28 @@ function Q1() {
         <div style={{ marginTop: 10, fontSize: 11, color: 'var(--text-3)' }}>
           {mts.length} Master Topics × {groups.length} nhóm · di chuột lên ô để xem chi tiết
         </div>
+        {(() => {
+          // Find top (MT, group) cell
+          let best = { mt: null, g: null, v: -1 };
+          mts.forEach(mt => groups.forEach(g => {
+            const v = D.Q1_WEIGHTS[mt.id][g.id];
+            if (v > best.v) best = { mt, g, v };
+          }));
+          // Most concentrated group (highest max MT share)
+          const grpMax = groups.map(g => ({
+            g,
+            top: mts.reduce((acc, mt) => {
+              const v = D.Q1_WEIGHTS[mt.id][g.id];
+              return v > acc.v ? { mt, v } : acc;
+            }, { mt: null, v: 0 }),
+          }));
+          return (
+            <window.Insight>
+              Ô nóng nhất: <b>{best.g.short}</b> dành <b>{best.v}%</b> cho topic <b>{best.mt.vn}</b>.
+              {grpMax[0] && <> Nhóm tập trung nhất: <b>{grpMax.sort((a, b) => b.top.v - a.top.v)[0].g.short}</b> ({grpMax[0].top.v}%).</>}
+            </window.Insight>
+          );
+        })()}
       </div>
     );
   };
@@ -240,6 +267,21 @@ function Q2() {
               ))}
             </svg>
           </div>
+          {(() => {
+            let best = { p: null, mt: null, v: -1 };
+            mts.forEach(mt => personas.forEach(p => {
+              const v = D.Q2_MATRIX[mt.id][p.id];
+              if (v > best.v) best = { p, mt, v };
+            }));
+            const personaTotals = personas.map(p => ({ p, total: mts.reduce((s, mt) => s + D.Q2_MATRIX[mt.id][p.id], 0) }));
+            personaTotals.sort((a, b) => b.total - a.total);
+            return (
+              <window.Insight>
+                Ô dày đặc nhất: <b>{best.p.vn}</b> × <b>{best.mt.vn}</b> với <b>{best.v.toLocaleString()}</b> Lượt Thảo Luận.
+                Persona có tổng lượt cao nhất: <b>{personaTotals[0].p.vn}</b> ({personaTotals[0].total.toLocaleString()}).
+              </window.Insight>
+            );
+          })()}
         </div>
       </div>
       {tt.node}

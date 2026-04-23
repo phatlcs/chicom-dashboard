@@ -1527,6 +1527,17 @@ window.ChiComData = (() => {
     "pct": 23.6
   }
 };
+  const SOA_SCOPE           = {
+  "totalRelevant": 5468,
+  "groupIds": [
+    1,
+    2
+  ],
+  "groupNames": [
+    "Amazon Sellers VN",
+    "CĐ Amazon Sellers"
+  ]
+};
   const DATE_RANGE          = {
   "start": "2025-12-24",
   "end": "2026-04-06",
@@ -1539,7 +1550,7 @@ window.ChiComData = (() => {
     MONTHS, Q4_TRENDS, WEEKS, Q4_EVENTS, Q4_WEEKLY,
     DAYS_VN, DAYS_EN, Q56_HEATMAP, Q5_BY_DAY, Q6_BY_HOUR,
     Q5_TOP_NEG, Q5_EARLY_DIST, Q5_PEAK_WINDOW, KPI,
-    OVERVIEW, DATE_RANGE,
+    OVERVIEW, DATE_RANGE, SOA_SCOPE,
   };
 })();
 
@@ -1610,79 +1621,79 @@ window.ChiComData2 = (() => {
 };
   const Q8_TRIGGERS    = [
   {
-    "vn": "Thua lỗ / chi phí cao",
-    "name": "Thua lỗ / chi phí cao",
-    "count": 165
-  },
-  {
     "vn": "Lừa đảo / rủi ro",
     "name": "Lừa đảo / rủi ro",
-    "count": 151
-  },
-  {
-    "vn": "Kiệt sức / mất động lực",
-    "name": "Kiệt sức / mất động lực",
-    "count": 144
-  },
-  {
-    "vn": "Chính sách phức tạp",
-    "name": "Chính sách phức tạp",
-    "count": 83
+    "count": 24
   },
   {
     "vn": "Tài khoản bị khóa",
     "name": "Tài khoản bị khóa",
-    "count": 73
+    "count": 16
+  },
+  {
+    "vn": "Thua lỗ / chi phí cao",
+    "name": "Thua lỗ / chi phí cao",
+    "count": 16
+  },
+  {
+    "vn": "Kiệt sức / mất động lực",
+    "name": "Kiệt sức / mất động lực",
+    "count": 12
+  },
+  {
+    "vn": "Chính sách phức tạp",
+    "name": "Chính sách phức tạp",
+    "count": 5
   },
   {
     "vn": "Cạnh tranh khốc liệt",
     "name": "Cạnh tranh khốc liệt",
-    "count": 26
+    "count": 2
   },
   {
     "vn": "Thiếu kinh nghiệm / kỹ năng",
     "name": "Thiếu kinh nghiệm / kỹ năng",
-    "count": 4
+    "count": 1
   }
 ];
   const Q8_PERSONA     = [
   {
-    "label": "Seller (Others)",
-    "count": 5802,
+    "label": "Seller (Amazon)",
+    "count": 1006,
     "color": "oklch(0.60 0.20 25)"
   },
   {
-    "label": "Seller (Amazon)",
-    "count": 2541,
+    "label": "Prospect (Amazon)",
+    "count": 71,
     "color": "oklch(0.70 0.17 60)"
   },
   {
-    "label": "Prospect (Others)",
-    "count": 380,
+    "label": "Seller (Others)",
+    "count": 64,
     "color": "oklch(0.62 0.15 260)"
-  },
-  {
-    "label": "Prospect (Amazon)",
-    "count": 81,
-    "color": "oklch(0.62 0.15 155)"
-  },
-  {
-    "label": "Service Provider (CBEC)",
-    "count": 28,
-    "color": "oklch(0.62 0.15 320)"
   },
   {
     "label": "Service Provider (Amazon)",
     "count": 6,
+    "color": "oklch(0.62 0.15 155)"
+  },
+  {
+    "label": "Prospect (Others)",
+    "count": 2,
+    "color": "oklch(0.62 0.15 320)"
+  },
+  {
+    "label": "Service Provider (CBEC)",
+    "count": 1,
     "color": "oklch(0.60 0.20 25)"
   }
 ];
   const Q8_TREND       = [
-  249,
-  2701,
-  2373,
-  3335,
-  180
+  107,
+  479,
+  195,
+  369,
+  0
 ];
   const Q9_BARRIERS    = [
   {
@@ -2035,49 +2046,41 @@ window.ChiComData2 = (() => {
   {
     "name": "FBA",
     "vn": "FBA",
-    "count": 161,
-    "use": 161,
-    "satisfied": 20,
+    "count": 119,
+    "use": 119,
+    "satisfied": 17,
     "issues": 13
-  },
-  {
-    "name": "PPC/Ads",
-    "vn": "PPC/Ads",
-    "count": 126,
-    "use": 126,
-    "satisfied": 43,
-    "issues": 19
   },
   {
     "name": "FBM",
     "vn": "FBM",
-    "count": 104,
-    "use": 104,
-    "satisfied": 7,
+    "count": 75,
+    "use": 75,
+    "satisfied": 4,
     "issues": 12
+  },
+  {
+    "name": "PPC/Ads",
+    "vn": "PPC/Ads",
+    "count": 45,
+    "use": 45,
+    "satisfied": 22,
+    "issues": 3
   },
   {
     "name": "Quản lý tồn kho",
     "vn": "Quản lý tồn kho",
-    "count": 102,
-    "use": 102,
-    "satisfied": 27,
-    "issues": 17
-  },
-  {
-    "name": "Amazon Support",
-    "vn": "Amazon Support",
-    "count": 92,
-    "use": 92,
-    "satisfied": 3,
-    "issues": 57
+    "count": 33,
+    "use": 33,
+    "satisfied": 14,
+    "issues": 4
   },
   {
     "name": "Helium 10",
     "vn": "Helium 10",
-    "count": 33,
-    "use": 33,
-    "satisfied": 9,
+    "count": 17,
+    "use": 17,
+    "satisfied": 6,
     "issues": 0
   },
   {
@@ -2097,19 +2100,19 @@ window.ChiComData2 = (() => {
     "issues": 4
   },
   {
-    "name": "Jungle Scout",
-    "vn": "Jungle Scout",
-    "count": 5,
-    "use": 5,
-    "satisfied": 1,
-    "issues": 0
+    "name": "Amazon Support",
+    "vn": "Amazon Support",
+    "count": 13,
+    "use": 13,
+    "satisfied": 2,
+    "issues": 6
   },
   {
-    "name": "Amazon Vine",
-    "vn": "Amazon Vine",
-    "count": 3,
-    "use": 3,
-    "satisfied": 0,
+    "name": "Jungle Scout",
+    "vn": "Jungle Scout",
+    "count": 1,
+    "use": 1,
+    "satisfied": 1,
     "issues": 0
   }
 ];
@@ -2117,179 +2120,174 @@ window.ChiComData2 = (() => {
   {
     "vn": "Lỗi hệ thống / Bug",
     "name": "Lỗi hệ thống / Bug",
-    "count": 470
-  },
-  {
-    "vn": "Phí & chi phí cao",
-    "name": "Phí & chi phí cao",
-    "count": 125
-  },
-  {
-    "vn": "Tài khoản bị khóa / suspend",
-    "name": "Tài khoản bị khóa / suspend",
     "count": 122
   },
   {
     "vn": "Khó dùng / phức tạp",
     "name": "Khó dùng / phức tạp",
-    "count": 84
+    "count": 18
   },
   {
-    "vn": "Cập nhật chậm / outdated",
-    "name": "Cập nhật chậm / outdated",
-    "count": 13
+    "vn": "Tài khoản bị khóa / suspend",
+    "name": "Tài khoản bị khóa / suspend",
+    "count": 17
+  },
+  {
+    "vn": "Phí & chi phí cao",
+    "name": "Phí & chi phí cao",
+    "count": 12
   },
   {
     "vn": "Hỗ trợ chậm / kém",
     "name": "Hỗ trợ chậm / kém",
-    "count": 10
+    "count": 4
   },
   {
-    "vn": "Thiếu tính năng",
-    "name": "Thiếu tính năng",
-    "count": 7
+    "vn": "Cập nhật chậm / outdated",
+    "name": "Cập nhật chậm / outdated",
+    "count": 3
   },
   {
     "vn": "Dữ liệu sai / không chính xác",
     "name": "Dữ liệu sai / không chính xác",
-    "count": 2
+    "count": 1
   }
 ];
   const Q11_SATISFACTION = [
   {
-    "vn": "Giá hợp lý / đáng tiền",
-    "name": "Giá hợp lý / đáng tiền",
-    "count": 267
+    "vn": "Dễ dùng / trực quan",
+    "name": "Dễ dùng / trực quan",
+    "count": 42
   },
   {
     "vn": "Hiệu quả rõ rệt",
     "name": "Hiệu quả rõ rệt",
-    "count": 234
+    "count": 35
   },
   {
-    "vn": "Dễ dùng / trực quan",
-    "name": "Dễ dùng / trực quan",
-    "count": 201
-  },
-  {
-    "vn": "Tiết kiệm thời gian",
-    "name": "Tiết kiệm thời gian",
-    "count": 119
+    "vn": "Giá hợp lý / đáng tiền",
+    "name": "Giá hợp lý / đáng tiền",
+    "count": 34
   },
   {
     "vn": "Dữ liệu chính xác",
     "name": "Dữ liệu chính xác",
-    "count": 84
+    "count": 17
+  },
+  {
+    "vn": "Tiết kiệm thời gian",
+    "name": "Tiết kiệm thời gian",
+    "count": 15
   },
   {
     "vn": "Cộng đồng & tài liệu tốt",
     "name": "Cộng đồng & tài liệu tốt",
-    "count": 56
+    "count": 11
   },
   {
     "vn": "Hỗ trợ tận tình",
     "name": "Hỗ trợ tận tình",
-    "count": 26
+    "count": 1
   },
   {
     "vn": "Nhiều tính năng / đầy đủ",
     "name": "Nhiều tính năng / đầy đủ",
-    "count": 10
+    "count": 1
   }
 ];
   const Q12_SERVICES   = [
   {
     "name": "Kế toán / Thuế",
     "vn": "Kế toán / Thuế",
-    "count": 2357,
-    "mentions": 2357,
-    "need": 142,
-    "satisfaction": 20,
-    "demand": 6
+    "count": 258,
+    "mentions": 258,
+    "need": 23,
+    "satisfaction": 33,
+    "demand": 9
   },
   {
     "name": "Vận chuyển / Forwarder",
     "vn": "Vận chuyển / Forwarder",
-    "count": 1124,
-    "mentions": 1124,
-    "need": 72,
-    "satisfaction": 36,
-    "demand": 6
+    "count": 105,
+    "mentions": 105,
+    "need": 18,
+    "satisfaction": 61,
+    "demand": 17
   },
   {
-    "name": "Phần mềm / Tool",
-    "vn": "Phần mềm / Tool",
-    "count": 356,
-    "mentions": 356,
-    "need": 24,
-    "satisfaction": 79,
+    "name": "Pháp lý / Nhãn hiệu",
+    "vn": "Pháp lý / Nhãn hiệu",
+    "count": 102,
+    "mentions": 102,
+    "need": 7,
+    "satisfaction": 55,
     "demand": 7
   },
   {
     "name": "Nguồn hàng / Sourcing",
     "vn": "Nguồn hàng / Sourcing",
-    "count": 308,
-    "mentions": 308,
-    "need": 22,
+    "count": 68,
+    "mentions": 68,
+    "need": 12,
     "satisfaction": 70,
-    "demand": 7
+    "demand": 18
   },
   {
-    "name": "Pháp lý / Nhãn hiệu",
-    "vn": "Pháp lý / Nhãn hiệu",
-    "count": 190,
-    "mentions": 190,
-    "need": 13,
-    "satisfaction": 39,
-    "demand": 7
+    "name": "Phần mềm / Tool",
+    "vn": "Phần mềm / Tool",
+    "count": 43,
+    "mentions": 43,
+    "need": 6,
+    "satisfaction": 100,
+    "demand": 14
   },
   {
     "name": "Trợ lý ảo / VA",
     "vn": "Trợ lý ảo / VA",
-    "count": 66,
-    "mentions": 66,
-    "need": 5,
-    "satisfaction": 71,
-    "demand": 8
-  },
-  {
-    "name": "Chụp ảnh sản phẩm",
-    "vn": "Chụp ảnh sản phẩm",
-    "count": 27,
-    "mentions": 27,
-    "need": 0,
-    "satisfaction": 100,
-    "demand": 0
+    "count": 17,
+    "mentions": 17,
+    "need": 3,
+    "satisfaction": 80,
+    "demand": 18
   },
   {
     "name": "Tối ưu Listing",
     "vn": "Tối ưu Listing",
-    "count": 24,
-    "mentions": 24,
-    "need": 6,
-    "satisfaction": 86,
-    "demand": 25
+    "count": 10,
+    "mentions": 10,
+    "need": 4,
+    "satisfaction": 75,
+    "demand": 40
+  },
+  {
+    "name": "Chụp ảnh sản phẩm",
+    "vn": "Chụp ảnh sản phẩm",
+    "count": 8,
+    "mentions": 8,
+    "need": 0,
+    "satisfaction": 100,
+    "demand": 0
   }
 ];
   const Q13_COURSES    = [
   {
     "name": "Đào tạo tổng quát",
     "vn": "Đào tạo tổng quát",
-    "count": 94,
-    "mentions": 94,
-    "seeking": 7,
-    "interest": 7,
-    "positive": 42,
-    "negative": 5
+    "count": 35,
+    "mentions": 35,
+    "seeking": 3,
+    "interest": 9,
+    "positive": 20,
+    "negative": 0
   },
   {
     "name": "Mentor / Coaching",
     "vn": "Mentor / Coaching",
-    "count": 18,
-    "mentions": 18,
+    "count": 7,
+    "mentions": 7,
     "seeking": 1,
-    "interest": 6,
-    "positive": 7,
+    "interest": 14,
+    "positive": 3,
     "negative": 1
   },
   {
@@ -2306,57 +2304,48 @@ window.ChiComData2 = (() => {
   const Q14_GROWTH     = [
   {
     "name": "Xây dựng Team",
-    "count": 492,
+    "count": 123,
     "color": "oklch(0.55 0.17 290)",
-    "seeking": 19,
-    "positive": 159,
-    "mixed": 271,
-    "negative": 62
+    "seeking": 8,
+    "positive": 42,
+    "mixed": 67,
+    "negative": 14
   },
   {
     "name": "Tự động hóa & Tool",
-    "count": 442,
+    "count": 106,
     "color": "oklch(0.75 0.17 60)",
-    "seeking": 16,
-    "positive": 173,
-    "mixed": 234,
-    "negative": 35
+    "seeking": 5,
+    "positive": 52,
+    "mixed": 44,
+    "negative": 10
   },
   {
     "name": "Scale vận hành",
-    "count": 378,
+    "count": 61,
     "color": "oklch(0.55 0.17 260)",
-    "seeking": 10,
-    "positive": 258,
-    "mixed": 112,
-    "negative": 8
+    "seeking": 3,
+    "positive": 38,
+    "mixed": 21,
+    "negative": 2
   },
   {
     "name": "Mở rộng thị trường",
-    "count": 226,
+    "count": 57,
     "color": "oklch(0.60 0.20 25)",
-    "seeking": 19,
-    "positive": 30,
-    "mixed": 187,
-    "negative": 9
+    "seeking": 8,
+    "positive": 11,
+    "mixed": 38,
+    "negative": 8
   },
   {
     "name": "Marketing & Quảng cáo",
-    "count": 96,
+    "count": 27,
     "color": "oklch(0.62 0.15 155)",
-    "seeking": 4,
-    "positive": 45,
-    "mixed": 47,
-    "negative": 4
-  },
-  {
-    "name": "Tăng doanh thu",
-    "count": 14,
-    "color": "oklch(0.62 0.15 200)",
-    "seeking": 0,
-    "positive": 6,
-    "mixed": 6,
-    "negative": 2
+    "seeking": 3,
+    "positive": 15,
+    "mixed": 11,
+    "negative": 1
   }
 ];
   return {

@@ -102,19 +102,19 @@ function App() {
           indication="Khung giờ cao điểm phát hiện tự động từ dữ liệu (không cố định) — negative-sentiment Lượt Thảo Luận tập trung ở giờ nào. Input cho timing của support / moderation."><Q56 /></window.Section>
         <window.Section id="Q7" num="Q7"
           indication="Lý do + benefit khiến seller gia nhập Amazon. Data-driven keyword match — Chi có thể bổ sung VN slang để tăng recall."><Q7 /></window.Section>
-        <window.Section id="Q8" num="Q8"
+        <window.Section id="Q8" num="Q8" soaOnly
           indication="Dấu hiệu rời bỏ + persona nào đang thảo luận rời bỏ nhiều nhất. Monthly trend để phát hiện spike sớm."><Q8 /></window.Section>
         <window.Section id="Q9" num="Q9"
           indication="Phân bố persona của những Lượt Thảo Luận Q7 (gia nhập) vs Q8 (rời bỏ) — xem nhóm nào đang lead từng hướng."><Q9 /></window.Section>
         <window.Section id="Q10" num="Q10"
           indication="Top ngành hàng thảo luận. Hiện đang keyword-based; sẽ tự nâng cấp khi LLM điền cột Product Category."><Q10 /></window.Section>
-        <window.Section id="Q11" num="Q11"
+        <window.Section id="Q11" num="Q11" soaOnly
           indication="Mức adoption + hài lòng / vấn đề cho từng tool Amazon. Satisfied = pos-sentiment count, Issues = neg-sentiment count — cross-tab thật, không phải phân số giả."><Q11 /></window.Section>
-        <window.Section id="Q12" num="Q12"
+        <window.Section id="Q12" num="Q12" soaOnly
           indication="Dịch vụ bên thứ 3 mà seller đang cần. 'Need' = Lượt Thảo Luận có kèm cụm 'cho hỏi/cần tìm' → input cho partnership/marketplace."><Q12 /></window.Section>
-        <window.Section id="Q13" num="Q13"
+        <window.Section id="Q13" num="Q13" soaOnly
           indication="Khóa học seller quan tâm. Seeking = Lượt Thảo Luận chủ động hỏi — dùng để curate danh mục đào tạo."><Q13 /></window.Section>
-        <window.Section id="Q14" num="Q14"
+        <window.Section id="Q14" num="Q14" soaOnly
           indication="Chủ đề tăng trưởng + P&L polarity. Phân chia seeking / positive / mixed / negative từ sentiment column — không phải tỉ lệ cố định."><Q14 /></window.Section>
 
         <div style={{ padding: '24px 0', borderTop: '1px solid var(--border)', color: 'var(--text-3)', fontSize: 12, display: 'flex', justifyContent: 'space-between' }}>
