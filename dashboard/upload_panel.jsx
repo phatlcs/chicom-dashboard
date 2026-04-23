@@ -107,7 +107,7 @@ function UploadPanel() {
           {!backendUp && (
             <div style={{ fontSize: 11, color: 'var(--text-3)', marginBottom: 12, lineHeight: 1.5 }}>
               Showing pre-computed data from<br/>
-              <code style={{ fontSize: 10 }}>all_groups_final_annotated.csv</code>.
+              <code style={{ fontSize: 10 }}>all_groups_final_v2_annotated.csv</code>.
               <br/><br/>
               To upload a new dataset live, run:
               <br/><code style={{ fontSize: 10, color: 'var(--text-2)' }}>python backend/main.py</code>
@@ -151,7 +151,7 @@ function UploadPanel() {
           )}
 
           <div style={{ marginTop: 10, fontSize: 10, color: 'var(--text-3)', lineHeight: 1.5 }}>
-            Accepts: <code style={{ fontSize: 9 }}>all_groups_final_annotated.csv</code> or any CSV with the same schema.
+            Accepts: <code style={{ fontSize: 9 }}>all_groups_final_v2_annotated.csv</code> or any CSV with the same schema.
           </div>
         </div>
       )}

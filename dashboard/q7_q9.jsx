@@ -97,7 +97,7 @@ function Q7() {
         </div>
       </div>
       <div style={{ gridColumn: '1 / -1' }}>
-        <window.Insight>
+        <window.Insight qId="Q7">
           Top lý do gia nhập: <b>{Q7_TOPICS[0]?.vn || '—'}</b> ({Q7_TOPICS[0]?.count.toLocaleString() || 0} Lượt Thảo Luận) ·
           Top benefit: <b>{Q7_BENEFITS[0]?.vn || '—'}</b> ({Q7_BENEFITS[0]?.count.toLocaleString() || 0}) ·
           Sentiment: <b>{Q7_SENTIMENT.positive}%</b> tích cực / <b>{Q7_SENTIMENT.negative}%</b> tiêu cực.
@@ -210,7 +210,7 @@ function Q8() {
         </div>
       </div>
       <div style={{ gridColumn: '1 / -1' }}>
-        <window.Insight>
+        <window.Insight qId="Q8">
           Top lý do rời bỏ: <b>{Q8_TRIGGERS[0]?.vn || '—'}</b> ({Q8_TRIGGERS[0]?.count.toLocaleString() || 0} Lượt Thảo Luận) ·
           Persona rời bỏ nhiều nhất: <b>{Q8_PERSONA[0]?.label || '—'}</b> ({Q8_PERSONA[0]?.count.toLocaleString() || 0}) ·
           Tháng đỉnh: <b>{months[Q8_TREND.indexOf(Math.max(...Q8_TREND))] || '—'}</b> ({Math.max(...Q8_TREND).toLocaleString()} Lượt Thảo Luận).
@@ -287,7 +287,7 @@ function Q9() {
         <Donut title={<span>Nhóm tham gia — Q8 (dấu hiệu rời bỏ)</span>} items={q8Personas} />
       </div>
       <div style={{ gridColumn: '1 / -1' }}>
-        <window.Insight>
+        <window.Insight qId="Q9">
           Nhóm dẫn dắt thảo luận gia nhập (Q7): <b>{q7Personas[0]?.name || '—'}</b> ({q7Personas[0]?.count.toLocaleString() || 0} Lượt Thảo Luận) ·
           Nhóm dẫn dắt thảo luận rời bỏ (Q8): <b>{q8Personas[0]?.name || '—'}</b> ({q8Personas[0]?.count.toLocaleString() || 0}).
         </window.Insight>

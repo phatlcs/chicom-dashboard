@@ -37,7 +37,7 @@ function Q1() {
       <div style={{ marginTop: 14, paddingTop: 12, borderTop: '1px solid var(--border)', fontSize: 11, color: 'var(--text-3)' }}>
         {D.MASTER_TOPICS.length} Master Topics · {(D.KPI && D.KPI.subTopics) || 0} chủ đề phụ
       </div>
-      <window.Insight>
+      <window.Insight qId="Q1">
         Master topic chiếm tỉ trọng cao nhất: <b>{q1[0].vn}</b> ({q1[0].weight}%).
         Thấp nhất có dữ liệu: <b>{[...q1].reverse().find(m => m.weight > 0)?.vn || '—'}</b>.
         Chênh lệch giữa top và bottom: {(q1[0].weight - (q1[q1.length - 1].weight || 0)).toFixed(1)} điểm.
@@ -276,7 +276,7 @@ function Q2() {
             const personaTotals = personas.map(p => ({ p, total: mts.reduce((s, mt) => s + D.Q2_MATRIX[mt.id][p.id], 0) }));
             personaTotals.sort((a, b) => b.total - a.total);
             return (
-              <window.Insight>
+              <window.Insight qId="Q2">
                 Ô dày đặc nhất: <b>{best.p.vn}</b> × <b>{best.mt.vn}</b> với <b>{best.v.toLocaleString()}</b> Lượt Thảo Luận.
                 Persona có tổng lượt cao nhất: <b>{personaTotals[0].p.vn}</b> ({personaTotals[0].total.toLocaleString()}).
               </window.Insight>

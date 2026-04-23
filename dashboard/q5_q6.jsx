@@ -259,7 +259,7 @@ function Q56() {
         const pw = D.Q5_PEAK_WINDOW;
         return (
           <div style={{ marginTop: 12, gridColumn: '1 / -1' }}>
-            <window.Insight>
+            <window.Insight qId="Q5">
               Ngày cao nhất: <b>{topDay.day}</b> ({topDay.count.toLocaleString()} Lượt Thảo Luận tiêu cực) ·
               Giờ cao nhất: <b>{topHour.hour}h</b> ({topHour.count.toLocaleString()}) ·
               Topic tiêu cực hàng đầu: <b>{topNeg.vn}</b> ({topNeg.count.toLocaleString()}).

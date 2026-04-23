@@ -230,24 +230,42 @@ function ScopeBadge() {
 }
 window.ScopeBadge = ScopeBadge;
 
-// Insight text-box under every chart — auto-generated from the data passed in
-function Insight({ children }) {
-  if (!children || (Array.isArray(children) && children.every(c => !c))) return null;
+// Insight text-box under every chart.
+// When `qId` is provided and an LLM-generated paragraph exists in
+// window.ChiComData.INSIGHTS[qId], that paragraph is rendered (labeled
+// "AI Insight"). Otherwise falls back to the `children` terse template
+// (labeled "Insight"). No layout change either way.
+function Insight({ qId, children }) {
+  const llmText = qId
+    ? (((window.ChiComData || {}).INSIGHTS || {})[qId] || null)
+    : null;
+
+  const hasChildren =
+    children &&
+    !(Array.isArray(children) && children.every(c => !c));
+
+  if (!llmText && !hasChildren) return null;
+
+  const label = llmText ? 'AI Insight' : 'Insight';
+  const accent = llmText ? 'oklch(0.55 0.17 290)' : 'oklch(0.55 0.17 260)';
+  const accentDark = llmText ? 'oklch(0.45 0.17 290)' : 'oklch(0.45 0.17 260)';
+  const bg = llmText ? 'oklch(0.97 0.02 290)' : 'oklch(0.97 0.01 260)';
+
   return (
     <div style={{
       marginTop: 10,
       padding: '8px 12px',
-      background: 'oklch(0.97 0.01 260)',
-      borderLeft: '3px solid oklch(0.55 0.17 260)',
+      background: bg,
+      borderLeft: `3px solid ${accent}`,
       borderRadius: 3,
       fontSize: 11,
       color: 'var(--text-2)',
-      lineHeight: 1.5,
+      lineHeight: 1.55,
     }}>
-      <span style={{ fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'oklch(0.45 0.17 260)', marginRight: 6 }}>
-        Insight
+      <span style={{ fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: accentDark, marginRight: 6 }}>
+        {label}
       </span>
-      {children}
+      {llmText || children}
     </div>
   );
 }

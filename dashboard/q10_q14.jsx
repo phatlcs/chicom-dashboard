@@ -57,7 +57,7 @@ function Q10() {
         </div>
       </div>
       <div style={{ gridColumn: '1 / -1' }}>
-        <window.Insight>
+        <window.Insight qId="Q10">
           Ngành hàng dẫn đầu: <b>{Q10_TOP[0]?.name || '—'}</b> ({Q10_TOP[0]?.count.toLocaleString() || 0} Lượt Thảo Luận) ·
           Top-3: {Q10_TOP.slice(0, 3).map(c => c.name).join(', ')}.
         </window.Insight>
@@ -135,7 +135,7 @@ function Q11() {
         </div>
       </div>
       <div style={{ gridColumn: '1 / -1' }}>
-        <window.Insight>
+        <window.Insight qId="Q11">
           Tool được dùng nhiều nhất: <b>{Q11_TOOLS[0]?.name || '—'}</b> (use {Q11_TOOLS[0]?.use.toLocaleString() || 0}, satisfied {Q11_TOOLS[0]?.satisfied || 0}, issues {Q11_TOOLS[0]?.issues || 0}) ·
           Vấn đề hàng đầu: <b>{Q11_ISSUES[0]?.name || '—'}</b> ({Q11_ISSUES[0]?.count.toLocaleString() || 0}) ·
           Yếu tố hài lòng hàng đầu: <b>{Q11_SATISFACTION[0]?.name || '—'}</b> ({Q11_SATISFACTION[0]?.count.toLocaleString() || 0}).
@@ -223,7 +223,7 @@ function Q12() {
         const topSat = [...Q12_SERVICES].sort((a, b) => b.satisfaction - a.satisfaction)[0];
         return (
           <div style={{ gridColumn: '1 / -1' }}>
-            <window.Insight>
+            <window.Insight qId="Q12">
               Dịch vụ được đề cập nhiều nhất: <b>{topMent?.name || '—'}</b> ({topMent?.mentions.toLocaleString() || 0} Lượt Thảo Luận) ·
               Cầu cao nhất: <b>{topDemand?.name || '—'}</b> ({topDemand?.demand || 0}% demand) ·
               Hài lòng nhất: <b>{topSat?.name || '—'}</b> ({topSat?.satisfaction || 0}%).
@@ -360,7 +360,7 @@ function Q13() {
         const topPositive = [...Q13_COURSES].sort((a, b) => b.positive - a.positive)[0];
         return (
           <div style={{ gridColumn: '1 / -1' }}>
-            <window.Insight>
+            <window.Insight qId="Q13">
               Khóa được nhắc nhiều nhất: <b>{topCourse?.name || '—'}</b> ({topCourse?.mentions.toLocaleString() || 0}) ·
               Tìm kiếm nhiều nhất: <b>{topSeeking?.name || '—'}</b> ({topSeeking?.seeking || 0} Lượt Thảo Luận chủ động hỏi) ·
               Sentiment tích cực nhất: <b>{topPositive?.name || '—'}</b> (+{topPositive?.positive || 0}).
@@ -472,7 +472,7 @@ function Q14() {
         const mostSeeking = [...Q14_GROWTH].sort((a, b) => b.seeking - a.seeking)[0];
         return (
           <div style={{ gridColumn: '1 / -1' }}>
-            <window.Insight>
+            <window.Insight qId="Q14">
               Chủ đề tăng trưởng dẫn đầu: <b>{topGrowth?.name || '—'}</b> ({topGrowth?.count.toLocaleString() || 0} Lượt Thảo Luận) ·
               Sentiment tích cực nhất: <b>{mostPositive?.name || '—'}</b> (+{mostPositive?.positive || 0}) ·
               Seller cần hỗ trợ nhiều nhất về: <b>{mostSeeking?.name || '—'}</b> ({mostSeeking?.seeking || 0} Lượt Thảo Luận chủ động hỏi).

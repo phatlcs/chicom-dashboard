@@ -1,0 +1,1374 @@
+{
+  "Q1": {
+    "title": "Master Topics — tỉ trọng tổng thể và phân bố theo community",
+    "aggregate": {
+      "q1_master": [
+        {
+          "id": "mt7",
+          "vn": "Kinh doanh xuất nhập khẩu & TMĐT xuyên biên giới",
+          "en": "Import-export & cross-border",
+          "weight": 19.9,
+          "color": "oklch(0.62 0.15 90)"
+        },
+        {
+          "id": "mt6",
+          "vn": "Thanh toán, tài khoản và tài chính quốc tế",
+          "en": "Payment, accounts & int'l finance",
+          "weight": 18.0,
+          "color": "oklch(0.62 0.15 200)"
+        },
+        {
+          "id": "mt1",
+          "vn": "Chiến lược, kinh nghiệm & hỗ trợ cộng đồng bán hàng",
+          "en": "Strategy, experience & community support",
+          "weight": 15.2,
+          "color": "oklch(0.62 0.15 260)"
+        },
+        {
+          "id": "mt3",
+          "vn": "Vận hành và quản lý tài khoản Amazon Seller",
+          "en": "Account operations & management",
+          "weight": 14.9,
+          "color": "oklch(0.62 0.15 155)"
+        },
+        {
+          "id": "mt5",
+          "vn": "Vận chuyển, logistics và fulfillment",
+          "en": "Shipping, logistics & fulfillment",
+          "weight": 11.1,
+          "color": "oklch(0.62 0.15 320)"
+        },
+        {
+          "id": "mt8",
+          "vn": "Kinh doanh, vận hành và tối ưu hóa bán hàng Amazon",
+          "en": "Business, ops & Amazon optimization",
+          "weight": 10.3,
+          "color": "oklch(0.62 0.15 290)"
+        },
+        {
+          "id": "mt4",
+          "vn": "Dịch vụ & giải pháp pháp lý, thương hiệu",
+          "en": "Legal, branding & services",
+          "weight": 2.7,
+          "color": "oklch(0.62 0.15 60)"
+        },
+        {
+          "id": "mt2",
+          "vn": "Cảnh báo rủi ro & lừa đảo khi kinh doanh Amazon",
+          "en": "Risk warnings & fraud",
+          "weight": 0.8,
+          "color": "oklch(0.62 0.15 25)"
+        },
+        {
+          "id": "mt9",
+          "vn": "Khóa học và thách thức kinh doanh Amazon",
+          "en": "Courses & Amazon challenges",
+          "weight": 0.0,
+          "color": "oklch(0.62 0.15 0)"
+        }
+      ],
+      "top_groups": [
+        1,
+        2
+      ]
+    },
+    "samples": [
+      "-E k biết sao nhưng e mới dùng đi đơn lâu mà nhắn k thấy",
+      "Thông tin hữu ích quá ạ",
+      "--Thành viên ẩn danh ib mk nha nhận mở luôn spf payment cá nhân úc ạ",
+      "@tcubo98",
+      "sáng sớm bị bạn này gửi mail suspend shop, bác nào có kinh nghiệm làm việc với bạn này không chỉ mình với? with a Photo:",
+      "cần đòi tiền thì mình có nhận call nhé",
+      "Liên hệ Tam Linh",
+      "-Hồng Phúc Cảm ơn em nhiều lắm🥰"
+    ]
+  },
+  "Q2": {
+    "title": "Ma trận Persona × Master Topics — nhóm nào thảo luận topic nào",
+    "aggregate": {
+      "q2_matrix": {
+        "mt1": {
+          "p_seller_az": 1473,
+          "p_prospect_az": 333,
+          "p_svc_az": 385,
+          "p_svc_cbec": 527,
+          "p_prospect_ot": 990,
+          "p_seller_ot": 2979
+        },
+        "mt2": {
+          "p_seller_az": 16,
+          "p_prospect_az": 25,
+          "p_svc_az": 0,
+          "p_svc_cbec": 4,
+          "p_prospect_ot": 118,
+          "p_seller_ot": 243
+        },
+        "mt3": {
+          "p_seller_az": 3024,
+          "p_prospect_az": 570,
+          "p_svc_az": 103,
+          "p_svc_cbec": 151,
+          "p_prospect_ot": 942,
+          "p_seller_ot": 2156
+        },
+        "mt4": {
+          "p_seller_az": 2,
+          "p_prospect_az": 25,
+          "p_svc_az": 88,
+          "p_svc_cbec": 284,
+          "p_prospect_ot": 81,
+          "p_seller_ot": 70
+        },
+        "mt5": {
+          "p_seller_az": 34,
+          "p_prospect_az": 20,
+          "p_svc_az": 129,
+          "p_svc_cbec": 3027,
+          "p_prospect_ot": 655,
+          "p_seller_ot": 873
+        },
+        "mt6": {
+          "p_seller_az": 935,
+          "p_prospect_az": 230,
+          "p_svc_az": 11,
+          "p_svc_cbec": 318,
+          "p_prospect_ot": 2628,
+          "p_seller_ot": 3397
+        },
+        "mt7": {
+          "p_seller_az": 61,
+          "p_prospect_az": 36,
+          "p_svc_az": 11,
+          "p_svc_cbec": 2143,
+          "p_prospect_ot": 2767,
+          "p_seller_ot": 2331
+        },
+        "mt8": {
+          "p_seller_az": 980,
+          "p_prospect_az": 647,
+          "p_svc_az": 39,
+          "p_svc_cbec": 140,
+          "p_prospect_ot": 900,
+          "p_seller_ot": 2462
+        },
+        "mt9": {
+          "p_seller_az": 0,
+          "p_prospect_az": 0,
+          "p_svc_az": 0,
+          "p_svc_cbec": 0,
+          "p_prospect_ot": 0,
+          "p_seller_ot": 0
+        }
+      },
+      "top_persona": null
+    },
+    "samples": [
+      "-E k biết sao nhưng e mới dùng đi đơn lâu mà nhắn k thấy",
+      "Thông tin hữu ích quá ạ",
+      "--Thành viên ẩn danh ib mk nha nhận mở luôn spf payment cá nhân úc ạ",
+      "@tcubo98",
+      "sáng sớm bị bạn này gửi mail suspend shop, bác nào có kinh nghiệm làm việc với bạn này không chỉ mình với? with a Photo:",
+      "cần đòi tiền thì mình có nhận call nhé",
+      "Liên hệ Tam Linh",
+      "-Hồng Phúc Cảm ơn em nhiều lắm🥰"
+    ]
+  },
+  "Q3": {
+    "title": "Seller vs Prospect — khác biệt Master Topics + sub-topics",
+    "aggregate": {
+      "q3_seller_prospect": [
+        {
+          "id": "mt1",
+          "vn": "Chiến lược, kinh nghiệm & hỗ trợ cộng đồng bán hàng",
+          "en": "Strategy, experience & community support",
+          "seller": 4452,
+          "prospect": 1323,
+          "sellerPct": 21.2,
+          "prospectPct": 12.1,
+          "diff": 9.1
+        },
+        {
+          "id": "mt2",
+          "vn": "Cảnh báo rủi ro & lừa đảo khi kinh doanh Amazon",
+          "en": "Risk warnings & fraud",
+          "seller": 259,
+          "prospect": 143,
+          "sellerPct": 1.2,
+          "prospectPct": 1.3,
+          "diff": -0.1
+        },
+        {
+          "id": "mt3",
+          "vn": "Vận hành và quản lý tài khoản Amazon Seller",
+          "en": "Account operations & management",
+          "seller": 5180,
+          "prospect": 1512,
+          "sellerPct": 24.6,
+          "prospectPct": 13.8,
+          "diff": 10.8
+        },
+        {
+          "id": "mt4",
+          "vn": "Dịch vụ & giải pháp pháp lý, thương hiệu",
+          "en": "Legal, branding & services",
+          "seller": 72,
+          "prospect": 106,
+          "sellerPct": 0.3,
+          "prospectPct": 1.0,
+          "diff": -0.7
+        },
+        {
+          "id": "mt5",
+          "vn": "Vận chuyển, logistics và fulfillment",
+          "en": "Shipping, logistics & fulfillment",
+          "seller": 907,
+          "prospect": 675,
+          "sellerPct": 4.3,
+          "prospectPct": 6.2,
+          "diff": -1.9
+        },
+        {
+          "id": "mt6",
+          "vn": "Thanh toán, tài khoản và tài chính quốc tế",
+          "en": "Payment, accounts & int'l finance",
+          "seller": 4332,
+          "prospect": 2858,
+          "sellerPct": 20.6,
+          "prospectPct": 26.1,
+          "diff": -5.5
+        },
+        {
+          "id": "mt7",
+          "vn": "Kinh doanh xuất nhập khẩu & TMĐT xuyên biên giới",
+          "en": "Import-export & cross-border",
+          "seller": 2392,
+          "prospect": 2803,
+          "sellerPct": 11.4,
+          "prospectPct": 25.6,
+          "diff": -14.2
+        },
+        {
+          "id": "mt8",
+          "vn": "Kinh doanh, vận hành và tối ưu hóa bán hàng Amazon",
+          "en": "Business, ops & Amazon optimization",
+          "seller": 3442,
+          "prospect": 1547,
+          "sellerPct": 16.4,
+          "prospectPct": 14.1,
+          "diff": 2.3
+        },
+        {
+          "id": "mt9",
+          "vn": "Khóa học và thách thức kinh doanh Amazon",
+          "en": "Courses & Amazon challenges",
+          "seller": 0,
+          "prospect": 0,
+          "sellerPct": 0.0,
+          "prospectPct": 0.0,
+          "diff": 0.0
+        }
+      ],
+      "q3_subs": [
+        {
+          "vn": "Kinh doanh xuất nhập khẩu và bán hàng quốc tế",
+          "seller": 11.16,
+          "prospect": 24.62,
+          "diff": -13.46
+        },
+        {
+          "vn": "Vấn đề xác minh, khoá, rủi ro tài khoản Amazon",
+          "seller": 17.5,
+          "prospect": 9.55,
+          "diff": 7.95
+        },
+        {
+          "vn": "Bán hàng và vận hành kinh doanh trên Amazon",
+          "seller": 14.79,
+          "prospect": 12.23,
+          "diff": 2.56
+        },
+        {
+          "vn": "Thuế và Chi phí Kinh doanh trên Amazon cho Seller Việt Nam",
+          "seller": 13.55,
+          "prospect": 12.94,
+          "diff": 0.61
+        },
+        {
+          "vn": "Vận hành tài khoản và thanh toán quốc tế cho seller",
+          "seller": 5.08,
+          "prospect": 10.73,
+          "diff": -5.65
+        },
+        {
+          "vn": "Dịch vụ vận chuyển và fulfillment",
+          "seller": 4.23,
+          "prospect": 5.93,
+          "diff": -1.7
+        },
+        {
+          "vn": "Dịch vụ hỗ trợ và xử lý tài khoản Amazon",
+          "seller": 6.28,
+          "prospect": 3.53,
+          "diff": 2.75
+        },
+        {
+          "vn": "Chia sẻ, học hỏi và hợp tác kinh nghiệm bán hàng Amazon",
+          "seller": 7.03,
+          "prospect": 2.09,
+          "diff": 4.94
+        },
+        {
+          "vn": "Khó khăn và thách thức khi bán hàng trên Amazon",
+          "seller": 6.69,
+          "prospect": 0.64,
+          "diff": 6.05
+        },
+        {
+          "vn": "Sự kiện, đào tạo và kết nối cộng đồng bán hàng Amazon",
+          "seller": 2.64,
+          "prospect": 2.26,
+          "diff": 0.38
+        },
+        {
+          "vn": "Hướng dẫn và hỗ trợ khởi đầu bán hàng Amazon",
+          "seller": 0.12,
+          "prospect": 4.44,
+          "diff": -4.32
+        },
+        {
+          "vn": "Hợp tác, hỗ trợ và vận hành bán hàng Amazon",
+          "seller": 1.46,
+          "prospect": 1.7,
+          "diff": -0.24
+        },
+        {
+          "vn": "Kinh nghiệm và chiến lược bán hàng trên Amazon",
+          "seller": 2.63,
+          "prospect": 0.5,
+          "diff": 2.13
+        },
+        {
+          "vn": "Thanh toán và rút tiền Amazon qua Payoneer/PingPong",
+          "seller": 1.47,
+          "prospect": 1.33,
+          "diff": 0.14
+        },
+        {
+          "vn": "Cảnh báo rủi ro và lừa đảo khi kinh doanh Amazon",
+          "seller": 1.27,
+          "prospect": 1.26,
+          "diff": 0.01
+        },
+        {
+          "vn": "Kinh doanh Amazon FBA và FBM: vận hành & tối ưu chi phí",
+          "seller": 1.12,
+          "prospect": 1.26,
+          "diff": -0.14
+        },
+        {
+          "vn": "Dịch vụ và giải pháp pháp lý, thương hiệu và công cụ kinh doanh cho người bán Amazon",
+          "seller": 0.34,
+          "prospect": 0.92,
+          "diff": -0.58
+        },
+        {
+          "vn": "Vấn đề không nhận được mã OTP Amazon",
+          "seller": 0.11,
+          "prospect": 0.12,
+          "diff": -0.01
+        },
+        {
+          "vn": "Dịch vụ và giải pháp pháp lý, thương hiệu và công cụ cho Seller Amazon",
+          "seller": 0.0,
+          "prospect": 0.03,
+          "diff": -0.03
+        },
+        {
+          "vn": "Ưu đãi giảm giá Helium10 cho người bán Amazon",
+          "seller": 0.0,
+          "prospect": 0.01,
+          "diff": -0.01
+        },
+        {
+          "vn": "Vấn đề xác minh, khoá, rủi ko Amazon",
+          "seller": 0.0,
+          "prospect": 0.01,
+          "diff": -0.01
+        },
+        {
+          "vn": "Chiến lược, kinh nghiệm và hỗ trợ cộng đồng bán hàng Amazon",
+          "seller": 0.0,
+          "prospect": 0.01,
+          "diff": -0.01
+        },
+        {
+          "vn": "Hỏi đáp và hỗ trợ cộng đồng bán hàng",
+          "seller": 0.01,
+          "prospect": 0.0,
+          "diff": 0.01
+        },
+        {
+          "vn": "Hỗ trợ khởi đầu bán hàng Amazon",
+          "seller": 0.0,
+          "prospect": 0.0,
+          "diff": 0.0
+        }
+      ]
+    },
+    "samples": [
+      "-E k biết sao nhưng e mới dùng đi đơn lâu mà nhắn k thấy",
+      "Thông tin hữu ích quá ạ",
+      "--Thành viên ẩn danh ib mk nha nhận mở luôn spf payment cá nhân úc ạ",
+      "@tcubo98",
+      "sáng sớm bị bạn này gửi mail suspend shop, bác nào có kinh nghiệm làm việc với bạn này không chỉ mình với? with a Photo:",
+      "cần đòi tiền thì mình có nhận call nhé",
+      "Liên hệ Tam Linh",
+      "-Hồng Phúc Cảm ơn em nhiều lắm🥰"
+    ]
+  },
+  "Q4": {
+    "title": "Xu hướng Master Topics theo tháng + tuần đỉnh (auto-detect)",
+    "aggregate": {
+      "q4_events": [
+        {
+          "week": 11,
+          "label": "Spike Mar 9 · +68%"
+        },
+        {
+          "week": 12,
+          "label": "Spike Mar 16 · +70%"
+        },
+        {
+          "week": 13,
+          "label": "Spike Mar 23 · +56%"
+        }
+      ],
+      "week_starts": [
+        "2025-12-22 00:00:00",
+        "2025-12-29 00:00:00",
+        "2026-01-05 00:00:00",
+        "2026-01-12 00:00:00",
+        "2026-01-19 00:00:00",
+        "2026-01-26 00:00:00",
+        "2026-02-02 00:00:00",
+        "2026-02-09 00:00:00",
+        "2026-02-16 00:00:00",
+        "2026-02-23 00:00:00",
+        "2026-03-02 00:00:00",
+        "2026-03-09 00:00:00",
+        "2026-03-16 00:00:00",
+        "2026-03-23 00:00:00",
+        "2026-03-30 00:00:00",
+        "2026-04-06 00:00:00"
+      ]
+    },
+    "samples": [
+      "-E k biết sao nhưng e mới dùng đi đơn lâu mà nhắn k thấy",
+      "Thông tin hữu ích quá ạ",
+      "--Thành viên ẩn danh ib mk nha nhận mở luôn spf payment cá nhân úc ạ",
+      "@tcubo98",
+      "sáng sớm bị bạn này gửi mail suspend shop, bác nào có kinh nghiệm làm việc với bạn này không chỉ mình với? with a Photo:",
+      "cần đòi tiền thì mình có nhận call nhé",
+      "Liên hệ Tam Linh",
+      "-Hồng Phúc Cảm ơn em nhiều lắm🥰"
+    ]
+  },
+  "Q5": {
+    "title": "Sub-topic tiêu cực × ngày trong tuần + khung giờ cao điểm",
+    "aggregate": {
+      "q5_top_neg": [
+        {
+          "vn": "Vấn đề xác minh, khoá, rủi ro tài khoản Amazon",
+          "count": 2629
+        },
+        {
+          "vn": "Khó khăn và thách thức khi bán hàng trên Amazon",
+          "count": 1333
+        },
+        {
+          "vn": "Bán hàng và vận hành kinh doanh trên Amazon",
+          "count": 837
+        },
+        {
+          "vn": "Dịch vụ hỗ trợ và xử lý tài khoản Amazon",
+          "count": 793
+        },
+        {
+          "vn": "Thuế và Chi phí Kinh doanh trên Amazon cho Seller Việt Nam",
+          "count": 742
+        },
+        {
+          "vn": "Kinh doanh xuất nhập khẩu và bán hàng quốc tế",
+          "count": 652
+        }
+      ],
+      "q5_by_day": [
+        {
+          "day": "T2",
+          "en": "Mon",
+          "count": 1174
+        },
+        {
+          "day": "T3",
+          "en": "Tue",
+          "count": 1384
+        },
+        {
+          "day": "T4",
+          "en": "Wed",
+          "count": 1385
+        },
+        {
+          "day": "T5",
+          "en": "Thu",
+          "count": 1159
+        },
+        {
+          "day": "T6",
+          "en": "Fri",
+          "count": 1505
+        },
+        {
+          "day": "T7",
+          "en": "Sat",
+          "count": 1267
+        },
+        {
+          "day": "CN",
+          "en": "Sun",
+          "count": 964
+        }
+      ],
+      "q6_by_hour": [
+        {
+          "hour": 0,
+          "count": 203
+        },
+        {
+          "hour": 1,
+          "count": 74
+        },
+        {
+          "hour": 2,
+          "count": 53
+        },
+        {
+          "hour": 3,
+          "count": 50
+        },
+        {
+          "hour": 4,
+          "count": 33
+        },
+        {
+          "hour": 5,
+          "count": 44
+        },
+        {
+          "hour": 6,
+          "count": 123
+        },
+        {
+          "hour": 7,
+          "count": 290
+        },
+        {
+          "hour": 8,
+          "count": 399
+        },
+        {
+          "hour": 9,
+          "count": 632
+        },
+        {
+          "hour": 10,
+          "count": 714
+        },
+        {
+          "hour": 11,
+          "count": 755
+        },
+        {
+          "hour": 12,
+          "count": 626
+        },
+        {
+          "hour": 13,
+          "count": 415
+        },
+        {
+          "hour": 14,
+          "count": 516
+        },
+        {
+          "hour": 15,
+          "count": 532
+        },
+        {
+          "hour": 16,
+          "count": 498
+        },
+        {
+          "hour": 17,
+          "count": 425
+        },
+        {
+          "hour": 18,
+          "count": 375
+        },
+        {
+          "hour": 19,
+          "count": 414
+        },
+        {
+          "hour": 20,
+          "count": 432
+        },
+        {
+          "hour": 21,
+          "count": 475
+        },
+        {
+          "hour": 22,
+          "count": 453
+        },
+        {
+          "hour": 23,
+          "count": 307
+        }
+      ],
+      "peak_window": {
+        "startHour": 9,
+        "endHour": 13,
+        "hours": [
+          9,
+          10,
+          11,
+          12
+        ],
+        "windowSize": 4,
+        "totalMentions": 2727,
+        "hourlyCounts": [
+          203,
+          74,
+          53,
+          50,
+          33,
+          44,
+          123,
+          290,
+          399,
+          632,
+          714,
+          755,
+          626,
+          415,
+          516,
+          532,
+          498,
+          425,
+          375,
+          414,
+          432,
+          475,
+          453,
+          307
+        ]
+      }
+    },
+    "samples": [
+      "--Huy Le chứ t chụp đến như thế , up đủ kiểu vẫn ko qua đc",
+      "Nghĩa là đơn 1triệu khách mà trả là auto mất 216k à các chế 😳",
+      "-Người tham gia ẩn danh 103 mình đóng hết rồi, đủ thuế + chậm nộp lun rồi nhưng chưa kê khai và chưa hoàn tất hồ sơ nói dính biên bản đòi phạt 1 lần thuế",
+      "-Sai Louis thank a, tiền em bay đủ rồi mong sang tuần về đủ",
+      "M thấy đơn nào k áp mã freeship là m ib hỏi, ai k rep vẫn phải đi đơn nhưng y như rằng boom.",
+      "--ElegantCrocodile1109 Năm nay bán chán á",
+      "-Nguyễn Thị Thu chỗnem giờ koncho quét trước nũe ny",
+      "Inbox mình hướng dẫn nhé."
+    ]
+  },
+  "Q7": {
+    "title": "Lý do + benefit khiến seller gia nhập Amazon",
+    "aggregate": {
+      "q7_topics": [
+        {
+          "vn": "Chia sẻ, học hỏi & trợ giúp",
+          "name": "Chia sẻ, học hỏi & trợ giúp",
+          "count": 441
+        },
+        {
+          "vn": "Hợp tác, hỗ trợ & vận hành",
+          "name": "Hợp tác, hỗ trợ & vận hành",
+          "count": 274
+        },
+        {
+          "vn": "Kinh nghiệm & chiến lược",
+          "name": "Kinh nghiệm & chiến lược",
+          "count": 269
+        },
+        {
+          "vn": "Sự kiện, đào tạo & kết nối",
+          "name": "Sự kiện, đào tạo & kết nối",
+          "count": 235
+        },
+        {
+          "vn": "Bán hàng & vận hành",
+          "name": "Bán hàng & vận hành",
+          "count": 232
+        },
+        {
+          "vn": "Passive income & cơ hội",
+          "name": "Passive income & cơ hội",
+          "count": 3
+        }
+      ],
+      "q7_benefits": [
+        {
+          "vn": "Thành công & thu nhập",
+          "name": "Thành công & thu nhập",
+          "count": 1517
+        },
+        {
+          "vn": "Passive income",
+          "name": "Passive income",
+          "count": 231
+        },
+        {
+          "vn": "Dễ bắt đầu",
+          "name": "Dễ bắt đầu",
+          "count": 183
+        },
+        {
+          "vn": "Cơ hội thị trường",
+          "name": "Cơ hội thị trường",
+          "count": 142
+        },
+        {
+          "vn": "Hỗ trợ & đào tạo",
+          "name": "Hỗ trợ & đào tạo",
+          "count": 65
+        }
+      ],
+      "q7_sentiment": {
+        "positive": 13,
+        "neutral": 65,
+        "negative": 22
+      }
+    },
+    "samples": [
+      "hi anh, em là seller mới bán được 3 tháng, doanh số đã đạt khoảng 15k$ tháng gần nhất, tuy nhiên e vẫn chưa biết tính toán tồn kho làm sao để care được khả năng xoay vòng vì amz trả tiền khá trễ",
+      "# ✨ **Accessories -** **Decoration: danh mục sản phẩm \"làm ít công nhiều\", lời đều quanh năm!** Dòng décor và phụ kiện luôn thuộc nhóm sản phẩm dễ ra đơn nhất vì buyer US/EU thích đổi vibe nhà cửa, góc làm việc liên tục. Và để tối ưu lợi nhuận, hạn chế rủi ro, anh chị Seller có thể test ngay dòng A…",
+      "-JoyfulCapybara8279 Doanh thu cũ nữa thì không nói, rất cao.",
+      "chúc HPW làm ăn phát đạt nhé, mong được hợp tác với bên mình lâu dài hơn nữa 🥰",
+      "\"100 DAYS OF SCHOOL\" Niche Nhỏ Nhưng Bán Lặp Lại Mỗi Năm 100 ngày đến trường là dấu mốc đáng nhớ đầu tiên của bé trên hành trình học tập. Đây cũng là dịp để phụ huynh và giáo viên lưu lại kỷ niệm bằng những món quà cá nhân hóa ý nghĩa. ✨ Vì sao 100 Days of School dễ bán? Niche lặp lại hằng năm (thá…",
+      "**👕Classic Polo – Item Chuẩn Mực Cho Đại Lễ Kỷ Niệm 250 Năm Độc Lập Hoa Kỳ **🇦🇺 💹Theo dữ liệu các mùa lễ lớn tại thị trường US, nhóm **business-casual apparel** như polo thường tăng trưởng **25–35%** trong các dịp kỷ niệm quốc gia nhờ nhu cầu gia đình, đồng phục, event và quà tặng doanh nghiệp. 🛍️T…",
+      "Xin chào mọi người, Hiện tại team em đang có một hệ thống kênh Meta trong ngách Home & Kitchen (Facebook và Instagram) với lượng **traffic tự nhiên rất lớn (+200K clicks/tháng)** + **CR 3%** và **1 website đẩy Hot deals và coupons hàng ngày từ AMZ **(nếu hợp tác em sẽ ưu tiên hiển thị sản phẩm và b…",
+      "✨ CHIẾM TRỌN CẢ CẢM XÚC VÀ VÍ TIỀN VỚI VINTAGE PHOTO GOLDEN FRAME MAGNET 🖼️ Giữ Trọn Ký Ức Theo Cách Rất “Vintage” – Vintage Photo Golden Frame Magnet Chính Thức Ra Mắt Với: ✅ Base cost cạnh tranh chỉ từ $3.5 ✅ Khung được làm từ plasic được mạ vàng với 4 shape: Rectangle, Shield và Oval (riêng khun…"
+    ]
+  },
+  "Q8": {
+    "title": "Dấu hiệu rời bỏ Amazon + persona đang rời bỏ (SOA only)",
+    "aggregate": {
+      "q8_triggers": [
+        {
+          "vn": "Lừa đảo / rủi ro",
+          "name": "Lừa đảo / rủi ro",
+          "count": 24
+        },
+        {
+          "vn": "Tài khoản bị khóa",
+          "name": "Tài khoản bị khóa",
+          "count": 16
+        },
+        {
+          "vn": "Thua lỗ / chi phí cao",
+          "name": "Thua lỗ / chi phí cao",
+          "count": 16
+        },
+        {
+          "vn": "Kiệt sức / mất động lực",
+          "name": "Kiệt sức / mất động lực",
+          "count": 12
+        },
+        {
+          "vn": "Chính sách phức tạp",
+          "name": "Chính sách phức tạp",
+          "count": 5
+        },
+        {
+          "vn": "Cạnh tranh khốc liệt",
+          "name": "Cạnh tranh khốc liệt",
+          "count": 2
+        },
+        {
+          "vn": "Thiếu kinh nghiệm / kỹ năng",
+          "name": "Thiếu kinh nghiệm / kỹ năng",
+          "count": 1
+        }
+      ],
+      "q8_persona": [
+        {
+          "label": "Seller (Amazon)",
+          "count": 1006,
+          "color": "oklch(0.60 0.20 25)"
+        },
+        {
+          "label": "Prospect (Amazon)",
+          "count": 71,
+          "color": "oklch(0.70 0.17 60)"
+        },
+        {
+          "label": "Seller (Others)",
+          "count": 64,
+          "color": "oklch(0.62 0.15 260)"
+        },
+        {
+          "label": "Service Provider (Amazon)",
+          "count": 6,
+          "color": "oklch(0.62 0.15 155)"
+        },
+        {
+          "label": "Prospect (Others)",
+          "count": 2,
+          "color": "oklch(0.62 0.15 320)"
+        },
+        {
+          "label": "Service Provider (CBEC)",
+          "count": 1,
+          "color": "oklch(0.60 0.20 25)"
+        }
+      ],
+      "q8_trend": [
+        107,
+        479,
+        195,
+        369,
+        0
+      ],
+      "soa_total": 5468
+    },
+    "samples": [
+      "-Lưng Nguyen scam đó bạn ơi",
+      "Khả năng cao bạn đang bị lừa nhé.",
+      "Seller amz toàn acc cá nhân, ver bank nền tảng đã khó, nay chính sách còn bắt đki và ver bank lại thì khả năng acc lại ra bờ ao ngồi 1 loạt. Mà k làm thì chịu rủi ro",
+      "Khách báo hàng không đúng mô tả nên Amazon yêu cầu xác minh. Không phản hồi kịp 48h nên listing bị khóa. Bên mình hỗ trợ mở lại được nha!",
+      "-chắc do khách hàng sử dụng sản phẩm không ổn nên claim là hàng giả",
+      "Thật bạn, nhưng mất tiền 🥹🥹🥹",
+      "Xin chào mn, nhờ mn tư vấn cho e case này với ạ E bán FBM trên AMZ có 1 sp ornament bị sony kiện vì có các họa tiết giống cái play station. hiện listing bị gậy dòng 2 và AMZ báo tk đã bị TRO, cấm rút tiền tạm thời. E có mail lại bên luật sư kiện thì bên sony đòi bồi thường 100k $ và chỉ chấp nhận d…",
+      "Thấy hỏi hoài, vẫn ko tin mình bị lừa hả. Tiền bạn đi ko trở về đâu. amazon nào làm đội nhóm, nạp tiền mua hàng la ảo rồi. Amazon xịn người ta dấu còn hơn mèo dấu kit😆"
+    ]
+  },
+  "Q9": {
+    "title": "Phân bố persona trong thảo luận gia nhập vs rời bỏ",
+    "aggregate": {
+      "q9_q7_personas": [
+        {
+          "name": "Seller (Others)",
+          "count": 1063,
+          "color": "oklch(0.55 0.17 260)"
+        },
+        {
+          "name": "Prospect (Others)",
+          "count": 689,
+          "color": "oklch(0.60 0.20 25)"
+        },
+        {
+          "name": "Service Provider (CBEC)",
+          "count": 614,
+          "color": "oklch(0.68 0.17 60)"
+        },
+        {
+          "name": "Seller (Amazon)",
+          "count": 528,
+          "color": "oklch(0.58 0.14 190)"
+        },
+        {
+          "name": "Prospect (Amazon)",
+          "count": 128,
+          "color": "oklch(0.62 0.15 155)"
+        },
+        {
+          "name": "Service Provider (Amazon)",
+          "count": 54,
+          "color": "oklch(0.55 0.17 290)"
+        },
+        {
+          "name": "Service Provider (Others)",
+          "count": 1,
+          "color": "oklch(0.55 0.17 260)"
+        }
+      ],
+      "q9_q8_personas": [
+        {
+          "name": "Seller (Others)",
+          "count": 453,
+          "color": "oklch(0.55 0.17 260)"
+        },
+        {
+          "name": "Seller (Amazon)",
+          "count": 113,
+          "color": "oklch(0.60 0.20 25)"
+        },
+        {
+          "name": "Prospect (Others)",
+          "count": 27,
+          "color": "oklch(0.68 0.17 60)"
+        },
+        {
+          "name": "Prospect (Amazon)",
+          "count": 12,
+          "color": "oklch(0.58 0.14 190)"
+        },
+        {
+          "name": "Service Provider (Amazon)",
+          "count": 1,
+          "color": "oklch(0.62 0.15 155)"
+        },
+        {
+          "name": "Service Provider (CBEC)",
+          "count": 1,
+          "color": "oklch(0.55 0.17 290)"
+        }
+      ]
+    },
+    "samples": [
+      "-E k biết sao nhưng e mới dùng đi đơn lâu mà nhắn k thấy",
+      "Thông tin hữu ích quá ạ",
+      "--Thành viên ẩn danh ib mk nha nhận mở luôn spf payment cá nhân úc ạ",
+      "@tcubo98",
+      "sáng sớm bị bạn này gửi mail suspend shop, bác nào có kinh nghiệm làm việc với bạn này không chỉ mình với? with a Photo:",
+      "cần đòi tiền thì mình có nhận call nhé",
+      "Liên hệ Tam Linh",
+      "-Hồng Phúc Cảm ơn em nhiều lắm🥰"
+    ]
+  },
+  "Q10": {
+    "title": "Top ngành hàng được thảo luận",
+    "aggregate": {
+      "q10_top": [
+        {
+          "vn": "Thời trang",
+          "name": "Thời trang",
+          "count": 320,
+          "color": "oklch(0.60 0.20 25)"
+        },
+        {
+          "vn": "Điện tử & Gadget",
+          "name": "Điện tử & Gadget",
+          "count": 232,
+          "color": "oklch(0.68 0.17 50)"
+        },
+        {
+          "vn": "Gia dụng & Bếp",
+          "name": "Gia dụng & Bếp",
+          "count": 202,
+          "color": "oklch(0.75 0.17 90)"
+        },
+        {
+          "vn": "Làm đẹp & Sức khỏe",
+          "name": "Làm đẹp & Sức khỏe",
+          "count": 111,
+          "color": "oklch(0.62 0.15 155)"
+        },
+        {
+          "vn": "Thực phẩm",
+          "name": "Thực phẩm",
+          "count": 102,
+          "color": "oklch(0.58 0.14 190)"
+        },
+        {
+          "vn": "Đồ chơi & Trẻ em",
+          "name": "Đồ chơi & Trẻ em",
+          "count": 84,
+          "color": "oklch(0.55 0.17 290)"
+        },
+        {
+          "vn": "Thú cưng",
+          "name": "Thú cưng",
+          "count": 56,
+          "color": "oklch(0.60 0.20 320)"
+        },
+        {
+          "vn": "Thể thao & Ngoài trời",
+          "name": "Thể thao & Ngoài trời",
+          "count": 51,
+          "color": "oklch(0.55 0.15 230)"
+        },
+        {
+          "vn": "Vali & Túi xách",
+          "name": "Vali & Túi xách",
+          "count": 42,
+          "color": "oklch(0.55 0.17 260)"
+        },
+        {
+          "vn": "Nội thất",
+          "name": "Nội thất",
+          "count": 40,
+          "color": "oklch(0.65 0.12 60)"
+        }
+      ]
+    },
+    "samples": [
+      "-E k biết sao nhưng e mới dùng đi đơn lâu mà nhắn k thấy",
+      "Thông tin hữu ích quá ạ",
+      "--Thành viên ẩn danh ib mk nha nhận mở luôn spf payment cá nhân úc ạ",
+      "@tcubo98",
+      "sáng sớm bị bạn này gửi mail suspend shop, bác nào có kinh nghiệm làm việc với bạn này không chỉ mình với? with a Photo:",
+      "cần đòi tiền thì mình có nhận call nhé",
+      "Liên hệ Tam Linh",
+      "-Hồng Phúc Cảm ơn em nhiều lắm🥰"
+    ]
+  },
+  "Q11": {
+    "title": "Mức sử dụng tool Amazon + hài lòng vs vấn đề (SOA only)",
+    "aggregate": {
+      "q11_tools": [
+        {
+          "name": "FBA",
+          "vn": "FBA",
+          "count": 119,
+          "use": 119,
+          "satisfied": 17,
+          "issues": 13
+        },
+        {
+          "name": "FBM",
+          "vn": "FBM",
+          "count": 75,
+          "use": 75,
+          "satisfied": 4,
+          "issues": 12
+        },
+        {
+          "name": "PPC/Ads",
+          "vn": "PPC/Ads",
+          "count": 45,
+          "use": 45,
+          "satisfied": 22,
+          "issues": 3
+        },
+        {
+          "name": "Quản lý tồn kho",
+          "vn": "Quản lý tồn kho",
+          "count": 33,
+          "use": 33,
+          "satisfied": 14,
+          "issues": 4
+        },
+        {
+          "name": "Helium 10",
+          "vn": "Helium 10",
+          "count": 17,
+          "use": 17,
+          "satisfied": 6,
+          "issues": 0
+        },
+        {
+          "name": "Seller Central",
+          "vn": "Seller Central",
+          "count": 17,
+          "use": 17,
+          "satisfied": 2,
+          "issues": 4
+        },
+        {
+          "name": "Brand Registry",
+          "vn": "Brand Registry",
+          "count": 16,
+          "use": 16,
+          "satisfied": 2,
+          "issues": 4
+        },
+        {
+          "name": "Amazon Support",
+          "vn": "Amazon Support",
+          "count": 13,
+          "use": 13,
+          "satisfied": 2,
+          "issues": 6
+        },
+        {
+          "name": "Jungle Scout",
+          "vn": "Jungle Scout",
+          "count": 1,
+          "use": 1,
+          "satisfied": 1,
+          "issues": 0
+        }
+      ],
+      "q11_issues": [
+        {
+          "vn": "Lỗi hệ thống / Bug",
+          "name": "Lỗi hệ thống / Bug",
+          "count": 122
+        },
+        {
+          "vn": "Khó dùng / phức tạp",
+          "name": "Khó dùng / phức tạp",
+          "count": 18
+        },
+        {
+          "vn": "Tài khoản bị khóa / suspend",
+          "name": "Tài khoản bị khóa / suspend",
+          "count": 17
+        },
+        {
+          "vn": "Phí & chi phí cao",
+          "name": "Phí & chi phí cao",
+          "count": 12
+        },
+        {
+          "vn": "Hỗ trợ chậm / kém",
+          "name": "Hỗ trợ chậm / kém",
+          "count": 4
+        },
+        {
+          "vn": "Cập nhật chậm / outdated",
+          "name": "Cập nhật chậm / outdated",
+          "count": 3
+        },
+        {
+          "vn": "Dữ liệu sai / không chính xác",
+          "name": "Dữ liệu sai / không chính xác",
+          "count": 1
+        }
+      ],
+      "q11_satisfaction": [
+        {
+          "vn": "Dễ dùng / trực quan",
+          "name": "Dễ dùng / trực quan",
+          "count": 42
+        },
+        {
+          "vn": "Hiệu quả rõ rệt",
+          "name": "Hiệu quả rõ rệt",
+          "count": 35
+        },
+        {
+          "vn": "Giá hợp lý / đáng tiền",
+          "name": "Giá hợp lý / đáng tiền",
+          "count": 34
+        },
+        {
+          "vn": "Dữ liệu chính xác",
+          "name": "Dữ liệu chính xác",
+          "count": 17
+        },
+        {
+          "vn": "Tiết kiệm thời gian",
+          "name": "Tiết kiệm thời gian",
+          "count": 15
+        },
+        {
+          "vn": "Cộng đồng & tài liệu tốt",
+          "name": "Cộng đồng & tài liệu tốt",
+          "count": 11
+        },
+        {
+          "vn": "Hỗ trợ tận tình",
+          "name": "Hỗ trợ tận tình",
+          "count": 1
+        },
+        {
+          "vn": "Nhiều tính năng / đầy đủ",
+          "name": "Nhiều tính năng / đầy đủ",
+          "count": 1
+        }
+      ],
+      "soa_total": 5468
+    },
+    "samples": []
+  },
+  "Q12": {
+    "title": "Dịch vụ bên thứ 3 seller đang cần (SOA only)",
+    "aggregate": {
+      "q12_services": [
+        {
+          "name": "Kế toán / Thuế",
+          "vn": "Kế toán / Thuế",
+          "count": 258,
+          "mentions": 258,
+          "need": 23,
+          "satisfaction": 33,
+          "demand": 9
+        },
+        {
+          "name": "Vận chuyển / Forwarder",
+          "vn": "Vận chuyển / Forwarder",
+          "count": 105,
+          "mentions": 105,
+          "need": 18,
+          "satisfaction": 61,
+          "demand": 17
+        },
+        {
+          "name": "Pháp lý / Nhãn hiệu",
+          "vn": "Pháp lý / Nhãn hiệu",
+          "count": 102,
+          "mentions": 102,
+          "need": 7,
+          "satisfaction": 55,
+          "demand": 7
+        },
+        {
+          "name": "Nguồn hàng / Sourcing",
+          "vn": "Nguồn hàng / Sourcing",
+          "count": 68,
+          "mentions": 68,
+          "need": 12,
+          "satisfaction": 70,
+          "demand": 18
+        },
+        {
+          "name": "Phần mềm / Tool",
+          "vn": "Phần mềm / Tool",
+          "count": 43,
+          "mentions": 43,
+          "need": 6,
+          "satisfaction": 100,
+          "demand": 14
+        },
+        {
+          "name": "Trợ lý ảo / VA",
+          "vn": "Trợ lý ảo / VA",
+          "count": 17,
+          "mentions": 17,
+          "need": 3,
+          "satisfaction": 80,
+          "demand": 18
+        },
+        {
+          "name": "Tối ưu Listing",
+          "vn": "Tối ưu Listing",
+          "count": 10,
+          "mentions": 10,
+          "need": 4,
+          "satisfaction": 75,
+          "demand": 40
+        },
+        {
+          "name": "Chụp ảnh sản phẩm",
+          "vn": "Chụp ảnh sản phẩm",
+          "count": 8,
+          "mentions": 8,
+          "need": 0,
+          "satisfaction": 100,
+          "demand": 0
+        }
+      ],
+      "soa_total": 5468
+    },
+    "samples": []
+  },
+  "Q13": {
+    "title": "Khóa học seller quan tâm (SOA only)",
+    "aggregate": {
+      "q13_courses": [
+        {
+          "name": "Đào tạo tổng quát",
+          "vn": "Đào tạo tổng quát",
+          "count": 35,
+          "mentions": 35,
+          "seeking": 3,
+          "interest": 9,
+          "positive": 20,
+          "negative": 0
+        },
+        {
+          "name": "Mentor / Coaching",
+          "vn": "Mentor / Coaching",
+          "count": 7,
+          "mentions": 7,
+          "seeking": 1,
+          "interest": 14,
+          "positive": 3,
+          "negative": 1
+        },
+        {
+          "name": "Khóa Amazon FBA",
+          "vn": "Khóa Amazon FBA",
+          "count": 3,
+          "mentions": 3,
+          "seeking": 0,
+          "interest": 0,
+          "positive": 2,
+          "negative": 0
+        }
+      ],
+      "soa_total": 5468
+    },
+    "samples": [
+      "Mình cần tuyển designer amazon fba. Chủ yếu làm file sản xuất, content A+, các design cơ bản. Biết dùng mấy công cụ thiết kế cơ bản. Ko yêu cầu kinh nghiệm, có thể đào tạo từ đầu. Làm việc offline ở Việt Hưng, Long Biên, Hà Nội. Bạn nào quan tâm inbox nhé. Lương 8-12 tuỳ kinh nghiệm và khả năng.",
+      "# **TRAO GIẢI CONTEST 2025 - CỘNG ĐỒNG AMAZON SELLERS VN** Dear anh chị em Cộng Đồng, @mọi người **Contest 2025 **đã kết thúc thành công rực rỡ sau gần 1 tháng tổ chức, chúng ta đã được thưởng thức rất nhiều câu chuyện thật, các bài học, góc nhìn của các Seller với nhiều mô hình kinh doanh khác nha…",
+      "Chúc mừng năm mới mọi người ạ, em hiện đang làm logistics, muốn lấn sân sang mảng amazon để cải thiện thu nhập và nâng cao trình độ. Các bác cho em hỏi hiện em nên bắt đầu từ đâu ạ, liệu em nên theo các khoá học coaching ko ạ? Cảm ơn các bác đã dành thời gian cho em ạ!!",
+      "Thôi thì rút kinh nghiệm lần sau lên hỏi thì đừng khai là xưởng. Cứ nhận là người mới đang tìm hiểu thôi. Còn về vấn đề của bạn, theo mình thì bạn tuyển thẳng 1 bạn đã có kinh nghiệm bán amazon về triển khai cho nhanh. Bạn đó vừa vận hành vừa giải thích, training trực tiếp cho bạn. Chứ mà giờ tự đi…",
+      "Từ “Ông Lớn” B2B đến “Tân Binh” B2C Global. Giải mã bài toán lõi của doanh nghiệp Việt 2026 Làm sóng “Go Global” đang chứng kiến sự chuyển mình mạnh mẽ của các doanh nghiệp (DN) Việt. Từ năm ngoái đến nay, mình nhận được rất nhiều lời đề nghị của các chủ DN: bên thì mời mình về đào tạo nội bộ cho c…",
+      "-StunningRaccoon590 Mình không biết hỏi thật bạn, bán trên đấy tốt vậy àh mà giá khóa học 1-200tr vậy ạ",
+      "[HÀ ĐÔNG - HÀ NỘI] TUYỂN DỤNG NHÂN VIÊN SELLER (AMAZON/ETSY) Chúng tôi đang tìm kiếm những cộng sự có tư duy tốt và định hướng phát triển lâu dài trong mảng E-commerce (Thị trường US/UK) để cùng mở rộng quy mô kinh doanh. 📍 MÔ TẢ CÔNG VIỆC Quản lý và vận hành gian hàng trên nền tảng Amazon/Etsy. Ng…",
+      "Các anh chị đi trước cho em hỏi với ạ. Em new bie muốn học về amazon thì mình bắt đầu từ đâu với hiện tại có trung tâm hay đơn vị nào nhận đào tạo không ạ, ở hcm thì càng tốt. Em cảm ơn with a Photo:"
+    ]
+  },
+  "Q14": {
+    "title": "Chủ đề tăng trưởng + P&L polarity (SOA only)",
+    "aggregate": {
+      "q14_growth": [
+        {
+          "name": "Xây dựng Team",
+          "count": 123,
+          "color": "oklch(0.55 0.17 290)",
+          "seeking": 8,
+          "positive": 42,
+          "mixed": 67,
+          "negative": 14
+        },
+        {
+          "name": "Tự động hóa & Tool",
+          "count": 106,
+          "color": "oklch(0.75 0.17 60)",
+          "seeking": 5,
+          "positive": 52,
+          "mixed": 44,
+          "negative": 10
+        },
+        {
+          "name": "Scale vận hành",
+          "count": 61,
+          "color": "oklch(0.55 0.17 260)",
+          "seeking": 3,
+          "positive": 38,
+          "mixed": 21,
+          "negative": 2
+        },
+        {
+          "name": "Mở rộng thị trường",
+          "count": 57,
+          "color": "oklch(0.60 0.20 25)",
+          "seeking": 8,
+          "positive": 11,
+          "mixed": 38,
+          "negative": 8
+        },
+        {
+          "name": "Marketing & Quảng cáo",
+          "count": 27,
+          "color": "oklch(0.62 0.15 155)",
+          "seeking": 3,
+          "positive": 15,
+          "mixed": 11,
+          "negative": 1
+        }
+      ],
+      "soa_total": 5468
+    },
+    "samples": [
+      "Chia sẻ truyền cảm hứng quá, chúc mừng Phạm Minh Quân và team",
+      "Cảm ơn anh em đã quan tâm đến bài chia sẻ của mình. Lúc đầu với mục đích là chia sẻ lại kiến thức thông qua hành trình của bản thân thôi mà không ngờ lại được anh em yêu mến và ủng hộ nhiều đến vậy. Rất cảm ơn anh em đã góp ý cho mình thêm rất nhiều kinh nghiệm, mình luôn ghi nhận mọi sự ủng hộ và…",
+      "-Duong Tam Khoa Các điểm bạn cần phải nắm gồm có Mô hình, thuế, nghiệp vụ kế toán, kỹ thuật vận hành sàn như (sản phẩm, ads, tối ưu hệ thống, dòng tiền,...), khả năng Scale nếu bạn có nguồn lực tốt. Rất nhiều thứ bạn cần phải tối ưu còn gì nữa",
+      "Bạn nhờ am nhé, hệ thống đang lỗi",
+      "--Vũ Hoàng Tân vâng vậy ae mình tốt nhất nêm dừng lại vì doanh thu ông nào chả > 3 tỷ/ năm khác gì muỗi đốt. Chứ bán global trừ hết chi phí có nổi 17% lời đâu nhỉ.",
+      "Sao y chang mình vậy! Support ko làm được gì luôn. Call tiếng Anh bây giờ team tiếng Anh cũng không chịu nhận luôn nhé nếu mình là người Việt thì chỉ có chờ call tiếng Việt thôi. Mà ko có lịch nha dù vào giờ nào cũng ko có lịch. Chịu chết 🙄",
+      "-Đăng Nguyễn anh ơi, anh cần kho Canada liên hệ em nhá anh",
+      "Cty mà cắn xén tiền kpi của nhân viên thì có xứng đáng bế lên cho anh e rõ không ạ chứ nó tưởng nó uy tín trong làng POD"
+    ]
+  }
+}
