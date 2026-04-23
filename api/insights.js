@@ -1,39 +1,17 @@
 /**
  * /api/insights — team-shared override store for the ChiCom dashboard
- * AI-insight paragraphs. Backed by Vercel KV.
+ * editable comment boxes. Backed by Vercel's native Redis.
  *
- * GET    → { Q1: "...", Q2: "...", ... } (only keys that have overrides)
- * POST   { qId, text }  → saves one override
- * DELETE { qId }        → removes one override (dashboard falls back to baked-in)
+ * GET    → { "Q1_1:a": "...", "Q1_1:b": "...", ... } (only keys that have overrides)
+ * POST   { id, text }  → saves one override at key `insight:<id>`
+ * DELETE { id }        → removes one override
  *
- * No auth for MVP. Recommend gating behind Vercel Deployment Protection
- * or add a shared-secret header before shipping to a public URL.
+ * No auth for MVP. Gate behind Vercel Deployment Protection for public URLs.
  */
 
-import { Redis } from '@upstash/redis';
+import { createClient } from 'redis';
 
-// Redis.fromEnv() auto-reads UPSTASH_REDIS_REST_URL + UPSTASH_REDIS_REST_TOKEN
-// (the env vars Vercel injects when you link a Redis marketplace DB).
-// Falls back to KV_REST_API_URL + KV_REST_API_TOKEN for legacy Vercel KV stores.
-const kv = (() => {
-  const url =
-    process.env.UPSTASH_REDIS_REST_URL ||
-    process.env.KV_REST_API_URL;
-  const token =
-    process.env.UPSTASH_REDIS_REST_TOKEN ||
-    process.env.KV_REST_API_TOKEN;
-  if (!url || !token) return null;
-  return new Redis({ url, token });
-})();
-
-// Accept both legacy Q-level ids (Q1..Q14) and per-chart ids like
-// "Q1_1:a" (chartId:slot). Pattern caps length and restricts charset.
 const ID_RE = /^[A-Za-z0-9_:]{1,64}$/;
-const VALID_LEGACY = new Set([
-  'Q1', 'Q2', 'Q3', 'Q4', 'Q5',
-  'Q7', 'Q8', 'Q9', 'Q10',
-  'Q11', 'Q12', 'Q13', 'Q14',
-]);
 const MAX_CHARS = 4000;
 
 function validId(id) {
@@ -44,18 +22,27 @@ function kvKey(id) {
   return `insight:${id}`;
 }
 
+// Cache the Redis client across invocations within the same warm container.
+let _client = null;
+async function getRedis() {
+  if (!process.env.REDIS_URL) return null;
+  if (_client && _client.isOpen) return _client;
+  _client = createClient({ url: process.env.REDIS_URL });
+  _client.on('error', (err) => console.error('[redis]', err));
+  await _client.connect();
+  return _client;
+}
+
 export default async function handler(req, res) {
-  // Never let the CDN cache this endpoint
   res.setHeader('Cache-Control', 'no-store, max-age=0');
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-  if (req.method === 'OPTIONS') {
-    return res.status(204).end();
-  }
+  if (req.method === 'OPTIONS') return res.status(204).end();
 
-  if (!kv) {
+  const redis = await getRedis();
+  if (!redis) {
     return res.status(503).json({
       error: 'Redis not configured — link a Redis database in Vercel dashboard → Storage tab',
     });
@@ -63,28 +50,29 @@ export default async function handler(req, res) {
 
   try {
     if (req.method === 'GET') {
-      // Scan all insight:* keys and return as a flat map.
-      // @upstash/redis returns cursor as a string; stop when it's "0".
-      const out = {};
-      let cursor = '0';
+      // Scan all `insight:*` keys and return as a flat map.
+      const keys = [];
+      let cursor = 0;
       do {
-        const [next, batch] = await kv.scan(cursor, { match: 'insight:*', count: 200 });
-        cursor = String(next);
-        if (batch && batch.length) {
-          const values = await kv.mget(...batch);
-          batch.forEach((key, i) => {
-            const id = key.replace(/^insight:/, '');
-            const v = values[i];
-            if (typeof v === 'string' && v.trim()) out[id] = v;
-          });
-        }
-      } while (cursor !== '0');
+        const res = await redis.scan(cursor, { MATCH: 'insight:*', COUNT: 200 });
+        cursor = res.cursor;
+        keys.push(...res.keys);
+      } while (cursor !== 0);
+
+      const out = {};
+      if (keys.length) {
+        const values = await redis.mGet(keys);
+        keys.forEach((key, i) => {
+          const id = key.replace(/^insight:/, '');
+          const v = values[i];
+          if (typeof v === 'string' && v.trim()) out[id] = v;
+        });
+      }
       return res.status(200).json(out);
     }
 
     if (req.method === 'POST' || req.method === 'PUT') {
       const body = req.body || {};
-      // Accept either { id, text } (new per-chart) or { qId, text } (legacy)
       const id = body.id || body.qId;
       const { text } = body;
       if (!validId(id)) {
@@ -97,10 +85,10 @@ export default async function handler(req, res) {
         return res.status(413).json({ error: `text exceeds ${MAX_CHARS} chars` });
       }
       if (!text.trim()) {
-        await kv.del(kvKey(id));
+        await redis.del(kvKey(id));
         return res.status(200).json({ ok: true, deleted: true });
       }
-      await kv.set(kvKey(id), text);
+      await redis.set(kvKey(id), text);
       return res.status(200).json({ ok: true, saved: true });
     }
 
@@ -110,7 +98,7 @@ export default async function handler(req, res) {
       if (!validId(id)) {
         return res.status(400).json({ error: `invalid id: ${id}` });
       }
-      await kv.del(kvKey(id));
+      await redis.del(kvKey(id));
       return res.status(200).json({ ok: true });
     }
 
