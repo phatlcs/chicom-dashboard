@@ -40,12 +40,18 @@ function Q1() {
     </div>
   );
 
-  const HeatGrid = ({ title, en, groups, accent }) => {
+  const HeatGrid = ({ title, groups, accent }) => {
     const bins = [5, 10, 20, 30, 50];
-    const cellH = 52;
-    const rowGap = 6;
-    const svgHeight = 30 + groups.length * (cellH + rowGap) + 40; // label row at bottom
-    const cardMinHeight = Math.max(440, svgHeight + 120);
+    // Orientation: Master Topics as ROWS (full names, left), groups as COLUMNS (labels rotated at top)
+    const cellW = 76;
+    const cellH = 40;
+    const rowGap = 4;
+    const leftPad = 320;    // space for MT full names on the left
+    const topPad = 140;     // space for rotated group labels at top
+    const mts = D.MASTER_TOPICS;
+    const svgHeight = topPad + mts.length * (cellH + rowGap) + 20;
+    const svgWidth  = leftPad + groups.length * (cellW + 4) + 20;
+    const cardMinHeight = svgHeight + 80;
     return (
       <div className="card" style={{ minHeight: cardMinHeight }}>
         <div className="card-head">
@@ -62,48 +68,59 @@ function Q1() {
           </div>
         </div>
         <div style={{ overflowX: 'auto' }}>
-          <svg width={640} height={svgHeight} style={{ display: 'block' }}>
-            {groups.map((g, gi) => (
-              <text key={g.id} x={4} y={30 + gi * (cellH + rowGap) + cellH / 2 + 4} className="axis-tick">{g.short}</text>
-            ))}
-            {D.MASTER_TOPICS.map((mt, mi) => {
-              const cellW = 46, x0 = 120 + mi * (cellW + 4);
-              return groups.map((g, gi) => {
-                const v = D.Q1_WEIGHTS[mt.id][g.id];
-                const fill = window.binColor(v, bins, accent);
-                return (
-                  <g key={g.id + mt.id}
-                    onMouseEnter={e => tt.show(e, `<b>${g.short}</b> × ${mt.vn.slice(0, 40)}…<br/>${v}% of mentions`)}
-                    onMouseMove={tt.move} onMouseLeave={tt.hide}
-                    style={{ cursor: 'pointer' }}>
-                    <rect x={x0} y={30 + gi * (cellH + rowGap)} width={cellW} height={cellH} fill={fill} rx={3} />
-                    <text x={x0 + cellW / 2} y={30 + gi * (cellH + rowGap) + cellH / 2 + 4}
-                      textAnchor="middle" className="axis-tick"
-                      pointerEvents="none"
-                      style={{ fill: v > 20 ? 'white' : 'var(--text-2)', fontSize: 10 }}>
-                      {v}
-                    </text>
-                  </g>
-                );
-              });
-            })}
-            {D.MASTER_TOPICS.map((mt, mi) => {
-              const labelY = 30 + groups.length * (cellH + rowGap) + 14;
+          <svg width={svgWidth} height={svgHeight} style={{ display: 'block' }}>
+            {/* Master Topic full names on the left (one row per MT) */}
+            {mts.map((mt, mi) => {
+              const y = topPad + mi * (cellH + rowGap) + cellH / 2 + 4;
+              const label = mt.vn.length > 46 ? mt.vn.slice(0, 44) + '…' : mt.vn;
               return (
-                <text key={mt.id}
-                  x={120 + mi * 50 + 23}
-                  y={labelY}
-                  className="axis-tick"
-                  textAnchor="end"
-                  transform={`rotate(-45 ${120 + mi * 50 + 23} ${labelY})`}>
-                  MT{mi + 1}
+                <text key={mt.id} x={leftPad - 10} y={y}
+                  textAnchor="end" className="axis-tick"
+                  style={{ fontSize: 11, fill: 'var(--text-2)' }}>
+                  <title>{mt.vn}</title>{label}
                 </text>
               );
             })}
+            {/* Group labels — rotated at the top, one per column */}
+            {groups.map((g, gi) => {
+              const x = leftPad + gi * (cellW + 4) + cellW / 2;
+              const anchorY = topPad - 12;
+              return (
+                <text key={g.id} x={x} y={anchorY}
+                  textAnchor="start" className="axis-tick"
+                  style={{ fontSize: 11 }}
+                  transform={`rotate(-45 ${x} ${anchorY})`}>
+                  <title>{g.name}</title>{g.short}
+                </text>
+              );
+            })}
+            {/* Cells: MT × Group */}
+            {mts.map((mt, mi) => (
+              groups.map((g, gi) => {
+                const v = D.Q1_WEIGHTS[mt.id][g.id];
+                const fill = window.binColor(v, bins, accent);
+                const x0 = leftPad + gi * (cellW + 4);
+                const y0 = topPad + mi * (cellH + rowGap);
+                return (
+                  <g key={g.id + mt.id}
+                    onMouseEnter={e => tt.show(e, `<b>${g.short}</b><br/>${mt.vn}<br/>${v}% đề cập`)}
+                    onMouseMove={tt.move} onMouseLeave={tt.hide}
+                    style={{ cursor: 'pointer' }}>
+                    <rect x={x0} y={y0} width={cellW} height={cellH} fill={fill} rx={3} />
+                    <text x={x0 + cellW / 2} y={y0 + cellH / 2 + 4}
+                      textAnchor="middle" className="axis-tick"
+                      pointerEvents="none"
+                      style={{ fill: v > 20 ? 'white' : 'var(--text-2)', fontSize: 11, fontWeight: 500 }}>
+                      {v}%
+                    </text>
+                  </g>
+                );
+              })
+            ))}
           </svg>
         </div>
         <div style={{ marginTop: 10, fontSize: 11, color: 'var(--text-3)' }}>
-          MT1–MT{D.MASTER_TOPICS.length} = chủ đề chính · di chuột lên ô để xem chi tiết
+          {mts.length} chủ đề chính × {groups.length} nhóm · di chuột lên ô để xem chi tiết
         </div>
       </div>
     );
@@ -114,17 +131,21 @@ function Q1() {
       <div className="grid-12">
         <div className="col-12"><TopicBars /></div>
       </div>
-      <div className="grid-2" style={{ marginTop: 16 }}>
-        <HeatGrid
-          title={<>Nhóm SOA — Trọng số chủ đề <span className="badge soa">{D.SOA_GROUPS.length} nhóm</span></>}
-          groups={D.SOA_GROUPS}
-          accent="rose"
-        />
-        <HeatGrid
-          title={<>Nhóm EC — Trọng số chủ đề <span className="badge ec">{D.EC_GROUPS.length} nhóm</span></>}
-          groups={D.EC_GROUPS}
-          accent="teal"
-        />
+      <div className="grid-12" style={{ marginTop: 16, display: 'grid', gap: 16 }}>
+        <div className="col-12">
+          <HeatGrid
+            title={<>Nhóm SOA — Trọng số chủ đề <span className="badge soa">{D.SOA_GROUPS.length} nhóm</span></>}
+            groups={D.SOA_GROUPS}
+            accent="rose"
+          />
+        </div>
+        <div className="col-12">
+          <HeatGrid
+            title={<>Nhóm EC — Trọng số chủ đề <span className="badge ec">{D.EC_GROUPS.length} nhóm</span></>}
+            groups={D.EC_GROUPS}
+            accent="teal"
+          />
+        </div>
       </div>
       {tt.node}
     </>
