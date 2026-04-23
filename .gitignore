@@ -21,3 +21,4 @@ backend/__pycache__/
 screenshots/
 *.pptx
 .insight_samples.json
+.claude/
