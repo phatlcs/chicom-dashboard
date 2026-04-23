@@ -20,7 +20,7 @@ function Q3() {
         <div className="card">
           <div className="card-head">
             <div>
-              <div className="card-title">{D.MASTER_TOPICS.length} Chủ đề chính — Seller vs Prospect</div>
+              <div className="card-title">{D.MASTER_TOPICS.length} Master Topics — Seller vs Prospect</div>
             </div>
             <div className="legend-inline">
               <span><span className="dot" style={{ background: sellerColor }}></span>Seller</span>
@@ -143,7 +143,7 @@ function Q4() {
         <div className="card">
           <div className="card-head">
             <div>
-              <div className="card-title">Chủ đề chính — số lượng tuyệt đối</div>
+              <div className="card-title">Master Topics — số lượng tuyệt đối</div>
             </div>
             <span className="card-meta">theo tháng</span>
           </div>
@@ -189,7 +189,7 @@ function Q4() {
         <div className="card">
           <div className="card-head">
             <div>
-              <div className="card-title">Chủ đề chính — phân bố %</div>
+              <div className="card-title">Master Topics — phân bố %</div>
             </div>
           </div>
           <svg width="100%" viewBox={`0 0 ${W} ${H}`} style={{ display: 'block' }}>

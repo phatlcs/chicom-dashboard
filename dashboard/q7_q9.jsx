@@ -166,7 +166,7 @@ function Q8() {
             <div>
               <div className="card-title">Bài tiêu cực nhắc đến rời bỏ — theo tháng</div>
             </div>
-            <span className="card-meta">số bài · tối đa {maxTrend}</span>
+            <span className="card-meta">số Lượt Thảo Luận · tối đa {maxTrend}</span>
           </div>
           <svg width="100%" viewBox="0 0 720 180">
             {[0, 0.25, 0.5, 0.75, 1].map((f, i) => (
@@ -193,7 +193,7 @@ function Q8() {
               const x = 40 + (i / (Q8_TREND.length - 1)) * 660;
               const y = 150 - (v / maxTrend) * 130;
               return <circle key={i} cx={x} cy={y} r={3} fill="oklch(0.60 0.20 25)"
-                onMouseEnter={e => tt.show(e, `<b>${months[i] || `M${i}`}</b><br/>${v} bài đề cập rời bỏ`)}
+                onMouseEnter={e => tt.show(e, `<b>${months[i] || `M${i}`}</b><br/>${v} Lượt Thảo Luận đề cập rời bỏ`)}
                 onMouseMove={tt.move} onMouseLeave={tt.hide} style={{ cursor: 'pointer' }} />;
             })}
             {months.map((m, i) => i % 2 === 0 && (

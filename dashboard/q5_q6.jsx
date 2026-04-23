@@ -62,7 +62,7 @@ function Q56() {
             <line x1={20} y1={180} x2={300} y2={180} className="axis-line" />
           </svg>
           <div style={{ fontSize: 11, color: 'var(--text-3)', marginTop: 4 }}>
-            Peak: <b style={{ color: 'var(--text)' }}>{daily.slice().sort((a, b) => b.count - a.count)[0].day} / {daily.slice().sort((a, b) => b.count - a.count)[0].en}</b>
+            Cao điểm: <b style={{ color: 'var(--text)' }}>{daily.slice().sort((a, b) => b.count - a.count)[0].day} / {daily.slice().sort((a, b) => b.count - a.count)[0].en}</b>
           </div>
         </div>
       </div>
@@ -179,7 +179,7 @@ function Q56() {
           </svg>
           <div style={{ fontSize: 11, color: 'var(--text-3)', marginTop: 4 }}>
             {D.Q5_PEAK_WINDOW && D.Q5_PEAK_WINDOW.windowSize > 0
-              ? <>Khung cao điểm: <b style={{ color: 'var(--text)' }}>T2–CN, {D.Q5_PEAK_WINDOW.startHour}h–{D.Q5_PEAK_WINDOW.endHour}h</b> — {D.Q5_PEAK_WINDOW.totalMentions.toLocaleString()} bài tiêu cực trong {D.Q5_PEAK_WINDOW.windowSize} giờ này.</>
+              ? <>Khung cao điểm: <b style={{ color: 'var(--text)' }}>T2–CN, {D.Q5_PEAK_WINDOW.startHour}h–{D.Q5_PEAK_WINDOW.endHour}h</b> — {D.Q5_PEAK_WINDOW.totalMentions.toLocaleString()} Lượt Thảo Luận tiêu cực trong {D.Q5_PEAK_WINDOW.windowSize} giờ này.</>
               : <>Chưa đủ dữ liệu để phát hiện khung cao điểm.</>}
           </div>
         </div>
@@ -196,7 +196,7 @@ function Q56() {
           <div>
             {D.Q5_TOP_NEG.map(t => (
               <div key={t.vn} className="rowbar" style={{ gridTemplateColumns: '1fr 60px' }}
-                onMouseEnter={e => tt.show(e, `<b>${t.vn}</b><br/>${t.count} bài tiêu cực`)}
+                onMouseEnter={e => tt.show(e, `<b>${t.vn}</b><br/>${t.count} Lượt Thảo Luận tiêu cực`)}
                 onMouseMove={tt.move} onMouseLeave={tt.hide}>
                 <div>
                   <div style={{ fontSize: 11, marginBottom: 4, color: 'var(--text)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{t.vn}</div>
@@ -221,7 +221,7 @@ function Q56() {
               </div>
             </div>
             <span className="card-meta mono">
-              {(D.Q5_PEAK_WINDOW && D.Q5_PEAK_WINDOW.totalMentions) || earlyTotal} bài trong khung cao điểm
+              {(D.Q5_PEAK_WINDOW && D.Q5_PEAK_WINDOW.totalMentions) || earlyTotal} Lượt Thảo Luận trong khung cao điểm
             </span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 48 }}>

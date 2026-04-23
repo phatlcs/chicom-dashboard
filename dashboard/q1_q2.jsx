@@ -35,7 +35,7 @@ function Q1() {
         ))}
       </div>
       <div style={{ marginTop: 14, paddingTop: 12, borderTop: '1px solid var(--border)', fontSize: 11, color: 'var(--text-3)' }}>
-        {D.MASTER_TOPICS.length} chủ đề chính · {(D.KPI && D.KPI.subTopics) || 0} chủ đề phụ
+        {D.MASTER_TOPICS.length} Master Topics · {(D.KPI && D.KPI.subTopics) || 0} chủ đề phụ
       </div>
     </div>
   );
@@ -120,7 +120,7 @@ function Q1() {
           </svg>
         </div>
         <div style={{ marginTop: 10, fontSize: 11, color: 'var(--text-3)' }}>
-          {mts.length} chủ đề chính × {groups.length} nhóm · di chuột lên ô để xem chi tiết
+          {mts.length} Master Topics × {groups.length} nhóm · di chuột lên ô để xem chi tiết
         </div>
       </div>
     );

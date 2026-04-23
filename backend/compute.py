@@ -234,6 +234,41 @@ def compute_all(df: pd.DataFrame):
         q4_events = sorted(q4_events, key=lambda e: -weekly_totals[e['week']])[:5]
         q4_events.sort(key=lambda e: e['week'])
 
+    # ── Overview (community + persona breakdowns, SOV narrative) ───────────
+    comm_counts = []
+    for gid, info in GROUP_INFO.items():
+        cnt = int((rel['group_id'] == gid).sum()) if 'group_id' in rel.columns else 0
+        comm_counts.append({**info, 'count': cnt})
+    comm_counts.sort(key=lambda x: -x['count'])
+
+    total_rel = max(1, sum(c['count'] for c in comm_counts))
+    soa_total = sum(c['count'] for c in comm_counts if c['type'] == 'SOA')
+    ec_total  = sum(c['count'] for c in comm_counts if c['type'] == 'EC')
+    top_comm  = comm_counts[0] if comm_counts else {'name': '—', 'count': 0}
+
+    persona_counts = []
+    for p in PERSONAS:
+        cnt = int((rel['persona_id'] == p['id']).sum()) if 'persona_id' in rel.columns else 0
+        persona_counts.append({**p, 'count': cnt, 'pct': round(cnt / total_rel * 100, 1)})
+    persona_counts.sort(key=lambda x: -x['count'])
+
+    overview = {
+        'communities':      comm_counts,
+        'personas':         persona_counts,
+        'totalRelevant':    int(total_rel),
+        'soaTotal':         int(soa_total),
+        'ecTotal':          int(ec_total),
+        'soaPct':           round(soa_total / total_rel * 100),
+        'ecPct':            round(ec_total  / total_rel * 100),
+        'soaGroupCount':    len(SOA_IDS),
+        'ecGroupCount':     len(EC_IDS),
+        'monthsCount':      len(months),
+        'topCommunity':     top_comm,
+        'topCommunityPct':  round(top_comm['count'] / total_rel * 100, 1),
+        'topPersona':       persona_counts[0] if persona_counts else None,
+        'secondPersona':    persona_counts[1] if len(persona_counts) > 1 else None,
+    }
+
     # ── Q1 weights ──────────────────────────────────────────────────────────
     q1_weights = {mt['id']: {} for mt in MASTER_TOPICS}
     for gid in SOA_IDS + EC_IDS:
@@ -482,6 +517,12 @@ window.ChiComData = (() => {{
   const Q5_EARLY_DIST       = {_j(q5_early_dist)};
   const Q5_PEAK_WINDOW      = {_j(peak_window)};
   const KPI                 = {_j(kpi)};
+  const OVERVIEW            = {_j(overview)};
+  const DATE_RANGE          = {_j({
+      'start': str(rel['created_date'].min().date()) if len(rel) and pd.notna(rel['created_date'].min()) else None,
+      'end':   str(rel['created_date'].max().date()) if len(rel) and pd.notna(rel['created_date'].max()) else None,
+      'monthsCount': len(months),
+  })};
   return {{
     SOA_GROUPS, EC_GROUPS, ALL_GROUPS,
     MASTER_TOPICS, Q1_MASTER, Q1_WEIGHTS, SUBTOPICS,
@@ -489,6 +530,7 @@ window.ChiComData = (() => {{
     MONTHS, Q4_TRENDS, WEEKS, Q4_EVENTS, Q4_WEEKLY,
     DAYS_VN, DAYS_EN, Q56_HEATMAP, Q5_BY_DAY, Q6_BY_HOUR,
     Q5_TOP_NEG, Q5_EARLY_DIST, Q5_PEAK_WINDOW, KPI,
+    OVERVIEW, DATE_RANGE,
   }};
 }})();
 

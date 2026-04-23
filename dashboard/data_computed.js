@@ -1378,6 +1378,160 @@ window.ChiComData = (() => {
   "masterTopics": 9,
   "subTopics": 24
 };
+  const OVERVIEW            = {
+  "communities": [
+    {
+      "id": "ec7",
+      "name": "Cộng đồng ETSY Việt Nam",
+      "short": "ETSY VN",
+      "type": "EC",
+      "count": 12102
+    },
+    {
+      "id": "ec4",
+      "name": "Chuyện Nhà Bán (Shopee/TikTok)",
+      "short": "Chuyện Nhà Bán",
+      "type": "EC",
+      "count": 11518
+    },
+    {
+      "id": "ec3",
+      "name": "Cộng Đồng Dropshipping & Shopify VN",
+      "short": "Dropship & Shopify",
+      "type": "EC",
+      "count": 4836
+    },
+    {
+      "id": "ec5",
+      "name": "Etsy To Go",
+      "short": "Etsy To Go",
+      "type": "EC",
+      "count": 4780
+    },
+    {
+      "id": "soa2",
+      "name": "Cộng đồng Amazon Sellers VN",
+      "short": "CĐ Amazon Sellers",
+      "type": "SOA",
+      "count": 4775
+    },
+    {
+      "id": "ec1",
+      "name": "Cộng Đồng MMO",
+      "short": "MMO",
+      "type": "EC",
+      "count": 704
+    },
+    {
+      "id": "soa1",
+      "name": "Amazon Sellers Viet Nam",
+      "short": "Amazon Sellers VN",
+      "type": "SOA",
+      "count": 693
+    },
+    {
+      "id": "ec2",
+      "name": "Cuồng Phong Hội (Crossborder CBEC)",
+      "short": "Cuồng Phong Hội",
+      "type": "EC",
+      "count": 429
+    },
+    {
+      "id": "ec6",
+      "name": "Etsy E-Z Cộng Đồng Etsy Việt",
+      "short": "Etsy E-Z",
+      "type": "EC",
+      "count": 421
+    }
+  ],
+  "personas": [
+    {
+      "id": "p_seller_ot",
+      "short": "Seller",
+      "segment": "Others",
+      "vn": "Seller (Others)",
+      "count": 14906,
+      "pct": 37.0
+    },
+    {
+      "id": "p_prospect_ot",
+      "short": "Prospect",
+      "segment": "Others",
+      "vn": "Prospect (Others)",
+      "count": 9500,
+      "pct": 23.6
+    },
+    {
+      "id": "p_svc_cbec",
+      "short": "Service Provider",
+      "segment": "CBEC",
+      "vn": "Service Provider (CBEC)",
+      "count": 6647,
+      "pct": 16.5
+    },
+    {
+      "id": "p_seller_az",
+      "short": "Seller",
+      "segment": "Amazon",
+      "vn": "Seller (Amazon)",
+      "count": 6530,
+      "pct": 16.2
+    },
+    {
+      "id": "p_prospect_az",
+      "short": "Prospect",
+      "segment": "Amazon",
+      "vn": "Prospect (Amazon)",
+      "count": 1886,
+      "pct": 4.7
+    },
+    {
+      "id": "p_svc_az",
+      "short": "Service Provider",
+      "segment": "Amazon",
+      "vn": "Service Provider (Amazon)",
+      "count": 768,
+      "pct": 1.9
+    }
+  ],
+  "totalRelevant": 40258,
+  "soaTotal": 5468,
+  "ecTotal": 34790,
+  "soaPct": 14,
+  "ecPct": 86,
+  "soaGroupCount": 2,
+  "ecGroupCount": 7,
+  "monthsCount": 5,
+  "topCommunity": {
+    "id": "ec7",
+    "name": "Cộng đồng ETSY Việt Nam",
+    "short": "ETSY VN",
+    "type": "EC",
+    "count": 12102
+  },
+  "topCommunityPct": 30.1,
+  "topPersona": {
+    "id": "p_seller_ot",
+    "short": "Seller",
+    "segment": "Others",
+    "vn": "Seller (Others)",
+    "count": 14906,
+    "pct": 37.0
+  },
+  "secondPersona": {
+    "id": "p_prospect_ot",
+    "short": "Prospect",
+    "segment": "Others",
+    "vn": "Prospect (Others)",
+    "count": 9500,
+    "pct": 23.6
+  }
+};
+  const DATE_RANGE          = {
+  "start": "2025-12-24",
+  "end": "2026-04-06",
+  "monthsCount": 5
+};
   return {
     SOA_GROUPS, EC_GROUPS, ALL_GROUPS,
     MASTER_TOPICS, Q1_MASTER, Q1_WEIGHTS, SUBTOPICS,
@@ -1385,6 +1539,7 @@ window.ChiComData = (() => {
     MONTHS, Q4_TRENDS, WEEKS, Q4_EVENTS, Q4_WEEKLY,
     DAYS_VN, DAYS_EN, Q56_HEATMAP, Q5_BY_DAY, Q6_BY_HOUR,
     Q5_TOP_NEG, Q5_EARLY_DIST, Q5_PEAK_WINDOW, KPI,
+    OVERVIEW, DATE_RANGE,
   };
 })();
 
