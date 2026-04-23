@@ -51,13 +51,14 @@ export default async function handler(req, res) {
   try {
     if (req.method === 'GET') {
       // Scan all `insight:*` keys and return as a flat map.
+      // node-redis v5: cursor is passed and returned as a string; '0' sentinel.
       const keys = [];
-      let cursor = 0;
+      let cursor = '0';
       do {
-        const res = await redis.scan(cursor, { MATCH: 'insight:*', COUNT: 200 });
-        cursor = res.cursor;
-        keys.push(...res.keys);
-      } while (cursor !== 0);
+        const r = await redis.scan(cursor, { MATCH: 'insight:*', COUNT: 200 });
+        cursor = String(r.cursor);
+        if (r.keys && r.keys.length) keys.push(...r.keys);
+      } while (cursor !== '0');
 
       const out = {};
       if (keys.length) {
