@@ -202,7 +202,7 @@ function Q8() {
             <div>
               <div className="card-title">Negative abandonment discussions — by month</div>
             </div>
-            <span className="card-meta">số mentions · max {maxTrend}</span>
+            <span className="card-meta">mentions · max {maxTrend}</span>
           </div>
           <svg width="100%" viewBox="0 0 720 180">
             {[0, 0.25, 0.5, 0.75, 1].map((f, i) => (
@@ -229,7 +229,7 @@ function Q8() {
               const x = 40 + (i / (Q8_TREND.length - 1)) * 660;
               const y = 150 - (v / maxTrend) * 130;
               return <circle key={i} cx={x} cy={y} r={3} fill="oklch(0.60 0.20 25)"
-                onMouseEnter={e => tt.show(e, `<b>${months[i] || `M${i}`}</b><br/>${v} mentions đề cập rời bỏ`)}
+                onMouseEnter={e => tt.show(e, `<b>${months[i] || `M${i}`}</b><br/>${v} abandonment mentions`)}
                 onMouseMove={tt.move} onMouseLeave={tt.hide} style={{ cursor: 'pointer' }} />;
             })}
             {months.map((m, i) => i % 2 === 0 && (
@@ -305,40 +305,104 @@ function Q9Donut({ title, badge, items, chartId, tt }) {
   );
 }
 
+function Q9ThreadList({ title, badge, items, chartId }) {
+  const sentimentDot = (s) => {
+    const color = s === 'positive' ? 'oklch(0.62 0.15 155)'
+                : s === 'negative' ? 'oklch(0.60 0.20 25)'
+                : 'oklch(0.70 0.02 260)';
+    return (
+      <span style={{
+        display: 'inline-block', width: 8, height: 8, borderRadius: '50%',
+        background: color, flexShrink: 0,
+      }} title={s || 'unknown'}></span>
+    );
+  };
+
+  return (
+    <div className="card">
+      <div className="card-head">
+        <div className="card-title">{title} {badge}</div>
+        <span className="card-meta">top {items.length} threads</span>
+      </div>
+      <div>
+        {items.length === 0 && (
+          <div style={{ padding: '24px 8px', fontSize: 12, color: 'var(--text-3)' }}>
+            No threads available.
+          </div>
+        )}
+        {items.map((t, i) => (
+          <a key={t.id} href={t.link} target="_blank" rel="noopener noreferrer"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '28px 1fr 64px',
+              gap: 10,
+              alignItems: 'flex-start',
+              padding: '10px 6px',
+              borderBottom: '1px solid var(--border)',
+              textDecoration: 'none',
+              color: 'inherit',
+            }}>
+            <div className="mono" style={{ fontSize: 11, color: 'var(--text-3)', paddingTop: 2 }}>
+              #{i + 1}
+            </div>
+            <div>
+              <div style={{ display: 'flex', gap: 8, alignItems: 'center', fontSize: 11, color: 'var(--text-3)', marginBottom: 3 }}>
+                {sentimentDot(t.sentiment)}
+                <span className={`badge ${t.group_type === 'SOA' ? 'soa' : 'ec'}`}>{t.group_type}</span>
+                <span>{t.group_name}</span>
+                {t.persona && <span>· {t.persona}</span>}
+              </div>
+              <div style={{ fontSize: 12, color: 'var(--text)', lineHeight: 1.35 }}>
+                {t.preview || <em style={{ color: 'var(--text-3)' }}>(no preview)</em>}
+              </div>
+            </div>
+            <div style={{ textAlign: 'right' }}>
+              <div className="mono" style={{ fontSize: 16, fontWeight: 600, color: 'var(--text)' }}>
+                {(t.comments ?? Math.max(0, t.count - 1)).toLocaleString()}
+              </div>
+              <div style={{ fontSize: 10, color: 'var(--text-3)' }}>comments</div>
+            </div>
+          </a>
+        ))}
+      </div>
+      {chartId && <window.CardComments chartId={chartId} />}
+    </div>
+  );
+}
+
 function Q9() {
-  const tt = window.useTooltip();
-  const q7Personas = D2.Q9_Q7_PERSONAS || [];
-  const q8Personas = D2.Q9_Q8_PERSONAS || [];
+  const all = D2.Q9_TOP_THREADS     || [];
+  const soa = D2.Q9_TOP_THREADS_SOA || [];
+  const ec  = D2.Q9_TOP_THREADS_EC  || [];
 
-  const hasSplit = D2.Q9_Q7_PERSONAS_SOA && D2.Q9_Q7_PERSONAS_EC
-                && D2.Q9_Q8_PERSONAS_SOA && D2.Q9_Q8_PERSONAS_EC;
-
+  const hasSplit = soa.length > 0 || ec.length > 0;
   const soaBadge = <span className="badge soa">SOA</span>;
   const ecBadge  = <span className="badge ec">EC</span>;
+  const top      = all[0];
 
   return (
     <div className="grid-12">
       {hasSplit ? (
         <>
-          <div className="col-6"><Q9Donut title="Q7 (kêu gọi gia nhập)" badge={soaBadge} items={D2.Q9_Q7_PERSONAS_SOA} chartId="Q9_1" tt={tt} /></div>
-          <div className="col-6"><Q9Donut title="Q7 (kêu gọi gia nhập)" badge={ecBadge}  items={D2.Q9_Q7_PERSONAS_EC}  chartId="Q9_3" tt={tt} /></div>
-          <div className="col-6"><Q9Donut title="Q8 (dấu hiệu rời bỏ)"  badge={soaBadge} items={D2.Q9_Q8_PERSONAS_SOA} chartId="Q9_2" tt={tt} /></div>
-          <div className="col-6"><Q9Donut title="Q8 (dấu hiệu rời bỏ)"  badge={ecBadge}  items={D2.Q9_Q8_PERSONAS_EC}  chartId="Q9_4" tt={tt} /></div>
+          <div className="col-6"><Q9ThreadList title="Top 10 most-discussed threads" badge={soaBadge} items={soa} chartId="Q9_SOA" /></div>
+          <div className="col-6"><Q9ThreadList title="Top 10 most-discussed threads" badge={ecBadge}  items={ec}  chartId="Q9_EC"  /></div>
         </>
       ) : (
-        <>
-          <div className="col-6"><Q9Donut title="Participants — Q7 (kêu gọi gia nhập)" items={q7Personas} chartId="Q9_1" tt={tt} /></div>
-          <div className="col-6"><Q9Donut title="Participants — Q8 (dấu hiệu rời bỏ)"  items={q8Personas} chartId="Q9_2" tt={tt} /></div>
-        </>
+        <div className="col-12"><Q9ThreadList title="Top 10 most-discussed threads" items={all} chartId="Q9" /></div>
       )}
 
       <div style={{ gridColumn: '1 / -1' }}>
         <window.Insight qId="Q9">
-          Leading persona in join discussion (Q7): <b>{q7Personas[0]?.name || '—'}</b> ({q7Personas[0]?.count.toLocaleString() || 0} mentions) ·
-          Leading persona in abandon discussion (Q8): <b>{q8Personas[0]?.name || '—'}</b> ({q8Personas[0]?.count.toLocaleString() || 0}).
+          {top && <>
+            Most-discussed thread: <b>{top.preview ? top.preview.slice(0, 80) + (top.preview.length > 80 ? '…' : '') : top.id}</b>{' '}
+            ({(top.comments ?? Math.max(0, top.count - 1)).toLocaleString()} comments · {top.group_name}).
+          </>}
+          {hasSplit && <>
+            {' '}SOA leader: <b>{(soa[0]?.comments ?? Math.max(0, (soa[0]?.count || 0) - 1)).toLocaleString()}</b> comments ·
+            EC leader: <b>{(ec[0]?.comments ?? Math.max(0, (ec[0]?.count || 0) - 1)).toLocaleString()}</b> comments.
+          </>}
         </window.Insight>
       </div>
-      {tt.node}
     </div>
   );
 }

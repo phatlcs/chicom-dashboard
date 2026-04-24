@@ -1,5 +1,5 @@
 """
-Export the ChiCom dashboard to a PowerPoint deck.
+Export the Boost dashboard to a PowerPoint deck.
 
 Layout rules:
   - Each chart on the dashboard is one individual image in screenshots/.
@@ -109,7 +109,7 @@ def _footer(slide, page: int, total: int, date_range: dict):
     foot.text_frame.margin_left = Emu(0)
     _set_para(
         foot.text_frame.paragraphs[0],
-        f"ChiCom · Community Insights  ·  {start} → {end}  ·  trang {page}/{total}",
+        f"Boost · Community Insights  ·  {start} → {end}  ·  trang {page}/{total}",
         size=9, color=GRAY,
     )
 
@@ -275,7 +275,7 @@ def slide_title(prs: Presentation, info: dict, date_range: dict):
 
     title = slide.shapes.add_textbox(Inches(0.7), Inches(2.4), Inches(12), Inches(1.0))
     _set_para(title.text_frame.paragraphs[0],
-              "ChiCom — Community Insights Report",
+              "Boost — Community Insights Report",
               size=40, bold=True)
 
     subtitle = slide.shapes.add_textbox(Inches(0.7), Inches(3.5), Inches(12), Inches(0.6))
@@ -447,7 +447,7 @@ def build_deck(out_path: Path) -> None:
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
-    p.add_argument("--out", default="ChiCom_Report.pptx")
+    p.add_argument("--out", default="Boost_Report.pptx")
     args = p.parse_args()
     out = Path(args.out)
     if not out.is_absolute():

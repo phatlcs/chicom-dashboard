@@ -63,7 +63,7 @@ function TopNegTopics({ items, title, badge, chartId, tt }) {
       <div>
         {items.map(t => (
           <div key={t.vn} className="rowbar" style={{ gridTemplateColumns: '1fr 60px' }}
-            onMouseEnter={e => tt.show(e, `<b>${t.vn}</b><br/>${t.count} mentions tiêu cực`)}
+            onMouseEnter={e => tt.show(e, `<b>${t.en || t.vn}</b><br/>${t.vn}<br/>${t.count} negative mentions`)}
             onMouseMove={tt.move} onMouseLeave={tt.hide}>
             <div>
               <div style={{ fontSize: 11, marginBottom: 4, color: 'var(--text)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{t.vn}</div>
@@ -96,16 +96,16 @@ function Q5() {
       {hasSplit ? (
         <>
           <div className="col-6">
-            <DayBar daily={D.Q5_BY_DAY_SOA} title="Ngày Trong Tuần" badge={soaBadge} chartId="Q5_1" tt={tt} />
+            <DayBar daily={D.Q5_BY_DAY_SOA} title="Day of week" badge={soaBadge} chartId="Q5_1" tt={tt} />
           </div>
           <div className="col-6">
-            <DayBar daily={D.Q5_BY_DAY_EC} title="Ngày Trong Tuần" badge={ecBadge} chartId="Q5_3" tt={tt} />
+            <DayBar daily={D.Q5_BY_DAY_EC} title="Day of week" badge={ecBadge} chartId="Q5_3" tt={tt} />
           </div>
           <div className="col-6">
-            <TopNegTopics items={D.Q5_TOP_NEG_SOA} title="Top Chủ Đề Tiêu Cực" badge={soaBadge} chartId="Q5_2" tt={tt} />
+            <TopNegTopics items={D.Q5_TOP_NEG_SOA} title="Top negative topics" badge={soaBadge} chartId="Q5_2" tt={tt} />
           </div>
           <div className="col-6">
-            <TopNegTopics items={D.Q5_TOP_NEG_EC} title="Top Chủ Đề Tiêu Cực" badge={ecBadge} chartId="Q5_4" tt={tt} />
+            <TopNegTopics items={D.Q5_TOP_NEG_EC} title="Top negative topics" badge={ecBadge} chartId="Q5_4" tt={tt} />
           </div>
         </>
       ) : (
@@ -121,7 +121,7 @@ function Q5() {
 
       <div style={{ marginTop: 12, gridColumn: '1 / -1' }}>
         <window.Insight qId="Q5">
-          Peak day: <b>{topDay.day}</b> ({topDay.count.toLocaleString()} mentions tiêu cực) ·
+          Peak day: <b>{topDay.day}</b> ({topDay.count.toLocaleString()} negative mentions) ·
           Top negative topic: <b>{topNeg.vn}</b> ({topNeg.count.toLocaleString()}).
         </window.Insight>
       </div>
@@ -233,10 +233,10 @@ function Q6() {
       {hasSplit ? (
         <>
           <div className="col-6">
-            <HourLine hourly={D.Q6_BY_HOUR_SOA} title="Giờ Trong Ngày" badge={soaBadge} chartId="Q6_1" peakWindow={pw} tt={tt} />
+            <HourLine hourly={D.Q6_BY_HOUR_SOA} title="Hour of day" badge={soaBadge} chartId="Q6_1" peakWindow={pw} tt={tt} />
           </div>
           <div className="col-6">
-            <HourLine hourly={D.Q6_BY_HOUR_EC}  title="Giờ Trong Ngày" badge={ecBadge}  chartId="Q6_4" peakWindow={pw} tt={tt} />
+            <HourLine hourly={D.Q6_BY_HOUR_EC}  title="Hour of day" badge={ecBadge}  chartId="Q6_4" peakWindow={pw} tt={tt} />
           </div>
         </>
       ) : (
@@ -288,8 +288,8 @@ function Q6() {
           </svg>
           <div style={{ fontSize: 11, color: 'var(--text-3)', marginTop: 4 }}>
             {pw && pw.windowSize > 0
-              ? <>Peak window: <b style={{ color: 'var(--text)' }}>T2–CN, {pw.startHour}h–{pw.endHour}h</b> — {pw.totalMentions.toLocaleString()} mentions tiêu cực trong {pw.windowSize} giờ này.</>
-              : <>Chưa đủ dữ liệu để phát hiện peak window.</>}
+              ? <>Peak window: <b style={{ color: 'var(--text)' }}>T2–CN, {pw.startHour}h–{pw.endHour}h</b> — {pw.totalMentions.toLocaleString()} negative mentions over {pw.windowSize} hours.</>
+              : <>Insufficient data to detect a peak window.</>}
           </div>
         
         <window.CardComments chartId="Q6_2" />
@@ -341,7 +341,7 @@ function Q6() {
 
       <div style={{ marginTop: 12, gridColumn: '1 / -1' }}>
         <window.Insight qId="Q6">
-          Peak hour: <b>{topHour.hour}h</b> ({topHour.count.toLocaleString()} mentions tiêu cực).
+          Peak hour: <b>{topHour.hour}h</b> ({topHour.count.toLocaleString()} negative mentions).
           {pw && pw.windowSize > 0 && <> Auto-detected peak window: <b>{pw.startHour}h–{pw.endHour}h</b> ({pw.totalMentions.toLocaleString()} mentions).</>}
         </window.Insight>
       </div>

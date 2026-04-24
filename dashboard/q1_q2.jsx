@@ -8,24 +8,26 @@ function Q1() {
   const maxW = Math.max(...q1.map(m => m.weight));
   const soaOrder = D.SOA_GROUPS;
   const ecOrder = D.EC_GROUPS;
+  const subTopics = D.Q1_SUBTOPICS || [];
+  const maxSubW = subTopics.length ? Math.max(...subTopics.map(s => s.weight)) : 1;
 
   const TopicBars = () => (
     <div className="card" style={{ minHeight: 440 }}>
       <div className="card-head">
         <div>
-          <div className="card-title">Weight tổng thể</div>
+          <div className="card-title">Overall topic weights</div>
         </div>
         <span className="card-meta">% mentions · avg across groups</span>
       </div>
       <div>
         {q1.map((m, i) => (
           <div key={m.id} className="rowbar"
-            onMouseEnter={e => tt.show(e, `<b>${m.vn}</b><br/>${m.en} · ${m.weight}%`)}
+            onMouseEnter={e => tt.show(e, `<b>${m.en}</b><br/>${m.vn} · ${m.weight}%`)}
             onMouseMove={tt.move} onMouseLeave={tt.hide}
             style={{ gridTemplateColumns: '280px 1fr 48px' }}>
             <div className="rowbar-label" title={m.vn}>
               <span style={{ display: 'inline-block', width: 8, height: 8, borderRadius: 2, background: m.color, marginRight: 8, verticalAlign: 'middle' }}></span>
-              {m.vn}
+              {m.en}
             </div>
             <div className="rowbar-track">
               <div className="rowbar-fill" style={{ width: `${(m.weight / maxW) * 100}%`, background: m.color }}></div>
@@ -79,7 +81,7 @@ function Q1() {
             {/* Master Topic full names on the left (one row per MT) */}
             {mts.map((mt, mi) => {
               const y = topPad + mi * (cellH + rowGap) + cellH / 2 + 4;
-              const label = mt.vn.length > 46 ? mt.vn.slice(0, 44) + '…' : mt.vn;
+              const label = mt.en.length > 46 ? mt.en.slice(0, 44) + '…' : mt.en;
               return (
                 <text key={mt.id} x={leftPad - 10} y={y}
                   textAnchor="end" className="axis-tick"
@@ -110,7 +112,7 @@ function Q1() {
                 const y0 = topPad + mi * (cellH + rowGap);
                 return (
                   <g key={g.id + mt.id}
-                    onMouseEnter={e => tt.show(e, `<b>${g.short}</b><br/>${mt.vn}<br/>${v}% mentions`)}
+                    onMouseEnter={e => tt.show(e, `<b>${g.short}</b><br/>${mt.en}<br/>${v}% mentions`)}
                     onMouseMove={tt.move} onMouseLeave={tt.hide}
                     style={{ cursor: 'pointer' }}>
                     <rect x={x0} y={y0} width={cellW} height={cellH} fill={fill} rx={3} />
@@ -146,7 +148,7 @@ function Q1() {
           }));
           return (
             <window.Insight>
-              Hottest cell: <b>{best.g.short}</b> dành <b>{best.v}%</b> to topic <b>{best.mt.vn}</b>.
+              Hottest cell: <b>{best.g.short}</b> allocates <b>{best.v}%</b> to <b>{best.mt.en}</b>.
               {grpMax[0] && <> Most concentrated group: <b>{grpMax.sort((a, b) => b.top.v - a.top.v)[0].g.short}</b> ({grpMax[0].top.v}%).</>}
             </window.Insight>
           );
@@ -157,22 +159,57 @@ function Q1() {
     );
   };
 
+  const SubTopicBars = () => (
+    <div className="card" style={{ minHeight: 440 }}>
+      <div className="card-head">
+        <div>
+          <div className="card-title">Overall sub-topic weights</div>
+        </div>
+        <span className="card-meta">{subTopics.length} sub-topics · % of all mentions</span>
+      </div>
+      <div>
+        {subTopics.map((s, i) => (
+          <div key={s.vn} className="rowbar"
+            onMouseEnter={e => tt.show(e, `<b>${s.en || s.vn}</b><br/>${s.vn}<br/>${s.count.toLocaleString()} mentions · ${s.weight}%`)}
+            onMouseMove={tt.move} onMouseLeave={tt.hide}
+            style={{ gridTemplateColumns: '360px 1fr 48px' }}>
+            <div className="rowbar-label" title={s.vn} style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+              <span style={{ display: 'inline-block', width: 8, height: 8, borderRadius: 2, background: s.color, marginRight: 8, verticalAlign: 'middle' }}></span>
+              {s.en || s.vn}
+            </div>
+            <div className="rowbar-track">
+              <div className="rowbar-fill" style={{ width: `${(s.weight / maxSubW) * 100}%`, background: s.color }}></div>
+            </div>
+            <div className="rowbar-value">{s.weight}%</div>
+          </div>
+        ))}
+        {!subTopics.length && (
+          <div style={{ padding: '24px 8px', fontSize: 12, color: 'var(--text-3)' }}>
+            No sub-topic data available (the <code>sub_topic</code> column is empty).
+          </div>
+        )}
+      </div>
+      <window.CardComments chartId="Q1_SUB" />
+    </div>
+  );
+
   return (
     <>
-      <div className="grid-12">
-        <div className="col-12"><TopicBars /></div>
+      <div className="grid-2" style={{ display: 'grid', gap: 16 }}>
+        <TopicBars />
+        <SubTopicBars />
       </div>
       <div className="grid-12" style={{ marginTop: 16, display: 'grid', gap: 16 }}>
         <div className="col-12">
           <HeatGrid
-            title={<>Nhóm SOA — Weight <span className="badge soa">{D.SOA_GROUPS.length} groups</span></>}
+            title={<>SOA groups — Weight <span className="badge soa">{D.SOA_GROUPS.length} groups</span></>}
             groups={D.SOA_GROUPS}
             accent="rose"
           />
         </div>
         <div className="col-12">
           <HeatGrid
-            title={<>Nhóm EC — Weight <span className="badge ec">{D.EC_GROUPS.length} groups</span></>}
+            title={<>EC groups — Weight <span className="badge ec">{D.EC_GROUPS.length} groups</span></>}
             groups={D.EC_GROUPS}
             accent="teal"
           />
@@ -234,7 +271,7 @@ function Q2Heatmap({ matrix, title, badge, accent, chartId, tt, personas, mts })
             <g key={mt.id}>
               <text x={leftPad - 12} y={topPad + mi * cellH + cellH / 2 + 4}
                 textAnchor="end" className="axis-tick" style={{ fontSize: 11, fill: 'var(--text-2)' }}>
-                {mt.vn.length > 48 ? mt.vn.slice(0, 46) + '…' : mt.vn}
+                {mt.en.length > 48 ? mt.en.slice(0, 46) + '…' : mt.en}
               </text>
               {personas.map((p, pi) => {
                 const v = matrix[mt.id][p.id];
@@ -247,7 +284,7 @@ function Q2Heatmap({ matrix, title, badge, accent, chartId, tt, personas, mts })
                       width={cellW - 6} height={cellH - 6}
                       fill={window.heatColor(intensity, accent)}
                       rx={3}
-                      onMouseEnter={e => tt.show(e, `<b>${p.vn}</b> × ${mt.vn.slice(0, 36)}…<br/>${v} mentions`)}
+                      onMouseEnter={e => tt.show(e, `<b>${p.vn}</b> × ${mt.en.slice(0, 36)}…<br/>${v} mentions`)}
                       onMouseMove={tt.move} onMouseLeave={tt.hide}
                       style={{ cursor: 'pointer' }}
                     />
@@ -332,7 +369,7 @@ function Q2() {
 
       <div className="col-12">
         <window.Insight qId="Q2">
-          Densest cell: <b>{best.p.vn}</b> × <b>{best.mt.vn}</b> với <b>{best.v.toLocaleString()}</b> mentions.
+          Densest cell: <b>{best.p.vn}</b> × <b>{best.mt.en}</b> with <b>{best.v.toLocaleString()}</b> mentions.
           Highest-total persona: <b>{personaTotals[0].p.vn}</b> ({personaTotals[0].total.toLocaleString()}).
         </window.Insight>
       </div>

@@ -1,5 +1,5 @@
 """
-ChiCom Dashboard — FastAPI backend
+Boost Dashboard — FastAPI backend
 Run: uvicorn main:app --reload --port 8080
 or:  python main.py
 """
@@ -17,7 +17,7 @@ from fastapi.responses import FileResponse, JSONResponse, Response
 sys.path.insert(0, str(Path(__file__).parent))
 from compute import compute_all  # noqa: E402
 
-app = FastAPI(title="ChiCom Dashboard API")
+app = FastAPI(title="Boost Dashboard API")
 
 DASHBOARD = Path(__file__).parent.parent / "dashboard"
 

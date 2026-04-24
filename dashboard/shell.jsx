@@ -80,7 +80,7 @@ function TopBar() {
       <div className="topbar-inner">
         <div className="brand">
           <div className="brand-mark">CC</div>
-          <span>ChiCom</span>
+          <span>Boost</span>
           <span className="brand-sub">/ Community Insights</span>
         </div>
       </div>
@@ -96,12 +96,12 @@ function KpiStrip() {
   return (
     <div className="kpi-strip">
       <div className="kpi">
-        <div className="kpi-label">Tổng mentions</div>
+        <div className="kpi-label">Total Mentions</div>
         <div className="kpi-value mono">{fmt(kpi.totalPosts)}</div>
         <div className="kpi-delta mono" style={{ color: 'var(--text-3)' }}>{fmt(kpi.relevantPosts)} relevant</div>
       </div>
       <div className="kpi">
-        <div className="kpi-label">mentions phân tích</div>
+        <div className="kpi-label">Analyzed Mentions</div>
         <div className="kpi-value mono">{fmt(kpi.relevantPosts)}</div>
         <div className="kpi-delta up mono">spam filtered out</div>
       </div>
@@ -111,15 +111,15 @@ function KpiStrip() {
         <div className="kpi-delta mono" style={{ color: 'var(--text-3)' }}>{kpi.subTopics ?? 0} sub-topics</div>
       </div>
       <div className="kpi">
-        <div className="kpi-label">Negative mentions</div>
-        <div className="kpi-value mono">{fmt(kpi.negativeMentions)}</div>
-        <div className="kpi-delta down mono">{negPct}% of relevant mentions</div>
+        <div className="kpi-label">SOA Positive</div>
+        <div className="kpi-value mono">{kpi.soaPositivePct != null ? `${kpi.soaPositivePct}%` : '—'}</div>
+        <div className="kpi-delta up mono">vs EC {kpi.ecPositivePct != null ? `${kpi.ecPositivePct}%` : '—'}</div>
       </div>
       <div className="kpi">
         <div className="kpi-label">Active Groups</div>
         <div className="kpi-value mono">{kpi.activeGroups ?? '—'}</div>
         <div className="kpi-delta mono" style={{ color: 'var(--text-3)' }}>
-          {kpi.analysedGroups ?? 0} phân tích · {kpi.soaGroups ?? 0} SOA + {kpi.ecGroups ?? 0} EC
+          {kpi.analysedGroups ?? 0} analyzed · {kpi.soaGroups ?? 0} SOA + {kpi.ecGroups ?? 0} EC
         </div>
       </div>
     </div>
@@ -132,28 +132,62 @@ window.KpiStrip = KpiStrip;
 function FilterRail() { return null; }
 window.FilterRail = FilterRail;
 
+// Minimal horizontal strip of Q1..Q14 anchors. Lives in normal document
+// flow (no fixed positioning), no border, just a thin line of text links.
+function TimelineNav() {
+  const qs = ['Q1','Q2','Q3','Q4','Q5','Q6','Q7','Q8','Q9','Q10','Q11','Q12','Q13','Q14'];
+  const [active, setActive] = useState(null);
+
+  useEffect(() => {
+    const nodes = qs.map(id => document.getElementById(id)).filter(Boolean);
+    if (!nodes.length) return;
+    const io = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter(e => e.isIntersecting)
+        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+      if (visible.length) setActive(visible[0].target.id);
+    }, { rootMargin: '-30% 0px -60% 0px', threshold: 0 });
+    nodes.forEach(n => io.observe(n));
+    return () => io.disconnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return (
+    <nav className="timeline-nav" aria-label="Section navigation">
+      {qs.map(q => (
+        <a key={q} href={'#' + q}
+           className={'timeline-nav-item' + (q === active ? ' on' : '')}>
+          {q}
+        </a>
+      ))}
+    </nav>
+  );
+}
+window.TimelineNav = TimelineNav;
+
+
 function AnchorRail() {
   // Labels from remixed-91e62673.html TOC.
   const items = [
-    ['Q1',  '#Q1',  'Topics nhiều nhất / Weight từng group'],
-    ['Q2',  '#Q2',  'Topics theo Persona / từng group'],
+    ['Q1',  '#Q1',  'Top topics / weight per group'],
+    ['Q2',  '#Q2',  'Topics by Persona / per group'],
     ['Q3',  '#Q3',  'Seller vs Prospect deep-dive'],
     ['Q4',  '#Q4',  'Master Topic monthly trends'],
     ['Q5',  '#Q5',  'Negative — peak day of week'],
     ['Q6',  '#Q6',  'Negative — peak hour of day'],
-    ['Q7',  '#Q7',  'Topics kêu gọi gia nhập Amazon'],
-    ['Q8',  '#Q8',  'Topics tín hiệu rời bỏ Amazon'],
-    ['Q9',  '#Q9',  'Active personas · KOL mentions'],
+    ['Q7',  '#Q7',  'Amazon join-trigger topics'],
+    ['Q8',  '#Q8',  'Amazon abandon-signal topics'],
+    ['Q9',  '#Q9',  'Top 10 discussed threads'],
     ['Q10', '#Q10', 'Most-discussed categories'],
     ['Q11', '#Q11', 'Amazon product/program adoption'],
-    ['Q12', '#Q12', '3rd-party services nhu cầu'],
-    ['Q13', '#Q13', 'Amazon courses được quan tâm'],
+    ['Q12', '#Q12', '3rd-party services needed'],
+    ['Q13', '#Q13', 'Amazon courses of interest'],
     ['Q14', '#Q14', 'Business growth & P&L discussion'],
   ];
   return (
     <div className="anchor-rail">
       <div className="anchor-list">
-        <span className="filter-rail-label">Mục lục</span>
+        <span className="filter-rail-label">Contents</span>
         <div className="anchor-grid">
           {items.map(([q, href, label]) => (
             <a key={q} href={href}>{q} · {label}</a>
@@ -189,7 +223,7 @@ function Section({ id, num, title, scope, soaOnly, children }) {
           fontSize: 11,
           color: 'var(--text-2)',
         }}>
-          <b>Data scope:</b> Computed on only <b>{soaScope.totalRelevant.toLocaleString()}</b> mentions từ <b>{soaScope.groupIds.length} SOA groups</b> ({soaScope.groupNames.join(', ')}) — this question is Amazon-seller specific.
+          <b>Data scope:</b> Computed on only <b>{soaScope.totalRelevant.toLocaleString()}</b> mentions from <b>{soaScope.groupIds.length} SOA groups</b> ({soaScope.groupNames.join(', ')}) — this question is Amazon-seller specific.
         </div>
       )}
       {children}
@@ -200,9 +234,9 @@ function Section({ id, num, title, scope, soaOnly, children }) {
 window.Section = Section;
 
 // ── Expert Insight Panel ────────────────────────────────────────────────
-// Renders the manually-curated "Nhận định & Khuyến nghị" block for a Q,
+// Renders the manually-curated "Insights & Recommendations" block for a Q,
 // sourced from window.ExpertInsights (see dashboard/expert_insights.js).
-// Three clearly separated sub-blocks: Nhận định · Warning · Khuyến nghị.
+// Three clearly separated sub-blocks: Insights · Warning · Recommendations.
 function ExpertInsightPanel({ qId }) {
   const data = qId && (window.ExpertInsights || {})[qId];
   if (!data) return null;
@@ -216,7 +250,7 @@ function ExpertInsightPanel({ qId }) {
   return (
     <div className="ei-panel">
       <div className="ei-panel-header">
-        <span className="ei-panel-tag">Nhận định & Khuyến nghị</span>
+        <span className="ei-panel-tag">Insights & Recommendations</span>
       </div>
 
       {hasStats && (
@@ -233,7 +267,7 @@ function ExpertInsightPanel({ qId }) {
 
       {hasFindings && (
         <div className="ei-block-group">
-          <div className="ei-section-title">📊 Nhận định</div>
+          <div className="ei-section-title">📊 Insights</div>
           {data.findings.map((f, i) => (
             <div className={`ei-finding ${f.variant || ''}`} key={i}>
               {f.label && <div className={`ei-finding-label ${f.variant || ''}`}>{f.label}</div>}
@@ -257,7 +291,7 @@ function ExpertInsightPanel({ qId }) {
 
       {hasRecs && (
         <div className="ei-block-group">
-          <div className="ei-section-title">💡 Khuyến nghị</div>
+          <div className="ei-section-title">💡 Recommendations</div>
           <div className="ei-rec-body">
             {data.recommendations.map((r, i) => (
               <div className="ei-rec-item" key={i}>
@@ -395,7 +429,7 @@ function CommentBox({ chartId, slot, label }) {
       localStorage.setItem(storageKey, next);
     }
     setValue(next);
-    flashStatus('saving', 'Đang lưu…', 0);
+    flashStatus('saving', 'Saving…', 0);
     try {
       const r = await fetch('/api/insights', {
         method: next ? 'POST' : 'DELETE',
@@ -404,9 +438,9 @@ function CommentBox({ chartId, slot, label }) {
       });
       if (!r.ok) throw new Error((await r.json()).error || `HTTP ${r.status}`);
       window.__kvInsights.data[id] = next || null;
-      flashStatus('ok', 'Đã lưu');
+      flashStatus('ok', 'Saved');
     } catch (e) {
-      flashStatus('err', 'Lỗi mạng — thử lại', 3500);
+      flashStatus('err', 'Network error — retry', 3500);
     }
   };
 
@@ -433,7 +467,7 @@ function CommentBox({ chartId, slot, label }) {
       <textarea
         ref={ref}
         value={value}
-        placeholder={expanded ? 'Nhập ghi chú…' : '+ thêm ghi chú'}
+        placeholder={expanded ? 'Type a note…' : '+ add note'}
         onChange={e => setValue(e.target.value)}
         onFocus={() => setFocused(true)}
         onBlur={() => { setFocused(false); save(); }}
@@ -464,15 +498,11 @@ function CardComments({ chartId }) {
   if (!chartId) return null;
   return (
     <div style={{
-      display: 'flex',
-      gap: 10,
-      alignItems: 'flex-start',
       marginTop: 8,
       paddingTop: 8,
       borderTop: '1px dashed var(--border)',
     }}>
-      <CommentBox chartId={chartId} slot="a" label="Note A" />
-      <CommentBox chartId={chartId} slot="b" label="Note B" />
+      <CommentBox chartId={chartId} slot="a" label="Note" />
     </div>
   );
 }
@@ -489,7 +519,7 @@ window.CardComments = CardComments;
 // "↺ Reset" button → clears both and falls back to the default.
 //
 // SHOW_INSIGHT: set to true to re-enable the AI Insight panel under every
-// chart. Currently hidden because the Nhận định & Khuyến nghị expert panel
+// chart. Currently hidden because the Insights & Recommendations expert panel
 // covers the same ground.
 const SHOW_INSIGHT = false;
 
@@ -546,7 +576,7 @@ function Insight({ qId, children }) {
       if (kvText) {
         await _deleteKvInsight(qId);
         window.__kvInsights.data[qId] = null;
-        flashStatus('ok', 'Đã khôi phục mặc định');
+        flashStatus('ok', 'Reverted to default');
       }
       return;
     }
@@ -555,27 +585,27 @@ function Insight({ qId, children }) {
     // Save locally first (instant, refresh-proof)
     localStorage.setItem(storageKey, next);
     setEdited(next);
-    flashStatus('saving', 'Đang lưu…', 0);
+    flashStatus('saving', 'Saving…', 0);
     const ok = await _saveKvInsight(qId, next);
     if (ok) {
       window.__kvInsights.data[qId] = next;
-      flashStatus('ok', 'Đã lưu');
+      flashStatus('ok', 'Saved');
     } else {
-      flashStatus('err', 'Lỗi lưu — thử lại', 4000);
+      flashStatus('err', 'Save failed — retry', 4000);
     }
   };
 
   const resetToDefault = async (e) => {
     e.stopPropagation();
     if (!qId) return;
-    if (!confirm('Khôi phục insight AI gốc? Bản chỉnh sửa hiện tại sẽ bị xoá.')) return;
+    if (!confirm('Restore original AI insight? Your current edit will be discarded.')) return;
     localStorage.removeItem(storageKey);
     setEdited(null);
-    flashStatus('saving', 'Đang xoá…', 0);
+    flashStatus('saving', 'Clearing…', 0);
     const ok = await _deleteKvInsight(qId);
     window.__kvInsights.data[qId] = null;
     if (ref.current) ref.current.innerText = llmText || '';
-    flashStatus(ok ? 'ok' : 'err', ok ? 'Đã khôi phục' : 'Lỗi mạng — thử lại', ok ? 1800 : 4000);
+    flashStatus(ok ? 'ok' : 'err', ok ? 'Reverted' : 'Network error — retry', ok ? 1800 : 4000);
   };
 
   const editable = !!qId; // only Qs with an id are persistable
@@ -606,7 +636,7 @@ function Insight({ qId, children }) {
         {editable && isOverridden && (
           <button
             onClick={resetToDefault}
-            title="Khôi phục insight AI gốc"
+            title="Restore original AI insight"
             style={{
               border: 'none', background: 'transparent', cursor: 'pointer',
               color: accentDark, fontSize: 10, padding: '0 4px',
@@ -621,7 +651,7 @@ function Insight({ qId, children }) {
         )}
         {editable && !status && (
           <span style={{ marginLeft: 'auto', color: 'var(--text-3)', fontWeight: 500, textTransform: 'none' }}>
-            bấm để chỉnh
+            click to edit
           </span>
         )}
       </div>
@@ -646,7 +676,7 @@ function Insight({ qId, children }) {
 // breaking React's rules-of-hooks when SHOW_INSIGHT toggles).
 window.Insight = SHOW_INSIGHT ? Insight : () => null;
 
-// Divider banner between sections (Thông tin sơ bộ / Thông tin chi tiết)
+// Divider banner between sections (Overview / Detailed insights)
 function SectionBanner({ label, sublabel }) {
   return (
     <div style={{
@@ -743,16 +773,16 @@ function OverviewPanel() {
   return (
     <div style={{ display: 'grid', gap: 16 }}>
       <Narrative>
-        <b>Thống kê mentions sau IRR theo community:</b>{' '}
-        Tổng mentions của <b>{ov.soaGroupCount} SOA groups</b> hold <b>{ov.soaPct}% SOV</b> trong{' '}
-        <b>{ov.monthsCount} months</b>, trong đó <b>{ov.topCommunity.name}</b> leading with{' '}
+        <b>Post-IRR mentions by community:</b>{' '}
+        Total mentions across <b>{ov.soaGroupCount} SOA groups</b> hold <b>{ov.soaPct}% SOV</b> trong{' '}
+        <b>{ov.monthsCount} months</b>, . Within that, <b>{ov.topCommunity.name}</b> leads with{' '}
         <b>{ov.topCommunity.count.toLocaleString()}</b> mentions (~{ov.topCommunityPct}% SOV).
       </Narrative>
 
       <div className="grid-2" style={{ gap: 16 }}>
         <div className="card">
           <div className="card-head">
-            <div className="card-title">mentions theo community</div>
+            <div className="card-title">Mentions by community</div>
             <span className="card-meta">{commTotal.toLocaleString()} total</span>
           </div>
           <div>
@@ -805,15 +835,15 @@ function OverviewPanel() {
       </div>
 
       <Narrative>
-        <b>Thống kê mentions sau lọc theo persona:</b>{' '}
+        <b>Filtered mentions by persona:</b>{' '}
         {ov.topPersona && <><b>{ov.topPersona.vn}</b> dominates with <b>{ov.topPersona.count.toLocaleString()}</b> mentions</>}
-        {ov.secondPersona && <>, followed by <b>{ov.secondPersona.vn}</b> với <b>{ov.secondPersona.count.toLocaleString()}</b> mentions.</>}
+        {ov.secondPersona && <>, followed by <b>{ov.secondPersona.vn}</b> with <b>{ov.secondPersona.count.toLocaleString()}</b> mentions.</>}
       </Narrative>
 
       <div className="grid-2" style={{ gap: 16 }}>
         <div className="card">
           <div className="card-head">
-            <div className="card-title">mentions theo persona</div>
+            <div className="card-title">Mentions by persona</div>
             <span className="card-meta">{persTotal.toLocaleString()} total</span>
           </div>
           <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>

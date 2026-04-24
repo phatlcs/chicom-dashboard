@@ -31,13 +31,13 @@ function Q3() {
             {q3.map(r => (
               <div key={r.id} style={{ padding: '6px 0', borderBottom: '1px solid var(--border)' }}>
                 <div style={{ fontSize: 12, marginBottom: 4, color: 'var(--text)', display: 'flex', justifyContent: 'space-between' }}>
-                  <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: '70%' }}>{r.vn}</span>
+                  <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: '70%' }}>{r.en}</span>
                   <span className="mono" style={{ fontSize: 11, color: 'var(--text-3)' }}>
                     S {r.sellerPct}% · P {r.prospectPct}%
                   </span>
                 </div>
                 <div style={{ display: 'flex', gap: 4, alignItems: 'center' }}
-                  onMouseEnter={e => tt.show(e, `<b>${r.vn}</b><br/>Seller ${r.sellerPct}% · Prospect ${r.prospectPct}%<br/>diff ${r.diff > 0 ? '+' : ''}${r.diff}pp`)}
+                  onMouseEnter={e => tt.show(e, `<b>${r.en}</b><br/>Seller ${r.sellerPct}% · Prospect ${r.prospectPct}%<br/>diff ${r.diff > 0 ? '+' : ''}${r.diff}pp`)}
                   onMouseMove={tt.move} onMouseLeave={tt.hide}>
                   <div style={{ flex: 1, display: 'flex', gap: 2, flexDirection: 'column' }}>
                     <div style={{ height: 6, background: 'var(--panel-2)', borderRadius: 2 }}>
@@ -56,8 +56,8 @@ function Q3() {
             const prospectLead = [...q3].sort((a, b) => a.diff - b.diff)[0];
             return (
               <window.Insight qId="Q3">
-                Seller dominates: <b>{sellerLead.vn}</b> (+{sellerLead.diff}pp) ·
-                Prospect dominates: <b>{prospectLead.vn}</b> ({prospectLead.diff}pp).
+                Seller dominates: <b>{sellerLead.en}</b> (+{sellerLead.diff}pp) ·
+                Prospect dominates: <b>{prospectLead.en}</b> ({prospectLead.diff}pp).
               </window.Insight>
             );
           })()}
@@ -72,7 +72,18 @@ function Q3() {
             <div>
               <div className="card-title">Sub-topic difference</div>
             </div>
-            <span className="card-meta">{subs.length} sub-topics</span>
+            <div className="legend-inline">
+              <span><span className="dot" style={{ background: prospectColor }}></span>Prospect (left −)</span>
+              <span><span className="dot" style={{ background: sellerColor }}></span>Seller (right +)</span>
+            </div>
+          </div>
+          <div style={{
+            display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+            fontSize: 10, color: 'var(--text-3)', padding: '0 6px 4px',
+          }}>
+            <span>← Prospect dominates</span>
+            <span style={{ color: 'var(--text-2)' }}>{subs.length} sub-topics</span>
+            <span>Seller dominates →</span>
           </div>
           <svg width="100%" height={subs.length * 20 + 30} viewBox={`0 0 640 ${subs.length * 20 + 30}`} preserveAspectRatio="none">
             <line x1={320} y1={0} x2={320} y2={subs.length * 20} className="axis-line" />
@@ -82,10 +93,10 @@ function Q3() {
               const x = s.diff >= 0 ? 320 : 320 - barW;
               return (
                 <g key={i}
-                  onMouseEnter={e => tt.show(e, `<b>${s.vn}</b><br/>Seller ${s.seller}% · Prospect ${s.prospect}%<br/>diff ${s.diff > 0 ? '+' : ''}${s.diff}pp`)}
+                  onMouseEnter={e => tt.show(e, `<b>${s.en || s.vn}</b><br/>${s.vn}<br/>Seller ${s.seller}% · Prospect ${s.prospect}%<br/>diff ${s.diff > 0 ? '+' : ''}${s.diff}pp`)}
                   onMouseMove={tt.move} onMouseLeave={tt.hide}>
                   <text x={315} y={y + 14} textAnchor={s.diff >= 0 ? 'end' : 'start'} className="axis-tick" style={{ fontSize: 10 }}>
-                    {s.vn.length > 34 ? s.vn.slice(0, 32) + '…' : s.vn}
+                    {(s.en || s.vn).length > 34 ? (s.en || s.vn).slice(0, 32) + '…' : (s.en || s.vn)}
                   </text>
                   <rect x={x} y={y + 5} width={barW} height={12} fill={s.diff >= 0 ? sellerColor : prospectColor} rx={2} />
                   <text x={s.diff >= 0 ? x + barW + 4 : x - 4} y={y + 14}
@@ -101,7 +112,7 @@ function Q3() {
             const biggestGap = [...subs].sort((a, b) => Math.abs(b.diff) - Math.abs(a.diff))[0];
             return (
               <window.Insight>
-                Sub-topic with the largest Seller/Prospect gap: <b>{biggestGap.vn}</b> ({biggestGap.diff > 0 ? '+' : ''}{biggestGap.diff}pp).
+                Sub-topic with the largest Seller/Prospect gap: <b>{biggestGap.en || biggestGap.vn}</b> ({biggestGap.diff > 0 ? '+' : ''}{biggestGap.diff}pp).
               </window.Insight>
             );
           })()}
@@ -189,7 +200,7 @@ function Q4() {
                   <path d={d} fill="none" stroke={t.color} strokeWidth={1.5} />
                   {pts.map(([x, y], pi) => (
                     <circle key={pi} cx={x} cy={y} r={2.5} fill={t.color}
-                      onMouseEnter={e => tt.show(e, `<b>${t.vn.slice(0, 40)}…</b><br/>${months[pi]} · ${t.points[pi]}`)}
+                      onMouseEnter={e => tt.show(e, `<b>${t.en.slice(0, 40)}…</b><br/>${months[pi]} · ${t.points[pi]}`)}
                       onMouseMove={tt.move} onMouseLeave={tt.hide} style={{ cursor: 'pointer' }} />
                   ))}
                 </g>
@@ -200,7 +211,7 @@ function Q4() {
             {trends.map((t, i) => (
               <div key={t.id} style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--text-2)' }}>
                 <span style={{ width: 10, height: 10, background: t.color, borderRadius: 2, flexShrink: 0 }}></span>
-                <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>MT{i + 1} · {t.vn.slice(0, 24)}…</span>
+                <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>MT{i + 1} · {t.en.slice(0, 24)}…</span>
               </div>
             ))}
           </div>
@@ -219,7 +230,7 @@ function Q4() {
           <svg width="100%" viewBox={`0 0 ${W} ${H}`} style={{ display: 'block' }}>
             {trends.map((t, ti) => (
               <path key={t.id} d={stackedPath(ti)} fill={t.color} opacity={0.85}
-                onMouseEnter={e => tt.show(e, `<b>${t.vn.slice(0, 40)}…</b>`)}
+                onMouseEnter={e => tt.show(e, `<b>${t.en.slice(0, 40)}…</b>`)}
                 onMouseMove={tt.move} onMouseLeave={tt.hide} />
             ))}
             {months.map((m, i) => (
@@ -280,7 +291,7 @@ function Q4() {
               <text key={w} x={wpad.l + (i / (D.WEEKS.length - 1)) * wPlotW} y={WH - 10} textAnchor="middle" className="axis-tick">{w}</text>
             ))}
             {weekly.map((t, i) => {
-              const label = t.vn.length > 24 ? t.vn.slice(0, 22) + '…' : t.vn;
+              const label = t.en.length > 24 ? t.en.slice(0, 22) + '…' : t.en;
               return (
                 <g key={t.id + 'leg'}>
                   <rect x={WW - wpad.r + 10} y={wpad.t + i * 22} width={10} height={10} fill={t.color} rx={2} />
@@ -301,7 +312,7 @@ function Q4() {
             return (
               <window.Insight qId="Q4">
                 Detected <b>{spikeCount}</b> weeks with volume exceeding 1.5× avg.
-                {topTrend && <> Leading topic last month: <b>{topTrend.vn}</b> ({last.toLocaleString()} mentions, {delta >= 0 ? '+' : ''}{delta}% vs first month).</>}
+                {topTrend && <> Leading topic last month: <b>{topTrend.en}</b> ({last.toLocaleString()} mentions, {delta >= 0 ? '+' : ''}{delta}% vs first month).</>}
               </window.Insight>
             );
           })()}

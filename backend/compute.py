@@ -98,6 +98,69 @@ SUBTOPICS = {
     'mt9': ['Khóa học mentor','Thử thách 30 ngày','Bootcamp PPC','Coaching 1-1'],
 }
 
+SUBTOPIC_TRANSLATIONS = {
+    # Canonical sub-topic labels (post fuzzy-normalization) → English
+    'Kinh doanh xuất nhập khẩu và bán hàng quốc tế':
+        'Import-export & international selling',
+    'Bán hàng và vận hành kinh doanh trên Amazon':
+        'Amazon selling & operations',
+    'Thuế và Chi phí Kinh doanh trên Amazon cho Seller Việt Nam':
+        'Tax & costs for Vietnamese Amazon sellers',
+    'Vấn đề xác minh, khoá, rủi ro tài khoản Amazon':
+        'Amazon account verification, suspension & risks',
+    'Dịch vụ vận chuyển và fulfillment':
+        'Shipping & fulfillment services',
+    'Vận hành tài khoản và thanh toán quốc tế cho seller':
+        'Account ops & international payments (sellers)',
+    'Chia sẻ, học hỏi và hợp tác kinh nghiệm bán hàng Amazon':
+        'Sharing, learning & peer collaboration on Amazon',
+    'Khó khăn và thách thức khi bán hàng trên Amazon':
+        'Pain points & challenges selling on Amazon',
+    'Sự kiện, đào tạo và kết nối cộng đồng bán hàng Amazon':
+        'Events, training & community networking',
+    'Dịch vụ hỗ trợ và xử lý tài khoản Amazon':
+        'Amazon account support & recovery services',
+    'Hợp tác, hỗ trợ và vận hành bán hàng Amazon':
+        'Partnerships, support & Amazon selling ops',
+    'Kinh nghiệm và chiến lược bán hàng trên Amazon':
+        'Amazon selling strategy & experience',
+    'Dịch vụ và giải pháp pháp lý, thương hiệu và công cụ kinh doanh cho người bán Amazon':
+        'Legal, brand & business-tool services for Amazon sellers',
+    'Hướng dẫn và hỗ trợ khởi đầu bán hàng Amazon':
+        'Getting started on Amazon — guides & onboarding',
+    'Thanh toán và rút tiền Amazon qua Payoneer/PingPong':
+        'Amazon payouts via Payoneer / PingPong',
+    'Cảnh báo rủi ro và lừa đảo khi kinh doanh Amazon':
+        'Scam & risk warnings for Amazon sellers',
+    'Kinh doanh Amazon FBA và FBM: vận hành & tối ưu chi phí':
+        'Amazon FBA & FBM — ops & cost optimization',
+    'Vấn đề không nhận được mã OTP Amazon':
+        'Missing Amazon OTP codes',
+    'Dịch vụ và giải pháp pháp lý, thương hiệu và công cụ cho Seller Amazon':
+        'Legal, brand & tool services for Amazon sellers',
+    'Ưu đãi giảm giá Helium10 cho người bán Amazon':
+        'Helium 10 discounts for Amazon sellers',
+    'Hỏi đáp và hỗ trợ cộng đồng bán hàng':
+        'Community Q&A and seller support',
+    'Chiến lược, kinh nghiệm và hỗ trợ cộng đồng bán hàng Amazon':
+        'Amazon strategy, experience & community support',
+    'Hỗ trợ khởi đầu bán hàng Amazon':
+        'Amazon selling — getting started support',
+    # Fuzzy-merge artifacts (typos) — pointed at the canonical English above
+    'Vấn đề xác minh, khoá, rủi ko Amazon':
+        'Amazon account verification, suspension & risks',
+    'Vấn đề xác minh, khoá, rủi zo Amazon':
+        'Amazon account verification, suspension & risks',
+}
+
+
+def translate_subtopic(label):
+    """Return English for a known sub-topic; fall back to the original string."""
+    if not isinstance(label, str):
+        return label
+    return SUBTOPIC_TRANSLATIONS.get(label.strip(), label)
+
+
 Q3_SUBS_VN = [
     'Cảnh báo rủi ro & lừa đảo khi kinh doanh Amazon',
     'Kinh nghiệm & chiến lược bán hàng trên Amazon',
@@ -195,11 +258,24 @@ def compute_all(df: pd.DataFrame):
     else:
         n_sub = 0
 
+    # SOA / EC positive-sentiment % (for the comparison KPI tile)
+    def _pos_pct(frame):
+        if 'sentiment' not in frame.columns or len(frame) == 0:
+            return 0.0
+        return round(int((frame['sentiment'] == 'positive').sum()) / max(1, len(frame)) * 100, 1)
+
+    soa_rel_kpi = rel[rel['group_id'].isin(SOA_IDS)] if 'group_id' in rel.columns else rel.iloc[0:0]
+    ec_rel_kpi  = rel[rel['group_id'].isin(EC_IDS)]  if 'group_id' in rel.columns else rel.iloc[0:0]
+
     kpi = {
         'totalPosts':       int(len(df)),
         'relevantPosts':    int(len(rel)),
         'negativeMentions': int((rel['sentiment'] == 'negative').sum()) if 'sentiment' in rel.columns else 0,
         'positiveMentions': int((rel['sentiment'] == 'positive').sum()) if 'sentiment' in rel.columns else 0,
+        'soaPositivePct':   _pos_pct(soa_rel_kpi),
+        'ecPositivePct':    _pos_pct(ec_rel_kpi),
+        'soaRelevant':      int(len(soa_rel_kpi)),
+        'ecRelevant':       int(len(ec_rel_kpi)),
         'activeGroups':     len(GROUP_INFO),
         'analysedGroups':   len(SOA_IDS) + len(EC_IDS),
         'soaGroups':        len(SOA_IDS),
@@ -318,6 +394,28 @@ def compute_all(df: pd.DataFrame):
                       'sellerPct': spct, 'prospectPct': ppct, 'diff': round(spct - ppct, 1)})
 
     q3_subs = extract_q3_subs(rel) if 'content' in rel.columns and 'persona' in rel.columns else []
+    for entry in q3_subs:
+        entry['en'] = translate_subtopic(entry.get('vn', ''))
+
+    # ── Sub-topic overall weights (for Q1 second bar list) ──────────────────
+    # % of all relevant mentions per sub_topic. Uses the normalized sub_topic
+    # column when populated; returns [] otherwise.
+    q1_subtopics = []
+    if 'sub_topic' in rel.columns:
+        sub_col = rel['sub_topic'].dropna().astype(str).str.strip()
+        sub_col = sub_col[sub_col != '']
+        if len(sub_col):
+            counts = sub_col.value_counts()
+            total  = int(counts.sum())
+            # TC palette cycled across sub-topics
+            for i, (label, cnt) in enumerate(counts.items()):
+                q1_subtopics.append({
+                    'vn':     str(label),
+                    'en':     translate_subtopic(str(label)),
+                    'count':  int(cnt),
+                    'weight': round(int(cnt) / max(1, total) * 100, 1),
+                    'color':  TC[i % len(TC)],
+                })
 
     # ── Q4 trends ───────────────────────────────────────────────────────────
     q4_trends = []
@@ -326,7 +424,7 @@ def compute_all(df: pd.DataFrame):
         for m in months:
             cnt = int(((rel['month'] == m) & (rel['mt_id'] == mt['id'])).sum()) if 'mt_id' in rel.columns else 0
             pts.append(cnt)
-        q4_trends.append({'id': mt['id'], 'vn': mt['vn'], 'points': pts, 'color': TC[i]})
+        q4_trends.append({'id': mt['id'], 'vn': mt['vn'], 'en': mt['en'], 'points': pts, 'color': TC[i]})
 
     topic_totals = {mt['id']: int((rel['mt_id'] == mt['id']).sum()) if 'mt_id' in rel.columns else 0 for mt in MASTER_TOPICS}
     top4_ids = sorted(topic_totals, key=lambda x: -topic_totals[x])[:4]
@@ -338,7 +436,7 @@ def compute_all(df: pd.DataFrame):
         for ws in week_starts:
             mask = (rel['week_start'] == ws) & (rel['mt_id'] == mt_id) if 'mt_id' in rel.columns else pd.Series(False, index=rel.index)
             pts.append(int(mask.sum()))
-        q4_weekly.append({'id': mt_id, 'vn': mt['vn'], 'color': color, 'points': pts})
+        q4_weekly.append({'id': mt_id, 'vn': mt['vn'], 'en': mt['en'], 'color': color, 'points': pts})
 
     # ── Q5/Q6 heatmap ───────────────────────────────────────────────────────
     neg_df = rel[rel['sentiment'] == 'negative'].copy() if 'sentiment' in rel.columns else rel.iloc[0:0].copy()
@@ -379,10 +477,12 @@ def compute_all(df: pd.DataFrame):
         if use_subtopic and 'sub_topic' in df.columns:
             sub = df['sub_topic'].fillna('').astype(str).str.strip()
             sub = sub[sub != ''].value_counts().head(limit)
-            arr = [{'vn': k, 'count': int(v)} for k, v in sub.items()]
+            arr = [{'vn': k, 'en': translate_subtopic(k), 'count': int(v)}
+                   for k, v in sub.items()]
         else:
             arr = sorted(
-                [{'vn': mt['vn'], 'count': int((df['mt_id'] == mt['id']).sum())}
+                [{'vn': mt['vn'], 'en': mt['en'],
+                  'count': int((df['mt_id'] == mt['id']).sum())}
                  for mt in MASTER_TOPICS if 'mt_id' in df.columns],
                 key=lambda x: -x['count'],
             )
@@ -487,6 +587,62 @@ def compute_all(df: pd.DataFrame):
     q9_personas      = extract_q9_personas(rel)
     q9_personas_soa  = extract_q9_personas(soa_rel)
     q9_personas_ec   = extract_q9_personas(ec_rel)
+
+    # ── Q9 Top 10 most-discussed threads ────────────────────────────────
+    # A thread = 1 post + all its comments. Rows are tagged via `Type`:
+    #   fbGroupTopic   → the original post
+    #   fbGroupComment → a reply/comment under that post
+    # `id_source` is the parent post's id for every row in the same thread.
+    #
+    # Ranking: restrict to threads whose parent post IS present in `rel`
+    # (i.e. the post itself wasn't filtered out as spam). Count ALL rows
+    # (post + comments) per thread, take top N. Preview + link come from
+    # the `fbGroupTopic` row, never from a comment.
+    def _top_threads(frame: pd.DataFrame, n: int = 10) -> list[dict]:
+        if 'id_source' not in frame.columns or len(frame) == 0:
+            return []
+        type_col = frame['Type'].astype(str) if 'Type' in frame.columns else pd.Series('', index=frame.index)
+        posts = frame[type_col.eq('fbGroupTopic')]
+        if len(posts) == 0:
+            return []
+        # Valid post id_sources (i.e. the post row survived filtering).
+        valid_ids = set(posts['id_source'].astype(str))
+        counts = (
+            frame[frame['id_source'].astype(str).isin(valid_ids)]
+            ['id_source'].value_counts().head(n)
+        )
+        # Build a quick lookup from id_source → post row
+        posts_by_id = posts.drop_duplicates('id_source').set_index(posts['id_source'].astype(str))
+
+        out: list[dict] = []
+        for id_source, count in counts.items():
+            key = str(id_source)
+            if key not in posts_by_id.index:
+                continue
+            parent = posts_by_id.loc[key]
+            content = str(parent.get('content', '') or '').strip()
+            preview = (content[:157] + '…') if len(content) > 160 else content
+            gid = int(parent.get('group_id')) if pd.notna(parent.get('group_id')) else None
+            # Count comments (total rows - 1 for the post itself)
+            comments = int(count) - 1
+            out.append({
+                'id':           key,
+                'link':         str(parent.get('link', '') or ''),
+                'count':        int(count),
+                'comments':     comments,
+                'preview':      preview,
+                'group_id':     gid,
+                'group_name':   GROUP_INFO.get(gid, {}).get('short', '—') if gid else '—',
+                'group_type':   GROUP_INFO.get(gid, {}).get('type',  '—') if gid else '—',
+                'sentiment':    str(parent.get('sentiment', '') or ''),
+                'persona':      str(parent.get('persona',   '') or ''),
+                'master_topic': str(parent.get('master_topic', '') or ''),
+            })
+        return out
+
+    q9_top_threads     = _top_threads(rel, n=10)
+    q9_top_threads_soa = _top_threads(soa_rel, n=10)
+    q9_top_threads_ec  = _top_threads(ec_rel,  n=10)
     q10_top      = extract_q10(rel)
     q11_tools         = extract_q11(soa_rel)                                # SOA only
     q11_issues        = extract_q11_issues(soa_rel)                         # SOA only
@@ -591,7 +747,7 @@ def compute_all(df: pd.DataFrame):
         insights = {q_id: None for q_id in insight_aggregates.keys()}
 
     # ── Assemble JS ─────────────────────────────────────────────────────────
-    js = f"""// Auto-generated by ChiCom backend — do not edit
+    js = f"""// Auto-generated by Boost backend — do not edit
 window.TOPIC_COLORS = {_j(TC)};
 
 window.ChiComData = (() => {{
@@ -601,6 +757,7 @@ window.ChiComData = (() => {{
   const MASTER_TOPICS       = {_j(MASTER_TOPICS)};
   const Q1_WEIGHTS          = {_j(q1_weights)};
   const Q1_MASTER           = {_j(q1_master)};
+  const Q1_SUBTOPICS        = {_j(q1_subtopics)};
   const SUBTOPICS           = {_j(SUBTOPICS)};
   const PERSONAS            = {_j(PERSONAS)};
   const Q2_MATRIX           = {_j(q2_matrix)};
@@ -638,7 +795,7 @@ window.ChiComData = (() => {{
   })};
   return {{
     SOA_GROUPS, EC_GROUPS, ALL_GROUPS,
-    MASTER_TOPICS, Q1_MASTER, Q1_WEIGHTS, SUBTOPICS,
+    MASTER_TOPICS, Q1_MASTER, Q1_WEIGHTS, Q1_SUBTOPICS, SUBTOPICS,
     PERSONAS, Q2_MATRIX, Q2_MATRIX_SOA, Q2_MATRIX_EC, Q3_SELLER_PROSPECT, Q3_SUBS,
     MONTHS, Q4_TRENDS, WEEKS, Q4_EVENTS, Q4_WEEKLY,
     DAYS_VN, DAYS_EN, Q56_HEATMAP,
@@ -670,6 +827,9 @@ window.ChiComData2 = (() => {{
   const Q9_Q8_PERSONAS_SOA = {_j(q9_personas_soa['q8'])};
   const Q9_Q7_PERSONAS_EC  = {_j(q9_personas_ec['q7'])};
   const Q9_Q8_PERSONAS_EC  = {_j(q9_personas_ec['q8'])};
+  const Q9_TOP_THREADS     = {_j(q9_top_threads)};
+  const Q9_TOP_THREADS_SOA = {_j(q9_top_threads_soa)};
+  const Q9_TOP_THREADS_EC  = {_j(q9_top_threads_ec)};
   const Q10_TOP        = {_j(q10_top)};
   const Q10_WEEKS      = {_j(q10_weeks)};
   const Q10_WEEKLY     = {_j(q10_weekly)};
@@ -694,6 +854,7 @@ window.ChiComData2 = (() => {{
     Q9_Q7_PERSONAS, Q9_Q8_PERSONAS,
     Q9_Q7_PERSONAS_SOA, Q9_Q8_PERSONAS_SOA,
     Q9_Q7_PERSONAS_EC,  Q9_Q8_PERSONAS_EC,
+    Q9_TOP_THREADS, Q9_TOP_THREADS_SOA, Q9_TOP_THREADS_EC,
     Q10_TOP, Q10_WEEKS, Q10_WEEKLY,
     Q11_TOOLS, Q11_ISSUES, Q11_SATISFACTION,
     Q12_SERVICES, Q12_SERVICES_SOA, Q12_SERVICES_EC,

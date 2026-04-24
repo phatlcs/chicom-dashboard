@@ -1,5 +1,5 @@
 """
-LLM-powered insight generator for the ChiCom dashboard.
+LLM-powered insight generator for the Boost dashboard.
 
 For each of the 14 research questions, assemble:
   - the aggregated numbers already computed by compute.py

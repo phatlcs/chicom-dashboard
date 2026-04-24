@@ -73,9 +73,10 @@ function App() {
   return (
     <>
       <window.TopBar />
+      <window.TimelineNav />
       <div className="page">
         <div className="page-header">
-          <h1>ChiCom — Community Insights Dashboard</h1>
+          <h1>Boost — Community Insights Dashboard</h1>
           <p>Content analysis across 2 SOA (Selling on Amazon) communities and 7 EC (cross-border e-commerce) communities — answering 14 research questions.</p>
           <window.TimeRangeBadge />
         </div>
@@ -108,7 +109,7 @@ function App() {
         <window.Section id="Q8" num="Q8" soaOnly
           title="Topics signalling Amazon abandonment — key indicators"><Q8 /></window.Section>
         <window.Section id="Q9" num="Q9"
-          title="Active participants of Q7 & Q8 — KOLs mentioned"><Q9 /></window.Section>
+          title="Top 10 most-discussed threads"><Q9 /></window.Section>
         <window.Section id="Q10" num="Q10"
           title="Most-discussed product categories of the quarter"><Q10 /></window.Section>
         <window.Section id="Q11" num="Q11" soaOnly
@@ -121,7 +122,7 @@ function App() {
           title="Business growth & P&L discussion — positive and negative"><Q14 /></window.Section>
 
         <div style={{ padding: '24px 0', borderTop: '1px solid var(--border)', color: 'var(--text-3)', fontSize: 12, display: 'flex', justifyContent: 'space-between' }}>
-          <span>ChiCom Insights · data from {(window.ChiComData && window.ChiComData.KPI && window.ChiComData.KPI.totalPosts.toLocaleString()) || '—'} mentions</span>
+          <span>Boost Insights · data from {(window.ChiComData && window.ChiComData.KPI && window.ChiComData.KPI.totalPosts.toLocaleString()) || '—'} mentions</span>
           <span className="mono">14 questions · {(window.ChiComData && window.ChiComData.ALL_GROUPS && window.ChiComData.ALL_GROUPS.length) || 9} communities</span>
         </div>
       </div>

@@ -184,16 +184,16 @@ function Q12() {
       {hasSplit && (
         <>
           <div className="col-6">
-            <ServiceHBars items={D2b.Q12_SERVICES_SOA} title="Services bên thứ ba — mentions" badge={soaBadge} chartId="Q12_4" accent="oklch(0.55 0.17 25)" />
+            <ServiceHBars items={D2b.Q12_SERVICES_SOA} title="3rd-party services — mentions" badge={soaBadge} chartId="Q12_4" accent="oklch(0.55 0.17 25)" />
           </div>
           <div className="col-6">
-            <ServiceHBars items={D2b.Q12_SERVICES_EC}  title="Services bên thứ ba — mentions" badge={ecBadge}  chartId="Q12_5" accent="oklch(0.55 0.17 260)" />
+            <ServiceHBars items={D2b.Q12_SERVICES_EC}  title="3rd-party services — mentions" badge={ecBadge}  chartId="Q12_5" accent="oklch(0.55 0.17 260)" />
           </div>
         </>
       )}
       <div className="col-12">
         <div className="card">
-          <div className="card-head"><div className="card-title">Services bên thứ ba — Tổng quan</div></div>
+          <div className="card-head"><div className="card-title">3rd-party services — Overview</div></div>
           <div className="grid-3" style={{ gap: 12 }}>
             {[
               { title: 'High Priority (High Demand)', items: ['Review Service — 61.8% demand', 'Product Sourcing — 54.2%', 'Software/Tools — 53.6%', 'VA/Assistant — 52.0%'], color: red },
@@ -215,7 +215,7 @@ function Q12() {
           <div className="card-head">
             <div className="card-title">Mentions vs Need</div>
             <div className="legend-inline">
-              <span><span className="dot" style={{ background: blue }}></span>Tổng mentions</span>
+              <span><span className="dot" style={{ background: blue }}></span>Total mentions</span>
               <span><span className="dot" style={{ background: red }}></span>Looking for</span>
             </div>
           </div>
@@ -263,7 +263,7 @@ function Q12() {
         return (
           <div style={{ gridColumn: '1 / -1' }}>
             <window.Insight qId="Q12">
-              Services được đề cập nhiều nhất: <b>{topMent?.name || '—'}</b> ({topMent?.mentions.toLocaleString() || 0} mentions) ·
+              Most-mentioned service: <b>{topMent?.name || '—'}</b> ({topMent?.mentions.toLocaleString() || 0} mentions) ·
               Highest demand: <b>{topDemand?.name || '—'}</b> ({topDemand?.demand || 0}% demand) ·
               Most satisfied: <b>{topSat?.name || '—'}</b> ({topSat?.satisfaction || 0}%).
             </window.Insight>
@@ -321,10 +321,10 @@ function Q13() {
       {hasSplit && (
         <>
           <div className="col-6">
-            <CourseHBars items={D2b.Q13_COURSES_SOA} title="Khoá học — mentions" badge={soaBadge} chartId="Q13_5" accent="oklch(0.55 0.17 25)" />
+            <CourseHBars items={D2b.Q13_COURSES_SOA} title="Courses — mentions" badge={soaBadge} chartId="Q13_5" accent="oklch(0.55 0.17 25)" />
           </div>
           <div className="col-6">
-            <CourseHBars items={D2b.Q13_COURSES_EC}  title="Khoá học — mentions" badge={ecBadge}  chartId="Q13_6" accent="oklch(0.55 0.17 260)" />
+            <CourseHBars items={D2b.Q13_COURSES_EC}  title="Courses — mentions" badge={ecBadge}  chartId="Q13_6" accent="oklch(0.55 0.17 260)" />
           </div>
         </>
       )}
