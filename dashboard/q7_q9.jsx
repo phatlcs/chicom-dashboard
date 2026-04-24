@@ -35,9 +35,9 @@ function Q7() {
   const total = Q7_SENTIMENT.positive + Q7_SENTIMENT.neutral + Q7_SENTIMENT.negative;
   let acc = 0;
   const segs = [
-    { label: 'Tích cực', v: Q7_SENTIMENT.positive, color: green },
-    { label: 'Trung lập', v: Q7_SENTIMENT.neutral, color: gray },
-    { label: 'Tiêu cực', v: Q7_SENTIMENT.negative, color: red },
+    { label: 'Positive', v: Q7_SENTIMENT.positive, color: green },
+    { label: 'Neutral',  v: Q7_SENTIMENT.neutral,  color: gray },
+    { label: 'Negative', v: Q7_SENTIMENT.negative, color: red },
   ].map(s => {
     const start = acc; acc += s.v / total;
     return { ...s, start, end: acc };
@@ -88,7 +88,7 @@ function Q7() {
                   style={{ cursor: 'pointer' }} />
               ))}
               <text x={100} y={96} textAnchor="middle" className="mono" style={{ fontSize: 22, fontWeight: 600, fill: 'var(--text)' }}>{Q7_SENTIMENT.positive}%</text>
-              <text x={100} y={114} textAnchor="middle" className="axis-tick">tích cực</text>
+              <text x={100} y={114} textAnchor="middle" className="axis-tick">positive</text>
             </svg>
           </div>
           <div className="legend-inline" style={{ justifyContent: 'center' }}>
@@ -98,7 +98,7 @@ function Q7() {
       </div>
       <div style={{ gridColumn: '1 / -1' }}>
         <window.Insight qId="Q7">
-          Top lý do gia nhập: <b>{Q7_TOPICS[0]?.vn || '—'}</b> ({Q7_TOPICS[0]?.count.toLocaleString() || 0} Lượt Thảo Luận) ·
+          Top lý do gia nhập: <b>{Q7_TOPICS[0]?.vn || '—'}</b> ({Q7_TOPICS[0]?.count.toLocaleString() || 0} mentions) ·
           Top benefit: <b>{Q7_BENEFITS[0]?.vn || '—'}</b> ({Q7_BENEFITS[0]?.count.toLocaleString() || 0}) ·
           Sentiment: <b>{Q7_SENTIMENT.positive}%</b> tích cực / <b>{Q7_SENTIMENT.negative}%</b> tiêu cực.
         </window.Insight>
@@ -173,7 +173,7 @@ function Q8() {
             <div>
               <div className="card-title">Bài tiêu cực nhắc đến rời bỏ — theo tháng</div>
             </div>
-            <span className="card-meta">số Lượt Thảo Luận · tối đa {maxTrend}</span>
+            <span className="card-meta">số mentions · tối đa {maxTrend}</span>
           </div>
           <svg width="100%" viewBox="0 0 720 180">
             {[0, 0.25, 0.5, 0.75, 1].map((f, i) => (
@@ -200,7 +200,7 @@ function Q8() {
               const x = 40 + (i / (Q8_TREND.length - 1)) * 660;
               const y = 150 - (v / maxTrend) * 130;
               return <circle key={i} cx={x} cy={y} r={3} fill="oklch(0.60 0.20 25)"
-                onMouseEnter={e => tt.show(e, `<b>${months[i] || `M${i}`}</b><br/>${v} Lượt Thảo Luận đề cập rời bỏ`)}
+                onMouseEnter={e => tt.show(e, `<b>${months[i] || `M${i}`}</b><br/>${v} mentions đề cập rời bỏ`)}
                 onMouseMove={tt.move} onMouseLeave={tt.hide} style={{ cursor: 'pointer' }} />;
             })}
             {months.map((m, i) => i % 2 === 0 && (
@@ -211,9 +211,9 @@ function Q8() {
       </div>
       <div style={{ gridColumn: '1 / -1' }}>
         <window.Insight qId="Q8">
-          Top lý do rời bỏ: <b>{Q8_TRIGGERS[0]?.vn || '—'}</b> ({Q8_TRIGGERS[0]?.count.toLocaleString() || 0} Lượt Thảo Luận) ·
+          Top lý do rời bỏ: <b>{Q8_TRIGGERS[0]?.vn || '—'}</b> ({Q8_TRIGGERS[0]?.count.toLocaleString() || 0} mentions) ·
           Persona rời bỏ nhiều nhất: <b>{Q8_PERSONA[0]?.label || '—'}</b> ({Q8_PERSONA[0]?.count.toLocaleString() || 0}) ·
-          Tháng đỉnh: <b>{months[Q8_TREND.indexOf(Math.max(...Q8_TREND))] || '—'}</b> ({Math.max(...Q8_TREND).toLocaleString()} Lượt Thảo Luận).
+          Tháng đỉnh: <b>{months[Q8_TREND.indexOf(Math.max(...Q8_TREND))] || '—'}</b> ({Math.max(...Q8_TREND).toLocaleString()} mentions).
         </window.Insight>
       </div>
       {tt.node}
@@ -288,7 +288,7 @@ function Q9() {
       </div>
       <div style={{ gridColumn: '1 / -1' }}>
         <window.Insight qId="Q9">
-          Nhóm dẫn dắt thảo luận gia nhập (Q7): <b>{q7Personas[0]?.name || '—'}</b> ({q7Personas[0]?.count.toLocaleString() || 0} Lượt Thảo Luận) ·
+          Nhóm dẫn dắt thảo luận gia nhập (Q7): <b>{q7Personas[0]?.name || '—'}</b> ({q7Personas[0]?.count.toLocaleString() || 0} mentions) ·
           Nhóm dẫn dắt thảo luận rời bỏ (Q8): <b>{q8Personas[0]?.name || '—'}</b> ({q8Personas[0]?.count.toLocaleString() || 0}).
         </window.Insight>
       </div>

@@ -48,8 +48,9 @@ def needs_filter(raw_xlsx: Path, annotated_csv: Path) -> bool:
 
 def main() -> None:
     p = argparse.ArgumentParser(description='Build dashboard/data_computed.js from raw Excel.')
-    p.add_argument('--raw', default='all_groups_final_v2.xlsx',
-                   help='Raw Excel filename (relative to project root or absolute).')
+    p.add_argument('--raw', default='docs/all_groups_final_v2.xlsx',
+                   help='Raw Excel filename (relative to project root or absolute). '
+                        'Default: docs/all_groups_final_v2.xlsx.')
     p.add_argument('--force-filter', action='store_true',
                    help='Re-run the spam filter even if the annotated CSV looks up-to-date.')
     p.add_argument('--skip-filter', action='store_true',

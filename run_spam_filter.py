@@ -24,7 +24,7 @@ from urllib.parse import urlparse
 
 
 FOLDER = Path(__file__).resolve().parent
-DEFAULT_RAW_FILE = 'all_groups_final_v2.xlsx'
+DEFAULT_RAW_FILE = 'docs/all_groups_final_v2.xlsx'
 
 BLACKLIST_DIR = FOLDER / 'output' / 'blacklist'
 FILTERED_DIR  = FOLDER / 'output' / 'filtered'

@@ -293,7 +293,7 @@ function Q4() {
             return (
               <window.Insight qId="Q4">
                 Phát hiện <b>{spikeCount}</b> tuần có volume vượt 1.5× trung bình.
-                {topTrend && <> Topic dẫn đầu tháng cuối: <b>{topTrend.vn}</b> ({last.toLocaleString()} Lượt Thảo Luận, {delta >= 0 ? '+' : ''}{delta}% so với tháng đầu).</>}
+                {topTrend && <> Topic dẫn đầu tháng cuối: <b>{topTrend.vn}</b> ({last.toLocaleString()} mentions, {delta >= 0 ? '+' : ''}{delta}% so với tháng đầu).</>}
               </window.Insight>
             );
           })()}

@@ -65,7 +65,8 @@ function App() {
     window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { theme, accent } }, '*');
   }, [theme, accent]);
 
-  const Q1 = window.Q1, Q2 = window.Q2, Q3 = window.Q3, Q4 = window.Q4, Q56 = window.Q56;
+  const Q1 = window.Q1, Q2 = window.Q2, Q3 = window.Q3, Q4 = window.Q4;
+  const Q5 = window.Q5, Q6 = window.Q6;
   const Q7 = window.Q7, Q8 = window.Q8, Q9 = window.Q9, Q10 = window.Q10;
   const Q11 = window.Q11, Q12 = window.Q12, Q13 = window.Q13, Q14 = window.Q14;
 
@@ -91,34 +92,36 @@ function App() {
         <window.AnchorRail />
 
         <window.Section id="Q1" num="Q1"
-          indication="Master Topics tổng thể (trung bình qua các nhóm) và phân bố theo từng community. AI học từ 40k+ Lượt Thảo Luận đã phân loại — nhóm Chi có thể cross-check bằng keyword sampling để tinh chỉnh taxonomy."><Q1 /></window.Section>
+          title="Chủ đề được thảo luận nhiều nhất trong SOA và EC groups — Weight của từng group"><Q1 /></window.Section>
         <window.Section id="Q2" num="Q2"
-          indication="Ma trận Master Topics × Persona cho từng nhóm target. Số liệu giúp xác định persona nào đang thảo luận chủ đề nào nhiều nhất → input cho content planning."><Q2 /></window.Section>
+          title="Phân chia chủ đề theo nhóm đối tượng (Persona) — Từng group và tổng"><Q2 /></window.Section>
         <window.Section id="Q3" num="Q3"
-          indication="Deep-dive vào 9 Master Topics + sub-topic, so sánh giữa Seller vs Prospect. Bar diff âm = prospect chiếm nhiều hơn → cơ hội mentorship / educational content."><Q3 /></window.Section>
+          title="Sự khác biệt giữa Seller và Prospect — Master Topics & Sub-topics"><Q3 /></window.Section>
         <window.Section id="Q4" num="Q4"
-          indication="Xu hướng Master Topics qua các tháng + phát hiện tuần đỉnh (auto-detect). Dùng để lên content calendar và dự báo volume."><Q4 /></window.Section>
-        <window.Section id="Q5" num="Q5 / Q6"
-          indication="Khung giờ cao điểm phát hiện tự động từ dữ liệu (không cố định) — negative-sentiment Lượt Thảo Luận tập trung ở giờ nào. Input cho timing của support / moderation."><Q56 /></window.Section>
+          title="Xu hướng thay đổi Master Topics qua các tháng"><Q4 /></window.Section>
+        <window.Section id="Q5" num="Q5"
+          title="Negative Discussion — Khoảng thời gian trong tuần cao nhất"><Q5 /></window.Section>
+        <window.Section id="Q6" num="Q6"
+          title="Negative Discussion — Khoảng thời gian trong ngày cao nhất"><Q6 /></window.Section>
         <window.Section id="Q7" num="Q7"
-          indication="Lý do + benefit khiến seller gia nhập Amazon. Data-driven keyword match — Chi có thể bổ sung VN slang để tăng recall."><Q7 /></window.Section>
+          title="Topics khuyến khích sellers gia nhập Amazon — Benefits được đề cập"><Q7 /></window.Section>
         <window.Section id="Q8" num="Q8" soaOnly
-          indication="Dấu hiệu rời bỏ + persona nào đang thảo luận rời bỏ nhiều nhất. Monthly trend để phát hiện spike sớm."><Q8 /></window.Section>
+          title="Topics tín hiệu rời bỏ Amazon — Key Indicators chính"><Q8 /></window.Section>
         <window.Section id="Q9" num="Q9"
-          indication="Phân bố persona của những Lượt Thảo Luận Q7 (gia nhập) vs Q8 (rời bỏ) — xem nhóm nào đang lead từng hướng."><Q9 /></window.Section>
+          title="Active Participants của Q7 & Q8 — KOL được đề cập"><Q9 /></window.Section>
         <window.Section id="Q10" num="Q10"
-          indication="Top ngành hàng thảo luận. Hiện đang keyword-based; sẽ tự nâng cấp khi LLM điền cột Product Category."><Q10 /></window.Section>
+          title="Ngành hàng & Product Selection được thảo luận nhiều nhất trong quý"><Q10 /></window.Section>
         <window.Section id="Q11" num="Q11" soaOnly
-          indication="Mức adoption + hài lòng / vấn đề cho từng tool Amazon. Satisfied = pos-sentiment count, Issues = neg-sentiment count — cross-tab thật, không phải phân số giả."><Q11 /></window.Section>
+          title="Amazon Product/Program Adoption — Mức độ sử dụng & Mức độ hài lòng"><Q11 /></window.Section>
         <window.Section id="Q12" num="Q12" soaOnly
-          indication="Dịch vụ bên thứ 3 mà seller đang cần. 'Need' = Lượt Thảo Luận có kèm cụm 'cho hỏi/cần tìm' → input cho partnership/marketplace."><Q12 /></window.Section>
+          title="3rd-Party Outsourcing Services mà Sellers cần"><Q12 /></window.Section>
         <window.Section id="Q13" num="Q13" soaOnly
-          indication="Khóa học seller quan tâm. Seeking = Lượt Thảo Luận chủ động hỏi — dùng để curate danh mục đào tạo."><Q13 /></window.Section>
+          title="Amazon Courses — Sellers quan tâm chủ đề nào?"><Q13 /></window.Section>
         <window.Section id="Q14" num="Q14" soaOnly
-          indication="Chủ đề tăng trưởng + P&L polarity. Phân chia seeking / positive / mixed / negative từ sentiment column — không phải tỉ lệ cố định."><Q14 /></window.Section>
+          title="Business Growth & P&L Discussion — Tích cực và Tiêu cực"><Q14 /></window.Section>
 
         <div style={{ padding: '24px 0', borderTop: '1px solid var(--border)', color: 'var(--text-3)', fontSize: 12, display: 'flex', justifyContent: 'space-between' }}>
-          <span>ChiCom Insights · dữ liệu từ {(window.ChiComData && window.ChiComData.KPI && window.ChiComData.KPI.totalPosts.toLocaleString()) || '—'} Lượt Thảo Luận</span>
+          <span>ChiCom Insights · dữ liệu từ {(window.ChiComData && window.ChiComData.KPI && window.ChiComData.KPI.totalPosts.toLocaleString()) || '—'} mentions</span>
           <span className="mono">14 câu hỏi · {(window.ChiComData && window.ChiComData.ALL_GROUPS && window.ChiComData.ALL_GROUPS.length) || 9} cộng đồng</span>
         </div>
       </div>

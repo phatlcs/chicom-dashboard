@@ -58,7 +58,7 @@ function Q10() {
       </div>
       <div style={{ gridColumn: '1 / -1' }}>
         <window.Insight qId="Q10">
-          Ngành hàng dẫn đầu: <b>{Q10_TOP[0]?.name || '—'}</b> ({Q10_TOP[0]?.count.toLocaleString() || 0} Lượt Thảo Luận) ·
+          Ngành hàng dẫn đầu: <b>{Q10_TOP[0]?.name || '—'}</b> ({Q10_TOP[0]?.count.toLocaleString() || 0} mentions) ·
           Top-3: {Q10_TOP.slice(0, 3).map(c => c.name).join(', ')}.
         </window.Insight>
       </div>
@@ -224,7 +224,7 @@ function Q12() {
         return (
           <div style={{ gridColumn: '1 / -1' }}>
             <window.Insight qId="Q12">
-              Dịch vụ được đề cập nhiều nhất: <b>{topMent?.name || '—'}</b> ({topMent?.mentions.toLocaleString() || 0} Lượt Thảo Luận) ·
+              Dịch vụ được đề cập nhiều nhất: <b>{topMent?.name || '—'}</b> ({topMent?.mentions.toLocaleString() || 0} mentions) ·
               Cầu cao nhất: <b>{topDemand?.name || '—'}</b> ({topDemand?.demand || 0}% demand) ·
               Hài lòng nhất: <b>{topSat?.name || '—'}</b> ({topSat?.satisfaction || 0}%).
             </window.Insight>
@@ -308,8 +308,8 @@ function Q13() {
           <div className="card-head">
             <div className="card-title">Phân tích Sentiment</div>
             <div className="legend-inline">
-              <span><span className="dot" style={{ background: green }}></span>Tích cực</span>
-              <span><span className="dot" style={{ background: red }}></span>Tiêu cực</span>
+              <span><span className="dot" style={{ background: green }}></span>Positive</span>
+              <span><span className="dot" style={{ background: red }}></span>Negative</span>
             </div>
           </div>
           <div style={{ padding: '10px 0' }}>
@@ -362,7 +362,7 @@ function Q13() {
           <div style={{ gridColumn: '1 / -1' }}>
             <window.Insight qId="Q13">
               Khóa được nhắc nhiều nhất: <b>{topCourse?.name || '—'}</b> ({topCourse?.mentions.toLocaleString() || 0}) ·
-              Tìm kiếm nhiều nhất: <b>{topSeeking?.name || '—'}</b> ({topSeeking?.seeking || 0} Lượt Thảo Luận chủ động hỏi) ·
+              Tìm kiếm nhiều nhất: <b>{topSeeking?.name || '—'}</b> ({topSeeking?.seeking || 0} mentions chủ động hỏi) ·
               Sentiment tích cực nhất: <b>{topPositive?.name || '—'}</b> (+{topPositive?.positive || 0}).
             </window.Insight>
           </div>
@@ -436,10 +436,10 @@ function Q14() {
           <div className="card-head">
             <div className="card-title">Sentiment theo chủ đề tăng trưởng</div>
             <div className="legend-inline">
-              <span><span className="dot" style={{ background: red }}></span>Cần hỗ trợ</span>
-              <span><span className="dot" style={{ background: green }}></span>Tích cực</span>
-              <span><span className="dot" style={{ background: yellow }}></span>Trung tính</span>
-              <span><span className="dot" style={{ background: gray }}></span>Tiêu cực</span>
+              <span><span className="dot" style={{ background: red }}></span>Seeking</span>
+              <span><span className="dot" style={{ background: green }}></span>Positive</span>
+              <span><span className="dot" style={{ background: yellow }}></span>Mixed</span>
+              <span><span className="dot" style={{ background: gray }}></span>Negative</span>
             </div>
           </div>
           <div>
@@ -473,9 +473,9 @@ function Q14() {
         return (
           <div style={{ gridColumn: '1 / -1' }}>
             <window.Insight qId="Q14">
-              Chủ đề tăng trưởng dẫn đầu: <b>{topGrowth?.name || '—'}</b> ({topGrowth?.count.toLocaleString() || 0} Lượt Thảo Luận) ·
+              Chủ đề tăng trưởng dẫn đầu: <b>{topGrowth?.name || '—'}</b> ({topGrowth?.count.toLocaleString() || 0} mentions) ·
               Sentiment tích cực nhất: <b>{mostPositive?.name || '—'}</b> (+{mostPositive?.positive || 0}) ·
-              Seller cần hỗ trợ nhiều nhất về: <b>{mostSeeking?.name || '—'}</b> ({mostSeeking?.seeking || 0} Lượt Thảo Luận chủ động hỏi).
+              Seller cần hỗ trợ nhiều nhất về: <b>{mostSeeking?.name || '—'}</b> ({mostSeeking?.seeking || 0} mentions chủ động hỏi).
             </window.Insight>
           </div>
         );

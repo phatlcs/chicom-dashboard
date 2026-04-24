@@ -1,43 +1,34 @@
 /* global React, D, window */
 
-// ============ Q5 + Q6 — Negative subtopics by day-of-week × hour-of-day ============
-function Q56() {
+// ============ Shared helpers ============
+
+// SVG donut-arc path — used by the Q6 peak-hour breakdown.
+function _arc(cx, cy, r, r2, a0, a1) {
+  const large = a1 - a0 > 0.5 ? 1 : 0;
+  const sx  = cx + Math.cos(a0 * Math.PI * 2 - Math.PI / 2) * r;
+  const sy  = cy + Math.sin(a0 * Math.PI * 2 - Math.PI / 2) * r;
+  const ex  = cx + Math.cos(a1 * Math.PI * 2 - Math.PI / 2) * r;
+  const ey  = cy + Math.sin(a1 * Math.PI * 2 - Math.PI / 2) * r;
+  const sx2 = cx + Math.cos(a1 * Math.PI * 2 - Math.PI / 2) * r2;
+  const sy2 = cy + Math.sin(a1 * Math.PI * 2 - Math.PI / 2) * r2;
+  const ex2 = cx + Math.cos(a0 * Math.PI * 2 - Math.PI / 2) * r2;
+  const ey2 = cy + Math.sin(a0 * Math.PI * 2 - Math.PI / 2) * r2;
+  return `M${sx},${sy} A${r},${r} 0 ${large} 1 ${ex},${ey} L${sx2},${sy2} A${r2},${r2} 0 ${large} 0 ${ex2},${ey2} Z`;
+}
+
+// ============ Q5 — Negative by day-of-week ============
+function Q5() {
   const tt = window.useTooltip();
   const daily = D.Q5_BY_DAY;
-  const hourly = D.Q6_BY_HOUR;
-  const heatmap = D.Q56_HEATMAP;
-  const maxHeat = Math.max(...heatmap.flat());
   const maxDay = Math.max(...daily.map(d => d.count));
-  const maxHour = Math.max(...hourly.map(d => d.count));
   const maxTop = Math.max(...D.Q5_TOP_NEG.map(t => t.count));
-
-  // Donut for Q5 early-morning distribution
-  const earlyTotal = D.Q5_EARLY_DIST.reduce((a, b) => a + b.slot, 0);
-  let donutAcc = 0;
-  const donutSeg = D.Q5_EARLY_DIST.map((t, i) => {
-    const frac = t.slot / earlyTotal;
-    const start = donutAcc;
-    donutAcc += frac;
-    return { ...t, start, end: donutAcc, color: `oklch(0.${65 - i * 5} 0.14 ${25 + i * 8})` };
-  });
-
-  const arc = (cx, cy, r, r2, a0, a1) => {
-    const large = a1 - a0 > 0.5 ? 1 : 0;
-    const sx = cx + Math.cos(a0 * Math.PI * 2 - Math.PI / 2) * r;
-    const sy = cy + Math.sin(a0 * Math.PI * 2 - Math.PI / 2) * r;
-    const ex = cx + Math.cos(a1 * Math.PI * 2 - Math.PI / 2) * r;
-    const ey = cy + Math.sin(a1 * Math.PI * 2 - Math.PI / 2) * r;
-    const sx2 = cx + Math.cos(a1 * Math.PI * 2 - Math.PI / 2) * r2;
-    const sy2 = cy + Math.sin(a1 * Math.PI * 2 - Math.PI / 2) * r2;
-    const ex2 = cx + Math.cos(a0 * Math.PI * 2 - Math.PI / 2) * r2;
-    const ey2 = cy + Math.sin(a0 * Math.PI * 2 - Math.PI / 2) * r2;
-    return `M${sx},${sy} A${r},${r} 0 ${large} 1 ${ex},${ey} L${sx2},${sy2} A${r2},${r2} 0 ${large} 0 ${ex2},${ey2} Z`;
-  };
+  const topDay = [...daily].sort((a, b) => b.count - a.count)[0];
+  const topNeg = D.Q5_TOP_NEG[0];
 
   return (
     <div className="grid-12">
       {/* Day of week bar */}
-      <div className="col-4">
+      <div className="col-6">
         <div className="card">
           <div className="card-head">
             <div>
@@ -62,13 +53,75 @@ function Q56() {
             <line x1={20} y1={180} x2={300} y2={180} className="axis-line" />
           </svg>
           <div style={{ fontSize: 11, color: 'var(--text-3)', marginTop: 4 }}>
-            Cao điểm: <b style={{ color: 'var(--text)' }}>{daily.slice().sort((a, b) => b.count - a.count)[0].day} / {daily.slice().sort((a, b) => b.count - a.count)[0].en}</b>
+            Cao điểm: <b style={{ color: 'var(--text)' }}>{topDay.day} / {topDay.en}</b>
           </div>
         </div>
       </div>
 
-      {/* Hour of day */}
-      <div className="col-8">
+      {/* Top 6 negative topics */}
+      <div className="col-6">
+        <div className="card">
+          <div className="card-head">
+            <div>
+              <div className="card-title">Top 6 Chủ Đề Tiêu Cực</div>
+            </div>
+          </div>
+          <div>
+            {D.Q5_TOP_NEG.map(t => (
+              <div key={t.vn} className="rowbar" style={{ gridTemplateColumns: '1fr 60px' }}
+                onMouseEnter={e => tt.show(e, `<b>${t.vn}</b><br/>${t.count} mentions tiêu cực`)}
+                onMouseMove={tt.move} onMouseLeave={tt.hide}>
+                <div>
+                  <div style={{ fontSize: 11, marginBottom: 4, color: 'var(--text)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{t.vn}</div>
+                  <div className="rowbar-track">
+                    <div className="rowbar-fill" style={{ width: `${(t.count / maxTop) * 100}%`, background: 'var(--neg)' }}></div>
+                  </div>
+                </div>
+                <div className="rowbar-value">{t.count}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div style={{ marginTop: 12, gridColumn: '1 / -1' }}>
+        <window.Insight qId="Q5">
+          Ngày cao nhất: <b>{topDay.day}</b> ({topDay.count.toLocaleString()} mentions tiêu cực) ·
+          Topic tiêu cực hàng đầu: <b>{topNeg.vn}</b> ({topNeg.count.toLocaleString()}).
+        </window.Insight>
+      </div>
+
+      {tt.node}
+    </div>
+  );
+}
+window.Q5 = Q5;
+
+
+// ============ Q6 — Negative by hour-of-day ============
+function Q6() {
+  const tt = window.useTooltip();
+  const hourly  = D.Q6_BY_HOUR;
+  const heatmap = D.Q56_HEATMAP;
+  const maxHeat = Math.max(...heatmap.flat());
+  const maxHour = Math.max(...hourly.map(d => d.count));
+  const topHour = [...hourly].sort((a, b) => b.count - a.count)[0];
+  const pw      = D.Q5_PEAK_WINDOW;
+
+  // Donut for peak-window distribution
+  const earlyTotal = D.Q5_EARLY_DIST.reduce((a, b) => a + b.slot, 0);
+  let donutAcc = 0;
+  const donutSeg = D.Q5_EARLY_DIST.map((t, i) => {
+    const frac = t.slot / earlyTotal;
+    const start = donutAcc;
+    donutAcc += frac;
+    return { ...t, start, end: donutAcc, color: `oklch(0.${65 - i * 5} 0.14 ${25 + i * 8})` };
+  });
+
+  return (
+    <div className="grid-12">
+      {/* Hour of day line */}
+      <div className="col-12">
         <div className="card">
           <div className="card-head">
             <div>
@@ -111,23 +164,21 @@ function Q56() {
               <text key={h} x={30 + (h / 23) * 630} y={200} textAnchor="middle" className="axis-tick">{h}h</text>
             ))}
             {/* highlight the auto-detected peak band */}
-            {D.Q5_PEAK_WINDOW && D.Q5_PEAK_WINDOW.windowSize > 0 && (() => {
-              const ph = D.Q5_PEAK_WINDOW;
-              // Handle wraparound (peak crosses midnight)
+            {pw && pw.windowSize > 0 && (() => {
               const bands = [];
-              if (ph.startHour + ph.windowSize <= 24) {
-                bands.push([ph.startHour, ph.windowSize]);
+              if (pw.startHour + pw.windowSize <= 24) {
+                bands.push([pw.startHour, pw.windowSize]);
               } else {
-                bands.push([ph.startHour, 24 - ph.startHour]);
-                bands.push([0, ph.windowSize - (24 - ph.startHour)]);
+                bands.push([pw.startHour, 24 - pw.startHour]);
+                bands.push([0, pw.windowSize - (24 - pw.startHour)]);
               }
               return (
                 <>
                   {bands.map(([s, w], i) => (
                     <rect key={i} x={30 + (s / 23) * 630} y={30} width={(w / 23) * 630} height={150} fill="var(--neg)" opacity={0.06} />
                   ))}
-                  <text x={30 + ((ph.startHour + ph.windowSize / 2) / 23) * 630} y={26} textAnchor="middle" className="axis-tick" style={{ fill: 'var(--neg)', fontSize: 10 }}>
-                    {ph.startHour}h–{ph.endHour}h cao điểm
+                  <text x={30 + ((pw.startHour + pw.windowSize / 2) / 23) * 630} y={26} textAnchor="middle" className="axis-tick" style={{ fill: 'var(--neg)', fontSize: 10 }}>
+                    {pw.startHour}h–{pw.endHour}h cao điểm
                   </text>
                 </>
               );
@@ -137,7 +188,7 @@ function Q56() {
       </div>
 
       {/* Heatmap day × hour */}
-      <div className="col-8">
+      <div className="col-12">
         <div className="card">
           <div className="card-head">
             <div>
@@ -178,57 +229,31 @@ function Q56() {
             ))}
           </svg>
           <div style={{ fontSize: 11, color: 'var(--text-3)', marginTop: 4 }}>
-            {D.Q5_PEAK_WINDOW && D.Q5_PEAK_WINDOW.windowSize > 0
-              ? <>Khung cao điểm: <b style={{ color: 'var(--text)' }}>T2–CN, {D.Q5_PEAK_WINDOW.startHour}h–{D.Q5_PEAK_WINDOW.endHour}h</b> — {D.Q5_PEAK_WINDOW.totalMentions.toLocaleString()} Lượt Thảo Luận tiêu cực trong {D.Q5_PEAK_WINDOW.windowSize} giờ này.</>
+            {pw && pw.windowSize > 0
+              ? <>Khung cao điểm: <b style={{ color: 'var(--text)' }}>T2–CN, {pw.startHour}h–{pw.endHour}h</b> — {pw.totalMentions.toLocaleString()} mentions tiêu cực trong {pw.windowSize} giờ này.</>
               : <>Chưa đủ dữ liệu để phát hiện khung cao điểm.</>}
           </div>
         </div>
       </div>
 
-      {/* Top 6 negative topics */}
-      <div className="col-4">
-        <div className="card">
-          <div className="card-head">
-            <div>
-              <div className="card-title">Top 6 Chủ Đề Tiêu Cực</div>
-            </div>
-          </div>
-          <div>
-            {D.Q5_TOP_NEG.map(t => (
-              <div key={t.vn} className="rowbar" style={{ gridTemplateColumns: '1fr 60px' }}
-                onMouseEnter={e => tt.show(e, `<b>${t.vn}</b><br/>${t.count} Lượt Thảo Luận tiêu cực`)}
-                onMouseMove={tt.move} onMouseLeave={tt.hide}>
-                <div>
-                  <div style={{ fontSize: 11, marginBottom: 4, color: 'var(--text)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{t.vn}</div>
-                  <div className="rowbar-track">
-                    <div className="rowbar-fill" style={{ width: `${(t.count / maxTop) * 100}%`, background: 'var(--neg)' }}></div>
-                  </div>
-                </div>
-                <div className="rowbar-value">{t.count}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Donut — Mon-Fri 2-6 AM distribution */}
+      {/* Donut — peak window distribution */}
       <div className="col-12">
         <div className="card">
           <div className="card-head">
             <div>
               <div className="card-title">
-                Khung giờ cao điểm tiêu cực (T2–CN, {D.Q5_PEAK_WINDOW ? `${D.Q5_PEAK_WINDOW.startHour}h–${D.Q5_PEAK_WINDOW.endHour}h` : '—'}) — phân bố chủ đề
+                Khung giờ cao điểm tiêu cực (T2–CN, {pw ? `${pw.startHour}h–${pw.endHour}h` : '—'}) — phân bố chủ đề
               </div>
             </div>
             <span className="card-meta mono">
-              {(D.Q5_PEAK_WINDOW && D.Q5_PEAK_WINDOW.totalMentions) || earlyTotal} Lượt Thảo Luận trong khung cao điểm
+              {(pw && pw.totalMentions) || earlyTotal} mentions trong khung cao điểm
             </span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 48 }}>
             <svg width={220} height={220}>
-              {donutSeg.map((s, i) => (
+              {donutSeg.map((s) => (
                 <path key={s.vn}
-                  d={arc(110, 110, 90, 60, s.start, s.end)}
+                  d={_arc(110, 110, 90, 60, s.start, s.end)}
                   fill={s.color}
                   onMouseEnter={e => tt.show(e, `<b>${s.vn}</b><br/>${s.slot} mentions · ${Math.round((s.slot / earlyTotal) * 100)}%`)}
                   onMouseMove={tt.move} onMouseLeave={tt.hide}
@@ -252,25 +277,15 @@ function Q56() {
         </div>
       </div>
 
-      {(() => {
-        const topDay  = [...daily].sort((a, b) => b.count - a.count)[0];
-        const topHour = [...hourly].sort((a, b) => b.count - a.count)[0];
-        const topNeg  = D.Q5_TOP_NEG[0];
-        const pw = D.Q5_PEAK_WINDOW;
-        return (
-          <div style={{ marginTop: 12, gridColumn: '1 / -1' }}>
-            <window.Insight qId="Q5">
-              Ngày cao nhất: <b>{topDay.day}</b> ({topDay.count.toLocaleString()} Lượt Thảo Luận tiêu cực) ·
-              Giờ cao nhất: <b>{topHour.hour}h</b> ({topHour.count.toLocaleString()}) ·
-              Topic tiêu cực hàng đầu: <b>{topNeg.vn}</b> ({topNeg.count.toLocaleString()}).
-              {pw && pw.windowSize > 0 && <> Khung cao điểm auto-detect: <b>{pw.startHour}h–{pw.endHour}h</b> ({pw.totalMentions.toLocaleString()} Lượt Thảo Luận).</>}
-            </window.Insight>
-          </div>
-        );
-      })()}
+      <div style={{ marginTop: 12, gridColumn: '1 / -1' }}>
+        <window.Insight qId="Q6">
+          Giờ cao nhất: <b>{topHour.hour}h</b> ({topHour.count.toLocaleString()} mentions tiêu cực).
+          {pw && pw.windowSize > 0 && <> Khung cao điểm auto-detect: <b>{pw.startHour}h–{pw.endHour}h</b> ({pw.totalMentions.toLocaleString()} mentions).</>}
+        </window.Insight>
+      </div>
 
       {tt.node}
     </div>
   );
 }
-window.Q56 = Q56;
+window.Q6 = Q6;

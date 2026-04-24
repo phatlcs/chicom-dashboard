@@ -286,14 +286,23 @@ def compute_all(df: pd.DataFrame):
         q1_master.append({**mt, 'weight': avg, 'color': TC[i]})
     q1_master.sort(key=lambda x: -x['weight'])
 
-    # ── Q2 matrix ───────────────────────────────────────────────────────────
-    q2_matrix = {mt['id']: {p['id']: 0 for p in PERSONAS} for mt in MASTER_TOPICS}
+    # ── Q2 matrix (global + per-segment SOA/EC) ─────────────────────────────
+    q2_matrix     = {mt['id']: {p['id']: 0 for p in PERSONAS} for mt in MASTER_TOPICS}
+    q2_matrix_soa = {mt['id']: {p['id']: 0 for p in PERSONAS} for mt in MASTER_TOPICS}
+    q2_matrix_ec  = {mt['id']: {p['id']: 0 for p in PERSONAS} for mt in MASTER_TOPICS}
     if 'mt_id' in rel.columns and 'persona_id' in rel.columns:
+        has_gid = 'group_id' in rel.columns
         for _, row in rel.iterrows():
             mid = row['mt_id']
             pid = row['persona_id']
             if pd.notna(mid) and pd.notna(pid) and mid in q2_matrix and pid in q2_matrix.get(mid, {}):
                 q2_matrix[mid][pid] += 1
+                if has_gid:
+                    gid = row['group_id']
+                    if gid in SOA_IDS:
+                        q2_matrix_soa[mid][pid] += 1
+                    elif gid in EC_IDS:
+                        q2_matrix_ec[mid][pid] += 1
 
     # ── Q3 ──────────────────────────────────────────────────────────────────
     seller_total   = sum(q2_matrix[mt['id']].get('p_seller_az', 0) + q2_matrix[mt['id']].get('p_seller_ot', 0)   for mt in MASTER_TOPICS)
@@ -549,6 +558,8 @@ window.ChiComData = (() => {{
   const SUBTOPICS           = {_j(SUBTOPICS)};
   const PERSONAS            = {_j(PERSONAS)};
   const Q2_MATRIX           = {_j(q2_matrix)};
+  const Q2_MATRIX_SOA       = {_j(q2_matrix_soa)};
+  const Q2_MATRIX_EC        = {_j(q2_matrix_ec)};
   const Q3_SELLER_PROSPECT  = {_j(q3_sp)};
   const Q3_SUBS             = {_j(q3_subs)};
   const MONTHS              = {_j(months)};
@@ -576,7 +587,7 @@ window.ChiComData = (() => {{
   return {{
     SOA_GROUPS, EC_GROUPS, ALL_GROUPS,
     MASTER_TOPICS, Q1_MASTER, Q1_WEIGHTS, SUBTOPICS,
-    PERSONAS, Q2_MATRIX, Q3_SELLER_PROSPECT, Q3_SUBS,
+    PERSONAS, Q2_MATRIX, Q2_MATRIX_SOA, Q2_MATRIX_EC, Q3_SELLER_PROSPECT, Q3_SUBS,
     MONTHS, Q4_TRENDS, WEEKS, Q4_EVENTS, Q4_WEEKLY,
     DAYS_VN, DAYS_EN, Q56_HEATMAP, Q5_BY_DAY, Q6_BY_HOUR,
     Q5_TOP_NEG, Q5_EARLY_DIST, Q5_PEAK_WINDOW, KPI,
