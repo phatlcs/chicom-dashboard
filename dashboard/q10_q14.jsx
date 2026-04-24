@@ -19,8 +19,8 @@ function Q10() {
   const wPlotW = WW - wpad.l - wpad.r, wPlotH = WH - wpad.t - wpad.b;
   const maxWeek = hasSubSplit ? 0 : Math.max(...(Q10_WEEKLY || []).flatMap(w => w.points));
 
-  const soaTop = (D2b.Q10_SUBS_SOA || [])[0] || { vn: '—', count: 0 };
-  const ecTop  = (D2b.Q10_SUBS_EC  || [])[0] || { vn: '—', count: 0 };
+  const soaTop = (D2b.Q10_SUBS_SOA || [])[0] || { en: '—', vn: '—', count: 0 };
+  const ecTop  = (D2b.Q10_SUBS_EC  || [])[0] || { en: '—', vn: '—', count: 0 };
 
   return (
     <div className="grid-12">
@@ -31,7 +31,7 @@ function Q10() {
               <div className="card-head">
                 <div className="card-title">Top discussion sub-topics {soaBadge}</div>
               </div>
-              <HBars items={D2b.Q10_SUBS_SOA} labelKey="vn" valueKey="count" tooltip={tt} />
+              <HBars items={D2b.Q10_SUBS_SOA} labelKey="en" valueKey="count" tooltip={tt} />
               <window.CardComments chartId="Q10_1" />
             </div>
           </div>
@@ -40,7 +40,7 @@ function Q10() {
               <div className="card-head">
                 <div className="card-title">Top discussion sub-topics {ecBadge}</div>
               </div>
-              <HBars items={D2b.Q10_SUBS_EC} labelKey="vn" valueKey="count" tooltip={tt} />
+              <HBars items={D2b.Q10_SUBS_EC} labelKey="en" valueKey="count" tooltip={tt} />
               <window.CardComments chartId="Q10_2" />
             </div>
           </div>
@@ -52,7 +52,7 @@ function Q10() {
               <div className="card-head">
                 <div className="card-title">Top 10 Product Categories — Q4 2025</div>
               </div>
-              <HBars items={Q10_TOP} labelKey="name" valueKey="count" tooltip={tt} />
+              <HBars items={Q10_TOP} labelKey="en" valueKey="count" tooltip={tt} />
               <window.CardComments chartId="Q10_1" />
             </div>
           </div>
@@ -86,7 +86,7 @@ function Q10() {
                 {Q10_WEEKLY.map((t, i) => (
                   <g key={t.name + 'l'}>
                     <rect x={WW - wpad.r + 10} y={wpad.t + i * 20} width={10} height={10} fill={t.color} rx={2} />
-                    <text x={WW - wpad.r + 26} y={wpad.t + i * 20 + 9} className="axis-tick" style={{ fontSize: 10 }}>{t.name}</text>
+                    <text x={WW - wpad.r + 26} y={wpad.t + i * 20 + 9} className="axis-tick" style={{ fontSize: 10 }}>{t.en || t.name}</text>
                   </g>
                 ))}
               </svg>
@@ -100,13 +100,13 @@ function Q10() {
         <window.Insight qId="Q10">
           {hasSubSplit ? (
             <>
-              SOA top sub-topic: <b>{soaTop.vn}</b> ({soaTop.count.toLocaleString()} mentions) ·
-              EC top sub-topic: <b>{ecTop.vn}</b> ({ecTop.count.toLocaleString()}).
+              SOA top sub-topic: <b>{soaTop.en || soaTop.vn}</b> ({soaTop.count.toLocaleString()} mentions) ·
+              EC top sub-topic: <b>{ecTop.en || ecTop.vn}</b> ({ecTop.count.toLocaleString()}).
             </>
           ) : (
             <>
-              Leading category: <b>{Q10_TOP[0]?.name || '—'}</b> ({Q10_TOP[0]?.count.toLocaleString() || 0} mentions) ·
-              Top-3: {Q10_TOP.slice(0, 3).map(c => c.name).join(', ')}.
+              Leading category: <b>{Q10_TOP[0]?.en || Q10_TOP[0]?.name || '—'}</b> ({Q10_TOP[0]?.count.toLocaleString() || 0} mentions) ·
+              Top-3: {Q10_TOP.slice(0, 3).map(c => c.en || c.name).join(', ')}.
             </>
           )}
         </window.Insight>
@@ -132,7 +132,7 @@ function Q11() {
       <div className="col-6">
         <div className="card">
           <div className="card-head"><div className="card-title">Tool usage</div></div>
-          <HBars items={Q11_TOOLS.map(t => ({ ...t, color: 'var(--accent)' }))} labelKey="name" valueKey="use" tooltip={tt} />
+          <HBars items={Q11_TOOLS.map(t => ({ ...t, color: 'var(--accent)' }))} labelKey="en" valueKey="use" tooltip={tt} />
         
         <window.CardComments chartId="Q11_1" />
       </div>
@@ -159,14 +159,14 @@ function Q11() {
               return (
                 <g key={t.name}>
                   <rect x={x0} y={pad.t + plotH - sH} width={bw} height={sH} fill={green}
-                    onMouseEnter={e => tt.show(e, `<b>${t.name}</b> · Satisfied ${t.satisfied}`)}
+                    onMouseEnter={e => tt.show(e, `<b>${t.en || t.name}</b> · Satisfied ${t.satisfied}`)}
                     onMouseMove={tt.move} onMouseLeave={tt.hide} />
                   <rect x={x0 + bw + 2} y={pad.t + plotH - iH} width={bw} height={iH} fill={red}
-                    onMouseEnter={e => tt.show(e, `<b>${t.name}</b> · Issues ${t.issues}`)}
+                    onMouseEnter={e => tt.show(e, `<b>${t.en || t.name}</b> · Issues ${t.issues}`)}
                     onMouseMove={tt.move} onMouseLeave={tt.hide} />
                   <text x={x0 + bw} y={pad.t + plotH + 10}
                     transform={`rotate(-35 ${x0 + bw} ${pad.t + plotH + 10})`}
-                    textAnchor="end" className="axis-tick" style={{ fontSize: 9 }}>{t.name}</text>
+                    textAnchor="end" className="axis-tick" style={{ fontSize: 9 }}>{t.en || t.name}</text>
                 </g>
               );
             })}
@@ -178,7 +178,7 @@ function Q11() {
       <div className="col-6">
         <div className="card">
           <div className="card-head"><div className="card-title">Top common issues</div></div>
-          <HBars items={Q11_ISSUES.map(t => ({ ...t, color: red }))} labelKey="name" valueKey="count" tooltip={tt} />
+          <HBars items={Q11_ISSUES.map(t => ({ ...t, color: red }))} labelKey="en" valueKey="count" tooltip={tt} />
         
         <window.CardComments chartId="Q11_3" />
       </div>
@@ -186,16 +186,16 @@ function Q11() {
       <div className="col-6">
         <div className="card">
           <div className="card-head"><div className="card-title">Top satisfaction drivers</div></div>
-          <HBars items={Q11_SATISFACTION.map(t => ({ ...t, color: green }))} labelKey="name" valueKey="count" tooltip={tt} />
+          <HBars items={Q11_SATISFACTION.map(t => ({ ...t, color: green }))} labelKey="en" valueKey="count" tooltip={tt} />
         
         <window.CardComments chartId="Q11_4" />
       </div>
       </div>
       <div style={{ gridColumn: '1 / -1' }}>
         <window.Insight qId="Q11">
-          Most-used tool: <b>{Q11_TOOLS[0]?.name || '—'}</b> (use {Q11_TOOLS[0]?.use.toLocaleString() || 0}, satisfied {Q11_TOOLS[0]?.satisfied || 0}, issues {Q11_TOOLS[0]?.issues || 0}) ·
-          Top issue: <b>{Q11_ISSUES[0]?.name || '—'}</b> ({Q11_ISSUES[0]?.count.toLocaleString() || 0}) ·
-          Top satisfaction driver: <b>{Q11_SATISFACTION[0]?.name || '—'}</b> ({Q11_SATISFACTION[0]?.count.toLocaleString() || 0}).
+          Most-used tool: <b>{Q11_TOOLS[0]?.en || Q11_TOOLS[0]?.name || '—'}</b> (use {Q11_TOOLS[0]?.use.toLocaleString() || 0}, satisfied {Q11_TOOLS[0]?.satisfied || 0}, issues {Q11_TOOLS[0]?.issues || 0}) ·
+          Top issue: <b>{Q11_ISSUES[0]?.en || Q11_ISSUES[0]?.name || '—'}</b> ({Q11_ISSUES[0]?.count.toLocaleString() || 0}) ·
+          Top satisfaction driver: <b>{Q11_SATISFACTION[0]?.en || Q11_SATISFACTION[0]?.name || '—'}</b> ({Q11_SATISFACTION[0]?.count.toLocaleString() || 0}).
         </window.Insight>
       </div>
       {tt.node}
@@ -219,7 +219,7 @@ function Q12() {
   const ServiceHBars = ({ items, title, badge, chartId, accent }) => (
     <div className="card">
       <div className="card-head"><div className="card-title">{title} {badge}</div></div>
-      <HBars items={items.map(s => ({ name: s.name, count: s.mentions, color: accent }))} tooltip={tt} />
+      <HBars items={items.map(s => ({ name: s.en || s.name, count: s.mentions, color: accent }))} tooltip={tt} />
       {chartId && <window.CardComments chartId={chartId} />}
     </div>
   );
@@ -277,14 +277,14 @@ function Q12() {
               return (
                 <g key={s.name}>
                   <rect x={x0} y={pad.t + plotH - mH} width={bw} height={mH} fill={blue}
-                    onMouseEnter={e => tt.show(e, `<b>${s.name}</b> · ${s.mentions} mentions`)}
+                    onMouseEnter={e => tt.show(e, `<b>${s.en || s.name}</b> · ${s.mentions} mentions`)}
                     onMouseMove={tt.move} onMouseLeave={tt.hide} />
                   <rect x={x0 + bw + 2} y={pad.t + plotH - nH} width={bw} height={nH} fill={red}
-                    onMouseEnter={e => tt.show(e, `<b>${s.name}</b> · ${s.need} looking`)}
+                    onMouseEnter={e => tt.show(e, `<b>${s.en || s.name}</b> · ${s.need} looking`)}
                     onMouseMove={tt.move} onMouseLeave={tt.hide} />
                   <text x={x0 + bw} y={pad.t + plotH + 10}
                     transform={`rotate(-30 ${x0 + bw} ${pad.t + plotH + 10})`}
-                    textAnchor="end" className="axis-tick" style={{ fontSize: 10 }}>{s.name}</text>
+                    textAnchor="end" className="axis-tick" style={{ fontSize: 10 }}>{s.en || s.name}</text>
                 </g>
               );
             })}
@@ -296,7 +296,7 @@ function Q12() {
       <div className="col-6">
         <div className="card">
           <div className="card-head"><div className="card-title">% Demand by service</div></div>
-          <HBars items={Q12_SERVICES.map(s => ({ name: s.name, count: s.demand, color: 'oklch(0.75 0.17 75)' }))} tooltip={tt} />
+          <HBars items={Q12_SERVICES.map(s => ({ name: s.en || s.name, count: s.demand, color: 'oklch(0.75 0.17 75)' }))} tooltip={tt} />
         
         <window.CardComments chartId="Q12_3" />
       </div>
@@ -308,9 +308,9 @@ function Q12() {
         return (
           <div style={{ gridColumn: '1 / -1' }}>
             <window.Insight qId="Q12">
-              Most-mentioned service: <b>{topMent?.name || '—'}</b> ({topMent?.mentions.toLocaleString() || 0} mentions) ·
-              Highest demand: <b>{topDemand?.name || '—'}</b> ({topDemand?.demand || 0}% demand) ·
-              Most satisfied: <b>{topSat?.name || '—'}</b> ({topSat?.satisfaction || 0}%).
+              Most-mentioned service: <b>{topMent?.en || topMent?.name || '—'}</b> ({topMent?.mentions.toLocaleString() || 0} mentions) ·
+              Highest demand: <b>{topDemand?.en || topDemand?.name || '—'}</b> ({topDemand?.demand || 0}% demand) ·
+              Most satisfied: <b>{topSat?.en || topSat?.name || '—'}</b> ({topSat?.satisfaction || 0}%).
             </window.Insight>
           </div>
         );
@@ -336,7 +336,7 @@ function Q13() {
   const CourseHBars = ({ items, title, badge, chartId, accent }) => (
     <div className="card">
       <div className="card-head"><div className="card-title">{title} {badge}</div></div>
-      <HBars items={items.map(c => ({ name: c.name, count: c.mentions, color: accent }))} tooltip={tt} />
+      <HBars items={items.map(c => ({ name: c.en || c.name, count: c.mentions, color: accent }))} tooltip={tt} />
       {chartId && <window.CardComments chartId={chartId} />}
     </div>
   );
@@ -395,7 +395,7 @@ function Q13() {
                   <rect x={x0 + bw + 2} y={pad.t + plotH - sH} width={bw} height={sH} fill={green} />
                   <text x={x0 + bw} y={pad.t + plotH + 12}
                     transform={`rotate(-25 ${x0 + bw} ${pad.t + plotH + 12})`}
-                    textAnchor="end" className="axis-tick">{c.name}</text>
+                    textAnchor="end" className="axis-tick">{c.en || c.name}</text>
                 </g>
               );
             })}
@@ -407,7 +407,7 @@ function Q13() {
       <div className="col-6">
         <div className="card">
           <div className="card-head"><div className="card-title">% Interest level</div></div>
-          <HBars items={Q13_COURSES.map(c => ({ name: c.name, count: c.interest, color: 'oklch(0.75 0.17 75)' }))} tooltip={tt} />
+          <HBars items={Q13_COURSES.map(c => ({ name: c.en || c.name, count: c.interest, color: 'oklch(0.75 0.17 75)' }))} tooltip={tt} />
         
         <window.CardComments chartId="Q13_2" />
       </div>
@@ -427,7 +427,7 @@ function Q13() {
               return (
                 <div key={c.name} style={{ marginBottom: 12 }}>
                   <div style={{ fontSize: 11, marginBottom: 4, display: 'flex', justifyContent: 'space-between' }}>
-                    <span>{c.name}</span>
+                    <span>{c.en || c.name}</span>
                     <span className="mono" style={{ color: 'var(--text-3)' }}>+{c.positive} / −{c.negative}</span>
                   </div>
                   <div style={{ display: 'flex', height: 10, borderRadius: 3, overflow: 'hidden' }}>
@@ -449,7 +449,7 @@ function Q13() {
             <svg width={200} height={200}>
               {donutSeg.map(s => (
                 <path key={s.name} d={arc(100, 100, 85, 50, s.start, s.end)} fill={s.color}
-                  onMouseEnter={e => tt.show(e, `<b>${s.name}</b> · ${Math.round((s.mentions / total) * 100)}%`)}
+                  onMouseEnter={e => tt.show(e, `<b>${s.en || s.name}</b> · ${Math.round((s.mentions / total) * 100)}%`)}
                   onMouseMove={tt.move} onMouseLeave={tt.hide} style={{ cursor: 'pointer' }} />
               ))}
             </svg>
@@ -457,7 +457,7 @@ function Q13() {
               {donutSeg.map(s => (
                 <div key={s.name} style={{ display: 'flex', gap: 8, marginBottom: 5 }}>
                   <span style={{ width: 10, height: 10, background: s.color, borderRadius: 2, flexShrink: 0 }}></span>
-                  <span style={{ flex: 1 }}>{s.name}</span>
+                  <span style={{ flex: 1 }}>{s.en || s.name}</span>
                   <span className="mono" style={{ color: 'var(--text-3)' }}>{Math.round((s.mentions / total) * 100)}%</span>
                 </div>
               ))}
@@ -474,9 +474,9 @@ function Q13() {
         return (
           <div style={{ gridColumn: '1 / -1' }}>
             <window.Insight qId="Q13">
-              Most-mentioned course: <b>{topCourse?.name || '—'}</b> ({topCourse?.mentions.toLocaleString() || 0}) ·
-              Most-sought: <b>{topSeeking?.name || '—'}</b> ({topSeeking?.seeking || 0} mentions actively asking) ·
-              Most positive sentiment: <b>{topPositive?.name || '—'}</b> (+{topPositive?.positive || 0}).
+              Most-mentioned course: <b>{topCourse?.en || topCourse?.name || '—'}</b> ({topCourse?.mentions.toLocaleString() || 0}) ·
+              Most-sought: <b>{topSeeking?.en || topSeeking?.name || '—'}</b> ({topSeeking?.seeking || 0} mentions actively asking) ·
+              Most positive sentiment: <b>{topPositive?.en || topPositive?.name || '—'}</b> (+{topPositive?.positive || 0}).
             </window.Insight>
           </div>
         );
@@ -505,7 +505,7 @@ function Q14() {
   const GrowthHBars = ({ items, title, badge, chartId, accent }) => (
     <div className="card">
       <div className="card-head"><div className="card-title">{title} {badge}</div></div>
-      <HBars items={items.map(g => ({ name: g.name, count: g.count, color: accent }))} tooltip={tt} />
+      <HBars items={items.map(g => ({ name: g.en || g.name, count: g.count, color: accent }))} tooltip={tt} />
       {chartId && <window.CardComments chartId={chartId} />}
     </div>
   );
@@ -544,7 +544,7 @@ function Q14() {
             <svg width={220} height={220}>
               {seg.map(s => (
                 <path key={s.name} d={arc(110, 110, 95, 55, s.start, s.end)} fill={s.color}
-                  onMouseEnter={e => tt.show(e, `<b>${s.name}</b> · ${s.count}`)}
+                  onMouseEnter={e => tt.show(e, `<b>${s.en || s.name}</b> · ${s.count}`)}
                   onMouseMove={tt.move} onMouseLeave={tt.hide} style={{ cursor: 'pointer' }} />
               ))}
             </svg>
@@ -552,7 +552,7 @@ function Q14() {
               {Q14_GROWTH.map(g => (
                 <div key={g.name} style={{ display: 'flex', gap: 8, marginBottom: 5 }}>
                   <span style={{ width: 10, height: 10, background: g.color, borderRadius: 2 }}></span>
-                  <span style={{ flex: 1 }}>{g.name}</span>
+                  <span style={{ flex: 1 }}>{g.en || g.name}</span>
                 </div>
               ))}
             </div>
@@ -564,7 +564,7 @@ function Q14() {
       <div className="col-7">
         <div className="card">
           <div className="card-head"><div className="card-title">Top 6 topics comparison</div></div>
-          <HBars items={Q14_GROWTH.map(g => ({ name: g.name, count: g.count, color: 'var(--accent)' }))} tooltip={tt} />
+          <HBars items={Q14_GROWTH.map(g => ({ name: g.en || g.name, count: g.count, color: 'var(--accent)' }))} tooltip={tt} />
         
         <window.CardComments chartId="Q14_2" />
       </div>
@@ -587,11 +587,11 @@ function Q14() {
               return (
                 <div key={g.name} style={{ marginBottom: 10 }}>
                   <div style={{ fontSize: 12, marginBottom: 4, display: 'flex', justifyContent: 'space-between' }}>
-                    <span>{g.name}</span>
+                    <span>{g.en || g.name}</span>
                     <span className="mono" style={{ fontSize: 11, color: 'var(--text-3)' }}>{tot}</span>
                   </div>
                   <div style={{ display: 'flex', height: 14, borderRadius: 3, overflow: 'hidden' }}
-                    onMouseEnter={e => tt.show(e, `<b>${g.name}</b><br/>Seeking ${g.seeking} · Positive ${g.positive} · Mixed ${g.mixed} · Negative ${g.negative}`)}
+                    onMouseEnter={e => tt.show(e, `<b>${g.en || g.name}</b><br/>Seeking ${g.seeking} · Positive ${g.positive} · Mixed ${g.mixed} · Negative ${g.negative}`)}
                     onMouseMove={tt.move} onMouseLeave={tt.hide}>
                     <div style={{ width: `${pct(g.seeking)}%`, background: red }}></div>
                     <div style={{ width: `${pct(g.positive)}%`, background: green }}></div>
@@ -613,9 +613,9 @@ function Q14() {
         return (
           <div style={{ gridColumn: '1 / -1' }}>
             <window.Insight qId="Q14">
-              Leading growth topic: <b>{topGrowth?.name || '—'}</b> ({topGrowth?.count.toLocaleString() || 0} mentions) ·
-              Most positive sentiment: <b>{mostPositive?.name || '—'}</b> (+{mostPositive?.positive || 0}) ·
-              Sellers seek most help on: <b>{mostSeeking?.name || '—'}</b> ({mostSeeking?.seeking || 0} mentions actively asking).
+              Leading growth topic: <b>{topGrowth?.en || topGrowth?.name || '—'}</b> ({topGrowth?.count.toLocaleString() || 0} mentions) ·
+              Most positive sentiment: <b>{mostPositive?.en || mostPositive?.name || '—'}</b> (+{mostPositive?.positive || 0}) ·
+              Sellers seek most help on: <b>{mostSeeking?.en || mostSeeking?.name || '—'}</b> ({mostSeeking?.seeking || 0} mentions actively asking).
             </window.Insight>
           </div>
         );

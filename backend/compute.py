@@ -14,6 +14,7 @@ from keywords import (
     extract_q7, extract_q8, extract_q9, extract_q9_personas,
     extract_q10, extract_q11, extract_q11_issues, extract_q11_satisfaction,
     extract_q12, extract_q13, extract_q14,
+    translate_label,
 )
 
 # ── Static lookups ──────────────────────────────────────────────────────────
@@ -560,7 +561,12 @@ def compute_all(df: pd.DataFrame):
                 slot = int(((neg_df['mt_id'] == mt_id) & peak_hour_mask).sum())
             else:
                 slot = 0
-        q5_early_dist.append({'vn': t['vn'], 'count': t['count'], 'slot': slot})
+        q5_early_dist.append({
+            'vn':    t['vn'],
+            'en':    t.get('en') or translate_subtopic(t['vn']),
+            'count': t['count'],
+            'slot':  slot,
+        })
 
     # If peak-window slots are all zero (no data), fall back to overall count ratio
     if q5_early_dist and sum(e['slot'] for e in q5_early_dist) == 0:
@@ -592,7 +598,7 @@ def compute_all(df: pd.DataFrame):
         pos = df[df['sentiment'] == 'positive']
         sub = pos['sub_topic'].fillna('').astype(str).str.strip()
         sub = sub[sub != ''].value_counts().head(limit)
-        return [{'vn': k, 'count': int(v)} for k, v in sub.items()]
+        return [{'vn': k, 'en': translate_subtopic(k), 'count': int(v)} for k, v in sub.items()]
 
     q7_pos_subs_soa = _pos_sub_counts(soa_rel)
     q7_pos_subs_ec  = _pos_sub_counts(ec_rel)
@@ -615,7 +621,7 @@ def compute_all(df: pd.DataFrame):
         for pat in Q10_EXCLUDE_PREFIXES:
             sub = sub[~sub.str.startswith(pat)]
         sub = sub.value_counts().head(limit)
-        return [{'vn': k, 'count': int(v)} for k, v in sub.items()]
+        return [{'vn': k, 'en': translate_subtopic(k), 'count': int(v)} for k, v in sub.items()]
 
     q10_subs_soa = _product_sub_counts(soa_rel)
     q10_subs_ec  = _product_sub_counts(ec_rel)
@@ -740,7 +746,12 @@ def compute_all(df: pd.DataFrame):
             else:
                 week_mask = rel['week_start'] == ws
                 pts.append(int((match & week_mask).sum()))
-        q10_weekly.append({'name': cat['name'], 'color': COLORS10[ci % len(COLORS10)], 'points': pts})
+        q10_weekly.append({
+            'name':   cat['name'],
+            'en':     translate_label(cat['name']),
+            'color':  COLORS10[ci % len(COLORS10)],
+            'points': pts,
+        })
 
     # ── Groups ──────────────────────────────────────────────────────────────
     SOA_GROUPS = [GROUP_INFO[g] for g in SOA_IDS]

@@ -66,7 +66,7 @@ function TopNegTopics({ items, title, badge, chartId, tt }) {
             onMouseEnter={e => tt.show(e, `<b>${t.en || t.vn}</b><br/>${t.vn}<br/>${t.count} negative mentions`)}
             onMouseMove={tt.move} onMouseLeave={tt.hide}>
             <div>
-              <div style={{ fontSize: 11, marginBottom: 4, color: 'var(--text)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{t.vn}</div>
+              <div style={{ fontSize: 11, marginBottom: 4, color: 'var(--text)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{t.en || t.vn}</div>
               <div className="rowbar-track">
                 <div className="rowbar-fill" style={{ width: `${(t.count / maxTop) * 100}%`, background: 'var(--neg)' }}></div>
               </div>
@@ -122,7 +122,7 @@ function Q5() {
       <div style={{ marginTop: 12, gridColumn: '1 / -1' }}>
         <window.Insight qId="Q5">
           Peak day: <b>{topDay.day}</b> ({topDay.count.toLocaleString()} negative mentions) ·
-          Top negative topic: <b>{topNeg.vn}</b> ({topNeg.count.toLocaleString()}).
+          Top negative topic: <b>{topNeg.en || topNeg.vn}</b> ({topNeg.count.toLocaleString()}).
         </window.Insight>
       </div>
 
@@ -288,7 +288,7 @@ function Q6() {
           </svg>
           <div style={{ fontSize: 11, color: 'var(--text-3)', marginTop: 4 }}>
             {pw && pw.windowSize > 0
-              ? <>Peak window: <b style={{ color: 'var(--text)' }}>T2–CN, {pw.startHour}h–{pw.endHour}h</b> — {pw.totalMentions.toLocaleString()} negative mentions over {pw.windowSize} hours.</>
+              ? <>Peak window: <b style={{ color: 'var(--text)' }}>Mon–Sun, {pw.startHour}h–{pw.endHour}h</b> — {pw.totalMentions.toLocaleString()} negative mentions over {pw.windowSize} hours.</>
               : <>Insufficient data to detect a peak window.</>}
           </div>
         
@@ -302,7 +302,7 @@ function Q6() {
           <div className="card-head">
             <div>
               <div className="card-title">
-                Negative peak hour window (T2–CN, {pw ? `${pw.startHour}h–${pw.endHour}h` : '—'}) — topic distribution
+                Negative peak hour window (Mon–Sun, {pw ? `${pw.startHour}h–${pw.endHour}h` : '—'}) — topic distribution
               </div>
             </div>
             <span className="card-meta mono">
@@ -315,19 +315,19 @@ function Q6() {
                 <path key={s.vn}
                   d={_arc(110, 110, 90, 60, s.start, s.end)}
                   fill={s.color}
-                  onMouseEnter={e => tt.show(e, `<b>${s.vn}</b><br/>${s.slot} mentions · ${Math.round((s.slot / earlyTotal) * 100)}%`)}
+                  onMouseEnter={e => tt.show(e, `<b>${s.en || s.vn}</b><br/>${s.slot} mentions · ${Math.round((s.slot / earlyTotal) * 100)}%`)}
                   onMouseMove={tt.move} onMouseLeave={tt.hide}
                   style={{ cursor: 'pointer' }}
                 />
               ))}
               <text x={110} y={106} textAnchor="middle" className="mono" style={{ fontSize: 22, fontWeight: 600, fill: 'var(--text)' }}>{earlyTotal}</text>
-              <text x={110} y={124} textAnchor="middle" className="axis-tick" style={{ fontSize: 10 }}>khung peak</text>
+              <text x={110} y={124} textAnchor="middle" className="axis-tick" style={{ fontSize: 10 }}>peak window</text>
             </svg>
             <div style={{ flex: 1 }}>
               {donutSeg.map(s => (
                 <div key={s.vn} style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 6, fontSize: 12 }}>
                   <span style={{ width: 10, height: 10, borderRadius: 2, background: s.color, flexShrink: 0 }}></span>
-                  <span style={{ flex: 1 }}>{s.vn}</span>
+                  <span style={{ flex: 1 }}>{s.en || s.vn}</span>
                   <span className="mono" style={{ color: 'var(--text-3)' }}>{s.slot}</span>
                   <span className="mono" style={{ width: 42, textAlign: 'right', color: 'var(--text-2)' }}>{Math.round((s.slot / earlyTotal) * 100)}%</span>
                 </div>

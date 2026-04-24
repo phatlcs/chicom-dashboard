@@ -6,19 +6,19 @@
         "label": "SOA Top Topic",
         "value": "35.2%",
         "variant": "soa",
-        "note": "Chiến lược & Kinh nghiệm (1,924)"
+        "note": "Strategy & Experience (1,924)"
       },
       {
         "label": "EC Top Topic",
         "value": "20.4%",
         "variant": "ec",
-        "note": "Tài chính & Thanh toán (7,081)"
+        "note": "Payment & Finance (7,081)"
       },
       {
         "label": "SOA Account Issues",
         "value": "26.7%",
         "variant": "warn",
-        "note": "Quản lý Tài khoản (1,459)"
+        "note": "Account Management (1,459)"
       },
       {
         "label": "SOA Positive Rate",
@@ -31,12 +31,12 @@
       {
         "variant": "soa",
         "label": "📊 Findings — SOA Groups",
-        "html": "<p><strong>Chiến lược & Kinh nghiệm (35.2%)</strong> accounts for over one-third of all SOA discussions — this is a peer-learning forum where active Amazon sellers share hands-on operational experience. Cộng đồng Amazon Sellers VN (4,775 mentions) is the primary hub, with 37.5% of its intra-group volume falling under this topic.</p>\n        <p><strong>Quản lý Tài khoản (26.7%)</strong> — an unusually high share reflecting constant account-health pressure: Seller Identity Verification (SIV), Inform Act compliance, and account suspension. This is the #1 pain point for Vietnamese Amazon sellers in Q1 2025.</p>\n        <p><strong>Amazon Sellers Viet Nam (private group, 693 mentions):</strong> more balanced structure — Quản lý Tài khoản 25.3%, Chiến lược 19.2%, Vận hành & Tối ưu Amazon 17.9%, Tài chính 16.0%. A smaller community but spread evenly across operational topics, not concentrated on any single theme.</p>"
+        "html": "<p><strong>Strategy & Experience (35.2%)</strong> accounts for over one-third of all SOA discussions — this is a peer-learning forum where active Amazon sellers share hands-on operational experience. Cộng đồng Amazon Sellers VN (4,775 mentions) is the primary hub, with 37.5% of its intra-group volume falling under this topic.</p>\n        <p><strong>Account Management (26.7%)</strong> — an unusually high share reflecting constant account-health pressure: Seller Identity Verification (SIV), Inform Act compliance, and account suspension. This is the #1 pain point for Vietnamese Amazon sellers in Q1 2025.</p>\n        <p><strong>Amazon Sellers Viet Nam (private group, 693 mentions):</strong> more balanced structure — Account Management 25.3%, Strategy 19.2%, Business Ops & Amazon Optimization 17.9%, Finance 16.0%. A smaller community but spread evenly across operational topics, not concentrated on any single theme.</p>"
       },
       {
         "variant": "ec",
         "label": "📊 Findings — EC Groups",
-        "html": "<p><strong>Tài chính & Thanh toán (20.4%) + CBEC/Xuất nhập khẩu (19.5%) + Vận hành & Quản lý Tài khoản (15.8%)</strong> = the \"cross-border operations triangle\" covering ~56% of EC discussions. EC groups care about cross-border infrastructure more than Amazon-specific operations.</p>\n        <p><strong>Cộng đồng ETSY VN</strong> (12,102 — the largest group): Quản lý Tài khoản 27.1% + Tài chính 19.4% + Logistics 17.1% — Etsy sellers are struggling with platform account issues and shipping costs. <strong>Chuyện Nhà Bán (Shopee/TikTok)</strong> (11,518): Tài chính 26.5% + Chiến lược 21.3% — domestic-to-CBEC transitioning sellers, heavy on financial planning.</p>\n        <p><strong>Cuồng Phong Hội (CBEC)</strong> (429): clear outlier — CBEC 41.7% + Tài chính 33.1% — a community purely focused on cross-border finance and business setup, the most concentrated in the dataset.</p>"
+        "html": "<p><strong>Payment & Finance (20.4%) + CBEC / Import-export (19.5%) + Ops & Account Management (15.8%)</strong> = the \"cross-border operations triangle\" covering ~56% of EC discussions. EC groups care about cross-border infrastructure more than Amazon-specific operations.</p>\n        <p><strong>Cộng đồng ETSY VN</strong> (12,102 — the largest group): Account Management 27.1% + Finance 19.4% + Logistics 17.1% — Etsy sellers are struggling with platform account issues and shipping costs. <strong>Chuyện Nhà Bán (Shopee/TikTok)</strong> (11,518): Finance 26.5% + Strategy 21.3% — domestic-to-CBEC transitioning sellers, heavy on financial planning.</p>\n        <p><strong>Cuồng Phong Hội (CBEC)</strong> (429): clear outlier — CBEC 41.7% + Finance 33.1% — a community purely focused on cross-border finance and business setup, the most concentrated in the dataset.</p>"
       }
     ],
     "callouts": [],
@@ -67,7 +67,7 @@
       {
         "variant": "warn",
         "label": "⚠️ Notable pattern: information gap for Prospects",
-        "html": "<p>Inside SOA, <strong>Prospect (Amazon)</strong> asks most often about \"Bán hàng & vận hành Amazon\" and \"FBA/FBM operations\" — but the top content produced in the group is advanced operational experience from Sellers (account suspension, PPC optimization, thuế TNCN). The gap between Prospect demand (beginner) and content supply (advanced) creates onboarding friction.</p>"
+        "html": "<p>Inside SOA, <strong>Prospect (Amazon)</strong> asks most often about \"Amazon selling & ops\" and \"FBA/FBM operations\" — but the top content produced in the group is advanced operational experience from Sellers (account suspension, PPC optimization, thuế TNCN). The gap between Prospect demand (beginner) and content supply (advanced) creates onboarding friction.</p>"
       }
     ],
     "callouts": [],
@@ -82,24 +82,24 @@
       {
         "variant": "orange",
         "icon": "⚡",
-        "html": "<strong>Key shift from the Final dataset:</strong> With improved sub-topic mapping, Q3 reveals sharper insights. The <strong>Seller #1 sub-topic</strong> is now \"Vấn đề xác minh/khoá tài khoản\" (1,854 mentions) — about 3× the previous estimate. The <strong>Prospect #1 sub-topic</strong> is \"Bán hàng & vận hành Amazon\" (493) — they're looking for operational guidance, not just basic intro material."
+        "html": "<strong>Key shift from the Final dataset:</strong> With improved sub-topic mapping, Q3 reveals sharper insights. The <strong>Seller #1 sub-topic</strong> is now \"Account verification / suspension\" (1,854 mentions) — about 3× the previous estimate. The <strong>Prospect #1 sub-topic</strong> is \"Amazon selling & ops\" (493) — they're looking for operational guidance, not just basic intro material."
       }
     ],
     "findings": [
       {
         "variant": "soa",
         "label": "Seller (Amazon) — Top Sub-topics (6,530 total)",
-        "html": "<ul class=\"ei-list\">\n          <li><strong>Vấn đề xác minh/khoá TK: 1,854</strong> 🔴 Pain #1</li>\n          <li>Dịch vụ hỗ trợ xử lý TK: 1,008 — looking for help</li>\n          <li>Thuế & Chi phí Seller VN: 767 — tax burden</li>\n          <li>Bán hàng & vận hành Amazon: 709 — operations</li>\n          <li>Chia sẻ & học hỏi KN: 615 — peer learning</li>\n          <li>Sự kiện & đào tạo: 344 — events</li>\n          <li>Amazon FBA và FBM operations: 241</li>\n          <li>Kinh nghiệm & chiến lược: 172</li>\n          <li>Khó khăn & thách thức: 163</li>\n        </ul>"
+        "html": "<ul class=\"ei-list\">\n          <li><strong>Account verification / lock: 1,854</strong> 🔴 Pain #1</li>\n          <li>Account support & recovery: 1,008 — looking for help</li>\n          <li>Tax & costs for VN sellers: 767 — tax burden</li>\n          <li>Amazon selling & ops: 709 — operations</li>\n          <li>Sharing & peer learning: 615 — peer learning</li>\n          <li>Events & training: 344 — events</li>\n          <li>Amazon FBA & FBM operations: 241</li>\n          <li>Experience & strategy: 172</li>\n          <li>Challenges & difficulties: 163</li>\n        </ul>"
       },
       {
         "variant": "ec",
         "label": "Prospect (Amazon) — Top Sub-topics (1,886 total)",
-        "html": "<ul class=\"ei-list\">\n          <li><strong>Bán hàng & vận hành Amazon: 493</strong> — wants how-to</li>\n          <li>Vấn đề xác minh/khoá TK: 296 — concerned from the start</li>\n          <li>Dịch vụ hỗ trợ xử lý TK: 229 — looking for a service</li>\n          <li>Amazon FBA & FBM: 143 — model selection</li>\n          <li>Thuế & Chi phí: 135 — cost planning</li>\n          <li>Hướng dẫn & khởi đầu: 127 — entry guide</li>\n          <li>Vận hành TK & thanh toán QT: 71</li>\n          <li>Hợp tác & hỗ trợ: 66 — looking for a partner</li>\n        </ul>"
+        "html": "<ul class=\"ei-list\">\n          <li><strong>Amazon selling & ops: 493</strong> — wants how-to</li>\n          <li>Account verification / lock: 296 — concerned from the start</li>\n          <li>Account support & recovery: 229 — looking for a service</li>\n          <li>Amazon FBA & FBM: 143 — model selection</li>\n          <li>Tax & costs: 135 — cost planning</li>\n          <li>Guide & getting started: 127 — entry guide</li>\n          <li>Account ops & international payments: 71</li>\n          <li>Collaboration & support: 66 — looking for a partner</li>\n        </ul>"
       },
       {
         "variant": "both",
         "label": "🔍 Comparison findings — Key insights",
-        "html": "<p><strong>Sellers are in \"Crisis Management Mode\":</strong> The #1 sub-topic is account verification/lock at 1,854 mentions — nearly double the #2 sub-topic (1,008). Next is searching for services to fix accounts. Sellers are constantly firefighting, with little bandwidth left for strategic planning.</p>\n        <p><strong>Prospects are unexpectedly worried about account issues:</strong> \"Vấn đề xác minh/khoá TK\" is Prospect's #2 sub-topic (296 mentions) — they learn about account risks from community discussions and see it as a barrier before they even start. This is both a barrier to entry and a topic onboarding must address head-on.</p>\n        <p><strong>Common ground: both groups need \"Dịch vụ hỗ trợ xử lý TK\"</strong> — Seller (1,008) + Prospect (229) = <strong>1,237 mentions looking for third-party account services</strong>. That's a strong demand for account recovery and management services — a gap Amazon can fill with an official support channel.</p>"
+        "html": "<p><strong>Sellers are in \"Crisis Management Mode\":</strong> The #1 sub-topic is account verification/lock at 1,854 mentions — nearly double the #2 sub-topic (1,008). Next is searching for services to fix accounts. Sellers are constantly firefighting, with little bandwidth left for strategic planning.</p>\n        <p><strong>Prospects are unexpectedly worried about account issues:</strong> \"Account verification / lock\" is Prospect's #2 sub-topic (296 mentions) — they learn about account risks from community discussions and see it as a barrier before they even start. This is both a barrier to entry and a topic onboarding must address head-on.</p>\n        <p><strong>Common ground: both groups need \"Account support & recovery\"</strong> — Seller (1,008) + Prospect (229) = <strong>1,237 mentions looking for third-party account services</strong>. That's a strong demand for account recovery and management services — a gap Amazon can fill with an official support channel.</p>"
       }
     ],
     "recommendations": [
@@ -114,24 +114,24 @@
       {
         "variant": "plain",
         "label": "Monthly volume",
-        "html": "<table class=\"ei-table\">\n          <thead><tr><th>Month</th><th>Total mentions</th><th>MoM</th><th>Key driver</th></tr></thead>\n          <tbody>\n            <tr><td>Dec 2025</td><td>1,026</td><td>—</td><td><span class=\"ei-tag neu\">Partial data</span> starting 24/12. End of Amazon Q4 peak season.</td></tr>\n            <tr><td>Jan 2026</td><td>11,157</td><td><strong>+987%</strong></td><td><span class=\"ei-tag pos\">Surge</span> Luật thuế TNCN 109/2025 effective 01/01 — community tax discussions explode</td></tr>\n            <tr><td>Feb 2026</td><td>9,675</td><td><strong>−13.3%</strong></td><td><span class=\"ei-tag neu\">Slight dip</span> Tết Nguyên Đán effect. Tài chính & TT stays high.</td></tr>\n            <tr><td>Mar 2026</td><td>16,441</td><td><strong>+70.0%</strong></td><td><span class=\"ei-tag neg\">Highest peak</span> Spring selling + rising EU tariff 3€/item concerns + Q1 end review</td></tr>\n            <tr><td>Apr 2026</td><td>1,071</td><td>—</td><td><span class=\"ei-tag neu\">Partial</span> Data only through 06/04</td></tr>\n          </tbody>\n        </table>"
+        "html": "<table class=\"ei-table\">\n          <thead><tr><th>Month</th><th>Total mentions</th><th>MoM</th><th>Key driver</th></tr></thead>\n          <tbody>\n            <tr><td>Dec 2025</td><td>1,026</td><td>—</td><td><span class=\"ei-tag neu\">Partial data</span> starting 24/12. End of Amazon Q4 peak season.</td></tr>\n            <tr><td>Jan 2026</td><td>11,157</td><td><strong>+987%</strong></td><td><span class=\"ei-tag pos\">Surge</span> Luật thuế TNCN 109/2025 effective 01/01 — community tax discussions explode</td></tr>\n            <tr><td>Feb 2026</td><td>9,675</td><td><strong>−13.3%</strong></td><td><span class=\"ei-tag neu\">Slight dip</span> Vietnamese Lunar New Year (Tết) effect. Payment & Finance stays high.</td></tr>\n            <tr><td>Mar 2026</td><td>16,441</td><td><strong>+70.0%</strong></td><td><span class=\"ei-tag neg\">Highest peak</span> Spring selling + rising EU tariff 3€/item concerns + Q1 end review</td></tr>\n            <tr><td>Apr 2026</td><td>1,071</td><td>—</td><td><span class=\"ei-tag neu\">Partial</span> Data only through 06/04</td></tr>\n          </tbody>\n        </table>"
       },
       {
         "variant": "warn",
         "label": "⚡ March 2026 — unexpected peak (+70.0%)",
-        "html": "<p>March reached <strong>16,441 mentions</strong>, higher than January (11,157) and the peak of Q1. Three main drivers: (1) Amazon spring selling season — sellers are more active and sharing more; (2) <strong>EU Custom Duty 3€/item effective July 2026</strong> creates urgency — EC sellers need to re-plan logistics before the deadline; (3) Q1 tax year-end — sellers review P&L and ask more tax questions.</p>\n        <p>CBEC/Xuất nhập khẩu and Logistics are the two fastest-rising topics in March, confirming the EU tariff as the primary trigger for the spike.</p>"
+        "html": "<p>March reached <strong>16,441 mentions</strong>, higher than January (11,157) and the peak of Q1. Three main drivers: (1) Amazon spring selling season — sellers are more active and sharing more; (2) <strong>EU Custom Duty 3€/item effective July 2026</strong> creates urgency — EC sellers need to re-plan logistics before the deadline; (3) Q1 tax year-end — sellers review P&L and ask more tax questions.</p>\n        <p>CBEC / Import-export and Logistics are the two fastest-rising topics in March, confirming the EU tariff as the primary trigger for the spike.</p>"
       },
       {
         "variant": "soa",
         "label": "SOA trend — January 2026 tax spike",
-        "html": "<p>January 2026 was the most active month for SOA: <strong>Thuế & Tài chính</strong> surged because Luật thuế TNCN số 109/2025 took effect on 01/01/2026. Discussions covered: how Amazon will withhold 0.5% PIT, the 500 million VND exemption threshold, ECI vs sales tax, and filing procedures. This is a brand-new emerging pain point and one Amazon VN has not yet addressed.</p>"
+        "html": "<p>January 2026 was the most active month for SOA: <strong>Tax & Finance</strong> surged because Luật thuế TNCN số 109/2025 took effect on 01/01/2026. Discussions covered: how Amazon will withhold 0.5% PIT, the 500 million VND exemption threshold, ECI vs sales tax, and filing procedures. This is a brand-new emerging pain point and one Amazon VN has not yet addressed.</p>"
       }
     ],
     "callouts": [],
     "recommendations": [
       "<strong>Publish tax guidance before September 2026:</strong> Sellers are very confused about Luật 109/2025 (many threads contain wrong information). Amazon VN should partner with tax experts to publish an official FAQ: withholding mechanism, the 500 million threshold, how Amazon updates the formula, ECI basics. <em>Format: downloadable PDF + pinned post + webinar Q&A.</em>",
       "<strong>EU Tariff response content before June 2026:</strong> March showed sellers are worried about the EU 3€/item tariff. Publish \"EU Selling Strategy 2026 for VN Sellers\" — FBA EU warehouse vs direct shipping cost comparison, pricing adjustment guide. Position Amazon FBA EU as the optimal solution once the tariff takes effect.",
-      "<strong>Content calendar around the identified seasonal peaks:</strong> Jan = tax support; Feb = Tết slowdown → activate EC groups; Mar = spring selling + logistics planning; Q4 = peak-season preparation. Allocate community resources and content production budget to this pattern."
+      "<strong>Content calendar around the identified seasonal peaks:</strong> Jan = tax support; Feb = Lunar New Year slowdown → activate EC groups; Mar = spring selling + logistics planning; Q4 = peak-season preparation. Allocate community resources and content production budget to this pattern."
     ]
   },
   "Q5": {
@@ -150,17 +150,17 @@
       {
         "variant": "soa",
         "label": "SOA — Top 6 negative sub-topics",
-        "html": "<ul class=\"ei-list\">\n          <li><strong>Vấn đề xác minh, khoá, rủi ro tài khoản Amazon: 508</strong> — account suspension is pain point #1</li>\n          <li>Dịch vụ hỗ trợ và xử lý tài khoản Amazon: 196</li>\n          <li>Khó khăn và thách thức khi bán hàng Amazon: 105</li>\n          <li>Kinh doanh XNK và bán hàng quốc tế: 66</li>\n          <li>Chia sẻ, học hỏi và hợp tác kinh nghiệm bán hàng: 58</li>\n          <li>Cảnh báo rủi ro và lừa đảo khi kinh doanh Amazon: 41</li>\n        </ul>"
+        "html": "<ul class=\"ei-list\">\n          <li><strong>Amazon account verification, suspension & risks: 508</strong> — account suspension is pain point #1</li>\n          <li>Amazon account support & recovery services: 196</li>\n          <li>Challenges & difficulties selling on Amazon: 105</li>\n          <li>International import-export & selling: 66</li>\n          <li>Sharing, learning & collaborating on selling experience: 58</li>\n          <li>Amazon risk & scam warnings: 41</li>\n        </ul>"
       },
       {
         "variant": "ec",
         "label": "EC — Top 6 negative sub-topics",
-        "html": "<ul class=\"ei-list\">\n          <li><strong>Vấn đề xác minh, khoá, rủi ro tài khoản Amazon: 2,121</strong> — 4× larger than SOA</li>\n          <li>Khó khăn và thách thức khi bán hàng Amazon: 1,228</li>\n          <li>Bán hàng và vận hành kinh doanh trên Amazon: 807</li>\n          <li>Thuế và Chi phí Kinh doanh cho Seller VN: 722</li>\n          <li>Dịch vụ hỗ trợ và xử lý tài khoản Amazon: 597</li>\n          <li>Kinh doanh XNK và bán hàng quốc tế: 586</li>\n        </ul>"
+        "html": "<ul class=\"ei-list\">\n          <li><strong>Amazon account verification, suspension & risks: 2,121</strong> — 4× larger than SOA</li>\n          <li>Challenges & difficulties selling on Amazon: 1,228</li>\n          <li>Amazon selling & business operations: 807</li>\n          <li>Tax & costs for Vietnamese sellers: 722</li>\n          <li>Amazon account support & recovery services: 597</li>\n          <li>International import-export & selling: 586</li>\n        </ul>"
       },
       {
         "variant": "both",
         "label": "🔍 Findings",
-        "html": "<p><strong>Friday is the peak negative day for both SOA (21.5%) and EC (16.4%)</strong> — the common cause: Amazon US timezone (EST/PST). Thursday afternoon US time = Friday morning/evening Vietnam time. Sellers receive account notifications, policy violations, or payment holds on Amazon US Thursday, then post to the group on VN Friday.</p>\n        <p><strong>SOA has an unusually low weekend pattern</strong> — Sunday is only 3.7% (43 mentions) vs EC's 12.0% (921). SOA sellers go completely quiet on weekends, matching Amazon US business hours; EC sellers sell across multiple platforms (Etsy/TikTok run 24/7) so they stay active.</p>\n        <p><strong>Top negative topic \"Vấn đề xác minh/khoá TK\" shows up in both SOA (508) and EC (2,121).</strong> EC has 4× the volume but the same pain. Account health is a cross-cutting pain point regardless of which community the seller lives in.</p>"
+        "html": "<p><strong>Friday is the peak negative day for both SOA (21.5%) and EC (16.4%)</strong> — the common cause: Amazon US timezone (EST/PST). Thursday afternoon US time = Friday morning/evening Vietnam time. Sellers receive account notifications, policy violations, or payment holds on Amazon US Thursday, then post to the group on VN Friday.</p>\n        <p><strong>SOA has an unusually low weekend pattern</strong> — Sunday is only 3.7% (43 mentions) vs EC's 12.0% (921). SOA sellers go completely quiet on weekends, matching Amazon US business hours; EC sellers sell across multiple platforms (Etsy/TikTok run 24/7) so they stay active.</p>\n        <p><strong>Top negative topic \"Account verification / lock\" shows up in both SOA (508) and EC (2,121).</strong> EC has 4× the volume but the same pain. Account health is a cross-cutting pain point regardless of which community the seller lives in.</p>"
       }
     ],
     "callouts": [],
@@ -205,17 +205,17 @@
       {
         "variant": "soa",
         "label": "SOA — Top positive sub-topics",
-        "html": "<ul class=\"ei-list\">\n          <li><strong>Sự kiện, đào tạo & kết nối: 473</strong> 🏆 #1</li>\n          <li>Chia sẻ & học hỏi KN bán hàng: 421</li>\n          <li>Kinh doanh XNK quốc tế: 129</li>\n          <li>Bán hàng & vận hành Amazon: 99</li>\n          <li>Kinh nghiệm & chiến lược bán hàng: 92</li>\n          <li>Hợp tác, hỗ trợ & vận hành: 77</li>\n          <li>Khó khăn & thách thức (lessons): 33</li>\n          <li>Hướng dẫn khởi đầu: 30</li>\n        </ul>"
+        "html": "<ul class=\"ei-list\">\n          <li><strong>Events, training & networking: 473</strong> 🏆 #1</li>\n          <li>Sharing & peer learning (sales): 421</li>\n          <li>International import-export: 129</li>\n          <li>Amazon selling & ops: 99</li>\n          <li>Sales experience & strategy: 92</li>\n          <li>Collaboration, support & operations: 77</li>\n          <li>Challenges & difficulties (lessons): 33</li>\n          <li>Getting-started guide: 30</li>\n        </ul>"
       },
       {
         "variant": "ec",
         "label": "EC — Top positive sub-topics",
-        "html": "<ul class=\"ei-list\">\n          <li><strong>Kinh doanh XNK quốc tế: 1,264</strong> 🏆 #1</li>\n          <li>Sự kiện, đào tạo & kết nối: 462</li>\n          <li>Chia sẻ & học hỏi KN: 381</li>\n          <li>Dịch vụ vận chuyển & fulfillment: 378</li>\n          <li>Bán hàng & vận hành Amazon: 294</li>\n          <li>Pháp lý & Tools: 217</li>\n          <li>Kinh nghiệm & chiến lược bán hàng: 168</li>\n          <li>Hợp tác, hỗ trợ & vận hành: 92</li>\n        </ul>"
+        "html": "<ul class=\"ei-list\">\n          <li><strong>International import-export: 1,264</strong> 🏆 #1</li>\n          <li>Events, training & networking: 462</li>\n          <li>Sharing & peer learning: 381</li>\n          <li>Shipping & fulfillment services: 378</li>\n          <li>Amazon selling & ops: 294</li>\n          <li>Legal & Tools: 217</li>\n          <li>Sales experience & strategy: 168</li>\n          <li>Collaboration, support & operations: 92</li>\n        </ul>"
       },
       {
         "variant": "both",
         "label": "🔍 Findings on the benefits being mentioned",
-        "html": "<p><strong>SOA — \"Community Value\" is the #1 reason sellers stay:</strong> Events (473) + peer learning (421) = 894 positive mentions about community aspects, far outweighing any specific commercial benefit. Sellers love the Amazon community ecosystem more than any specific platform feature.</p>\n        <p><strong>EC — \"Global Market Access\" is the #1 reason to join:</strong> Kinh doanh XNK quốc tế (1,264) = EC sellers are pulled in by the chance to reach US/EU markets, not by Amazon specifically. Logistics support (378) is a clear concern — this is the barrier they're currently facing.</p>\n        <p><strong>Helium10 appearance in the SOA positive ecosystem:</strong> Third-party tools are building the perceived value of the Amazon selling ecosystem within the community — commercially promoted but received positively because of their high perceived utility. (Post-filter: most Helium10 promo posts were removed as spam, so post-filter counts are very low.)</p>"
+        "html": "<p><strong>SOA — \"Community Value\" is the #1 reason sellers stay:</strong> Events (473) + peer learning (421) = 894 positive mentions about community aspects, far outweighing any specific commercial benefit. Sellers love the Amazon community ecosystem more than any specific platform feature.</p>\n        <p><strong>EC — \"Global Market Access\" is the #1 reason to join:</strong> International import-export (1,264) = EC sellers are pulled in by the chance to reach US/EU markets, not by Amazon specifically. Logistics support (378) is a clear concern — this is the barrier they're currently facing.</p>\n        <p><strong>Helium10 appearance in the SOA positive ecosystem:</strong> Third-party tools are building the perceived value of the Amazon selling ecosystem within the community — commercially promoted but received positively because of their high perceived utility. (Post-filter: most Helium10 promo posts were removed as spam, so post-filter counts are very low.)</p>"
       }
     ],
     "callouts": [
@@ -227,7 +227,7 @@
     ],
     "recommendations": [
       "<strong>Community events are the most effective acquisition funnel — invest more heavily:</strong> 473 positive mentions from events = the highest ROI in the entire dataset. Increase cadence from quarterly to monthly. Mix formats: offline networking in HCM/HN, online workshops, seller showcases, Amazon-hosted webinars. <em>Leverage community events to convert the warmest EC prospects.</em>",
-      "<strong>EC: lead with a \"CBEC + Amazon = Best Infrastructure\" narrative:</strong> Kinh doanh XNK quốc tế (1,264) is the #1 driver. Amazon's message to EC should start with \"Do you want to export to the world effectively?\" and only then introduce FBA/Brand Registry as the infrastructure — not start with \"Sell on Amazon\".",
+      "<strong>EC: lead with a \"CBEC + Amazon = Best Infrastructure\" narrative:</strong> International import-export (1,264) is the #1 driver. Amazon's message to EC should start with \"Do you want to export to the world effectively?\" and only then introduce FBA/Brand Registry as the infrastructure — not start with \"Sell on Amazon\".",
       "<strong>Leverage NSI (New Seller Incentives) through peer storytelling:</strong> 10% cashback on the first $50,000 in sales is a strong incentive but rarely mentioned in the community. Connect Sellers who have benefited from NSI to share their story in the group — peer testimony is more effective than an official announcement."
     ]
   },
@@ -237,12 +237,12 @@
       {
         "variant": "danger",
         "label": "🚨 SOA churn signals — post-filter numbers",
-        "html": "<p><strong>\"Quản lý Tài khoản\" (~698 negative — ~60.7% of SOA negative)</strong> is churn reason #1 with a huge gap to #2. Main sub-topics:</p>\n        <ul class=\"ei-list\">\n          <li><strong>Vấn đề xác minh/khoá tài khoản: 502 mentions</strong> 🔴 — high-severity crisis.</li>\n          <li>Dịch vụ hỗ trợ xử lý TK: 196 — sellers searching for help, usually after a suspension</li>\n          <li>Khó khăn & thách thức bán hàng: 105 — general frustration, burnout signals</li>\n          <li>Kinh doanh XNK khó khăn: 66 — cross-border complexity</li>\n          <li>Chia sẻ & học hỏi kinh nghiệm: 58 — sharing failure stories</li>\n          <li>Thanh toán Payoneer/PingPong: 24 — cash flow issues</li>\n          <li>Thuế & Chi phí: 20 — cost burden</li>\n          <li>Cảnh báo rủi ro & lừa đảo: 19 — scam warnings</li>\n        </ul>\n        <p><strong>Keyword-matched churn triggers (76 explicit total):</strong> Lừa đảo/rủi ro 24, Tài khoản bị khóa 16, Thua lỗ/chi phí cao 16, Kiệt sức/mất động lực 12, Chính sách phức tạp 5. This is a lower bound — sellers rarely announce they're leaving; it's usually implicit in account and cost complaints.</p>"
+        "html": "<p><strong>\"Account Management\" (~698 negative — ~60.7% of SOA negative)</strong> is churn reason #1 with a huge gap to #2. Main sub-topics:</p>\n        <ul class=\"ei-list\">\n          <li><strong>Account verification / suspension: 502 mentions</strong> 🔴 — high-severity crisis.</li>\n          <li>Account support & recovery: 196 — sellers searching for help, usually after a suspension</li>\n          <li>Sales challenges & difficulties: 105 — general frustration, burnout signals</li>\n          <li>Import-export difficulties: 66 — cross-border complexity</li>\n          <li>Sharing & learning experience: 58 — sharing failure stories</li>\n          <li>Payoneer/PingPong payments: 24 — cash flow issues</li>\n          <li>Tax & costs: 20 — cost burden</li>\n          <li>Risk & scam warnings: 19 — scam warnings</li>\n        </ul>\n        <p><strong>Keyword-matched churn triggers (76 explicit total):</strong> Scam/risk 24, Account locked 16, Losses/high costs 16, Burnout/lost motivation 12, Complex policy 5. This is a lower bound — sellers rarely announce they're leaving; it's usually implicit in account and cost complaints.</p>"
       },
       {
         "variant": "ec",
         "label": "EC churn signals — platform-wide frustrations",
-        "html": "<ul class=\"ei-list\">\n          <li><strong>Vấn đề xác minh/khoá TK: 1,968</strong> — account issues across all platforms</li>\n          <li>Khó khăn & thách thức bán hàng: 1,225 — market saturation, low margin</li>\n          <li>Bán hàng & vận hành: 806 — operational complexity</li>\n          <li>Thuế & Chi phí: 717 — unsustainable cost structure</li>\n          <li>Dịch vụ hỗ trợ xử lý TK: 595 — account recovery demand</li>\n          <li>Kinh doanh XNK khó khăn: 586 — cross-border barriers</li>\n          <li>Vận hành TK & thanh toán QT: 474 — payment complexity</li>\n          <li>Dịch vụ vận chuyển: 389 — logistics failures / costs</li>\n        </ul>"
+        "html": "<ul class=\"ei-list\">\n          <li><strong>Account verification / lock: 1,968</strong> — account issues across all platforms</li>\n          <li>Sales challenges & difficulties: 1,225 — market saturation, low margin</li>\n          <li>Selling & ops: 806 — operational complexity</li>\n          <li>Tax & costs: 717 — unsustainable cost structure</li>\n          <li>Account support & recovery: 595 — account recovery demand</li>\n          <li>Import-export difficulties: 586 — cross-border barriers</li>\n          <li>Account ops & international payments: 474 — payment complexity</li>\n          <li>Shipping services: 389 — logistics failures / costs</li>\n        </ul>"
       },
       {
         "variant": "danger",
@@ -254,7 +254,7 @@
       {
         "variant": "red",
         "icon": "🚨",
-        "html": "<strong>Critical update — account issues are severe:</strong> \"Vấn đề xác minh/khoá tài khoản\" has <strong>502 negative mentions in SOA</strong> (44% of all SOA negatives). That's roughly 1 in every 11 SOA mentions being about an account lock or risk. This is the most dangerous churn signal and needs priority attention now."
+        "html": "<strong>Critical update — account issues are severe:</strong> \"Account verification / suspension\" has <strong>502 negative mentions in SOA</strong> (44% of all SOA negatives). That's roughly 1 in every 11 SOA mentions being about an account lock or risk. This is the most dangerous churn signal and needs priority attention now."
       }
     ],
     "recommendations": [
@@ -263,54 +263,18 @@
       "<strong>EC: address multi-platform cost-structure frustration:</strong> 717 mentions about tax & cost + 474 about payment complexity = EC sellers are at a breaking point on cost burden. Amazon can differentiate with: a transparent FBA fee calculator for VN sellers, a clear comparison vs Etsy/TikTok fee structures, and partnerships with Payoneer/PingPong for optimized rates."
     ]
   },
-  "Q9": {
-    "scope": "Scope: SOA + EC · persona analysis of Q7 (join) and Q8 (churn) discussions",
-    "findings": [
-      {
-        "variant": "soa",
-        "label": "SOA — Active personas in Q7 (join)",
-        "html": "<ul class=\"ei-list\">\n          <li><strong>Seller (Amazon): 261</strong> — existing Amazon sellers evangelizing</li>\n          <li>Prospect (Amazon): 86 — Amazon learners</li>\n          <li>Service Provider (CBEC): 48</li>\n          <li>Service Provider (Amazon): 48</li>\n          <li>Seller (Others): 27</li>\n          <li>Prospect (Others): 20</li>\n        </ul>"
-      },
-      {
-        "variant": "ec",
-        "label": "EC — Active personas in Q7 (join)",
-        "html": "<ul class=\"ei-list\">\n          <li><strong>Seller (Others): 1,036</strong> — Etsy/TikTok/Shopify sellers</li>\n          <li>Prospect (Others): 669 — newcomers exploring</li>\n          <li>Service Provider (CBEC): 566 — logistics providers recruiting clients</li>\n          <li>Seller (Amazon): 267 — cross-platform Amazon sellers</li>\n          <li>Prospect (Amazon): 42</li>\n          <li>Service Provider (Amazon): 6</li>\n        </ul>"
-      },
-      {
-        "variant": "soa",
-        "label": "SOA — Active personas in Q8 (churn)",
-        "html": "<ul class=\"ei-list\">\n          <li><strong>Seller (Amazon): 60</strong> — 60 churn mentions / 261 join mentions = <strong>23% churn signal</strong></li>\n          <li>Prospect (Amazon): 10</li>\n          <li>Service Provider (Amazon): 1</li>\n        </ul>"
-      },
-      {
-        "variant": "ec",
-        "label": "EC — Active personas in Q8 (churn)",
-        "html": "<ul class=\"ei-list\">\n          <li><strong>Seller (Others): 453</strong> — multi-platform sellers running into trouble</li>\n          <li>Seller (Amazon): 53 — Amazon sellers in EC considering leaving</li>\n          <li>Prospect (Others): 27</li>\n          <li>Prospect (Amazon): 2</li>\n          <li>Service Provider (CBEC): 1</li>\n        </ul>\n        <p>EC Seller (Amazon): 53 churn / 267 join = <strong>20% churn signal</strong> — comparable to SOA (23%). Amazon sellers in both communities carry roughly the same churn risk.</p>"
-      },
-      {
-        "variant": "both",
-        "label": "🔍 KOLs & notable actors mentioned in the data",
-        "html": "<p><strong>Sky Bros / Helium10 VN:</strong> the most-mentioned Service Provider in SOA with fully positive sentiment — they are the exclusive Helium10 distributor in Vietnam, post promotional content often, and enjoy community trust. A commercial KOL but with significant influence.</p>\n        <p><strong>Phạm Hiếu (account services):</strong> their reputation was checked in a thread and received many positive confirmations from the community — a typical KOL in the account-recovery space. Referred to by name by multiple sellers with a 20+ case track record.</p>\n        <p><strong>Logistics service providers:</strong> HPW Cargo, Skyline Express, SG Link, Viettel Post ePacket — these brands are frequently mentioned in EC, generating broad reach through comment marketing.</p>\n        <p><strong>Data note:</strong> the brand_mentions fields are empty in the Q1 dataset — KOL analysis relied on mentions in content text, and manual extraction is needed for a complete list.</p>"
-      }
-    ],
-    "callouts": [],
-    "recommendations": [
-      "<strong>Formalize a partnership with Sky Bros / Helium10 VN:</strong> they produce the most positive content in SOA and enjoy high community trust. Amazon can co-create educational content with Sky Bros (not just tool promotion) — a seller education series on keyword research, listing optimization, and competitive analysis using Helium10 as an illustrative tool.",
-      "<strong>Verified Service Provider Directory:</strong> the community is actively searching and \"vetting reputation\" of service providers (account recovery, legal, logistics) through group discussions. Amazon should build a VN Verified Partner Directory — a curated, reviewed list to cut scam risk and build trust. Phạm Hiếu (account recovery, @manhtuanamz Telegram) and top logistics providers (Viettel Post, Skyline Express) are strong first candidates.",
-      "<strong>Enable brand_mentions tracking from Q2:</strong> for data-driven KOL analysis, ask the data team to tag brand mentions and KOL names appearing in content. This is a critical gap in the Q1 Final dataset that must be closed before Q2 reporting."
-    ]
-  },
   "Q10": {
     "scope": "Scope: sub-topic analysis (product context) · SOA and EC focus areas",
     "findings": [
       {
         "variant": "soa",
         "label": "SOA — Top sub-topics (product context)",
-        "html": "<ul class=\"ei-list\">\n          <li><strong>Chia sẻ KN bán hàng: 633</strong> — category tips & peer-learning</li>\n          <li>Kinh doanh XNK & quốc tế: 576 — sourcing strategy</li>\n          <li>Sự kiện & đào tạo: 564 — product-selection content</li>\n          <li>Bán hàng & vận hành: 446 — operational aspects</li>\n          <li>Thuế & Chi phí: 282 — product profitability</li>\n          <li>Hợp tác, hỗ trợ & vận hành: 241</li>\n          <li>Dịch vụ vận chuyển: 229 — product shipping specifics</li>\n          <li>Amazon FBA & FBM ops: 210 — fulfillment model choice</li>\n        </ul>"
+        "html": "<ul class=\"ei-list\">\n          <li><strong>Sales experience sharing: 633</strong> — category tips & peer-learning</li>\n          <li>International import-export: 576 — sourcing strategy</li>\n          <li>Events & training: 564 — product-selection content</li>\n          <li>Selling & ops: 446 — operational aspects</li>\n          <li>Tax & costs: 282 — product profitability</li>\n          <li>Collaboration, support & operations: 241</li>\n          <li>Shipping services: 229 — product shipping specifics</li>\n          <li>Amazon FBA & FBM ops: 210 — fulfillment model choice</li>\n        </ul>"
       },
       {
         "variant": "ec",
         "label": "EC — Top sub-topics (product context)",
-        "html": "<ul class=\"ei-list\">\n          <li><strong>Kinh doanh XNK & quốc tế: 6,773</strong> — CBEC strategy</li>\n          <li>Dịch vụ vận chuyển: 4,509 — product logistics</li>\n          <li>Bán hàng & vận hành: 4,296 — platform operations</li>\n          <li>Thuế & Chi phí: 4,224 — product cost analysis</li>\n          <li>Vận hành TK & TT quốc tế: 2,416 — financial management</li>\n          <li>Khó khăn bán hàng: 1,343 — category challenges</li>\n          <li>Chia sẻ & học hỏi KN: 1,214</li>\n          <li>Sự kiện & đào tạo: 744</li>\n        </ul>"
+        "html": "<ul class=\"ei-list\">\n          <li><strong>International import-export: 6,773</strong> — CBEC strategy</li>\n          <li>Shipping services: 4,509 — product logistics</li>\n          <li>Selling & ops: 4,296 — platform operations</li>\n          <li>Tax & costs: 4,224 — product cost analysis</li>\n          <li>Account ops & international payments: 2,416 — financial management</li>\n          <li>Sales challenges: 1,343 — category challenges</li>\n          <li>Sharing & peer learning: 1,214</li>\n          <li>Events & training: 744</li>\n        </ul>"
       },
       {
         "variant": "both",
@@ -331,17 +295,17 @@
       {
         "variant": "soa",
         "label": "Top Amazon products/programs mentioned",
-        "html": "<ul class=\"ei-list\">\n          <li><strong>FBA: 119 mentions</strong> (satisfied: 17 · issues: 13) — dominant fulfillment choice, mixed sentiment</li>\n          <li><strong>FBM: 75 mentions</strong> (satisfied: 4 · issues: 12) — more pain points than FBA</li>\n          <li><strong>PPC/Ads: 45 mentions</strong> (satisfied: 22 · issues: 3) — satisfaction dominant, ROI is easy to see</li>\n          <li>Quản lý tồn kho (inventory management): 33 (satisfied: 14 · issues: 4)</li>\n          <li>Helium 10: 17 (satisfied: 6 · issues: 0) — 100% positive, no complaints</li>\n          <li>Seller Central: 17 (satisfied: 2 · issues: 4) — native tool has issues</li>\n          <li>Brand Registry: 16 (satisfied: 2 · issues: 4)</li>\n          <li>Amazon Support: 13 (satisfied: 2 · issues: 6) — issues dominant</li>\n        </ul>"
+        "html": "<ul class=\"ei-list\">\n          <li><strong>FBA: 119 mentions</strong> (satisfied: 17 · issues: 13) — dominant fulfillment choice, mixed sentiment</li>\n          <li><strong>FBM: 75 mentions</strong> (satisfied: 4 · issues: 12) — more pain points than FBA</li>\n          <li><strong>PPC/Ads: 45 mentions</strong> (satisfied: 22 · issues: 3) — satisfaction dominant, ROI is easy to see</li>\n          <li>Inventory management: 33 (satisfied: 14 · issues: 4)</li>\n          <li>Helium 10: 17 (satisfied: 6 · issues: 0) — 100% positive, no complaints</li>\n          <li>Seller Central: 17 (satisfied: 2 · issues: 4) — native tool has issues</li>\n          <li>Brand Registry: 16 (satisfied: 2 · issues: 4)</li>\n          <li>Amazon Support: 13 (satisfied: 2 · issues: 6) — issues dominant</li>\n        </ul>"
       },
       {
         "variant": "danger",
         "label": "❌ Top issues reported (pain points)",
-        "html": "<ul class=\"ei-list\">\n          <li><strong>Lỗi hệ thống / Bug: 122 mentions</strong> — #1 issue: platform bugs, glitches</li>\n          <li>Khó dùng / phức tạp: 18 — UX pain</li>\n          <li>Tài khoản bị khóa / suspend: 17 — account-related issues surfacing in tool context</li>\n          <li>Phí & chi phí cao: 12 — cost complaints</li>\n          <li>Hỗ trợ chậm / kém: 4</li>\n          <li>Cập nhật chậm / outdated: 3</li>\n          <li>Dữ liệu sai: 1</li>\n        </ul>"
+        "html": "<ul class=\"ei-list\">\n          <li><strong>System errors / bugs: 122 mentions</strong> — #1 issue: platform bugs, glitches</li>\n          <li>Hard to use / complex: 18 — UX pain</li>\n          <li>Account locked / suspended: 17 — account-related issues surfacing in tool context</li>\n          <li>High fees & costs: 12 — cost complaints</li>\n          <li>Slow / poor support: 4</li>\n          <li>Slow updates / outdated: 3</li>\n          <li>Incorrect data: 1</li>\n        </ul>"
       },
       {
         "variant": "soa",
         "label": "✅ Top satisfaction drivers",
-        "html": "<ul class=\"ei-list\">\n          <li><strong>Dễ dùng / trực quan: 42 mentions</strong> — usability is driver #1</li>\n          <li>Hiệu quả rõ rệt: 35 — tools with visible ROI</li>\n          <li>Giá hợp lý / đáng tiền: 34 — value perception</li>\n          <li>Dữ liệu chính xác: 17</li>\n          <li>Tiết kiệm thời gian: 15</li>\n          <li>Cộng đồng & tài liệu tốt: 11</li>\n        </ul>"
+        "html": "<ul class=\"ei-list\">\n          <li><strong>Easy to use / intuitive: 42 mentions</strong> — usability is driver #1</li>\n          <li>Clear effectiveness: 35 — tools with visible ROI</li>\n          <li>Reasonable price / value for money: 34 — value perception</li>\n          <li>Accurate data: 17</li>\n          <li>Time saving: 15</li>\n          <li>Good community & documentation: 11</li>\n        </ul>"
       },
       {
         "variant": "both",
@@ -368,23 +332,23 @@
       {
         "variant": "soa",
         "label": "SOA — Top 3rd-party services",
-        "html": "<ul class=\"ei-list\">\n          <li><strong>Kế toán / Thuế: 258 mentions</strong> — #1 demand</li>\n          <li>Vận chuyển / Forwarder: 105 — logistics/shipping</li>\n          <li>Pháp lý / Nhãn hiệu: 102 — LLC, USPTO trademark</li>\n          <li>Nguồn hàng / Sourcing: 68</li>\n          <li>Phần mềm / Tool: 43</li>\n          <li>Trợ lý ảo / VA: 17</li>\n          <li>Tối ưu Listing: 10</li>\n          <li>Chụp ảnh sản phẩm: 8</li>\n        </ul>"
+        "html": "<ul class=\"ei-list\">\n          <li><strong>Accounting / Tax: 258 mentions</strong> — #1 demand</li>\n          <li>Shipping / Forwarder: 105 — logistics/shipping</li>\n          <li>Legal / Trademark: 102 — LLC, USPTO trademark</li>\n          <li>Sourcing: 68</li>\n          <li>Software / Tools: 43</li>\n          <li>Virtual Assistant / VA: 17</li>\n          <li>Listing Optimization: 10</li>\n          <li>Product Photography: 8</li>\n        </ul>"
       },
       {
         "variant": "ec",
         "label": "EC — Top 3rd-party services",
-        "html": "<ul class=\"ei-list\">\n          <li><strong>Kế toán / Thuế: 2,099 mentions</strong> — 8× SOA (258)</li>\n          <li><strong>Vận chuyển / Forwarder: 1,019</strong> — 10× SOA (105)</li>\n          <li>Phần mềm / Tool: 313</li>\n          <li>Nguồn hàng / Sourcing: 240</li>\n          <li>Pháp lý / Nhãn hiệu: 88</li>\n          <li>Trợ lý ảo / VA: 49</li>\n          <li>Chụp ảnh sản phẩm: 19</li>\n          <li>Tối ưu Listing: 14</li>\n        </ul>"
+        "html": "<ul class=\"ei-list\">\n          <li><strong>Accounting / Tax: 2,099 mentions</strong> — 8× SOA (258)</li>\n          <li><strong>Shipping / Forwarder: 1,019</strong> — 10× SOA (105)</li>\n          <li>Software / Tools: 313</li>\n          <li>Sourcing: 240</li>\n          <li>Legal / Trademark: 88</li>\n          <li>Virtual Assistant / VA: 49</li>\n          <li>Product Photography: 19</li>\n          <li>Listing Optimization: 14</li>\n        </ul>"
       },
       {
         "variant": "both",
         "label": "🔍 Findings — EC demand is enormous",
-        "html": "<p><strong>EC Kế toán/Thuế = 2,099 mentions (8× SOA's 258)</strong> — a very large number. Etsy/TikTok/Shopify sellers in VN are struggling more with tax than Amazon sellers — partly because these platforms are newer with no formal tax guidance, and because multi-marketplace cross-border transactions are more complex than FBA.</p>\n        <p><strong>EC Logistics/Forwarder 1,019 (10× SOA's 105)</strong> — because EC sellers typically ship direct (ePacket, last-mile carriers) rather than through FBA warehouses. The EU 3€/item tariff taking effect July 2026 will push logistics demand even higher.</p>\n        <p><strong>SOA vs EC legal flips direction:</strong> SOA 102 > EC 88. Amazon sellers have clearer formal LLC/USPTO trademark needs than EC (where many sellers have not yet formalized their business). This is a signal that SOA sellers are more mature/at scale.</p>\n        <p><strong>Need vs satisfaction (from dashboard):</strong> Kế toán/Thuế satisfaction is only 33% — a clear gap and an opportunity for tax service providers in both SOA and EC.</p>"
+        "html": "<p><strong>EC Accounting/Tax = 2,099 mentions (8× SOA's 258)</strong> — a very large number. Etsy/TikTok/Shopify sellers in VN are struggling more with tax than Amazon sellers — partly because these platforms are newer with no formal tax guidance, and because multi-marketplace cross-border transactions are more complex than FBA.</p>\n        <p><strong>EC Logistics/Forwarder 1,019 (10× SOA's 105)</strong> — because EC sellers typically ship direct (ePacket, last-mile carriers) rather than through FBA warehouses. The EU 3€/item tariff taking effect July 2026 will push logistics demand even higher.</p>\n        <p><strong>SOA vs EC legal flips direction:</strong> SOA 102 > EC 88. Amazon sellers have clearer formal LLC/USPTO trademark needs than EC (where many sellers have not yet formalized their business). This is a signal that SOA sellers are more mature/at scale.</p>\n        <p><strong>Need vs satisfaction (from dashboard):</strong> Accounting/Tax satisfaction is only 33% — a clear gap and an opportunity for tax service providers in both SOA and EC.</p>"
       }
     ],
     "callouts": [],
     "recommendations": [
       "<strong>Amazon Service Provider Network (SPN) — promote it harder in VN:</strong> Amazon already has SPN, but VN sellers search for 3rd-party services through community word-of-mouth instead. Curate a list of verified VN service providers inside SPN and promote it in SOA groups. This solves account services, legal, and logistics within one trustworthy ecosystem.",
-      "<strong>Partner with top tax/accounting firms to fill the Kế toán/Thuế gap:</strong> SOA 258 · EC 2,099 (total 2,357) mentions make it the #1 demand throughout, with satisfaction only 33% — the biggest gap. Amazon VN should curate a list of verified tax/accounting partners for VN sellers, especially around Luật 109/2025 withholding tax. The partnership could be a referral program or an Amazon-branded tax FAQ guide. EC is the priority since demand is 8× SOA.",
+      "<strong>Partner with top tax/accounting firms to fill the Accounting/Tax gap:</strong> SOA 258 · EC 2,099 (total 2,357) mentions make it the #1 demand throughout, with satisfaction only 33% — the biggest gap. Amazon VN should curate a list of verified tax/accounting partners for VN sellers, especially around Luật 109/2025 withholding tax. The partnership could be a referral program or an Amazon-branded tax FAQ guide. EC is the priority since demand is 8× SOA.",
       "<strong>Legal setup guide for VN sellers:</strong> SOA 102 · EC 88 mentions about LLC formation and trademarks — SOA demand is higher than EC, showing Amazon sellers are more mature. Amazon should publish a \"Seller Legal Setup Guide for Vietnam\" with step-by-step info on US LLC, USPTO trademark, and how to connect with verified legal service providers — reducing scam risk and shortening onboarding time."
     ]
   },
@@ -401,12 +365,12 @@
       {
         "variant": "soa",
         "label": "SOA — Amazon courses mentioned",
-        "html": "<ul class=\"ei-list\">\n          <li><strong>Đào tạo tổng quát: 35</strong> (seeking: 3 · positive: 20 · negative: 0) — 100% positive/neutral</li>\n          <li>Mentor / Coaching: 7 (seeking: 1 · positive: 3 · negative: 1)</li>\n          <li>Khóa Amazon FBA: 3 (seeking: 0 · positive: 2 · negative: 0)</li>\n        </ul>\n        <p>Total 45 explicit course mentions — small relative to 5,468 SOA mentions (~0.8%).</p>"
+        "html": "<ul class=\"ei-list\">\n          <li><strong>General training: 35</strong> (seeking: 3 · positive: 20 · negative: 0) — 100% positive/neutral</li>\n          <li>Mentor / Coaching: 7 (seeking: 1 · positive: 3 · negative: 1)</li>\n          <li>Amazon FBA course: 3 (seeking: 0 · positive: 2 · negative: 0)</li>\n        </ul>\n        <p>Total 45 explicit course mentions — small relative to 5,468 SOA mentions (~0.8%).</p>"
       },
       {
         "variant": "ec",
         "label": "EC — Amazon courses mentioned",
-        "html": "<ul class=\"ei-list\">\n          <li><strong>Đào tạo tổng quát: 59</strong> (seeking: 4 · positive: 22 · negative: 5) — 1.7× the SOA volume</li>\n          <li>Mentor / Coaching: 11 (seeking: 0 · positive: 4 · negative: 0)</li>\n        </ul>\n        <p>Total 70 explicit course mentions in EC (~0.2% of 34,790). Note: EC has no data for the \"Khóa Amazon FBA\" specific keyword.</p>"
+        "html": "<ul class=\"ei-list\">\n          <li><strong>General training: 59</strong> (seeking: 4 · positive: 22 · negative: 5) — 1.7× the SOA volume</li>\n          <li>Mentor / Coaching: 11 (seeking: 0 · positive: 4 · negative: 0)</li>\n        </ul>\n        <p>Total 70 explicit course mentions in EC (~0.2% of 34,790). Note: EC has no data for the \"Amazon FBA course\" specific keyword.</p>"
       },
       {
         "variant": "both",
@@ -417,7 +381,7 @@
     "recommendations": [
       "<strong>Fill the top 3 knowledge gaps with micro-learning:</strong> (1) \"Account Health 101 — Preventing account suspension\" — 60-minute webinar + checklist; (2) \"Thuế TNCN 2026 for Amazon Sellers VN\" — workshop with a tax expert; (3) \"Amazon PPC Starter Guide for VN\" — hands-on workshop with real account data. Short formats (≤90 minutes) suit busy sellers better than full-length courses.",
       "<strong>Build an alumni network from Hộ Chiếu & Bứt Tốc:</strong> graduates are potential KOLs and peer mentors. Create an alumni community (dedicated Telegram/Zalo group), encourage sharing wins, and nominate top alumni as community moderators in SOA groups. Self-sustaining knowledge distribution at zero marketing cost.",
-      "<strong>EC: lead with a CBEC-first training angle:</strong> EC demands training on \"Kinh doanh XNK quốc tế\" — create a content series \"Vietnamese sellers exporting properly: A to Z\" with Amazon as the platform of choice. This is the entry point for converting the EC audience to Amazon, rather than starting with \"Learn to sell on Amazon\"."
+      "<strong>EC: lead with a CBEC-first training angle:</strong> EC demands training on \"International import-export\" — create a content series \"Vietnamese sellers exporting properly: A to Z\" with Amazon as the platform of choice. This is the entry point for converting the EC audience to Amazon, rather than starting with \"Learn to sell on Amazon\"."
     ]
   },
   "Q14": {
@@ -426,17 +390,17 @@
       {
         "variant": "soa",
         "label": "SOA — Growth topics (374 mentions)",
-        "html": "<ul class=\"ei-list\">\n          <li><strong>Xây dựng Team: 123</strong> (seek 8 · pos 42 · mixed 67 · neg 14) → mixed dominant</li>\n          <li><strong>Tự động hóa & Tool: 106</strong> (seek 5 · pos 52 · mixed 44 · neg 10) → positive dominant</li>\n          <li>Scale vận hành: 61 (seek 3 · pos 38 · mixed 21 · neg 2) → 62% positive</li>\n          <li>Mở rộng thị trường: 57 (seek 8 · pos 11 · mixed 38 · neg 8) → cautious</li>\n          <li>Marketing & Quảng cáo: 27 (seek 3 · pos 15 · mixed 11 · neg 1)</li>\n        </ul>\n        <p>SOA totals: <span class=\"ei-tag pos\">Positive 158 (42%)</span> · <span class=\"ei-tag neu\">Mixed 181 (48%)</span> · <span class=\"ei-tag neg\">Negative 35 (9%)</span> · Seeking 27 (7%)</p>"
+        "html": "<ul class=\"ei-list\">\n          <li><strong>Team building: 123</strong> (seek 8 · pos 42 · mixed 67 · neg 14) → mixed dominant</li>\n          <li><strong>Automation & Tools: 106</strong> (seek 5 · pos 52 · mixed 44 · neg 10) → positive dominant</li>\n          <li>Operational scaling: 61 (seek 3 · pos 38 · mixed 21 · neg 2) → 62% positive</li>\n          <li>Market expansion: 57 (seek 8 · pos 11 · mixed 38 · neg 8) → cautious</li>\n          <li>Marketing & Advertising: 27 (seek 3 · pos 15 · mixed 11 · neg 1)</li>\n        </ul>\n        <p>SOA totals: <span class=\"ei-tag pos\">Positive 158 (42%)</span> · <span class=\"ei-tag neu\">Mixed 181 (48%)</span> · <span class=\"ei-tag neg\">Negative 35 (9%)</span> · Seeking 27 (7%)</p>"
       },
       {
         "variant": "ec",
         "label": "EC — Growth topics (1,274 mentions, 3.4× SOA)",
-        "html": "<ul class=\"ei-list\">\n          <li><strong>Xây dựng Team: 369</strong> (seek 11 · pos 117 · mixed 204 · neg 48) → mixed dominant (55%)</li>\n          <li><strong>Tự động hóa & Tool: 336</strong> (seek 11 · pos 121 · mixed 190 · neg 25) → mixed leads, positive strong</li>\n          <li><strong>Scale vận hành: 317</strong> (seek 7 · pos 220 · mixed 91 · neg 6) → 69% positive, growth optimism</li>\n          <li>Mở rộng thị trường: 169 (seek 11 · pos 19 · mixed 149 · neg 1) → very cautious (88% mixed)</li>\n          <li>Marketing & Quảng cáo: 69 (seek 1 · pos 30 · mixed 36 · neg 3)</li>\n          <li>Tăng doanh thu: 14 (EC-only topic)</li>\n        </ul>\n        <p>EC totals: <span class=\"ei-tag pos\">Positive 513 (40%)</span> · <span class=\"ei-tag neu\">Mixed 676 (53%)</span> · <span class=\"ei-tag neg\">Negative 85 (7%)</span></p>"
+        "html": "<ul class=\"ei-list\">\n          <li><strong>Team building: 369</strong> (seek 11 · pos 117 · mixed 204 · neg 48) → mixed dominant (55%)</li>\n          <li><strong>Automation & Tools: 336</strong> (seek 11 · pos 121 · mixed 190 · neg 25) → mixed leads, positive strong</li>\n          <li><strong>Operational scaling: 317</strong> (seek 7 · pos 220 · mixed 91 · neg 6) → 69% positive, growth optimism</li>\n          <li>Market expansion: 169 (seek 11 · pos 19 · mixed 149 · neg 1) → very cautious (88% mixed)</li>\n          <li>Marketing & Advertising: 69 (seek 1 · pos 30 · mixed 36 · neg 3)</li>\n          <li>Revenue growth: 14 (EC-only topic)</li>\n        </ul>\n        <p>EC totals: <span class=\"ei-tag pos\">Positive 513 (40%)</span> · <span class=\"ei-tag neu\">Mixed 676 (53%)</span> · <span class=\"ei-tag neg\">Negative 85 (7%)</span></p>"
       },
       {
         "variant": "both",
         "label": "🔍 P&L growth findings",
-        "html": "<p><strong>Scale vận hành is the most positive growth area in both groups:</strong> SOA 62% positive · EC 69% positive. Sellers running stable operations are excited to expand. This is an opportunity for Amazon to support the scale-up stage: inventory financing, FBA volume discounts, multi-account management.</p>\n        <p><strong>EC Mở rộng thị trường is extremely cautious (88% mixed, only 19 positive out of 169):</strong> EC sellers are hesitant to expand — EU 3€/item tariff, logistics costs, complex policy. Amazon FBA EU needs clearer cost-benefit messaging to convert EC → Amazon EU.</p>\n        <p><strong>Xây dựng Team: mixed dominant in both (SOA 54% · EC 55% mixed)</strong> — sellers are weighing whether to hire VAs, devs, content creators. A critical decision point; if Amazon provides content guidance (hire vs outsource, VA platforms, cost benchmarks), it will help sellers scale up.</p>"
+        "html": "<p><strong>Operational scaling is the most positive growth area in both groups:</strong> SOA 62% positive · EC 69% positive. Sellers running stable operations are excited to expand. This is an opportunity for Amazon to support the scale-up stage: inventory financing, FBA volume discounts, multi-account management.</p>\n        <p><strong>EC Market expansion is extremely cautious (88% mixed, only 19 positive out of 169):</strong> EC sellers are hesitant to expand — EU 3€/item tariff, logistics costs, complex policy. Amazon FBA EU needs clearer cost-benefit messaging to convert EC → Amazon EU.</p>\n        <p><strong>Team building: mixed dominant in both (SOA 54% · EC 55% mixed)</strong> — sellers are weighing whether to hire VAs, devs, content creators. A critical decision point; if Amazon provides content guidance (hire vs outsource, VA platforms, cost benchmarks), it will help sellers scale up.</p>"
       }
     ],
     "callouts": [

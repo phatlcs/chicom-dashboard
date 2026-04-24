@@ -296,7 +296,7 @@ function Q4() {
                 <g key={t.id + 'leg'}>
                   <rect x={WW - wpad.r + 10} y={wpad.t + i * 22} width={10} height={10} fill={t.color} rx={2} />
                   <text x={WW - wpad.r + 26} y={wpad.t + i * 22 + 9} className="axis-tick" style={{ fontSize: 10 }}>
-                    <title>{t.vn}</title>{label}
+                    <title>{t.en || t.vn}</title>{label}
                   </text>
                 </g>
               );
