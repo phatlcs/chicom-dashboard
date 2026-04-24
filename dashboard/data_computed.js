@@ -2235,6 +2235,90 @@ window.ChiComData2 = (() => {
   "neutral": 67,
   "negative": 22
 };
+  const Q7_POS_SUBS_SOA   = [
+  {
+    "vn": "Sự kiện, đào tạo và kết nối cộng đồng bán hàng Amazon",
+    "count": 473
+  },
+  {
+    "vn": "Chia sẻ, học hỏi và hợp tác kinh nghiệm bán hàng Amazon",
+    "count": 421
+  },
+  {
+    "vn": "Kinh doanh xuất nhập khẩu và bán hàng quốc tế",
+    "count": 129
+  },
+  {
+    "vn": "Bán hàng và vận hành kinh doanh trên Amazon",
+    "count": 99
+  },
+  {
+    "vn": "Kinh nghiệm và chiến lược bán hàng trên Amazon",
+    "count": 92
+  },
+  {
+    "vn": "Hợp tác, hỗ trợ và vận hành bán hàng Amazon",
+    "count": 77
+  },
+  {
+    "vn": "Khó khăn và thách thức khi bán hàng trên Amazon",
+    "count": 33
+  },
+  {
+    "vn": "Hướng dẫn và hỗ trợ khởi đầu bán hàng Amazon",
+    "count": 30
+  },
+  {
+    "vn": "Kinh doanh Amazon FBA và FBM: vận hành & tối ưu chi phí",
+    "count": 22
+  },
+  {
+    "vn": "Dịch vụ vận chuyển và fulfillment",
+    "count": 12
+  }
+];
+  const Q7_POS_SUBS_EC    = [
+  {
+    "vn": "Kinh doanh xuất nhập khẩu và bán hàng quốc tế",
+    "count": 1264
+  },
+  {
+    "vn": "Sự kiện, đào tạo và kết nối cộng đồng bán hàng Amazon",
+    "count": 462
+  },
+  {
+    "vn": "Chia sẻ, học hỏi và hợp tác kinh nghiệm bán hàng Amazon",
+    "count": 381
+  },
+  {
+    "vn": "Dịch vụ vận chuyển và fulfillment",
+    "count": 378
+  },
+  {
+    "vn": "Bán hàng và vận hành kinh doanh trên Amazon",
+    "count": 294
+  },
+  {
+    "vn": "Dịch vụ và giải pháp pháp lý, thương hiệu và công cụ kinh doanh cho người bán Amazon",
+    "count": 217
+  },
+  {
+    "vn": "Kinh nghiệm và chiến lược bán hàng trên Amazon",
+    "count": 168
+  },
+  {
+    "vn": "Hợp tác, hỗ trợ và vận hành bán hàng Amazon",
+    "count": 92
+  },
+  {
+    "vn": "Dịch vụ hỗ trợ và xử lý tài khoản Amazon",
+    "count": 55
+  },
+  {
+    "vn": "Thuế và Chi phí Kinh doanh trên Amazon cho Seller Việt Nam",
+    "count": 54
+  }
+];
   const Q8_TRIGGERS    = [
   {
     "vn": "Lừa đảo / rủi ro",
@@ -2769,6 +2853,90 @@ window.ChiComData2 = (() => {
       0,
       0
     ]
+  }
+];
+  const Q10_SUBS_SOA   = [
+  {
+    "vn": "Chia sẻ, học hỏi và hợp tác kinh nghiệm bán hàng Amazon",
+    "count": 633
+  },
+  {
+    "vn": "Kinh doanh xuất nhập khẩu và bán hàng quốc tế",
+    "count": 576
+  },
+  {
+    "vn": "Sự kiện, đào tạo và kết nối cộng đồng bán hàng Amazon",
+    "count": 564
+  },
+  {
+    "vn": "Bán hàng và vận hành kinh doanh trên Amazon",
+    "count": 446
+  },
+  {
+    "vn": "Thuế và Chi phí Kinh doanh trên Amazon cho Seller Việt Nam",
+    "count": 282
+  },
+  {
+    "vn": "Hợp tác, hỗ trợ và vận hành bán hàng Amazon",
+    "count": 241
+  },
+  {
+    "vn": "Dịch vụ vận chuyển và fulfillment",
+    "count": 229
+  },
+  {
+    "vn": "Kinh doanh Amazon FBA và FBM: vận hành & tối ưu chi phí",
+    "count": 210
+  },
+  {
+    "vn": "Khó khăn và thách thức khi bán hàng trên Amazon",
+    "count": 164
+  },
+  {
+    "vn": "Kinh nghiệm và chiến lược bán hàng trên Amazon",
+    "count": 152
+  }
+];
+  const Q10_SUBS_EC    = [
+  {
+    "vn": "Kinh doanh xuất nhập khẩu và bán hàng quốc tế",
+    "count": 6773
+  },
+  {
+    "vn": "Dịch vụ vận chuyển và fulfillment",
+    "count": 4509
+  },
+  {
+    "vn": "Bán hàng và vận hành kinh doanh trên Amazon",
+    "count": 4296
+  },
+  {
+    "vn": "Thuế và Chi phí Kinh doanh trên Amazon cho Seller Việt Nam",
+    "count": 4224
+  },
+  {
+    "vn": "Vận hành tài khoản và thanh toán quốc tế cho seller",
+    "count": 2416
+  },
+  {
+    "vn": "Khó khăn và thách thức khi bán hàng trên Amazon",
+    "count": 1343
+  },
+  {
+    "vn": "Chia sẻ, học hỏi và hợp tác kinh nghiệm bán hàng Amazon",
+    "count": 1214
+  },
+  {
+    "vn": "Sự kiện, đào tạo và kết nối cộng đồng bán hàng Amazon",
+    "count": 744
+  },
+  {
+    "vn": "Hợp tác, hỗ trợ và vận hành bán hàng Amazon",
+    "count": 539
+  },
+  {
+    "vn": "Kinh nghiệm và chiến lược bán hàng trên Amazon",
+    "count": 505
   }
 ];
   const Q11_TOOLS        = [
@@ -3386,12 +3554,13 @@ window.ChiComData2 = (() => {
     Q7_TOPICS, Q7_TOPICS_SOA, Q7_TOPICS_EC,
     Q7_BENEFITS, Q7_BENEFITS_SOA, Q7_BENEFITS_EC,
     Q7_SENTIMENT, Q7_SENTIMENT_SOA, Q7_SENTIMENT_EC,
+    Q7_POS_SUBS_SOA, Q7_POS_SUBS_EC,
     Q8_TRIGGERS, Q8_PERSONA, Q8_TREND,
     Q9_BARRIERS,
     Q9_Q7_PERSONAS, Q9_Q8_PERSONAS,
     Q9_Q7_PERSONAS_SOA, Q9_Q8_PERSONAS_SOA,
     Q9_Q7_PERSONAS_EC,  Q9_Q8_PERSONAS_EC,
-    Q10_TOP, Q10_WEEKS, Q10_WEEKLY,
+    Q10_TOP, Q10_WEEKS, Q10_WEEKLY, Q10_SUBS_SOA, Q10_SUBS_EC,
     Q11_TOOLS, Q11_ISSUES, Q11_SATISFACTION,
     Q12_SERVICES, Q12_SERVICES_SOA, Q12_SERVICES_EC,
     Q13_COURSES,  Q13_COURSES_SOA,  Q13_COURSES_EC,

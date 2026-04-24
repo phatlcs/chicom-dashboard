@@ -482,6 +482,43 @@ def compute_all(df: pd.DataFrame):
     q7_topics, q7_benefits, q7_sentiment                = extract_q7(rel)
     q7_topics_soa, q7_benefits_soa, q7_sentiment_soa    = extract_q7(soa_rel)
     q7_topics_ec,  q7_benefits_ec,  q7_sentiment_ec     = extract_q7(ec_rel)
+
+    # Q7 NEW: sub-topic breakdown of positive-sentiment posts per segment.
+    # (Replaces the older keyword-matched Q7_TOPICS chart — remixed HTML
+    # uses sub-topic positive-sentiment counts directly.)
+    def _pos_sub_counts(df, limit=10):
+        if 'sub_topic' not in df.columns or 'sentiment' not in df.columns:
+            return []
+        pos = df[df['sentiment'] == 'positive']
+        sub = pos['sub_topic'].fillna('').astype(str).str.strip()
+        sub = sub[sub != ''].value_counts().head(limit)
+        return [{'vn': k, 'count': int(v)} for k, v in sub.items()]
+
+    q7_pos_subs_soa = _pos_sub_counts(soa_rel)
+    q7_pos_subs_ec  = _pos_sub_counts(ec_rel)
+
+    # Q10 NEW: sub-topics per segment filtered for "product context" only.
+    # Account-lifecycle sub-topics (xác minh/khoá/hỗ trợ xử lý tài khoản)
+    # get excluded — they're about fixing the seller's account, not about
+    # the products being discussed. Matches the curated list in the remixed
+    # analyst report.
+    Q10_EXCLUDE_PREFIXES = [
+        'Vấn đề xác minh',                      # incl. typo variant "rủi ko"
+        'Dịch vụ hỗ trợ và xử lý tài khoản',    # account recovery services
+    ]
+
+    def _product_sub_counts(df, limit=10):
+        if 'sub_topic' not in df.columns:
+            return []
+        sub = df['sub_topic'].fillna('').astype(str).str.strip()
+        sub = sub[sub != '']
+        for pat in Q10_EXCLUDE_PREFIXES:
+            sub = sub[~sub.str.startswith(pat)]
+        sub = sub.value_counts().head(limit)
+        return [{'vn': k, 'count': int(v)} for k, v in sub.items()]
+
+    q10_subs_soa = _product_sub_counts(soa_rel)
+    q10_subs_ec  = _product_sub_counts(ec_rel)
     q8_triggers, q8_persona, q8_trend    = extract_q8(soa_rel, months)     # SOA only
     q9_barriers  = extract_q9(rel)
     q9_personas      = extract_q9_personas(rel)
@@ -660,6 +697,8 @@ window.ChiComData2 = (() => {{
   const Q7_SENTIMENT      = {_j(q7_sentiment)};
   const Q7_SENTIMENT_SOA  = {_j(q7_sentiment_soa)};
   const Q7_SENTIMENT_EC   = {_j(q7_sentiment_ec)};
+  const Q7_POS_SUBS_SOA   = {_j(q7_pos_subs_soa)};
+  const Q7_POS_SUBS_EC    = {_j(q7_pos_subs_ec)};
   const Q8_TRIGGERS    = {_j(q8_triggers)};
   const Q8_PERSONA     = {_j(q8_persona)};
   const Q8_TREND       = {_j(q8_trend)};
@@ -673,6 +712,8 @@ window.ChiComData2 = (() => {{
   const Q10_TOP        = {_j(q10_top)};
   const Q10_WEEKS      = {_j(q10_weeks)};
   const Q10_WEEKLY     = {_j(q10_weekly)};
+  const Q10_SUBS_SOA   = {_j(q10_subs_soa)};
+  const Q10_SUBS_EC    = {_j(q10_subs_ec)};
   const Q11_TOOLS        = {_j(q11_tools)};
   const Q11_ISSUES       = {_j(q11_issues)};
   const Q11_SATISFACTION = {_j(q11_satisfaction)};
@@ -689,12 +730,13 @@ window.ChiComData2 = (() => {{
     Q7_TOPICS, Q7_TOPICS_SOA, Q7_TOPICS_EC,
     Q7_BENEFITS, Q7_BENEFITS_SOA, Q7_BENEFITS_EC,
     Q7_SENTIMENT, Q7_SENTIMENT_SOA, Q7_SENTIMENT_EC,
+    Q7_POS_SUBS_SOA, Q7_POS_SUBS_EC,
     Q8_TRIGGERS, Q8_PERSONA, Q8_TREND,
     Q9_BARRIERS,
     Q9_Q7_PERSONAS, Q9_Q8_PERSONAS,
     Q9_Q7_PERSONAS_SOA, Q9_Q8_PERSONAS_SOA,
     Q9_Q7_PERSONAS_EC,  Q9_Q8_PERSONAS_EC,
-    Q10_TOP, Q10_WEEKS, Q10_WEEKLY,
+    Q10_TOP, Q10_WEEKS, Q10_WEEKLY, Q10_SUBS_SOA, Q10_SUBS_EC,
     Q11_TOOLS, Q11_ISSUES, Q11_SATISFACTION,
     Q12_SERVICES, Q12_SERVICES_SOA, Q12_SERVICES_EC,
     Q13_COURSES,  Q13_COURSES_SOA,  Q13_COURSES_EC,
