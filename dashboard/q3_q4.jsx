@@ -157,7 +157,7 @@ function Q4() {
   const wPlotW = WW - wpad.l - wpad.r, wPlotH = WH - wpad.t - wpad.b;
   const weekRangeLabel = (D.WEEKS && D.WEEKS.length)
     ? `${D.WEEKS[0]} — ${D.WEEKS[D.WEEKS.length - 1]} · weekly`
-    : 'theo tuần';
+    : 'weekly';
 
   return (
     <div className="grid-12">
