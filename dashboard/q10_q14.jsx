@@ -1,69 +1,114 @@
 /* global React, window */
 const D2b = window.ChiComData2;
 
-// Q10 — Product categories
+// Q10 — Product categories (sub-topic breakdown per segment)
+// Primary view: SOA + EC sub-topic breakdowns — remixed analyst report uses
+// sub-topic counts as a proxy for product-context discussion. Falls back to
+// the old keyword-matched Q10_TOP / Q10_WEEKLY charts when the pipeline
+// hasn't been rebuilt with the new Q10_SUBS_* fields yet.
 function Q10() {
   const tt = window.useTooltip();
   const { Q10_TOP, Q10_WEEKS, Q10_WEEKLY } = D2b;
-  const maxTop = Math.max(...Q10_TOP.map(c => c.count));
+  const hasSubSplit = D2b.Q10_SUBS_SOA && D2b.Q10_SUBS_EC;
+
+  const soaBadge = <span className="badge soa">SOA</span>;
+  const ecBadge  = <span className="badge ec">EC</span>;
+
+  // Fallback-mode chart constants (keyword weekly trend)
   const WW = 720, WH = 260, wpad = { t: 20, r: 120, b: 30, l: 40 };
   const wPlotW = WW - wpad.l - wpad.r, wPlotH = WH - wpad.t - wpad.b;
-  const maxWeek = Math.max(...Q10_WEEKLY.flatMap(w => w.points));
+  const maxWeek = hasSubSplit ? 0 : Math.max(...(Q10_WEEKLY || []).flatMap(w => w.points));
+
+  const soaTop = (D2b.Q10_SUBS_SOA || [])[0] || { vn: '—', count: 0 };
+  const ecTop  = (D2b.Q10_SUBS_EC  || [])[0] || { vn: '—', count: 0 };
 
   return (
     <div className="grid-12">
-      <div className="col-5">
-        <div className="card">
-          <div className="card-head">
-            <div className="card-title">Top 10 Product Categories — Q4 2025</div>
+      {hasSubSplit ? (
+        <>
+          <div className="col-6">
+            <div className="card">
+              <div className="card-head">
+                <div className="card-title">Top discussion sub-topics {soaBadge}</div>
+              </div>
+              <HBars items={D2b.Q10_SUBS_SOA} labelKey="vn" valueKey="count" tooltip={tt} />
+              <window.CardComments chartId="Q10_1" />
+            </div>
           </div>
-          <HBars items={Q10_TOP} labelKey="name" valueKey="count" tooltip={tt} />
-        
-        <window.CardComments chartId="Q10_1" />
-      </div>
-      </div>
-      <div className="col-7">
-        <div className="card">
-          <div className="card-head">
-            <div className="card-title">Weekly trend — Top 8 categories</div>
+          <div className="col-6">
+            <div className="card">
+              <div className="card-head">
+                <div className="card-title">Top discussion sub-topics {ecBadge}</div>
+              </div>
+              <HBars items={D2b.Q10_SUBS_EC} labelKey="vn" valueKey="count" tooltip={tt} />
+              <window.CardComments chartId="Q10_2" />
+            </div>
           </div>
-          <svg width="100%" viewBox={`0 0 ${WW} ${WH}`}>
-            {[0, 0.5, 1].map((f, i) => (
-              <line key={i} x1={wpad.l} y1={wpad.t + wPlotH * f} x2={WW - wpad.r} y2={wpad.t + wPlotH * f} className="grid-line" />
-            ))}
-            {Q10_WEEKLY.map((t, ti) => {
-              const pts = t.points.map((v, i) => {
-                const x = wpad.l + (i / (t.points.length - 1)) * wPlotW;
-                const y = wpad.t + wPlotH - Math.max(0, v) / maxWeek * wPlotH;
-                return [x, y];
-              });
-              const d = pts.map(([x, y], i) => `${i === 0 ? 'M' : 'L'}${x},${y}`).join(' ');
-              const area = d + ` L${wpad.l + wPlotW},${wpad.t + wPlotH} L${wpad.l},${wpad.t + wPlotH} Z`;
-              return (
-                <g key={t.name}>
-                  <path d={area} fill={t.color} opacity={0.12} />
-                  <path d={d} fill="none" stroke={t.color} strokeWidth={1.5} />
-                </g>
-              );
-            })}
-            {Q10_WEEKS.map((w, i) => i % 3 === 0 && (
-              <text key={w} x={wpad.l + (i / (Q10_WEEKS.length - 1)) * wPlotW} y={WH - 10} textAnchor="middle" className="axis-tick">{w}</text>
-            ))}
-            {Q10_WEEKLY.map((t, i) => (
-              <g key={t.name + 'l'}>
-                <rect x={WW - wpad.r + 10} y={wpad.t + i * 20} width={10} height={10} fill={t.color} rx={2} />
-                <text x={WW - wpad.r + 26} y={wpad.t + i * 20 + 9} className="axis-tick" style={{ fontSize: 10 }}>{t.name}</text>
-              </g>
-            ))}
-          </svg>
-        
-        <window.CardComments chartId="Q10_2" />
-      </div>
-      </div>
+        </>
+      ) : (
+        <>
+          <div className="col-5">
+            <div className="card">
+              <div className="card-head">
+                <div className="card-title">Top 10 Product Categories — Q4 2025</div>
+              </div>
+              <HBars items={Q10_TOP} labelKey="name" valueKey="count" tooltip={tt} />
+              <window.CardComments chartId="Q10_1" />
+            </div>
+          </div>
+          <div className="col-7">
+            <div className="card">
+              <div className="card-head">
+                <div className="card-title">Weekly trend — Top 8 categories</div>
+              </div>
+              <svg width="100%" viewBox={`0 0 ${WW} ${WH}`}>
+                {[0, 0.5, 1].map((f, i) => (
+                  <line key={i} x1={wpad.l} y1={wpad.t + wPlotH * f} x2={WW - wpad.r} y2={wpad.t + wPlotH * f} className="grid-line" />
+                ))}
+                {Q10_WEEKLY.map((t) => {
+                  const pts = t.points.map((v, i) => {
+                    const x = wpad.l + (i / (t.points.length - 1)) * wPlotW;
+                    const y = wpad.t + wPlotH - Math.max(0, v) / maxWeek * wPlotH;
+                    return [x, y];
+                  });
+                  const d = pts.map(([x, y], i) => `${i === 0 ? 'M' : 'L'}${x},${y}`).join(' ');
+                  const area = d + ` L${wpad.l + wPlotW},${wpad.t + wPlotH} L${wpad.l},${wpad.t + wPlotH} Z`;
+                  return (
+                    <g key={t.name}>
+                      <path d={area} fill={t.color} opacity={0.12} />
+                      <path d={d} fill="none" stroke={t.color} strokeWidth={1.5} />
+                    </g>
+                  );
+                })}
+                {Q10_WEEKS.map((w, i) => i % 3 === 0 && (
+                  <text key={w} x={wpad.l + (i / (Q10_WEEKS.length - 1)) * wPlotW} y={WH - 10} textAnchor="middle" className="axis-tick">{w}</text>
+                ))}
+                {Q10_WEEKLY.map((t, i) => (
+                  <g key={t.name + 'l'}>
+                    <rect x={WW - wpad.r + 10} y={wpad.t + i * 20} width={10} height={10} fill={t.color} rx={2} />
+                    <text x={WW - wpad.r + 26} y={wpad.t + i * 20 + 9} className="axis-tick" style={{ fontSize: 10 }}>{t.name}</text>
+                  </g>
+                ))}
+              </svg>
+              <window.CardComments chartId="Q10_2" />
+            </div>
+          </div>
+        </>
+      )}
+
       <div style={{ gridColumn: '1 / -1' }}>
         <window.Insight qId="Q10">
-          Leading category: <b>{Q10_TOP[0]?.name || '—'}</b> ({Q10_TOP[0]?.count.toLocaleString() || 0} mentions) ·
-          Top-3: {Q10_TOP.slice(0, 3).map(c => c.name).join(', ')}.
+          {hasSubSplit ? (
+            <>
+              SOA top sub-topic: <b>{soaTop.vn}</b> ({soaTop.count.toLocaleString()} mentions) ·
+              EC top sub-topic: <b>{ecTop.vn}</b> ({ecTop.count.toLocaleString()}).
+            </>
+          ) : (
+            <>
+              Leading category: <b>{Q10_TOP[0]?.name || '—'}</b> ({Q10_TOP[0]?.count.toLocaleString() || 0} mentions) ·
+              Top-3: {Q10_TOP.slice(0, 3).map(c => c.name).join(', ')}.
+            </>
+          )}
         </window.Insight>
       </div>
       {tt.node}
