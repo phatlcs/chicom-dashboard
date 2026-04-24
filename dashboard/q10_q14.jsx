@@ -163,13 +163,34 @@ window.Q11 = Q11;
 function Q12() {
   const tt = window.useTooltip();
   const { Q12_SERVICES } = D2b;
+  const hasSplit = D2b.Q12_SERVICES_SOA && D2b.Q12_SERVICES_EC;
   const maxM = Math.max(...Q12_SERVICES.flatMap(s => [s.mentions, s.need]));
   const W = 640, H = 260, pad = { t: 20, r: 20, b: 50, l: 30 };
   const cellW = (W - pad.l - pad.r) / Q12_SERVICES.length;
   const blue = 'oklch(0.58 0.14 190)', red = 'oklch(0.60 0.20 25)';
 
+  const soaBadge = <span className="badge soa">SOA</span>;
+  const ecBadge  = <span className="badge ec">EC</span>;
+  const ServiceHBars = ({ items, title, badge, chartId, accent }) => (
+    <div className="card">
+      <div className="card-head"><div className="card-title">{title} {badge}</div></div>
+      <HBars items={items.map(s => ({ name: s.name, count: s.mentions, color: accent }))} tooltip={tt} />
+      {chartId && <window.CardComments chartId={chartId} />}
+    </div>
+  );
+
   return (
     <div className="grid-12">
+      {hasSplit && (
+        <>
+          <div className="col-6">
+            <ServiceHBars items={D2b.Q12_SERVICES_SOA} title="Dịch vụ bên thứ ba — mentions" badge={soaBadge} chartId="Q12_4" accent="oklch(0.55 0.17 25)" />
+          </div>
+          <div className="col-6">
+            <ServiceHBars items={D2b.Q12_SERVICES_EC}  title="Dịch vụ bên thứ ba — mentions" badge={ecBadge}  chartId="Q12_5" accent="oklch(0.55 0.17 260)" />
+          </div>
+        </>
+      )}
       <div className="col-12">
         <div className="card">
           <div className="card-head"><div className="card-title">Dịch vụ bên thứ ba — Tổng quan</div></div>
@@ -259,10 +280,21 @@ window.Q12 = Q12;
 function Q13() {
   const tt = window.useTooltip();
   const { Q13_COURSES } = D2b;
+  const hasSplit = D2b.Q13_COURSES_SOA && D2b.Q13_COURSES_EC;
   const maxMS = Math.max(...Q13_COURSES.flatMap(c => [c.mentions, c.seeking]));
   const blue = 'oklch(0.58 0.14 190)', green = 'oklch(0.62 0.15 155)', red = 'oklch(0.60 0.20 25)';
   const W = 520, H = 240, pad = { t: 20, r: 20, b: 70, l: 30 };
   const cellW = (W - pad.l - pad.r) / Q13_COURSES.length;
+
+  const soaBadge = <span className="badge soa">SOA</span>;
+  const ecBadge  = <span className="badge ec">EC</span>;
+  const CourseHBars = ({ items, title, badge, chartId, accent }) => (
+    <div className="card">
+      <div className="card-head"><div className="card-title">{title} {badge}</div></div>
+      <HBars items={items.map(c => ({ name: c.name, count: c.mentions, color: accent }))} tooltip={tt} />
+      {chartId && <window.CardComments chartId={chartId} />}
+    </div>
+  );
 
   const total = Q13_COURSES.reduce((a, b) => a + b.mentions, 0);
   let acc = 0;
@@ -286,6 +318,16 @@ function Q13() {
 
   return (
     <div className="grid-12">
+      {hasSplit && (
+        <>
+          <div className="col-6">
+            <CourseHBars items={D2b.Q13_COURSES_SOA} title="Khoá học — mentions" badge={soaBadge} chartId="Q13_5" accent="oklch(0.55 0.17 25)" />
+          </div>
+          <div className="col-6">
+            <CourseHBars items={D2b.Q13_COURSES_EC}  title="Khoá học — mentions" badge={ecBadge}  chartId="Q13_6" accent="oklch(0.55 0.17 260)" />
+          </div>
+        </>
+      )}
       <div className="col-6">
         <div className="card">
           <div className="card-head">
@@ -404,6 +446,7 @@ window.Q13 = Q13;
 function Q14() {
   const tt = window.useTooltip();
   const { Q14_GROWTH } = D2b;
+  const hasSplit = D2b.Q14_GROWTH_SOA && D2b.Q14_GROWTH_EC;
   const total = Q14_GROWTH.reduce((a, b) => a + b.count, 0);
   const maxG = Math.max(...Q14_GROWTH.map(g => g.count));
   let acc = 0;
@@ -411,6 +454,16 @@ function Q14() {
     const start = acc; acc += g.count / total;
     return { ...g, start, end: acc };
   });
+
+  const soaBadge = <span className="badge soa">SOA</span>;
+  const ecBadge  = <span className="badge ec">EC</span>;
+  const GrowthHBars = ({ items, title, badge, chartId, accent }) => (
+    <div className="card">
+      <div className="card-head"><div className="card-title">{title} {badge}</div></div>
+      <HBars items={items.map(g => ({ name: g.name, count: g.count, color: accent }))} tooltip={tt} />
+      {chartId && <window.CardComments chartId={chartId} />}
+    </div>
+  );
   const arc = (cx, cy, r, r2, a0, a1) => {
     const large = a1 - a0 > 0.5 ? 1 : 0;
     const sx = cx + Math.cos(a0 * Math.PI * 2 - Math.PI / 2) * r;
@@ -429,6 +482,16 @@ function Q14() {
 
   return (
     <div className="grid-12">
+      {hasSplit && (
+        <>
+          <div className="col-6">
+            <GrowthHBars items={D2b.Q14_GROWTH_SOA} title="Growth Topics — mentions" badge={soaBadge} chartId="Q14_4" accent="oklch(0.55 0.17 25)" />
+          </div>
+          <div className="col-6">
+            <GrowthHBars items={D2b.Q14_GROWTH_EC}  title="Growth Topics — mentions" badge={ecBadge}  chartId="Q14_5" accent="oklch(0.55 0.17 260)" />
+          </div>
+        </>
+      )}
       <div className="col-5">
         <div className="card">
           <div className="card-head"><div className="card-title">Phân bố chủ đề Tăng trưởng</div></div>

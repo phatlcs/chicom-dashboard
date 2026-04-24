@@ -299,13 +299,7 @@
         "html": "<p>SOA sellers ít thảo luận về specific product categories mà tập trung vào <strong>operational aspects</strong>: cách tìm sản phẩm tiềm năng (Helium10, SellerSprite, Jungle Scout), cách tối ưu listing keyword, GTIN exemption. Product selection là ngầm hiểu đã có — discussion tập trung vào việc tối ưu sản phẩm đang bán, không phải tìm sản phẩm mới.</p>"
       }
     ],
-    "callouts": [
-      {
-        "variant": "orange",
-        "icon": "📌",
-        "html": "<strong>Lưu ý phương pháp:</strong> Dataset Q1 không có Product Category field được điền — toàn bộ 46,636 rows đều null trong cột \"Product Category\". Phân tích Q10 dựa hoàn toàn vào keyword extraction từ content text. Đề nghị team data điền product category cho Q2 để có analysis chính xác hơn."
-      }
-    ],
+    "callouts": [],
     "recommendations": [
       "<strong>Target EC sellers với Amazon Handmade & FBA Small&Light:</strong> Etsy sellers VN đã có sản phẩm handmade phù hợp (jewelry, POD, craft) — Amazon Handmade và Small&Light FBA là natural fit. Tạo nội dung \"Từ Etsy sang Amazon: mở rộng không cần thêm vốn lớn\".",
       "<strong>Nông sản USDA là blue ocean opportunity:</strong> Rất ít seller VN hiện đang làm ngành này nhưng demand tìm hiểu đang tăng. Amazon Global Selling + USDA compliance guide cụ thể (không chỉ general info) sẽ định vị Amazon là go-to resource cho niche này.",

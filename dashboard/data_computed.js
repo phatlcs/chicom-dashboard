@@ -452,6 +452,154 @@ window.ChiComData = (() => {
     "p_seller_ot": 0
   }
 };
+  const Q2_MATRIX_SOA       = {
+  "mt1": {
+    "p_seller_az": 1279,
+    "p_prospect_az": 286,
+    "p_svc_az": 342,
+    "p_svc_cbec": 12,
+    "p_prospect_ot": 6,
+    "p_seller_ot": 1
+  },
+  "mt2": {
+    "p_seller_az": 16,
+    "p_prospect_az": 24,
+    "p_svc_az": 0,
+    "p_svc_cbec": 0,
+    "p_prospect_ot": 1,
+    "p_seller_ot": 0
+  },
+  "mt3": {
+    "p_seller_az": 1132,
+    "p_prospect_az": 253,
+    "p_svc_az": 76,
+    "p_svc_cbec": 0,
+    "p_prospect_ot": 0,
+    "p_seller_ot": 0
+  },
+  "mt4": {
+    "p_seller_az": 2,
+    "p_prospect_az": 25,
+    "p_svc_az": 66,
+    "p_svc_cbec": 5,
+    "p_prospect_ot": 0,
+    "p_seller_ot": 0
+  },
+  "mt5": {
+    "p_seller_az": 32,
+    "p_prospect_az": 17,
+    "p_svc_az": 82,
+    "p_svc_cbec": 88,
+    "p_prospect_ot": 10,
+    "p_seller_ot": 0
+  },
+  "mt6": {
+    "p_seller_az": 255,
+    "p_prospect_az": 97,
+    "p_svc_az": 11,
+    "p_svc_cbec": 19,
+    "p_prospect_ot": 31,
+    "p_seller_ot": 27
+  },
+  "mt7": {
+    "p_seller_az": 51,
+    "p_prospect_az": 31,
+    "p_svc_az": 3,
+    "p_svc_cbec": 136,
+    "p_prospect_ot": 158,
+    "p_seller_ot": 197
+  },
+  "mt8": {
+    "p_seller_az": 376,
+    "p_prospect_az": 255,
+    "p_svc_az": 27,
+    "p_svc_cbec": 0,
+    "p_prospect_ot": 1,
+    "p_seller_ot": 0
+  },
+  "mt9": {
+    "p_seller_az": 0,
+    "p_prospect_az": 0,
+    "p_svc_az": 0,
+    "p_svc_cbec": 0,
+    "p_prospect_ot": 0,
+    "p_seller_ot": 0
+  }
+};
+  const Q2_MATRIX_EC        = {
+  "mt1": {
+    "p_seller_az": 194,
+    "p_prospect_az": 47,
+    "p_svc_az": 43,
+    "p_svc_cbec": 515,
+    "p_prospect_ot": 984,
+    "p_seller_ot": 2978
+  },
+  "mt2": {
+    "p_seller_az": 0,
+    "p_prospect_az": 1,
+    "p_svc_az": 0,
+    "p_svc_cbec": 4,
+    "p_prospect_ot": 117,
+    "p_seller_ot": 243
+  },
+  "mt3": {
+    "p_seller_az": 1892,
+    "p_prospect_az": 317,
+    "p_svc_az": 27,
+    "p_svc_cbec": 151,
+    "p_prospect_ot": 942,
+    "p_seller_ot": 2156
+  },
+  "mt4": {
+    "p_seller_az": 0,
+    "p_prospect_az": 0,
+    "p_svc_az": 22,
+    "p_svc_cbec": 279,
+    "p_prospect_ot": 81,
+    "p_seller_ot": 70
+  },
+  "mt5": {
+    "p_seller_az": 2,
+    "p_prospect_az": 3,
+    "p_svc_az": 47,
+    "p_svc_cbec": 2939,
+    "p_prospect_ot": 645,
+    "p_seller_ot": 873
+  },
+  "mt6": {
+    "p_seller_az": 680,
+    "p_prospect_az": 133,
+    "p_svc_az": 0,
+    "p_svc_cbec": 299,
+    "p_prospect_ot": 2597,
+    "p_seller_ot": 3370
+  },
+  "mt7": {
+    "p_seller_az": 10,
+    "p_prospect_az": 5,
+    "p_svc_az": 8,
+    "p_svc_cbec": 2007,
+    "p_prospect_ot": 2609,
+    "p_seller_ot": 2134
+  },
+  "mt8": {
+    "p_seller_az": 604,
+    "p_prospect_az": 392,
+    "p_svc_az": 12,
+    "p_svc_cbec": 140,
+    "p_prospect_ot": 899,
+    "p_seller_ot": 2462
+  },
+  "mt9": {
+    "p_seller_az": 0,
+    "p_prospect_az": 0,
+    "p_svc_az": 0,
+    "p_svc_cbec": 0,
+    "p_prospect_ot": 0,
+    "p_seller_ot": 0
+  }
+};
   const Q3_SELLER_PROSPECT  = [
   {
     "id": "mt1",
@@ -1172,6 +1320,80 @@ window.ChiComData = (() => {
     "count": 964
   }
 ];
+  const Q5_BY_DAY_SOA       = [
+  {
+    "day": "T2",
+    "en": "Mon",
+    "count": 201
+  },
+  {
+    "day": "T3",
+    "en": "Tue",
+    "count": 176
+  },
+  {
+    "day": "T4",
+    "en": "Wed",
+    "count": 162
+  },
+  {
+    "day": "T5",
+    "en": "Thu",
+    "count": 150
+  },
+  {
+    "day": "T6",
+    "en": "Fri",
+    "count": 247
+  },
+  {
+    "day": "T7",
+    "en": "Sat",
+    "count": 171
+  },
+  {
+    "day": "CN",
+    "en": "Sun",
+    "count": 43
+  }
+];
+  const Q5_BY_DAY_EC        = [
+  {
+    "day": "T2",
+    "en": "Mon",
+    "count": 973
+  },
+  {
+    "day": "T3",
+    "en": "Tue",
+    "count": 1208
+  },
+  {
+    "day": "T4",
+    "en": "Wed",
+    "count": 1223
+  },
+  {
+    "day": "T5",
+    "en": "Thu",
+    "count": 1009
+  },
+  {
+    "day": "T6",
+    "en": "Fri",
+    "count": 1258
+  },
+  {
+    "day": "T7",
+    "en": "Sat",
+    "count": 1096
+  },
+  {
+    "day": "CN",
+    "en": "Sun",
+    "count": 921
+  }
+];
   const Q6_BY_HOUR          = [
   {
     "hour": 0,
@@ -1270,6 +1492,202 @@ window.ChiComData = (() => {
     "count": 307
   }
 ];
+  const Q6_BY_HOUR_SOA      = [
+  {
+    "hour": 0,
+    "count": 19
+  },
+  {
+    "hour": 1,
+    "count": 14
+  },
+  {
+    "hour": 2,
+    "count": 5
+  },
+  {
+    "hour": 3,
+    "count": 5
+  },
+  {
+    "hour": 4,
+    "count": 4
+  },
+  {
+    "hour": 5,
+    "count": 12
+  },
+  {
+    "hour": 6,
+    "count": 11
+  },
+  {
+    "hour": 7,
+    "count": 20
+  },
+  {
+    "hour": 8,
+    "count": 45
+  },
+  {
+    "hour": 9,
+    "count": 51
+  },
+  {
+    "hour": 10,
+    "count": 77
+  },
+  {
+    "hour": 11,
+    "count": 143
+  },
+  {
+    "hour": 12,
+    "count": 85
+  },
+  {
+    "hour": 13,
+    "count": 63
+  },
+  {
+    "hour": 14,
+    "count": 80
+  },
+  {
+    "hour": 15,
+    "count": 79
+  },
+  {
+    "hour": 16,
+    "count": 63
+  },
+  {
+    "hour": 17,
+    "count": 49
+  },
+  {
+    "hour": 18,
+    "count": 72
+  },
+  {
+    "hour": 19,
+    "count": 63
+  },
+  {
+    "hour": 20,
+    "count": 59
+  },
+  {
+    "hour": 21,
+    "count": 58
+  },
+  {
+    "hour": 22,
+    "count": 49
+  },
+  {
+    "hour": 23,
+    "count": 24
+  }
+];
+  const Q6_BY_HOUR_EC       = [
+  {
+    "hour": 0,
+    "count": 184
+  },
+  {
+    "hour": 1,
+    "count": 60
+  },
+  {
+    "hour": 2,
+    "count": 48
+  },
+  {
+    "hour": 3,
+    "count": 45
+  },
+  {
+    "hour": 4,
+    "count": 29
+  },
+  {
+    "hour": 5,
+    "count": 32
+  },
+  {
+    "hour": 6,
+    "count": 112
+  },
+  {
+    "hour": 7,
+    "count": 270
+  },
+  {
+    "hour": 8,
+    "count": 354
+  },
+  {
+    "hour": 9,
+    "count": 581
+  },
+  {
+    "hour": 10,
+    "count": 637
+  },
+  {
+    "hour": 11,
+    "count": 612
+  },
+  {
+    "hour": 12,
+    "count": 541
+  },
+  {
+    "hour": 13,
+    "count": 352
+  },
+  {
+    "hour": 14,
+    "count": 436
+  },
+  {
+    "hour": 15,
+    "count": 453
+  },
+  {
+    "hour": 16,
+    "count": 435
+  },
+  {
+    "hour": 17,
+    "count": 376
+  },
+  {
+    "hour": 18,
+    "count": 303
+  },
+  {
+    "hour": 19,
+    "count": 351
+  },
+  {
+    "hour": 20,
+    "count": 373
+  },
+  {
+    "hour": 21,
+    "count": 417
+  },
+  {
+    "hour": 22,
+    "count": 404
+  },
+  {
+    "hour": 23,
+    "count": 283
+  }
+];
   const Q5_TOP_NEG          = [
   {
     "vn": "Vấn đề xác minh, khoá, rủi ro tài khoản Amazon",
@@ -1294,6 +1712,58 @@ window.ChiComData = (() => {
   {
     "vn": "Kinh doanh xuất nhập khẩu và bán hàng quốc tế",
     "count": 652
+  }
+];
+  const Q5_TOP_NEG_SOA      = [
+  {
+    "vn": "Vấn đề xác minh, khoá, rủi ro tài khoản Amazon",
+    "count": 508
+  },
+  {
+    "vn": "Dịch vụ hỗ trợ và xử lý tài khoản Amazon",
+    "count": 196
+  },
+  {
+    "vn": "Khó khăn và thách thức khi bán hàng trên Amazon",
+    "count": 105
+  },
+  {
+    "vn": "Kinh doanh xuất nhập khẩu và bán hàng quốc tế",
+    "count": 66
+  },
+  {
+    "vn": "Chia sẻ, học hỏi và hợp tác kinh nghiệm bán hàng Amazon",
+    "count": 58
+  },
+  {
+    "vn": "Cảnh báo rủi ro và lừa đảo khi kinh doanh Amazon",
+    "count": 41
+  }
+];
+  const Q5_TOP_NEG_EC       = [
+  {
+    "vn": "Vấn đề xác minh, khoá, rủi ro tài khoản Amazon",
+    "count": 2121
+  },
+  {
+    "vn": "Khó khăn và thách thức khi bán hàng trên Amazon",
+    "count": 1228
+  },
+  {
+    "vn": "Bán hàng và vận hành kinh doanh trên Amazon",
+    "count": 807
+  },
+  {
+    "vn": "Thuế và Chi phí Kinh doanh trên Amazon cho Seller Việt Nam",
+    "count": 722
+  },
+  {
+    "vn": "Dịch vụ hỗ trợ và xử lý tài khoản Amazon",
+    "count": 597
+  },
+  {
+    "vn": "Kinh doanh xuất nhập khẩu và bán hàng quốc tế",
+    "count": 586
   }
 ];
   const Q5_EARLY_DIST       = [
@@ -1561,16 +2031,19 @@ window.ChiComData = (() => {
   return {
     SOA_GROUPS, EC_GROUPS, ALL_GROUPS,
     MASTER_TOPICS, Q1_MASTER, Q1_WEIGHTS, SUBTOPICS,
-    PERSONAS, Q2_MATRIX, Q3_SELLER_PROSPECT, Q3_SUBS,
+    PERSONAS, Q2_MATRIX, Q2_MATRIX_SOA, Q2_MATRIX_EC, Q3_SELLER_PROSPECT, Q3_SUBS,
     MONTHS, Q4_TRENDS, WEEKS, Q4_EVENTS, Q4_WEEKLY,
-    DAYS_VN, DAYS_EN, Q56_HEATMAP, Q5_BY_DAY, Q6_BY_HOUR,
-    Q5_TOP_NEG, Q5_EARLY_DIST, Q5_PEAK_WINDOW, KPI,
+    DAYS_VN, DAYS_EN, Q56_HEATMAP,
+    Q5_BY_DAY, Q5_BY_DAY_SOA, Q5_BY_DAY_EC,
+    Q6_BY_HOUR, Q6_BY_HOUR_SOA, Q6_BY_HOUR_EC,
+    Q5_TOP_NEG, Q5_TOP_NEG_SOA, Q5_TOP_NEG_EC,
+    Q5_EARLY_DIST, Q5_PEAK_WINDOW, KPI,
     OVERVIEW, DATE_RANGE, SOA_SCOPE, INSIGHTS,
   };
 })();
 
 window.ChiComData2 = (() => {
-  const Q7_TOPICS      = [
+  const Q7_TOPICS         = [
   {
     "vn": "Chia sẻ, học hỏi & trợ giúp",
     "name": "Chia sẻ, học hỏi & trợ giúp",
@@ -1602,7 +2075,71 @@ window.ChiComData2 = (() => {
     "count": 3
   }
 ];
-  const Q7_BENEFITS    = [
+  const Q7_TOPICS_SOA     = [
+  {
+    "vn": "Chia sẻ, học hỏi & trợ giúp",
+    "name": "Chia sẻ, học hỏi & trợ giúp",
+    "count": 92
+  },
+  {
+    "vn": "Kinh nghiệm & chiến lược",
+    "name": "Kinh nghiệm & chiến lược",
+    "count": 66
+  },
+  {
+    "vn": "Sự kiện, đào tạo & kết nối",
+    "name": "Sự kiện, đào tạo & kết nối",
+    "count": 60
+  },
+  {
+    "vn": "Bán hàng & vận hành",
+    "name": "Bán hàng & vận hành",
+    "count": 55
+  },
+  {
+    "vn": "Hợp tác, hỗ trợ & vận hành",
+    "name": "Hợp tác, hỗ trợ & vận hành",
+    "count": 46
+  },
+  {
+    "vn": "Passive income & cơ hội",
+    "name": "Passive income & cơ hội",
+    "count": 1
+  }
+];
+  const Q7_TOPICS_EC      = [
+  {
+    "vn": "Chia sẻ, học hỏi & trợ giúp",
+    "name": "Chia sẻ, học hỏi & trợ giúp",
+    "count": 349
+  },
+  {
+    "vn": "Hợp tác, hỗ trợ & vận hành",
+    "name": "Hợp tác, hỗ trợ & vận hành",
+    "count": 228
+  },
+  {
+    "vn": "Kinh nghiệm & chiến lược",
+    "name": "Kinh nghiệm & chiến lược",
+    "count": 203
+  },
+  {
+    "vn": "Bán hàng & vận hành",
+    "name": "Bán hàng & vận hành",
+    "count": 177
+  },
+  {
+    "vn": "Sự kiện, đào tạo & kết nối",
+    "name": "Sự kiện, đào tạo & kết nối",
+    "count": 175
+  },
+  {
+    "vn": "Passive income & cơ hội",
+    "name": "Passive income & cơ hội",
+    "count": 2
+  }
+];
+  const Q7_BENEFITS       = [
   {
     "vn": "Thành công & thu nhập",
     "name": "Thành công & thu nhập",
@@ -1629,9 +2166,73 @@ window.ChiComData2 = (() => {
     "count": 65
   }
 ];
-  const Q7_SENTIMENT   = {
+  const Q7_BENEFITS_SOA   = [
+  {
+    "vn": "Thành công & thu nhập",
+    "name": "Thành công & thu nhập",
+    "count": 195
+  },
+  {
+    "vn": "Passive income",
+    "name": "Passive income",
+    "count": 40
+  },
+  {
+    "vn": "Dễ bắt đầu",
+    "name": "Dễ bắt đầu",
+    "count": 38
+  },
+  {
+    "vn": "Cơ hội thị trường",
+    "name": "Cơ hội thị trường",
+    "count": 36
+  },
+  {
+    "vn": "Hỗ trợ & đào tạo",
+    "name": "Hỗ trợ & đào tạo",
+    "count": 9
+  }
+];
+  const Q7_BENEFITS_EC    = [
+  {
+    "vn": "Thành công & thu nhập",
+    "name": "Thành công & thu nhập",
+    "count": 1322
+  },
+  {
+    "vn": "Passive income",
+    "name": "Passive income",
+    "count": 191
+  },
+  {
+    "vn": "Dễ bắt đầu",
+    "name": "Dễ bắt đầu",
+    "count": 145
+  },
+  {
+    "vn": "Cơ hội thị trường",
+    "name": "Cơ hội thị trường",
+    "count": 106
+  },
+  {
+    "vn": "Hỗ trợ & đào tạo",
+    "name": "Hỗ trợ & đào tạo",
+    "count": 56
+  }
+];
+  const Q7_SENTIMENT      = {
   "positive": 13,
   "neutral": 65,
+  "negative": 22
+};
+  const Q7_SENTIMENT_SOA  = {
+  "positive": 26,
+  "neutral": 53,
+  "negative": 21
+};
+  const Q7_SENTIMENT_EC   = {
+  "positive": 11,
+  "neutral": 67,
   "negative": 22
 };
   const Q8_TRIGGERS    = [
@@ -1710,7 +2311,7 @@ window.ChiComData2 = (() => {
   369,
   0
 ];
-  const Q9_BARRIERS    = [
+  const Q9_BARRIERS        = [
   {
     "vn": "Thuế & pháp lý",
     "name": "Thuế & pháp lý",
@@ -1752,7 +2353,7 @@ window.ChiComData2 = (() => {
     "count": 11
   }
 ];
-  const Q9_Q7_PERSONAS = [
+  const Q9_Q7_PERSONAS     = [
   {
     "name": "Seller (Others)",
     "count": 1063,
@@ -1789,7 +2390,7 @@ window.ChiComData2 = (() => {
     "color": "oklch(0.55 0.17 260)"
   }
 ];
-  const Q9_Q8_PERSONAS = [
+  const Q9_Q8_PERSONAS     = [
   {
     "name": "Seller (Others)",
     "count": 453,
@@ -1819,6 +2420,119 @@ window.ChiComData2 = (() => {
     "name": "Service Provider (CBEC)",
     "count": 1,
     "color": "oklch(0.55 0.17 290)"
+  }
+];
+  const Q9_Q7_PERSONAS_SOA = [
+  {
+    "name": "Seller (Amazon)",
+    "count": 261,
+    "color": "oklch(0.55 0.17 260)"
+  },
+  {
+    "name": "Prospect (Amazon)",
+    "count": 86,
+    "color": "oklch(0.60 0.20 25)"
+  },
+  {
+    "name": "Service Provider (CBEC)",
+    "count": 48,
+    "color": "oklch(0.68 0.17 60)"
+  },
+  {
+    "name": "Service Provider (Amazon)",
+    "count": 48,
+    "color": "oklch(0.58 0.14 190)"
+  },
+  {
+    "name": "Seller (Others)",
+    "count": 27,
+    "color": "oklch(0.62 0.15 155)"
+  },
+  {
+    "name": "Prospect (Others)",
+    "count": 20,
+    "color": "oklch(0.55 0.17 290)"
+  }
+];
+  const Q9_Q8_PERSONAS_SOA = [
+  {
+    "name": "Seller (Amazon)",
+    "count": 60,
+    "color": "oklch(0.55 0.17 260)"
+  },
+  {
+    "name": "Prospect (Amazon)",
+    "count": 10,
+    "color": "oklch(0.60 0.20 25)"
+  },
+  {
+    "name": "Service Provider (Amazon)",
+    "count": 1,
+    "color": "oklch(0.68 0.17 60)"
+  }
+];
+  const Q9_Q7_PERSONAS_EC  = [
+  {
+    "name": "Seller (Others)",
+    "count": 1036,
+    "color": "oklch(0.55 0.17 260)"
+  },
+  {
+    "name": "Prospect (Others)",
+    "count": 669,
+    "color": "oklch(0.60 0.20 25)"
+  },
+  {
+    "name": "Service Provider (CBEC)",
+    "count": 566,
+    "color": "oklch(0.68 0.17 60)"
+  },
+  {
+    "name": "Seller (Amazon)",
+    "count": 267,
+    "color": "oklch(0.58 0.14 190)"
+  },
+  {
+    "name": "Prospect (Amazon)",
+    "count": 42,
+    "color": "oklch(0.62 0.15 155)"
+  },
+  {
+    "name": "Service Provider (Amazon)",
+    "count": 6,
+    "color": "oklch(0.55 0.17 290)"
+  },
+  {
+    "name": "Service Provider (Others)",
+    "count": 1,
+    "color": "oklch(0.55 0.17 260)"
+  }
+];
+  const Q9_Q8_PERSONAS_EC  = [
+  {
+    "name": "Seller (Others)",
+    "count": 453,
+    "color": "oklch(0.55 0.17 260)"
+  },
+  {
+    "name": "Seller (Amazon)",
+    "count": 53,
+    "color": "oklch(0.60 0.20 25)"
+  },
+  {
+    "name": "Prospect (Others)",
+    "count": 27,
+    "color": "oklch(0.68 0.17 60)"
+  },
+  {
+    "name": "Prospect (Amazon)",
+    "count": 2,
+    "color": "oklch(0.58 0.14 190)"
+  },
+  {
+    "name": "Service Provider (CBEC)",
+    "count": 1,
+    "color": "oklch(0.62 0.15 155)"
   }
 ];
   const Q10_TOP        = [
@@ -2210,7 +2924,7 @@ window.ChiComData2 = (() => {
     "count": 1
   }
 ];
-  const Q12_SERVICES   = [
+  const Q12_SERVICES     = [
   {
     "name": "Kế toán / Thuế",
     "vn": "Kế toán / Thuế",
@@ -2284,7 +2998,155 @@ window.ChiComData2 = (() => {
     "demand": 0
   }
 ];
-  const Q13_COURSES    = [
+  const Q12_SERVICES_SOA = [
+  {
+    "name": "Kế toán / Thuế",
+    "vn": "Kế toán / Thuế",
+    "count": 258,
+    "mentions": 258,
+    "need": 23,
+    "satisfaction": 33,
+    "demand": 9
+  },
+  {
+    "name": "Vận chuyển / Forwarder",
+    "vn": "Vận chuyển / Forwarder",
+    "count": 105,
+    "mentions": 105,
+    "need": 18,
+    "satisfaction": 61,
+    "demand": 17
+  },
+  {
+    "name": "Pháp lý / Nhãn hiệu",
+    "vn": "Pháp lý / Nhãn hiệu",
+    "count": 102,
+    "mentions": 102,
+    "need": 7,
+    "satisfaction": 55,
+    "demand": 7
+  },
+  {
+    "name": "Nguồn hàng / Sourcing",
+    "vn": "Nguồn hàng / Sourcing",
+    "count": 68,
+    "mentions": 68,
+    "need": 12,
+    "satisfaction": 70,
+    "demand": 18
+  },
+  {
+    "name": "Phần mềm / Tool",
+    "vn": "Phần mềm / Tool",
+    "count": 43,
+    "mentions": 43,
+    "need": 6,
+    "satisfaction": 100,
+    "demand": 14
+  },
+  {
+    "name": "Trợ lý ảo / VA",
+    "vn": "Trợ lý ảo / VA",
+    "count": 17,
+    "mentions": 17,
+    "need": 3,
+    "satisfaction": 80,
+    "demand": 18
+  },
+  {
+    "name": "Tối ưu Listing",
+    "vn": "Tối ưu Listing",
+    "count": 10,
+    "mentions": 10,
+    "need": 4,
+    "satisfaction": 75,
+    "demand": 40
+  },
+  {
+    "name": "Chụp ảnh sản phẩm",
+    "vn": "Chụp ảnh sản phẩm",
+    "count": 8,
+    "mentions": 8,
+    "need": 0,
+    "satisfaction": 100,
+    "demand": 0
+  }
+];
+  const Q12_SERVICES_EC  = [
+  {
+    "name": "Kế toán / Thuế",
+    "vn": "Kế toán / Thuế",
+    "count": 2099,
+    "mentions": 2099,
+    "need": 119,
+    "satisfaction": 18,
+    "demand": 6
+  },
+  {
+    "name": "Vận chuyển / Forwarder",
+    "vn": "Vận chuyển / Forwarder",
+    "count": 1019,
+    "mentions": 1019,
+    "need": 54,
+    "satisfaction": 33,
+    "demand": 5
+  },
+  {
+    "name": "Phần mềm / Tool",
+    "vn": "Phần mềm / Tool",
+    "count": 313,
+    "mentions": 313,
+    "need": 18,
+    "satisfaction": 75,
+    "demand": 6
+  },
+  {
+    "name": "Nguồn hàng / Sourcing",
+    "vn": "Nguồn hàng / Sourcing",
+    "count": 240,
+    "mentions": 240,
+    "need": 10,
+    "satisfaction": 70,
+    "demand": 4
+  },
+  {
+    "name": "Pháp lý / Nhãn hiệu",
+    "vn": "Pháp lý / Nhãn hiệu",
+    "count": 88,
+    "mentions": 88,
+    "need": 6,
+    "satisfaction": 17,
+    "demand": 7
+  },
+  {
+    "name": "Trợ lý ảo / VA",
+    "vn": "Trợ lý ảo / VA",
+    "count": 49,
+    "mentions": 49,
+    "need": 2,
+    "satisfaction": 57,
+    "demand": 4
+  },
+  {
+    "name": "Chụp ảnh sản phẩm",
+    "vn": "Chụp ảnh sản phẩm",
+    "count": 19,
+    "mentions": 19,
+    "need": 0,
+    "satisfaction": 100,
+    "demand": 0
+  },
+  {
+    "name": "Tối ưu Listing",
+    "vn": "Tối ưu Listing",
+    "count": 14,
+    "mentions": 14,
+    "need": 2,
+    "satisfaction": 100,
+    "demand": 14
+  }
+];
+  const Q13_COURSES      = [
   {
     "name": "Đào tạo tổng quát",
     "vn": "Đào tạo tổng quát",
@@ -2316,7 +3178,61 @@ window.ChiComData2 = (() => {
     "negative": 0
   }
 ];
-  const Q14_GROWTH     = [
+  const Q13_COURSES_SOA  = [
+  {
+    "name": "Đào tạo tổng quát",
+    "vn": "Đào tạo tổng quát",
+    "count": 35,
+    "mentions": 35,
+    "seeking": 3,
+    "interest": 9,
+    "positive": 20,
+    "negative": 0
+  },
+  {
+    "name": "Mentor / Coaching",
+    "vn": "Mentor / Coaching",
+    "count": 7,
+    "mentions": 7,
+    "seeking": 1,
+    "interest": 14,
+    "positive": 3,
+    "negative": 1
+  },
+  {
+    "name": "Khóa Amazon FBA",
+    "vn": "Khóa Amazon FBA",
+    "count": 3,
+    "mentions": 3,
+    "seeking": 0,
+    "interest": 0,
+    "positive": 2,
+    "negative": 0
+  }
+];
+  const Q13_COURSES_EC   = [
+  {
+    "name": "Đào tạo tổng quát",
+    "vn": "Đào tạo tổng quát",
+    "count": 59,
+    "mentions": 59,
+    "seeking": 4,
+    "interest": 7,
+    "positive": 22,
+    "negative": 5
+  },
+  {
+    "name": "Mentor / Coaching",
+    "vn": "Mentor / Coaching",
+    "count": 11,
+    "mentions": 11,
+    "seeking": 0,
+    "interest": 0,
+    "positive": 4,
+    "negative": 0
+  }
+];
+  const Q14_GROWTH       = [
   {
     "name": "Xây dựng Team",
     "count": 123,
@@ -2363,12 +3279,122 @@ window.ChiComData2 = (() => {
     "negative": 1
   }
 ];
+  const Q14_GROWTH_SOA   = [
+  {
+    "name": "Xây dựng Team",
+    "count": 123,
+    "color": "oklch(0.55 0.17 290)",
+    "seeking": 8,
+    "positive": 42,
+    "mixed": 67,
+    "negative": 14
+  },
+  {
+    "name": "Tự động hóa & Tool",
+    "count": 106,
+    "color": "oklch(0.75 0.17 60)",
+    "seeking": 5,
+    "positive": 52,
+    "mixed": 44,
+    "negative": 10
+  },
+  {
+    "name": "Scale vận hành",
+    "count": 61,
+    "color": "oklch(0.55 0.17 260)",
+    "seeking": 3,
+    "positive": 38,
+    "mixed": 21,
+    "negative": 2
+  },
+  {
+    "name": "Mở rộng thị trường",
+    "count": 57,
+    "color": "oklch(0.60 0.20 25)",
+    "seeking": 8,
+    "positive": 11,
+    "mixed": 38,
+    "negative": 8
+  },
+  {
+    "name": "Marketing & Quảng cáo",
+    "count": 27,
+    "color": "oklch(0.62 0.15 155)",
+    "seeking": 3,
+    "positive": 15,
+    "mixed": 11,
+    "negative": 1
+  }
+];
+  const Q14_GROWTH_EC    = [
+  {
+    "name": "Xây dựng Team",
+    "count": 369,
+    "color": "oklch(0.55 0.17 290)",
+    "seeking": 11,
+    "positive": 117,
+    "mixed": 204,
+    "negative": 48
+  },
+  {
+    "name": "Tự động hóa & Tool",
+    "count": 336,
+    "color": "oklch(0.75 0.17 60)",
+    "seeking": 11,
+    "positive": 121,
+    "mixed": 190,
+    "negative": 25
+  },
+  {
+    "name": "Scale vận hành",
+    "count": 317,
+    "color": "oklch(0.55 0.17 260)",
+    "seeking": 7,
+    "positive": 220,
+    "mixed": 91,
+    "negative": 6
+  },
+  {
+    "name": "Mở rộng thị trường",
+    "count": 169,
+    "color": "oklch(0.60 0.20 25)",
+    "seeking": 11,
+    "positive": 19,
+    "mixed": 149,
+    "negative": 1
+  },
+  {
+    "name": "Marketing & Quảng cáo",
+    "count": 69,
+    "color": "oklch(0.62 0.15 155)",
+    "seeking": 1,
+    "positive": 30,
+    "mixed": 36,
+    "negative": 3
+  },
+  {
+    "name": "Tăng doanh thu",
+    "count": 14,
+    "color": "oklch(0.62 0.15 200)",
+    "seeking": 0,
+    "positive": 6,
+    "mixed": 6,
+    "negative": 2
+  }
+];
   return {
-    Q7_TOPICS, Q7_BENEFITS, Q7_SENTIMENT,
+    Q7_TOPICS, Q7_TOPICS_SOA, Q7_TOPICS_EC,
+    Q7_BENEFITS, Q7_BENEFITS_SOA, Q7_BENEFITS_EC,
+    Q7_SENTIMENT, Q7_SENTIMENT_SOA, Q7_SENTIMENT_EC,
     Q8_TRIGGERS, Q8_PERSONA, Q8_TREND,
-    Q9_BARRIERS, Q9_Q7_PERSONAS, Q9_Q8_PERSONAS,
+    Q9_BARRIERS,
+    Q9_Q7_PERSONAS, Q9_Q8_PERSONAS,
+    Q9_Q7_PERSONAS_SOA, Q9_Q8_PERSONAS_SOA,
+    Q9_Q7_PERSONAS_EC,  Q9_Q8_PERSONAS_EC,
     Q10_TOP, Q10_WEEKS, Q10_WEEKLY,
     Q11_TOOLS, Q11_ISSUES, Q11_SATISFACTION,
-    Q12_SERVICES, Q13_COURSES, Q14_GROWTH,
+    Q12_SERVICES, Q12_SERVICES_SOA, Q12_SERVICES_EC,
+    Q13_COURSES,  Q13_COURSES_SOA,  Q13_COURSES_EC,
+    Q14_GROWTH,   Q14_GROWTH_SOA,   Q14_GROWTH_EC,
   };
 })();

@@ -348,20 +348,49 @@ def compute_all(df: pd.DataFrame):
     q5_by_day  = [{'day': DAYS_VN[d], 'en': DAYS_EN[d], 'count': sum(heatmap[d])} for d in range(7)]
     q6_by_hour = [{'hour': h, 'count': sum(heatmap[d][h] for d in range(7))} for h in range(24)]
 
+    # SOA/EC split of the weekday and hour distributions (Q5 / Q6 charts need this)
+    if 'group_id' in neg_df.columns:
+        neg_df_soa = neg_df[neg_df['group_id'].isin(SOA_IDS)]
+        neg_df_ec  = neg_df[neg_df['group_id'].isin(EC_IDS)]
+    else:
+        neg_df_soa = neg_df.iloc[0:0]
+        neg_df_ec  = neg_df.iloc[0:0]
+
+    def _by_dow(df):
+        return [{'day': DAYS_VN[d], 'en': DAYS_EN[d],
+                 'count': int((df['dow'] == d).sum()) if 'dow' in df.columns else 0}
+                for d in range(7)]
+
+    def _by_hour(df):
+        return [{'hour': h, 'count': int((df['hour'] == h).sum()) if 'hour' in df.columns else 0}
+                for h in range(24)]
+
+    q5_by_day_soa  = _by_dow(neg_df_soa)
+    q5_by_day_ec   = _by_dow(neg_df_ec)
+    q6_by_hour_soa = _by_hour(neg_df_soa)
+    q6_by_hour_ec  = _by_hour(neg_df_ec)
+
     # Top negative topics — use sub_topic when populated (Q5/Q6 ask for sub-topic level),
     # fall back to master_topic when not
     from keywords import _column_populated
     use_subtopic = 'sub_topic' in neg_df.columns and _column_populated(neg_df['sub_topic'])
-    if use_subtopic:
-        sub_counts = neg_df['sub_topic'].fillna('').astype(str).str.strip()
-        sub_counts = sub_counts[sub_counts != ''].value_counts().head(15)
-        neg_by_topic = [{'vn': k, 'count': int(v)} for k, v in sub_counts.items()]
-    else:
-        neg_by_topic = sorted(
-            [{'vn': mt['vn'], 'count': int((neg_df['mt_id'] == mt['id']).sum())} for mt in MASTER_TOPICS if 'mt_id' in neg_df.columns],
-            key=lambda x: -x['count']
-        )
-    neg_by_topic = [t for t in neg_by_topic if t['count'] > 0]
+
+    def _top_neg(df, limit=15):
+        if use_subtopic and 'sub_topic' in df.columns:
+            sub = df['sub_topic'].fillna('').astype(str).str.strip()
+            sub = sub[sub != ''].value_counts().head(limit)
+            arr = [{'vn': k, 'count': int(v)} for k, v in sub.items()]
+        else:
+            arr = sorted(
+                [{'vn': mt['vn'], 'count': int((df['mt_id'] == mt['id']).sum())}
+                 for mt in MASTER_TOPICS if 'mt_id' in df.columns],
+                key=lambda x: -x['count'],
+            )
+        return [t for t in arr if t['count'] > 0]
+
+    neg_by_topic     = _top_neg(neg_df)
+    q5_top_neg_soa   = _top_neg(neg_df_soa)
+    q5_top_neg_ec    = _top_neg(neg_df_ec)
 
     # ── Auto-detect peak-hour window for negative posts ────────────────────
     # Both WINDOW SIZE and POSITION are data-driven:
@@ -441,19 +470,36 @@ def compute_all(df: pd.DataFrame):
     # ── Q7–Q14 (keyword extraction from content) ────────────────────────────
     # Per team spec: Q8, Q11, Q12, Q13, Q14 are SOA-only (Amazon-seller specific).
     # Compute those from SOA-filtered subset so they reflect only SOA community discussion.
-    soa_rel = rel[rel['group_id'].isin(SOA_IDS)].copy() if 'group_id' in rel.columns else rel.iloc[0:0].copy()
+    # Q7, Q9, Q12, Q13, Q14 also get per-segment splits so the UI can show SOA vs EC
+    # side-by-side (remixed analysis had both tracks).
+    if 'group_id' in rel.columns:
+        soa_rel = rel[rel['group_id'].isin(SOA_IDS)].copy()
+        ec_rel  = rel[rel['group_id'].isin(EC_IDS)].copy()
+    else:
+        soa_rel = rel.iloc[0:0].copy()
+        ec_rel  = rel.iloc[0:0].copy()
 
-    q7_topics, q7_benefits, q7_sentiment = extract_q7(rel)
+    q7_topics, q7_benefits, q7_sentiment                = extract_q7(rel)
+    q7_topics_soa, q7_benefits_soa, q7_sentiment_soa    = extract_q7(soa_rel)
+    q7_topics_ec,  q7_benefits_ec,  q7_sentiment_ec     = extract_q7(ec_rel)
     q8_triggers, q8_persona, q8_trend    = extract_q8(soa_rel, months)     # SOA only
     q9_barriers  = extract_q9(rel)
-    q9_personas  = extract_q9_personas(rel)
+    q9_personas      = extract_q9_personas(rel)
+    q9_personas_soa  = extract_q9_personas(soa_rel)
+    q9_personas_ec   = extract_q9_personas(ec_rel)
     q10_top      = extract_q10(rel)
     q11_tools         = extract_q11(soa_rel)                                # SOA only
     q11_issues        = extract_q11_issues(soa_rel)                         # SOA only
     q11_satisfaction  = extract_q11_satisfaction(soa_rel)                   # SOA only
-    q12_services = extract_q12(soa_rel)                                     # SOA only
-    q13_courses  = extract_q13(soa_rel)                                     # SOA only
-    q14_growth   = extract_q14(soa_rel)                                     # SOA only
+    q12_services     = extract_q12(soa_rel)                                 # SOA only (primary)
+    q12_services_soa = q12_services
+    q12_services_ec  = extract_q12(ec_rel)                                  # EC companion (for side-by-side view)
+    q13_courses      = extract_q13(soa_rel)                                 # SOA only (primary)
+    q13_courses_soa  = q13_courses
+    q13_courses_ec   = extract_q13(ec_rel)                                  # EC companion
+    q14_growth       = extract_q14(soa_rel)                                 # SOA only (primary)
+    q14_growth_soa   = q14_growth
+    q14_growth_ec    = extract_q14(ec_rel)                                  # EC companion
 
     # Expose SOA-only totals so UI can show 'Tính trên X bài SOA'
     soa_scope = {
@@ -571,8 +617,14 @@ window.ChiComData = (() => {{
   const DAYS_EN             = {_j(DAYS_EN)};
   const Q56_HEATMAP         = {_j(heatmap)};
   const Q5_BY_DAY           = {_j(q5_by_day)};
+  const Q5_BY_DAY_SOA       = {_j(q5_by_day_soa)};
+  const Q5_BY_DAY_EC        = {_j(q5_by_day_ec)};
   const Q6_BY_HOUR          = {_j(q6_by_hour)};
+  const Q6_BY_HOUR_SOA      = {_j(q6_by_hour_soa)};
+  const Q6_BY_HOUR_EC       = {_j(q6_by_hour_ec)};
   const Q5_TOP_NEG          = {_j(neg_by_topic[:6])};
+  const Q5_TOP_NEG_SOA      = {_j(q5_top_neg_soa[:6])};
+  const Q5_TOP_NEG_EC       = {_j(q5_top_neg_ec[:6])};
   const Q5_EARLY_DIST       = {_j(q5_early_dist)};
   const Q5_PEAK_WINDOW      = {_j(peak_window)};
   const KPI                 = {_j(kpi)};
@@ -589,38 +641,64 @@ window.ChiComData = (() => {{
     MASTER_TOPICS, Q1_MASTER, Q1_WEIGHTS, SUBTOPICS,
     PERSONAS, Q2_MATRIX, Q2_MATRIX_SOA, Q2_MATRIX_EC, Q3_SELLER_PROSPECT, Q3_SUBS,
     MONTHS, Q4_TRENDS, WEEKS, Q4_EVENTS, Q4_WEEKLY,
-    DAYS_VN, DAYS_EN, Q56_HEATMAP, Q5_BY_DAY, Q6_BY_HOUR,
-    Q5_TOP_NEG, Q5_EARLY_DIST, Q5_PEAK_WINDOW, KPI,
+    DAYS_VN, DAYS_EN, Q56_HEATMAP,
+    Q5_BY_DAY, Q5_BY_DAY_SOA, Q5_BY_DAY_EC,
+    Q6_BY_HOUR, Q6_BY_HOUR_SOA, Q6_BY_HOUR_EC,
+    Q5_TOP_NEG, Q5_TOP_NEG_SOA, Q5_TOP_NEG_EC,
+    Q5_EARLY_DIST, Q5_PEAK_WINDOW, KPI,
     OVERVIEW, DATE_RANGE, SOA_SCOPE, INSIGHTS,
   }};
 }})();
 
 window.ChiComData2 = (() => {{
-  const Q7_TOPICS      = {_j(q7_topics)};
-  const Q7_BENEFITS    = {_j(q7_benefits)};
-  const Q7_SENTIMENT   = {_j(q7_sentiment)};
+  const Q7_TOPICS         = {_j(q7_topics)};
+  const Q7_TOPICS_SOA     = {_j(q7_topics_soa)};
+  const Q7_TOPICS_EC      = {_j(q7_topics_ec)};
+  const Q7_BENEFITS       = {_j(q7_benefits)};
+  const Q7_BENEFITS_SOA   = {_j(q7_benefits_soa)};
+  const Q7_BENEFITS_EC    = {_j(q7_benefits_ec)};
+  const Q7_SENTIMENT      = {_j(q7_sentiment)};
+  const Q7_SENTIMENT_SOA  = {_j(q7_sentiment_soa)};
+  const Q7_SENTIMENT_EC   = {_j(q7_sentiment_ec)};
   const Q8_TRIGGERS    = {_j(q8_triggers)};
   const Q8_PERSONA     = {_j(q8_persona)};
   const Q8_TREND       = {_j(q8_trend)};
-  const Q9_BARRIERS    = {_j(q9_barriers)};
-  const Q9_Q7_PERSONAS = {_j(q9_personas['q7'])};
-  const Q9_Q8_PERSONAS = {_j(q9_personas['q8'])};
+  const Q9_BARRIERS        = {_j(q9_barriers)};
+  const Q9_Q7_PERSONAS     = {_j(q9_personas['q7'])};
+  const Q9_Q8_PERSONAS     = {_j(q9_personas['q8'])};
+  const Q9_Q7_PERSONAS_SOA = {_j(q9_personas_soa['q7'])};
+  const Q9_Q8_PERSONAS_SOA = {_j(q9_personas_soa['q8'])};
+  const Q9_Q7_PERSONAS_EC  = {_j(q9_personas_ec['q7'])};
+  const Q9_Q8_PERSONAS_EC  = {_j(q9_personas_ec['q8'])};
   const Q10_TOP        = {_j(q10_top)};
   const Q10_WEEKS      = {_j(q10_weeks)};
   const Q10_WEEKLY     = {_j(q10_weekly)};
   const Q11_TOOLS        = {_j(q11_tools)};
   const Q11_ISSUES       = {_j(q11_issues)};
   const Q11_SATISFACTION = {_j(q11_satisfaction)};
-  const Q12_SERVICES   = {_j(q12_services)};
-  const Q13_COURSES    = {_j(q13_courses)};
-  const Q14_GROWTH     = {_j(q14_growth)};
+  const Q12_SERVICES     = {_j(q12_services)};
+  const Q12_SERVICES_SOA = {_j(q12_services_soa)};
+  const Q12_SERVICES_EC  = {_j(q12_services_ec)};
+  const Q13_COURSES      = {_j(q13_courses)};
+  const Q13_COURSES_SOA  = {_j(q13_courses_soa)};
+  const Q13_COURSES_EC   = {_j(q13_courses_ec)};
+  const Q14_GROWTH       = {_j(q14_growth)};
+  const Q14_GROWTH_SOA   = {_j(q14_growth_soa)};
+  const Q14_GROWTH_EC    = {_j(q14_growth_ec)};
   return {{
-    Q7_TOPICS, Q7_BENEFITS, Q7_SENTIMENT,
+    Q7_TOPICS, Q7_TOPICS_SOA, Q7_TOPICS_EC,
+    Q7_BENEFITS, Q7_BENEFITS_SOA, Q7_BENEFITS_EC,
+    Q7_SENTIMENT, Q7_SENTIMENT_SOA, Q7_SENTIMENT_EC,
     Q8_TRIGGERS, Q8_PERSONA, Q8_TREND,
-    Q9_BARRIERS, Q9_Q7_PERSONAS, Q9_Q8_PERSONAS,
+    Q9_BARRIERS,
+    Q9_Q7_PERSONAS, Q9_Q8_PERSONAS,
+    Q9_Q7_PERSONAS_SOA, Q9_Q8_PERSONAS_SOA,
+    Q9_Q7_PERSONAS_EC,  Q9_Q8_PERSONAS_EC,
     Q10_TOP, Q10_WEEKS, Q10_WEEKLY,
     Q11_TOOLS, Q11_ISSUES, Q11_SATISFACTION,
-    Q12_SERVICES, Q13_COURSES, Q14_GROWTH,
+    Q12_SERVICES, Q12_SERVICES_SOA, Q12_SERVICES_EC,
+    Q13_COURSES,  Q13_COURSES_SOA,  Q13_COURSES_EC,
+    Q14_GROWTH,   Q14_GROWTH_SOA,   Q14_GROWTH_EC,
   }};
 }})();
 """

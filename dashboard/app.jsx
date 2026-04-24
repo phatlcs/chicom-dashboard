@@ -113,11 +113,11 @@ function App() {
           title="Ngành hàng & Product Selection được thảo luận nhiều nhất trong quý"><Q10 /></window.Section>
         <window.Section id="Q11" num="Q11" soaOnly
           title="Amazon Product/Program Adoption — Mức độ sử dụng & Mức độ hài lòng"><Q11 /></window.Section>
-        <window.Section id="Q12" num="Q12" soaOnly
+        <window.Section id="Q12" num="Q12"
           title="3rd-Party Outsourcing Services mà Sellers cần"><Q12 /></window.Section>
-        <window.Section id="Q13" num="Q13" soaOnly
+        <window.Section id="Q13" num="Q13"
           title="Amazon Courses — Sellers quan tâm chủ đề nào?"><Q13 /></window.Section>
-        <window.Section id="Q14" num="Q14" soaOnly
+        <window.Section id="Q14" num="Q14"
           title="Business Growth & P&L Discussion — Tích cực và Tiêu cực"><Q14 /></window.Section>
 
         <div style={{ padding: '24px 0', borderTop: '1px solid var(--border)', color: 'var(--text-3)', fontSize: 12, display: 'flex', justifyContent: 'space-between' }}>
