@@ -15,7 +15,7 @@ function Q10() {
       <div className="col-5">
         <div className="card">
           <div className="card-head">
-            <div className="card-title">Top 10 Product Categories — Q4 2025</div>
+            <div className="card-title">Top 10 Ngành Hàng — Q4 2025</div>
           </div>
           <HBars items={Q10_TOP} labelKey="name" valueKey="count" tooltip={tt} />
         
@@ -25,7 +25,7 @@ function Q10() {
       <div className="col-7">
         <div className="card">
           <div className="card-head">
-            <div className="card-title">Weekly trend — Top 8 categories</div>
+            <div className="card-title">Xu hướng theo Tuần — Top 8 ngành hàng</div>
           </div>
           <svg width="100%" viewBox={`0 0 ${WW} ${WH}`}>
             {[0, 0.5, 1].map((f, i) => (
@@ -62,7 +62,7 @@ function Q10() {
       </div>
       <div style={{ gridColumn: '1 / -1' }}>
         <window.Insight qId="Q10">
-          Leading category: <b>{Q10_TOP[0]?.name || '—'}</b> ({Q10_TOP[0]?.count.toLocaleString() || 0} mentions) ·
+          Ngành hàng dẫn đầu: <b>{Q10_TOP[0]?.name || '—'}</b> ({Q10_TOP[0]?.count.toLocaleString() || 0} Lượt Thảo Luận) ·
           Top-3: {Q10_TOP.slice(0, 3).map(c => c.name).join(', ')}.
         </window.Insight>
       </div>
@@ -86,7 +86,7 @@ function Q11() {
     <div className="grid-12">
       <div className="col-6">
         <div className="card">
-          <div className="card-head"><div className="card-title">Tool usage</div></div>
+          <div className="card-head"><div className="card-title">Mức sử dụng Tools</div></div>
           <HBars items={Q11_TOOLS.map(t => ({ ...t, color: 'var(--accent)' }))} labelKey="name" valueKey="use" tooltip={tt} />
         
         <window.CardComments chartId="Q11_1" />
@@ -95,10 +95,10 @@ function Q11() {
       <div className="col-6">
         <div className="card">
           <div className="card-head">
-            <div className="card-title">Satisfied vs Issues (per tool)</div>
+            <div className="card-title">Hài lòng vs Vấn đề (theo tool)</div>
             <div className="legend-inline">
-              <span><span className="dot" style={{ background: green }}></span>Satisfied</span>
-              <span><span className="dot" style={{ background: red }}></span>Issues</span>
+              <span><span className="dot" style={{ background: green }}></span>Hài lòng</span>
+              <span><span className="dot" style={{ background: red }}></span>Vấn đề</span>
             </div>
           </div>
           <svg width="100%" viewBox={`0 0 ${W} ${H}`}>
@@ -132,7 +132,7 @@ function Q11() {
       </div>
       <div className="col-6">
         <div className="card">
-          <div className="card-head"><div className="card-title">Top common issues</div></div>
+          <div className="card-head"><div className="card-title">Top vấn đề phổ biến</div></div>
           <HBars items={Q11_ISSUES.map(t => ({ ...t, color: red }))} labelKey="name" valueKey="count" tooltip={tt} />
         
         <window.CardComments chartId="Q11_3" />
@@ -140,7 +140,7 @@ function Q11() {
       </div>
       <div className="col-6">
         <div className="card">
-          <div className="card-head"><div className="card-title">Top satisfaction drivers</div></div>
+          <div className="card-head"><div className="card-title">Top yếu tố hài lòng</div></div>
           <HBars items={Q11_SATISFACTION.map(t => ({ ...t, color: green }))} labelKey="name" valueKey="count" tooltip={tt} />
         
         <window.CardComments chartId="Q11_4" />
@@ -148,9 +148,9 @@ function Q11() {
       </div>
       <div style={{ gridColumn: '1 / -1' }}>
         <window.Insight qId="Q11">
-          Most-used tool: <b>{Q11_TOOLS[0]?.name || '—'}</b> (use {Q11_TOOLS[0]?.use.toLocaleString() || 0}, satisfied {Q11_TOOLS[0]?.satisfied || 0}, issues {Q11_TOOLS[0]?.issues || 0}) ·
-          Top issue: <b>{Q11_ISSUES[0]?.name || '—'}</b> ({Q11_ISSUES[0]?.count.toLocaleString() || 0}) ·
-          Top satisfaction driver: <b>{Q11_SATISFACTION[0]?.name || '—'}</b> ({Q11_SATISFACTION[0]?.count.toLocaleString() || 0}).
+          Tool được dùng nhiều nhất: <b>{Q11_TOOLS[0]?.name || '—'}</b> (use {Q11_TOOLS[0]?.use.toLocaleString() || 0}, satisfied {Q11_TOOLS[0]?.satisfied || 0}, issues {Q11_TOOLS[0]?.issues || 0}) ·
+          Vấn đề hàng đầu: <b>{Q11_ISSUES[0]?.name || '—'}</b> ({Q11_ISSUES[0]?.count.toLocaleString() || 0}) ·
+          Yếu tố hài lòng hàng đầu: <b>{Q11_SATISFACTION[0]?.name || '—'}</b> ({Q11_SATISFACTION[0]?.count.toLocaleString() || 0}).
         </window.Insight>
       </div>
       {tt.node}
@@ -163,37 +163,16 @@ window.Q11 = Q11;
 function Q12() {
   const tt = window.useTooltip();
   const { Q12_SERVICES } = D2b;
-  const hasSplit = D2b.Q12_SERVICES_SOA && D2b.Q12_SERVICES_EC;
   const maxM = Math.max(...Q12_SERVICES.flatMap(s => [s.mentions, s.need]));
   const W = 640, H = 260, pad = { t: 20, r: 20, b: 50, l: 30 };
   const cellW = (W - pad.l - pad.r) / Q12_SERVICES.length;
   const blue = 'oklch(0.58 0.14 190)', red = 'oklch(0.60 0.20 25)';
 
-  const soaBadge = <span className="badge soa">SOA</span>;
-  const ecBadge  = <span className="badge ec">EC</span>;
-  const ServiceHBars = ({ items, title, badge, chartId, accent }) => (
-    <div className="card">
-      <div className="card-head"><div className="card-title">{title} {badge}</div></div>
-      <HBars items={items.map(s => ({ name: s.name, count: s.mentions, color: accent }))} tooltip={tt} />
-      {chartId && <window.CardComments chartId={chartId} />}
-    </div>
-  );
-
   return (
     <div className="grid-12">
-      {hasSplit && (
-        <>
-          <div className="col-6">
-            <ServiceHBars items={D2b.Q12_SERVICES_SOA} title="Services bên thứ ba — mentions" badge={soaBadge} chartId="Q12_4" accent="oklch(0.55 0.17 25)" />
-          </div>
-          <div className="col-6">
-            <ServiceHBars items={D2b.Q12_SERVICES_EC}  title="Services bên thứ ba — mentions" badge={ecBadge}  chartId="Q12_5" accent="oklch(0.55 0.17 260)" />
-          </div>
-        </>
-      )}
       <div className="col-12">
         <div className="card">
-          <div className="card-head"><div className="card-title">Services bên thứ ba — Tổng quan</div></div>
+          <div className="card-head"><div className="card-title">Dịch vụ bên thứ ba — Tổng quan</div></div>
           <div className="grid-3" style={{ gap: 12 }}>
             {[
               { title: 'High Priority (High Demand)', items: ['Review Service — 61.8% demand', 'Product Sourcing — 54.2%', 'Software/Tools — 53.6%', 'VA/Assistant — 52.0%'], color: red },
@@ -213,10 +192,10 @@ function Q12() {
       <div className="col-6">
         <div className="card">
           <div className="card-head">
-            <div className="card-title">Mentions vs Need</div>
+            <div className="card-title">Đề cập vs Nhu cầu</div>
             <div className="legend-inline">
-              <span><span className="dot" style={{ background: blue }}></span>Tổng mentions</span>
-              <span><span className="dot" style={{ background: red }}></span>Looking for</span>
+              <span><span className="dot" style={{ background: blue }}></span>Tổng đề cập</span>
+              <span><span className="dot" style={{ background: red }}></span>Đang tìm</span>
             </div>
           </div>
           <svg width="100%" viewBox={`0 0 ${W} ${H}`}>
@@ -250,7 +229,7 @@ function Q12() {
       </div>
       <div className="col-6">
         <div className="card">
-          <div className="card-head"><div className="card-title">% Demand by service</div></div>
+          <div className="card-head"><div className="card-title">% Nhu cầu theo dịch vụ</div></div>
           <HBars items={Q12_SERVICES.map(s => ({ name: s.name, count: s.demand, color: 'oklch(0.75 0.17 75)' }))} tooltip={tt} />
         
         <window.CardComments chartId="Q12_3" />
@@ -263,9 +242,9 @@ function Q12() {
         return (
           <div style={{ gridColumn: '1 / -1' }}>
             <window.Insight qId="Q12">
-              Services được đề cập nhiều nhất: <b>{topMent?.name || '—'}</b> ({topMent?.mentions.toLocaleString() || 0} mentions) ·
-              Highest demand: <b>{topDemand?.name || '—'}</b> ({topDemand?.demand || 0}% demand) ·
-              Most satisfied: <b>{topSat?.name || '—'}</b> ({topSat?.satisfaction || 0}%).
+              Dịch vụ được đề cập nhiều nhất: <b>{topMent?.name || '—'}</b> ({topMent?.mentions.toLocaleString() || 0} Lượt Thảo Luận) ·
+              Cầu cao nhất: <b>{topDemand?.name || '—'}</b> ({topDemand?.demand || 0}% demand) ·
+              Hài lòng nhất: <b>{topSat?.name || '—'}</b> ({topSat?.satisfaction || 0}%).
             </window.Insight>
           </div>
         );
@@ -280,21 +259,10 @@ window.Q12 = Q12;
 function Q13() {
   const tt = window.useTooltip();
   const { Q13_COURSES } = D2b;
-  const hasSplit = D2b.Q13_COURSES_SOA && D2b.Q13_COURSES_EC;
   const maxMS = Math.max(...Q13_COURSES.flatMap(c => [c.mentions, c.seeking]));
   const blue = 'oklch(0.58 0.14 190)', green = 'oklch(0.62 0.15 155)', red = 'oklch(0.60 0.20 25)';
   const W = 520, H = 240, pad = { t: 20, r: 20, b: 70, l: 30 };
   const cellW = (W - pad.l - pad.r) / Q13_COURSES.length;
-
-  const soaBadge = <span className="badge soa">SOA</span>;
-  const ecBadge  = <span className="badge ec">EC</span>;
-  const CourseHBars = ({ items, title, badge, chartId, accent }) => (
-    <div className="card">
-      <div className="card-head"><div className="card-title">{title} {badge}</div></div>
-      <HBars items={items.map(c => ({ name: c.name, count: c.mentions, color: accent }))} tooltip={tt} />
-      {chartId && <window.CardComments chartId={chartId} />}
-    </div>
-  );
 
   const total = Q13_COURSES.reduce((a, b) => a + b.mentions, 0);
   let acc = 0;
@@ -318,23 +286,13 @@ function Q13() {
 
   return (
     <div className="grid-12">
-      {hasSplit && (
-        <>
-          <div className="col-6">
-            <CourseHBars items={D2b.Q13_COURSES_SOA} title="Khoá học — mentions" badge={soaBadge} chartId="Q13_5" accent="oklch(0.55 0.17 25)" />
-          </div>
-          <div className="col-6">
-            <CourseHBars items={D2b.Q13_COURSES_EC}  title="Khoá học — mentions" badge={ecBadge}  chartId="Q13_6" accent="oklch(0.55 0.17 260)" />
-          </div>
-        </>
-      )}
       <div className="col-6">
         <div className="card">
           <div className="card-head">
-            <div className="card-title">Mentions vs Seeking</div>
+            <div className="card-title">Đề cập vs Tìm kiếm</div>
             <div className="legend-inline">
-              <span><span className="dot" style={{ background: blue }}></span>Mentions</span>
-              <span><span className="dot" style={{ background: green }}></span>Seeking</span>
+              <span><span className="dot" style={{ background: blue }}></span>Đề cập</span>
+              <span><span className="dot" style={{ background: green }}></span>Tìm kiếm</span>
             </div>
           </div>
           <svg width="100%" viewBox={`0 0 ${W} ${H}`}>
@@ -361,7 +319,7 @@ function Q13() {
       </div>
       <div className="col-6">
         <div className="card">
-          <div className="card-head"><div className="card-title">% Interest level</div></div>
+          <div className="card-head"><div className="card-title">% Mức độ quan tâm</div></div>
           <HBars items={Q13_COURSES.map(c => ({ name: c.name, count: c.interest, color: 'oklch(0.75 0.17 75)' }))} tooltip={tt} />
         
         <window.CardComments chartId="Q13_2" />
@@ -370,10 +328,10 @@ function Q13() {
       <div className="col-6">
         <div className="card">
           <div className="card-head">
-            <div className="card-title">Sentiment analysis</div>
+            <div className="card-title">Phân tích Sentiment</div>
             <div className="legend-inline">
-              <span><span className="dot" style={{ background: green }}></span>Positive</span>
-              <span><span className="dot" style={{ background: red }}></span>Negative</span>
+              <span><span className="dot" style={{ background: green }}></span>Tích cực</span>
+              <span><span className="dot" style={{ background: red }}></span>Tiêu cực</span>
             </div>
           </div>
           <div style={{ padding: '10px 0' }}>
@@ -399,7 +357,7 @@ function Q13() {
       </div>
       <div className="col-6">
         <div className="card">
-          <div className="card-head"><div className="card-title">Course categories</div></div>
+          <div className="card-head"><div className="card-title">Phân loại khóa học</div></div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
             <svg width={200} height={200}>
               {donutSeg.map(s => (
@@ -429,9 +387,9 @@ function Q13() {
         return (
           <div style={{ gridColumn: '1 / -1' }}>
             <window.Insight qId="Q13">
-              Most-mentioned course: <b>{topCourse?.name || '—'}</b> ({topCourse?.mentions.toLocaleString() || 0}) ·
-              Most-sought: <b>{topSeeking?.name || '—'}</b> ({topSeeking?.seeking || 0} mentions actively asking) ·
-              Most positive sentiment: <b>{topPositive?.name || '—'}</b> (+{topPositive?.positive || 0}).
+              Khóa được nhắc nhiều nhất: <b>{topCourse?.name || '—'}</b> ({topCourse?.mentions.toLocaleString() || 0}) ·
+              Tìm kiếm nhiều nhất: <b>{topSeeking?.name || '—'}</b> ({topSeeking?.seeking || 0} Lượt Thảo Luận chủ động hỏi) ·
+              Sentiment tích cực nhất: <b>{topPositive?.name || '—'}</b> (+{topPositive?.positive || 0}).
             </window.Insight>
           </div>
         );
@@ -446,7 +404,6 @@ window.Q13 = Q13;
 function Q14() {
   const tt = window.useTooltip();
   const { Q14_GROWTH } = D2b;
-  const hasSplit = D2b.Q14_GROWTH_SOA && D2b.Q14_GROWTH_EC;
   const total = Q14_GROWTH.reduce((a, b) => a + b.count, 0);
   const maxG = Math.max(...Q14_GROWTH.map(g => g.count));
   let acc = 0;
@@ -454,16 +411,6 @@ function Q14() {
     const start = acc; acc += g.count / total;
     return { ...g, start, end: acc };
   });
-
-  const soaBadge = <span className="badge soa">SOA</span>;
-  const ecBadge  = <span className="badge ec">EC</span>;
-  const GrowthHBars = ({ items, title, badge, chartId, accent }) => (
-    <div className="card">
-      <div className="card-head"><div className="card-title">{title} {badge}</div></div>
-      <HBars items={items.map(g => ({ name: g.name, count: g.count, color: accent }))} tooltip={tt} />
-      {chartId && <window.CardComments chartId={chartId} />}
-    </div>
-  );
   const arc = (cx, cy, r, r2, a0, a1) => {
     const large = a1 - a0 > 0.5 ? 1 : 0;
     const sx = cx + Math.cos(a0 * Math.PI * 2 - Math.PI / 2) * r;
@@ -482,19 +429,9 @@ function Q14() {
 
   return (
     <div className="grid-12">
-      {hasSplit && (
-        <>
-          <div className="col-6">
-            <GrowthHBars items={D2b.Q14_GROWTH_SOA} title="Growth Topics — mentions" badge={soaBadge} chartId="Q14_4" accent="oklch(0.55 0.17 25)" />
-          </div>
-          <div className="col-6">
-            <GrowthHBars items={D2b.Q14_GROWTH_EC}  title="Growth Topics — mentions" badge={ecBadge}  chartId="Q14_5" accent="oklch(0.55 0.17 260)" />
-          </div>
-        </>
-      )}
       <div className="col-5">
         <div className="card">
-          <div className="card-head"><div className="card-title">Growth topics distribution</div></div>
+          <div className="card-head"><div className="card-title">Phân bố chủ đề Tăng trưởng</div></div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
             <svg width={220} height={220}>
               {seg.map(s => (
@@ -518,7 +455,7 @@ function Q14() {
       </div>
       <div className="col-7">
         <div className="card">
-          <div className="card-head"><div className="card-title">Top 6 topics comparison</div></div>
+          <div className="card-head"><div className="card-title">So sánh Top 6 chủ đề</div></div>
           <HBars items={Q14_GROWTH.map(g => ({ name: g.name, count: g.count, color: 'var(--accent)' }))} tooltip={tt} />
         
         <window.CardComments chartId="Q14_2" />
@@ -527,12 +464,12 @@ function Q14() {
       <div className="col-12">
         <div className="card">
           <div className="card-head">
-            <div className="card-title">Sentiment by growth topic</div>
+            <div className="card-title">Sentiment theo chủ đề tăng trưởng</div>
             <div className="legend-inline">
-              <span><span className="dot" style={{ background: red }}></span>Seeking</span>
-              <span><span className="dot" style={{ background: green }}></span>Positive</span>
-              <span><span className="dot" style={{ background: yellow }}></span>Mixed</span>
-              <span><span className="dot" style={{ background: gray }}></span>Negative</span>
+              <span><span className="dot" style={{ background: red }}></span>Cần hỗ trợ</span>
+              <span><span className="dot" style={{ background: green }}></span>Tích cực</span>
+              <span><span className="dot" style={{ background: yellow }}></span>Trung tính</span>
+              <span><span className="dot" style={{ background: gray }}></span>Tiêu cực</span>
             </div>
           </div>
           <div>
@@ -568,9 +505,9 @@ function Q14() {
         return (
           <div style={{ gridColumn: '1 / -1' }}>
             <window.Insight qId="Q14">
-              Leading growth topic: <b>{topGrowth?.name || '—'}</b> ({topGrowth?.count.toLocaleString() || 0} mentions) ·
-              Most positive sentiment: <b>{mostPositive?.name || '—'}</b> (+{mostPositive?.positive || 0}) ·
-              Sellers seek most help on: <b>{mostSeeking?.name || '—'}</b> ({mostSeeking?.seeking || 0} mentions actively asking).
+              Chủ đề tăng trưởng dẫn đầu: <b>{topGrowth?.name || '—'}</b> ({topGrowth?.count.toLocaleString() || 0} Lượt Thảo Luận) ·
+              Sentiment tích cực nhất: <b>{mostPositive?.name || '—'}</b> (+{mostPositive?.positive || 0}) ·
+              Seller cần hỗ trợ nhiều nhất về: <b>{mostSeeking?.name || '—'}</b> ({mostSeeking?.seeking || 0} Lượt Thảo Luận chủ động hỏi).
             </window.Insight>
           </div>
         );

@@ -96,27 +96,27 @@ function KpiStrip() {
   return (
     <div className="kpi-strip">
       <div className="kpi">
-        <div className="kpi-label">Tổng mentions</div>
+        <div className="kpi-label">Tổng Lượt Thảo Luận</div>
         <div className="kpi-value mono">{fmt(kpi.totalPosts)}</div>
-        <div className="kpi-delta mono" style={{ color: 'var(--text-3)' }}>{fmt(kpi.relevantPosts)} relevant</div>
+        <div className="kpi-delta mono" style={{ color: 'var(--text-3)' }}>{fmt(kpi.relevantPosts)} liên quan</div>
       </div>
       <div className="kpi">
-        <div className="kpi-label">mentions phân tích</div>
+        <div className="kpi-label">Lượt Thảo Luận phân tích</div>
         <div className="kpi-value mono">{fmt(kpi.relevantPosts)}</div>
-        <div className="kpi-delta up mono">spam filtered out</div>
+        <div className="kpi-delta up mono">đã lọc spam</div>
       </div>
       <div className="kpi">
         <div className="kpi-label">Master Topics</div>
         <div className="kpi-value mono">{kpi.masterTopics ?? '—'}</div>
-        <div className="kpi-delta mono" style={{ color: 'var(--text-3)' }}>{kpi.subTopics ?? 0} sub-topics</div>
+        <div className="kpi-delta mono" style={{ color: 'var(--text-3)' }}>{kpi.subTopics ?? 0} chủ đề phụ</div>
       </div>
       <div className="kpi">
-        <div className="kpi-label">Negative mentions</div>
+        <div className="kpi-label">Đề cập tiêu cực</div>
         <div className="kpi-value mono">{fmt(kpi.negativeMentions)}</div>
-        <div className="kpi-delta down mono">{negPct}% mentions liên quan</div>
+        <div className="kpi-delta down mono">{negPct}% Lượt Thảo Luận liên quan</div>
       </div>
       <div className="kpi">
-        <div className="kpi-label">Active Groups</div>
+        <div className="kpi-label">Nhóm đang hoạt động</div>
         <div className="kpi-value mono">{kpi.activeGroups ?? '—'}</div>
         <div className="kpi-delta mono" style={{ color: 'var(--text-3)' }}>
           {kpi.analysedGroups ?? 0} phân tích · {kpi.soaGroups ?? 0} SOA + {kpi.ecGroups ?? 0} EC
@@ -133,52 +133,50 @@ function FilterRail() { return null; }
 window.FilterRail = FilterRail;
 
 function AnchorRail() {
-  // Labels from remixed-91e62673.html TOC.
   const items = [
-    ['Q1',  '#Q1',  'Topics nhiều nhất / Weight từng group'],
-    ['Q2',  '#Q2',  'Topics theo Persona / từng group'],
-    ['Q3',  '#Q3',  'Seller vs Prospect deep-dive'],
-    ['Q4',  '#Q4',  'Trends Master Topics theo tháng'],
-    ['Q5',  '#Q5',  'Negative — thời điểm trong tuần'],
-    ['Q6',  '#Q6',  'Negative — thời điểm trong ngày'],
-    ['Q7',  '#Q7',  'Topics kêu gọi gia nhập Amazon'],
-    ['Q8',  '#Q8',  'Topics tín hiệu rời bỏ Amazon'],
-    ['Q9',  '#Q9',  'Active personas · KOL mentions'],
-    ['Q10', '#Q10', 'Categories được thảo luận nhiều'],
-    ['Q11', '#Q11', 'Amazon product/program adoption'],
-    ['Q12', '#Q12', '3rd-party services nhu cầu'],
-    ['Q13', '#Q13', 'Amazon courses được quan tâm'],
-    ['Q14', '#Q14', 'Business growth & P&L discussion'],
+    ['Q1', 'Trọng số chủ đề'],
+    ['Q2', 'Persona × Chủ đề'],
+    ['Q3', 'Seller vs Prospect'],
+    ['Q4', 'Xu hướng'],
+    ['Q5', 'Thời điểm tiêu cực'],
+    ['Q7', 'Lý do gia nhập'],
+    ['Q8', 'Dấu hiệu rời bỏ'],
+    ['Q9', 'Nhóm tham gia'],
+    ['Q10', 'Ngành hàng'],
+    ['Q11', 'Tools'],
+    ['Q12', 'Dịch vụ'],
+    ['Q13', 'Khóa học'],
+    ['Q14', 'Tăng trưởng'],
   ];
   return (
     <div className="anchor-rail">
       <div className="anchor-list">
-        <span className="filter-rail-label">Mục lục</span>
-        <div className="anchor-grid">
-          {items.map(([q, href, label]) => (
-            <a key={q} href={href}>{q} · {label}</a>
-          ))}
-        </div>
+        <span className="filter-rail-label" style={{ marginRight: 6 }}>Đi đến</span>
+        {items.map(([q, label]) => (
+          <a key={q} href={`#${q}`}>{q} · {label}</a>
+        ))}
       </div>
     </div>
   );
 }
 window.AnchorRail = AnchorRail;
 
-function Section({ id, num, title, scope, soaOnly, children }) {
+function Section({ id, num, title, indication, soaOnly, children }) {
   const soaScope = (window.ChiComData || {}).SOA_SCOPE;
-  // Scope falls back to expert_insights.json entry if not passed explicitly.
-  const expertScope = scope || ((window.ExpertInsights || {})[id] || {}).scope;
   return (
     <section className="qsection" id={id}>
-      <div className="qhead">
-        <span className="qnum">{num || id}</span>
-        <div className="qtitle">
-          {title && <h2>{title}</h2>}
-          {expertScope && <div className="qscope">{expertScope}</div>}
+      {title ? (
+        <div className="qhead">
+          <span className="qnum">{num}</span>
+          <div className="qtitle"><h2>{title}</h2></div>
+          {soaOnly && <ScopeBadge />}
         </div>
-        {soaOnly && <ScopeBadge />}
-      </div>
+      ) : (
+        <div style={{ marginBottom: 14, display: 'flex', alignItems: 'center', gap: 10 }}>
+          <span className="qnum">{num}</span>
+          {soaOnly && <ScopeBadge />}
+        </div>
+      )}
       {soaOnly && soaScope && (
         <div style={{
           margin: '0 0 10px',
@@ -189,89 +187,31 @@ function Section({ id, num, title, scope, soaOnly, children }) {
           fontSize: 11,
           color: 'var(--text-2)',
         }}>
-          <b>Data scope:</b> Computed on only <b>{soaScope.totalRelevant.toLocaleString()}</b> mentions từ <b>{soaScope.groupIds.length} SOA groups</b> ({soaScope.groupNames.join(', ')}) — this question is Amazon-seller specific.
+          <b>Phạm vi dữ liệu:</b> Chỉ tính trên <b>{soaScope.totalRelevant.toLocaleString()}</b> Lượt Thảo Luận từ <b>{soaScope.groupIds.length} nhóm SOA</b> ({soaScope.groupNames.join(', ')}) — câu hỏi này đặc thù cho Amazon sellers.
+        </div>
+      )}
+      {indication && (
+        <div style={{
+          margin: '0 0 14px',
+          padding: '10px 14px',
+          background: 'oklch(0.96 0.03 60)',
+          borderLeft: '4px solid oklch(0.68 0.17 60)',
+          borderRadius: 4,
+          fontSize: 12,
+          color: 'var(--text-2)',
+          lineHeight: 1.5,
+        }}>
+          <div style={{ fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'oklch(0.45 0.17 60)', marginBottom: 4 }}>
+            Indication
+          </div>
+          {indication}
         </div>
       )}
       {children}
-      <ExpertInsightPanel qId={id} />
     </section>
   );
 }
 window.Section = Section;
-
-// ── Expert Insight Panel ────────────────────────────────────────────────
-// Renders the manually-curated "Nhận định & Khuyến nghị" block for a Q,
-// sourced from window.ExpertInsights (see dashboard/expert_insights.js).
-// Three clearly separated sub-blocks: Nhận định · Warning · Khuyến nghị.
-function ExpertInsightPanel({ qId }) {
-  const data = qId && (window.ExpertInsights || {})[qId];
-  if (!data) return null;
-
-  const hasFindings  = Array.isArray(data.findings) && data.findings.length > 0;
-  const hasCallouts  = Array.isArray(data.callouts) && data.callouts.length > 0;
-  const hasRecs      = Array.isArray(data.recommendations) && data.recommendations.length > 0;
-  const hasStats     = Array.isArray(data.stats) && data.stats.length > 0;
-  if (!hasFindings && !hasCallouts && !hasRecs && !hasStats) return null;
-
-  return (
-    <div className="ei-panel">
-      <div className="ei-panel-header">
-        <span className="ei-panel-tag">Nhận định & Khuyến nghị</span>
-      </div>
-
-      {hasStats && (
-        <div className="ei-stats">
-          {data.stats.map((s, i) => (
-            <div className="ei-stat" key={i}>
-              <div className="ei-stat-label">{s.label}</div>
-              <div className={`ei-stat-value ${s.variant || ''}`}>{s.value}</div>
-              {s.note && <div className="ei-stat-note">{s.note}</div>}
-            </div>
-          ))}
-        </div>
-      )}
-
-      {hasFindings && (
-        <div className="ei-block-group">
-          <div className="ei-section-title">📊 Nhận định</div>
-          {data.findings.map((f, i) => (
-            <div className={`ei-finding ${f.variant || ''}`} key={i}>
-              {f.label && <div className={`ei-finding-label ${f.variant || ''}`}>{f.label}</div>}
-              <div className="ei-finding-body" dangerouslySetInnerHTML={{ __html: f.html || '' }} />
-            </div>
-          ))}
-        </div>
-      )}
-
-      {hasCallouts && (
-        <div className="ei-block-group">
-          <div className="ei-section-title">⚠️ Warning / Key finding</div>
-          {data.callouts.map((c, i) => (
-            <div className={`ei-callout ${c.variant || ''}`} key={i}>
-              {c.icon && <span className="ei-callout-icon">{c.icon}</span>}
-              <span dangerouslySetInnerHTML={{ __html: c.html || '' }} />
-            </div>
-          ))}
-        </div>
-      )}
-
-      {hasRecs && (
-        <div className="ei-block-group">
-          <div className="ei-section-title">💡 Khuyến nghị</div>
-          <div className="ei-rec-body">
-            {data.recommendations.map((r, i) => (
-              <div className="ei-rec-item" key={i}>
-                <div className="ei-rec-num">{i + 1}</div>
-                <div className="ei-rec-content" dangerouslySetInnerHTML={{ __html: r }} />
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-    </div>
-  );
-}
-window.ExpertInsightPanel = ExpertInsightPanel;
 
 function ScopeBadge() {
   return (
@@ -284,7 +224,7 @@ function ScopeBadge() {
       border: '1px solid oklch(0.80 0.12 25)',
     }}>
       <span style={{ width: 5, height: 5, background: 'oklch(0.55 0.20 25)', borderRadius: '50%' }}></span>
-      SOA only
+      Chỉ SOA
     </span>
   );
 }
@@ -487,12 +427,6 @@ window.CardComments = CardComments;
 //   4. children (terse fallback template)
 // contentEditable → on blur, saves to localStorage + KV.
 // "↺ Reset" button → clears both and falls back to the default.
-//
-// SHOW_INSIGHT: set to true to re-enable the AI Insight panel under every
-// chart. Currently hidden because the Nhận định & Khuyến nghị expert panel
-// covers the same ground.
-const SHOW_INSIGHT = false;
-
 function Insight({ qId, children }) {
   const [, forceRefresh] = useState(0);
   const [status, setStatus] = useState(null);          // {type,text} or null
@@ -525,7 +459,7 @@ function Insight({ qId, children }) {
   if (!currentText && !hasChildren) return null;
 
   const isAI = !!(currentText || llmText);
-  const label = isAI ? (isOverridden ? 'AI Insight · edited' : 'AI Insight') : 'Insight';
+  const label = isAI ? (isOverridden ? 'AI Insight · đã chỉnh' : 'AI Insight') : 'Insight';
   const accent     = isAI ? 'oklch(0.55 0.17 290)' : 'oklch(0.55 0.17 260)';
   const accentDark = isAI ? 'oklch(0.45 0.17 290)' : 'oklch(0.45 0.17 260)';
   const bg         = isAI ? 'oklch(0.97 0.02 290)' : 'oklch(0.97 0.01 260)';
@@ -642,9 +576,7 @@ function Insight({ qId, children }) {
     </div>
   );
 }
-// Gate the export rather than returning null inside the component (avoids
-// breaking React's rules-of-hooks when SHOW_INSIGHT toggles).
-window.Insight = SHOW_INSIGHT ? Insight : () => null;
+window.Insight = Insight;
 
 // Divider banner between sections (Thông tin sơ bộ / Thông tin chi tiết)
 function SectionBanner({ label, sublabel }) {
@@ -684,9 +616,9 @@ function TimeRangeBadge() {
       fontSize: 12, color: 'var(--text-2)',
       marginTop: 8,
     }}>
-      <span style={{ fontWeight: 600, color: 'var(--text)' }}>Date range:</span>
+      <span style={{ fontWeight: 600, color: 'var(--text)' }}>Khoảng thời gian:</span>
       <span className="mono">{fmt(dr.start)} → {fmt(dr.end)}</span>
-      <span style={{ color: 'var(--text-3)' }}>· {dr.monthsCount || 0} months</span>
+      <span style={{ color: 'var(--text-3)' }}>· {dr.monthsCount || 0} tháng</span>
     </div>
   );
 }
@@ -743,22 +675,22 @@ function OverviewPanel() {
   return (
     <div style={{ display: 'grid', gap: 16 }}>
       <Narrative>
-        <b>Thống kê mentions sau IRR theo community:</b>{' '}
-        Tổng mentions của <b>{ov.soaGroupCount} SOA groups</b> hold <b>{ov.soaPct}% SOV</b> trong{' '}
-        <b>{ov.monthsCount} months</b>, trong đó <b>{ov.topCommunity.name}</b> leading with{' '}
-        <b>{ov.topCommunity.count.toLocaleString()}</b> mentions (~{ov.topCommunityPct}% SOV).
+        <b>Thống kê Lượt Thảo Luận sau IRR theo community:</b>{' '}
+        Tổng Lượt Thảo Luận của <b>{ov.soaGroupCount} nhóm SOA</b> chiếm tỉ trọng <b>{ov.soaPct}% SOV</b> trong{' '}
+        <b>{ov.monthsCount} tháng</b>, trong đó <b>{ov.topCommunity.name}</b> áp đảo với{' '}
+        <b>{ov.topCommunity.count.toLocaleString()}</b> Lượt Thảo Luận (~{ov.topCommunityPct}% SOV).
       </Narrative>
 
       <div className="grid-2" style={{ gap: 16 }}>
         <div className="card">
           <div className="card-head">
-            <div className="card-title">mentions theo community</div>
-            <span className="card-meta">{commTotal.toLocaleString()} total</span>
+            <div className="card-title">Lượt Thảo Luận theo community</div>
+            <span className="card-meta">{commTotal.toLocaleString()} tổng</span>
           </div>
           <div>
             {ov.communities.map((c, i) => (
               <div key={c.id} className="rowbar" style={{ gridTemplateColumns: '160px 1fr 60px' }}
-                onMouseEnter={e => tt.show(e, `<b>${c.name}</b><br/>${c.count.toLocaleString()} mentions · ${c.type}`)}
+                onMouseEnter={e => tt.show(e, `<b>${c.name}</b><br/>${c.count.toLocaleString()} Lượt Thảo Luận · ${c.type}`)}
                 onMouseMove={tt.move} onMouseLeave={tt.hide}>
                 <div style={{ fontSize: 11, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} title={c.name}>
                   <span className={`badge ${c.type === 'SOA' ? 'soa' : 'ec'}`} style={{ marginRight: 6 }}>{c.type}</span>
@@ -777,7 +709,7 @@ function OverviewPanel() {
 
         <div className="card">
           <div className="card-head">
-            <div className="card-title">Community distribution (% SOV)</div>
+            <div className="card-title">Phân bố community (% SOV)</div>
             <span className="card-meta">SOA {ov.soaPct}% · EC {ov.ecPct}%</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
@@ -805,22 +737,22 @@ function OverviewPanel() {
       </div>
 
       <Narrative>
-        <b>Thống kê mentions sau lọc theo persona:</b>{' '}
-        {ov.topPersona && <><b>{ov.topPersona.vn}</b> dominates with <b>{ov.topPersona.count.toLocaleString()}</b> mentions</>}
-        {ov.secondPersona && <>, followed by <b>{ov.secondPersona.vn}</b> với <b>{ov.secondPersona.count.toLocaleString()}</b> mentions.</>}
+        <b>Thống kê Lượt Thảo Luận sau lọc theo persona:</b>{' '}
+        {ov.topPersona && <><b>{ov.topPersona.vn}</b> chiếm tỉ trọng áp đảo với <b>{ov.topPersona.count.toLocaleString()}</b> Lượt Thảo Luận</>}
+        {ov.secondPersona && <>, tiếp đó là <b>{ov.secondPersona.vn}</b> với <b>{ov.secondPersona.count.toLocaleString()}</b> Lượt Thảo Luận.</>}
       </Narrative>
 
       <div className="grid-2" style={{ gap: 16 }}>
         <div className="card">
           <div className="card-head">
-            <div className="card-title">mentions theo persona</div>
-            <span className="card-meta">{persTotal.toLocaleString()} total</span>
+            <div className="card-title">Lượt Thảo Luận theo persona</div>
+            <span className="card-meta">{persTotal.toLocaleString()} tổng</span>
           </div>
           <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
             <thead>
               <tr style={{ borderBottom: '1px solid var(--border)', color: 'var(--text-3)', fontSize: 11 }}>
                 <th style={{ textAlign: 'left', padding: '8px 6px', fontWeight: 600 }}>Seller Type</th>
-                <th style={{ textAlign: 'right', padding: '8px 6px', fontWeight: 600 }}>mentions</th>
+                <th style={{ textAlign: 'right', padding: '8px 6px', fontWeight: 600 }}>Lượt Thảo Luận</th>
                 <th style={{ textAlign: 'right', padding: '8px 6px', fontWeight: 600 }}>%</th>
               </tr>
             </thead>
@@ -843,7 +775,7 @@ function OverviewPanel() {
 
         <div className="card">
           <div className="card-head">
-            <div className="card-title">Persona distribution (%)</div>
+            <div className="card-title">Phân bố persona (%)</div>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
             <svg width={220} height={220}>

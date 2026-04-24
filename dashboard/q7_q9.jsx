@@ -106,26 +106,26 @@ function Q7() {
     <div className="grid-12">
       {hasSplit ? (
         <>
-          <div className="col-6"><Q7BarCard items={D2.Q7_TOPICS_SOA} title="Top Chủ Đề Kêu Gọi" badge={soaBadge} chartId="Q7_1" tt={tt} /></div>
-          <div className="col-6"><Q7BarCard items={D2.Q7_TOPICS_EC}  title="Top Chủ Đề Kêu Gọi" badge={ecBadge}  chartId="Q7_4" tt={tt} /></div>
-          <div className="col-6"><Q7BarCard items={D2.Q7_BENEFITS_SOA} title="Benefit Được Nhắc Đến" badge={soaBadge} chartId="Q7_2" tt={tt} /></div>
-          <div className="col-6"><Q7BarCard items={D2.Q7_BENEFITS_EC}  title="Benefit Được Nhắc Đến" badge={ecBadge}  chartId="Q7_5" tt={tt} /></div>
-          <div className="col-6"><Q7SentimentCard sentiment={D2.Q7_SENTIMENT_SOA} title="Phân Bố Sentiment" badge={soaBadge} chartId="Q7_3" tt={tt} /></div>
-          <div className="col-6"><Q7SentimentCard sentiment={D2.Q7_SENTIMENT_EC}  title="Phân Bố Sentiment" badge={ecBadge}  chartId="Q7_6" tt={tt} /></div>
+          <div className="col-6"><Q7BarCard items={D2.Q7_TOPICS_SOA} title="Top join triggers" badge={soaBadge} chartId="Q7_1" tt={tt} /></div>
+          <div className="col-6"><Q7BarCard items={D2.Q7_TOPICS_EC}  title="Top join triggers" badge={ecBadge}  chartId="Q7_4" tt={tt} /></div>
+          <div className="col-6"><Q7BarCard items={D2.Q7_BENEFITS_SOA} title="Top benefits mentioned" badge={soaBadge} chartId="Q7_2" tt={tt} /></div>
+          <div className="col-6"><Q7BarCard items={D2.Q7_BENEFITS_EC}  title="Top benefits mentioned" badge={ecBadge}  chartId="Q7_5" tt={tt} /></div>
+          <div className="col-6"><Q7SentimentCard sentiment={D2.Q7_SENTIMENT_SOA} title="Sentiment distribution" badge={soaBadge} chartId="Q7_3" tt={tt} /></div>
+          <div className="col-6"><Q7SentimentCard sentiment={D2.Q7_SENTIMENT_EC}  title="Sentiment distribution" badge={ecBadge}  chartId="Q7_6" tt={tt} /></div>
         </>
       ) : (
         <>
-          <div className="col-4"><Q7BarCard items={Q7_TOPICS}   title="Top Chủ Đề Kêu Gọi"    chartId="Q7_1" tt={tt} /></div>
-          <div className="col-4"><Q7BarCard items={Q7_BENEFITS} title="Benefit Được Nhắc Đến" chartId="Q7_2" tt={tt} /></div>
-          <div className="col-4"><Q7SentimentCard sentiment={Q7_SENTIMENT} title="Phân Bố Sentiment" chartId="Q7_3" tt={tt} /></div>
+          <div className="col-4"><Q7BarCard items={Q7_TOPICS}   title="Top join triggers"    chartId="Q7_1" tt={tt} /></div>
+          <div className="col-4"><Q7BarCard items={Q7_BENEFITS} title="Top benefits mentioned" chartId="Q7_2" tt={tt} /></div>
+          <div className="col-4"><Q7SentimentCard sentiment={Q7_SENTIMENT} title="Sentiment distribution" chartId="Q7_3" tt={tt} /></div>
         </>
       )}
 
       <div style={{ gridColumn: '1 / -1' }}>
         <window.Insight qId="Q7">
-          Top lý do gia nhập: <b>{Q7_TOPICS[0]?.vn || '—'}</b> ({Q7_TOPICS[0]?.count.toLocaleString() || 0} mentions) ·
+          Top join reason: <b>{Q7_TOPICS[0]?.vn || '—'}</b> ({Q7_TOPICS[0]?.count.toLocaleString() || 0} mentions) ·
           Top benefit: <b>{Q7_BENEFITS[0]?.vn || '—'}</b> ({Q7_BENEFITS[0]?.count.toLocaleString() || 0}) ·
-          Sentiment: <b>{Q7_SENTIMENT.positive}%</b> tích cực / <b>{Q7_SENTIMENT.negative}%</b> tiêu cực.
+          Sentiment: <b>{Q7_SENTIMENT.positive}%</b> positive / <b>{Q7_SENTIMENT.negative}%</b> negative.
         </window.Insight>
       </div>
       {tt.node}
@@ -161,7 +161,7 @@ function Q8() {
       <div className="col-6">
         <div className="card">
           <div className="card-head">
-            <div className="card-title">Top lý do rời bỏ Amazon</div>
+            <div className="card-title">Top reasons to leave Amazon</div>
           </div>
           <HBars items={Q8_TRIGGERS} labelKey="vn" valueKey="count" tooltip={tt} />
         
@@ -171,7 +171,7 @@ function Q8() {
       <div className="col-6">
         <div className="card">
           <div className="card-head">
-            <div className="card-title">Phân Bố Persona</div>
+            <div className="card-title">Persona distribution</div>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
             <svg width={220} height={220}>
@@ -200,9 +200,9 @@ function Q8() {
         <div className="card">
           <div className="card-head">
             <div>
-              <div className="card-title">Bài tiêu cực nhắc đến rời bỏ — theo tháng</div>
+              <div className="card-title">Negative abandonment discussions — by month</div>
             </div>
-            <span className="card-meta">số mentions · tối đa {maxTrend}</span>
+            <span className="card-meta">số mentions · max {maxTrend}</span>
           </div>
           <svg width="100%" viewBox="0 0 720 180">
             {[0, 0.25, 0.5, 0.75, 1].map((f, i) => (
@@ -242,9 +242,9 @@ function Q8() {
       </div>
       <div style={{ gridColumn: '1 / -1' }}>
         <window.Insight qId="Q8">
-          Top lý do rời bỏ: <b>{Q8_TRIGGERS[0]?.vn || '—'}</b> ({Q8_TRIGGERS[0]?.count.toLocaleString() || 0} mentions) ·
-          Persona rời bỏ nhiều nhất: <b>{Q8_PERSONA[0]?.label || '—'}</b> ({Q8_PERSONA[0]?.count.toLocaleString() || 0}) ·
-          Tháng đỉnh: <b>{months[Q8_TREND.indexOf(Math.max(...Q8_TREND))] || '—'}</b> ({Math.max(...Q8_TREND).toLocaleString()} mentions).
+          Top reason to leave: <b>{Q8_TRIGGERS[0]?.vn || '—'}</b> ({Q8_TRIGGERS[0]?.count.toLocaleString() || 0} mentions) ·
+          Most-leaving persona: <b>{Q8_PERSONA[0]?.label || '—'}</b> ({Q8_PERSONA[0]?.count.toLocaleString() || 0}) ·
+          Peak month: <b>{months[Q8_TREND.indexOf(Math.max(...Q8_TREND))] || '—'}</b> ({Math.max(...Q8_TREND).toLocaleString()} mentions).
         </window.Insight>
       </div>
       {tt.node}
@@ -278,7 +278,7 @@ function Q9Donut({ title, badge, items, chartId, tt }) {
     <div className="card">
       <div className="card-head">
         <div className="card-title">{title} {badge}</div>
-        <span className="card-meta">{total.toLocaleString()} bài</span>
+        <span className="card-meta">{total.toLocaleString()} posts</span>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', gap: 20, padding: '8px 0' }}>
         <svg width={200} height={200}>
@@ -327,15 +327,15 @@ function Q9() {
         </>
       ) : (
         <>
-          <div className="col-6"><Q9Donut title="Nhóm tham gia — Q7 (kêu gọi gia nhập)" items={q7Personas} chartId="Q9_1" tt={tt} /></div>
-          <div className="col-6"><Q9Donut title="Nhóm tham gia — Q8 (dấu hiệu rời bỏ)"  items={q8Personas} chartId="Q9_2" tt={tt} /></div>
+          <div className="col-6"><Q9Donut title="Participants — Q7 (kêu gọi gia nhập)" items={q7Personas} chartId="Q9_1" tt={tt} /></div>
+          <div className="col-6"><Q9Donut title="Participants — Q8 (dấu hiệu rời bỏ)"  items={q8Personas} chartId="Q9_2" tt={tt} /></div>
         </>
       )}
 
       <div style={{ gridColumn: '1 / -1' }}>
         <window.Insight qId="Q9">
-          Nhóm dẫn dắt thảo luận gia nhập (Q7): <b>{q7Personas[0]?.name || '—'}</b> ({q7Personas[0]?.count.toLocaleString() || 0} mentions) ·
-          Nhóm dẫn dắt thảo luận rời bỏ (Q8): <b>{q8Personas[0]?.name || '—'}</b> ({q8Personas[0]?.count.toLocaleString() || 0}).
+          Leading persona in join discussion (Q7): <b>{q7Personas[0]?.name || '—'}</b> ({q7Personas[0]?.count.toLocaleString() || 0} mentions) ·
+          Leading persona in abandon discussion (Q8): <b>{q8Personas[0]?.name || '—'}</b> ({q8Personas[0]?.count.toLocaleString() || 0}).
         </window.Insight>
       </div>
       {tt.node}

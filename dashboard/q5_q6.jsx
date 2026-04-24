@@ -45,7 +45,7 @@ function DayBar({ daily, title, badge, chartId, tt }) {
         <line x1={20} y1={180} x2={300} y2={180} className="axis-line" />
       </svg>
       <div style={{ fontSize: 11, color: 'var(--text-3)', marginTop: 4 }}>
-        Cao điểm: <b style={{ color: 'var(--text)' }}>{topDay.day} / {topDay.en}</b> ({topDay.count.toLocaleString()})
+        Peak: <b style={{ color: 'var(--text)' }}>{topDay.day} / {topDay.en}</b> ({topDay.count.toLocaleString()})
       </div>
       {chartId && <window.CardComments chartId={chartId} />}
     </div>
@@ -111,18 +111,18 @@ function Q5() {
       ) : (
         <>
           <div className="col-6">
-            <DayBar daily={daily} title="Phân Bố Theo Ngày Trong Tuần" chartId="Q5_1" tt={tt} />
+            <DayBar daily={daily} title="Distribution by day of week" chartId="Q5_1" tt={tt} />
           </div>
           <div className="col-6">
-            <TopNegTopics items={D.Q5_TOP_NEG} title="Top 6 Chủ Đề Tiêu Cực" chartId="Q5_2" tt={tt} />
+            <TopNegTopics items={D.Q5_TOP_NEG} title="Top 6 negative topics" chartId="Q5_2" tt={tt} />
           </div>
         </>
       )}
 
       <div style={{ marginTop: 12, gridColumn: '1 / -1' }}>
         <window.Insight qId="Q5">
-          Ngày cao nhất: <b>{topDay.day}</b> ({topDay.count.toLocaleString()} mentions tiêu cực) ·
-          Topic tiêu cực hàng đầu: <b>{topNeg.vn}</b> ({topNeg.count.toLocaleString()}).
+          Peak day: <b>{topDay.day}</b> ({topDay.count.toLocaleString()} mentions tiêu cực) ·
+          Top negative topic: <b>{topNeg.vn}</b> ({topNeg.count.toLocaleString()}).
         </window.Insight>
       </div>
 
@@ -173,7 +173,7 @@ function HourLine({ hourly, title, badge, chartId, peakWindow, tt }) {
           const y = 180 - (d.count / maxHour) * 150;
           return (
             <circle key={i} cx={x} cy={y} r={3} fill="var(--neg)"
-              onMouseEnter={e => tt.show(e, `<b>${d.hour}h</b><br/>${d.count} bài`)}
+              onMouseEnter={e => tt.show(e, `<b>${d.hour}h</b><br/>${d.count} posts`)}
               onMouseMove={tt.move} onMouseLeave={tt.hide} style={{ cursor: 'pointer' }} />
           );
         })}
@@ -194,7 +194,7 @@ function HourLine({ hourly, title, badge, chartId, peakWindow, tt }) {
                 <rect key={i} x={30 + (s / 23) * 630} y={30} width={(w / 23) * 630} height={150} fill="var(--neg)" opacity={0.06} />
               ))}
               <text x={30 + ((pw.startHour + pw.windowSize / 2) / 23) * 630} y={26} textAnchor="middle" className="axis-tick" style={{ fill: 'var(--neg)', fontSize: 10 }}>
-                {pw.startHour}h–{pw.endHour}h cao điểm
+                {pw.startHour}h–{pw.endHour}h peak
               </text>
             </>
           );
@@ -241,7 +241,7 @@ function Q6() {
         </>
       ) : (
         <div className="col-12">
-          <HourLine hourly={hourly} title="Phân Bố Theo Giờ (Giờ VN)" chartId="Q6_1" peakWindow={pw} tt={tt} />
+          <HourLine hourly={hourly} title="Distribution by hour (VN time)" chartId="Q6_1" peakWindow={pw} tt={tt} />
         </div>
       )}
 
@@ -250,10 +250,10 @@ function Q6() {
         <div className="card">
           <div className="card-head">
             <div>
-              <div className="card-title">Bản Đồ Nhiệt — Ngày × Giờ</div>
+              <div className="card-title">Heatmap — day × hour</div>
             </div>
             <div className="legend legend-bins">
-              {['Thấp', 'Trung bình', 'Cao'].map((l, i) => (
+              {['Low', 'Medium', 'High'].map((l, i) => (
                 <span key={l} className="legend">
                   <span className="legend-swatch" style={{ background: window.heatColor((i + 1) / 3, 'rose') }}></span>
                   {l}
@@ -275,7 +275,7 @@ function Q6() {
                     width={24} height={22}
                     fill={window.heatColor(intensity, 'rose')}
                     rx={2}
-                    onMouseEnter={e => tt.show(e, `<b>${d} · ${h}h</b><br/>${v} bài`)}
+                    onMouseEnter={e => tt.show(e, `<b>${d} · ${h}h</b><br/>${v} posts`)}
                     onMouseMove={tt.move} onMouseLeave={tt.hide}
                     style={{ cursor: 'pointer' }}
                   />
@@ -288,8 +288,8 @@ function Q6() {
           </svg>
           <div style={{ fontSize: 11, color: 'var(--text-3)', marginTop: 4 }}>
             {pw && pw.windowSize > 0
-              ? <>Khung cao điểm: <b style={{ color: 'var(--text)' }}>T2–CN, {pw.startHour}h–{pw.endHour}h</b> — {pw.totalMentions.toLocaleString()} mentions tiêu cực trong {pw.windowSize} giờ này.</>
-              : <>Chưa đủ dữ liệu để phát hiện khung cao điểm.</>}
+              ? <>Peak window: <b style={{ color: 'var(--text)' }}>T2–CN, {pw.startHour}h–{pw.endHour}h</b> — {pw.totalMentions.toLocaleString()} mentions tiêu cực trong {pw.windowSize} giờ này.</>
+              : <>Chưa đủ dữ liệu để phát hiện peak window.</>}
           </div>
         
         <window.CardComments chartId="Q6_2" />
@@ -302,11 +302,11 @@ function Q6() {
           <div className="card-head">
             <div>
               <div className="card-title">
-                Khung giờ cao điểm tiêu cực (T2–CN, {pw ? `${pw.startHour}h–${pw.endHour}h` : '—'}) — phân bố chủ đề
+                Negative peak hour window (T2–CN, {pw ? `${pw.startHour}h–${pw.endHour}h` : '—'}) — topic distribution
               </div>
             </div>
             <span className="card-meta mono">
-              {(pw && pw.totalMentions) || earlyTotal} mentions trong khung cao điểm
+              {(pw && pw.totalMentions) || earlyTotal} mentions trong peak window
             </span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 48 }}>
@@ -321,7 +321,7 @@ function Q6() {
                 />
               ))}
               <text x={110} y={106} textAnchor="middle" className="mono" style={{ fontSize: 22, fontWeight: 600, fill: 'var(--text)' }}>{earlyTotal}</text>
-              <text x={110} y={124} textAnchor="middle" className="axis-tick" style={{ fontSize: 10 }}>khung cao điểm</text>
+              <text x={110} y={124} textAnchor="middle" className="axis-tick" style={{ fontSize: 10 }}>khung peak</text>
             </svg>
             <div style={{ flex: 1 }}>
               {donutSeg.map(s => (
@@ -341,8 +341,8 @@ function Q6() {
 
       <div style={{ marginTop: 12, gridColumn: '1 / -1' }}>
         <window.Insight qId="Q6">
-          Giờ cao nhất: <b>{topHour.hour}h</b> ({topHour.count.toLocaleString()} mentions tiêu cực).
-          {pw && pw.windowSize > 0 && <> Khung cao điểm auto-detect: <b>{pw.startHour}h–{pw.endHour}h</b> ({pw.totalMentions.toLocaleString()} mentions).</>}
+          Peak hour: <b>{topHour.hour}h</b> ({topHour.count.toLocaleString()} mentions tiêu cực).
+          {pw && pw.windowSize > 0 && <> Auto-detected peak window: <b>{pw.startHour}h–{pw.endHour}h</b> ({pw.totalMentions.toLocaleString()} mentions).</>}
         </window.Insight>
       </div>
 

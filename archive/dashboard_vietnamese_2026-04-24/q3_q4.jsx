@@ -70,9 +70,9 @@ function Q3() {
         <div className="card" style={{ minHeight: 520 }}>
           <div className="card-head">
             <div>
-              <div className="card-title">Sub-topic difference</div>
+              <div className="card-title">Khác biệt theo chủ đề phụ</div>
             </div>
-            <span className="card-meta">{subs.length} sub-topics</span>
+            <span className="card-meta">{subs.length} chủ đề phụ</span>
           </div>
           <svg width="100%" height={subs.length * 20 + 30} viewBox={`0 0 640 ${subs.length * 20 + 30}`} preserveAspectRatio="none">
             <line x1={320} y1={0} x2={320} y2={subs.length * 20} className="axis-line" />
@@ -101,7 +101,7 @@ function Q3() {
             const biggestGap = [...subs].sort((a, b) => Math.abs(b.diff) - Math.abs(a.diff))[0];
             return (
               <window.Insight>
-                Sub-topic with the largest Seller/Prospect gap: <b>{biggestGap.vn}</b> ({biggestGap.diff > 0 ? '+' : ''}{biggestGap.diff}pp).
+                Sub-topic có khoảng cách Seller/Prospect lớn nhất: <b>{biggestGap.vn}</b> ({biggestGap.diff > 0 ? '+' : ''}{biggestGap.diff}pp).
               </window.Insight>
             );
           })()}
@@ -156,7 +156,7 @@ function Q4() {
   const maxWY = Math.max(...weekly.flatMap(t => t.points));
   const wPlotW = WW - wpad.l - wpad.r, wPlotH = WH - wpad.t - wpad.b;
   const weekRangeLabel = (D.WEEKS && D.WEEKS.length)
-    ? `${D.WEEKS[0]} — ${D.WEEKS[D.WEEKS.length - 1]} · weekly`
+    ? `${D.WEEKS[0]} — ${D.WEEKS[D.WEEKS.length - 1]} · theo tuần`
     : 'theo tuần';
 
   return (
@@ -165,9 +165,9 @@ function Q4() {
         <div className="card">
           <div className="card-head">
             <div>
-              <div className="card-title">Master Topics — absolute counts</div>
+              <div className="card-title">Master Topics — số lượng tuyệt đối</div>
             </div>
-            <span className="card-meta">monthly</span>
+            <span className="card-meta">theo tháng</span>
           </div>
           <svg width="100%" viewBox={`0 0 ${W} ${H}`} style={{ display: 'block' }}>
             {[0, 0.25, 0.5, 0.75, 1].map((f, i) => (
@@ -213,7 +213,7 @@ function Q4() {
         <div className="card">
           <div className="card-head">
             <div>
-              <div className="card-title">Master Topics — % distribution</div>
+              <div className="card-title">Master Topics — phân bố %</div>
             </div>
           </div>
           <svg width="100%" viewBox={`0 0 ${W} ${H}`} style={{ display: 'block' }}>
@@ -240,7 +240,7 @@ function Q4() {
         <div className="card">
           <div className="card-head">
             <div>
-              <div className="card-title">Trends chủ đề theo tuần</div>
+              <div className="card-title">Xu hướng chủ đề theo tuần</div>
             </div>
             <span className="card-meta">{weekRangeLabel}</span>
           </div>
@@ -300,8 +300,8 @@ function Q4() {
             const delta = first > 0 ? Math.round((last / first - 1) * 100) : 0;
             return (
               <window.Insight qId="Q4">
-                Detected <b>{spikeCount}</b> weeks with volume exceeding 1.5× avg.
-                {topTrend && <> Leading topic last month: <b>{topTrend.vn}</b> ({last.toLocaleString()} mentions, {delta >= 0 ? '+' : ''}{delta}% vs first month).</>}
+                Phát hiện <b>{spikeCount}</b> tuần có volume vượt 1.5× trung bình.
+                {topTrend && <> Topic dẫn đầu tháng cuối: <b>{topTrend.vn}</b> ({last.toLocaleString()} Lượt Thảo Luận, {delta >= 0 ? '+' : ''}{delta}% so với tháng đầu).</>}
               </window.Insight>
             );
           })()}
