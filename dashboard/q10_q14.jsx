@@ -18,7 +18,9 @@ function Q10() {
             <div className="card-title">Top 10 Ngành Hàng — Q4 2025</div>
           </div>
           <HBars items={Q10_TOP} labelKey="name" valueKey="count" tooltip={tt} />
-        </div>
+        
+        <window.CardComments chartId="Q10_1" />
+      </div>
       </div>
       <div className="col-7">
         <div className="card">
@@ -54,7 +56,9 @@ function Q10() {
               </g>
             ))}
           </svg>
-        </div>
+        
+        <window.CardComments chartId="Q10_2" />
+      </div>
       </div>
       <div style={{ gridColumn: '1 / -1' }}>
         <window.Insight qId="Q10">
@@ -84,7 +88,9 @@ function Q11() {
         <div className="card">
           <div className="card-head"><div className="card-title">Mức sử dụng Tools</div></div>
           <HBars items={Q11_TOOLS.map(t => ({ ...t, color: 'var(--accent)' }))} labelKey="name" valueKey="use" tooltip={tt} />
-        </div>
+        
+        <window.CardComments chartId="Q11_1" />
+      </div>
       </div>
       <div className="col-6">
         <div className="card">
@@ -120,19 +126,25 @@ function Q11() {
               );
             })}
           </svg>
-        </div>
+        
+        <window.CardComments chartId="Q11_2" />
+      </div>
       </div>
       <div className="col-6">
         <div className="card">
           <div className="card-head"><div className="card-title">Top vấn đề phổ biến</div></div>
           <HBars items={Q11_ISSUES.map(t => ({ ...t, color: red }))} labelKey="name" valueKey="count" tooltip={tt} />
-        </div>
+        
+        <window.CardComments chartId="Q11_3" />
+      </div>
       </div>
       <div className="col-6">
         <div className="card">
           <div className="card-head"><div className="card-title">Top yếu tố hài lòng</div></div>
           <HBars items={Q11_SATISFACTION.map(t => ({ ...t, color: green }))} labelKey="name" valueKey="count" tooltip={tt} />
-        </div>
+        
+        <window.CardComments chartId="Q11_4" />
+      </div>
       </div>
       <div style={{ gridColumn: '1 / -1' }}>
         <window.Insight qId="Q11">
@@ -173,7 +185,9 @@ function Q12() {
               </div>
             ))}
           </div>
-        </div>
+        
+        <window.CardComments chartId="Q12_1" />
+      </div>
       </div>
       <div className="col-6">
         <div className="card">
@@ -209,13 +223,17 @@ function Q12() {
               );
             })}
           </svg>
-        </div>
+        
+        <window.CardComments chartId="Q12_2" />
+      </div>
       </div>
       <div className="col-6">
         <div className="card">
           <div className="card-head"><div className="card-title">% Nhu cầu theo dịch vụ</div></div>
           <HBars items={Q12_SERVICES.map(s => ({ name: s.name, count: s.demand, color: 'oklch(0.75 0.17 75)' }))} tooltip={tt} />
-        </div>
+        
+        <window.CardComments chartId="Q12_3" />
+      </div>
       </div>
       {(() => {
         const topDemand = [...Q12_SERVICES].sort((a, b) => b.demand - a.demand)[0];
@@ -295,13 +313,17 @@ function Q13() {
               );
             })}
           </svg>
-        </div>
+        
+        <window.CardComments chartId="Q13_1" />
+      </div>
       </div>
       <div className="col-6">
         <div className="card">
           <div className="card-head"><div className="card-title">% Mức độ quan tâm</div></div>
           <HBars items={Q13_COURSES.map(c => ({ name: c.name, count: c.interest, color: 'oklch(0.75 0.17 75)' }))} tooltip={tt} />
-        </div>
+        
+        <window.CardComments chartId="Q13_2" />
+      </div>
       </div>
       <div className="col-6">
         <div className="card">
@@ -329,7 +351,9 @@ function Q13() {
               );
             })}
           </div>
-        </div>
+        
+        <window.CardComments chartId="Q13_3" />
+      </div>
       </div>
       <div className="col-6">
         <div className="card">
@@ -352,7 +376,9 @@ function Q13() {
               ))}
             </div>
           </div>
-        </div>
+        
+        <window.CardComments chartId="Q13_4" />
+      </div>
       </div>
       {(() => {
         const topCourse = Q13_COURSES[0];
@@ -423,13 +449,17 @@ function Q14() {
               ))}
             </div>
           </div>
-        </div>
+        
+        <window.CardComments chartId="Q14_1" />
+      </div>
       </div>
       <div className="col-7">
         <div className="card">
           <div className="card-head"><div className="card-title">So sánh Top 6 chủ đề</div></div>
           <HBars items={Q14_GROWTH.map(g => ({ name: g.name, count: g.count, color: 'var(--accent)' }))} tooltip={tt} />
-        </div>
+        
+        <window.CardComments chartId="Q14_2" />
+      </div>
       </div>
       <div className="col-12">
         <div className="card">
@@ -464,7 +494,9 @@ function Q14() {
               );
             })}
           </div>
-        </div>
+        
+        <window.CardComments chartId="Q14_3" />
+      </div>
       </div>
       {(() => {
         const topGrowth = Q14_GROWTH[0];

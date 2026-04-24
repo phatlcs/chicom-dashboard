@@ -1,0 +1,12 @@
+{
+  "name": "chicom-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ChiCom Community Insights Dashboard — static frontend + /api/insights serverless function for team-editable AI-insight paragraphs.",
+  "dependencies": {
+    "redis": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

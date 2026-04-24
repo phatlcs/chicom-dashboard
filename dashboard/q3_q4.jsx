@@ -61,7 +61,9 @@ function Q3() {
               </window.Insight>
             );
           })()}
-        </div>
+        
+        <window.CardComments chartId="Q3_1" />
+      </div>
       </div>
 
       <div className="col-6">
@@ -103,7 +105,9 @@ function Q3() {
               </window.Insight>
             );
           })()}
-        </div>
+        
+        <window.CardComments chartId="Q3_2" />
+      </div>
       </div>
 
       {tt.node}
@@ -200,7 +204,9 @@ function Q4() {
               </div>
             ))}
           </div>
-        </div>
+        
+        <window.CardComments chartId="Q4_1" />
+      </div>
       </div>
 
       <div className="col-6">
@@ -225,7 +231,9 @@ function Q4() {
               </text>
             ))}
           </svg>
-        </div>
+        
+        <window.CardComments chartId="Q4_2" />
+      </div>
       </div>
 
       <div className="col-12">
@@ -297,7 +305,9 @@ function Q4() {
               </window.Insight>
             );
           })()}
-        </div>
+        
+        <window.CardComments chartId="Q4_3" />
+      </div>
       </div>
 
       {tt.node}

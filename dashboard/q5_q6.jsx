@@ -55,7 +55,9 @@ function Q5() {
           <div style={{ fontSize: 11, color: 'var(--text-3)', marginTop: 4 }}>
             Cao điểm: <b style={{ color: 'var(--text)' }}>{topDay.day} / {topDay.en}</b>
           </div>
-        </div>
+        
+        <window.CardComments chartId="Q5_1" />
+      </div>
       </div>
 
       {/* Top 6 negative topics */}
@@ -81,6 +83,7 @@ function Q5() {
               </div>
             ))}
           </div>
+          <window.CardComments chartId="Q5_2" />
         </div>
       </div>
 
@@ -184,7 +187,9 @@ function Q6() {
               );
             })()}
           </svg>
-        </div>
+        
+        <window.CardComments chartId="Q6_1" />
+      </div>
       </div>
 
       {/* Heatmap day × hour */}
@@ -233,7 +238,9 @@ function Q6() {
               ? <>Khung cao điểm: <b style={{ color: 'var(--text)' }}>T2–CN, {pw.startHour}h–{pw.endHour}h</b> — {pw.totalMentions.toLocaleString()} mentions tiêu cực trong {pw.windowSize} giờ này.</>
               : <>Chưa đủ dữ liệu để phát hiện khung cao điểm.</>}
           </div>
-        </div>
+        
+        <window.CardComments chartId="Q6_2" />
+      </div>
       </div>
 
       {/* Donut — peak window distribution */}
@@ -274,7 +281,9 @@ function Q6() {
               ))}
             </div>
           </div>
-        </div>
+        
+        <window.CardComments chartId="Q6_3" />
+      </div>
       </div>
 
       <div style={{ marginTop: 12, gridColumn: '1 / -1' }}>

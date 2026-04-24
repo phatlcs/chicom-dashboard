@@ -42,7 +42,9 @@ function Q1() {
         Thấp nhất có dữ liệu: <b>{[...q1].reverse().find(m => m.weight > 0)?.vn || '—'}</b>.
         Chênh lệch giữa top và bottom: {(q1[0].weight - (q1[q1.length - 1].weight || 0)).toFixed(1)} điểm.
       </window.Insight>
-    </div>
+    
+        <window.CardComments chartId="Q1_1" />
+      </div>
   );
 
   const HeatGrid = ({ title, groups, accent }) => {
@@ -149,6 +151,8 @@ function Q1() {
             </window.Insight>
           );
         })()}
+      
+        <window.CardComments chartId="Q1_2" />
       </div>
     );
   };
@@ -185,7 +189,7 @@ window.Q1 = Q1;
 // Shared heatmap renderer — takes a matrix + title + accent, renders the
 // same structure as the original Q2 chart. Used for both SOA and EC splits
 // when available (and as a fallback for the global view otherwise).
-function Q2Heatmap({ matrix, title, badge, accent, tt, personas, mts }) {
+function Q2Heatmap({ matrix, title, badge, accent, chartId, tt, personas, mts }) {
   const max = Math.max(1, ...mts.flatMap(mt => personas.map(p => matrix[mt.id][p.id])));
   const cellW = 96, cellH = 42;
   const leftPad = 340;
@@ -262,6 +266,7 @@ function Q2Heatmap({ matrix, title, badge, accent, tt, personas, mts }) {
           ))}
         </svg>
       </div>
+      {chartId && <window.CardComments chartId={chartId} />}
     </div>
   );
 }
@@ -297,6 +302,7 @@ function Q2() {
               title="SOA — Master Topics theo Persona"
               badge={<span className="badge soa">{D.SOA_GROUPS.length} nhóm</span>}
               accent="rose"
+              chartId="Q2_1"
               tt={tt} personas={personas} mts={mts}
             />
           </div>
@@ -306,6 +312,7 @@ function Q2() {
               title="EC — Master Topics theo Persona"
               badge={<span className="badge ec">{D.EC_GROUPS.length} nhóm</span>}
               accent="teal"
+              chartId="Q2_2"
               tt={tt} personas={personas} mts={mts}
             />
           </div>
@@ -317,6 +324,7 @@ function Q2() {
             title="Master Topics theo Persona"
             badge={null}
             accent="indigo"
+            chartId="Q2_1"
             tt={tt} personas={personas} mts={mts}
           />
         </div>

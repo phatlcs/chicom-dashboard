@@ -64,7 +64,9 @@ function Q7() {
             <div className="card-title">Top Chủ Đề Kêu Gọi</div>
           </div>
           <HBars items={Q7_TOPICS.map(t => ({ ...t, color: green }))} labelKey="vn" valueKey="count" tooltip={tt} />
-        </div>
+        
+        <window.CardComments chartId="Q7_1" />
+      </div>
       </div>
       <div className="col-4">
         <div className="card">
@@ -72,7 +74,9 @@ function Q7() {
             <div className="card-title">Benefit Được Nhắc Đến</div>
           </div>
           <HBars items={Q7_BENEFITS.map(t => ({ ...t, color: green }))} labelKey="vn" valueKey="count" tooltip={tt} />
-        </div>
+        
+        <window.CardComments chartId="Q7_2" />
+      </div>
       </div>
       <div className="col-4">
         <div className="card">
@@ -94,7 +98,9 @@ function Q7() {
           <div className="legend-inline" style={{ justifyContent: 'center' }}>
             {segs.map(s => <span key={s.label}><span className="dot" style={{ background: s.color }}></span>{s.label} {s.v}%</span>)}
           </div>
-        </div>
+        
+        <window.CardComments chartId="Q7_3" />
+      </div>
       </div>
       <div style={{ gridColumn: '1 / -1' }}>
         <window.Insight qId="Q7">
@@ -139,7 +145,9 @@ function Q8() {
             <div className="card-title">Top lý do rời bỏ Amazon</div>
           </div>
           <HBars items={Q8_TRIGGERS} labelKey="vn" valueKey="count" tooltip={tt} />
-        </div>
+        
+        <window.CardComments chartId="Q8_1" />
+      </div>
       </div>
       <div className="col-6">
         <div className="card">
@@ -165,7 +173,9 @@ function Q8() {
               ))}
             </div>
           </div>
-        </div>
+        
+        <window.CardComments chartId="Q8_2" />
+      </div>
       </div>
       <div className="col-12">
         <div className="card">
@@ -207,7 +217,9 @@ function Q8() {
               <text key={m} x={40 + (i / (Q8_TREND.length - 1)) * 660} y={170} textAnchor="middle" className="axis-tick">{m}</text>
             ))}
           </svg>
-        </div>
+        
+        <window.CardComments chartId="Q8_3" />
+      </div>
       </div>
       <div style={{ gridColumn: '1 / -1' }}>
         <window.Insight qId="Q8">
@@ -241,7 +253,7 @@ function Q9() {
     return `M${sx},${sy} A${r},${r} 0 ${large} 1 ${ex},${ey} L${sx2},${sy2} A${r2},${r2} 0 ${large} 0 ${ex2},${ey2} Z`;
   };
 
-  const Donut = ({ title, items }) => {
+  const Donut = ({ title, items, chartId }) => {
     const total = items.reduce((a, b) => a + b.count, 0) || 1;
     let acc = 0;
     const seg = items.map(it => {
@@ -274,6 +286,8 @@ function Q9() {
             ))}
           </div>
         </div>
+      
+        {chartId && <window.CardComments chartId={chartId} />}
       </div>
     );
   };
@@ -281,10 +295,10 @@ function Q9() {
   return (
     <div className="grid-12">
       <div className="col-6">
-        <Donut title={<span>Nhóm tham gia — Q7 (kêu gọi gia nhập)</span>} items={q7Personas} />
+        <Donut title={<span>Nhóm tham gia — Q7 (kêu gọi gia nhập)</span>} items={q7Personas} chartId="Q9_1" />
       </div>
       <div className="col-6">
-        <Donut title={<span>Nhóm tham gia — Q8 (dấu hiệu rời bỏ)</span>} items={q8Personas} />
+        <Donut title={<span>Nhóm tham gia — Q8 (dấu hiệu rời bỏ)</span>} items={q8Personas} chartId="Q9_2" />
       </div>
       <div style={{ gridColumn: '1 / -1' }}>
         <window.Insight qId="Q9">
