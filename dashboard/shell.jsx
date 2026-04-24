@@ -113,7 +113,7 @@ function KpiStrip() {
       <div className="kpi">
         <div className="kpi-label">Negative mentions</div>
         <div className="kpi-value mono">{fmt(kpi.negativeMentions)}</div>
-        <div className="kpi-delta down mono">{negPct}% mentions liên quan</div>
+        <div className="kpi-delta down mono">{negPct}% of relevant mentions</div>
       </div>
       <div className="kpi">
         <div className="kpi-label">Active Groups</div>
@@ -138,13 +138,13 @@ function AnchorRail() {
     ['Q1',  '#Q1',  'Topics nhiều nhất / Weight từng group'],
     ['Q2',  '#Q2',  'Topics theo Persona / từng group'],
     ['Q3',  '#Q3',  'Seller vs Prospect deep-dive'],
-    ['Q4',  '#Q4',  'Trends Master Topics theo tháng'],
+    ['Q4',  '#Q4',  'Master Topic monthly trends'],
     ['Q5',  '#Q5',  'Negative — thời điểm trong tuần'],
     ['Q6',  '#Q6',  'Negative — thời điểm trong ngày'],
     ['Q7',  '#Q7',  'Topics kêu gọi gia nhập Amazon'],
     ['Q8',  '#Q8',  'Topics tín hiệu rời bỏ Amazon'],
     ['Q9',  '#Q9',  'Active personas · KOL mentions'],
-    ['Q10', '#Q10', 'Categories được thảo luận nhiều'],
+    ['Q10', '#Q10', 'Most-discussed categories'],
     ['Q11', '#Q11', 'Amazon product/program adoption'],
     ['Q12', '#Q12', '3rd-party services nhu cầu'],
     ['Q13', '#Q13', 'Amazon courses được quan tâm'],
@@ -427,7 +427,7 @@ function CommentBox({ chartId, slot, label }) {
         letterSpacing: '0.05em', color: 'var(--text-3)',
         marginBottom: 3,
       }}>
-        <span>{label || `Ghi chú ${slot.toUpperCase()}`}</span>
+        <span>{label || `Note ${slot.toUpperCase()}`}</span>
         {status && <span style={{ color: statusColor, textTransform: 'none' }}>{status.text}</span>}
       </div>
       <textarea
@@ -471,8 +471,8 @@ function CardComments({ chartId }) {
       paddingTop: 8,
       borderTop: '1px dashed var(--border)',
     }}>
-      <CommentBox chartId={chartId} slot="a" label="Ghi chú A" />
-      <CommentBox chartId={chartId} slot="b" label="Ghi chú B" />
+      <CommentBox chartId={chartId} slot="a" label="Note A" />
+      <CommentBox chartId={chartId} slot="b" label="Note B" />
     </div>
   );
 }

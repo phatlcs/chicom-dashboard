@@ -76,53 +76,53 @@ function App() {
       <div className="page">
         <div className="page-header">
           <h1>ChiCom — Community Insights Dashboard</h1>
-          <p>Phân tích nội dung từ 2 cộng đồng SOA (Selling on Amazon) và 7 cộng đồng EC (E-commerce xuyên biên giới) — trả lời 14 research questions.</p>
+          <p>Content analysis across 2 SOA (Selling on Amazon) communities and 7 EC (cross-border e-commerce) communities — answering 14 research questions.</p>
           <window.TimeRangeBadge />
         </div>
 
         <window.KpiStrip />
 
-        {/* ── Section 1: Thông tin sơ bộ ─────────────────────────── */}
+        {/* ── Section 1: Overview ─────────────────────────── */}
         <window.SectionBanner label="Section 1 — Overview" sublabel="Overview · SOV community · Persona distribution" />
         <section id="overview"><window.OverviewPanel /></section>
 
-        {/* ── Section 2: Thông tin chi tiết (14 câu hỏi) ─────────── */}
+        {/* ── Section 2: Detailed insights (14 questions) ─────────── */}
         <window.SectionBanner label="Section 2 — Detailed insights" sublabel="14 research questions" />
 
         <window.AnchorRail />
 
         <window.Section id="Q1" num="Q1"
-          title="Chủ đề được thảo luận nhiều nhất trong SOA và EC groups — Weight của từng group"><Q1 /></window.Section>
+          title="Most-discussed topics across SOA and EC groups — weight per group"><Q1 /></window.Section>
         <window.Section id="Q2" num="Q2"
-          title="Phân chia chủ đề theo nhóm đối tượng (Persona) — Từng group và tổng"><Q2 /></window.Section>
+          title="Topic split by target persona — per group and total"><Q2 /></window.Section>
         <window.Section id="Q3" num="Q3"
-          title="Sự khác biệt giữa Seller và Prospect — Master Topics & Sub-topics"><Q3 /></window.Section>
+          title="Seller vs Prospect differences — Master Topics & sub-topics"><Q3 /></window.Section>
         <window.Section id="Q4" num="Q4"
-          title="Trends thay đổi Master Topics qua các tháng"><Q4 /></window.Section>
+          title="Master Topic trends across months"><Q4 /></window.Section>
         <window.Section id="Q5" num="Q5"
-          title="Negative Discussion — Khoảng thời gian trong tuần cao nhất"><Q5 /></window.Section>
+          title="Negative discussion — peak day of the week"><Q5 /></window.Section>
         <window.Section id="Q6" num="Q6"
-          title="Negative Discussion — Khoảng thời gian trong ngày cao nhất"><Q6 /></window.Section>
+          title="Negative discussion — peak hour of the day"><Q6 /></window.Section>
         <window.Section id="Q7" num="Q7"
-          title="Topics khuyến khích sellers gia nhập Amazon — Benefits được đề cập"><Q7 /></window.Section>
+          title="Topics encouraging sellers to join Amazon — benefits mentioned"><Q7 /></window.Section>
         <window.Section id="Q8" num="Q8" soaOnly
-          title="Topics tín hiệu rời bỏ Amazon — Key Indicators chính"><Q8 /></window.Section>
+          title="Topics signalling Amazon abandonment — key indicators"><Q8 /></window.Section>
         <window.Section id="Q9" num="Q9"
-          title="Active Participants của Q7 & Q8 — KOL được đề cập"><Q9 /></window.Section>
+          title="Active participants of Q7 & Q8 — KOLs mentioned"><Q9 /></window.Section>
         <window.Section id="Q10" num="Q10"
-          title="Categories & Product Selection được thảo luận nhiều nhất trong quý"><Q10 /></window.Section>
+          title="Most-discussed product categories of the quarter"><Q10 /></window.Section>
         <window.Section id="Q11" num="Q11" soaOnly
-          title="Amazon Product/Program Adoption — Mức độ sử dụng & Mức độ hài lòng"><Q11 /></window.Section>
+          title="Amazon product / program adoption — usage and satisfaction"><Q11 /></window.Section>
         <window.Section id="Q12" num="Q12"
-          title="3rd-Party Outsourcing Services mà Sellers cần"><Q12 /></window.Section>
+          title="3rd-party outsourcing services sellers need"><Q12 /></window.Section>
         <window.Section id="Q13" num="Q13"
-          title="Amazon Courses — Sellers quan tâm chủ đề nào?"><Q13 /></window.Section>
+          title="Amazon courses — what sellers are interested in"><Q13 /></window.Section>
         <window.Section id="Q14" num="Q14"
-          title="Business Growth & P&L Discussion — Tích cực và Tiêu cực"><Q14 /></window.Section>
+          title="Business growth & P&L discussion — positive and negative"><Q14 /></window.Section>
 
         <div style={{ padding: '24px 0', borderTop: '1px solid var(--border)', color: 'var(--text-3)', fontSize: 12, display: 'flex', justifyContent: 'space-between' }}>
           <span>ChiCom Insights · data from {(window.ChiComData && window.ChiComData.KPI && window.ChiComData.KPI.totalPosts.toLocaleString()) || '—'} mentions</span>
-          <span className="mono">14 câu hỏi · {(window.ChiComData && window.ChiComData.ALL_GROUPS && window.ChiComData.ALL_GROUPS.length) || 9} communities</span>
+          <span className="mono">14 questions · {(window.ChiComData && window.ChiComData.ALL_GROUPS && window.ChiComData.ALL_GROUPS.length) || 9} communities</span>
         </div>
       </div>
 

@@ -240,7 +240,7 @@ function Q4() {
         <div className="card">
           <div className="card-head">
             <div>
-              <div className="card-title">Trends chủ đề theo tuần</div>
+              <div className="card-title">Weekly topic trends</div>
             </div>
             <span className="card-meta">{weekRangeLabel}</span>
           </div>
