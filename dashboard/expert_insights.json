@@ -263,32 +263,6 @@
       "<strong>EC: address multi-platform cost-structure frustration:</strong> 717 mentions about tax & cost + 474 about payment complexity = EC sellers are at a breaking point on cost burden. Amazon can differentiate with: a transparent FBA fee calculator for VN sellers, a clear comparison vs Etsy/TikTok fee structures, and partnerships with Payoneer/PingPong for optimized rates."
     ]
   },
-  "Q10": {
-    "scope": "Scope: sub-topic analysis (product context) · SOA and EC focus areas",
-    "findings": [
-      {
-        "variant": "soa",
-        "label": "SOA — Top sub-topics (product context)",
-        "html": "<ul class=\"ei-list\">\n          <li><strong>Sales experience sharing: 633</strong> — category tips & peer-learning</li>\n          <li>International import-export: 576 — sourcing strategy</li>\n          <li>Events & training: 564 — product-selection content</li>\n          <li>Selling & ops: 446 — operational aspects</li>\n          <li>Tax & costs: 282 — product profitability</li>\n          <li>Collaboration, support & operations: 241</li>\n          <li>Shipping services: 229 — product shipping specifics</li>\n          <li>Amazon FBA & FBM ops: 210 — fulfillment model choice</li>\n        </ul>"
-      },
-      {
-        "variant": "ec",
-        "label": "EC — Top sub-topics (product context)",
-        "html": "<ul class=\"ei-list\">\n          <li><strong>International import-export: 6,773</strong> — CBEC strategy</li>\n          <li>Shipping services: 4,509 — product logistics</li>\n          <li>Selling & ops: 4,296 — platform operations</li>\n          <li>Tax & costs: 4,224 — product cost analysis</li>\n          <li>Account ops & international payments: 2,416 — financial management</li>\n          <li>Sales challenges: 1,343 — category challenges</li>\n          <li>Sharing & peer learning: 1,214</li>\n          <li>Events & training: 744</li>\n        </ul>"
-      },
-      {
-        "variant": "both",
-        "label": "🔍 Specific product categories detected in the content",
-        "html": "<p><strong>EC groups (Etsy-heavy) — top product categories in the content:</strong> Handmade & POD (embroidered baseball caps, stickers, UV printing, laser cutting), jewelry (memorial gifts), mother & baby products (baby gifts, personalized items), personalized gifts (wedding gifts, commemorative items), artisan crafts. These are small, light items suited to ePacket/FBM.</p>\n        <p><strong>SOA groups — product patterns:</strong> China-sourced electronics (sold in the US — high compliance risk), USDA-certified agricultural products (emerging interest, lots of sourcing questions), and private-label products where sellers share strategy without revealing the actual competitive product.</p>\n        <p><strong>Emerging: USDA-certified agricultural products</strong> — many VN sellers are asking about sourcing USDA-compliant produce for export to the US. A niche with few current players but rising demand — a <span class=\"ei-hl\">Blue Ocean opportunity</span> for sellers with the right supply.</p>"
-      }
-    ],
-    "callouts": [],
-    "recommendations": [
-      "<strong>Target EC Etsy sellers with Amazon Handmade & Small&Light FBA:</strong> VN Etsy sellers already have suitable products (handmade, jewelry, personalized items). Amazon Handmade and Small&Light FBA are natural extensions. Create content \"From Etsy to Amazon: scale with the same products, no extra capital\" — comparing fees, customer reach, and Brand Registry advantage.",
-      "<strong>USDA agricultural products — create a dedicated category guide:</strong> emerging interest but sellers don't know where to start. Amazon should publish \"VN Agricultural Products on Amazon US: USDA Requirements & FBA Guide\". This positions Amazon as the go-to resource for a high-potential category before competition catches up.",
-      "<strong>Data action: activate the Product Category field in Q2:</strong> Q10 can't be answered precisely without structured data. Ask the data team to add product-category tagging (standardized taxonomy) for Q2 — this is a prerequisite for accurate Q10 analysis."
-    ]
-  },
   "Q11": {
     "scope": "Scope: SOA-only (5,468 mentions) · Amazon tool/program adoption (keyword match)",
     "findings": [
