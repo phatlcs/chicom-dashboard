@@ -246,11 +246,10 @@ def compute_all(df: pd.DataFrame):
     df['mt_id']       = df['master_topic'].map(TOPIC_MAP) if 'master_topic' in df.columns else None
     df['persona_id']  = df['persona'].map(PERSONA_MAP)    if 'persona'       in df.columns else None
 
-    # Sub-topic normalization:
-    # 1. Normalize to canonical labels (fuzzy-match LLM typos)
-    # 2. Fill empty sub_topics with the most-common sub-topic for that master
+    # Sub-topic handling:
+    # - Non-empty values are preserved exactly as-is from the input
+    # - Empty values get the most-common sub-topic for the row's master topic
     if 'sub_topic' in df.columns and 'mt_id' in df.columns:
-        df['sub_topic'] = _normalize_sub_topics(df['sub_topic'])
         sub_empty = df['sub_topic'].fillna('').astype(str).str.strip() == ''
         filled = df.loc[~sub_empty, ['mt_id', 'sub_topic']].dropna()
         if len(filled):
@@ -259,8 +258,6 @@ def compute_all(df: pd.DataFrame):
                 mt = df.at[idx, 'mt_id']
                 if pd.notna(mt) and mt in mt_default.index:
                     df.at[idx, 'sub_topic'] = mt_default[mt]
-    elif 'sub_topic' in df.columns:
-        df['sub_topic'] = _normalize_sub_topics(df['sub_topic'])
 
     # Determine relevant column
     if 'relevant' in df.columns:
