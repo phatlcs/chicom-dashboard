@@ -82,6 +82,7 @@ function App() {
         </div>
 
         <window.KpiStrip />
+        <window.HighlightsBar />
 
         {/* ── Section 1: Overview ─────────────────────────── */}
         <window.SectionBanner label="Section 1 — Overview" sublabel="Overview · SOV community · Persona distribution" />

@@ -2232,6 +2232,154 @@ window.ChiComData = (() => {
     "pct": 23.6
   }
 };
+  const PERSONA_BY_GROUP    = [
+  {
+    "group_id": 1,
+    "short": "Amazon Sellers VN",
+    "name": "Amazon Sellers Viet Nam",
+    "type": "SOA",
+    "total": 693,
+    "personas": {
+      "p_seller_az": 373,
+      "p_prospect_az": 113,
+      "p_svc_az": 135,
+      "p_svc_cbec": 45,
+      "p_prospect_ot": 16,
+      "p_seller_ot": 11
+    }
+  },
+  {
+    "group_id": 2,
+    "short": "CĐ Amazon Sellers",
+    "name": "Cộng đồng Amazon Sellers VN",
+    "type": "SOA",
+    "total": 4775,
+    "personas": {
+      "p_seller_az": 2775,
+      "p_prospect_az": 875,
+      "p_svc_az": 472,
+      "p_svc_cbec": 219,
+      "p_prospect_ot": 209,
+      "p_seller_ot": 225
+    }
+  },
+  {
+    "group_id": 3,
+    "short": "MMO",
+    "name": "Cộng Đồng MMO",
+    "type": "EC",
+    "total": 690,
+    "personas": {
+      "p_seller_az": 58,
+      "p_prospect_az": 1,
+      "p_svc_az": 28,
+      "p_svc_cbec": 150,
+      "p_prospect_ot": 226,
+      "p_seller_ot": 227
+    }
+  },
+  {
+    "group_id": 4,
+    "short": "Cuồng Phong Hội",
+    "name": "Cuồng Phong Hội (Crossborder CBEC)",
+    "type": "EC",
+    "total": 429,
+    "personas": {
+      "p_seller_az": 64,
+      "p_prospect_az": 30,
+      "p_svc_az": 3,
+      "p_svc_cbec": 58,
+      "p_prospect_ot": 169,
+      "p_seller_ot": 105
+    }
+  },
+  {
+    "group_id": 5,
+    "short": "Dropship & Shopify",
+    "name": "Cộng Đồng Dropshipping & Shopify VN",
+    "type": "EC",
+    "total": 4836,
+    "personas": {
+      "p_seller_az": 137,
+      "p_prospect_az": 79,
+      "p_svc_az": 71,
+      "p_svc_cbec": 1628,
+      "p_prospect_ot": 1814,
+      "p_seller_ot": 1107
+    }
+  },
+  {
+    "group_id": 6,
+    "short": "Chuyện Nhà Bán",
+    "name": "Chuyện Nhà Bán (Shopee/TikTok)",
+    "type": "EC",
+    "total": 11513,
+    "personas": {
+      "p_seller_az": 1048,
+      "p_prospect_az": 212,
+      "p_svc_az": 8,
+      "p_svc_cbec": 273,
+      "p_prospect_ot": 2041,
+      "p_seller_ot": 7931
+    }
+  },
+  {
+    "group_id": 7,
+    "short": "Etsy To Go",
+    "name": "Etsy To Go",
+    "type": "EC",
+    "total": 4780,
+    "personas": {
+      "p_seller_az": 519,
+      "p_prospect_az": 90,
+      "p_svc_az": 27,
+      "p_svc_cbec": 1596,
+      "p_prospect_ot": 1001,
+      "p_seller_ot": 1547
+    }
+  },
+  {
+    "group_id": 8,
+    "short": "Etsy E-Z",
+    "name": "Etsy E-Z Cộng Đồng Etsy Việt",
+    "type": "EC",
+    "total": 421,
+    "personas": {
+      "p_seller_az": 19,
+      "p_prospect_az": 22,
+      "p_svc_az": 0,
+      "p_svc_cbec": 148,
+      "p_prospect_ot": 125,
+      "p_seller_ot": 107
+    }
+  },
+  {
+    "group_id": 9,
+    "short": "ETSY VN",
+    "name": "Cộng đồng ETSY Việt Nam",
+    "type": "EC",
+    "total": 12100,
+    "personas": {
+      "p_seller_az": 1537,
+      "p_prospect_az": 464,
+      "p_svc_az": 24,
+      "p_svc_cbec": 2530,
+      "p_prospect_ot": 3899,
+      "p_seller_ot": 3646
+    }
+  }
+];
+  const MASTER_TOPIC_COUNTS = {
+  "mt1": 6693,
+  "mt2": 406,
+  "mt3": 6946,
+  "mt4": 551,
+  "mt5": 4738,
+  "mt6": 7519,
+  "mt7": 7349,
+  "mt8": 5168,
+  "mt9": 0
+};
   const SOA_SCOPE           = {
   "totalRelevant": 5468,
   "groupIds": [
@@ -2273,7 +2421,7 @@ window.ChiComData = (() => {
     Q6_BY_HOUR, Q6_BY_HOUR_SOA, Q6_BY_HOUR_EC,
     Q5_TOP_NEG, Q5_TOP_NEG_SOA, Q5_TOP_NEG_EC,
     Q5_EARLY_DIST, Q5_PEAK_WINDOW, KPI,
-    OVERVIEW, DATE_RANGE, SOA_SCOPE, INSIGHTS,
+    OVERVIEW, PERSONA_BY_GROUP, MASTER_TOPIC_COUNTS, DATE_RANGE, SOA_SCOPE, INSIGHTS,
   };
 })();
 
