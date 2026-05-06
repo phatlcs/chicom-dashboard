@@ -1,0 +1,106 @@
+
+================================================================================
+mt1: Chiến lược, kinh nghiệm và hỗ trợ cộng đồng bán hàng Amazon
+Total rows: 6,687
+================================================================================
+
+⚠️  MISMATCHED SUB-TOPICS (don't match mt1 domain):
+  - 1,501 ( 22.4%) Khó khăn và thách thức khi bán hàng trên Amazon
+  -    11 (  0.2%) Cảnh báo rủi zo và lừa đảo khi kinh doanh Amazon
+  -     3 (  0.0%) Cảnh báo rủi ro và lừa đảo khi kinh doanh Amazon
+  -     3 (  0.0%) Dịch vụ và giải pháp pháp lý, thương hiệu và công cụ cho Seller Amazon
+  -     2 (  0.0%) Khó khăn và thách thức khi bán hàng tron Amazon
+  -     1 (  0.0%) Khó khăn và thải thức khi bán hàng trên Amazon
+
+Top 3 sub-topics:
+  1. 1,845 (27.6%) Chia sẻ, học hỏi và hợp tác kinh nghiệm bán hàng Amazon
+  2. 1,501 (22.4%) Khó khăn và thách thức khi bán hàng trên Amazon
+  3. 1,308 (19.6%) Sự kiện, đào tạo và kết nối cộng đồng bán hàng Amazon
+
+================================================================================
+mt2: Cảnh báo rủi ro và lừa đảo khi kinh doanh Amazon
+Total rows: 378
+================================================================================
+
+✓ All sub-topics match mt2 domain
+
+Top 3 sub-topics:
+  1.   359 (95.0%) Cảnh báo rủi ro và lừa đảo khi kinh doanh Amazon
+  2.    16 ( 4.2%) Cảnh báo rủi ko và lừa đảo khi kinh doanh Amazon
+  3.     3 ( 0.8%) Cảnh báo rủi zo và lừa đảo khi kinh doanh Amazon
+
+================================================================================
+mt3: Vận hành và quản lý tài khoản Amazon Seller
+Total rows: 6,943
+================================================================================
+
+⚠️  MISMATCHED SUB-TOPICS (don't match mt3 domain):
+  -    37 (  0.5%) Vấn đề không nhận được mã OTP Amazon
+  -     6 (  0.1%) Hướng dẫn và hỗ trợ khởi đầu bán hàng Amazon
+
+Top 3 sub-topics:
+  1. 3,881 (55.9%) Vấn đề xác minh, khoá, rủi ro tài khoản Amazon
+  2. 1,957 (28.2%) Dịch vụ hỗ trợ và xử lý tài khoản Amazon
+  3.   594 ( 8.6%) Vấn đề xác minh, khoá, rủi ko tài khoản Amazon
+
+================================================================================
+mt4: Dịch vụ và giải pháp pháp lý, thương hiệu và công cụ cho Seller Amazon
+Total rows: 551
+================================================================================
+
+⚠️  MISMATCHED SUB-TOPICS (don't match mt4 domain):
+  -    10 (  1.8%) Ưu đãi giảm giá Helium10 cho người bán Amazon
+
+Top 3 sub-topics:
+  1.   541 (98.2%) Dịch vụ và giải pháp pháp lý, thương hiệu và công cụ kinh do
+  2.    10 ( 1.8%) Ưu đãi giảm giá Helium10 cho người bán Amazon
+
+================================================================================
+mt5: Vận chuyển, logistics và fulfillment Amazon
+Total rows: 4,738
+================================================================================
+
+✓ All sub-topics match mt5 domain
+
+Top 3 sub-topics:
+  1. 4,738 (100.0%) Dịch vụ vận chuyển và fulfillment
+
+================================================================================
+mt6: Thanh toán, tài khoản và các vấn đề tài chính quốc tế cho Seller Amazon
+Total rows: 7,462
+================================================================================
+
+⚠️  MISMATCHED SUB-TOPICS (don't match mt6 domain):
+  -    16 (  0.2%) Vấn đề xác minh, khoá, rủi ro tài khoản Amazon
+  -    12 (  0.2%) Vấn đề xác minh, khoá, rủi ko tài khoản Amazon
+  -     1 (  0.0%) Vấn đề xác minh, khoá, rủi ico tài khoản Amazon
+  -     1 (  0.0%) Vấn đề không nhận được mã OTP Amazon
+
+Top 3 sub-topics:
+  1. 4,447 (59.6%) Thuế và Chi phí Kinh doanh trên Amazon cho Seller Việt Nam
+  2. 2,486 (33.3%) Vận hành tài khoản và thanh toán quốc tế cho seller
+  3.   480 ( 6.4%) Thanh toán và rút tiền Amazon qua Payoneer/PingPong
+
+================================================================================
+mt7: Kinh doanh xuất nhập khẩu và thương mại điện tử xuyên biên giới
+Total rows: 7,306
+================================================================================
+
+✓ All sub-topics match mt7 domain
+
+Top 3 sub-topics:
+  1. 7,295 (99.8%) Kinh doanh xuất nhập khẩu và bán hàng quốc tế
+  2.    10 ( 0.1%) Kinh doanh xuất nhập khẩ và bán hàng quốc tế
+  3.     1 ( 0.0%) Kinh doanh xuất nhập khẩo và bán hàng quốc tế
+
+================================================================================
+mt8: Kinh doanh, vận hành và tối ưu hóa bán hàng Amazon
+Total rows: 5,166
+================================================================================
+
+✓ All sub-topics match mt8 domain
+
+Top 3 sub-topics:
+  1. 4,739 (91.7%) Bán hàng và vận hành kinh doanh trên Amazon
+  2.   384 ( 7.4%) Kinh doanh Amazon FBA và FBM: vận hành & tối ưu chi phí
+  3.    41 ( 0.8%) (empty)

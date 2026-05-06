@@ -291,111 +291,26 @@ window.ChiComData = (() => {
     "count": 7349,
     "weight": 18.7,
     "color": "oklch(0.62 0.15 90)",
-    "parent_topic": "mt7"
-  },
-  {
-    "vn": "Vấn đề xác minh, khoá, rủi ro tài khoản Amazon",
-    "en": "Amazon account verification, suspension & risks",
-    "count": 4876,
-    "weight": 12.4,
-    "color": "oklch(0.62 0.15 155)",
-    "parent_topic": "mt3"
-  },
-  {
-    "vn": "Bán hàng và vận hành kinh doanh trên Amazon",
-    "en": "Amazon selling & operations",
-    "count": 4742,
-    "weight": 12.1,
-    "color": "oklch(0.62 0.15 290)",
-    "parent_topic": "mt8"
-  },
-  {
-    "vn": "Dịch vụ vận chuyển và fulfillment",
-    "en": "Shipping & fulfillment services",
-    "count": 4738,
-    "weight": 12.1,
-    "color": "oklch(0.62 0.15 320)",
-    "parent_topic": "mt5"
+    "parent_topic": "mt7",
+    "parent_rank": 0
   },
   {
     "vn": "Thuế và Chi phí Kinh doanh trên Amazon cho Seller Việt Nam",
     "en": "Tax & costs for Vietnamese Amazon sellers",
-    "count": 4506,
+    "count": 4539,
     "weight": 11.5,
     "color": "oklch(0.62 0.15 200)",
-    "parent_topic": "mt6"
+    "parent_topic": "mt6",
+    "parent_rank": 1
   },
   {
     "vn": "Vận hành tài khoản và thanh toán quốc tế cho seller",
     "en": "Account ops & international payments (sellers)",
     "count": 2496,
-    "weight": 6.4,
+    "weight": 6.3,
     "color": "oklch(0.62 0.15 200)",
-    "parent_topic": "mt6"
-  },
-  {
-    "vn": "Dịch vụ hỗ trợ và xử lý tài khoản Amazon",
-    "en": "Amazon account support & recovery services",
-    "count": 1964,
-    "weight": 5.0,
-    "color": "oklch(0.62 0.15 155)",
-    "parent_topic": "mt3"
-  },
-  {
-    "vn": "Chia sẻ, học hỏi và hợp tác kinh nghiệm bán hàng Amazon",
-    "en": "Sharing, learning & peer collaboration on Amazon",
-    "count": 1847,
-    "weight": 4.7,
-    "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1"
-  },
-  {
-    "vn": "Khó khăn và thách thức khi bán hàng trên Amazon",
-    "en": "Pain points & challenges selling on Amazon",
-    "count": 1507,
-    "weight": 3.8,
-    "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1"
-  },
-  {
-    "vn": "Sự kiện, đào tạo và kết nối cộng đồng bán hàng Amazon",
-    "en": "Events, training & community networking",
-    "count": 1308,
-    "weight": 3.3,
-    "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1"
-  },
-  {
-    "vn": "Hợp tác, hỗ trợ và vận hành bán hàng Amazon",
-    "en": "Partnerships, support & Amazon selling ops",
-    "count": 780,
-    "weight": 2.0,
-    "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1"
-  },
-  {
-    "vn": "Kinh nghiệm và chiến lược bán hàng trên Amazon",
-    "en": "Amazon selling strategy & experience",
-    "count": 657,
-    "weight": 1.7,
-    "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1"
-  },
-  {
-    "vn": "Hướng dẫn và hỗ trợ khởi đầu bán hàng Amazon",
-    "en": "Getting started on Amazon — guides & onboarding",
-    "count": 550,
-    "weight": 1.4,
-    "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1"
-  },
-  {
-    "vn": "Dịch vụ và giải pháp pháp lý, thương hiệu và công cụ kinh doanh cho người bán Amazon",
-    "en": "Legal, brand & business-tool services for Amazon sellers",
-    "count": 541,
-    "weight": 1.4,
-    "color": "oklch(0.62 0.15 60)",
-    "parent_topic": "mt4"
+    "parent_topic": "mt6",
+    "parent_rank": 1
   },
   {
     "vn": "Thanh toán và rút tiền Amazon qua Payoneer/PingPong",
@@ -403,15 +318,98 @@ window.ChiComData = (() => {
     "count": 484,
     "weight": 1.2,
     "color": "oklch(0.62 0.15 200)",
-    "parent_topic": "mt6"
+    "parent_topic": "mt6",
+    "parent_rank": 1
   },
   {
-    "vn": "Cảnh báo rủi ro và lừa đảo khi kinh doanh Amazon",
-    "en": "Scam & risk warnings for Amazon sellers",
-    "count": 420,
-    "weight": 1.1,
-    "color": "oklch(0.62 0.15 25)",
-    "parent_topic": "mt2"
+    "vn": "Chia sẻ, học hỏi và hợp tác kinh nghiệm bán hàng Amazon",
+    "en": "Sharing, learning & peer collaboration on Amazon",
+    "count": 1900,
+    "weight": 4.8,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": "mt1",
+    "parent_rank": 2
+  },
+  {
+    "vn": "Khó khăn và thách thức khi bán hàng trên Amazon",
+    "en": "Pain points & challenges selling on Amazon",
+    "count": 1506,
+    "weight": 3.8,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": "mt1",
+    "parent_rank": 2
+  },
+  {
+    "vn": "Sự kiện, đào tạo và kết nối cộng đồng bán hàng Amazon",
+    "en": "Events, training & community networking",
+    "count": 1308,
+    "weight": 3.3,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": "mt1",
+    "parent_rank": 2
+  },
+  {
+    "vn": "Hợp tác, hỗ trợ và vận hành bán hàng Amazon",
+    "en": "Partnerships, support & Amazon selling ops",
+    "count": 780,
+    "weight": 2.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": "mt1",
+    "parent_rank": 2
+  },
+  {
+    "vn": "Kinh nghiệm và chiến lược bán hàng trên Amazon",
+    "en": "Amazon selling strategy & experience",
+    "count": 657,
+    "weight": 1.7,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": "mt1",
+    "parent_rank": 2
+  },
+  {
+    "vn": "Hướng dẫn và hỗ trợ khởi đầu bán hàng Amazon",
+    "en": "Getting started on Amazon — guides & onboarding",
+    "count": 544,
+    "weight": 1.4,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": "mt1",
+    "parent_rank": 2
+  },
+  {
+    "vn": "Vấn đề xác minh, khoá, rủi ro tài khoản Amazon",
+    "en": "Amazon account verification, suspension & risks",
+    "count": 4982,
+    "weight": 12.7,
+    "color": "oklch(0.62 0.15 155)",
+    "parent_topic": "mt3",
+    "parent_rank": 3
+  },
+  {
+    "vn": "Dịch vụ hỗ trợ và xử lý tài khoản Amazon",
+    "en": "Amazon account support & recovery services",
+    "count": 1964,
+    "weight": 5.0,
+    "color": "oklch(0.62 0.15 155)",
+    "parent_topic": "mt3",
+    "parent_rank": 3
+  },
+  {
+    "vn": "Dịch vụ vận chuyển và fulfillment",
+    "en": "Shipping & fulfillment services",
+    "count": 4738,
+    "weight": 12.0,
+    "color": "oklch(0.62 0.15 320)",
+    "parent_topic": "mt5",
+    "parent_rank": 4
+  },
+  {
+    "vn": "Bán hàng và vận hành kinh doanh trên Amazon",
+    "en": "Amazon selling & operations",
+    "count": 4784,
+    "weight": 12.2,
+    "color": "oklch(0.62 0.15 290)",
+    "parent_topic": "mt8",
+    "parent_rank": 5
   },
   {
     "vn": "Kinh doanh Amazon FBA và FBM: vận hành & tối ưu chi phí",
@@ -419,15 +417,17 @@ window.ChiComData = (() => {
     "count": 384,
     "weight": 1.0,
     "color": "oklch(0.62 0.15 290)",
-    "parent_topic": "mt8"
+    "parent_topic": "mt8",
+    "parent_rank": 5
   },
   {
-    "vn": "Vấn đề không nhận được mã OTP Amazon",
-    "en": "Missing Amazon OTP codes",
-    "count": 38,
-    "weight": 0.1,
-    "color": "oklch(0.62 0.15 155)",
-    "parent_topic": "mt3"
+    "vn": "Dịch vụ và giải pháp pháp lý, thương hiệu và công cụ kinh doanh cho người bán Amazon",
+    "en": "Legal, brand & business-tool services for Amazon sellers",
+    "count": 541,
+    "weight": 1.4,
+    "color": "oklch(0.62 0.15 60)",
+    "parent_topic": "mt4",
+    "parent_rank": 6
   },
   {
     "vn": "Ưu đãi giảm giá Helium10 cho người bán Amazon",
@@ -435,47 +435,17 @@ window.ChiComData = (() => {
     "count": 10,
     "weight": 0.0,
     "color": "oklch(0.62 0.15 60)",
-    "parent_topic": "mt4"
+    "parent_topic": "mt4",
+    "parent_rank": 6
   },
   {
-    "vn": "Dịch vụ và giải pháp pháp lý, thương hiệu và công cụ cho Seller Amazon",
-    "en": "Legal, brand & tool services for Amazon sellers",
-    "count": 3,
-    "weight": 0.0,
-    "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1"
-  },
-  {
-    "vn": "Hỏi đáp và hỗ trợ cộng đồng bán hàng",
-    "en": "Community Q&A and seller support",
-    "count": 2,
-    "weight": 0.0,
-    "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1"
-  },
-  {
-    "vn": "Vấn đề xác minh, khoá, rủi ko Amazon",
-    "en": "Amazon account verification, suspension & risks",
-    "count": 1,
-    "weight": 0.0,
-    "color": "oklch(0.62 0.15 155)",
-    "parent_topic": "mt3"
-  },
-  {
-    "vn": "Chiến lược, kinh nghiệm và hỗ trợ cộng đồng bán hàng Amazon",
-    "en": "Amazon strategy, experience & community support",
-    "count": 1,
-    "weight": 0.0,
-    "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1"
-  },
-  {
-    "vn": "Hỗ trợ khởi đầu bán hàng Amazon",
-    "en": "Amazon selling — getting started support",
-    "count": 1,
-    "weight": 0.0,
-    "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1"
+    "vn": "Cảnh báo rủi ro và lừa đảo khi kinh doanh Amazon",
+    "en": "Scam & risk warnings for Amazon sellers",
+    "count": 406,
+    "weight": 1.0,
+    "color": "oklch(0.62 0.15 25)",
+    "parent_topic": "mt2",
+    "parent_rank": 7
   }
 ];
   const SUBTOPICS           = {
@@ -898,27 +868,27 @@ window.ChiComData = (() => {
   },
   {
     "vn": "Vấn đề xác minh, khoá, rủi ro tài khoản Amazon",
-    "seller": 17.5,
-    "prospect": 9.55,
-    "diff": 7.95,
+    "seller": 17.88,
+    "prospect": 9.75,
+    "diff": 8.13,
     "en": "Amazon account verification, suspension & risks",
     "color": "oklch(0.62 0.15 155)",
     "parent_topic": "mt3"
   },
   {
     "vn": "Bán hàng và vận hành kinh doanh trên Amazon",
-    "seller": 14.79,
-    "prospect": 12.23,
-    "diff": 2.56,
+    "seller": 14.93,
+    "prospect": 12.33,
+    "diff": 2.6,
     "en": "Amazon selling & operations",
     "color": "oklch(0.62 0.15 290)",
     "parent_topic": "mt8"
   },
   {
     "vn": "Thuế và Chi phí Kinh doanh trên Amazon cho Seller Việt Nam",
-    "seller": 13.55,
-    "prospect": 12.94,
-    "diff": 0.61,
+    "seller": 13.65,
+    "prospect": 13.03,
+    "diff": 0.62,
     "en": "Tax & costs for Vietnamese Amazon sellers",
     "color": "oklch(0.62 0.15 200)",
     "parent_topic": "mt6"
@@ -952,9 +922,9 @@ window.ChiComData = (() => {
   },
   {
     "vn": "Chia sẻ, học hỏi và hợp tác kinh nghiệm bán hàng Amazon",
-    "seller": 7.03,
-    "prospect": 2.09,
-    "diff": 4.94,
+    "seller": 7.24,
+    "prospect": 2.13,
+    "diff": 5.11,
     "en": "Sharing, learning & peer collaboration on Amazon",
     "color": "oklch(0.62 0.15 260)",
     "parent_topic": "mt1"
@@ -980,8 +950,8 @@ window.ChiComData = (() => {
   {
     "vn": "Hướng dẫn và hỗ trợ khởi đầu bán hàng Amazon",
     "seller": 0.12,
-    "prospect": 4.44,
-    "diff": -4.32,
+    "prospect": 4.39,
+    "diff": -4.27,
     "en": "Getting started on Amazon — guides & onboarding",
     "color": "oklch(0.62 0.15 260)",
     "parent_topic": "mt1"
@@ -1015,9 +985,9 @@ window.ChiComData = (() => {
   },
   {
     "vn": "Cảnh báo rủi ro và lừa đảo khi kinh doanh Amazon",
-    "seller": 1.27,
+    "seller": 1.21,
     "prospect": 1.26,
-    "diff": 0.01,
+    "diff": -0.05,
     "en": "Scam & risk warnings for Amazon sellers",
     "color": "oklch(0.62 0.15 25)",
     "parent_topic": "mt2"
@@ -1041,24 +1011,6 @@ window.ChiComData = (() => {
     "parent_topic": "mt4"
   },
   {
-    "vn": "Vấn đề không nhận được mã OTP Amazon",
-    "seller": 0.11,
-    "prospect": 0.12,
-    "diff": -0.01,
-    "en": "Missing Amazon OTP codes",
-    "color": "oklch(0.62 0.15 155)",
-    "parent_topic": "mt3"
-  },
-  {
-    "vn": "Dịch vụ và giải pháp pháp lý, thương hiệu và công cụ cho Seller Amazon",
-    "seller": 0.0,
-    "prospect": 0.03,
-    "diff": -0.03,
-    "en": "Legal, brand & tool services for Amazon sellers",
-    "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1"
-  },
-  {
     "vn": "Ưu đãi giảm giá Helium10 cho người bán Amazon",
     "seller": 0.0,
     "prospect": 0.01,
@@ -1066,42 +1018,6 @@ window.ChiComData = (() => {
     "en": "Helium 10 discounts for Amazon sellers",
     "color": "oklch(0.62 0.15 60)",
     "parent_topic": "mt4"
-  },
-  {
-    "vn": "Vấn đề xác minh, khoá, rủi ko Amazon",
-    "seller": 0.0,
-    "prospect": 0.01,
-    "diff": -0.01,
-    "en": "Amazon account verification, suspension & risks",
-    "color": "oklch(0.62 0.15 155)",
-    "parent_topic": "mt3"
-  },
-  {
-    "vn": "Chiến lược, kinh nghiệm và hỗ trợ cộng đồng bán hàng Amazon",
-    "seller": 0.0,
-    "prospect": 0.01,
-    "diff": -0.01,
-    "en": "Amazon strategy, experience & community support",
-    "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1"
-  },
-  {
-    "vn": "Hỏi đáp và hỗ trợ cộng đồng bán hàng",
-    "seller": 0.01,
-    "prospect": 0.0,
-    "diff": 0.01,
-    "en": "Community Q&A and seller support",
-    "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1"
-  },
-  {
-    "vn": "Hỗ trợ khởi đầu bán hàng Amazon",
-    "seller": 0.0,
-    "prospect": 0.0,
-    "diff": 0.0,
-    "en": "Amazon selling — getting started support",
-    "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1"
   }
 ];
   const MONTHS              = [
@@ -1971,17 +1887,17 @@ window.ChiComData = (() => {
   {
     "vn": "Vấn đề xác minh, khoá, rủi ro tài khoản Amazon",
     "en": "Amazon account verification, suspension & risks",
-    "count": 2629
+    "count": 2696
   },
   {
     "vn": "Khó khăn và thách thức khi bán hàng trên Amazon",
     "en": "Pain points & challenges selling on Amazon",
-    "count": 1333
+    "count": 1332
   },
   {
     "vn": "Bán hàng và vận hành kinh doanh trên Amazon",
     "en": "Amazon selling & operations",
-    "count": 837
+    "count": 838
   },
   {
     "vn": "Dịch vụ hỗ trợ và xử lý tài khoản Amazon",
@@ -1991,7 +1907,7 @@ window.ChiComData = (() => {
   {
     "vn": "Thuế và Chi phí Kinh doanh trên Amazon cho Seller Việt Nam",
     "en": "Tax & costs for Vietnamese Amazon sellers",
-    "count": 742
+    "count": 751
   },
   {
     "vn": "Kinh doanh xuất nhập khẩu và bán hàng quốc tế",
@@ -2003,7 +1919,7 @@ window.ChiComData = (() => {
   {
     "vn": "Vấn đề xác minh, khoá, rủi ro tài khoản Amazon",
     "en": "Amazon account verification, suspension & risks",
-    "count": 508
+    "count": 530
   },
   {
     "vn": "Dịch vụ hỗ trợ và xử lý tài khoản Amazon",
@@ -2016,41 +1932,41 @@ window.ChiComData = (() => {
     "count": 105
   },
   {
+    "vn": "Chia sẻ, học hỏi và hợp tác kinh nghiệm bán hàng Amazon",
+    "en": "Sharing, learning & peer collaboration on Amazon",
+    "count": 76
+  },
+  {
     "vn": "Kinh doanh xuất nhập khẩu và bán hàng quốc tế",
     "en": "Import-export & international selling",
     "count": 66
   },
   {
-    "vn": "Chia sẻ, học hỏi và hợp tác kinh nghiệm bán hàng Amazon",
-    "en": "Sharing, learning & peer collaboration on Amazon",
-    "count": 58
-  },
-  {
-    "vn": "Cảnh báo rủi ro và lừa đảo khi kinh doanh Amazon",
-    "en": "Scam & risk warnings for Amazon sellers",
-    "count": 41
+    "vn": "Bán hàng và vận hành kinh doanh trên Amazon",
+    "en": "Amazon selling & operations",
+    "count": 30
   }
 ];
   const Q5_TOP_NEG_EC       = [
   {
     "vn": "Vấn đề xác minh, khoá, rủi ro tài khoản Amazon",
     "en": "Amazon account verification, suspension & risks",
-    "count": 2121
+    "count": 2166
   },
   {
     "vn": "Khó khăn và thách thức khi bán hàng trên Amazon",
     "en": "Pain points & challenges selling on Amazon",
-    "count": 1228
+    "count": 1227
   },
   {
     "vn": "Bán hàng và vận hành kinh doanh trên Amazon",
     "en": "Amazon selling & operations",
-    "count": 807
+    "count": 808
   },
   {
     "vn": "Thuế và Chi phí Kinh doanh trên Amazon cho Seller Việt Nam",
     "en": "Tax & costs for Vietnamese Amazon sellers",
-    "count": 722
+    "count": 731
   },
   {
     "vn": "Dịch vụ hỗ trợ và xử lý tài khoản Amazon",
@@ -2066,17 +1982,17 @@ window.ChiComData = (() => {
   const Q5_EARLY_DIST       = [
   {
     "vn": "Vấn đề xác minh, khoá, rủi ro tài khoản Amazon",
-    "count": 2629,
-    "slot": 816
+    "count": 2696,
+    "slot": 827
   },
   {
     "vn": "Khó khăn và thách thức khi bán hàng trên Amazon",
-    "count": 1333,
+    "count": 1332,
     "slot": 429
   },
   {
     "vn": "Bán hàng và vận hành kinh doanh trên Amazon",
-    "count": 837,
+    "count": 838,
     "slot": 242
   },
   {
@@ -2086,8 +2002,8 @@ window.ChiComData = (() => {
   },
   {
     "vn": "Thuế và Chi phí Kinh doanh trên Amazon cho Seller Việt Nam",
-    "count": 742,
-    "slot": 205
+    "count": 751,
+    "slot": 206
   },
   {
     "vn": "Kinh doanh xuất nhập khẩu và bán hàng quốc tế",
@@ -2147,7 +2063,7 @@ window.ChiComData = (() => {
   "soaGroups": 2,
   "ecGroups": 7,
   "masterTopics": 9,
-  "subTopics": 24
+  "subTopics": 18
 };
   const OVERVIEW            = {
   "communities": [
