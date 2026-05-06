@@ -328,6 +328,21 @@ def compute_all(df: pd.DataFrame):
         persona_counts.append({**p, 'count': cnt, 'pct': round(cnt / total_rel * 100, 1)})
     persona_counts.sort(key=lambda x: -x['count'])
 
+    # Persona × Group breakdown for the topline highlight chart
+    persona_by_group = []
+    for gid, info in GROUP_INFO.items():
+        grp = rel[rel['group_id'] == gid] if 'group_id' in rel.columns else rel.iloc[0:0]
+        counts = {p['id']: int((grp['persona_id'] == p['id']).sum()) for p in PERSONAS}
+        gtotal = sum(counts.values())
+        persona_by_group.append({
+            'group_id': gid,
+            'short':    info['short'],
+            'name':     info['name'],
+            'type':     info['type'],
+            'total':    gtotal,
+            'personas': counts,
+        })
+
     overview = {
         'communities':      comm_counts,
         'personas':         persona_counts,
@@ -786,6 +801,8 @@ window.ChiComData = (() => {{
   const Q5_PEAK_WINDOW      = {_j(peak_window)};
   const KPI                 = {_j(kpi)};
   const OVERVIEW            = {_j(overview)};
+  const PERSONA_BY_GROUP    = {_j(persona_by_group)};
+  const MASTER_TOPIC_COUNTS = {_j(topic_totals)};
   const SOA_SCOPE           = {_j(soa_scope)};
   const INSIGHTS            = {_j(insights)};
   const DATE_RANGE          = {_j({
@@ -803,7 +820,7 @@ window.ChiComData = (() => {{
     Q6_BY_HOUR, Q6_BY_HOUR_SOA, Q6_BY_HOUR_EC,
     Q5_TOP_NEG, Q5_TOP_NEG_SOA, Q5_TOP_NEG_EC,
     Q5_EARLY_DIST, Q5_PEAK_WINDOW, KPI,
-    OVERVIEW, DATE_RANGE, SOA_SCOPE, INSIGHTS,
+    OVERVIEW, PERSONA_BY_GROUP, MASTER_TOPIC_COUNTS, DATE_RANGE, SOA_SCOPE, INSIGHTS,
   }};
 }})();
 

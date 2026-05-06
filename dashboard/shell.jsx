@@ -92,7 +92,11 @@ window.TopBar = TopBar;
 function KpiStrip() {
   const kpi = (window.ChiComData || {}).KPI || {};
   const fmt = n => n ? n.toLocaleString() : '—';
-  const negPct = kpi.relevantPosts ? ((kpi.negativeMentions / kpi.relevantPosts) * 100).toFixed(1) : '—';
+  const rel = kpi.relevantPosts || 0;
+  const posPct = rel ? (kpi.positiveMentions / rel) * 100 : 0;
+  const negPct = rel ? (kpi.negativeMentions / rel) * 100 : 0;
+  const netPct = posPct - negPct;
+  const netSign = netPct >= 0 ? '+' : '';
   return (
     <div className="kpi-strip">
       <div className="kpi">
@@ -106,14 +110,23 @@ function KpiStrip() {
         <div className="kpi-delta up mono">spam filtered out</div>
       </div>
       <div className="kpi">
-        <div className="kpi-label">Master Topics</div>
-        <div className="kpi-value mono">{kpi.masterTopics ?? '—'}</div>
-        <div className="kpi-delta mono" style={{ color: 'var(--text-3)' }}>{kpi.subTopics ?? 0} sub-topics</div>
+        <div className="kpi-label">Net Sentiment</div>
+        <div className="kpi-value mono" style={{ color: netPct >= 0 ? 'oklch(0.55 0.16 155)' : 'oklch(0.58 0.18 25)' }}>
+          {netSign}{netPct.toFixed(1)}%
+        </div>
+        <div className="kpi-delta mono" style={{ color: 'var(--text-3)' }}>
+          +{posPct.toFixed(1)}% pos · −{negPct.toFixed(1)}% neg
+        </div>
       </div>
       <div className="kpi">
         <div className="kpi-label">SOA Positive</div>
         <div className="kpi-value mono">{kpi.soaPositivePct != null ? `${kpi.soaPositivePct}%` : '—'}</div>
         <div className="kpi-delta up mono">vs EC {kpi.ecPositivePct != null ? `${kpi.ecPositivePct}%` : '—'}</div>
+      </div>
+      <div className="kpi">
+        <div className="kpi-label">Master Topics</div>
+        <div className="kpi-value mono">{kpi.masterTopics ?? '—'}</div>
+        <div className="kpi-delta mono" style={{ color: 'var(--text-3)' }}>{kpi.subTopics ?? 0} sub-topics</div>
       </div>
       <div className="kpi">
         <div className="kpi-label">Active Groups</div>
@@ -126,6 +139,235 @@ function KpiStrip() {
   );
 }
 window.KpiStrip = KpiStrip;
+
+// HighlightsBar — pulled from existing Q data: persona × group stacked
+// chart (with group/usergroup filter), top-3 product categories (Q10),
+// and the most-replied thread (Q9, Vietnamese verbatim).
+function HighlightsBar() {
+  const D1 = window.ChiComData || {};
+  const D2 = window.ChiComData2 || {};
+  const groups = D1.PERSONA_BY_GROUP || [];
+  const personas = D1.PERSONAS || [];
+  const q10 = D2.Q10_TOP || [];
+  const threads = D2.Q9_TOP_THREADS || [];
+  const tt = window.useTooltip();
+
+  const [scope, setScope] = useState('all');   // 'all' | 'SOA' | 'EC' | group_id (number)
+  const [mode, setMode]   = useState('count'); // 'count' | 'pct'
+
+  // Persona color palette (aligned with overview)
+  const PCOL = {
+    p_seller_az:   'oklch(0.62 0.15 25)',
+    p_prospect_az: 'oklch(0.55 0.17 260)',
+    p_svc_az:      'oklch(0.62 0.15 290)',
+    p_svc_cbec:    'oklch(0.55 0.17 290)',
+    p_seller_ot:   'oklch(0.68 0.17 60)',
+    p_prospect_ot: 'oklch(0.62 0.15 155)',
+  };
+
+  // Filter groups based on scope
+  const visibleGroups = groups.filter(g => {
+    if (scope === 'all')          return true;
+    if (scope === 'SOA')          return g.type === 'SOA';
+    if (scope === 'EC')           return g.type === 'EC';
+    return g.group_id === scope;
+  });
+
+  // Compute max for axis scaling
+  const maxTotal = Math.max(1, ...visibleGroups.map(g => g.total));
+
+  // Render a single stacked bar (vertical) for one group
+  const renderBar = (g, w) => {
+    const total = g.total || 0;
+    const pieces = personas.map(p => ({
+      id: p.id, vn: p.vn, count: g.personas[p.id] || 0,
+      pct: total ? (g.personas[p.id] || 0) / total : 0,
+      color: PCOL[p.id] || 'var(--text-3)',
+    })).filter(x => x.count > 0);
+
+    const barH = 220;
+    const fillH = mode === 'pct' ? barH : barH * (total / maxTotal);
+    let cum = 0;
+    return (
+      <div key={g.group_id} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, minWidth: 92 }}>
+        <svg width={w} height={barH + 4} style={{ overflow: 'visible' }}>
+          {pieces.map(seg => {
+            const segH = mode === 'pct' ? barH * seg.pct : fillH * seg.pct;
+            const y = barH - fillH + cum;
+            cum += segH;
+            return (
+              <g key={seg.id}>
+                <rect x={0} y={y} width={w} height={segH} fill={seg.color}
+                  onMouseEnter={(e) => tt.show(e, `<b>${seg.vn}</b><br/>${seg.count.toLocaleString()} mentions · ${(seg.pct * 100).toFixed(1)}%`)}
+                  onMouseMove={tt.move} onMouseLeave={tt.hide}
+                />
+                {segH > 16 && (
+                  <text x={w / 2} y={y + segH / 2 + 4} textAnchor="middle"
+                    fontSize="10" fill="white" fontWeight="600" pointerEvents="none">
+                    {mode === 'pct' ? `${(seg.pct * 100).toFixed(1)}%` : seg.count.toLocaleString()}
+                  </text>
+                )}
+              </g>
+            );
+          })}
+        </svg>
+        <div style={{ fontSize: 11, color: 'var(--text-2)', textAlign: 'center', maxWidth: w + 12, lineHeight: 1.2 }}>
+          {g.short}
+          <div className="mono" style={{ fontSize: 10, color: 'var(--text-3)' }}>{g.total.toLocaleString()}</div>
+        </div>
+      </div>
+    );
+  };
+
+  // ── Top-3 products from Q10 (already keyword-matched) ──
+  const totalRel = (D1.KPI && D1.KPI.relevantPosts) || 1;
+  const top3 = (q10 || []).slice(0, 3).map(p => ({
+    name: p.name,
+    count: p.count || 0,
+    pct: ((p.count || 0) / totalRel * 100).toFixed(1),
+  }));
+
+  // ── Top thread from Q9 (most-replied) ──
+  const top = threads[0];
+  const verbatim = top ? (top.preview || top.title || '') : '';
+
+  // ── Top-3 hot master topics (by raw mention count) ──
+  const masterTopics = D1.MASTER_TOPICS || [];
+  const topicCounts  = D1.MASTER_TOPIC_COUNTS || {};
+  const TC = window.TOPIC_COLORS || [];
+  const hotTopics = masterTopics
+    .map((mt, i) => ({
+      id: mt.id,
+      name: mt.en || mt.id,
+      vn:   mt.vn || '',
+      count: topicCounts[mt.id] || 0,
+      pct: (((topicCounts[mt.id] || 0) / totalRel) * 100).toFixed(1),
+      color: TC[i] || 'var(--accent)',
+    }))
+    .sort((a, b) => b.count - a.count)
+    .slice(0, 3);
+
+  return (
+    <div className="highlights-bar" style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 12, marginBottom: 24 }}>
+      {/* Persona × Group card (full row) */}
+      <div className="card">
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 8, marginBottom: 8 }}>
+          <div className="card-title" style={{ margin: 0 }}>Persona distribution by group</div>
+          <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+            <select value={String(scope)} onChange={e => {
+              const v = e.target.value;
+              setScope(v === 'all' || v === 'SOA' || v === 'EC' ? v : Number(v));
+            }} style={{
+              fontSize: 11, padding: '4px 8px', border: '1px solid var(--border)',
+              borderRadius: 6, background: 'var(--panel)', color: 'var(--text)',
+            }}>
+              <option value="all">All groups (9)</option>
+              <option value="SOA">SOA only (2)</option>
+              <option value="EC">EC only (7)</option>
+              <option disabled>──────</option>
+              {groups.map(g => (
+                <option key={g.group_id} value={g.group_id}>{g.short} ({g.type})</option>
+              ))}
+            </select>
+            <div className="seg" style={{ fontSize: 11 }}>
+              <button className={mode === 'count' ? 'on' : ''} onClick={() => setMode('count')} style={{ padding: '3px 8px' }}>Count</button>
+              <button className={mode === 'pct' ? 'on' : ''} onClick={() => setMode('pct')} style={{ padding: '3px 8px' }}>100%</button>
+            </div>
+          </div>
+        </div>
+
+        {/* Legend */}
+        <div className="legend-inline" style={{ marginBottom: 8 }}>
+          {personas.map(p => (
+            <span key={p.id}><span className="dot" style={{ background: PCOL[p.id] }}></span>{p.vn}</span>
+          ))}
+        </div>
+
+        {/* Bars */}
+        <div style={{ display: 'flex', gap: 12, alignItems: 'flex-end', overflowX: 'auto', paddingBottom: 4 }}>
+          {visibleGroups.length === 0 && (
+            <div style={{ color: 'var(--text-3)', fontSize: 12, padding: '40px 0' }}>No groups in this scope.</div>
+          )}
+          {visibleGroups.map(g => renderBar(g, Math.max(40, Math.min(72, 600 / Math.max(1, visibleGroups.length)))))}
+        </div>
+        {tt.node}
+      </div>
+
+      {/* Row 2: three small cards side-by-side */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1.4fr', gap: 12 }}>
+        {/* Top-3 hot topics (master topics by mention count) */}
+        <div className="card">
+          <div className="card-title">Top 3 hot topics</div>
+          <div className="card-sub" style={{ fontSize: 11, color: 'var(--text-3)', marginBottom: 8 }}>
+            Master topics ranked by mention volume
+          </div>
+          {hotTopics.map((t, i) => (
+            <div key={t.id} style={{ marginBottom: i === hotTopics.length - 1 ? 0 : 10 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12, marginBottom: 3 }}>
+                <span style={{ color: 'var(--text-2)' }} title={t.vn}>{i + 1}. {t.name}</span>
+                <span className="mono" style={{ color: 'var(--text-2)' }}>{t.pct}%</span>
+              </div>
+              <div style={{ height: 6, background: 'var(--panel-2)', borderRadius: 3, overflow: 'hidden' }}>
+                <div style={{
+                  width: `${Math.min(100, t.pct * 2)}%`, height: '100%',
+                  background: t.color, borderRadius: 3,
+                }}></div>
+              </div>
+              <div className="mono" style={{ fontSize: 10, color: 'var(--text-3)', marginTop: 2 }}>{t.count.toLocaleString()} mentions</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Top-3 products */}
+        <div className="card">
+          <div className="card-title">Top product discussion</div>
+          <div className="card-sub" style={{ fontSize: 11, color: 'var(--text-3)', marginBottom: 8 }}>
+            Top 3 keyword-matched categories · % of analyzed mentions
+          </div>
+          {top3.map((p, i) => (
+            <div key={p.name} style={{ marginBottom: i === top3.length - 1 ? 0 : 10 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12, marginBottom: 3 }}>
+                <span style={{ color: 'var(--text-2)' }}>{i + 1}. {p.name}</span>
+                <span className="mono" style={{ color: 'var(--text-2)' }}>{p.pct}%</span>
+              </div>
+              <div style={{ height: 6, background: 'var(--panel-2)', borderRadius: 3, overflow: 'hidden' }}>
+                <div style={{
+                  width: `${Math.min(100, p.pct * 4)}%`, height: '100%',
+                  background: 'var(--accent)', borderRadius: 3,
+                }}></div>
+              </div>
+              <div className="mono" style={{ fontSize: 10, color: 'var(--text-3)', marginTop: 2 }}>{p.count.toLocaleString()} mentions</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Top most-replied thread (Vietnamese verbatim) */}
+        <div className="card">
+          <div className="card-title">Most-replied thread</div>
+          <div className="card-sub" style={{ fontSize: 11, color: 'var(--text-3)', marginBottom: 8 }}>
+            From Q9 · verbatim (Vietnamese, untranslated)
+          </div>
+          {top ? (
+            <div>
+              <div style={{ fontSize: 13, lineHeight: 1.45, color: 'var(--text)', fontStyle: 'italic',
+                            padding: '8px 10px', background: 'var(--panel-2)', borderLeft: '3px solid var(--accent)',
+                            borderRadius: '0 4px 4px 0', marginBottom: 8 }}>
+                "{verbatim}"
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, color: 'var(--text-3)' }}>
+                <span>{top.group_name || '—'} · {top.persona || '—'}</span>
+                <span className="mono"><b style={{ color: 'var(--text-2)' }}>{(top.comments ?? Math.max(0, (top.count || 1) - 1)).toLocaleString()}</b> replies</span>
+              </div>
+            </div>
+          ) : (
+            <div style={{ color: 'var(--text-3)', fontSize: 12 }}>No thread data.</div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+window.HighlightsBar = HighlightsBar;
 
 // FilterRail removed — the segmented controls didn't actually filter any charts.
 // Keep a stub so app.jsx's reference doesn't crash if cached.
