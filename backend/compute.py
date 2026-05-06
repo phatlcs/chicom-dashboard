@@ -409,12 +409,31 @@ def compute_all(df: pd.DataFrame):
                       'sellerPct': spct, 'prospectPct': ppct, 'diff': round(spct - ppct, 1)})
 
     q3_subs = extract_q3_subs(rel) if 'content' in rel.columns and 'persona' in rel.columns else []
-    for entry in q3_subs:
-        entry['en'] = translate_subtopic(entry.get('vn', ''))
+    # Attach English translation + parent master-topic color to each Q3 sub-topic
+    if q3_subs and 'sub_topic' in rel.columns and 'mt_id' in rel.columns:
+        for entry in q3_subs:
+            vn_label = entry.get('vn', '')
+            entry['en'] = translate_subtopic(vn_label)
+            # Find the dominant mt_id for this sub-topic
+            mask = rel['sub_topic'].astype(str).str.strip() == vn_label
+            mt_freq = rel.loc[mask, 'mt_id'].dropna().value_counts()
+            if len(mt_freq):
+                mt_id = mt_freq.index[0]
+                mt_idx = next((i for i, m in enumerate(MASTER_TOPICS) if m['id'] == mt_id), None)
+                entry['color'] = TC[mt_idx] if mt_idx is not None else TC[0]
+                entry['parent_topic'] = mt_id
+            else:
+                entry['color'] = TC[0]
+                entry['parent_topic'] = None
+    else:
+        # Fallback when no classification columns: just translate
+        for entry in q3_subs:
+            entry['en'] = translate_subtopic(entry.get('vn', ''))
+            entry['color'] = TC[0]  # default color when parent unknown
 
     # ── Sub-topic overall weights (for Q1 second bar list) ──────────────────
-    # % of all relevant mentions per sub_topic. Uses the normalized sub_topic
-    # column when populated; returns [] otherwise.
+    # % of all relevant mentions per sub_topic. Color is inherited from the
+    # parent master topic (most-frequent mt_id among rows with this sub-topic).
     q1_subtopics = []
     if 'sub_topic' in rel.columns:
         sub_col = rel['sub_topic'].dropna().astype(str).str.strip()
@@ -422,14 +441,26 @@ def compute_all(df: pd.DataFrame):
         if len(sub_col):
             counts = sub_col.value_counts()
             total  = int(counts.sum())
-            # TC palette cycled across sub-topics
-            for i, (label, cnt) in enumerate(counts.items()):
+            # Build a map: sub_topic → most-common mt_id (to inherit color)
+            sub_to_mt = {}
+            if 'mt_id' in rel.columns:
+                for label in counts.index:
+                    mask = rel['sub_topic'].astype(str).str.strip() == label
+                    mt_freq = rel.loc[mask, 'mt_id'].dropna().value_counts()
+                    if len(mt_freq):
+                        sub_to_mt[label] = mt_freq.index[0]
+            # Build sub-topic list with parent master-topic color
+            for label, cnt in counts.items():
+                mt_id = sub_to_mt.get(label)
+                mt_idx = next((i for i, m in enumerate(MASTER_TOPICS) if m['id'] == mt_id), None)
+                color = TC[mt_idx] if mt_idx is not None else TC[0]
                 q1_subtopics.append({
                     'vn':     str(label),
                     'en':     translate_subtopic(str(label)),
                     'count':  int(cnt),
                     'weight': round(int(cnt) / max(1, total) * 100, 1),
-                    'color':  TC[i % len(TC)],
+                    'color':  color,
+                    'parent_topic': mt_id,  # expose parent ID for debugging
                 })
 
     # ── Q4 trends ───────────────────────────────────────────────────────────

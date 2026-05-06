@@ -10,9 +10,11 @@ function Q3() {
   const sellerColor = 'oklch(0.62 0.16 25)';
   const prospectColor = 'oklch(0.55 0.17 260)';
 
-  // Sub-topic difference
+  // Sub-topic difference — each bar uses its parent master-topic color
   const subs = [...D.Q3_SUBS].sort((a, b) => b.diff - a.diff);
   const absMax = Math.max(...subs.map(s => Math.abs(s.diff))) + 1;
+  // Fallback color for any sub-topic missing .color
+  const defaultColor = 'oklch(0.62 0.15 260)';
 
   return (
     <div className="grid-12">
@@ -71,10 +73,7 @@ function Q3() {
           <div className="card-head">
             <div>
               <div className="card-title">Sub-topic difference</div>
-            </div>
-            <div className="legend-inline">
-              <span><span className="dot" style={{ background: prospectColor }}></span>Prospect (left −)</span>
-              <span><span className="dot" style={{ background: sellerColor }}></span>Seller (right +)</span>
+              <div className="card-sub">Bars colored by parent master topic</div>
             </div>
           </div>
           <div style={{
@@ -98,7 +97,7 @@ function Q3() {
                   <text x={315} y={y + 14} textAnchor={s.diff >= 0 ? 'end' : 'start'} className="axis-tick" style={{ fontSize: 10 }}>
                     {(s.en || s.vn).length > 34 ? (s.en || s.vn).slice(0, 32) + '…' : (s.en || s.vn)}
                   </text>
-                  <rect x={x} y={y + 5} width={barW} height={12} fill={s.diff >= 0 ? sellerColor : prospectColor} rx={2} />
+                  <rect x={x} y={y + 5} width={barW} height={12} fill={s.color || defaultColor} rx={2} />
                   <text x={s.diff >= 0 ? x + barW + 4 : x - 4} y={y + 14}
                     textAnchor={s.diff >= 0 ? 'start' : 'end'}
                     className="mono" style={{ fontSize: 10, fill: 'var(--text-3)' }}>
