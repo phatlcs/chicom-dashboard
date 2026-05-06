@@ -2,6 +2,126 @@
 import re
 import pandas as pd
 
+# ── Vietnamese label → English display label ────────────────────────────────
+# Keys of every keyword dict in this file (Q7/Q8/Q9/Q10/Q11/Q12/Q13/Q14
+# + Q3 sub-topics + Q11 issues/satisfaction) mapped to the English name the
+# dashboard should show. Extractors emit both `vn` (original VN key, used as
+# the regex-lookup key by insights.py) and `en` (display label).
+LABEL_EN = {
+    # Q7 triggers
+    'Kinh nghiệm & chiến lược':          'Experience & strategy',
+    'Sự kiện, đào tạo & kết nối':        'Events, training & networking',
+    'Hợp tác, hỗ trợ & vận hành':        'Collaboration, support & operations',
+    'Chia sẻ, học hỏi & trợ giúp':       'Sharing, learning & help',
+    'Bán hàng & vận hành':               'Selling & operations',
+    'Passive income & cơ hội':           'Passive income & opportunities',
+    # Q7 benefits
+    'Cơ hội thị trường':                 'Market opportunities',
+    'Hỗ trợ & đào tạo':                  'Support & training',
+    'Thành công & thu nhập':             'Success & income',
+    'Dễ bắt đầu':                        'Easy to start',
+    'Passive income':                    'Passive income',
+    # Q8 churn triggers
+    'Tài khoản bị khóa':                 'Account locked',
+    'Thua lỗ / chi phí cao':             'Losses / high costs',
+    'Chính sách phức tạp':               'Complex policy',
+    'Kiệt sức / mất động lực':           'Burnout / lost motivation',
+    'Cạnh tranh khốc liệt':              'Fierce competition',
+    'Lừa đảo / rủi ro':                  'Scam / risk',
+    'Thiếu kinh nghiệm / kỹ năng':       'Lack of experience / skills',
+    # Q9 entry barriers
+    'Vốn ban đầu':                       'Initial capital',
+    'Xác minh tài khoản':                'Account verification',
+    'Thiếu kiến thức':                   'Knowledge gap',
+    'Tiếng Anh / giao tiếp':             'English / communication',
+    'Vận chuyển quốc tế':                'International shipping',
+    'Thuế & pháp lý':                    'Tax & legal',
+    'Chọn sản phẩm':                     'Product selection',
+    'Thanh toán quốc tế':                'International payments',
+    # Q10 product categories
+    'Làm đẹp & Sức khỏe':                'Beauty & Health',
+    'Thời trang':                        'Fashion',
+    'Gia dụng & Bếp':                    'Home & Kitchen',
+    'Điện tử & Gadget':                  'Electronics & Gadgets',
+    'Đồ chơi & Trẻ em':                  'Toys & Kids',
+    'Thể thao & Ngoài trời':             'Sports & Outdoor',
+    'Thực phẩm':                         'Food & Grocery',
+    'Thú cưng':                          'Pets',
+    'Nội thất':                          'Furniture',
+    'Vali & Túi xách':                   'Luggage & Bags',
+    # Q11 tools (mostly already English)
+    'Quản lý tồn kho':                   'Inventory management',
+    # Q11 issues
+    'Lỗi hệ thống / Bug':                'System error / bug',
+    'Hỗ trợ chậm / kém':                 'Slow / poor support',
+    'Phí & chi phí cao':                 'High fees & costs',
+    'Khó dùng / phức tạp':               'Hard to use / complex',
+    'Thiếu tính năng':                   'Missing features',
+    'Dữ liệu sai / không chính xác':     'Incorrect / inaccurate data',
+    'Tài khoản bị khóa / suspend':       'Account locked / suspended',
+    'Cập nhật chậm / outdated':          'Slow updates / outdated',
+    # Q11 satisfaction drivers
+    'Dễ dùng / trực quan':               'Easy to use / intuitive',
+    'Tiết kiệm thời gian':               'Time saving',
+    'Hỗ trợ tận tình':                   'Responsive support',
+    'Dữ liệu chính xác':                 'Accurate data',
+    'Nhiều tính năng / đầy đủ':          'Feature-rich / comprehensive',
+    'Giá hợp lý / đáng tiền':            'Reasonable price / value for money',
+    'Hiệu quả rõ rệt':                   'Clear effectiveness',
+    'Cộng đồng & tài liệu tốt':          'Good community & docs',
+    # Q12 3rd-party services
+    'Kế toán / Thuế':                    'Accounting / Tax',
+    'Pháp lý / Nhãn hiệu':               'Legal / Trademark',
+    'Tối ưu Listing':                    'Listing Optimization',
+    'Nguồn hàng / Sourcing':             'Sourcing',
+    'Phần mềm / Tool':                   'Software / Tools',
+    'Vận chuyển / Forwarder':            'Shipping / Forwarder',
+    'Chụp ảnh sản phẩm':                 'Product Photography',
+    'Trợ lý ảo / VA':                    'Virtual Assistant / VA',
+    # Q13 courses
+    'Đào tạo tổng quát':                 'General training',
+    'Khóa tối ưu Listing':               'Listing optimization course',
+    'Khóa Amazon FBA':                   'Amazon FBA course',
+    # Q14 growth topics
+    'Scale vận hành':                    'Operational scaling',
+    'Marketing & Quảng cáo':             'Marketing & Advertising',
+    'Tự động hóa & Tool':                'Automation & Tools',
+    'Tăng doanh thu':                    'Revenue growth',
+    'Xây dựng Team':                     'Team building',
+    'Mở rộng thị trường':                'Market expansion',
+    # Q3 sub-topics (keyword fallback)
+    'Cảnh báo rủi ro & lừa đảo khi kinh doanh Amazon': 'Risk & scam warnings for Amazon sellers',
+    'Kinh nghiệm & chiến lược bán hàng trên Amazon':    'Amazon selling strategy & experience',
+    'Dịch vụ & giải pháp pháp lý, thương hiệu':         'Legal & trademark services',
+    'Thuế và chi phí kinh doanh trên Amazon':           'Tax & Amazon business costs',
+    'Khó khăn & thách thức khi bán hàng Amazon':        'Challenges selling on Amazon',
+    'Dịch vụ hỗ trợ & tối ưu tài khoản':                'Account support & optimization',
+    'Hợp tác, hỗ trợ & vận hành bán hàng':              'Partnership, support & selling ops',
+    'Vấn đề xác minh, khoá, rủi ro tài khoản':           'Account verification, suspension & risks',
+    'Sự kiện, đào tạo và kết nối cộng đồng':            'Events, training & community',
+    'Kinh doanh xuất nhập khẩu & quốc tế':              'Import-export & international',
+    'Dịch vụ vận chuyển và fulfillment':                'Shipping & fulfillment',
+    'Chia sẻ, học hỏi và hợp tác kinh nghiệm':          'Sharing, learning & collaboration',
+    'Hướng dẫn & hỗ trợ người mới bắt đầu':             'Beginner guides & support',
+    'Kinh doanh Amazon FBA và FBM':                     'Amazon FBA & FBM',
+    'Vấn đề & thủ tục thanh toán, mở OTP':              'Payment setup & OTP issues',
+    'Bán hàng và vận hành Amazon':                      'Amazon selling & operations',
+    'Thanh toán Amazon qua Payoneer':                   'Amazon payouts via Payoneer',
+    'Vấn đề thanh toán quốc tế':                        'International payment issues',
+    'Ưu đãi Helium 10, tool seller Amazon':             'Helium 10 deals & tools',
+    # Mentor / Coaching stays in English (commonly used in the community)
+    'Mentor / Coaching':                 'Mentor / Coaching',
+}
+
+
+def translate_label(label):
+    """Return English display label for a known VN keyword-map key.
+    Unknown labels pass through unchanged (already-English labels like
+    'FBA', 'PPC/Ads', 'Helium 10', 'Seller Central', etc.)."""
+    if not isinstance(label, str):
+        return label
+    return LABEL_EN.get(label.strip(), label)
+
 # ── Q7 — Join triggers ───────────────────────────────────────────────────────
 Q7_TRIGGER_KW = {
     'Kinh nghiệm & chiến lược': [
@@ -479,11 +599,12 @@ def _extract_from_column(series: pd.Series) -> list:
     if vals.empty:
         return []
     counts = vals.value_counts()
-    return [{'vn': str(k), 'name': str(k), 'count': int(v)} for k, v in counts.items()]
+    return [{'vn': str(k), 'name': str(k), 'en': translate_label(str(k)),
+             'count': int(v)} for k, v in counts.items()]
 
 
 def _extract(content_series: pd.Series, keyword_map: dict) -> list:
-    """Return list of {vn/name, count} dicts from keyword matching on content.
+    """Return list of {vn/name/en, count} dicts from keyword matching on content.
     Uses word boundaries for short tokens to avoid false substring matches
     (e.g. 'cat' inside 'category').
     """
@@ -500,7 +621,8 @@ def _extract(content_series: pd.Series, keyword_map: dict) -> list:
                 parts.append(esc)
         pattern = '|'.join(parts)
         count = int(text.str.contains(pattern, regex=True, na=False).sum())
-        results.append({'vn': label, 'name': label, 'count': count})
+        results.append({'vn': label, 'name': label, 'en': translate_label(label),
+                        'count': count})
     results.sort(key=lambda x: -x['count'])
     return results
 
@@ -684,7 +806,7 @@ def extract_q11(df: pd.DataFrame):
             if cnt == 0:
                 continue
             results.append({
-                'name': brand, 'vn': brand,
+                'name': brand, 'vn': brand, 'en': translate_label(brand),
                 'count': cnt, 'use': cnt,
                 'satisfied': int((sent['pos'] & mask).sum()),
                 'issues':    int((sent['neg'] & mask).sum()),
@@ -696,7 +818,7 @@ def extract_q11(df: pd.DataFrame):
             if cnt == 0:
                 continue
             results.append({
-                'name': tool_name, 'vn': tool_name,
+                'name': tool_name, 'vn': tool_name, 'en': translate_label(tool_name),
                 'count': cnt, 'use': cnt,
                 'satisfied': int((sent['pos'] & mask).sum()),
                 'issues':    int((sent['neg'] & mask).sum()),
@@ -726,7 +848,8 @@ def extract_q12(df: pd.DataFrame):
         sat_base = pos_cnt + neg_cnt
         satisfaction = int(round(pos_cnt / sat_base * 100)) if sat_base > 0 else 0
         results.append({
-            'name': svc_name, 'vn': svc_name, 'count': cnt,
+            'name': svc_name, 'vn': svc_name, 'en': translate_label(svc_name),
+            'count': cnt,
             'mentions':     cnt,
             'need':         need_cnt,
             'satisfaction': satisfaction,
@@ -753,7 +876,9 @@ def extract_q13(df: pd.DataFrame):
         pos_cnt = int((sent['pos'] & mask).sum())
         neg_cnt = int((sent['neg'] & mask).sum())
         results.append({
-            'name':     course_name, 'vn': course_name, 'count': cnt,
+            'name':     course_name, 'vn': course_name,
+            'en':       translate_label(course_name),
+            'count': cnt,
             'mentions': cnt,
             'seeking':  seeking,
             'interest': int(round(seeking / max(1, cnt) * 100)),
@@ -792,6 +917,7 @@ def extract_q3_subs(df: pd.DataFrame) -> list:
             ppct = round(p_cnt / total_prospects * 100, 2)
             results.append({
                 'vn': label,
+                'en': translate_label(label),
                 'seller':   spct,
                 'prospect': ppct,
                 'diff':     round(spct - ppct, 2),
@@ -818,6 +944,7 @@ def extract_q3_subs(df: pd.DataFrame) -> list:
         ppct = round(p_cnt / total_prospects * 100, 2)
         results.append({
             'vn': label,
+            'en': translate_label(label),
             'seller':   spct,
             'prospect': ppct,
             'diff':     round(spct - ppct, 2),
@@ -854,6 +981,8 @@ def extract_q14(df: pd.DataFrame):
             continue
         result.append({
             'name':     topic_name,
+            'vn':       topic_name,
+            'en':       translate_label(topic_name),
             'count':    cnt,
             'color':    COLORS[i % len(COLORS)],
             'seeking':  int((seek_mask & mask).sum()),

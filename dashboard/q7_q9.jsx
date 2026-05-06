@@ -50,7 +50,7 @@ function Q7BarCard({ items, title, badge, chartId, tt }) {
       <div className="card-head">
         <div className="card-title">{title} {badge}</div>
       </div>
-      <HBars items={items.map(t => ({ ...t, color: Q7_GREEN }))} labelKey="vn" valueKey="count" tooltip={tt} />
+      <HBars items={items.map(t => ({ ...t, color: Q7_GREEN }))} labelKey="en" valueKey="count" tooltip={tt} />
       {chartId && <window.CardComments chartId={chartId} />}
     </div>
   );
@@ -95,23 +95,24 @@ function Q7SentimentCard({ sentiment, title, badge, chartId, tt }) {
 function Q7() {
   const tt = window.useTooltip();
   const { Q7_TOPICS, Q7_BENEFITS, Q7_SENTIMENT } = D2;
-  const hasSplit = D2.Q7_TOPICS_SOA && D2.Q7_TOPICS_EC
-                && D2.Q7_BENEFITS_SOA && D2.Q7_BENEFITS_EC
-                && D2.Q7_SENTIMENT_SOA && D2.Q7_SENTIMENT_EC;
+  // Primary view: sub-topic breakdown of positive-sentiment posts per
+  // segment (matches the remixed analyst report). Falls back to the
+  // keyword-matched Q7_TOPICS charts if the pipeline hasn't been rebuilt
+  // with the new Q7_POS_SUBS_* fields yet.
+  const hasSubSplit = D2.Q7_POS_SUBS_SOA && D2.Q7_POS_SUBS_EC;
 
   const soaBadge = <span className="badge soa">SOA</span>;
   const ecBadge  = <span className="badge ec">EC</span>;
 
+  const soaTop = (D2.Q7_POS_SUBS_SOA || [])[0] || { en: '—', vn: '—', count: 0 };
+  const ecTop  = (D2.Q7_POS_SUBS_EC  || [])[0] || { en: '—', vn: '—', count: 0 };
+
   return (
     <div className="grid-12">
-      {hasSplit ? (
+      {hasSubSplit ? (
         <>
-          <div className="col-6"><Q7BarCard items={D2.Q7_TOPICS_SOA} title="Top join triggers" badge={soaBadge} chartId="Q7_1" tt={tt} /></div>
-          <div className="col-6"><Q7BarCard items={D2.Q7_TOPICS_EC}  title="Top join triggers" badge={ecBadge}  chartId="Q7_4" tt={tt} /></div>
-          <div className="col-6"><Q7BarCard items={D2.Q7_BENEFITS_SOA} title="Top benefits mentioned" badge={soaBadge} chartId="Q7_2" tt={tt} /></div>
-          <div className="col-6"><Q7BarCard items={D2.Q7_BENEFITS_EC}  title="Top benefits mentioned" badge={ecBadge}  chartId="Q7_5" tt={tt} /></div>
-          <div className="col-6"><Q7SentimentCard sentiment={D2.Q7_SENTIMENT_SOA} title="Sentiment distribution" badge={soaBadge} chartId="Q7_3" tt={tt} /></div>
-          <div className="col-6"><Q7SentimentCard sentiment={D2.Q7_SENTIMENT_EC}  title="Sentiment distribution" badge={ecBadge}  chartId="Q7_6" tt={tt} /></div>
+          <div className="col-6"><Q7BarCard items={D2.Q7_POS_SUBS_SOA} title="Top positive sub-topics" badge={soaBadge} chartId="Q7_1" tt={tt} /></div>
+          <div className="col-6"><Q7BarCard items={D2.Q7_POS_SUBS_EC}  title="Top positive sub-topics" badge={ecBadge}  chartId="Q7_2" tt={tt} /></div>
         </>
       ) : (
         <>
@@ -123,9 +124,17 @@ function Q7() {
 
       <div style={{ gridColumn: '1 / -1' }}>
         <window.Insight qId="Q7">
-          Top join reason: <b>{Q7_TOPICS[0]?.vn || '—'}</b> ({Q7_TOPICS[0]?.count.toLocaleString() || 0} mentions) ·
-          Top benefit: <b>{Q7_BENEFITS[0]?.vn || '—'}</b> ({Q7_BENEFITS[0]?.count.toLocaleString() || 0}) ·
-          Sentiment: <b>{Q7_SENTIMENT.positive}%</b> positive / <b>{Q7_SENTIMENT.negative}%</b> negative.
+          {hasSubSplit ? (
+            <>
+              SOA top positive sub-topic: <b>{soaTop.en || soaTop.vn}</b> ({soaTop.count.toLocaleString()} mentions) ·
+              EC top positive sub-topic: <b>{ecTop.en || ecTop.vn}</b> ({ecTop.count.toLocaleString()}).
+            </>
+          ) : (
+            <>
+              Top join reason: <b>{Q7_TOPICS[0]?.en || Q7_TOPICS[0]?.vn || '—'}</b> ({Q7_TOPICS[0]?.count.toLocaleString() || 0} mentions) ·
+              Top benefit: <b>{Q7_BENEFITS[0]?.en || Q7_BENEFITS[0]?.vn || '—'}</b> ({Q7_BENEFITS[0]?.count.toLocaleString() || 0}).
+            </>
+          )}
         </window.Insight>
       </div>
       {tt.node}
@@ -163,7 +172,7 @@ function Q8() {
           <div className="card-head">
             <div className="card-title">Top reasons to leave Amazon</div>
           </div>
-          <HBars items={Q8_TRIGGERS} labelKey="vn" valueKey="count" tooltip={tt} />
+          <HBars items={Q8_TRIGGERS} labelKey="en" valueKey="count" tooltip={tt} />
         
         <window.CardComments chartId="Q8_1" />
       </div>
@@ -242,7 +251,7 @@ function Q8() {
       </div>
       <div style={{ gridColumn: '1 / -1' }}>
         <window.Insight qId="Q8">
-          Top reason to leave: <b>{Q8_TRIGGERS[0]?.vn || '—'}</b> ({Q8_TRIGGERS[0]?.count.toLocaleString() || 0} mentions) ·
+          Top reason to leave: <b>{Q8_TRIGGERS[0]?.en || Q8_TRIGGERS[0]?.vn || '—'}</b> ({Q8_TRIGGERS[0]?.count.toLocaleString() || 0} mentions) ·
           Most-leaving persona: <b>{Q8_PERSONA[0]?.label || '—'}</b> ({Q8_PERSONA[0]?.count.toLocaleString() || 0}) ·
           Peak month: <b>{months[Q8_TREND.indexOf(Math.max(...Q8_TREND))] || '—'}</b> ({Math.max(...Q8_TREND).toLocaleString()} mentions).
         </window.Insight>
@@ -371,38 +380,15 @@ function Q9ThreadList({ title, badge, items, chartId }) {
 }
 
 function Q9() {
-  const all = D2.Q9_TOP_THREADS     || [];
   const soa = D2.Q9_TOP_THREADS_SOA || [];
   const ec  = D2.Q9_TOP_THREADS_EC  || [];
-
-  const hasSplit = soa.length > 0 || ec.length > 0;
   const soaBadge = <span className="badge soa">SOA</span>;
   const ecBadge  = <span className="badge ec">EC</span>;
-  const top      = all[0];
 
   return (
     <div className="grid-12">
-      {hasSplit ? (
-        <>
-          <div className="col-6"><Q9ThreadList title="Top 10 most-discussed threads" badge={soaBadge} items={soa} chartId="Q9_SOA" /></div>
-          <div className="col-6"><Q9ThreadList title="Top 10 most-discussed threads" badge={ecBadge}  items={ec}  chartId="Q9_EC"  /></div>
-        </>
-      ) : (
-        <div className="col-12"><Q9ThreadList title="Top 10 most-discussed threads" items={all} chartId="Q9" /></div>
-      )}
-
-      <div style={{ gridColumn: '1 / -1' }}>
-        <window.Insight qId="Q9">
-          {top && <>
-            Most-discussed thread: <b>{top.preview ? top.preview.slice(0, 80) + (top.preview.length > 80 ? '…' : '') : top.id}</b>{' '}
-            ({(top.comments ?? Math.max(0, top.count - 1)).toLocaleString()} comments · {top.group_name}).
-          </>}
-          {hasSplit && <>
-            {' '}SOA leader: <b>{(soa[0]?.comments ?? Math.max(0, (soa[0]?.count || 0) - 1)).toLocaleString()}</b> comments ·
-            EC leader: <b>{(ec[0]?.comments ?? Math.max(0, (ec[0]?.count || 0) - 1)).toLocaleString()}</b> comments.
-          </>}
-        </window.Insight>
-      </div>
+      <div className="col-6"><Q9ThreadList title="Top 10 most-discussed threads" badge={soaBadge} items={soa} chartId="Q9_SOA" /></div>
+      <div className="col-6"><Q9ThreadList title="Top 10 most-discussed threads" badge={ecBadge}  items={ec}  chartId="Q9_EC"  /></div>
     </div>
   );
 }

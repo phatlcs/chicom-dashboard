@@ -40,8 +40,8 @@ function Q1() {
         {D.MASTER_TOPICS.length} Master Topics · {(D.KPI && D.KPI.subTopics) || 0} sub-topics
       </div>
       <window.Insight qId="Q1">
-        Leading master topic: <b>{q1[0].vn}</b> ({q1[0].weight}%).
-        Lowest with data: <b>{[...q1].reverse().find(m => m.weight > 0)?.vn || '—'}</b>.
+        Leading master topic: <b>{q1[0].en || q1[0].vn}</b> ({q1[0].weight}%).
+        Lowest with data: <b>{(() => { const m = [...q1].reverse().find(mt => mt.weight > 0); return m ? (m.en || m.vn) : '—'; })()}</b>.
         Top-bottom gap: {(q1[0].weight - (q1[q1.length - 1].weight || 0)).toFixed(1)} points.
       </window.Insight>
     
