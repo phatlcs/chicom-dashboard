@@ -140,22 +140,16 @@ function KpiStrip() {
 }
 window.KpiStrip = KpiStrip;
 
-// HighlightsBar — pulled from existing Q data: persona × group stacked
-// chart (with group/usergroup filter), top-3 product categories (Q10),
-// and the most-replied thread (Q9, Vietnamese verbatim).
-function HighlightsBar() {
+// PersonaByGroupChart — stacked bar (Count / 100%) of persona composition per
+// community. Lives in Q1's section now, not in the topline.
+function PersonaByGroupChart() {
   const D1 = window.ChiComData || {};
-  const D2 = window.ChiComData2 || {};
   const groups = D1.PERSONA_BY_GROUP || [];
   const personas = D1.PERSONAS || [];
-  const q10 = D2.Q10_TOP || [];
-  const threads = D2.Q9_TOP_THREADS || [];
   const tt = window.useTooltip();
 
-  const [scope, setScope] = useState('all');   // 'all' | 'SOA' | 'EC' | group_id (number)
-  const [mode, setMode]   = useState('count'); // 'count' | 'pct'
+  const [mode, setMode] = useState('count'); // 'count' | 'pct'
 
-  // Persona color palette (aligned with overview)
   const PCOL = {
     p_seller_az:   'oklch(0.62 0.15 25)',
     p_prospect_az: 'oklch(0.55 0.17 260)',
@@ -165,19 +159,35 @@ function HighlightsBar() {
     p_prospect_ot: 'oklch(0.62 0.15 155)',
   };
 
-  // Filter groups based on scope
-  const visibleGroups = groups.filter(g => {
-    if (scope === 'all')          return true;
-    if (scope === 'SOA')          return g.type === 'SOA';
-    if (scope === 'EC')           return g.type === 'EC';
-    return g.group_id === scope;
-  });
+  const visibleGroups = groups;
 
-  // Compute max for axis scaling
+  // Compute max for axis scaling (count chart uses absolute totals)
   const maxTotal = Math.max(1, ...visibleGroups.map(g => g.total));
 
-  // Render a single stacked bar (vertical) for one group
-  const renderBar = (g, w) => {
+  // Nice round ticks for the Y-axis (count or percent mode)
+  const niceTicks = (max, targetCount = 5) => {
+    if (max <= 0) return { ticks: [0], niceMax: 1 };
+    const rawStep = max / targetCount;
+    const exp = Math.pow(10, Math.floor(Math.log10(rawStep)));
+    const norm = rawStep / exp;
+    let step;
+    if (norm <= 1)        step = 1;
+    else if (norm <= 2)   step = 2;
+    else if (norm <= 2.5) step = 2.5;
+    else if (norm <= 5)   step = 5;
+    else                  step = 10;
+    step *= exp;
+    const niceMax = Math.ceil(max / step) * step;
+    const ticks = [];
+    for (let v = 0; v <= niceMax + 1e-9; v += step) ticks.push(v);
+    return { ticks, niceMax };
+  };
+  const axis = mode === 'pct'
+    ? { ticks: [0, 25, 50, 75, 100], niceMax: 100 }
+    : niceTicks(maxTotal, 5);
+
+  // Render the SVG portion of a single stacked bar (just the bar, no labels)
+  const renderBarSvg = (g, mode) => {
     const total = g.total || 0;
     const pieces = personas.map(p => ({
       id: p.id, vn: p.vn, count: g.personas[p.id] || 0,
@@ -185,25 +195,27 @@ function HighlightsBar() {
       color: PCOL[p.id] || 'var(--text-3)',
     })).filter(x => x.count > 0);
 
-    const barH = 220;
-    const fillH = mode === 'pct' ? barH : barH * (total / maxTotal);
+    const VW = 100, VH = 600;
+    const fillH = mode === 'pct' ? VH : VH * (total / axis.niceMax);
     let cum = 0;
     return (
-      <div key={g.group_id} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, minWidth: 92 }}>
-        <svg width={w} height={barH + 4} style={{ overflow: 'visible' }}>
+      <div key={g.group_id} style={{ flex: '1 1 0', minWidth: 0, height: '100%', display: 'flex', alignItems: 'flex-end' }}>
+        <svg viewBox={`0 0 ${VW} ${VH}`} preserveAspectRatio="none"
+             style={{ width: '100%', height: '100%', display: 'block' }}>
           {pieces.map(seg => {
-            const segH = mode === 'pct' ? barH * seg.pct : fillH * seg.pct;
-            const y = barH - fillH + cum;
+            const segH = mode === 'pct' ? VH * seg.pct : fillH * seg.pct;
+            const y = VH - fillH + cum;
             cum += segH;
             return (
               <g key={seg.id}>
-                <rect x={0} y={y} width={w} height={segH} fill={seg.color}
+                <rect x={0} y={y} width={VW} height={segH} fill={seg.color}
                   onMouseEnter={(e) => tt.show(e, `<b>${seg.vn}</b><br/>${seg.count.toLocaleString()} mentions · ${(seg.pct * 100).toFixed(1)}%`)}
                   onMouseMove={tt.move} onMouseLeave={tt.hide}
                 />
-                {segH > 16 && (
-                  <text x={w / 2} y={y + segH / 2 + 4} textAnchor="middle"
-                    fontSize="10" fill="white" fontWeight="600" pointerEvents="none">
+                {segH > 24 && (
+                  <text x={VW / 2} y={y + segH / 2 + 4} textAnchor="middle"
+                    fontSize="11" fill="white" fontWeight="600" pointerEvents="none"
+                    style={{ paintOrder: 'stroke' }}>
                     {mode === 'pct' ? `${(seg.pct * 100).toFixed(1)}%` : seg.count.toLocaleString()}
                   </text>
                 )}
@@ -211,27 +223,109 @@ function HighlightsBar() {
             );
           })}
         </svg>
-        <div style={{ fontSize: 11, color: 'var(--text-2)', textAlign: 'center', maxWidth: w + 12, lineHeight: 1.2 }}>
-          {g.short}
-          <div className="mono" style={{ fontSize: 10, color: 'var(--text-3)' }}>{g.total.toLocaleString()}</div>
-        </div>
       </div>
     );
   };
 
-  // ── Top-3 products from Q10 (already keyword-matched) ──
+  // Render the X-axis label for a single group (group name + total)
+  const renderBarLabel = (g) => (
+    <div key={g.group_id} style={{ flex: '1 1 0', minWidth: 0, fontSize: 11, color: 'var(--text-2)', textAlign: 'center', lineHeight: 1.2, padding: '0 4px', overflow: 'hidden' }}>
+      {g.short}
+      <div className="mono" style={{ fontSize: 10, color: 'var(--text-3)' }}>{g.total.toLocaleString()}</div>
+    </div>
+  );
+
+  return (
+    <div className="card" style={{ padding: '20px 24px', marginBottom: 16 }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 8, marginBottom: 12 }}>
+          <div className="card-title" style={{ margin: 0 }}>
+            Persona distribution by group {mode === 'pct' ? '(100% Stacked)' : '(Stacked Count)'}
+          </div>
+          <select value={mode} onChange={e => setMode(e.target.value)} style={{
+            fontSize: 11, padding: '4px 10px', border: '1px solid var(--border)',
+            borderRadius: 6, background: 'var(--panel)', color: 'var(--text)',
+          }}>
+            <option value="count">Stacked Count</option>
+            <option value="pct">100% Stacked</option>
+          </select>
+        </div>
+
+        {/* Legend */}
+        <div className="legend-inline" style={{ marginBottom: 20 }}>
+          {personas.map(p => (
+            <span key={p.id}><span className="dot" style={{ background: PCOL[p.id] }}></span>{p.vn}</span>
+          ))}
+        </div>
+
+        {/* Chart area: Y-axis column + bars/gridlines + X-axis labels below */}
+        <div style={{ display: 'flex', width: '100%', padding: '8px 0 4px' }}>
+          {/* Y-axis labels (60px wide) */}
+          <div style={{ width: 48, position: 'relative', flex: '0 0 auto', height: 600 }}>
+            {axis.ticks.map((t) => {
+              const pct = t / axis.niceMax;
+              return (
+                <div key={t} style={{
+                  position: 'absolute', right: 8, top: (1 - pct) * 600,
+                  fontSize: 10, color: 'var(--text-3)', fontFamily: 'var(--mono)',
+                  transform: 'translateY(-50%)', textAlign: 'right', whiteSpace: 'nowrap',
+                }}>
+                  {mode === 'pct' ? `${t}%` : t.toLocaleString()}
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Bars + gridline overlay */}
+          <div style={{ flex: 1, position: 'relative', minWidth: 0, height: 600 }}>
+            {/* Horizontal gridlines */}
+            {axis.ticks.map(t => {
+              const pct = t / axis.niceMax;
+              const isBase = t === 0;
+              return (
+                <div key={t} style={{
+                  position: 'absolute', left: 0, right: 0,
+                  top: (1 - pct) * 600,
+                  borderTop: isBase ? '1px solid var(--text-3)' : '1px dashed var(--border)',
+                  pointerEvents: 'none',
+                }}/>
+              );
+            })}
+            {/* Bars (positioned over the gridlines) */}
+            <div style={{ display: 'flex', gap: 10, alignItems: 'flex-end', height: '100%', position: 'relative' }}>
+              {visibleGroups.map(g => renderBarSvg(g, mode))}
+            </div>
+          </div>
+        </div>
+
+        {/* X-axis labels row, aligned under the bars (skip the 48px Y-axis gutter) */}
+        <div style={{ display: 'flex', paddingLeft: 48, paddingBottom: 8 }}>
+          <div style={{ display: 'flex', flex: 1, gap: 10, paddingTop: 6 }}>
+            {visibleGroups.map(g => renderBarLabel(g))}
+          </div>
+        </div>
+        <window.CardComments chartId="Q1_PERSONA_GROUP" />
+        {tt.node}
+    </div>
+  );
+}
+window.PersonaByGroupChart = PersonaByGroupChart;
+
+// HighlightsBar — three topline highlight cards: hot topics, products, verbatim.
+function HighlightsBar() {
+  const D1 = window.ChiComData || {};
+  const D2 = window.ChiComData2 || {};
+  const q10 = D2.Q10_TOP || [];
+  const threads = D2.Q9_TOP_THREADS || [];
+
   const totalRel = (D1.KPI && D1.KPI.relevantPosts) || 1;
   const top3 = (q10 || []).slice(0, 3).map(p => ({
     name: p.name,
     count: p.count || 0,
     pct: ((p.count || 0) / totalRel * 100).toFixed(1),
   }));
-
-  // ── Top thread from Q9 (most-replied) ──
   const top = threads[0];
   const verbatim = top ? (top.preview || top.title || '') : '';
 
-  // ── Top-3 hot master topics (by raw mention count) ──
   const masterTopics = D1.MASTER_TOPICS || [];
   const topicCounts  = D1.MASTER_TOPIC_COUNTS || {};
   const TC = window.TOPIC_COLORS || [];
@@ -248,53 +342,7 @@ function HighlightsBar() {
     .slice(0, 3);
 
   return (
-    <div className="highlights-bar" style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 12, marginBottom: 24 }}>
-      {/* Persona × Group card (full row) */}
-      <div className="card">
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 8, marginBottom: 8 }}>
-          <div className="card-title" style={{ margin: 0 }}>Persona distribution by group</div>
-          <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-            <select value={String(scope)} onChange={e => {
-              const v = e.target.value;
-              setScope(v === 'all' || v === 'SOA' || v === 'EC' ? v : Number(v));
-            }} style={{
-              fontSize: 11, padding: '4px 8px', border: '1px solid var(--border)',
-              borderRadius: 6, background: 'var(--panel)', color: 'var(--text)',
-            }}>
-              <option value="all">All groups (9)</option>
-              <option value="SOA">SOA only (2)</option>
-              <option value="EC">EC only (7)</option>
-              <option disabled>──────</option>
-              {groups.map(g => (
-                <option key={g.group_id} value={g.group_id}>{g.short} ({g.type})</option>
-              ))}
-            </select>
-            <div className="seg" style={{ fontSize: 11 }}>
-              <button className={mode === 'count' ? 'on' : ''} onClick={() => setMode('count')} style={{ padding: '3px 8px' }}>Count</button>
-              <button className={mode === 'pct' ? 'on' : ''} onClick={() => setMode('pct')} style={{ padding: '3px 8px' }}>100%</button>
-            </div>
-          </div>
-        </div>
-
-        {/* Legend */}
-        <div className="legend-inline" style={{ marginBottom: 8 }}>
-          {personas.map(p => (
-            <span key={p.id}><span className="dot" style={{ background: PCOL[p.id] }}></span>{p.vn}</span>
-          ))}
-        </div>
-
-        {/* Bars */}
-        <div style={{ display: 'flex', gap: 12, alignItems: 'flex-end', overflowX: 'auto', paddingBottom: 4 }}>
-          {visibleGroups.length === 0 && (
-            <div style={{ color: 'var(--text-3)', fontSize: 12, padding: '40px 0' }}>No groups in this scope.</div>
-          )}
-          {visibleGroups.map(g => renderBar(g, Math.max(40, Math.min(72, 600 / Math.max(1, visibleGroups.length)))))}
-        </div>
-        {tt.node}
-      </div>
-
-      {/* Row 2: three small cards side-by-side */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1.4fr', gap: 12 }}>
+    <div className="highlights-bar" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1.4fr', gap: 12, marginBottom: 24 }}>
         {/* Top-3 hot topics (master topics by mention count) */}
         <div className="card">
           <div className="card-title">Top 3 hot topics</div>
@@ -363,7 +411,6 @@ function HighlightsBar() {
             <div style={{ color: 'var(--text-3)', fontSize: 12 }}>No thread data.</div>
           )}
         </div>
-      </div>
     </div>
   );
 }
