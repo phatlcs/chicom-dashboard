@@ -404,6 +404,7 @@ def compute_all(df: pd.DataFrame):
     }
 
     # ── Q1 weights ──────────────────────────────────────────────────────────
+    # Per-group breakdown (used by the heatmap / per-group views)
     q1_weights = {mt['id']: {} for mt in MASTER_TOPICS}
     for gid in SOA_IDS + EC_IDS:
         g = GROUP_INFO[gid]
@@ -413,11 +414,18 @@ def compute_all(df: pd.DataFrame):
             cnt = int((grp['mt_id'] == mt['id']).sum()) if 'mt_id' in grp.columns else 0
             q1_weights[mt['id']][g['id']] = round(cnt / total * 100, 1)
 
+    # Master-topic share: count / total relevant (so it adds up to the same
+    # denominator the sub-topic list uses).
+    total_rel_n = max(1, len(rel))
     q1_master = []
     for i, mt in enumerate(MASTER_TOPICS):
-        vals = list(q1_weights[mt['id']].values())
-        avg = round(sum(vals) / max(1, len(vals)), 1)
-        q1_master.append({**mt, 'weight': avg, 'color': TC[i]})
+        cnt = int((rel['mt_id'] == mt['id']).sum()) if 'mt_id' in rel.columns else 0
+        q1_master.append({
+            **mt,
+            'weight': round(cnt / total_rel_n * 100, 1),
+            'count':  cnt,
+            'color':  TC[i],
+        })
     q1_master.sort(key=lambda x: -x['weight'])
 
     # ── Q2 matrix (global + per-segment SOA/EC) ─────────────────────────────
@@ -475,15 +483,16 @@ def compute_all(df: pd.DataFrame):
             entry['color'] = TC[0]  # default color when parent unknown
 
     # ── Sub-topic overall weights (for Q1 second bar list) ──────────────────
-    # % of all relevant mentions per sub_topic. Color is inherited from the
-    # parent master topic (most-frequent mt_id among rows with this sub-topic).
+    # % uses TOTAL relevant entries as the denominator (not just rows with a
+    # filled sub-topic) so sub-topic shares add up to the same total as the
+    # master-topic shares above.
     q1_subtopics = []
     if 'sub_topic' in rel.columns:
         sub_col = rel['sub_topic'].dropna().astype(str).str.strip()
         sub_col = sub_col[sub_col != '']
         if len(sub_col):
             counts = sub_col.value_counts()
-            total  = int(counts.sum())
+            total  = total_rel_n
             # Build a map: sub_topic → most-common mt_id (to inherit color)
             sub_to_mt = {}
             if 'mt_id' in rel.columns:
