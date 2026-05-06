@@ -246,15 +246,11 @@ def compute_all(df: pd.DataFrame):
     df['mt_id']       = df['master_topic'].map(TOPIC_MAP) if 'master_topic' in df.columns else None
     df['persona_id']  = df['persona'].map(PERSONA_MAP)    if 'persona'       in df.columns else None
 
-    # Sub-topic normalization + domain enforcement:
-    # 1. Normalize sub_topics to 24 canonical labels
-    # 2. Fill empty sub_topics with most-common for that master topic
-    # 3. Fix cross-domain mismatches (LLM assigned wrong sub-topic to master topic)
+    # Sub-topic handling:
+    # 1. Force-match every non-empty value to one of the 24 canonical labels
+    # 2. Fill empty cells with the most-common sub-topic for the row's master
     if 'sub_topic' in df.columns and 'mt_id' in df.columns:
-        # Step 1: Normalize
         df['sub_topic'] = _normalize_sub_topics(df['sub_topic'])
-
-        # Step 2: Backfill empties
         sub_empty = df['sub_topic'].fillna('').astype(str).str.strip() == ''
         filled = df.loc[~sub_empty, ['mt_id', 'sub_topic']].dropna()
         if len(filled):
@@ -263,27 +259,6 @@ def compute_all(df: pd.DataFrame):
                 mt = df.at[idx, 'mt_id']
                 if pd.notna(mt) and mt in mt_default.index:
                     df.at[idx, 'sub_topic'] = mt_default[mt]
-
-        # Step 3: Domain enforcement — detect & fix cross-master-topic leaks
-        # Build map: mt_id → most-common sub_topic (the "primary" sub-topic for each master)
-        all_filled = df[df['sub_topic'].fillna('').astype(str).str.strip() != ''][['mt_id', 'sub_topic']].dropna()
-        if len(all_filled):
-            # For each mt_id, get the dominant sub-topic (most frequent)
-            mt_primary = all_filled.groupby('mt_id')['sub_topic'].agg(lambda x: x.value_counts().index[0] if len(x) else None)
-            # For each row, enforce: if its sub_topic is NOT the primary for its mt_id,
-            # check if it's an extreme outlier (< 5% of that mt_id's rows), and if so, replace it
-            for mt_id in mt_primary.index:
-                mt_rows = df[df['mt_id'] == mt_id]
-                if len(mt_rows) == 0:
-                    continue
-                sub_counts = mt_rows['sub_topic'].value_counts()
-                primary = mt_primary[mt_id]
-                # Find sub-topics that are likely misclassifications (< 5% and not the primary)
-                for sub, count in sub_counts.items():
-                    if sub != primary and count / len(mt_rows) < 0.05:
-                        # Replace these outlier sub-topics with the primary
-                        mask = (df['mt_id'] == mt_id) & (df['sub_topic'] == sub)
-                        df.loc[mask, 'sub_topic'] = primary
     elif 'sub_topic' in df.columns:
         df['sub_topic'] = _normalize_sub_topics(df['sub_topic'])
 
