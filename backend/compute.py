@@ -210,25 +210,28 @@ def _normalize_master_topic(series: pd.Series) -> pd.Series:
 
 
 def _normalize_sub_topics(series: pd.Series) -> pd.Series:
-    """Cluster near-duplicate sub_topic values (LLM typo artifacts).
-    Walks from highest-count label down; for each, pulls in variants with
-    difflib similarity >= 0.88 and re-labels them to the dominant form."""
+    """Force-match ALL sub_topic values to the 24 canonical sub-topics (SUBTOPIC_TRANSLATIONS keys).
+    Uses case-insensitive fuzzy matching with NO cutoff — every non-empty value
+    MUST map to one of the 24 canonical labels."""
     import difflib
     clean = series.fillna('').astype(str).str.strip()
-    vc = clean[clean != ''].value_counts()
-    labels = list(vc.index)
-    canonical = {}
-    unassigned = set(labels)
-    for label in labels:  # descending by count
-        if label not in unassigned:
-            continue
-        canonical[label] = label
-        unassigned.discard(label)
-        close = difflib.get_close_matches(label, list(unassigned), n=20, cutoff=0.88)
-        for m in close:
-            canonical[m] = label
-            unassigned.discard(m)
-    return clean.map(lambda x: canonical.get(x, x) if x else x)
+
+    # Build lowercase lookup from the 24 canonical Vietnamese sub-topic labels
+    canonical_vn = list(SUBTOPIC_TRANSLATIONS.keys())
+    canonical_lower = {c.lower(): c for c in canonical_vn}
+
+    def match(val: str) -> str:
+        if not val:
+            return val
+        # Exact match (case-insensitive)
+        val_lower = val.lower()
+        if val_lower in canonical_lower:
+            return canonical_lower[val_lower]
+        # Fuzzy match — NO cutoff, always pick closest (force match to canonical set)
+        m = difflib.get_close_matches(val_lower, canonical_lower.keys(), n=1, cutoff=0.0)
+        return canonical_lower[m[0]] if m else val
+
+    return clean.map(match)
 
 
 def compute_all(df: pd.DataFrame):
@@ -242,7 +245,46 @@ def compute_all(df: pd.DataFrame):
         df['master_topic'] = _normalize_master_topic(df['master_topic'])
     df['mt_id']       = df['master_topic'].map(TOPIC_MAP) if 'master_topic' in df.columns else None
     df['persona_id']  = df['persona'].map(PERSONA_MAP)    if 'persona'       in df.columns else None
-    if 'sub_topic' in df.columns:
+
+    # Sub-topic normalization + domain enforcement:
+    # 1. Normalize sub_topics to 24 canonical labels
+    # 2. Fill empty sub_topics with most-common for that master topic
+    # 3. Fix cross-domain mismatches (LLM assigned wrong sub-topic to master topic)
+    if 'sub_topic' in df.columns and 'mt_id' in df.columns:
+        # Step 1: Normalize
+        df['sub_topic'] = _normalize_sub_topics(df['sub_topic'])
+
+        # Step 2: Backfill empties
+        sub_empty = df['sub_topic'].fillna('').astype(str).str.strip() == ''
+        filled = df.loc[~sub_empty, ['mt_id', 'sub_topic']].dropna()
+        if len(filled):
+            mt_default = filled.groupby('mt_id')['sub_topic'].agg(lambda x: x.value_counts().index[0] if len(x) else None)
+            for idx in df[sub_empty].index:
+                mt = df.at[idx, 'mt_id']
+                if pd.notna(mt) and mt in mt_default.index:
+                    df.at[idx, 'sub_topic'] = mt_default[mt]
+
+        # Step 3: Domain enforcement — detect & fix cross-master-topic leaks
+        # Build map: mt_id → most-common sub_topic (the "primary" sub-topic for each master)
+        all_filled = df[df['sub_topic'].fillna('').astype(str).str.strip() != ''][['mt_id', 'sub_topic']].dropna()
+        if len(all_filled):
+            # For each mt_id, get the dominant sub-topic (most frequent)
+            mt_primary = all_filled.groupby('mt_id')['sub_topic'].agg(lambda x: x.value_counts().index[0] if len(x) else None)
+            # For each row, enforce: if its sub_topic is NOT the primary for its mt_id,
+            # check if it's an extreme outlier (< 5% of that mt_id's rows), and if so, replace it
+            for mt_id in mt_primary.index:
+                mt_rows = df[df['mt_id'] == mt_id]
+                if len(mt_rows) == 0:
+                    continue
+                sub_counts = mt_rows['sub_topic'].value_counts()
+                primary = mt_primary[mt_id]
+                # Find sub-topics that are likely misclassifications (< 5% and not the primary)
+                for sub, count in sub_counts.items():
+                    if sub != primary and count / len(mt_rows) < 0.05:
+                        # Replace these outlier sub-topics with the primary
+                        mask = (df['mt_id'] == mt_id) & (df['sub_topic'] == sub)
+                        df.loc[mask, 'sub_topic'] = primary
+    elif 'sub_topic' in df.columns:
         df['sub_topic'] = _normalize_sub_topics(df['sub_topic'])
 
     # Determine relevant column
@@ -410,12 +452,31 @@ def compute_all(df: pd.DataFrame):
                       'sellerPct': spct, 'prospectPct': ppct, 'diff': round(spct - ppct, 1)})
 
     q3_subs = extract_q3_subs(rel) if 'content' in rel.columns and 'persona' in rel.columns else []
-    for entry in q3_subs:
-        entry['en'] = translate_subtopic(entry.get('vn', ''))
+    # Attach English translation + parent master-topic color to each Q3 sub-topic
+    if q3_subs and 'sub_topic' in rel.columns and 'mt_id' in rel.columns:
+        for entry in q3_subs:
+            vn_label = entry.get('vn', '')
+            entry['en'] = translate_subtopic(vn_label)
+            # Find the dominant mt_id for this sub-topic
+            mask = rel['sub_topic'].astype(str).str.strip() == vn_label
+            mt_freq = rel.loc[mask, 'mt_id'].dropna().value_counts()
+            if len(mt_freq):
+                mt_id = mt_freq.index[0]
+                mt_idx = next((i for i, m in enumerate(MASTER_TOPICS) if m['id'] == mt_id), None)
+                entry['color'] = TC[mt_idx] if mt_idx is not None else TC[0]
+                entry['parent_topic'] = mt_id
+            else:
+                entry['color'] = TC[0]
+                entry['parent_topic'] = None
+    else:
+        # Fallback when no classification columns: just translate
+        for entry in q3_subs:
+            entry['en'] = translate_subtopic(entry.get('vn', ''))
+            entry['color'] = TC[0]  # default color when parent unknown
 
     # ── Sub-topic overall weights (for Q1 second bar list) ──────────────────
-    # % of all relevant mentions per sub_topic. Uses the normalized sub_topic
-    # column when populated; returns [] otherwise.
+    # % of all relevant mentions per sub_topic. Color is inherited from the
+    # parent master topic (most-frequent mt_id among rows with this sub-topic).
     q1_subtopics = []
     if 'sub_topic' in rel.columns:
         sub_col = rel['sub_topic'].dropna().astype(str).str.strip()
@@ -423,15 +484,33 @@ def compute_all(df: pd.DataFrame):
         if len(sub_col):
             counts = sub_col.value_counts()
             total  = int(counts.sum())
-            # TC palette cycled across sub-topics
-            for i, (label, cnt) in enumerate(counts.items()):
+            # Build a map: sub_topic → most-common mt_id (to inherit color)
+            sub_to_mt = {}
+            if 'mt_id' in rel.columns:
+                for label in counts.index:
+                    mask = rel['sub_topic'].astype(str).str.strip() == label
+                    mt_freq = rel.loc[mask, 'mt_id'].dropna().value_counts()
+                    if len(mt_freq):
+                        sub_to_mt[label] = mt_freq.index[0]
+            # Build a lookup: mt_id → q1_master rank (0 = highest weight master topic)
+            mt_rank_map = {m['id']: i for i, m in enumerate(q1_master)}
+            # Build sub-topic list with parent master-topic color + rank
+            for label, cnt in counts.items():
+                mt_id = sub_to_mt.get(label)
+                mt_idx = next((i for i, m in enumerate(MASTER_TOPICS) if m['id'] == mt_id), None)
+                color = TC[mt_idx] if mt_idx is not None else TC[0]
+                parent_rank = mt_rank_map.get(mt_id, 999)  # use q1_master sorted order
                 q1_subtopics.append({
                     'vn':     str(label),
                     'en':     translate_subtopic(str(label)),
                     'count':  int(cnt),
                     'weight': round(int(cnt) / max(1, total) * 100, 1),
-                    'color':  TC[i % len(TC)],
+                    'color':  color,
+                    'parent_topic': mt_id,
+                    'parent_rank':  parent_rank,
                 })
+            # Sort by parent topic rank (q1_master order), then by weight desc within each topic
+            q1_subtopics.sort(key=lambda s: (s['parent_rank'], -s['weight']))
 
     # ── Q4 trends ───────────────────────────────────────────────────────────
     q4_trends = []
