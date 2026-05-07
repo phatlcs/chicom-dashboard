@@ -112,9 +112,9 @@ function App() {
         <window.Section id="Q9" num="Q9"
           title="Top 10 most-discussed threads"><Q9 /></window.Section>
         <window.Section id="Q10" num="Q10"
-          title="Most-discussed product categories of the quarter"><Q10 /></window.Section>
+          title="Top mentioned Product category"><Q10 /></window.Section>
         <window.Section id="Q11" num="Q11" soaOnly
-          title="Amazon product / program adoption — usage and satisfaction"><Q11 /></window.Section>
+          title="Top mentioned Amazon Product / Program"><Q11 /></window.Section>
         <window.Section id="Q12" num="Q12"
           title="3rd-party outsourcing services sellers need"><Q12 /></window.Section>
         <window.Section id="Q13" num="Q13"
