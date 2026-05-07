@@ -2862,12 +2862,6 @@ window.ChiComData2 = (() => {
 ];
   const Q8_TRIGGERS    = [
   {
-    "vn": "Lừa đảo / rủi ro",
-    "name": "Lừa đảo / rủi ro",
-    "en": "Scam / risk",
-    "count": 24
-  },
-  {
     "vn": "Tài khoản bị khóa",
     "name": "Tài khoản bị khóa",
     "en": "Account locked",
@@ -2880,10 +2874,22 @@ window.ChiComData2 = (() => {
     "count": 16
   },
   {
+    "vn": "Lừa đảo",
+    "name": "Lừa đảo",
+    "en": "Scam",
+    "count": 15
+  },
+  {
     "vn": "Kiệt sức / mất động lực",
     "name": "Kiệt sức / mất động lực",
     "en": "Burnout / lost motivation",
     "count": 12
+  },
+  {
+    "vn": "Rủi ro kinh doanh",
+    "name": "Rủi ro kinh doanh",
+    "en": "Business Risk",
+    "count": 9
   },
   {
     "vn": "Chính sách phức tạp",
@@ -3216,16 +3222,16 @@ window.ChiComData2 = (() => {
     "master_topic": "Chiến lược, kinh nghiệm và hỗ trợ cộng đồng bán hàng Amazon"
   },
   {
-    "id": "2315616098937242",
-    "link": "https://www.facebook.com/groups/etsytogo/permalink/2315616098937242/",
+    "id": "2207250333134763",
+    "link": "https://www.facebook.com/groups/congdongamazonvn/permalink/2207250333134763/",
     "count": 100,
     "comments": 99,
-    "preview": "**[NEW YEAR CONTEST 2026]** Xin chào mọi người, đến hẹn lại lên năm cũ qua đi năm mới lại về mình xin được gửi lời mến chúc một năm mới mọi sự an vui tới toà…",
-    "group_id": 7,
-    "group_name": "Etsy To Go",
-    "group_type": "EC",
+    "preview": "# **TRUYỆN CỔ TÍCH 2025: THẰNG NHÓC 200X BƯỚC RA TỪ CỦ “HÀNH”! TƯ DUY ĐÚNG NHƯNG VẪN HÀNH ĐỘNG SAI?**\n\n**Tác giả: Phạm Minh Quân | Co-founder & CEO tại NextX…",
+    "group_id": 2,
+    "group_name": "CĐ Amazon Sellers",
+    "group_type": "SOA",
     "sentiment": "positive",
-    "persona": "Seller (Others)",
+    "persona": "Seller (Amazon)",
     "master_topic": "Chiến lược, kinh nghiệm và hỗ trợ cộng đồng bán hàng Amazon"
   },
   {
@@ -3242,16 +3248,16 @@ window.ChiComData2 = (() => {
     "master_topic": "Vận hành và quản lý tài khoản Amazon Seller"
   },
   {
-    "id": "2207250333134763",
-    "link": "https://www.facebook.com/groups/congdongamazonvn/permalink/2207250333134763/",
+    "id": "2315616098937242",
+    "link": "https://www.facebook.com/groups/etsytogo/permalink/2315616098937242/",
     "count": 100,
     "comments": 99,
-    "preview": "# **TRUYỆN CỔ TÍCH 2025: THẰNG NHÓC 200X BƯỚC RA TỪ CỦ “HÀNH”! TƯ DUY ĐÚNG NHƯNG VẪN HÀNH ĐỘNG SAI?**\n\n**Tác giả: Phạm Minh Quân | Co-founder & CEO tại NextX…",
-    "group_id": 2,
-    "group_name": "CĐ Amazon Sellers",
-    "group_type": "SOA",
+    "preview": "**[NEW YEAR CONTEST 2026]** Xin chào mọi người, đến hẹn lại lên năm cũ qua đi năm mới lại về mình xin được gửi lời mến chúc một năm mới mọi sự an vui tới toà…",
+    "group_id": 7,
+    "group_name": "Etsy To Go",
+    "group_type": "EC",
     "sentiment": "positive",
-    "persona": "Seller (Amazon)",
+    "persona": "Seller (Others)",
     "master_topic": "Chiến lược, kinh nghiệm và hỗ trợ cộng đồng bán hàng Amazon"
   },
   {
@@ -3387,19 +3393,6 @@ window.ChiComData2 = (() => {
     "master_topic": "Chiến lược, kinh nghiệm và hỗ trợ cộng đồng bán hàng Amazon"
   },
   {
-    "id": "2248769432316186",
-    "link": "https://www.facebook.com/groups/congdongamazonvn/permalink/2248769432316186/",
-    "count": 53,
-    "comments": 52,
-    "preview": "POST KẾT NỐI NGUỒN HÀNG (Supplier x Seller). \nĐầu năm nhu cầu lớn, ae cần tìm nguồn hàng hoặc supplier muốn giới thiệu ngành hàng/ xưởng fulfill/ nhà máy/ th…",
-    "group_id": 2,
-    "group_name": "CĐ Amazon Sellers",
-    "group_type": "SOA",
-    "sentiment": "positive",
-    "persona": "Service Provider (CBEC)",
-    "master_topic": "Kinh doanh xuất nhập khẩu và thương mại điện tử xuyên biên giới"
-  },
-  {
     "id": "2196591477533982",
     "link": "https://www.facebook.com/groups/congdongamazonvn/permalink/2196591477533982/",
     "count": 53,
@@ -3410,6 +3403,19 @@ window.ChiComData2 = (() => {
     "group_type": "SOA",
     "sentiment": "neutral",
     "persona": "Seller (Others)",
+    "master_topic": "Kinh doanh xuất nhập khẩu và thương mại điện tử xuyên biên giới"
+  },
+  {
+    "id": "2248769432316186",
+    "link": "https://www.facebook.com/groups/congdongamazonvn/permalink/2248769432316186/",
+    "count": 53,
+    "comments": 52,
+    "preview": "POST KẾT NỐI NGUỒN HÀNG (Supplier x Seller). \nĐầu năm nhu cầu lớn, ae cần tìm nguồn hàng hoặc supplier muốn giới thiệu ngành hàng/ xưởng fulfill/ nhà máy/ th…",
+    "group_id": 2,
+    "group_name": "CĐ Amazon Sellers",
+    "group_type": "SOA",
+    "sentiment": "positive",
+    "persona": "Service Provider (CBEC)",
     "master_topic": "Kinh doanh xuất nhập khẩu và thương mại điện tử xuyên biên giới"
   },
   {
@@ -3480,19 +3486,6 @@ window.ChiComData2 = (() => {
     "master_topic": "Chiến lược, kinh nghiệm và hỗ trợ cộng đồng bán hàng Amazon"
   },
   {
-    "id": "2315616098937242",
-    "link": "https://www.facebook.com/groups/etsytogo/permalink/2315616098937242/",
-    "count": 100,
-    "comments": 99,
-    "preview": "**[NEW YEAR CONTEST 2026]** Xin chào mọi người, đến hẹn lại lên năm cũ qua đi năm mới lại về mình xin được gửi lời mến chúc một năm mới mọi sự an vui tới toà…",
-    "group_id": 7,
-    "group_name": "Etsy To Go",
-    "group_type": "EC",
-    "sentiment": "positive",
-    "persona": "Seller (Others)",
-    "master_topic": "Chiến lược, kinh nghiệm và hỗ trợ cộng đồng bán hàng Amazon"
-  },
-  {
     "id": "1471293041241205",
     "link": "https://www.facebook.com/groups/chuyennhaban/permalink/1471293041241205/",
     "count": 100,
@@ -3504,6 +3497,19 @@ window.ChiComData2 = (() => {
     "sentiment": "negative",
     "persona": "Seller (Others)",
     "master_topic": "Vận hành và quản lý tài khoản Amazon Seller"
+  },
+  {
+    "id": "2315616098937242",
+    "link": "https://www.facebook.com/groups/etsytogo/permalink/2315616098937242/",
+    "count": 100,
+    "comments": 99,
+    "preview": "**[NEW YEAR CONTEST 2026]** Xin chào mọi người, đến hẹn lại lên năm cũ qua đi năm mới lại về mình xin được gửi lời mến chúc một năm mới mọi sự an vui tới toà…",
+    "group_id": 7,
+    "group_name": "Etsy To Go",
+    "group_type": "EC",
+    "sentiment": "positive",
+    "persona": "Seller (Others)",
+    "master_topic": "Chiến lược, kinh nghiệm và hỗ trợ cộng đồng bán hàng Amazon"
   },
   {
     "id": "26167833476243408",

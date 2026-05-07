@@ -199,9 +199,6 @@ function Q1() {
         <TopicBars />
         <SubTopicBars />
       </div>
-      <div style={{ marginTop: 16 }}>
-        <window.PersonaByGroupChart />
-      </div>
       <div className="grid-12" style={{ marginTop: 16, display: 'grid', gap: 16 }}>
         <div className="col-12">
           <HeatGrid
@@ -369,6 +366,10 @@ function Q2() {
           />
         </div>
       )}
+
+      <div className="col-12">
+        <window.PersonaByGroupChart />
+      </div>
 
       <div className="col-12">
         <window.Insight qId="Q2">

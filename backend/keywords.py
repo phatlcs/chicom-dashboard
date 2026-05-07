@@ -27,7 +27,8 @@ LABEL_EN = {
     'Chính sách phức tạp':               'Complex policy',
     'Kiệt sức / mất động lực':           'Burnout / lost motivation',
     'Cạnh tranh khốc liệt':              'Fierce competition',
-    'Lừa đảo / rủi ro':                  'Scam / risk',
+    'Lừa đảo':                           'Scam',
+    'Rủi ro kinh doanh':                 'Business Risk',
     'Thiếu kinh nghiệm / kỹ năng':       'Lack of experience / skills',
     # Q9 entry barriers
     'Vốn ban đầu':                       'Initial capital',
@@ -195,9 +196,12 @@ Q8_TRIGGER_KW = {
         'cạnh tranh', 'quá nhiều seller', 'bão hòa', 'competition',
         'price war', 'đánh giá giả', 'fake review', 'hijack',
     ],
-    'Lừa đảo / rủi ro': [
+    'Lừa đảo': [
         'bị lừa', 'lừa đảo', 'scam', 'fraud', 'mất hàng',
-        'hàng giả', 'counterfeit', 'rủi ro', 'rip off',
+        'hàng giả', 'counterfeit', 'rip off',
+    ],
+    'Rủi ro kinh doanh': [
+        'rủi ro',
     ],
     'Thiếu kinh nghiệm / kỹ năng': [
         'không có kinh nghiệm', 'thiếu kỹ năng', 'không biết cách',
