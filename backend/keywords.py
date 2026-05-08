@@ -41,7 +41,7 @@ LABEL_EN = {
     'Thanh toán quốc tế':                'International payments',
     # Q10 product categories
     'Làm đẹp & Sức khỏe':                'Beauty & Health',
-    'Thời trang':                        'Fashion',
+    'Thời trang':                        'Apparel & Fashion',
     'Gia dụng & Bếp':                    'Home & Kitchen',
     'Điện tử & Gadget':                  'Electronics & Gadgets',
     'Đồ chơi & Trẻ em':                  'Toys & Kids',

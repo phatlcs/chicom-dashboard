@@ -2,75 +2,21 @@
 const D2b = window.ChiComData2;
 
 // ── Q10 — Top Product Categories (SOA / EC / Total) ─────────────────────────
-// Source: AGS_Q1_2026_Top_Product_Categories.html. The CSV's `Product Category`
-// column is null for 100% of rows, so this view is *inferred* — Q4 2025 PPTX
-// benchmark for SOA + sub-group composition weighting for EC. Counts here are
-// re-scaled from the analyst's pre-filter numbers (6,068 SOA / 40,568 EC /
-// 46,636 grand) to the dashboard's post-filter totals (5,468 / 34,790 / 40,258).
-// Percentages preserved. EC categories overlap (multi-classification) so the
-// EC column-sum exceeds 100% by ~6.6% — methodology note explains.
+// Data is keyword-matched from post content (backend/keywords.py:Q10_CATEGORY_KW)
+// and shipped via D2b.Q10_TOP / Q10_TOP_SOA / Q10_TOP_EC. No hardcoded
+// narrative — counts and %s reflect actual extraction.
 
-const Q10_SOA_TOTAL = 5468;
-const Q10_EC_TOTAL  = 34790;
-const Q10_ALL_TOTAL = 40258;
-
-const Q10_SOA = [
-  { cat: 'Health & Beauty / Supplements', n: 1105, pct: 20.2, color: '#D85A30', sent: 'mix', sentL: 'Mixed',        ex: 'Skincare, supplements, collagen, essential oils' },
-  { cat: 'Private Label (undisclosed)',   n: 820,  pct: 15.0, color: '#888780', sent: 'pos', sentL: 'Positive',     ex: 'Helium10-researched niches, kept confidential' },
-  { cat: 'Apparel & Fashion',             n: 738,  pct: 13.5, color: '#7F77DD', sent: 'mix', sentL: 'Mixed',        ex: 'Private label clothing, Merch by Amazon' },
-  { cat: 'Home & Garden',                 n: 569,  pct: 10.4, color: '#1D9E75', sent: 'mix', sentL: 'Mixed',        ex: 'Garden tools, organizers, small home items' },
-  { cat: 'Electronics (China-sourced)',   n: 454,  pct: 8.3,  color: '#E24B4A', sent: 'mix', sentL: 'Mixed (risk)', ex: 'Bluetooth earphones, cables, phone accessories' },
-  { cat: 'Other / Undisclosed',           n: 470,  pct: 8.6,  color: '#B4B2A9', sent: 'na',  sentL: '—',            ex: 'Various unidentified niches' },
-  { cat: 'Toys & Games',                  n: 333,  pct: 6.1,  color: '#BA7517', sent: 'mix', sentL: 'Mixed',        ex: 'Educational toys, STEM kits, fidget products' },
-  { cat: 'Kitchen & Home Goods',          n: 317,  pct: 5.8,  color: '#378ADD', sent: 'neu', sentL: 'Neutral',      ex: 'Kitchen gadgets, storage, small appliances' },
-  { cat: 'Jewelry & Accessories',         n: 273,  pct: 5.0,  color: '#D4537E', sent: 'pos', sentL: 'Positive',     ex: 'Silver jewelry, watches, sunglasses' },
-  { cat: 'Pet Products',                  n: 224,  pct: 4.1,  color: '#9F84D8', sent: 'pos', sentL: 'Positive',     ex: 'Pet accessories, toys, grooming, beds' },
-  { cat: 'USDA Agricultural Products',    n: 164,  pct: 3.0,  color: '#639922', sent: 'em',  sentL: 'Emerging',     ex: 'Vietnamese coffee, cashews, spices, tea' },
-];
-
-const Q10_EC = [
-  { cat: 'Handmade & Print-on-Demand', n: 8163, pct: 23.5, color: '#378ADD', sent: 'pos', sentL: 'Positive', ex: 'Embroidered caps, stickers, UV print, laser cut' },
-  { cat: 'Apparel & Fashion',          n: 6201, pct: 17.8, color: '#7F77DD', sent: 'mix', sentL: 'Mixed',    ex: 'POD tees, hoodies, TikTok fashion, dropship' },
-  { cat: 'Home Décor & Wall Art',      n: 5060, pct: 14.5, color: '#1D9E75', sent: 'mix', sentL: 'Mixed',    ex: 'Canvas prints, candles, macramé, wall art' },
-  { cat: 'Jewelry & Accessories',      n: 4659, pct: 13.4, color: '#D4537E', sent: 'pos', sentL: 'Positive', ex: 'Personalized rings, memorial jewelry, wedding sets' },
-  { cat: 'Health & Beauty',            n: 4250, pct: 12.2, color: '#D85A30', sent: 'mix', sentL: 'Mixed',    ex: 'Natural skincare, organic beauty, essential oils' },
-  { cat: 'Personalized Gifts',         n: 2629, pct: 7.6,  color: '#BA7517', sent: 'pos', sentL: 'Positive', ex: 'Baby gifts, wedding gifts, name-engraved items' },
-  { cat: 'Mother & Baby Products',     n: 2199, pct: 6.3,  color: '#639922', sent: 'pos', sentL: 'Positive', ex: 'Baby gift sets, newborn outfits, nursery décor' },
-  { cat: 'Other / Undisclosed',        n: 1739, pct: 5.0,  color: '#B4B2A9', sent: 'na',  sentL: '—',        ex: 'Various unidentified categories' },
-  { cat: 'Food & Beverages (CBEC)',    n: 1234, pct: 3.5,  color: '#63C5A0', sent: 'em',  sentL: 'Emerging', ex: 'Vietnamese coffee, specialty food, dried fruits' },
-  { cat: 'Electronics & Tech Acc.',    n: 959,  pct: 2.8,  color: '#E24B4A', sent: 'mix', sentL: 'Mixed',    ex: 'Phone cases, cables, wireless accessories' },
-];
-
-const Q10_ALL = [
-  { cat: 'Handmade & Print-on-Demand', n: 8218, pct: 20.4, color: '#378ADD', sent: 'pos', sentL: 'Positive', ex: 'EC-dominant. Etsy VN sellers — embroidered POD, custom print' },
-  { cat: 'Apparel & Fashion',          n: 6950, pct: 17.3, color: '#7F77DD', sent: 'mix', sentL: 'Mixed',    ex: 'POD apparel (EC) + private label clothing (SOA)' },
-  { cat: 'Health & Beauty',            n: 5337, pct: 13.3, color: '#D85A30', sent: 'mix', sentL: 'Mixed',    ex: 'Present in both groups — was Q4 2025 #1 overall' },
-  { cat: 'Home Décor & Wall Art',      n: 5093, pct: 12.7, color: '#1D9E75', sent: 'mix', sentL: 'Mixed',    ex: 'EC-dominant — Etsy/Shopify canvas prints, candles' },
-  { cat: 'Jewelry & Accessories',      n: 4951, pct: 12.3, color: '#D4537E', sent: 'pos', sentL: 'Positive', ex: 'Strong in both — Etsy jewelry (EC) + Amazon PL (SOA)' },
-  { cat: 'Personalized Gifts',         n: 2646, pct: 6.6,  color: '#BA7517', sent: 'pos', sentL: 'Positive', ex: 'EC-dominant — Etsy baby/wedding/memorial gifts' },
-  { cat: 'Mother & Baby Products',     n: 2213, pct: 5.5,  color: '#639922', sent: 'pos', sentL: 'Positive', ex: 'EC growing — Etsy baby + Shopee/TikTok baby category' },
-  { cat: 'Other / Undisclosed',        n: 2202, pct: 5.5,  color: '#B4B2A9', sent: 'na',  sentL: '—',        ex: 'Various categories not specifically identified' },
-  { cat: 'Food & Beverages (CBEC)',    n: 1242, pct: 3.1,  color: '#63C5A0', sent: 'em',  sentL: 'Emerging', ex: 'Vietnamese coffee, specialty foods, USDA items' },
-  { cat: 'Electronics & Tech',         n: 965,  pct: 2.4,  color: '#E24B4A', sent: 'mix', sentL: 'Mixed',    ex: 'SOA China-sourced + EC dropship electronics' },
-  { cat: 'Private Label (SOA only)',   n: 786,  pct: 2.0,  color: '#888780', sent: 'pos', sentL: 'Positive', ex: 'SOA-exclusive — sellers protect niche specifics' },
-];
-
-function Q10SentBadge({ sent, label }) {
-  const styles = {
-    pos: { background: 'oklch(0.92 0.06 155)', color: 'oklch(0.42 0.13 155)' },
-    mix: { background: 'oklch(0.94 0.07 70)',  color: 'oklch(0.42 0.13 50)' },
-    neg: { background: 'oklch(0.94 0.06 25)',  color: 'oklch(0.42 0.16 25)' },
-    neu: { background: 'var(--panel-2)',       color: 'var(--text-2)' },
-    em:  { background: 'oklch(0.94 0.06 250)', color: 'oklch(0.45 0.16 260)' },
-    na:  { background: 'var(--panel-2)',       color: 'var(--text-3)' },
-  };
-  return (
-    <span className="q10-sent" style={{
-      ...styles[sent],
-      fontSize: 10, fontWeight: 600, padding: '2px 8px', borderRadius: 8,
-      whiteSpace: 'nowrap',
-    }}>{label}</span>
-  );
+// Helper: convert keyword-match rows into the shape the table/donut expects.
+// Input rows: { name, vn, en, count, color }.
+// Output rows: { cat, n, pct, color }.
+function _q10Shape(rows, denom) {
+  const safeDenom = Math.max(1, denom || 0);
+  return (rows || []).map(r => ({
+    cat:   r.en || r.name || r.vn,
+    n:     r.count || 0,
+    pct:   ((r.count || 0) / safeDenom * 100).toFixed(1),
+    color: r.color || 'var(--accent)',
+  }));
 }
 
 function Q10RankTable({ data, headerLabel }) {
@@ -82,7 +28,7 @@ function Q10RankTable({ data, headerLabel }) {
       </div>
       <div style={{
         display: 'grid',
-        gridTemplateColumns: '28px 1fr 1fr 64px 78px 92px',
+        gridTemplateColumns: '28px 1.4fr 1fr 64px 78px',
         gap: 12, padding: '8px 18px',
         background: 'var(--panel-2)',
         borderBottom: '1px solid var(--border)',
@@ -94,13 +40,12 @@ function Q10RankTable({ data, headerLabel }) {
         <span>Bar</span>
         <span style={{ textAlign: 'right' }}>%</span>
         <span style={{ textAlign: 'right' }}>Mentions</span>
-        <span style={{ textAlign: 'right' }}>Sentiment</span>
       </div>
       <div>
         {data.map((d, i) => (
           <div key={d.cat} style={{
             display: 'grid',
-            gridTemplateColumns: '28px 1fr 1fr 64px 78px 92px',
+            gridTemplateColumns: '28px 1.4fr 1fr 64px 78px',
             gap: 12, alignItems: 'center',
             padding: '11px 18px',
             borderBottom: i < data.length - 1 ? '1px solid var(--border)' : 'none',
@@ -108,23 +53,15 @@ function Q10RankTable({ data, headerLabel }) {
             <span className="mono" style={{ fontSize: 11, fontWeight: 700, color: i < 3 ? 'var(--text)' : 'var(--text-3)' }}>
               {String(i + 1).padStart(2, '0')}
             </span>
-            <div style={{ minWidth: 0 }}>
-              <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--text)', display: 'flex', alignItems: 'center', gap: 6, marginBottom: 2 }}>
-                <span style={{ width: 8, height: 8, borderRadius: 2, background: d.color, flexShrink: 0 }}></span>
-                <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{d.cat}</span>
-              </div>
-              <div className="mono" style={{ fontSize: 10, color: 'var(--text-3)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                {d.ex}
-              </div>
+            <div style={{ minWidth: 0, fontSize: 13, fontWeight: 600, color: 'var(--text)', display: 'flex', alignItems: 'center', gap: 6 }}>
+              <span style={{ width: 8, height: 8, borderRadius: 2, background: d.color, flexShrink: 0 }}></span>
+              <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{d.cat}</span>
             </div>
             <div className="rowbar-track" style={{ height: 6 }}>
               <div className="rowbar-fill" style={{ width: `${Math.max(2, Math.round(d.n / top * 100))}%`, background: d.color, height: '100%' }}></div>
             </div>
             <span className="mono" style={{ textAlign: 'right', fontSize: 13, fontWeight: 700, color: 'var(--text)' }}>{d.pct}%</span>
-            <span className="mono" style={{ textAlign: 'right', fontSize: 11, color: 'var(--text-2)' }}>~{d.n.toLocaleString()}</span>
-            <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-              <Q10SentBadge sent={d.sent} label={d.sentL} />
-            </div>
+            <span className="mono" style={{ textAlign: 'right', fontSize: 11, color: 'var(--text-2)' }}>{d.n.toLocaleString()}</span>
           </div>
         ))}
       </div>
@@ -212,71 +149,27 @@ function Q10MiniRows({ data }) {
   );
 }
 
-const Q10_INSIGHTS_SOA = [
-  { icon: '🏆', title: 'Health & Beauty leads (#1 — 20.2%)',     body: 'Carries over from Q4 2025 benchmark where it ranked #1. SOA sellers active in supplements (TPCN), skincare private label, and organic beauty. FDA compliance complexity is slowing entry for new sellers but existing players are growing.' },
-  { icon: '🔒', title: 'Private Label at 15% — hidden signal',   body: 'Sellers use <strong>Helium10</strong> (104+ positive mentions in SOA) for product research but deliberately protect niche information publicly. The 15% Private Label estimate captures this intentional opacity — a positive signal for seller sophistication.' },
-  { icon: '⚡', title: 'Electronics: high risk, still active',    body: 'China-sourced electronics (8.3%) discussed with concern in SOA group 1 — sellers ask about compliance risk with VN LLC accounts. Amazon IP and safety certification scrutiny is a recurring frustration driving mixed sentiment.' },
-  { icon: '🌱', title: 'USDA Nông sản — Blue Ocean emerging',    body: 'Only 3.0% (~164 mentions) but <strong>fastest growing signal</strong> in SOA content text. Sellers researching Vietnamese coffee, cashew nuts, spices for US export. Very few active sellers = first-mover advantage window still open.' },
-  { icon: '📦', title: 'Home & Garden stable at 10.4%',          body: '4th-largest SOA category. Sellers discuss Amazon FBM for large/heavy items vs FBA cost tradeoffs. Category cooling slightly vs Q4 due to higher storage fees in Q1 non-peak season.' },
-  { icon: '💎', title: 'Jewelry: small but positive',            body: '5.0% (~273 mentions) with <strong>positive sentiment</strong> in SOA — sellers who crack jewelry find strong margins with Brand Registry protection. Low return rates compared to apparel. Growing interest in fine jewelry private label.' },
-];
-
-const Q10_INSIGHTS_EC = [
-  { icon: '🏆', title: 'Handmade & POD dominates (#1 — 23.5%)',  body: 'Driven by Etsy Vietnam Community + Etsy To Go. VN sellers\' competitive advantage: low-cost embroidery workshops + light/small products ideal for ePacket. Fastest-growing category vs Q4.' },
-  { icon: '👗', title: 'Apparel at 17.8% — TikTok/Shopee driven', body: 'Chuyện Nhà Bán (Shopee/TikTok) group drives the apparel discussion. Mix of domestic-first sellers transitioning to cross-border. Sentiment is mixed — competition from China sellers is a recurring frustration.' },
-  { icon: '🪞', title: 'Home Décor #3 at 14.5%',                 body: 'Canvas prints, scented candles, macramé — products that overlap heavily with Etsy\'s US buyer demand for artisanal home goods. <strong>Pain point:</strong> large/fragile items complicate ePacket. Candles and small décor objects perform best.' },
-  { icon: '💍', title: 'Jewelry #4 at 13.4% — strong positive',   body: '~4,659 mentions with <strong>positive sentiment</strong>. Etsy sellers find jewelry personalization (memorial, wedding, name-engraved) generates high repeat purchase rates and premium pricing. US buyers accept $40–$150 price points comfortably.' },
-  { icon: '🎁', title: 'Personalized Gifts #6 at 7.6%',           body: 'Baby shower gifts (quà sơ sinh), wedding gifts, and memorial keepsakes dominate. Peak demand follows US seasonal calendar (Mother\'s Day, graduation, Christmas). VN sellers have strong customization capability and fast turnaround.' },
-  { icon: '🌿', title: 'Food & Beverages emerging at 3.5%',       body: 'Vietnamese coffee, specialty snacks, dried fruits entering CBEC discussion. Driven by Cuồng Phong Hội (CBEC) and MMO groups researching USDA/FDA pathways. <strong>Opportunity:</strong> Made-in-Vietnam authenticity story resonates with US buyers.' },
-];
-
-const Q10_INSIGHTS_ALL = [
-  { icon: '🥇', title: 'Handmade & POD leads total (20.4%)',     body: 'EC-exclusive — Etsy VN sellers drive ~8,218 mentions. Virtually absent in SOA. This is the most discussed product category by a clear margin, reflecting the dominant Etsy composition of EC groups.' },
-  { icon: '🔁', title: '3 categories bridge both ecosystems',     body: '<strong>Health & Beauty</strong> (SOA #1, EC #5), <strong>Jewelry</strong> (SOA #9, EC #4), and <strong>Apparel</strong> (SOA #3, EC #2) are high-priority for both seller types — indicating cross-platform buyer demand that Amazon can leverage with targeted programs.' },
-  { icon: '📊', title: 'EC dominates due to 6.4× volume',         body: 'With EC at 34,790 mentions vs SOA at 5,468, the Total ranking is EC-weighted. SOA-exclusive categories (Private Label, USDA Nông sản, Electronics-specific) appear at the bottom despite significant SOA-relative importance.' },
-];
-
-const Q10_METHODOLOGY = {
-  soa: '',
-  ec:  '<strong>⚠️ Methodology:</strong> EC product distribution weighted by sub-group composition — Etsy groups (50.4% of EC volume): ~45% Handmade/POD, ~25% Jewelry, ~20% Home/Gifts; Shopee/TikTok (30%): ~35% Apparel, ~25% Beauty; Dropshipping/Shopify (16%): ~30% Apparel, ~25% Home, ~20% Beauty. "Product Category" field is null across all 34,790 post-filter EC records. EC categories overlap by ~6.6% (multi-classified posts).',
-  all: '<strong>⚠️ Methodology:</strong> "Product Category" field is null for all 40,258 post-filter records in Q1 2026. All figures are inferred estimates based on: (1) EC sub-group composition (Etsy 50.4%, Shopee/TikTok 30%, Shopify/Drop 16%); (2) Q4 2025 PPTX benchmark for SOA categories; (3) content-text keyword patterns; (4) SP partner-seeking posts mentioning specific product types. Figures represent estimated product-discussion mentions, not sales volume. Activating structured "Product Category" tagging from Q2 2026 is strongly recommended.',
-};
-
-function Q10InsightsGrid({ items, fullLastItem }) {
-  return (
-    <div className="grid-3" style={{ gap: 14, marginTop: 18 }}>
-      {items.map((it, i) => (
-        <div key={i} className="card" style={{
-          padding: '16px 18px',
-          gridColumn: fullLastItem && i === items.length - 1 ? '1 / -1' : 'auto',
-        }}>
-          <div style={{ fontSize: 16, marginBottom: 6 }}>{it.icon}</div>
-          <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--text)', marginBottom: 6 }}>{it.title}</div>
-          <div style={{ fontSize: 12, color: 'var(--text-2)', lineHeight: 1.6 }}
-            dangerouslySetInnerHTML={{ __html: it.body }} />
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function Q10MethodologyNote({ text }) {
-  if (!text) return null;
+function Q10MethodologyNote() {
   return (
     <div style={{
       marginTop: 18, padding: '12px 16px',
       background: 'oklch(0.96 0.04 70 / 0.4)',
       border: '1px solid oklch(0.80 0.10 70)',
       borderRadius: 8, fontSize: 11, color: 'var(--text-2)', lineHeight: 1.6,
-    }} dangerouslySetInnerHTML={{ __html: text }} />
+    }}>
+      <strong>Methodology:</strong> Categories are extracted by keyword-matching post content
+      against the dictionary in <code>backend/keywords.py:Q10_CATEGORY_KW</code>. Counts reflect
+      the number of relevant posts that explicitly mention each category. Most posts don't
+      mention a specific category, so totals here are smaller than the headline mention totals.
+    </div>
   );
 }
 
-function Q10TabNav({ tab, setTab }) {
+function Q10TabNav({ tab, setTab, totals }) {
   const tabs = [
-    { id: 'soa', label: 'SOA Groups', sub: '5,468', accent: 'oklch(0.55 0.17 25)' },
-    { id: 'ec',  label: 'EC Groups',  sub: '34,790', accent: 'oklch(0.45 0.14 155)' },
-    { id: 'all', label: 'Total',      sub: '40,258', accent: 'var(--accent)' },
+    { id: 'soa', label: 'SOA Groups', sub: (totals.soa || 0).toLocaleString(), accent: 'oklch(0.55 0.17 290)' },
+    { id: 'ec',  label: 'EC Groups',  sub: (totals.ec  || 0).toLocaleString(), accent: 'oklch(0.55 0.17 340)' },
+    { id: 'all', label: 'Total',      sub: (totals.all || 0).toLocaleString(), accent: 'var(--accent)' },
   ];
   return (
     <div style={{ display: 'flex', gap: 6, marginBottom: 16, borderBottom: '1px solid var(--border)' }}>
@@ -299,7 +192,7 @@ function Q10TabNav({ tab, setTab }) {
               color: active ? t.accent : 'var(--text-3)',
               border: '1px solid var(--border)',
               fontWeight: 600,
-            }}>{t.sub}</span>
+            }}>{t.sub} matched</span>
           </button>
         );
       })}
@@ -309,63 +202,74 @@ function Q10TabNav({ tab, setTab }) {
 
 function Q10() {
   const tt = window.useTooltip();
-  const [tab, setTab] = React.useState('soa');
+  const [tab, setTab] = React.useState('all');
+
+  // Pull keyword-matched category data from the data pipeline
+  const D2 = window.ChiComData2 || {};
+  const rowsAll = D2.Q10_TOP     || [];
+  const rowsSOA = D2.Q10_TOP_SOA || [];
+  const rowsEC  = D2.Q10_TOP_EC  || [];
+
+  // Sum of all keyword-matched mentions for each scope (denominator for %)
+  const sumOf = rows => rows.reduce((acc, r) => acc + (r.count || 0), 0);
+  const totals = { soa: sumOf(rowsSOA), ec: sumOf(rowsEC), all: sumOf(rowsAll) };
 
   const PANELS = {
     soa: {
-      data: Q10_SOA, total: Q10_SOA_TOTAL,
+      data: _q10Shape(rowsSOA, totals.soa),
+      total: totals.soa,
       title: 'SOA Groups — Top Product Categories',
-      subtitle: 'Amazon Sellers Viet Nam + Cộng đồng Amazon Sellers VN. Categories benchmarked from Q4 2025 PPTX report applied to Q1 SOA volume. Private Label (~15%) reflects Helium10 research activity without disclosed product names.',
-      kpiTopLabel: 'Top Category', kpiTopVal: '20.2%', kpiTopSub: 'Health & Beauty',
-      tableHeader: 'Ranked by % share of SOA mentions',
+      tableHeader: 'Ranked by share of SOA category mentions',
       donutHeader: 'Distribution (SOA)',
-      insights: Q10_INSIGHTS_SOA,
+      kpiTopLabel: 'Top Category',
     },
     ec: {
-      data: Q10_EC, total: Q10_EC_TOTAL,
+      data: _q10Shape(rowsEC, totals.ec),
+      total: totals.ec,
       title: 'EC Groups — Top Product Categories',
-      subtitle: '7 groups weighted by composition: Etsy-focused (50.4%) skews handmade/POD/jewelry; Shopee/TikTok (30%) skews apparel/beauty; Dropshipping/Shopify (16%) spreads across home/fashion/electronics; CBEC/MMO (3.6%) cross-border general.',
-      kpiTopLabel: 'Top Category', kpiTopVal: '23.5%', kpiTopSub: 'Handmade & POD',
-      tableHeader: 'Ranked by % share of EC mentions',
+      tableHeader: 'Ranked by share of EC category mentions',
       donutHeader: 'Distribution (EC)',
-      insights: Q10_INSIGHTS_EC,
+      kpiTopLabel: 'Top Category',
     },
     all: {
-      data: Q10_ALL, total: Q10_ALL_TOTAL,
-      title: 'Total Combined — Top Product Categories',
-      subtitle: 'All 9 groups aggregated. EC (34,790) dominates the ranking due to 6.4× larger volume vs SOA (5,468). Three categories appear strongly in both groups: Health & Beauty, Jewelry, and Apparel — indicating genuine cross-platform demand.',
-      kpiTopLabel: 'Cross-group cats', kpiTopVal: '3', kpiTopSub: 'Health · Jewelry · Apparel',
-      tableHeader: 'Ranked by % share of all 40,258 mentions',
+      data: _q10Shape(rowsAll, totals.all),
+      total: totals.all,
+      title: 'Total — Top Product Categories',
+      tableHeader: 'Ranked by share of all category mentions',
       donutHeader: 'Distribution (Total)',
-      insights: Q10_INSIGHTS_ALL,
+      kpiTopLabel: 'Top Category',
     },
   };
   const p = PANELS[tab];
-  const totalAccent = tab === 'soa' ? 'oklch(0.55 0.17 25)'
-                    : tab === 'ec'  ? 'oklch(0.45 0.14 155)'
+  const top = p.data[0];
+  const totalAccent = tab === 'soa' ? 'oklch(0.55 0.17 290)'
+                    : tab === 'ec'  ? 'oklch(0.55 0.17 340)'
                     : 'var(--accent)';
 
   return (
     <>
-      <Q10TabNav tab={tab} setTab={setTab} />
+      <Q10TabNav tab={tab} setTab={setTab} totals={totals} />
 
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 24, marginBottom: 18, flexWrap: 'wrap' }}>
         <div style={{ flex: '1 1 480px', minWidth: 0 }}>
           <h3 style={{ fontSize: 18, fontWeight: 700, margin: 0, marginBottom: 4, letterSpacing: '-0.3px' }}>{p.title}</h3>
-          <p style={{ fontSize: 12, color: 'var(--text-3)', maxWidth: 640, lineHeight: 1.55, margin: 0 }}>{p.subtitle}</p>
+          <p style={{ fontSize: 12, color: 'var(--text-3)', maxWidth: 640, lineHeight: 1.55, margin: 0 }}>
+            Categories matched from post content via keyword dictionary. Numbers are real mention counts —
+            most posts don't mention a category, so totals are smaller than headline mention totals.
+          </p>
         </div>
         <div style={{ display: 'flex', gap: 10, flexShrink: 0 }}>
           <div className="card" style={{ padding: '10px 14px', minWidth: 110, textAlign: 'right' }}>
             <div style={{ fontSize: 10, color: 'var(--text-3)', textTransform: 'uppercase', letterSpacing: 1, fontWeight: 600, marginBottom: 4 }}>
-              {tab === 'all' ? 'Grand Total' : `${tab.toUpperCase()} Total`}
+              {tab === 'all' ? 'Total Matched' : `${tab.toUpperCase()} Matched`}
             </div>
             <div className="mono" style={{ fontSize: 22, fontWeight: 700, color: totalAccent, lineHeight: 1 }}>{p.total.toLocaleString()}</div>
             <div style={{ fontSize: 10, color: 'var(--text-3)', marginTop: 3 }}>mentions</div>
           </div>
           <div className="card" style={{ padding: '10px 14px', minWidth: 130, textAlign: 'right' }}>
             <div style={{ fontSize: 10, color: 'var(--text-3)', textTransform: 'uppercase', letterSpacing: 1, fontWeight: 600, marginBottom: 4 }}>{p.kpiTopLabel}</div>
-            <div className="mono" style={{ fontSize: 22, fontWeight: 700, color: totalAccent, lineHeight: 1 }}>{p.kpiTopVal}</div>
-            <div style={{ fontSize: 10, color: 'var(--text-3)', marginTop: 3 }}>{p.kpiTopSub}</div>
+            <div className="mono" style={{ fontSize: 22, fontWeight: 700, color: totalAccent, lineHeight: 1 }}>{top ? `${top.pct}%` : '—'}</div>
+            <div style={{ fontSize: 10, color: 'var(--text-3)', marginTop: 3 }}>{top ? top.cat : '—'}</div>
           </div>
         </div>
       </div>
@@ -378,26 +282,25 @@ function Q10() {
           <>
             <div className="col-6">
               <div className="card" style={{ padding: 0 }}>
-                <div className="card-head" style={{ padding: '12px 16px', color: 'oklch(0.55 0.17 25)' }}>
+                <div className="card-head" style={{ padding: '12px 16px', color: 'oklch(0.55 0.17 290)' }}>
                   <div className="card-title">SOA Top 5 — Amazon Sellers</div>
                 </div>
-                <Q10MiniRows data={Q10_SOA} />
+                <Q10MiniRows data={_q10Shape(rowsSOA, totals.soa)} />
               </div>
             </div>
             <div className="col-6">
               <div className="card" style={{ padding: 0 }}>
-                <div className="card-head" style={{ padding: '12px 16px', color: 'oklch(0.45 0.14 155)' }}>
+                <div className="card-head" style={{ padding: '12px 16px', color: 'oklch(0.55 0.17 340)' }}>
                   <div className="card-title">EC Top 5 — Multi-platform Sellers</div>
                 </div>
-                <Q10MiniRows data={Q10_EC} />
+                <Q10MiniRows data={_q10Shape(rowsEC, totals.ec)} />
               </div>
             </div>
           </>
         )}
 
         <div style={{ gridColumn: '1 / -1' }}>
-          <Q10InsightsGrid items={p.insights} fullLastItem={tab === 'all'} />
-          <Q10MethodologyNote text={Q10_METHODOLOGY[tab]} />
+          <Q10MethodologyNote />
           <window.CardComments chartId={`Q10_${tab}`} />
         </div>
       </div>
@@ -519,10 +422,10 @@ function Q12() {
       {hasSplit && (
         <>
           <div className="col-6">
-            <ServiceHBars items={D2b.Q12_SERVICES_SOA} title="3rd-party services — mentions" badge={soaBadge} chartId="Q12_4" accent="oklch(0.55 0.17 25)" />
+            <ServiceHBars items={D2b.Q12_SERVICES_SOA} title="3rd-party services — mentions" badge={soaBadge} chartId="Q12_4" accent="oklch(0.55 0.17 290)" />
           </div>
           <div className="col-6">
-            <ServiceHBars items={D2b.Q12_SERVICES_EC}  title="3rd-party services — mentions" badge={ecBadge}  chartId="Q12_5" accent="oklch(0.55 0.17 260)" />
+            <ServiceHBars items={D2b.Q12_SERVICES_EC}  title="3rd-party services — mentions" badge={ecBadge}  chartId="Q12_5" accent="oklch(0.55 0.17 340)" />
           </div>
         </>
       )}
@@ -530,18 +433,28 @@ function Q12() {
         <div className="card">
           <div className="card-head"><div className="card-title">3rd-party services — Overview</div></div>
           <div className="grid-3" style={{ gap: 12 }}>
-            {[
-              { title: 'High Priority (High Demand)', items: ['Review Service — 61.8% demand', 'Product Sourcing — 54.2%', 'Software/Tools — 53.6%', 'VA/Assistant — 52.0%'], color: red },
-              { title: 'Medium Priority (Volume)', items: ['Accountant/Tax — 177', 'Legal/Trademark — 108', 'Listing Optimization — 107 mentions'], color: 'oklch(0.68 0.17 60)' },
-              { title: 'Well Served (High Satisfaction)', items: ['Photography — 100%', 'Legal/Trademark — 81.8%', 'Product Sourcing — 78.9%'], color: 'oklch(0.62 0.15 155)' },
-            ].map(b => (
-              <div key={b.title} style={{ padding: 12, border: '1px solid var(--border)', borderRadius: 8, borderLeft: `3px solid ${b.color}` }}>
-                <div style={{ fontSize: 11, fontWeight: 600, marginBottom: 8 }}>{b.title}</div>
-                {b.items.map(i => <div key={i} style={{ fontSize: 11, color: 'var(--text-2)', marginBottom: 3 }}>• {i}</div>)}
-              </div>
-            ))}
+            {(() => {
+              const _label = s => s.en || s.name;
+              const byDemand  = [...Q12_SERVICES].sort((a, b) => (b.demand || 0)       - (a.demand || 0));
+              const byVolume  = [...Q12_SERVICES].sort((a, b) => (b.mentions || 0)     - (a.mentions || 0));
+              const bySatisf  = [...Q12_SERVICES].sort((a, b) => (b.satisfaction || 0) - (a.satisfaction || 0));
+              const buckets = [
+                { title: 'High Priority (High Demand)',  color: red,
+                  items: byDemand.slice(0, 4).map(s => `${_label(s)} — ${s.demand || 0}% demand`) },
+                { title: 'Medium Priority (Volume)',     color: 'oklch(0.68 0.17 60)',
+                  items: byVolume.slice(0, 3).map(s => `${_label(s)} — ${(s.mentions || 0).toLocaleString()} mentions`) },
+                { title: 'Well Served (High Satisfaction)', color: 'oklch(0.62 0.15 155)',
+                  items: bySatisf.slice(0, 3).map(s => `${_label(s)} — ${s.satisfaction || 0}% satisfaction`) },
+              ];
+              return buckets.map(b => (
+                <div key={b.title} style={{ padding: 12, border: '1px solid var(--border)', borderRadius: 8, borderLeft: `3px solid ${b.color}` }}>
+                  <div style={{ fontSize: 11, fontWeight: 600, marginBottom: 8 }}>{b.title}</div>
+                  {b.items.map(i => <div key={i} style={{ fontSize: 11, color: 'var(--text-2)', marginBottom: 3 }}>• {i}</div>)}
+                </div>
+              ));
+            })()}
           </div>
-        
+
         <window.CardComments chartId="Q12_1" />
       </div>
       </div>
@@ -656,10 +569,10 @@ function Q13() {
       {hasSplit && (
         <>
           <div className="col-6">
-            <CourseHBars items={D2b.Q13_COURSES_SOA} title="Courses — mentions" badge={soaBadge} chartId="Q13_5" accent="oklch(0.55 0.17 25)" />
+            <CourseHBars items={D2b.Q13_COURSES_SOA} title="Courses — mentions" badge={soaBadge} chartId="Q13_5" accent="oklch(0.55 0.17 290)" />
           </div>
           <div className="col-6">
-            <CourseHBars items={D2b.Q13_COURSES_EC}  title="Courses — mentions" badge={ecBadge}  chartId="Q13_6" accent="oklch(0.55 0.17 260)" />
+            <CourseHBars items={D2b.Q13_COURSES_EC}  title="Courses — mentions" badge={ecBadge}  chartId="Q13_6" accent="oklch(0.55 0.17 340)" />
           </div>
         </>
       )}
@@ -820,10 +733,10 @@ function Q14() {
       {hasSplit && (
         <>
           <div className="col-6">
-            <GrowthHBars items={D2b.Q14_GROWTH_SOA} title="Growth Topics — mentions" badge={soaBadge} chartId="Q14_4" accent="oklch(0.55 0.17 25)" />
+            <GrowthHBars items={D2b.Q14_GROWTH_SOA} title="Growth Topics — mentions" badge={soaBadge} chartId="Q14_4" accent="oklch(0.55 0.17 290)" />
           </div>
           <div className="col-6">
-            <GrowthHBars items={D2b.Q14_GROWTH_EC}  title="Growth Topics — mentions" badge={ecBadge}  chartId="Q14_5" accent="oklch(0.55 0.17 260)" />
+            <GrowthHBars items={D2b.Q14_GROWTH_EC}  title="Growth Topics — mentions" badge={ecBadge}  chartId="Q14_5" accent="oklch(0.55 0.17 340)" />
           </div>
         </>
       )}
