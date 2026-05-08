@@ -276,11 +276,11 @@ def compute_all(df: pd.DataFrame):
     else:
         n_sub = 0
 
-    # SOA / EC positive-sentiment % (for the comparison KPI tile)
-    def _pos_pct(frame):
+    # SOA / EC sentiment %s (for the comparison + net-sentiment KPI tiles)
+    def _sent_pct(frame, label):
         if 'sentiment' not in frame.columns or len(frame) == 0:
             return 0.0
-        return round(int((frame['sentiment'] == 'positive').sum()) / max(1, len(frame)) * 100, 1)
+        return round(int((frame['sentiment'] == label).sum()) / max(1, len(frame)) * 100, 1)
 
     soa_rel_kpi = rel[rel['group_id'].isin(SOA_IDS)] if 'group_id' in rel.columns else rel.iloc[0:0]
     ec_rel_kpi  = rel[rel['group_id'].isin(EC_IDS)]  if 'group_id' in rel.columns else rel.iloc[0:0]
@@ -290,8 +290,10 @@ def compute_all(df: pd.DataFrame):
         'relevantPosts':    int(len(rel)),
         'negativeMentions': int((rel['sentiment'] == 'negative').sum()) if 'sentiment' in rel.columns else 0,
         'positiveMentions': int((rel['sentiment'] == 'positive').sum()) if 'sentiment' in rel.columns else 0,
-        'soaPositivePct':   _pos_pct(soa_rel_kpi),
-        'ecPositivePct':    _pos_pct(ec_rel_kpi),
+        'soaPositivePct':   _sent_pct(soa_rel_kpi, 'positive'),
+        'soaNegativePct':   _sent_pct(soa_rel_kpi, 'negative'),
+        'ecPositivePct':    _sent_pct(ec_rel_kpi,  'positive'),
+        'ecNegativePct':    _sent_pct(ec_rel_kpi,  'negative'),
         'soaRelevant':      int(len(soa_rel_kpi)),
         'ecRelevant':       int(len(ec_rel_kpi)),
         'activeGroups':     len(GROUP_INFO),
@@ -765,6 +767,8 @@ def compute_all(df: pd.DataFrame):
     q9_top_threads_soa = _top_threads(soa_rel, n=10)
     q9_top_threads_ec  = _top_threads(ec_rel,  n=10)
     q10_top      = extract_q10(rel)
+    q10_top_soa  = extract_q10(soa_rel)
+    q10_top_ec   = extract_q10(ec_rel)
     q11_tools         = extract_q11(soa_rel)                                # SOA only
     q11_issues        = extract_q11_issues(soa_rel)                         # SOA only
     q11_satisfaction  = extract_q11_satisfaction(soa_rel)                   # SOA only
@@ -961,6 +965,8 @@ window.ChiComData2 = (() => {{
   const Q9_TOP_THREADS_SOA = {_j(q9_top_threads_soa)};
   const Q9_TOP_THREADS_EC  = {_j(q9_top_threads_ec)};
   const Q10_TOP        = {_j(q10_top)};
+  const Q10_TOP_SOA    = {_j(q10_top_soa)};
+  const Q10_TOP_EC     = {_j(q10_top_ec)};
   const Q10_WEEKS      = {_j(q10_weeks)};
   const Q10_WEEKLY     = {_j(q10_weekly)};
   const Q10_SUBS_SOA   = {_j(q10_subs_soa)};
@@ -988,7 +994,7 @@ window.ChiComData2 = (() => {{
     Q9_Q7_PERSONAS_SOA, Q9_Q8_PERSONAS_SOA,
     Q9_Q7_PERSONAS_EC,  Q9_Q8_PERSONAS_EC,
     Q9_TOP_THREADS, Q9_TOP_THREADS_SOA, Q9_TOP_THREADS_EC,
-    Q10_TOP, Q10_WEEKS, Q10_WEEKLY, Q10_SUBS_SOA, Q10_SUBS_EC,
+    Q10_TOP, Q10_TOP_SOA, Q10_TOP_EC, Q10_WEEKS, Q10_WEEKLY, Q10_SUBS_SOA, Q10_SUBS_EC,
     Q11_TOOLS, Q11_ISSUES, Q11_SATISFACTION,
     Q12_SERVICES, Q12_SERVICES_SOA, Q12_SERVICES_EC,
     Q13_COURSES,  Q13_COURSES_SOA,  Q13_COURSES_EC,

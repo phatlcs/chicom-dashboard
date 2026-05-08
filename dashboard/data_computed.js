@@ -2178,7 +2178,9 @@ window.ChiComData = (() => {
   "negativeMentions": 8838,
   "positiveMentions": 5157,
   "soaPositivePct": 26.2,
+  "soaNegativePct": 21.0,
   "ecPositivePct": 10.7,
+  "ecNegativePct": 22.1,
   "soaRelevant": 5468,
   "ecRelevant": 34790,
   "activeGroups": 9,
@@ -3222,16 +3224,16 @@ window.ChiComData2 = (() => {
     "master_topic": "Chiến lược, kinh nghiệm và hỗ trợ cộng đồng bán hàng Amazon"
   },
   {
-    "id": "2207250333134763",
-    "link": "https://www.facebook.com/groups/congdongamazonvn/permalink/2207250333134763/",
+    "id": "2315616098937242",
+    "link": "https://www.facebook.com/groups/etsytogo/permalink/2315616098937242/",
     "count": 100,
     "comments": 99,
-    "preview": "# **TRUYỆN CỔ TÍCH 2025: THẰNG NHÓC 200X BƯỚC RA TỪ CỦ “HÀNH”! TƯ DUY ĐÚNG NHƯNG VẪN HÀNH ĐỘNG SAI?**\n\n**Tác giả: Phạm Minh Quân | Co-founder & CEO tại NextX…",
-    "group_id": 2,
-    "group_name": "CĐ Amazon Sellers",
-    "group_type": "SOA",
+    "preview": "**[NEW YEAR CONTEST 2026]** Xin chào mọi người, đến hẹn lại lên năm cũ qua đi năm mới lại về mình xin được gửi lời mến chúc một năm mới mọi sự an vui tới toà…",
+    "group_id": 7,
+    "group_name": "Etsy To Go",
+    "group_type": "EC",
     "sentiment": "positive",
-    "persona": "Seller (Amazon)",
+    "persona": "Seller (Others)",
     "master_topic": "Chiến lược, kinh nghiệm và hỗ trợ cộng đồng bán hàng Amazon"
   },
   {
@@ -3248,16 +3250,16 @@ window.ChiComData2 = (() => {
     "master_topic": "Vận hành và quản lý tài khoản Amazon Seller"
   },
   {
-    "id": "2315616098937242",
-    "link": "https://www.facebook.com/groups/etsytogo/permalink/2315616098937242/",
+    "id": "2207250333134763",
+    "link": "https://www.facebook.com/groups/congdongamazonvn/permalink/2207250333134763/",
     "count": 100,
     "comments": 99,
-    "preview": "**[NEW YEAR CONTEST 2026]** Xin chào mọi người, đến hẹn lại lên năm cũ qua đi năm mới lại về mình xin được gửi lời mến chúc một năm mới mọi sự an vui tới toà…",
-    "group_id": 7,
-    "group_name": "Etsy To Go",
-    "group_type": "EC",
+    "preview": "# **TRUYỆN CỔ TÍCH 2025: THẰNG NHÓC 200X BƯỚC RA TỪ CỦ “HÀNH”! TƯ DUY ĐÚNG NHƯNG VẪN HÀNH ĐỘNG SAI?**\n\n**Tác giả: Phạm Minh Quân | Co-founder & CEO tại NextX…",
+    "group_id": 2,
+    "group_name": "CĐ Amazon Sellers",
+    "group_type": "SOA",
     "sentiment": "positive",
-    "persona": "Seller (Others)",
+    "persona": "Seller (Amazon)",
     "master_topic": "Chiến lược, kinh nghiệm và hỗ trợ cộng đồng bán hàng Amazon"
   },
   {
@@ -3393,19 +3395,6 @@ window.ChiComData2 = (() => {
     "master_topic": "Chiến lược, kinh nghiệm và hỗ trợ cộng đồng bán hàng Amazon"
   },
   {
-    "id": "2196591477533982",
-    "link": "https://www.facebook.com/groups/congdongamazonvn/permalink/2196591477533982/",
-    "count": 53,
-    "comments": 52,
-    "preview": "Ecommerce Manager mà giờ lương bèo như thế này hả anh em ơi. Em có kinh nghiệm vít camp lên hơn 1triệu$, quản lý hàng ngàn camp mà nhìn lương chán quá\nwith a…",
-    "group_id": 2,
-    "group_name": "CĐ Amazon Sellers",
-    "group_type": "SOA",
-    "sentiment": "neutral",
-    "persona": "Seller (Others)",
-    "master_topic": "Kinh doanh xuất nhập khẩu và thương mại điện tử xuyên biên giới"
-  },
-  {
     "id": "2248769432316186",
     "link": "https://www.facebook.com/groups/congdongamazonvn/permalink/2248769432316186/",
     "count": 53,
@@ -3416,6 +3405,19 @@ window.ChiComData2 = (() => {
     "group_type": "SOA",
     "sentiment": "positive",
     "persona": "Service Provider (CBEC)",
+    "master_topic": "Kinh doanh xuất nhập khẩu và thương mại điện tử xuyên biên giới"
+  },
+  {
+    "id": "2196591477533982",
+    "link": "https://www.facebook.com/groups/congdongamazonvn/permalink/2196591477533982/",
+    "count": 53,
+    "comments": 52,
+    "preview": "Ecommerce Manager mà giờ lương bèo như thế này hả anh em ơi. Em có kinh nghiệm vít camp lên hơn 1triệu$, quản lý hàng ngàn camp mà nhìn lương chán quá\nwith a…",
+    "group_id": 2,
+    "group_name": "CĐ Amazon Sellers",
+    "group_type": "SOA",
+    "sentiment": "neutral",
+    "persona": "Seller (Others)",
     "master_topic": "Kinh doanh xuất nhập khẩu và thương mại điện tử xuyên biên giới"
   },
   {
@@ -3486,19 +3488,6 @@ window.ChiComData2 = (() => {
     "master_topic": "Chiến lược, kinh nghiệm và hỗ trợ cộng đồng bán hàng Amazon"
   },
   {
-    "id": "1471293041241205",
-    "link": "https://www.facebook.com/groups/chuyennhaban/permalink/1471293041241205/",
-    "count": 100,
-    "comments": 99,
-    "preview": "Cho em xin hướng giải quyết với ạ😭 em còn đi học và có nhiều khó khăn về tài chính, shop em đã bị khoá từ lâu, nay shopee gửi mail này em rất lo sợ. Em vừa s…",
-    "group_id": 6,
-    "group_name": "Chuyện Nhà Bán",
-    "group_type": "EC",
-    "sentiment": "negative",
-    "persona": "Seller (Others)",
-    "master_topic": "Vận hành và quản lý tài khoản Amazon Seller"
-  },
-  {
     "id": "2315616098937242",
     "link": "https://www.facebook.com/groups/etsytogo/permalink/2315616098937242/",
     "count": 100,
@@ -3510,6 +3499,19 @@ window.ChiComData2 = (() => {
     "sentiment": "positive",
     "persona": "Seller (Others)",
     "master_topic": "Chiến lược, kinh nghiệm và hỗ trợ cộng đồng bán hàng Amazon"
+  },
+  {
+    "id": "1471293041241205",
+    "link": "https://www.facebook.com/groups/chuyennhaban/permalink/1471293041241205/",
+    "count": 100,
+    "comments": 99,
+    "preview": "Cho em xin hướng giải quyết với ạ😭 em còn đi học và có nhiều khó khăn về tài chính, shop em đã bị khoá từ lâu, nay shopee gửi mail này em rất lo sợ. Em vừa s…",
+    "group_id": 6,
+    "group_name": "Chuyện Nhà Bán",
+    "group_type": "EC",
+    "sentiment": "negative",
+    "persona": "Seller (Others)",
+    "master_topic": "Vận hành và quản lý tài khoản Amazon Seller"
   },
   {
     "id": "26167833476243408",
@@ -3581,7 +3583,7 @@ window.ChiComData2 = (() => {
   {
     "vn": "Thời trang",
     "name": "Thời trang",
-    "en": "Fashion",
+    "en": "Apparel & Fashion",
     "count": 320,
     "color": "oklch(0.60 0.20 25)"
   },
@@ -3649,6 +3651,150 @@ window.ChiComData2 = (() => {
     "color": "oklch(0.65 0.12 60)"
   }
 ];
+  const Q10_TOP_SOA    = [
+  {
+    "vn": "Thời trang",
+    "name": "Thời trang",
+    "en": "Apparel & Fashion",
+    "count": 31,
+    "color": "oklch(0.60 0.20 25)"
+  },
+  {
+    "vn": "Gia dụng & Bếp",
+    "name": "Gia dụng & Bếp",
+    "en": "Home & Kitchen",
+    "count": 28,
+    "color": "oklch(0.68 0.17 50)"
+  },
+  {
+    "vn": "Điện tử & Gadget",
+    "name": "Điện tử & Gadget",
+    "en": "Electronics & Gadgets",
+    "count": 28,
+    "color": "oklch(0.75 0.17 90)"
+  },
+  {
+    "vn": "Thực phẩm",
+    "name": "Thực phẩm",
+    "en": "Food & Grocery",
+    "count": 16,
+    "color": "oklch(0.62 0.15 155)"
+  },
+  {
+    "vn": "Làm đẹp & Sức khỏe",
+    "name": "Làm đẹp & Sức khỏe",
+    "en": "Beauty & Health",
+    "count": 13,
+    "color": "oklch(0.58 0.14 190)"
+  },
+  {
+    "vn": "Nội thất",
+    "name": "Nội thất",
+    "en": "Furniture",
+    "count": 8,
+    "color": "oklch(0.55 0.17 290)"
+  },
+  {
+    "vn": "Đồ chơi & Trẻ em",
+    "name": "Đồ chơi & Trẻ em",
+    "en": "Toys & Kids",
+    "count": 6,
+    "color": "oklch(0.60 0.20 320)"
+  },
+  {
+    "vn": "Thú cưng",
+    "name": "Thú cưng",
+    "en": "Pets",
+    "count": 5,
+    "color": "oklch(0.55 0.15 230)"
+  },
+  {
+    "vn": "Vali & Túi xách",
+    "name": "Vali & Túi xách",
+    "en": "Luggage & Bags",
+    "count": 5,
+    "color": "oklch(0.55 0.17 260)"
+  },
+  {
+    "vn": "Thể thao & Ngoài trời",
+    "name": "Thể thao & Ngoài trời",
+    "en": "Sports & Outdoor",
+    "count": 4,
+    "color": "oklch(0.65 0.12 60)"
+  }
+];
+  const Q10_TOP_EC     = [
+  {
+    "vn": "Thời trang",
+    "name": "Thời trang",
+    "en": "Apparel & Fashion",
+    "count": 289,
+    "color": "oklch(0.60 0.20 25)"
+  },
+  {
+    "vn": "Điện tử & Gadget",
+    "name": "Điện tử & Gadget",
+    "en": "Electronics & Gadgets",
+    "count": 204,
+    "color": "oklch(0.68 0.17 50)"
+  },
+  {
+    "vn": "Gia dụng & Bếp",
+    "name": "Gia dụng & Bếp",
+    "en": "Home & Kitchen",
+    "count": 174,
+    "color": "oklch(0.75 0.17 90)"
+  },
+  {
+    "vn": "Làm đẹp & Sức khỏe",
+    "name": "Làm đẹp & Sức khỏe",
+    "en": "Beauty & Health",
+    "count": 98,
+    "color": "oklch(0.62 0.15 155)"
+  },
+  {
+    "vn": "Thực phẩm",
+    "name": "Thực phẩm",
+    "en": "Food & Grocery",
+    "count": 86,
+    "color": "oklch(0.58 0.14 190)"
+  },
+  {
+    "vn": "Đồ chơi & Trẻ em",
+    "name": "Đồ chơi & Trẻ em",
+    "en": "Toys & Kids",
+    "count": 78,
+    "color": "oklch(0.55 0.17 290)"
+  },
+  {
+    "vn": "Thú cưng",
+    "name": "Thú cưng",
+    "en": "Pets",
+    "count": 51,
+    "color": "oklch(0.60 0.20 320)"
+  },
+  {
+    "vn": "Thể thao & Ngoài trời",
+    "name": "Thể thao & Ngoài trời",
+    "en": "Sports & Outdoor",
+    "count": 47,
+    "color": "oklch(0.55 0.15 230)"
+  },
+  {
+    "vn": "Vali & Túi xách",
+    "name": "Vali & Túi xách",
+    "en": "Luggage & Bags",
+    "count": 37,
+    "color": "oklch(0.55 0.17 260)"
+  },
+  {
+    "vn": "Nội thất",
+    "name": "Nội thất",
+    "en": "Furniture",
+    "count": 32,
+    "color": "oklch(0.65 0.12 60)"
+  }
+];
   const Q10_WEEKS      = [
   "Dec 22",
   "Dec 29",
@@ -3670,7 +3816,7 @@ window.ChiComData2 = (() => {
   const Q10_WEEKLY     = [
   {
     "name": "Thời trang",
-    "en": "Fashion",
+    "en": "Apparel & Fashion",
     "color": "oklch(0.60 0.20 25)",
     "points": [
       1,
@@ -4644,7 +4790,7 @@ window.ChiComData2 = (() => {
     Q9_Q7_PERSONAS_SOA, Q9_Q8_PERSONAS_SOA,
     Q9_Q7_PERSONAS_EC,  Q9_Q8_PERSONAS_EC,
     Q9_TOP_THREADS, Q9_TOP_THREADS_SOA, Q9_TOP_THREADS_EC,
-    Q10_TOP, Q10_WEEKS, Q10_WEEKLY, Q10_SUBS_SOA, Q10_SUBS_EC,
+    Q10_TOP, Q10_TOP_SOA, Q10_TOP_EC, Q10_WEEKS, Q10_WEEKLY, Q10_SUBS_SOA, Q10_SUBS_EC,
     Q11_TOOLS, Q11_ISSUES, Q11_SATISFACTION,
     Q12_SERVICES, Q12_SERVICES_SOA, Q12_SERVICES_EC,
     Q13_COURSES,  Q13_COURSES_SOA,  Q13_COURSES_EC,

@@ -7,8 +7,9 @@ function Q3() {
   const q3 = [...D.Q3_SELLER_PROSPECT].sort((a, b) => Math.max(b.sellerPct, b.prospectPct) - Math.max(a.sellerPct, a.prospectPct));
   const max = Math.max(...q3.flatMap(r => [r.sellerPct, r.prospectPct]));
 
-  const sellerColor = 'oklch(0.62 0.16 25)';
-  const prospectColor = 'oklch(0.55 0.17 260)';
+  // Match the persona palette in shell.jsx (Seller=blue, Prospect=orange)
+  const sellerColor = 'oklch(0.50 0.16 245)';
+  const prospectColor = 'oklch(0.55 0.17 55)';
 
   // Sub-topic difference — each bar uses its parent master-topic color
   const subs = [...D.Q3_SUBS].sort((a, b) => b.diff - a.diff);

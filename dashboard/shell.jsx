@@ -96,7 +96,12 @@ function KpiStrip() {
   const posPct = rel ? (kpi.positiveMentions / rel) * 100 : 0;
   const negPct = rel ? (kpi.negativeMentions / rel) * 100 : 0;
   const netPct = posPct - negPct;
-  const netSign = netPct >= 0 ? '+' : '';
+  const soaPos = kpi.soaPositivePct ?? 0;
+  const soaNeg = kpi.soaNegativePct ?? 0;
+  const soaNet = soaPos - soaNeg;
+  const sign = v => v >= 0 ? '+' : '';
+  const POS = 'oklch(0.55 0.16 155)';
+  const NEG = 'oklch(0.58 0.18 25)';
   return (
     <div className="kpi-strip">
       <div className="kpi">
@@ -110,18 +115,22 @@ function KpiStrip() {
         <div className="kpi-delta up mono">spam filtered out</div>
       </div>
       <div className="kpi">
-        <div className="kpi-label">Net Sentiment</div>
-        <div className="kpi-value mono" style={{ color: netPct >= 0 ? 'oklch(0.55 0.16 155)' : 'oklch(0.58 0.18 25)' }}>
-          {netSign}{netPct.toFixed(1)}%
+        <div className="kpi-label">Net Sentiment (Total)</div>
+        <div className="kpi-value mono" style={{ color: netPct >= 0 ? POS : NEG }}>
+          {sign(netPct)}{netPct.toFixed(1)}%
         </div>
         <div className="kpi-delta mono" style={{ color: 'var(--text-3)' }}>
           +{posPct.toFixed(1)}% pos · −{negPct.toFixed(1)}% neg
         </div>
       </div>
       <div className="kpi">
-        <div className="kpi-label">SOA Positive</div>
-        <div className="kpi-value mono">{kpi.soaPositivePct != null ? `${kpi.soaPositivePct}%` : '—'}</div>
-        <div className="kpi-delta up mono">vs EC {kpi.ecPositivePct != null ? `${kpi.ecPositivePct}%` : '—'}</div>
+        <div className="kpi-label">Net Sentiment (SOA)</div>
+        <div className="kpi-value mono" style={{ color: soaNet >= 0 ? POS : NEG }}>
+          {sign(soaNet)}{soaNet.toFixed(1)}%
+        </div>
+        <div className="kpi-delta mono" style={{ color: 'var(--text-3)' }}>
+          +{soaPos.toFixed(1)}% pos · −{soaNeg.toFixed(1)}% neg
+        </div>
       </div>
       <div className="kpi">
         <div className="kpi-label">Master Topics</div>
@@ -150,13 +159,18 @@ function PersonaByGroupChart() {
 
   const [mode, setMode] = useState('count'); // 'count' | 'pct'
 
+  // Persona palette: each segment-type gets one hue, sub-segments are shade variants.
+  // Avoids red/green so sentiment colors (red=neg, green=pos) stay unambiguous.
+  //   Seller          → blue   (Amazon = darker, Others = lighter)
+  //   Prospect        → orange (Amazon = darker, Others = lighter)
+  //   Service Provider → teal  (Amazon = darker, CBEC   = lighter)
   const PCOL = {
-    p_seller_az:   'oklch(0.62 0.15 25)',
-    p_prospect_az: 'oklch(0.55 0.17 260)',
-    p_svc_az:      'oklch(0.62 0.15 290)',
-    p_svc_cbec:    'oklch(0.55 0.17 290)',
-    p_seller_ot:   'oklch(0.68 0.17 60)',
-    p_prospect_ot: 'oklch(0.62 0.15 155)',
+    p_seller_az:    'oklch(0.50 0.16 245)',
+    p_seller_ot:    'oklch(0.72 0.10 245)',
+    p_prospect_az:  'oklch(0.55 0.17 55)',
+    p_prospect_ot:  'oklch(0.75 0.12 55)',
+    p_svc_az:       'oklch(0.50 0.10 195)',
+    p_svc_cbec:     'oklch(0.72 0.08 195)',
   };
 
   const visibleGroups = groups;
@@ -310,21 +324,30 @@ function PersonaByGroupChart() {
 }
 window.PersonaByGroupChart = PersonaByGroupChart;
 
-// HighlightsBar — three topline highlight cards: hot topics, products, verbatim.
+// HighlightsBar — topline highlight cards: hot topics, product category (Q10),
+// Amazon product/program (Q11).
 function HighlightsBar() {
   const D1 = window.ChiComData || {};
   const D2 = window.ChiComData2 || {};
-  const q10 = D2.Q10_TOP || [];
-  const threads = D2.Q9_TOP_THREADS || [];
+  const q10 = D2.Q10_TOP   || [];
+  const q11 = D2.Q11_TOOLS || [];
 
   const totalRel = (D1.KPI && D1.KPI.relevantPosts) || 1;
-  const top3 = (q10 || []).slice(0, 3).map(p => ({
-    name: p.name,
+  // Use the sum of matched mentions as the denominator so the topline %
+  // matches the Q10/Q11 section panels.
+  const sumOf = rows => rows.reduce((acc, r) => acc + ((r.use ?? r.count) || 0), 0);
+  const q10Sum = Math.max(1, sumOf(q10));
+  const q11Sum = Math.max(1, sumOf(q11));
+  const top3Cat = (q10 || []).slice(0, 3).map(p => ({
+    name: p.en || p.name || p.vn,
     count: p.count || 0,
-    pct: ((p.count || 0) / totalRel * 100).toFixed(1),
+    pct: ((p.count || 0) / q10Sum * 100).toFixed(1),
   }));
-  const top = threads[0];
-  const verbatim = top ? (top.preview || top.title || '') : '';
+  const top3Prog = (q11 || []).slice(0, 3).map(p => ({
+    name: p.en || p.name || p.vn,
+    count: p.use ?? p.count ?? 0,
+    pct: (((p.use ?? p.count ?? 0) / q11Sum) * 100).toFixed(1),
+  }));
 
   const masterTopics = D1.MASTER_TOPICS || [];
   const topicCounts  = D1.MASTER_TOPIC_COUNTS || {};
@@ -342,7 +365,7 @@ function HighlightsBar() {
     .slice(0, 3);
 
   return (
-    <div className="highlights-bar" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1.4fr', gap: 12, marginBottom: 24 }}>
+    <div className="highlights-bar" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 12, marginBottom: 24 }}>
         {/* Top-3 hot topics (master topics by mention count) */}
         <div className="card">
           <div className="card-title">Top 3 hot topics</div>
@@ -366,14 +389,14 @@ function HighlightsBar() {
           ))}
         </div>
 
-        {/* Top-3 products */}
+        {/* Top mentioned Product category — keyword-matched categories from Q10 */}
         <div className="card">
-          <div className="card-title">Top product discussion</div>
+          <div className="card-title">Top mentioned Product category</div>
           <div className="card-sub" style={{ fontSize: 11, color: 'var(--text-3)', marginBottom: 8 }}>
-            Top 3 keyword-matched categories · % of analyzed mentions
+            Top 3 keyword-matched categories · from Q10
           </div>
-          {top3.map((p, i) => (
-            <div key={p.name} style={{ marginBottom: i === top3.length - 1 ? 0 : 10 }}>
+          {top3Cat.map((p, i) => (
+            <div key={p.name} style={{ marginBottom: i === top3Cat.length - 1 ? 0 : 10 }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12, marginBottom: 3 }}>
                 <span style={{ color: 'var(--text-2)' }}>{i + 1}. {p.name}</span>
                 <span className="mono" style={{ color: 'var(--text-2)' }}>{p.pct}%</span>
@@ -389,28 +412,29 @@ function HighlightsBar() {
           ))}
         </div>
 
-        {/* Top most-replied thread (Vietnamese verbatim) */}
+        {/* Top mentioned Amazon Product / Program — keyword-matched programs from Q11 (SOA-only) */}
         <div className="card">
-          <div className="card-title">Most-replied thread</div>
+          <div className="card-title">Top mentioned Amazon Product / Program</div>
           <div className="card-sub" style={{ fontSize: 11, color: 'var(--text-3)', marginBottom: 8 }}>
-            From Q9 · verbatim (Vietnamese, untranslated)
+            Top 3 keyword-matched programs · from Q11 · % of SOA mentions
           </div>
-          {top ? (
-            <div>
-              <div style={{ fontSize: 13, lineHeight: 1.45, color: 'var(--text)', fontStyle: 'italic',
-                            padding: '8px 10px', background: 'var(--panel-2)', borderLeft: '3px solid var(--accent)',
-                            borderRadius: '0 4px 4px 0', marginBottom: 8 }}>
-                "{verbatim}"
+          {top3Prog.map((p, i) => (
+            <div key={p.name} style={{ marginBottom: i === top3Prog.length - 1 ? 0 : 10 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12, marginBottom: 3 }}>
+                <span style={{ color: 'var(--text-2)' }}>{i + 1}. {p.name}</span>
+                <span className="mono" style={{ color: 'var(--text-2)' }}>{p.pct}%</span>
               </div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, color: 'var(--text-3)' }}>
-                <span>{top.group_name || '—'} · {top.persona || '—'}</span>
-                <span className="mono"><b style={{ color: 'var(--text-2)' }}>{(top.comments ?? Math.max(0, (top.count || 1) - 1)).toLocaleString()}</b> replies</span>
+              <div style={{ height: 6, background: 'var(--panel-2)', borderRadius: 3, overflow: 'hidden' }}>
+                <div style={{
+                  width: `${Math.min(100, p.pct * 4)}%`, height: '100%',
+                  background: 'oklch(0.55 0.17 290)', borderRadius: 3,
+                }}></div>
               </div>
+              <div className="mono" style={{ fontSize: 10, color: 'var(--text-3)', marginTop: 2 }}>{p.count.toLocaleString()} mentions</div>
             </div>
-          ) : (
-            <div style={{ color: 'var(--text-3)', fontSize: 12 }}>No thread data.</div>
-          )}
+          ))}
         </div>
+
     </div>
   );
 }
@@ -597,16 +621,18 @@ function ExpertInsightPanel({ qId }) {
 window.ExpertInsightPanel = ExpertInsightPanel;
 
 function ScopeBadge() {
+  // SOA-only scope indicator. Uses SOA purple (hue 290), not red — red is
+  // reserved for negative sentiment.
   return (
     <span style={{
       display: 'inline-flex', alignItems: 'center', gap: 4,
       padding: '3px 8px', borderRadius: 4,
-      background: 'oklch(0.60 0.20 25 / 0.15)',
-      color: 'oklch(0.45 0.20 25)',
+      background: 'oklch(0.55 0.17 290 / 0.15)',
+      color: 'oklch(0.45 0.17 290)',
       fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em',
-      border: '1px solid oklch(0.80 0.12 25)',
+      border: '1px solid oklch(0.80 0.10 290)',
     }}>
-      <span style={{ width: 5, height: 5, background: 'oklch(0.55 0.20 25)', borderRadius: '50%' }}></span>
+      <span style={{ width: 5, height: 5, background: 'oklch(0.55 0.17 290)', borderRadius: '50%' }}></span>
       SOA only
     </span>
   );
