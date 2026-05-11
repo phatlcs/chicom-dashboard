@@ -4118,15 +4118,6 @@ window.ChiComData2 = (() => {
     "issues": 4
   },
   {
-    "name": "Helium 10",
-    "vn": "Helium 10",
-    "en": "Helium 10",
-    "count": 17,
-    "use": 17,
-    "satisfied": 6,
-    "issues": 0
-  },
-  {
     "name": "Seller Central",
     "vn": "Seller Central",
     "en": "Seller Central",
@@ -4154,12 +4145,48 @@ window.ChiComData2 = (() => {
     "issues": 6
   },
   {
+    "name": "AWD",
+    "vn": "AWD",
+    "en": "AWD",
+    "count": 4,
+    "use": 4,
+    "satisfied": 0,
+    "issues": 1
+  },
+  {
+    "name": "Content A+",
+    "vn": "Content A+",
+    "en": "Content A+",
+    "count": 4,
+    "use": 4,
+    "satisfied": 3,
+    "issues": 0
+  },
+  {
+    "name": "AGL",
+    "vn": "AGL",
+    "en": "AGL",
+    "count": 2,
+    "use": 2,
+    "satisfied": 1,
+    "issues": 0
+  },
+  {
     "name": "Jungle Scout",
     "vn": "Jungle Scout",
     "en": "Jungle Scout",
     "count": 1,
     "use": 1,
     "satisfied": 1,
+    "issues": 0
+  },
+  {
+    "name": "AI Canvas",
+    "vn": "AI Canvas",
+    "en": "AI Canvas",
+    "count": 1,
+    "use": 1,
+    "satisfied": 0,
     "issues": 0
   }
 ];

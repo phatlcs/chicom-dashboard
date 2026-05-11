@@ -314,10 +314,6 @@ Q11_TOOL_KW = {
         'brand registry', 'đăng ký brand', 'amazon brand', 'brand protection',
         'registered brand',
     ],
-    'Helium 10': [
-        'helium 10', 'helium10', 'h10', 'cerebro', 'magnet', 'black box',
-        'xray helium',
-    ],
     'Jungle Scout': [
         'jungle scout', 'junglescout', 'js ', 'jungle',
     ],
@@ -331,6 +327,20 @@ Q11_TOOL_KW = {
     ],
     'Amazon Vine': [
         'vine', 'amazon vine', 'vine review', 'vine program',
+    ],
+    'AWD': [
+        'awd', 'amazon warehousing', 'amazon warehousing and distribution',
+        'amazon warehousing & distribution',
+    ],
+    'AGL': [
+        'agl', 'amazon global logistics', 'global logistics amazon',
+    ],
+    'AI Canvas': [
+        'ai canvas', 'amazon ai canvas', 'amazon canvas', 'creative studio amazon',
+    ],
+    'Content A+': [
+        'a+ content', 'content a+', 'a-plus content', 'enhanced brand content',
+        'ebc', 'premium a+ content', 'premium a-plus', 'a+ premium',
     ],
 }
 
