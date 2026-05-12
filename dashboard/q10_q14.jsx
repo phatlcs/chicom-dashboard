@@ -548,7 +548,8 @@ function Q13() {
   let acc = 0;
   const donutSeg = Q13_COURSES.map((c, i) => {
     const start = acc; acc += c.mentions / total;
-    const colors = [blue, green, 'oklch(0.75 0.17 75)', 'oklch(0.60 0.20 25)'];
+    // 4 distinct non-sentiment hues — red/green reserved for sentiment only
+    const colors = ['oklch(0.55 0.17 260)', 'oklch(0.62 0.15 290)', 'oklch(0.75 0.17 80)', 'oklch(0.62 0.15 320)'];
     return { ...c, start, end: acc, color: colors[i] };
   });
   const arc = (cx, cy, r, r2, a0, a1) => {

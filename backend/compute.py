@@ -76,9 +76,17 @@ PERSONA_MAP = {
 }
 
 TC = [
-    'oklch(0.62 0.15 260)', 'oklch(0.62 0.15 25)',  'oklch(0.62 0.15 155)',
-    'oklch(0.62 0.15 60)',  'oklch(0.62 0.15 320)', 'oklch(0.62 0.15 200)',
-    'oklch(0.62 0.15 90)',  'oklch(0.62 0.15 290)', 'oklch(0.62 0.15 0)',
+    # Master-topic palette. Red (hue ~0-30) and green (hue ~140-170) are
+    # reserved for negative / positive sentiment — never use them here.
+    'oklch(0.62 0.15 260)',  # mt1 — blue
+    'oklch(0.62 0.15 80)',   # mt2 — gold        (was 25 red — fixed)
+    'oklch(0.62 0.15 230)',  # mt3 — cyan-blue   (was 155 green — fixed)
+    'oklch(0.62 0.15 60)',   # mt4 — orange
+    'oklch(0.62 0.15 320)',  # mt5 — magenta
+    'oklch(0.62 0.15 200)',  # mt6 — cyan
+    'oklch(0.62 0.15 110)',  # mt7 — yellow-lime (was 90 — nudged for spacing)
+    'oklch(0.62 0.15 290)',  # mt8 — purple
+    'oklch(0.62 0.15 350)',  # mt9 — rose        (was 0 red — fixed)
 ]
 
 DAYS_VN = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN']

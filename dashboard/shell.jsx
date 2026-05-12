@@ -530,8 +530,8 @@ function Section({ id, num, title, scope, soaOnly, children }) {
         <div style={{
           margin: '0 0 10px',
           padding: '8px 14px',
-          background: 'oklch(0.96 0.04 25 / 0.4)',
-          border: '1px solid oklch(0.80 0.08 25)',
+          background: 'oklch(0.96 0.04 290 / 0.4)',
+          border: '1px solid oklch(0.80 0.08 290)',
           borderRadius: 4,
           fontSize: 11,
           color: 'var(--text-2)',
@@ -997,7 +997,7 @@ function SectionBanner({ label, sublabel }) {
     <div style={{
       margin: '24px 0 16px',
       padding: '14px 20px',
-      background: 'linear-gradient(90deg, oklch(0.68 0.17 60), oklch(0.72 0.15 30))',
+      background: 'linear-gradient(90deg, oklch(0.68 0.17 60), oklch(0.62 0.15 80))',
       borderRadius: 6,
       color: '#fff',
       display: 'flex',
@@ -1043,10 +1043,12 @@ function OverviewPanel() {
   const ov = (window.ChiComData || {}).OVERVIEW;
   if (!ov) return null;
 
-  const palette = [
-    'oklch(0.68 0.17 60)', 'oklch(0.55 0.17 260)', 'oklch(0.62 0.15 155)',
-    'oklch(0.60 0.20 25)', 'oklch(0.58 0.14 190)', 'oklch(0.55 0.17 290)',
-    'oklch(0.75 0.17 90)', 'oklch(0.62 0.15 320)', 'oklch(0.70 0.02 260)',
+  // Non-sentiment palette — red and green are reserved for negative/positive
+  // sentiment, so they're omitted here. Reuses TOPIC_COLORS where possible.
+  const palette = window.TOPIC_COLORS || [
+    'oklch(0.62 0.15 260)', 'oklch(0.62 0.15 80)',  'oklch(0.62 0.15 230)',
+    'oklch(0.62 0.15 60)',  'oklch(0.62 0.15 320)', 'oklch(0.62 0.15 200)',
+    'oklch(0.62 0.15 110)', 'oklch(0.62 0.15 290)', 'oklch(0.62 0.15 350)',
   ];
 
   const arc = (cx, cy, r, a0, a1) => {
