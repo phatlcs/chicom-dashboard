@@ -368,10 +368,6 @@ function Q2() {
       )}
 
       <div className="col-12">
-        <window.PersonaByGroupChart />
-      </div>
-
-      <div className="col-12">
         <window.Insight qId="Q2">
           Densest cell: <b>{best.p.vn}</b> × <b>{best.mt.en}</b> with <b>{best.v.toLocaleString()}</b> mentions.
           Highest-total persona: <b>{personaTotals[0].p.vn}</b> ({personaTotals[0].total.toLocaleString()}).

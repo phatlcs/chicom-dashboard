@@ -660,15 +660,23 @@ def extract_q8(df: pd.DataFrame, months: list):
         triggers = _extract_from_column(neg['trigger_to_leave'])
     else:
         triggers = _extract(neg['content'], Q8_TRIGGER_KW)
-    # Persona breakdown of negative posts
+    # Persona breakdown of negative posts.
+    # Color palette mirrors the persona PCOL in shell.jsx so a given persona
+    # always renders in the same hue across the dashboard. Red and green are
+    # reserved for negative / positive sentiment, never used here.
+    PERSONA_COLOR = {
+        'Seller (Amazon)':            'oklch(0.42 0.24 255)',  # cobalt/navy, deep
+        'Seller (Others)':            'oklch(0.70 0.16 250)',  # blue, medium
+        'Prospect (Amazon)':          'oklch(0.58 0.20 50)',   # orange, vivid
+        'Prospect (Others)':          'oklch(0.78 0.16 50)',   # peach
+        'Service Provider (Amazon)':  'oklch(0.52 0.13 195)',  # teal, deep
+        'Service Provider (CBEC)':    'oklch(0.74 0.11 195)',  # teal, light
+    }
+    FALLBACK = 'oklch(0.55 0.10 290)'  # purple — distinct from sentiment + personas
     persona_counts = neg['persona'].value_counts()
-    COLORS = [
-        'oklch(0.60 0.20 25)', 'oklch(0.70 0.17 60)', 'oklch(0.62 0.15 260)',
-        'oklch(0.62 0.15 155)', 'oklch(0.62 0.15 320)',
-    ]
     persona_list = [
-        {'label': str(p), 'count': int(c), 'color': COLORS[i % len(COLORS)]}
-        for i, (p, c) in enumerate(persona_counts.items())
+        {'label': str(p), 'count': int(c), 'color': PERSONA_COLOR.get(str(p), FALLBACK)}
+        for p, c in persona_counts.items()
     ]
     # Monthly trend
     neg2 = neg.copy()

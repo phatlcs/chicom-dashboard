@@ -86,7 +86,10 @@ function App() {
 
         {/* ── Section 1: Overview ─────────────────────────── */}
         <window.SectionBanner label="Section 1 — Overview" sublabel="Overview · SOV community · Persona distribution" />
-        <section id="overview"><window.OverviewPanel /></section>
+        <section id="overview">
+          <window.OverviewPanel />
+          <window.PersonaByGroupChart />
+        </section>
 
         {/* ── Section 2: Detailed insights (14 questions) ─────────── */}
         <window.SectionBanner label="Section 2 — Detailed insights" sublabel="14 research questions" />
@@ -112,7 +115,7 @@ function App() {
         <window.Section id="Q9" num="Q9"
           title="Top 10 most-discussed threads"><Q9 /></window.Section>
         <window.Section id="Q10" num="Q10"
-          title="Top mentioned Product category"><Q10 /></window.Section>
+          title="Top Mentioned Selection"><Q10 /></window.Section>
         <window.Section id="Q11" num="Q11" soaOnly
           title="Top mentioned Amazon Product / Program"><Q11 /></window.Section>
         <window.Section id="Q12" num="Q12"

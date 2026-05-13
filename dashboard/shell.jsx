@@ -161,16 +161,17 @@ function PersonaByGroupChart() {
 
   // Persona palette: each segment-type gets one hue, sub-segments are shade variants.
   // Avoids red/green so sentiment colors (red=neg, green=pos) stay unambiguous.
-  //   Seller          → blue   (Amazon = darker, Others = lighter)
-  //   Prospect        → orange (Amazon = darker, Others = lighter)
-  //   Service Provider → teal  (Amazon = darker, CBEC   = lighter)
+  // High chroma so the colours stay distinct even at the lighter "Others" shade.
+  //   Seller          → cobalt/navy blue (Amazon = deep saturated, Others = medium)
+  //   Prospect        → vivid orange     (Amazon = deep,            Others = peach)
+  //   Service Provider → teal             (Amazon = deep,            CBEC   = light)
   const PCOL = {
-    p_seller_az:    'oklch(0.50 0.16 245)',
-    p_seller_ot:    'oklch(0.72 0.10 245)',
-    p_prospect_az:  'oklch(0.55 0.17 55)',
-    p_prospect_ot:  'oklch(0.75 0.12 55)',
-    p_svc_az:       'oklch(0.50 0.10 195)',
-    p_svc_cbec:     'oklch(0.72 0.08 195)',
+    p_seller_az:    'oklch(0.42 0.24 255)',
+    p_seller_ot:    'oklch(0.70 0.16 250)',
+    p_prospect_az:  'oklch(0.58 0.20 50)',
+    p_prospect_ot:  'oklch(0.78 0.16 50)',
+    p_svc_az:       'oklch(0.52 0.13 195)',
+    p_svc_cbec:     'oklch(0.74 0.11 195)',
   };
 
   const visibleGroups = groups;
@@ -391,7 +392,7 @@ function HighlightsBar() {
 
         {/* Top mentioned Product category — keyword-matched categories from Q10 */}
         <div className="card">
-          <div className="card-title">Top mentioned Product category</div>
+          <div className="card-title">Top Mentioned Selection</div>
           <div className="card-sub" style={{ fontSize: 11, color: 'var(--text-3)', marginBottom: 8 }}>
             Top 3 keyword-matched categories · from Q10
           </div>
@@ -491,7 +492,7 @@ function AnchorRail() {
     ['Q7',  '#Q7',  'Amazon join-trigger topics'],
     ['Q8',  '#Q8',  'Amazon abandon-signal topics'],
     ['Q9',  '#Q9',  'Top 10 discussed threads'],
-    ['Q10', '#Q10', 'Top mentioned Product category'],
+    ['Q10', '#Q10', 'Top Mentioned Selection'],
     ['Q11', '#Q11', 'Top mentioned Amazon Product / Program'],
     ['Q12', '#Q12', '3rd-party services needed'],
     ['Q13', '#Q13', 'Amazon courses of interest'],

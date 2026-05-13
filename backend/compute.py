@@ -777,6 +777,10 @@ def compute_all(df: pd.DataFrame):
     q10_top      = extract_q10(rel)
     q10_top_soa  = extract_q10(soa_rel)
     q10_top_ec   = extract_q10(ec_rel)
+    # Map each category's English label -> keyword list so the dashboard
+    # can show "Detailed Keywords" under each row.
+    from keywords import Q10_CATEGORY_KW as _q10_kw_dict, translate_label as _tl
+    q10_keywords = {_tl(vn): list(kws) for vn, kws in _q10_kw_dict.items()}
     q11_tools         = extract_q11(soa_rel)                                # SOA only
     q11_issues        = extract_q11_issues(soa_rel)                         # SOA only
     q11_satisfaction  = extract_q11_satisfaction(soa_rel)                   # SOA only
@@ -975,6 +979,7 @@ window.ChiComData2 = (() => {{
   const Q10_TOP        = {_j(q10_top)};
   const Q10_TOP_SOA    = {_j(q10_top_soa)};
   const Q10_TOP_EC     = {_j(q10_top_ec)};
+  const Q10_KEYWORDS   = {_j(q10_keywords)};
   const Q10_WEEKS      = {_j(q10_weeks)};
   const Q10_WEEKLY     = {_j(q10_weekly)};
   const Q10_SUBS_SOA   = {_j(q10_subs_soa)};
@@ -1002,7 +1007,7 @@ window.ChiComData2 = (() => {{
     Q9_Q7_PERSONAS_SOA, Q9_Q8_PERSONAS_SOA,
     Q9_Q7_PERSONAS_EC,  Q9_Q8_PERSONAS_EC,
     Q9_TOP_THREADS, Q9_TOP_THREADS_SOA, Q9_TOP_THREADS_EC,
-    Q10_TOP, Q10_TOP_SOA, Q10_TOP_EC, Q10_WEEKS, Q10_WEEKLY, Q10_SUBS_SOA, Q10_SUBS_EC,
+    Q10_TOP, Q10_TOP_SOA, Q10_TOP_EC, Q10_KEYWORDS, Q10_WEEKS, Q10_WEEKLY, Q10_SUBS_SOA, Q10_SUBS_EC,
     Q11_TOOLS, Q11_ISSUES, Q11_SATISFACTION,
     Q12_SERVICES, Q12_SERVICES_SOA, Q12_SERVICES_EC,
     Q13_COURSES,  Q13_COURSES_SOA,  Q13_COURSES_EC,

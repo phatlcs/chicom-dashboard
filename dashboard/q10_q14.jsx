@@ -299,6 +299,47 @@ function Q10() {
           </>
         )}
 
+        {/* Detailed keywords — what each category matches against in post content */}
+        <div className="col-12">
+          <div className="card" style={{ padding: 0 }}>
+            <div className="card-head" style={{ padding: '14px 18px' }}>
+              <div className="card-title">Detailed keywords <span className="en">per category</span></div>
+              <span className="card-meta" style={{ fontSize: 11, color: 'var(--text-3)' }}>
+                Keyword dictionary used by the matcher — backend/keywords.py:Q10_CATEGORY_KW
+              </span>
+            </div>
+            <div style={{ padding: '12px 18px' }}>
+              {p.data.map((d, i) => {
+                const kws = (D2.Q10_KEYWORDS || {})[d.cat] || [];
+                return (
+                  <div key={d.cat} style={{
+                    display: 'grid', gridTemplateColumns: '220px 1fr 60px',
+                    gap: 12, alignItems: 'baseline',
+                    padding: '10px 0',
+                    borderBottom: i < p.data.length - 1 ? '1px solid var(--border)' : 'none',
+                  }}>
+                    <div style={{ fontSize: 13, fontWeight: 600, display: 'flex', alignItems: 'center', gap: 6 }}>
+                      <span style={{ width: 8, height: 8, borderRadius: 2, background: d.color, flexShrink: 0 }}></span>
+                      {d.cat}
+                    </div>
+                    <div style={{ fontSize: 12, color: 'var(--text-2)', lineHeight: 1.6, display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+                      {kws.length === 0 ? (
+                        <span style={{ color: 'var(--text-3)', fontStyle: 'italic' }}>(no keywords mapped)</span>
+                      ) : kws.map(k => (
+                        <span key={k} className="mono" style={{
+                          padding: '2px 8px', borderRadius: 4,
+                          background: 'var(--panel-2)', fontSize: 11,
+                        }}>{k}</span>
+                      ))}
+                    </div>
+                    <span className="mono" style={{ textAlign: 'right', fontSize: 11, color: 'var(--text-3)' }}>{kws.length} kws</span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
         <div style={{ gridColumn: '1 / -1' }}>
           <Q10MethodologyNote />
           <window.CardComments chartId={`Q10_${tab}`} />
