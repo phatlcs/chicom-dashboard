@@ -1068,11 +1068,22 @@ function OverviewPanel() {
     return { ...c, start: s, end: cAcc, color: palette[i % palette.length] };
   });
 
+  // Persona-specific palette — must mirror PersonaByGroupChart's PCOL so
+  // a given persona always renders in the same hue across the dashboard.
+  // Red and green are reserved for negative / positive sentiment.
+  const PERSONA_COLOR = {
+    p_seller_az:   'oklch(0.42 0.24 255)',
+    p_seller_ot:   'oklch(0.70 0.16 250)',
+    p_prospect_az: 'oklch(0.58 0.20 50)',
+    p_prospect_ot: 'oklch(0.78 0.16 50)',
+    p_svc_az:      'oklch(0.52 0.13 195)',
+    p_svc_cbec:    'oklch(0.74 0.11 195)',
+  };
   const persTotal = ov.personas.reduce((a, b) => a + b.count, 0) || 1;
   let pAcc = 0;
-  const persSeg = ov.personas.map((p, i) => {
+  const persSeg = ov.personas.map((p) => {
     const s = pAcc; pAcc += p.count / persTotal;
-    return { ...p, start: s, end: pAcc, color: palette[i % palette.length] };
+    return { ...p, start: s, end: pAcc, color: PERSONA_COLOR[p.id] || 'oklch(0.55 0.10 290)' };
   });
   const maxComm = Math.max(...ov.communities.map(c => c.count), 1);
 

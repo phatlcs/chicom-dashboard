@@ -135,9 +135,12 @@ function Q4() {
   const W = 700, H = 280, pad = { t: 20, r: 20, b: 30, l: 40 };
   const maxY = Math.max(...trends.flatMap(t => t.points));
   const plotW = W - pad.l - pad.r, plotH = H - pad.t - pad.b;
+  // Single-month dataset would divide by zero in (i / (length-1)). Detect
+  // and short-circuit to a stub view at the bottom of the function.
+  const singleMonth = months.length < 2;
 
   const linePts = (pts) => pts.map((v, i) => {
-    const x = pad.l + (i / (pts.length - 1)) * plotW;
+    const x = pad.l + (singleMonth ? 0.5 : (i / (pts.length - 1))) * plotW;
     const y = pad.t + plotH - (v / maxY) * plotH;
     return [x, y];
   });
@@ -155,8 +158,8 @@ function Q4() {
   });
 
   const stackedPath = (tIdx) => {
-    const topPts = stacked.map((s, mi) => [pad.l + (mi / (months.length - 1)) * plotW, pad.t + plotH - s[tIdx].end * plotH]);
-    const botPts = stacked.map((s, mi) => [pad.l + (mi / (months.length - 1)) * plotW, pad.t + plotH - s[tIdx].start * plotH]).reverse();
+    const topPts = stacked.map((s, mi) => [pad.l + (singleMonth ? 0.5 : (mi / (months.length - 1))) * plotW, pad.t + plotH - s[tIdx].end * plotH]);
+    const botPts = stacked.map((s, mi) => [pad.l + (singleMonth ? 0.5 : (mi / (months.length - 1))) * plotW, pad.t + plotH - s[tIdx].start * plotH]).reverse();
     return [...topPts, ...botPts].map(([x, y], i) => `${i === 0 ? 'M' : 'L'}${x},${y}`).join(' ') + ' Z';
   };
 
@@ -190,7 +193,7 @@ function Q4() {
               </g>
             ))}
             {months.map((m, i) => (
-              <text key={m} x={pad.l + (i / (months.length - 1)) * plotW} y={H - 10} textAnchor="middle" className="axis-tick">{m}</text>
+              <text key={m} x={pad.l + (singleMonth ? 0.5 : (i / (months.length - 1))) * plotW} y={H - 10} textAnchor="middle" className="axis-tick">{m}</text>
             ))}
             {trends.map((t, ti) => {
               const pts = linePts(t.points);
@@ -234,7 +237,7 @@ function Q4() {
                 onMouseMove={tt.move} onMouseLeave={tt.hide} />
             ))}
             {months.map((m, i) => (
-              <text key={m} x={pad.l + (i / (months.length - 1)) * plotW} y={H - 10} textAnchor="middle" className="axis-tick">{m}</text>
+              <text key={m} x={pad.l + (singleMonth ? 0.5 : (i / (months.length - 1))) * plotW} y={H - 10} textAnchor="middle" className="axis-tick">{m}</text>
             ))}
             {[0, 0.25, 0.5, 0.75, 1].map((f, i) => (
               <text key={i} x={pad.l - 6} y={pad.t + plotH * f + 3} textAnchor="end" className="axis-tick">
