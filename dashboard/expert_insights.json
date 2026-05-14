@@ -50,7 +50,7 @@
       {
         "variant": "ec",
         "label": "🚚 Service Provider (CBEC) is a single-topic specialist",
-        "html": "<p>2,614 mentions, almost all concentrated in <strong>Shipping/logistics (MT5: 1,304)</strong> — that's half their volume in one topic. They're the forwarders, fulfillment houses, and cross-border ops vendors. They appear barely at all in Q3/Strategy (95 mentions) or Q4/Legal (60). They sell logistics; they talk logistics.</p><p>This means the &quot;shipping is #1&quot; topic from Q1 is partly a supply-side signal — providers shouting their service — not just buyer-side demand. Worth de-weighting when measuring genuine seller pain.</p>"
+        "html": "<p>2,614 mentions, almost all concentrated in <strong>Shipping/logistics (MT5: 1,599)</strong> — that's about 61% of their volume in one topic. They're the forwarders, fulfillment houses, and cross-border ops vendors. They appear barely at all in Q3/Strategy (95 mentions) or Q4/Legal (60). They sell logistics; they talk logistics.</p><p>This means the &quot;shipping is #1&quot; topic from Q1 is partly a supply-side signal — providers shouting their service — not just buyer-side demand. Worth de-weighting when measuring genuine seller pain.</p>"
       },
       {
         "variant": "soa",
@@ -96,34 +96,35 @@
   },
 
   "Q4": {
-    "scope": "Scope: April 2026 only — single-month dataset · 14,272 mentions · all 9 communities",
+    "scope": "Scope: April 2026 · weekly granularity · 5 weeks (Mar 30 / Apr 6 / Apr 13 / Apr 20 / Apr 27 — Mar 30 and Apr 27 are partial)",
     "stats": [
-      { "label": "Total April mentions", "value": "14,272", "variant": "both", "note": "Post spam-filter" },
-      { "label": "Months in dataset", "value": "1", "variant": "warn", "note": "April only — no trend possible" },
-      { "label": "Top topic (April)", "value": "2,680", "variant": "warn", "note": "Shipping, logistics & fulfillment" },
-      { "label": "Quiet topic", "value": "0", "variant": "ec", "note": "Courses & Amazon challenges (mt9)" }
+      { "label": "Peak week", "value": "Apr 20", "variant": "warn", "note": "2,751 mentions across top-4 topics" },
+      { "label": "Single-topic-week peak", "value": "841", "variant": "danger", "note": "Account ops in week of Apr 20" },
+      { "label": "Mid-month shipping surge", "value": "731", "variant": "warn", "note": "Shipping/logistics in week of Apr 13" },
+      { "label": "Quiet topic", "value": "0", "variant": "ec", "note": "Courses & Amazon challenges (mt9) all month" }
     ],
     "findings": [
       {
         "variant": "warn",
-        "label": "⚠️ Single-month dataset — no trend can be drawn",
-        "html": "<p>This build uses <strong>only April 2026 data</strong> (1 April – 30 April). The trend chart that normally shows month-over-month movement therefore has only one data point, and most line-chart claims about &quot;rising/falling&quot; topics are not supportable from this dataset.</p><p>To get a Q4 trend insight you'd need at least 3 months of data (recommended: a quarter). The previous full-period build covered Dec 2025 – May 2026 and could compare January's TNCN-tax spike against March's spring-selling spike; that comparison is not available here.</p>"
+        "label": "📈 Apr 20 is the loudest week — Account ops + Payment surge together",
+        "html": "<p>Across the four top-volume master topics, week of <strong>Apr 20 totals 2,751 mentions</strong> — the highest of the month. Two topics drive it: <strong>Account operations &amp; management</strong> spikes to <strong>841 mentions</strong> (vs ~500 baseline earlier in the month) and <strong>Payment/finance</strong> to <strong>628</strong>.</p><p>The simultaneous surge in both buckets suggests a paying / payouts / verification event around April 20 — worth cross-checking against Amazon policy emails or disbursement cycles for that window. Friday-spike (Q5) plus this Apr 20 spike together point to a concrete operational stressor, not a long-running mood.</p>"
       },
       {
         "variant": "both",
-        "label": "📊 What April alone tells you (snapshot, not trajectory)",
-        "html": "<p>The April topic mix is unusually concentrated. Top three topics = <strong>55% of all April voice</strong>: Shipping/logistics (18.8%), Account ops (18.1%), Strategy/community (16.8%). The bottom three master topics combined are under 11%.</p><p>This concentration is consistent with a community in operational firefighting mode rather than strategic planning mode. If April were typical for the rest of 2026, the &quot;courses &amp; challenges&quot; bucket (0 mentions) would suggest the formal-training market is dead in this audience — but with one month of data that's a hypothesis, not a conclusion.</p>"
+        "label": "🚚 Shipping peaks early-mid month, then fades",
+        "html": "<p>Shipping/logistics shows a different rhythm: <strong>356 → 593 → 731 → 716 → 284</strong>. Peak is week of <strong>Apr 13</strong> (731), with Apr 20 close behind. The Apr 27 partial-week drop (284) is expected — the data window ends April 30 so that bucket only captures 3-4 days.</p><p>This is the closest April gets to a content-marketing signal: the &quot;shipping conversation&quot; is loudest in the first three full weeks. A logistics playbook published in week 1 of any month would catch the rising edge; published in week 4 it lands after the audience has moved on.</p>"
       },
       {
         "variant": "ec",
-        "label": "🔍 The intra-week / intra-day signal is the only trend signal here",
-        "html": "<p>While monthly trend is unavailable, Q5/Q6 still produce usable day-of-week and hour-of-day patterns within April: <strong>negative-mention peak is Fri 476 mentions</strong> (vs Mon 235 — exactly 2× the floor) and the <strong>peak hour is 9–11am</strong> (193–210 per hour). Those patterns ARE supportable from one month of data because each weekday/hour gets ~4 samples.</p><p>Use Q5/Q6 for &quot;when&quot; trends. Don't use Q4 for &quot;when&quot; trends until the dataset spans multiple months.</p>"
+        "label": "💬 Strategy/community is front-loaded; Account ops is back-loaded",
+        "html": "<p>Two opposite patterns visible in the % distribution chart: <strong>Strategy &amp; community support</strong> peaks at week of <strong>Apr 6 (667 mentions)</strong> and declines from there, while <strong>Account operations</strong> climbs and peaks at Apr 20 (841). Sellers seem to start the month asking strategy questions and end it dealing with operational fires.</p><p>This is one full month of data — directionally interesting, but treat it as a hypothesis until repeated. The intra-month dynamics will become a real signal once 2–3 months are stacked in the next build.</p>"
       }
     ],
     "recommendations": [
-      "<strong>Run the next build on 3+ months of data</strong> if you want a real Q4 trend story. The pipeline supports it — just point <code>build_data.py --raw &lt;file.xlsx&gt;</code> at the wider-period source.",
-      "<strong>For April-only stakeholders:</strong> reframe Q4 as a &quot;topic concentration&quot; chart, not a trend chart. The top-3 = 55% concentration is the real takeaway from a single month.",
-      "<strong>Q5 / Q6 intra-week and intra-day patterns are reliable in this build.</strong> Time-of-day staffing or content-publish-window decisions can use them confidently."
+      "<strong>Publish logistics content on a Monday in week 1 or 2 of the month.</strong> Shipping/logistics is rising through the first three weeks and peaks at Apr 13 — content published early-month catches the rising edge.",
+      "<strong>Investigate what happened around Apr 20.</strong> The simultaneous 841 Account ops + 628 Payment surge is too tight to be coincidence — likely a payout cycle, policy update, or verification wave. Treat as a recurring late-month risk window.",
+      "<strong>Mar 30 and Apr 27 are partial weeks — don't read them as drops.</strong> The data spans April 1–30 only, so weeks that straddle the edge naturally show lower volumes. When comparing weeks, use Apr 6 / Apr 13 / Apr 20 as the clean comparison set.",
+      "<strong>Stack at least 2 months for the next build</strong> to verify whether the &quot;strategy front-loaded vs ops back-loaded&quot; pattern is monthly recurring or April-specific."
     ]
   },
 
@@ -266,7 +267,7 @@
       {
         "variant": "warn",
         "label": "📋 Tax & legal is the top barrier in April (118 mentions)",
-        "html": "<p>The barriers people cite when considering Amazon: <strong>Tax &amp; legal 118</strong>, <strong>Knowledge gap 99</strong>, <strong>Account verification 84</strong>, <strong>International payments 76</strong>. Together these 4 = 91% of all April barrier-language mentions (377 / 414).</p><p>Tax &amp; legal includes both VN-side tax compliance (Luật thuế TNCN 109, hộ kinh doanh registration, 17% TNDN, doanh thu thresholds) and US-side complexity (LLC, EIN, ECI tax, sales tax). The barrier isn't lack of will — it's lack of clarity on a legitimately complex stack.</p>"
+        "html": "<p>The barriers people cite when considering Amazon: <strong>Tax &amp; legal 118</strong>, <strong>Knowledge gap 99</strong>, <strong>Account verification 84</strong>, <strong>International payments 76</strong>. Together these 4 = 92% of all April barrier-language mentions (377 / 411).</p><p>Tax &amp; legal includes both VN-side tax compliance (Luật thuế TNCN 109, hộ kinh doanh registration, 17% TNDN, doanh thu thresholds) and US-side complexity (LLC, EIN, ECI tax, sales tax). The barrier isn't lack of will — it's lack of clarity on a legitimately complex stack.</p>"
       },
       {
         "variant": "ec",
@@ -317,40 +318,34 @@
   },
 
   "Q11": {
-    "scope": "Scope: SOA-only · April 2026 · Amazon program/tool mentions · 166 use signals across 9 programs",
+    "scope": "Scope: SOA-only · April 2026 · 174 use signals across 10 tools/programs",
     "stats": [
-      { "label": "Most-used", "value": "FBA (61)", "variant": "soa", "note": "23 sentiment signals: 15 sat / 10 iss" },
-      { "label": "Worst satisfaction", "value": "Inventory mgmt", "variant": "warn", "note": "1 sat vs 2 iss" },
-      { "label": "Emerging program", "value": "AWD (7)", "variant": "ec", "note": "2 sat / 0 iss · all positive" },
-      { "label": "Top complaint", "value": "24 mentions", "variant": "danger", "note": "System errors / bugs" }
+      { "label": "Most-used", "value": "FBA (61)", "variant": "soa", "note": "25 sentiment signals: 15 sat / 10 iss" },
+      { "label": "Worst sentiment split", "value": "Inventory mgmt", "variant": "warn", "note": "14 uses · 1 sat vs 2 iss" },
+      { "label": "Top complaint", "value": "24 mentions", "variant": "danger", "note": "System errors / bugs" },
+      { "label": "Top satisfaction theme", "value": "30 mentions", "variant": "ec", "note": "Reasonable price / value for money" }
     ],
     "findings": [
       {
         "variant": "soa",
-        "label": "📦 FBA is universal but mediocre — 25% satisfaction",
-        "html": "<p>61 FBA mentions, only <strong>15 satisfied vs 10 with issues = 25% satisfaction rate</strong>. FBA is the program everyone uses but few praise — bugs, fee complaints, prep complexity dominate the negative side.</p><p>For comparison, PPC/Ads (28 uses) and FBM (28 uses) have higher satisfaction (~32%/36%) with fewer issues. Sellers find these programs cleaner to use.</p>"
+        "label": "📦 FBA dominates volume (35% of all use signals) with mixed sentiment",
+        "html": "<p>FBA is mentioned <strong>61 times</strong> — more than the next two tools (PPC/Ads 28, FBM 28) combined and 35% of all 174 use signals. Of FBA's 25 explicit sentiment signals, 15 are positive and 10 negative — roughly a 60/40 split.</p><p>PPC/Ads (9 sat / 4 iss) and FBM (10 sat / 5 iss) are mentioned at the same volume as each other but draw cleaner sentiment than FBA. Complaints concentrate around fees, prep complexity, and shipment-flow bugs that the issue-themes finding picks up below.</p>"
       },
       {
         "variant": "danger",
-        "label": "🐛 System errors / bugs is the #1 complaint (24 mentions)",
-        "html": "<p>Out of 49 explicit issue mentions, 24 are about &quot;lỗi&quot;, &quot;bug&quot;, &quot;không hoạt động&quot;, &quot;crash&quot; — Seller Central pages failing, FBA shipment flow breaking, listing edits not saving. That's <strong>49% of all April program-issue volume blamed on platform stability</strong>.</p><p>This isn't a policy complaint or a fee complaint — it's a software-quality complaint. Hard to fix from the seller side; Amazon's product/eng teams own this.</p>"
+        "label": "🐛 System errors / bugs is the #1 complaint theme (24 mentions)",
+        "html": "<p>Across all April issue mentions for any tool, <strong>24 are about &quot;lỗi&quot;, &quot;bug&quot;, &quot;không hoạt động&quot;, &quot;crash&quot;</strong> — Seller Central pages failing, FBA shipment flow breaking, listing edits not saving. That's the largest single complaint theme, ahead of account locks (9), high fees (7), and complexity (6).</p><p>This is a software-quality signal, not a policy or pricing one. Hard to fix from the seller side; Amazon's product/eng teams own it.</p>"
       },
       {
         "variant": "ec",
-        "label": "🌱 AWD, AGL, Content A+ are emerging — small but all-positive",
-        "html": "<p>The four newest programs we track all show <strong>zero issues</strong> in April: AWD (7 use, 2 sat), AGL (5 use, 1 sat), Content A+ (4 use, 2 sat), AI Canvas (1 use, 0 sat). Total combined April mentions = 17.</p><p>Two reads: (a) they're too new for problems to surface, (b) early adopters are self-selecting for the engaged audience that figures things out. Either way, these are the programs where Amazon has the cleanest reputation today — worth amplifying.</p>"
-      }
-    ],
-    "callouts": [
-      {
-        "variant": "red",
-        "icon": "🚨",
-        "html": "<strong>Helium 10 is gone from this Q in April.</strong> Q11 measures <em>Amazon</em> products/programs, not third-party tools. The 17-mention 100%-positive showing from earlier reports was a third-party signal that's been removed. AWD / AGL / Content A+ / AI Canvas are the four new Amazon-native programs we now track."
+        "label": "💰 \"Reasonable price\" leads satisfaction language (30 mentions)",
+        "html": "<p>Among the seven positive themes the dashboard tracks, <strong>&quot;giá hợp lý / đáng tiền&quot; (reasonable price / value for money) leads at 30 mentions</strong>, followed by &quot;dễ dùng&quot; (easy to use, 10) and &quot;hiệu quả rõ rệt&quot; (clear effectiveness, 9).</p><p>The pattern: sellers praise tools that they can rationalize the cost of and that just work — which mirrors the complaint side where bugs and complexity dominate. Reliability and pricing transparency are the two levers visible in April.</p>"
       }
     ],
     "recommendations": [
       "<strong>FBA bug-tracking is the highest-impact engineering work for VN sellers in April.</strong> 24 monthly &quot;system error&quot; complaints is a real signal of recurring failure modes. Triage by error message + URL would let Amazon eng prioritize fixes.",
-      "<strong>Amplify AWD / AGL / Content A+ adoption now while reputation is clean.</strong> First-mover stories are cheap when there are no complaints — wait until 1,000 sellers use them and you'll have bug reports to manage."
+      "<strong>Pricing/value framing wins in April messaging.</strong> &quot;Reasonable price&quot; (30) is the most-cited positive theme — content that quantifies ROI or cost-per-seller-action will land better than feature-led messaging.",
+      "<strong>Watch Inventory management satisfaction.</strong> 14 mentions, only 1 positive vs 2 negative — small absolute numbers but a clear lean toward complaint. Worth a follow-up qualitative check on whether stranded inventory, reorder-point, or report quality is driving the lean."
     ]
   },
 

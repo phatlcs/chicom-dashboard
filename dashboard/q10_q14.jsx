@@ -149,22 +149,6 @@ function Q10MiniRows({ data }) {
   );
 }
 
-function Q10MethodologyNote() {
-  return (
-    <div style={{
-      marginTop: 18, padding: '12px 16px',
-      background: 'oklch(0.96 0.04 70 / 0.4)',
-      border: '1px solid oklch(0.80 0.10 70)',
-      borderRadius: 8, fontSize: 11, color: 'var(--text-2)', lineHeight: 1.6,
-    }}>
-      <strong>Methodology:</strong> Categories are extracted by keyword-matching post content
-      against the dictionary in <code>backend/keywords.py:Q10_CATEGORY_KW</code>. Counts reflect
-      the number of relevant posts that explicitly mention each category. Most posts don't
-      mention a specific category, so totals here are smaller than the headline mention totals.
-    </div>
-  );
-}
-
 function Q10TabNav({ tab, setTab, totals }) {
   const tabs = [
     { id: 'soa', label: 'SOA Groups', sub: (totals.soa || 0).toLocaleString(), accent: 'oklch(0.55 0.17 290)' },
@@ -341,7 +325,6 @@ function Q10() {
         </div>
 
         <div style={{ gridColumn: '1 / -1' }}>
-          <Q10MethodologyNote />
           <window.CardComments chartId={`Q10_${tab}`} />
         </div>
       </div>

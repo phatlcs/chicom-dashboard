@@ -1184,10 +1184,10 @@ function OverviewPanel() {
               </tr>
             </thead>
             <tbody>
-              {ov.personas.map((p, i) => (
+              {persSeg.map((p) => (
                 <tr key={p.id} style={{ borderBottom: '1px solid var(--border)' }}>
                   <td style={{ padding: '7px 6px' }}>
-                    <span style={{ display: 'inline-block', width: 8, height: 8, background: palette[i % palette.length], borderRadius: 2, marginRight: 8, verticalAlign: 'middle' }}></span>
+                    <span style={{ display: 'inline-block', width: 8, height: 8, background: p.color, borderRadius: 2, marginRight: 8, verticalAlign: 'middle' }}></span>
                     {p.vn}
                   </td>
                   <td className="mono" style={{ textAlign: 'right', padding: '7px 6px' }}>{p.count.toLocaleString()}</td>

@@ -314,6 +314,10 @@ Q11_TOOL_KW = {
         'brand registry', 'đăng ký brand', 'amazon brand', 'brand protection',
         'registered brand',
     ],
+    'Helium 10': [
+        'helium 10', 'helium10', 'h10', 'cerebro', 'magnet', 'black box',
+        'xray helium',
+    ],
     'Jungle Scout': [
         'jungle scout', 'junglescout', 'js ', 'jungle',
     ],

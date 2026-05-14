@@ -3869,165 +3869,174 @@ window.ChiComData2 = (() => {
     "count": 295
   }
 ];
-  const Q11_TOOLS        = [
-  {
-    "name": "FBA",
-    "vn": "FBA",
-    "en": "FBA",
-    "count": 61,
-    "use": 61,
-    "satisfied": 15,
-    "issues": 10
-  },
-  {
-    "name": "PPC/Ads",
-    "vn": "PPC/Ads",
-    "en": "PPC/Ads",
-    "count": 28,
-    "use": 28,
-    "satisfied": 9,
-    "issues": 4
-  },
-  {
-    "name": "FBM",
-    "vn": "FBM",
-    "en": "FBM",
-    "count": 28,
-    "use": 28,
-    "satisfied": 10,
-    "issues": 5
-  },
-  {
-    "name": "Quản lý tồn kho",
-    "vn": "Quản lý tồn kho",
-    "en": "Inventory management",
-    "count": 14,
-    "use": 14,
-    "satisfied": 1,
-    "issues": 2
-  },
-  {
-    "name": "Brand Registry",
-    "vn": "Brand Registry",
-    "en": "Brand Registry",
-    "count": 11,
-    "use": 11,
-    "satisfied": 3,
-    "issues": 1
-  },
-  {
-    "name": "Seller Central",
-    "vn": "Seller Central",
-    "en": "Seller Central",
-    "count": 8,
-    "use": 8,
-    "satisfied": 2,
-    "issues": 0
-  },
-  {
-    "name": "AWD",
-    "vn": "AWD",
-    "en": "AWD",
-    "count": 7,
-    "use": 7,
-    "satisfied": 2,
-    "issues": 0
-  },
-  {
-    "name": "AGL",
-    "vn": "AGL",
-    "en": "AGL",
-    "count": 5,
-    "use": 5,
-    "satisfied": 1,
-    "issues": 0
-  },
-  {
-    "name": "Content A+",
-    "vn": "Content A+",
-    "en": "Content A+",
-    "count": 4,
-    "use": 4,
-    "satisfied": 2,
-    "issues": 0
-  }
-];
-  const Q11_ISSUES       = [
-  {
-    "vn": "Lỗi hệ thống / Bug",
-    "name": "Lỗi hệ thống / Bug",
-    "en": "System error / bug",
-    "count": 24
-  },
-  {
-    "vn": "Tài khoản bị khóa / suspend",
-    "name": "Tài khoản bị khóa / suspend",
-    "en": "Account locked / suspended",
-    "count": 9
-  },
-  {
-    "vn": "Phí & chi phí cao",
-    "name": "Phí & chi phí cao",
-    "en": "High fees & costs",
-    "count": 7
-  },
-  {
-    "vn": "Khó dùng / phức tạp",
-    "name": "Khó dùng / phức tạp",
-    "en": "Hard to use / complex",
-    "count": 6
-  },
-  {
-    "vn": "Cập nhật chậm / outdated",
-    "name": "Cập nhật chậm / outdated",
-    "en": "Slow updates / outdated",
-    "count": 3
-  }
-];
+  const Q11_TOOLS      = [
+    {
+      "name": "FBA",
+      "vn": "FBA",
+      "en": "FBA",
+      "count": 61,
+      "use": 61,
+      "satisfied": 15,
+      "issues": 10
+    },
+    {
+      "name": "PPC/Ads",
+      "vn": "PPC/Ads",
+      "en": "PPC/Ads",
+      "count": 28,
+      "use": 28,
+      "satisfied": 9,
+      "issues": 4
+    },
+    {
+      "name": "FBM",
+      "vn": "FBM",
+      "en": "FBM",
+      "count": 28,
+      "use": 28,
+      "satisfied": 10,
+      "issues": 5
+    },
+    {
+      "name": "Quản lý tồn kho",
+      "vn": "Quản lý tồn kho",
+      "en": "Inventory management",
+      "count": 14,
+      "use": 14,
+      "satisfied": 1,
+      "issues": 2
+    },
+    {
+      "name": "Brand Registry",
+      "vn": "Brand Registry",
+      "en": "Brand Registry",
+      "count": 11,
+      "use": 11,
+      "satisfied": 3,
+      "issues": 1
+    },
+    {
+      "name": "Helium 10",
+      "vn": "Helium 10",
+      "en": "Helium 10",
+      "count": 8,
+      "use": 8,
+      "satisfied": 4,
+      "issues": 1
+    },
+    {
+      "name": "Seller Central",
+      "vn": "Seller Central",
+      "en": "Seller Central",
+      "count": 8,
+      "use": 8,
+      "satisfied": 2,
+      "issues": 0
+    },
+    {
+      "name": "AWD",
+      "vn": "AWD",
+      "en": "AWD",
+      "count": 7,
+      "use": 7,
+      "satisfied": 2,
+      "issues": 0
+    },
+    {
+      "name": "AGL",
+      "vn": "AGL",
+      "en": "AGL",
+      "count": 5,
+      "use": 5,
+      "satisfied": 1,
+      "issues": 0
+    },
+    {
+      "name": "Content A+",
+      "vn": "Content A+",
+      "en": "Content A+",
+      "count": 4,
+      "use": 4,
+      "satisfied": 2,
+      "issues": 0
+    }
+  ];
+  const Q11_ISSUES     = [
+    {
+      "vn": "Lỗi hệ thống / Bug",
+      "name": "Lỗi hệ thống / Bug",
+      "en": "System error / bug",
+      "count": 24
+    },
+    {
+      "vn": "Tài khoản bị khóa / suspend",
+      "name": "Tài khoản bị khóa / suspend",
+      "en": "Account locked / suspended",
+      "count": 9
+    },
+    {
+      "vn": "Phí & chi phí cao",
+      "name": "Phí & chi phí cao",
+      "en": "High fees & costs",
+      "count": 7
+    },
+    {
+      "vn": "Khó dùng / phức tạp",
+      "name": "Khó dùng / phức tạp",
+      "en": "Hard to use / complex",
+      "count": 6
+    },
+    {
+      "vn": "Cập nhật chậm / outdated",
+      "name": "Cập nhật chậm / outdated",
+      "en": "Slow updates / outdated",
+      "count": 3
+    }
+  ];
   const Q11_SATISFACTION = [
-  {
-    "vn": "Giá hợp lý / đáng tiền",
-    "name": "Giá hợp lý / đáng tiền",
-    "en": "Reasonable price / value for money",
-    "count": 30
-  },
-  {
-    "vn": "Dễ dùng / trực quan",
-    "name": "Dễ dùng / trực quan",
-    "en": "Easy to use / intuitive",
-    "count": 10
-  },
-  {
-    "vn": "Hiệu quả rõ rệt",
-    "name": "Hiệu quả rõ rệt",
-    "en": "Clear effectiveness",
-    "count": 9
-  },
-  {
-    "vn": "Tiết kiệm thời gian",
-    "name": "Tiết kiệm thời gian",
-    "en": "Time saving",
-    "count": 5
-  },
-  {
-    "vn": "Dữ liệu chính xác",
-    "name": "Dữ liệu chính xác",
-    "en": "Accurate data",
-    "count": 4
-  },
-  {
-    "vn": "Cộng đồng & tài liệu tốt",
-    "name": "Cộng đồng & tài liệu tốt",
-    "en": "Good community & docs",
-    "count": 3
-  },
-  {
-    "vn": "Nhiều tính năng / đầy đủ",
-    "name": "Nhiều tính năng / đầy đủ",
-    "en": "Feature-rich / comprehensive",
-    "count": 1
-  }
-];
+    {
+      "vn": "Giá hợp lý / đáng tiền",
+      "name": "Giá hợp lý / đáng tiền",
+      "en": "Reasonable price / value for money",
+      "count": 30
+    },
+    {
+      "vn": "Dễ dùng / trực quan",
+      "name": "Dễ dùng / trực quan",
+      "en": "Easy to use / intuitive",
+      "count": 10
+    },
+    {
+      "vn": "Hiệu quả rõ rệt",
+      "name": "Hiệu quả rõ rệt",
+      "en": "Clear effectiveness",
+      "count": 9
+    },
+    {
+      "vn": "Tiết kiệm thời gian",
+      "name": "Tiết kiệm thời gian",
+      "en": "Time saving",
+      "count": 5
+    },
+    {
+      "vn": "Dữ liệu chính xác",
+      "name": "Dữ liệu chính xác",
+      "en": "Accurate data",
+      "count": 4
+    },
+    {
+      "vn": "Cộng đồng & tài liệu tốt",
+      "name": "Cộng đồng & tài liệu tốt",
+      "en": "Good community & docs",
+      "count": 3
+    },
+    {
+      "vn": "Nhiều tính năng / đầy đủ",
+      "name": "Nhiều tính năng / đầy đủ",
+      "en": "Feature-rich / comprehensive",
+      "count": 1
+    }
+  ];
   const Q12_SERVICES     = [
   {
     "name": "Kế toán / Thuế",
