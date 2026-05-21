@@ -31,30 +31,34 @@ GROUP_INFO = {
     9: {'id': 'ec7',  'name': 'Cộng đồng ETSY Việt Nam',             'short': 'ETSY VN',            'type': 'EC'},
 }
 
+# ────────────────────────────────────────────────────────────────────────────
+# New taxonomy (from Apr 2026 classified dataset). Master topics + personas
+# moved to English-keyed labels that match the data exactly. Compare to the
+# prior VN-keyed taxonomy preserved in git history.
+# ────────────────────────────────────────────────────────────────────────────
+
 TOPIC_MAP = {
-    'Chiến lược, kinh nghiệm và hỗ trợ cộng đồng bán hàng Amazon':             'mt1',
-    'Cảnh báo rủi ro và lừa đảo khi kinh doanh Amazon':                         'mt2',
-    'Vận hành và quản lý tài khoản Amazon Seller':                               'mt3',
-    'Dịch vụ và giải pháp pháp lý, thương hiệu và công cụ cho Seller Amazon':   'mt4',
-    'Vận chuyển, logistics và fulfillment Amazon':                                'mt5',
-    'Thanh toán, tài khoản và các vấn đề tài chính quốc tế cho Seller Amazon':  'mt6',
-    'Kinh doanh xuất nhập khẩu và thương mại điện tử xuyên biên giới':           'mt7',
-    'Kinh doanh, vận hành và tối ưu hóa bán hàng Amazon':                        'mt8',
+    'Others':                  'mt1',
+    'SOA (Selling on Amazon)': 'mt2',
+    'Logistics':               'mt3',
+    'Account Health':          'mt4',
+    'Third Party':             'mt5',
+    'Account Creation':        'mt6',
+    'Ads':                     'mt7',
+    'Listing':                 'mt8',
+    'Brand Registry':          'mt9',
 }
 
-# Official 9-topic taxonomy. MT9 stays in the list even though the current
-# classifier never emits it — shown at 0% rather than hidden, so stakeholders
-# see the full taxonomy and know the slot exists.
 MASTER_TOPICS = [
-    {'id': 'mt1', 'vn': 'Chiến lược, kinh nghiệm & hỗ trợ cộng đồng bán hàng',  'en': 'Strategy, experience & community support'},
-    {'id': 'mt2', 'vn': 'Cảnh báo rủi ro & lừa đảo khi kinh doanh Amazon',        'en': 'Risk warnings & fraud'},
-    {'id': 'mt3', 'vn': 'Vận hành và quản lý tài khoản Amazon Seller',             'en': 'Account operations & management'},
-    {'id': 'mt4', 'vn': 'Dịch vụ & giải pháp pháp lý, thương hiệu',               'en': 'Legal, branding & services'},
-    {'id': 'mt5', 'vn': 'Vận chuyển, logistics và fulfillment',                    'en': 'Shipping, logistics & fulfillment'},
-    {'id': 'mt6', 'vn': 'Thanh toán, tài khoản và tài chính quốc tế',             'en': "Payment, accounts & int'l finance"},
-    {'id': 'mt7', 'vn': 'Kinh doanh xuất nhập khẩu & TMĐT xuyên biên giới',       'en': 'Import-export & cross-border'},
-    {'id': 'mt8', 'vn': 'Kinh doanh, vận hành và tối ưu hóa bán hàng Amazon',     'en': 'Business, ops & Amazon optimization'},
-    {'id': 'mt9', 'vn': 'Khóa học và thách thức kinh doanh Amazon',               'en': 'Courses & Amazon challenges'},
+    {'id': 'mt1', 'vn': 'Khác / Vấn đề chung',          'en': 'Misc & cross-cutting topics'},
+    {'id': 'mt2', 'vn': 'Bán hàng trên Amazon (SOA)',   'en': 'Selling on Amazon (SOA)'},
+    {'id': 'mt3', 'vn': 'Vận chuyển & Logistics',        'en': 'Logistics & fulfillment'},
+    {'id': 'mt4', 'vn': 'Sức khỏe tài khoản',            'en': 'Account health'},
+    {'id': 'mt5', 'vn': 'Dịch vụ bên thứ ba',            'en': 'Third-party services'},
+    {'id': 'mt6', 'vn': 'Tạo tài khoản',                 'en': 'Account creation'},
+    {'id': 'mt7', 'vn': 'Quảng cáo',                     'en': 'Advertising'},
+    {'id': 'mt8', 'vn': 'Listing & Catalog',             'en': 'Listing & catalog'},
+    {'id': 'mt9', 'vn': 'Brand Registry & IP',           'en': 'Brand Registry & IP'},
 ]
 
 PERSONAS = [
@@ -96,15 +100,27 @@ SOA_IDS = [1, 2]
 EC_IDS  = [3, 4, 5, 6, 7, 8, 9]
 
 SUBTOPICS = {
-    'mt1': ['Chia sẻ chiến lược Amazon','Kinh nghiệm launch SP mới','Hỗ trợ seller mới bắt đầu','Networking seller VN'],
-    'mt2': ['Cảnh báo scam Amazon','Lừa đảo PPC agency','Rủi ro suspension','Phishing & hijack'],
-    'mt3': ['Tạo & verify tài khoản','Health score & metrics','Tool quản lý listing','Xử lý A-Z claim'],
-    'mt4': ['Brand registry','Kế toán US','Pháp lý LLC','Trademark & IP'],
-    'mt5': ['FBA vs FBM','Forwarder VN→US','Cước vận chuyển','Kho 3PL ở Mỹ'],
-    'mt6': ['Payoneer & tài khoản US','Thẻ Visa virtual','Quy đổi USD→VND','Hoàn thuế VAT EU'],
-    'mt7': ['TMĐT xuyên biên giới','Dropshipping CBEC','Nguồn hàng TQ','Thủ tục XNK'],
-    'mt8': ['PPC optimization','SEO listing','A/B test main image','Tối ưu CVR'],
-    'mt9': ['Khóa học mentor','Thử thách 30 ngày','Bootcamp PPC','Coaching 1-1'],
+    # Real sub-topics observed in the Apr 2026 classified dataset, grouped
+    # by master topic. (Display-only — used by the JSX legend/tooltips.)
+    'mt1': ['Misc / Other', 'Tax Compliance And Declarations',
+            'Payment Processing And Withdrawals', 'Market Trends And Sales Performance',
+            'Community Events And Contests'],
+    'mt2': ['Selling Best Practices', 'Cost & Fees', 'Product Selection',
+            'Incentives & Training', 'Supplier Sourcing', 'Quality & Compliance',
+            'Pricing/Cost'],
+    'mt3': ['Logistics costs', 'Fulfillment models', 'Packaging & shipping optimization',
+            'Inventory management best practices', 'Amazon logistics solutions'],
+    'mt4': ['Account issues / Account errors', 'Account suspension',
+            'Account verification', 'Account updates', 'Inactive account'],
+    'mt5': ['Third-party service introduction', 'Supplier sourcing',
+            'Finding third-party services'],
+    'mt6': ['Account Verification', 'Identity Verification (SIV)', 'Account Types',
+            'Legal Entity Setup', 'Registration Documents', 'Account Updates'],
+    'mt7': ['Off-platform advertising', 'Amazon advertising best practices',
+            'Advertising costs'],
+    'mt8': ['Listing guidelines & best practices', 'Listing errors',
+            'Product images', 'Product barcodes & labeling'],
+    'mt9': ['Intellectual property disputes resolution', 'Brand registration documents'],
 }
 
 SUBTOPIC_TRANSLATIONS = {
