@@ -297,8 +297,8 @@ window.ChiComData = (() => {
   {
     "vn": "Misc / Other",
     "en": "Misc / Other",
-    "count": 1833,
-    "weight": 12.8,
+    "count": 2508,
+    "weight": 17.5,
     "color": "oklch(0.62 0.15 260)",
     "parent_topic": "mt1",
     "parent_rank": 0,
@@ -332,7 +332,7 @@ window.ChiComData = (() => {
     "color": "oklch(0.62 0.15 260)",
     "parent_topic": "mt1",
     "parent_rank": 0,
-    "display": false
+    "display": true
   },
   {
     "vn": "Supplier And Fulfillment Services",
@@ -342,7 +342,7 @@ window.ChiComData = (() => {
     "color": "oklch(0.62 0.15 260)",
     "parent_topic": "mt1",
     "parent_rank": 0,
-    "display": false
+    "display": true
   },
   {
     "vn": "Account Hiring And Leasing",
@@ -352,7 +352,7 @@ window.ChiComData = (() => {
     "color": "oklch(0.62 0.15 260)",
     "parent_topic": "mt1",
     "parent_rank": 0,
-    "display": false
+    "display": true
   },
   {
     "vn": "Scams And Fraud Prevention",
@@ -362,7 +362,7 @@ window.ChiComData = (() => {
     "color": "oklch(0.62 0.15 260)",
     "parent_topic": "mt1",
     "parent_rank": 0,
-    "display": false
+    "display": true
   },
   {
     "vn": "Platform Policy Changes And Announcements",
@@ -372,7 +372,7 @@ window.ChiComData = (() => {
     "color": "oklch(0.62 0.15 260)",
     "parent_topic": "mt1",
     "parent_rank": 0,
-    "display": false
+    "display": true
   },
   {
     "vn": "Legal Issues And Account Suspensions",
@@ -437,8 +437,8 @@ window.ChiComData = (() => {
   {
     "vn": "Selling Best Practices",
     "en": "Selling Best Practices",
-    "count": 986,
-    "weight": 6.9,
+    "count": 1131,
+    "weight": 7.8,
     "color": "oklch(0.62 0.15 80)",
     "parent_topic": "mt2",
     "parent_rank": 1,
@@ -472,7 +472,7 @@ window.ChiComData = (() => {
     "color": "oklch(0.62 0.15 80)",
     "parent_topic": "mt2",
     "parent_rank": 1,
-    "display": false
+    "display": true
   },
   {
     "vn": "Supplier Sourcing",
@@ -527,8 +527,8 @@ window.ChiComData = (() => {
   {
     "vn": "Logistics costs",
     "en": "Logistics costs",
-    "count": 1275,
-    "weight": 8.9,
+    "count": 1434,
+    "weight": 10.0,
     "color": "oklch(0.62 0.15 230)",
     "parent_topic": "mt3",
     "parent_rank": 2,
@@ -552,7 +552,7 @@ window.ChiComData = (() => {
     "color": "oklch(0.62 0.15 230)",
     "parent_topic": "mt3",
     "parent_rank": 2,
-    "display": true
+    "display": false
   },
   {
     "vn": "Inventory management best practices",
@@ -577,8 +577,8 @@ window.ChiComData = (() => {
   {
     "vn": "Account issues / Account errors",
     "en": "Account issues / Account errors",
-    "count": 833,
-    "weight": 5.8,
+    "count": 873,
+    "weight": 6.0,
     "color": "oklch(0.62 0.15 60)",
     "parent_topic": "mt4",
     "parent_rank": 3,
@@ -657,8 +657,8 @@ window.ChiComData = (() => {
   {
     "vn": "Account Verification",
     "en": "Account Verification",
-    "count": 516,
-    "weight": 3.6,
+    "count": 529,
+    "weight": 3.7,
     "color": "oklch(0.62 0.15 200)",
     "parent_topic": "mt6",
     "parent_rank": 5,
@@ -692,7 +692,7 @@ window.ChiComData = (() => {
     "color": "oklch(0.62 0.15 200)",
     "parent_topic": "mt6",
     "parent_rank": 5,
-    "display": false
+    "display": true
   },
   {
     "vn": "Registration Documents",
@@ -702,7 +702,7 @@ window.ChiComData = (() => {
     "color": "oklch(0.62 0.15 200)",
     "parent_topic": "mt6",
     "parent_rank": 5,
-    "display": false
+    "display": true
   },
   {
     "vn": "Account Updates",
@@ -727,8 +727,8 @@ window.ChiComData = (() => {
   {
     "vn": "Off-platform advertising",
     "en": "Off-platform advertising",
-    "count": 202,
-    "weight": 1.4,
+    "count": 292,
+    "weight": 2.0,
     "color": "oklch(0.62 0.15 110)",
     "parent_topic": "mt7",
     "parent_rank": 6,
@@ -752,7 +752,7 @@ window.ChiComData = (() => {
     "color": "oklch(0.62 0.15 110)",
     "parent_topic": "mt7",
     "parent_rank": 6,
-    "display": true
+    "display": false
   },
   {
     "vn": "Advertising best practices",
@@ -802,7 +802,7 @@ window.ChiComData = (() => {
     "color": "oklch(0.62 0.15 290)",
     "parent_topic": "mt8",
     "parent_rank": 7,
-    "display": false
+    "display": true
   },
   {
     "vn": "ASIN creation",
@@ -812,7 +812,7 @@ window.ChiComData = (() => {
     "color": "oklch(0.62 0.15 290)",
     "parent_topic": "mt8",
     "parent_rank": 7,
-    "display": false
+    "display": true
   },
   {
     "vn": "GTIN exemption",
@@ -822,7 +822,7 @@ window.ChiComData = (() => {
     "color": "oklch(0.62 0.15 290)",
     "parent_topic": "mt8",
     "parent_rank": 7,
-    "display": false
+    "display": true
   },
   {
     "vn": "Intellectual property disputes resolution",

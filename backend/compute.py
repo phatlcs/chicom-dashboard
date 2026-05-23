@@ -532,7 +532,9 @@ def compute_all(df: pd.DataFrame):
             # Sort by parent topic rank (q1_master order), then by weight desc within each topic
             q1_subtopics.sort(key=lambda s: (s['parent_rank'], -s['weight']))
 
-            # Apply filtering: show all ≥3% + ensure minimum 3 per MT
+            # Apply filtering: show all ≥1%, roll <1% items into the top subtopic of each MT
+            threshold_pct = 1.0
+
             # Group by parent_topic
             mt_groups = {}
             for st in q1_subtopics:
@@ -541,22 +543,30 @@ def compute_all(df: pd.DataFrame):
                     mt_groups[mt_id] = []
                 mt_groups[mt_id].append(st)
 
-            # Mark display status for each subtopic
-            threshold_pct = 3.0
-            for st in q1_subtopics:
-                mt_id = st['parent_topic']
-                mt_subs = mt_groups[mt_id]
-
-                # Show if >= threshold OR if needed to reach minimum 3 for this MT
+            # For each MT, aggregate <1% items into the top item
+            for mt_id, mt_subs in mt_groups.items():
                 above_threshold = [s for s in mt_subs if s['weight'] >= threshold_pct]
-                if len(above_threshold) >= 3:
-                    # Show only items >= threshold
-                    st['display'] = st['weight'] >= threshold_pct
+                below_threshold = [s for s in mt_subs if s['weight'] < threshold_pct]
+
+                if above_threshold and below_threshold:
+                    # Add the count and weight of <1% items to the top item
+                    top_item = above_threshold[0]  # already sorted by weight desc
+                    below_count = sum(s['count'] for s in below_threshold)
+                    below_weight = sum(s['weight'] for s in below_threshold)
+
+                    top_item['count'] += below_count
+                    top_item['weight'] = round(top_item['weight'] + below_weight, 1)
+
+                    # Mark <1% items as hidden
+                    for s in below_threshold:
+                        s['display'] = False
+                    # Mark ≥1% items as displayed
+                    for s in above_threshold:
+                        s['display'] = True
                 else:
-                    # Show top N items until we reach 3 (or all if MT has < 3)
-                    min_entries = min(3, len(mt_subs))
-                    position = next((i for i, s in enumerate(mt_subs) if s == st), -1)
-                    st['display'] = position < min_entries
+                    # All items shown (either all ≥1% or all < 1%)
+                    for s in mt_subs:
+                        s['display'] = True
 
     # ── Q4 trends ───────────────────────────────────────────────────────────
     q4_trends = []
