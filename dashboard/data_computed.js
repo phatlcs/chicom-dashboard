@@ -295,139 +295,554 @@ window.ChiComData = (() => {
 ];
   const Q1_SUBTOPICS        = [
   {
-    "vn": "Vận hành tài khoản và thanh toán quốc tế cho seller",
-    "en": "Account ops & international payments (sellers)",
-    "count": 3346,
-    "weight": 23.4,
+    "vn": "Misc / Other",
+    "en": "Misc / Other",
+    "count": 1833,
+    "weight": 12.8,
     "color": "oklch(0.62 0.15 260)",
     "parent_topic": "mt1",
-    "parent_rank": 0
+    "parent_rank": 0,
+    "display": true
   },
   {
-    "vn": "Thuế và Chi phí Kinh doanh trên Amazon cho Seller Việt Nam",
-    "en": "Tax & costs for Vietnamese Amazon sellers",
-    "count": 2602,
-    "weight": 18.2,
+    "vn": "Tax Compliance And Declarations",
+    "en": "Tax Compliance And Declarations",
+    "count": 954,
+    "weight": 6.7,
     "color": "oklch(0.62 0.15 260)",
     "parent_topic": "mt1",
-    "parent_rank": 0
+    "parent_rank": 0,
+    "display": true
   },
   {
-    "vn": "Cảnh báo rủi ro và lừa đảo khi kinh doanh Amazon",
-    "en": "Scam & risk warnings for Amazon sellers",
-    "count": 421,
+    "vn": "Payment Processing And Withdrawals",
+    "en": "Payment Processing And Withdrawals",
+    "count": 408,
     "weight": 2.9,
     "color": "oklch(0.62 0.15 260)",
     "parent_topic": "mt1",
-    "parent_rank": 0
+    "parent_rank": 0,
+    "display": true
   },
   {
-    "vn": "Hỗ trợ khởi đầu bán hàng Amazon",
-    "en": "Amazon selling — getting started support",
-    "count": 189,
-    "weight": 1.3,
+    "vn": "Market Trends And Sales Performance",
+    "en": "Market Trends And Sales Performance",
+    "count": 236,
+    "weight": 1.7,
     "color": "oklch(0.62 0.15 260)",
     "parent_topic": "mt1",
-    "parent_rank": 0
+    "parent_rank": 0,
+    "display": false
   },
   {
-    "vn": "Sự kiện, đào tạo và kết nối cộng đồng bán hàng Amazon",
-    "en": "Events, training & community networking",
+    "vn": "Supplier And Fulfillment Services",
+    "en": "Supplier And Fulfillment Services",
+    "count": 212,
+    "weight": 1.5,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": "mt1",
+    "parent_rank": 0,
+    "display": false
+  },
+  {
+    "vn": "Account Hiring And Leasing",
+    "en": "Account Hiring And Leasing",
+    "count": 197,
+    "weight": 1.4,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": "mt1",
+    "parent_rank": 0,
+    "display": false
+  },
+  {
+    "vn": "Scams And Fraud Prevention",
+    "en": "Scams And Fraud Prevention",
+    "count": 146,
+    "weight": 1.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": "mt1",
+    "parent_rank": 0,
+    "display": false
+  },
+  {
+    "vn": "Platform Policy Changes And Announcements",
+    "en": "Platform Policy Changes And Announcements",
+    "count": 144,
+    "weight": 1.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": "mt1",
+    "parent_rank": 0,
+    "display": false
+  },
+  {
+    "vn": "Legal Issues And Account Suspensions",
+    "en": "Legal Issues And Account Suspensions",
     "count": 127,
     "weight": 0.9,
     "color": "oklch(0.62 0.15 260)",
     "parent_topic": "mt1",
-    "parent_rank": 0
+    "parent_rank": 0,
+    "display": false
   },
   {
-    "vn": "Vấn đề xác minh, khoá, rủi zo Amazon",
-    "en": "Amazon account verification, suspension & risks",
+    "vn": "Banking And Financial Services",
+    "en": "Banking And Financial Services",
+    "count": 126,
+    "weight": 0.9,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": "mt1",
+    "parent_rank": 0,
+    "display": false
+  },
+  {
+    "vn": "Community Events And Contests",
+    "en": "Community Events And Contests",
+    "count": 125,
+    "weight": 0.9,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": "mt1",
+    "parent_rank": 0,
+    "display": false
+  },
+  {
+    "vn": "Recruitment And Job Opportunities",
+    "en": "Recruitment And Job Opportunities",
+    "count": 117,
+    "weight": 0.8,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": "mt1",
+    "parent_rank": 0,
+    "display": false
+  },
+  {
+    "vn": "Training Courses And Mentorship",
+    "en": "Training Courses And Mentorship",
+    "count": 105,
+    "weight": 0.7,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": "mt1",
+    "parent_rank": 0,
+    "display": false
+  },
+  {
+    "vn": "Tool Recommendations And Software",
+    "en": "Tool Recommendations And Software",
     "count": 75,
     "weight": 0.5,
     "color": "oklch(0.62 0.15 260)",
     "parent_topic": "mt1",
-    "parent_rank": 0
+    "parent_rank": 0,
+    "display": false
   },
   {
-    "vn": "Ưu đãi giảm giá Helium10 cho người bán Amazon",
-    "en": "Helium 10 discounts for Amazon sellers",
-    "count": 1381,
-    "weight": 9.7,
+    "vn": "Selling Best Practices",
+    "en": "Selling Best Practices",
+    "count": 986,
+    "weight": 6.9,
     "color": "oklch(0.62 0.15 80)",
     "parent_topic": "mt2",
-    "parent_rank": 1
+    "parent_rank": 1,
+    "display": true
   },
   {
-    "vn": "Dịch vụ vận chuyển và fulfillment",
-    "en": "Shipping & fulfillment services",
-    "count": 1328,
-    "weight": 9.3,
+    "vn": "Cost & Fees",
+    "en": "Cost & Fees",
+    "count": 411,
+    "weight": 2.9,
     "color": "oklch(0.62 0.15 80)",
     "parent_topic": "mt2",
-    "parent_rank": 1
+    "parent_rank": 1,
+    "display": true
   },
   {
-    "vn": "Dịch vụ hỗ trợ và xử lý tài khoản Amazon",
-    "en": "Amazon account support & recovery services",
+    "vn": "Product Selection",
+    "en": "Product Selection",
     "count": 330,
     "weight": 2.3,
     "color": "oklch(0.62 0.15 80)",
     "parent_topic": "mt2",
-    "parent_rank": 1
+    "parent_rank": 1,
+    "display": true
   },
   {
-    "vn": "Hướng dẫn và hỗ trợ khởi đầu bán hàng Amazon",
-    "en": "Getting started on Amazon — guides & onboarding",
+    "vn": "Incentives & Training",
+    "en": "Incentives & Training",
     "count": 211,
     "weight": 1.5,
     "color": "oklch(0.62 0.15 80)",
     "parent_topic": "mt2",
-    "parent_rank": 1
+    "parent_rank": 1,
+    "display": false
   },
   {
-    "vn": "Thanh toán và rút tiền Amazon qua Payoneer/PingPong",
-    "en": "Amazon payouts via Payoneer / PingPong",
-    "count": 2764,
-    "weight": 19.4,
+    "vn": "Supplier Sourcing",
+    "en": "Supplier Sourcing",
+    "count": 63,
+    "weight": 0.4,
+    "color": "oklch(0.62 0.15 80)",
+    "parent_topic": "mt2",
+    "parent_rank": 1,
+    "display": false
+  },
+  {
+    "vn": "Quality & Compliance",
+    "en": "Quality & Compliance",
+    "count": 58,
+    "weight": 0.4,
+    "color": "oklch(0.62 0.15 80)",
+    "parent_topic": "mt2",
+    "parent_rank": 1,
+    "display": false
+  },
+  {
+    "vn": "Pricing/Cost",
+    "en": "Pricing/Cost",
+    "count": 16,
+    "weight": 0.1,
+    "color": "oklch(0.62 0.15 80)",
+    "parent_topic": "mt2",
+    "parent_rank": 1,
+    "display": false
+  },
+  {
+    "vn": "Pricing/cost",
+    "en": "Pricing/cost",
+    "count": 7,
+    "weight": 0.0,
+    "color": "oklch(0.62 0.15 80)",
+    "parent_topic": "mt2",
+    "parent_rank": 1,
+    "display": false
+  },
+  {
+    "vn": "Selling best practices",
+    "en": "Selling best practices",
+    "count": 1,
+    "weight": 0.0,
+    "color": "oklch(0.62 0.15 80)",
+    "parent_topic": "mt2",
+    "parent_rank": 1,
+    "display": false
+  },
+  {
+    "vn": "Logistics costs",
+    "en": "Logistics costs",
+    "count": 1275,
+    "weight": 8.9,
+    "color": "oklch(0.62 0.15 230)",
+    "parent_topic": "mt3",
+    "parent_rank": 2,
+    "display": true
+  },
+  {
+    "vn": "Fulfillment models",
+    "en": "Fulfillment models",
+    "count": 315,
+    "weight": 2.2,
+    "color": "oklch(0.62 0.15 230)",
+    "parent_topic": "mt3",
+    "parent_rank": 2,
+    "display": true
+  },
+  {
+    "vn": "Packaging & shipping optimization",
+    "en": "Packaging & shipping optimization",
+    "count": 125,
+    "weight": 0.9,
+    "color": "oklch(0.62 0.15 230)",
+    "parent_topic": "mt3",
+    "parent_rank": 2,
+    "display": true
+  },
+  {
+    "vn": "Inventory management best practices",
+    "en": "Inventory management best practices",
+    "count": 29,
+    "weight": 0.2,
+    "color": "oklch(0.62 0.15 230)",
+    "parent_topic": "mt3",
+    "parent_rank": 2,
+    "display": false
+  },
+  {
+    "vn": "Amazon logistics solutions",
+    "en": "Amazon logistics solutions",
+    "count": 5,
+    "weight": 0.0,
+    "color": "oklch(0.62 0.15 230)",
+    "parent_topic": "mt3",
+    "parent_rank": 2,
+    "display": false
+  },
+  {
+    "vn": "Account issues / Account errors",
+    "en": "Account issues / Account errors",
+    "count": 833,
+    "weight": 5.8,
     "color": "oklch(0.62 0.15 60)",
     "parent_topic": "mt4",
-    "parent_rank": 3
+    "parent_rank": 3,
+    "display": true
   },
   {
-    "vn": "Hỏi đáp và hỗ trợ cộng đồng bán hàng",
-    "en": "Community Q&A and seller support",
-    "count": 495,
-    "weight": 3.5,
+    "vn": "Account suspension",
+    "en": "Account suspension",
+    "count": 643,
+    "weight": 4.5,
+    "color": "oklch(0.62 0.15 60)",
+    "parent_topic": "mt4",
+    "parent_rank": 3,
+    "display": true
+  },
+  {
+    "vn": "Account verification",
+    "en": "Account verification",
+    "count": 229,
+    "weight": 1.6,
+    "color": "oklch(0.62 0.15 60)",
+    "parent_topic": "mt4",
+    "parent_rank": 3,
+    "display": true
+  },
+  {
+    "vn": "Account updates",
+    "en": "Account updates",
+    "count": 33,
+    "weight": 0.2,
+    "color": "oklch(0.62 0.15 60)",
+    "parent_topic": "mt4",
+    "parent_rank": 3,
+    "display": false
+  },
+  {
+    "vn": "Inactive account",
+    "en": "Inactive account",
+    "count": 7,
+    "weight": 0.0,
+    "color": "oklch(0.62 0.15 60)",
+    "parent_topic": "mt4",
+    "parent_rank": 3,
+    "display": false
+  },
+  {
+    "vn": "Third-party service introduction",
+    "en": "Third-party service introduction",
+    "count": 903,
+    "weight": 6.3,
     "color": "oklch(0.62 0.15 320)",
     "parent_topic": "mt5",
-    "parent_rank": 4
+    "parent_rank": 4,
+    "display": true
   },
   {
-    "vn": "Bán hàng và vận hành kinh doanh trên Amazon",
-    "en": "Amazon selling & operations",
-    "count": 997,
-    "weight": 7.0,
+    "vn": "Supplier sourcing",
+    "en": "Supplier sourcing",
+    "count": 432,
+    "weight": 3.0,
+    "color": "oklch(0.62 0.15 320)",
+    "parent_topic": "mt5",
+    "parent_rank": 4,
+    "display": true
+  },
+  {
+    "vn": "Finding third-party services",
+    "en": "Finding third-party services",
+    "count": 236,
+    "weight": 1.7,
+    "color": "oklch(0.62 0.15 320)",
+    "parent_topic": "mt5",
+    "parent_rank": 4,
+    "display": true
+  },
+  {
+    "vn": "Account Verification",
+    "en": "Account Verification",
+    "count": 516,
+    "weight": 3.6,
     "color": "oklch(0.62 0.15 200)",
     "parent_topic": "mt6",
-    "parent_rank": 5
+    "parent_rank": 5,
+    "display": true
   },
   {
-    "vn": "Kinh nghiệm và chiến lược bán hàng trên Amazon",
-    "en": "Amazon selling strategy & experience",
+    "vn": "Identity Verification (SIV)",
+    "en": "Identity Verification (SIV)",
+    "count": 330,
+    "weight": 2.3,
+    "color": "oklch(0.62 0.15 200)",
+    "parent_topic": "mt6",
+    "parent_rank": 5,
+    "display": true
+  },
+  {
+    "vn": "Account Types",
+    "en": "Account Types",
+    "count": 227,
+    "weight": 1.6,
+    "color": "oklch(0.62 0.15 200)",
+    "parent_topic": "mt6",
+    "parent_rank": 5,
+    "display": true
+  },
+  {
+    "vn": "Legal Entity Setup",
+    "en": "Legal Entity Setup",
+    "count": 209,
+    "weight": 1.5,
+    "color": "oklch(0.62 0.15 200)",
+    "parent_topic": "mt6",
+    "parent_rank": 5,
+    "display": false
+  },
+  {
+    "vn": "Registration Documents",
+    "en": "Registration Documents",
+    "count": 143,
+    "weight": 1.0,
+    "color": "oklch(0.62 0.15 200)",
+    "parent_topic": "mt6",
+    "parent_rank": 5,
+    "display": false
+  },
+  {
+    "vn": "Account Updates",
+    "en": "Account Updates",
+    "count": 10,
+    "weight": 0.1,
+    "color": "oklch(0.62 0.15 200)",
+    "parent_topic": "mt6",
+    "parent_rank": 5,
+    "display": false
+  },
+  {
+    "vn": "Identity Verification",
+    "en": "Identity Verification",
     "count": 3,
     "weight": 0.0,
     "color": "oklch(0.62 0.15 200)",
     "parent_topic": "mt6",
-    "parent_rank": 5
+    "parent_rank": 5,
+    "display": false
   },
   {
-    "vn": "Khó khăn và thách thức khi bán hàng trên Amazon",
-    "en": "Pain points & challenges selling on Amazon",
+    "vn": "Off-platform advertising",
+    "en": "Off-platform advertising",
+    "count": 202,
+    "weight": 1.4,
+    "color": "oklch(0.62 0.15 110)",
+    "parent_topic": "mt7",
+    "parent_rank": 6,
+    "display": true
+  },
+  {
+    "vn": "Amazon advertising best practices",
+    "en": "Amazon advertising best practices",
+    "count": 201,
+    "weight": 1.4,
+    "color": "oklch(0.62 0.15 110)",
+    "parent_topic": "mt7",
+    "parent_rank": 6,
+    "display": true
+  },
+  {
+    "vn": "Advertising costs",
+    "en": "Advertising costs",
+    "count": 87,
+    "weight": 0.6,
+    "color": "oklch(0.62 0.15 110)",
+    "parent_topic": "mt7",
+    "parent_rank": 6,
+    "display": true
+  },
+  {
+    "vn": "Advertising best practices",
+    "en": "Advertising best practices",
     "count": 3,
     "weight": 0.0,
     "color": "oklch(0.62 0.15 110)",
     "parent_topic": "mt7",
-    "parent_rank": 6
+    "parent_rank": 6,
+    "display": false
+  },
+  {
+    "vn": "Listing guidelines & best practices",
+    "en": "Listing guidelines & best practices",
+    "count": 133,
+    "weight": 0.9,
+    "color": "oklch(0.62 0.15 290)",
+    "parent_topic": "mt8",
+    "parent_rank": 7,
+    "display": true
+  },
+  {
+    "vn": "Listing errors",
+    "en": "Listing errors",
+    "count": 58,
+    "weight": 0.4,
+    "color": "oklch(0.62 0.15 290)",
+    "parent_topic": "mt8",
+    "parent_rank": 7,
+    "display": true
+  },
+  {
+    "vn": "Product images",
+    "en": "Product images",
+    "count": 39,
+    "weight": 0.3,
+    "color": "oklch(0.62 0.15 290)",
+    "parent_topic": "mt8",
+    "parent_rank": 7,
+    "display": true
+  },
+  {
+    "vn": "Product barcodes & labeling",
+    "en": "Product barcodes & labeling",
+    "count": 13,
+    "weight": 0.1,
+    "color": "oklch(0.62 0.15 290)",
+    "parent_topic": "mt8",
+    "parent_rank": 7,
+    "display": false
+  },
+  {
+    "vn": "ASIN creation",
+    "en": "ASIN creation",
+    "count": 2,
+    "weight": 0.0,
+    "color": "oklch(0.62 0.15 290)",
+    "parent_topic": "mt8",
+    "parent_rank": 7,
+    "display": false
+  },
+  {
+    "vn": "GTIN exemption",
+    "en": "GTIN exemption",
+    "count": 1,
+    "weight": 0.0,
+    "color": "oklch(0.62 0.15 290)",
+    "parent_topic": "mt8",
+    "parent_rank": 7,
+    "display": false
+  },
+  {
+    "vn": "Intellectual property disputes resolution",
+    "en": "Intellectual property disputes resolution",
+    "count": 123,
+    "weight": 0.9,
+    "color": "oklch(0.62 0.15 350)",
+    "parent_topic": "mt9",
+    "parent_rank": 8,
+    "display": true
+  },
+  {
+    "vn": "Brand registration documents",
+    "en": "Brand registration documents",
+    "count": 19,
+    "weight": 0.1,
+    "color": "oklch(0.62 0.15 350)",
+    "parent_topic": "mt9",
+    "parent_rank": 8,
+    "display": true
   }
 ];
   const SUBTOPICS           = {
@@ -844,71 +1259,98 @@ window.ChiComData = (() => {
 ];
   const Q3_SUBS             = [
   {
-    "vn": "Thanh toán và rút tiền Amazon qua Payoneer/PingPong",
-    "en": "Amazon payouts via Payoneer / PingPong",
-    "seller": 23.94,
-    "prospect": 22.09,
-    "diff": 1.85,
+    "vn": "Misc / Other",
+    "en": "Misc / Other",
+    "seller": 14.38,
+    "prospect": 15.03,
+    "diff": -0.65,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": "mt1"
+  },
+  {
+    "vn": "Selling Best Practices",
+    "en": "Selling Best Practices",
+    "seller": 8.77,
+    "prospect": 7.03,
+    "diff": 1.74,
+    "color": "oklch(0.62 0.15 80)",
+    "parent_topic": "mt2"
+  },
+  {
+    "vn": "Tax Compliance And Declarations",
+    "en": "Tax Compliance And Declarations",
+    "seller": 9.2,
+    "prospect": 5.68,
+    "diff": 3.52,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": "mt1"
+  },
+  {
+    "vn": "Account issues / Account errors",
+    "en": "Account issues / Account errors",
+    "seller": 8.09,
+    "prospect": 5.09,
+    "diff": 3.0,
     "color": "oklch(0.62 0.15 60)",
     "parent_topic": "mt4"
   },
   {
-    "vn": "Vận hành tài khoản và thanh toán quốc tế cho seller",
-    "en": "Account ops & international payments (sellers)",
-    "seller": 21.64,
-    "prospect": 20.15,
-    "diff": 1.49,
-    "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1"
-  },
-  {
-    "vn": "Thuế và Chi phí Kinh doanh trên Amazon cho Seller Việt Nam",
-    "en": "Tax & costs for Vietnamese Amazon sellers",
-    "seller": 14.97,
-    "prospect": 13.14,
-    "diff": 1.83,
-    "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1"
-  },
-  {
-    "vn": "Ưu đãi giảm giá Helium10 cho người bán Amazon",
-    "en": "Helium 10 discounts for Amazon sellers",
-    "seller": 12.05,
-    "prospect": 9.58,
-    "diff": 2.47,
-    "color": "oklch(0.62 0.15 80)",
-    "parent_topic": "mt2"
-  },
-  {
-    "vn": "Dịch vụ vận chuyển và fulfillment",
-    "en": "Shipping & fulfillment services",
-    "seller": 8.69,
-    "prospect": 10.2,
-    "diff": -1.51,
-    "color": "oklch(0.62 0.15 80)",
-    "parent_topic": "mt2"
-  },
-  {
-    "vn": "Bán hàng và vận hành kinh doanh trên Amazon",
-    "en": "Amazon selling & operations",
-    "seller": 7.14,
-    "prospect": 10.47,
-    "diff": -3.33,
+    "vn": "Account Verification",
+    "en": "Account Verification",
+    "seller": 3.07,
+    "prospect": 7.33,
+    "diff": -4.26,
     "color": "oklch(0.62 0.15 200)",
     "parent_topic": "mt6"
   },
   {
-    "vn": "Cảnh báo rủi ro và lừa đảo khi kinh doanh Amazon",
-    "en": "Scam & risk warnings for Amazon sellers",
-    "seller": 3.68,
-    "prospect": 2.84,
-    "diff": 0.84,
+    "vn": "Account suspension",
+    "en": "Account suspension",
+    "seller": 6.15,
+    "prospect": 3.83,
+    "diff": 2.32,
+    "color": "oklch(0.62 0.15 60)",
+    "parent_topic": "mt4"
+  },
+  {
+    "vn": "Logistics costs",
+    "en": "Logistics costs",
+    "seller": 6.14,
+    "prospect": 2.51,
+    "diff": 3.63,
+    "color": "oklch(0.62 0.15 230)",
+    "parent_topic": "mt3"
+  },
+  {
+    "vn": "Cost & Fees",
+    "en": "Cost & Fees",
+    "seller": 3.69,
+    "prospect": 3.27,
+    "diff": 0.42,
+    "color": "oklch(0.62 0.15 80)",
+    "parent_topic": "mt2"
+  },
+  {
+    "vn": "Identity Verification (SIV)",
+    "en": "Identity Verification (SIV)",
+    "seller": 2.06,
+    "prospect": 4.79,
+    "diff": -2.73,
+    "color": "oklch(0.62 0.15 200)",
+    "parent_topic": "mt6"
+  },
+  {
+    "vn": "Payment Processing And Withdrawals",
+    "en": "Payment Processing And Withdrawals",
+    "seller": 3.53,
+    "prospect": 2.81,
+    "diff": 0.72,
     "color": "oklch(0.62 0.15 260)",
     "parent_topic": "mt1"
   },
   {
-    "vn": "Dịch vụ hỗ trợ và xử lý tài khoản Amazon",
-    "en": "Amazon account support & recovery services",
+    "vn": "Product Selection",
+    "en": "Product Selection",
     "seller": 2.81,
     "prospect": 2.48,
     "diff": 0.33,
@@ -916,17 +1358,35 @@ window.ChiComData = (() => {
     "parent_topic": "mt2"
   },
   {
-    "vn": "Hỏi đáp và hỗ trợ cộng đồng bán hàng",
-    "en": "Community Q&A and seller support",
-    "seller": 1.53,
-    "prospect": 2.34,
-    "diff": -0.81,
+    "vn": "Account Types",
+    "en": "Account Types",
+    "seller": 1.09,
+    "prospect": 3.34,
+    "diff": -2.25,
+    "color": "oklch(0.62 0.15 200)",
+    "parent_topic": "mt6"
+  },
+  {
+    "vn": "Finding third-party services",
+    "en": "Finding third-party services",
+    "seller": 1.03,
+    "prospect": 3.1,
+    "diff": -2.07,
     "color": "oklch(0.62 0.15 320)",
     "parent_topic": "mt5"
   },
   {
-    "vn": "Hướng dẫn và hỗ trợ khởi đầu bán hàng Amazon",
-    "en": "Getting started on Amazon — guides & onboarding",
+    "vn": "Account verification",
+    "en": "Account verification",
+    "seller": 2.08,
+    "prospect": 1.72,
+    "diff": 0.36,
+    "color": "oklch(0.62 0.15 60)",
+    "parent_topic": "mt4"
+  },
+  {
+    "vn": "Incentives & Training",
+    "en": "Incentives & Training",
     "seller": 0.44,
     "prospect": 3.27,
     "diff": -2.83,
@@ -934,17 +1394,170 @@ window.ChiComData = (() => {
     "parent_topic": "mt2"
   },
   {
-    "vn": "Hỗ trợ khởi đầu bán hàng Amazon",
-    "en": "Amazon selling — getting started support",
-    "seller": 1.13,
-    "prospect": 2.48,
-    "diff": -1.35,
+    "vn": "Market Trends And Sales Performance",
+    "en": "Market Trends And Sales Performance",
+    "seller": 2.36,
+    "prospect": 1.16,
+    "diff": 1.2,
     "color": "oklch(0.62 0.15 260)",
     "parent_topic": "mt1"
   },
   {
-    "vn": "Sự kiện, đào tạo và kết nối cộng đồng bán hàng Amazon",
-    "en": "Events, training & community networking",
+    "vn": "Off-platform advertising",
+    "en": "Off-platform advertising",
+    "seller": 1.62,
+    "prospect": 1.82,
+    "diff": -0.2,
+    "color": "oklch(0.62 0.15 110)",
+    "parent_topic": "mt7"
+  },
+  {
+    "vn": "Legal Entity Setup",
+    "en": "Legal Entity Setup",
+    "seller": 0.84,
+    "prospect": 2.51,
+    "diff": -1.67,
+    "color": "oklch(0.62 0.15 200)",
+    "parent_topic": "mt6"
+  },
+  {
+    "vn": "Amazon advertising best practices",
+    "en": "Amazon advertising best practices",
+    "seller": 1.8,
+    "prospect": 1.35,
+    "diff": 0.45,
+    "color": "oklch(0.62 0.15 110)",
+    "parent_topic": "mt7"
+  },
+  {
+    "vn": "Registration Documents",
+    "en": "Registration Documents",
+    "seller": 0.93,
+    "prospect": 1.98,
+    "diff": -1.05,
+    "color": "oklch(0.62 0.15 200)",
+    "parent_topic": "mt6"
+  },
+  {
+    "vn": "Supplier sourcing",
+    "en": "Supplier sourcing",
+    "seller": 1.11,
+    "prospect": 1.72,
+    "diff": -0.61,
+    "color": "oklch(0.62 0.15 320)",
+    "parent_topic": "mt5"
+  },
+  {
+    "vn": "Supplier And Fulfillment Services",
+    "en": "Supplier And Fulfillment Services",
+    "seller": 1.04,
+    "prospect": 1.72,
+    "diff": -0.68,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": "mt1"
+  },
+  {
+    "vn": "Scams And Fraud Prevention",
+    "en": "Scams And Fraud Prevention",
+    "seller": 1.17,
+    "prospect": 1.22,
+    "diff": -0.05,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": "mt1"
+  },
+  {
+    "vn": "Listing guidelines & best practices",
+    "en": "Listing guidelines & best practices",
+    "seller": 1.14,
+    "prospect": 1.25,
+    "diff": -0.11,
+    "color": "oklch(0.62 0.15 290)",
+    "parent_topic": "mt8"
+  },
+  {
+    "vn": "Account Hiring And Leasing",
+    "en": "Account Hiring And Leasing",
+    "seller": 0.93,
+    "prospect": 1.39,
+    "diff": -0.46,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": "mt1"
+  },
+  {
+    "vn": "Fulfillment models",
+    "en": "Fulfillment models",
+    "seller": 1.04,
+    "prospect": 1.22,
+    "diff": -0.18,
+    "color": "oklch(0.62 0.15 230)",
+    "parent_topic": "mt3"
+  },
+  {
+    "vn": "Training Courses And Mentorship",
+    "en": "Training Courses And Mentorship",
+    "seller": 0.37,
+    "prospect": 1.78,
+    "diff": -1.41,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": "mt1"
+  },
+  {
+    "vn": "Third-party service introduction",
+    "en": "Third-party service introduction",
+    "seller": 1.22,
+    "prospect": 0.89,
+    "diff": 0.33,
+    "color": "oklch(0.62 0.15 320)",
+    "parent_topic": "mt5"
+  },
+  {
+    "vn": "Banking And Financial Services",
+    "en": "Banking And Financial Services",
+    "seller": 0.84,
+    "prospect": 1.22,
+    "diff": -0.38,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": "mt1"
+  },
+  {
+    "vn": "Platform Policy Changes And Announcements",
+    "en": "Platform Policy Changes And Announcements",
+    "seller": 1.66,
+    "prospect": 0.17,
+    "diff": 1.49,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": "mt1"
+  },
+  {
+    "vn": "Community Events And Contests",
+    "en": "Community Events And Contests",
+    "seller": 0.9,
+    "prospect": 0.83,
+    "diff": 0.07,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": "mt1"
+  },
+  {
+    "vn": "Intellectual property disputes resolution",
+    "en": "Intellectual property disputes resolution",
+    "seller": 1.17,
+    "prospect": 0.5,
+    "diff": 0.67,
+    "color": "oklch(0.62 0.15 350)",
+    "parent_topic": "mt9"
+  },
+  {
+    "vn": "Packaging & shipping optimization",
+    "en": "Packaging & shipping optimization",
+    "seller": 1.03,
+    "prospect": 0.59,
+    "diff": 0.44,
+    "color": "oklch(0.62 0.15 230)",
+    "parent_topic": "mt3"
+  },
+  {
+    "vn": "Legal Issues And Account Suspensions",
+    "en": "Legal Issues And Account Suspensions",
     "seller": 1.4,
     "prospect": 0.2,
     "diff": 1.2,
@@ -952,8 +1565,26 @@ window.ChiComData = (() => {
     "parent_topic": "mt1"
   },
   {
-    "vn": "Vấn đề xác minh, khoá, rủi zo Amazon",
-    "en": "Amazon account verification, suspension & risks",
+    "vn": "Recruitment And Job Opportunities",
+    "en": "Recruitment And Job Opportunities",
+    "seller": 0.47,
+    "prospect": 1.12,
+    "diff": -0.65,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": "mt1"
+  },
+  {
+    "vn": "Advertising costs",
+    "en": "Advertising costs",
+    "seller": 0.77,
+    "prospect": 0.66,
+    "diff": 0.11,
+    "color": "oklch(0.62 0.15 110)",
+    "parent_topic": "mt7"
+  },
+  {
+    "vn": "Tool Recommendations And Software",
+    "en": "Tool Recommendations And Software",
     "seller": 0.53,
     "prospect": 0.73,
     "diff": -0.2,
@@ -961,8 +1592,125 @@ window.ChiComData = (() => {
     "parent_topic": "mt1"
   },
   {
-    "vn": "Kinh nghiệm và chiến lược bán hàng trên Amazon",
-    "en": "Amazon selling strategy & experience",
+    "vn": "Listing errors",
+    "en": "Listing errors",
+    "seller": 0.49,
+    "prospect": 0.56,
+    "diff": -0.07,
+    "color": "oklch(0.62 0.15 290)",
+    "parent_topic": "mt8"
+  },
+  {
+    "vn": "Supplier Sourcing",
+    "en": "Supplier Sourcing",
+    "seller": 0.42,
+    "prospect": 0.63,
+    "diff": -0.21,
+    "color": "oklch(0.62 0.15 80)",
+    "parent_topic": "mt2"
+  },
+  {
+    "vn": "Quality & Compliance",
+    "en": "Quality & Compliance",
+    "seller": 0.53,
+    "prospect": 0.33,
+    "diff": 0.2,
+    "color": "oklch(0.62 0.15 80)",
+    "parent_topic": "mt2"
+  },
+  {
+    "vn": "Product images",
+    "en": "Product images",
+    "seller": 0.34,
+    "prospect": 0.33,
+    "diff": 0.01,
+    "color": "oklch(0.62 0.15 290)",
+    "parent_topic": "mt8"
+  },
+  {
+    "vn": "Account updates",
+    "en": "Account updates",
+    "seller": 0.29,
+    "prospect": 0.26,
+    "diff": 0.03,
+    "color": "oklch(0.62 0.15 60)",
+    "parent_topic": "mt4"
+  },
+  {
+    "vn": "Inventory management best practices",
+    "en": "Inventory management best practices",
+    "seller": 0.28,
+    "prospect": 0.1,
+    "diff": 0.18,
+    "color": "oklch(0.62 0.15 230)",
+    "parent_topic": "mt3"
+  },
+  {
+    "vn": "Pricing/Cost",
+    "en": "Pricing/Cost",
+    "seller": 0.14,
+    "prospect": 0.13,
+    "diff": 0.01,
+    "color": "oklch(0.62 0.15 80)",
+    "parent_topic": "mt2"
+  },
+  {
+    "vn": "Brand registration documents",
+    "en": "Brand registration documents",
+    "seller": 0.11,
+    "prospect": 0.13,
+    "diff": -0.02,
+    "color": "oklch(0.62 0.15 350)",
+    "parent_topic": "mt9"
+  },
+  {
+    "vn": "Product barcodes & labeling",
+    "en": "Product barcodes & labeling",
+    "seller": 0.14,
+    "prospect": 0.03,
+    "diff": 0.11,
+    "color": "oklch(0.62 0.15 290)",
+    "parent_topic": "mt8"
+  },
+  {
+    "vn": "Account Updates",
+    "en": "Account Updates",
+    "seller": 0.08,
+    "prospect": 0.07,
+    "diff": 0.01,
+    "color": "oklch(0.62 0.15 200)",
+    "parent_topic": "mt6"
+  },
+  {
+    "vn": "Inactive account",
+    "en": "Inactive account",
+    "seller": 0.06,
+    "prospect": 0.07,
+    "diff": -0.01,
+    "color": "oklch(0.62 0.15 60)",
+    "parent_topic": "mt4"
+  },
+  {
+    "vn": "Amazon logistics solutions",
+    "en": "Amazon logistics solutions",
+    "seller": 0.05,
+    "prospect": 0.03,
+    "diff": 0.02,
+    "color": "oklch(0.62 0.15 230)",
+    "parent_topic": "mt3"
+  },
+  {
+    "vn": "Pricing/cost",
+    "en": "Pricing/cost",
+    "seller": 0.08,
+    "prospect": 0.0,
+    "diff": 0.08,
+    "color": "oklch(0.62 0.15 80)",
+    "parent_topic": "mt2"
+  },
+  {
+    "vn": "Identity Verification",
+    "en": "Identity Verification",
     "seller": 0.02,
     "prospect": 0.03,
     "diff": -0.01,
@@ -970,13 +1718,40 @@ window.ChiComData = (() => {
     "parent_topic": "mt6"
   },
   {
-    "vn": "Khó khăn và thách thức khi bán hàng trên Amazon",
-    "en": "Pain points & challenges selling on Amazon",
+    "vn": "Advertising best practices",
+    "en": "Advertising best practices",
     "seller": 0.04,
     "prospect": 0.0,
     "diff": 0.04,
     "color": "oklch(0.62 0.15 110)",
     "parent_topic": "mt7"
+  },
+  {
+    "vn": "ASIN creation",
+    "en": "ASIN creation",
+    "seller": 0.02,
+    "prospect": 0.0,
+    "diff": 0.02,
+    "color": "oklch(0.62 0.15 290)",
+    "parent_topic": "mt8"
+  },
+  {
+    "vn": "GTIN exemption",
+    "en": "GTIN exemption",
+    "seller": 0.01,
+    "prospect": 0.0,
+    "diff": 0.01,
+    "color": "oklch(0.62 0.15 290)",
+    "parent_topic": "mt8"
+  },
+  {
+    "vn": "Selling best practices",
+    "en": "Selling best practices",
+    "seller": 0.01,
+    "prospect": 0.0,
+    "diff": 0.01,
+    "color": "oklch(0.62 0.15 80)",
+    "parent_topic": "mt2"
   }
 ];
   const MONTHS              = [
@@ -1736,136 +2511,136 @@ window.ChiComData = (() => {
 ];
   const Q5_TOP_NEG          = [
   {
-    "vn": "Thanh toán và rút tiền Amazon qua Payoneer/PingPong",
-    "en": "Amazon payouts via Payoneer / PingPong",
-    "count": 852
+    "vn": "Account issues / Account errors",
+    "en": "Account issues / Account errors",
+    "count": 324
   },
   {
-    "vn": "Vận hành tài khoản và thanh toán quốc tế cho seller",
-    "en": "Account ops & international payments (sellers)",
-    "count": 435
+    "vn": "Account suspension",
+    "en": "Account suspension",
+    "count": 277
   },
   {
-    "vn": "Thuế và Chi phí Kinh doanh trên Amazon cho Seller Việt Nam",
-    "en": "Tax & costs for Vietnamese Amazon sellers",
-    "count": 291
+    "vn": "Misc / Other",
+    "en": "Misc / Other",
+    "count": 223
   },
   {
-    "vn": "Ưu đãi giảm giá Helium10 cho người bán Amazon",
-    "en": "Helium 10 discounts for Amazon sellers",
-    "count": 285
+    "vn": "Logistics costs",
+    "en": "Logistics costs",
+    "count": 192
   },
   {
-    "vn": "Dịch vụ vận chuyển và fulfillment",
-    "en": "Shipping & fulfillment services",
-    "count": 254
+    "vn": "Tax Compliance And Declarations",
+    "en": "Tax Compliance And Declarations",
+    "count": 170
   },
   {
-    "vn": "Bán hàng và vận hành kinh doanh trên Amazon",
-    "en": "Amazon selling & operations",
-    "count": 188
+    "vn": "Selling Best Practices",
+    "en": "Selling Best Practices",
+    "count": 168
   }
 ];
   const Q5_TOP_NEG_SOA      = [
   {
-    "vn": "Thanh toán và rút tiền Amazon qua Payoneer/PingPong",
-    "en": "Amazon payouts via Payoneer / PingPong",
-    "count": 90
+    "vn": "Misc / Other",
+    "en": "Misc / Other",
+    "count": 39
   },
   {
-    "vn": "Vận hành tài khoản và thanh toán quốc tế cho seller",
-    "en": "Account ops & international payments (sellers)",
-    "count": 54
+    "vn": "Account issues / Account errors",
+    "en": "Account issues / Account errors",
+    "count": 38
   },
   {
-    "vn": "Dịch vụ vận chuyển và fulfillment",
-    "en": "Shipping & fulfillment services",
-    "count": 28
+    "vn": "Account suspension",
+    "en": "Account suspension",
+    "count": 23
   },
   {
-    "vn": "Thuế và Chi phí Kinh doanh trên Amazon cho Seller Việt Nam",
-    "en": "Tax & costs for Vietnamese Amazon sellers",
-    "count": 27
+    "vn": "Identity Verification (SIV)",
+    "en": "Identity Verification (SIV)",
+    "count": 16
   },
   {
-    "vn": "Bán hàng và vận hành kinh doanh trên Amazon",
-    "en": "Amazon selling & operations",
-    "count": 26
+    "vn": "Tax Compliance And Declarations",
+    "en": "Tax Compliance And Declarations",
+    "count": 16
   },
   {
-    "vn": "Ưu đãi giảm giá Helium10 cho người bán Amazon",
-    "en": "Helium 10 discounts for Amazon sellers",
-    "count": 13
+    "vn": "Cost & Fees",
+    "en": "Cost & Fees",
+    "count": 15
   }
 ];
   const Q5_TOP_NEG_EC       = [
   {
-    "vn": "Thanh toán và rút tiền Amazon qua Payoneer/PingPong",
-    "en": "Amazon payouts via Payoneer / PingPong",
-    "count": 762
+    "vn": "Account issues / Account errors",
+    "en": "Account issues / Account errors",
+    "count": 286
   },
   {
-    "vn": "Vận hành tài khoản và thanh toán quốc tế cho seller",
-    "en": "Account ops & international payments (sellers)",
-    "count": 381
+    "vn": "Account suspension",
+    "en": "Account suspension",
+    "count": 254
   },
   {
-    "vn": "Ưu đãi giảm giá Helium10 cho người bán Amazon",
-    "en": "Helium 10 discounts for Amazon sellers",
-    "count": 272
+    "vn": "Misc / Other",
+    "en": "Misc / Other",
+    "count": 184
   },
   {
-    "vn": "Thuế và Chi phí Kinh doanh trên Amazon cho Seller Việt Nam",
-    "en": "Tax & costs for Vietnamese Amazon sellers",
-    "count": 264
+    "vn": "Logistics costs",
+    "en": "Logistics costs",
+    "count": 184
   },
   {
-    "vn": "Dịch vụ vận chuyển và fulfillment",
-    "en": "Shipping & fulfillment services",
-    "count": 226
+    "vn": "Selling Best Practices",
+    "en": "Selling Best Practices",
+    "count": 159
   },
   {
-    "vn": "Bán hàng và vận hành kinh doanh trên Amazon",
-    "en": "Amazon selling & operations",
-    "count": 162
+    "vn": "Tax Compliance And Declarations",
+    "en": "Tax Compliance And Declarations",
+    "count": 154
   }
 ];
   const Q5_EARLY_DIST       = [
   {
-    "vn": "Thanh toán và rút tiền Amazon qua Payoneer/PingPong",
-    "en": "Amazon payouts via Payoneer / PingPong",
-    "count": 852,
-    "slot": 300
+    "vn": "Account issues / Account errors",
+    "en": "Account issues / Account errors",
+    "count": 324,
+    "slot": 107
   },
   {
-    "vn": "Vận hành tài khoản và thanh toán quốc tế cho seller",
-    "en": "Account ops & international payments (sellers)",
-    "count": 435,
-    "slot": 174
+    "vn": "Account suspension",
+    "en": "Account suspension",
+    "count": 277,
+    "slot": 108
   },
   {
-    "vn": "Thuế và Chi phí Kinh doanh trên Amazon cho Seller Việt Nam",
-    "en": "Tax & costs for Vietnamese Amazon sellers",
-    "count": 291,
-    "slot": 106
+    "vn": "Misc / Other",
+    "en": "Misc / Other",
+    "count": 223,
+    "slot": 74
   },
   {
-    "vn": "Ưu đãi giảm giá Helium10 cho người bán Amazon",
-    "en": "Helium 10 discounts for Amazon sellers",
-    "count": 285,
-    "slot": 95
+    "vn": "Logistics costs",
+    "en": "Logistics costs",
+    "count": 192,
+    "slot": 92
   },
   {
-    "vn": "Dịch vụ vận chuyển và fulfillment",
-    "en": "Shipping & fulfillment services",
-    "count": 254,
-    "slot": 82
+    "vn": "Tax Compliance And Declarations",
+    "en": "Tax Compliance And Declarations",
+    "count": 170,
+    "slot": 69
   },
   {
-    "vn": "Bán hàng và vận hành kinh doanh trên Amazon",
-    "en": "Amazon selling & operations",
-    "count": 188,
-    "slot": 80
+    "vn": "Selling Best Practices",
+    "en": "Selling Best Practices",
+    "count": 168,
+    "slot": 59
   }
 ];
   const Q5_PEAK_WINDOW      = {
@@ -1923,7 +2698,7 @@ window.ChiComData = (() => {
   "soaGroups": 2,
   "ecGroups": 7,
   "masterTopics": 9,
-  "subTopics": 15
+  "subTopics": 55
 };
   const OVERVIEW            = {
   "communities": [
@@ -2234,19 +3009,19 @@ window.ChiComData = (() => {
   ]
 };
   const INSIGHTS            = {
-  "Q1": "Cộng đồng Amazon Sellers Việt Nam tập trung chủ yếu vào các vấn đề thực tế của kinh doanh, với \"Bán hàng trên Amazon\" (14,6%) và \"Vận chuyển & Logistics\" (12,3%) là hai chủ đề nổi bật sau phần \"Khác\" (33,7%). Những thảo luận về sức khỏe tài khoản (12,2%) và tạo tài khoản (10,1%) cũng chiếm tỷ trọng đáng kể, phản ánh lo ngại về tuân thủ chính sách và quản lý rủi ro tài khoản. Từ các cuộc trao đổi, người bán quan tâm sâu sắc đến logistics (lựa chọn đơn vị vận chuyển, tracking, giá cước) và chiến lược bán hàng (định giá, quản lý tồn kho, xử lý tình huống bị khóa tài khoản), thường chia sẻ kinh nghiệm thực tế và giải pháp từ đồng nghiệp. Để hỗ trợ hiệu quả, nên tập trung content và training vào ba lĩnh vực này, đặc biệt là hướng dẫn logistics tối ưu và best practice bán hàng trên nền tảng.",
-  "Q2": "Nhóm bán hàng trên sàn (seller_ot) chiếm ưu thế tuyệt đối với 2.941 thảo luận về MT1, gấp 3 lần so với seller_az (298), cho thấy cộng đồng bán hàng chủ yếu tập trung vào các nền tảng thương mại điện tử khác ngoài Amazon. Nhóm dịch vụ CBEC lại nổi bật ở MT5 (1.064 bài) và MT3 (809 bài), chứng tỏ họ quan tâm sâu hơn đến các chủ đề chuyên biệt như logistics, hệ thống quản lý hay quy định xuất nhập khẩu. Các prospect (khách hàng tiềm năng) chủ yếu tham gia thảo luận MT1 (984 bài) và MT6 (551 bài), tức là họ còn ở giai đoạn tìm hiểu cơ bản, trong khi seller_az của Amazon lại phân tán đều trên các topic, với tập trung nhất ở MT1 (298) và MT2 (161). Điều này gợi ý rằng cộng đồng Amazon Việt Nam vẫn nhỏ và chưa hình thành các nhóm thảo luận chuyên sâu như các sàn khác, đồng thời",
-  "Q3": "Seller hiện tại quan tâm sâu hơn đến vấn đề vận hành sau khi đã bán hàng, đặc biệt là Sức khỏe tài khoản (16,6% vs 10,8% prospect) và Vận chuyển & Logistics (8,5% vs 4,5%), trong đó thanh toán qua Payoneer/PingPong và quản lý chi phí kinh doanh là những chủ đề nóng nhất. Ngược lại, prospect chủ yếu tập trung vào khâu khởi động với tỷ lệ Tạo tài khoản cao gấp 2,5 lần (20,2% vs 8,1%), họ cần hướng dẫn bước đầu bán hàng Amazon hơn là tối ưu hóa vận hành. Cộng đồng hiện đang trao đổi nhiều về giải pháp logistics thực tế (dịch vụ vận chuyển, tracking real-time, quản lý tồn kho) và cách xử lý rủi ro tài khoản, cho thấy nhu cầu cấp thiết về content hướng dẫn vận hành và công cụ hỗ trợ logistics cho seller đã có kinh nghiệm.",
-  "Q4": "Trong giai đoạn tháng 3-4 năm 2026, cộng đồng sellers tập trung vào các vấn đề thực tế như quản lý tài khoản (thay đổi workflow, tạo tài khoản mới khi gặp hạn chế), xử lý đơn hàng (hủy đơn do bận rộn, tối ưu giá bán theo loại hàng), và quản lý logistics (lựa chọn đơn vị vận chuyển phù hợp, tracking real-time). Nhu cầu về công cụ hỗ trợ tự động (auto-notification, real-time inventory tracking) và dịch vụ support tiếng Việt đang tăng, cho thấy sellers cần giải pháp để tránh mất đơn và tối ưu hoạt động. Gợi ý: phát triển content hoặc tool hỗ trợ quản lý tồn kho tự động và tối ưu chiến lược định giá theo loại sản phẩm sẽ có tác động lớn đến nhóm này.",
-  "Q5": "Vấn đề thanh toán và rút tiền qua Payoneer/PingPong chiếm ưu thị lớn nhất với 852 lần đề cập, phản ánh lo ngại sâu sắc của seller về độ trễ, khóa tài khoản và xử lý pending từ các nền tảng thanh toán quốc tế. Những bình luận như \"từ thứ sáu đến giờ vẫn chưa thấy về tài khoản\" hay \"pending xong khóa shop 3 tháng\" cho thấy seller gặp phải tình trạng tiền bị treo kéo dài mà không có hỗ trợ kịp thời. Cao điểm tiêu cực tập trung vào khung 8-11 giờ sáng các ngày trong tuần (đặc biệt thứ sáu với 476 lần đề cập), khi seller bắt đầu ngày làm việc và phát hiện các vấn đề về thanh toán từ hôm trước. Cần xem xét tăng cường hỗ trợ thanh toán quốc tế và cải thiện tốc độ xử lý pending để giảm căng thẳng của seller vào các khung giờ này.",
-  "Q7": "Seller gia nhập Amazon chủ yếu được thu hút bởi mục tiêu thành công và thu nhập (392 lần đề cập), với 104 lần nhắc đến passive income như một lợi thế quan trọng. Tuy nhiên, nhu cầu thực tế của cộng đồng tập trung vào việc chia sẻ kinh nghiệm và học hỏi từ nhau (173 bài thảo luận), chứ không chỉ về lợi nhuận mà còn về cách vận hành hiệu quả trên nền tảng. Các seller đặc biệt quan tâm đến dữ liệu chi tiết từ Amazon (impression, click, conversion, PPC data) để tối ưu chiến lược bán hàng, cũng như các công cụ tự động hóa để tiết kiệm thời gian và tăng hiệu suất. Để hỗ trợ tốt hơn, nên tập trung vào việc cung cấp training về data analytics, automation tools, và xây dựng cộng đồng mentorship giữa các seller có kinh nghiệm và người mới.",
-  "Q8": "Thua lỗ và chi phí cao là nguyên nhân chính khiến 10 seller rời bỏ Amazon, tiếp theo là tài khoản bị khóa (8 ca) và kiệt sức mất động lực (6 ca). Đa số những người này là Amazon Seller hiện tại (211/262), cho thấy vấn đề không phải ở giai đoạn quyết định tham gia mà ở quá trình vận hành thực tế. Các seller gặp phải vòng lặp khó thoát: chi phí quảng cáo cao để cạnh tranh, doanh số thấp không bù được chi phí, hoặc quyết định sai lầm trong chiến lược (như tắt campaign đang tối ưu hóa rank) dẫn đến mất động lực. Bên cạnh đó, các rào cản hành chính như xác minh tài khoản, chính sách phức tạp cũng là yếu tố gây sức ép tâm lý. Cần xây dựng chương trình hỗ trợ tối ưu hóa chi phí quảng cáo và mentorship về chiến lược dài hạn để giữ chân seller trong giai đoạn khó khăn đầu tiên.",
-  "Q9": "Nhóm Seller (Others) chiếm ưu thế rõ rệt trong cộng đồng với 457 thảo luận về gia nhập và 143 về rời bỏ, cho thấy đây là đối tượng chính tham gia nhưng cũng có tỷ lệ churn đáng chú ý (31% so với lúc gia nhập). Service Provider CBEC là nhóm thứ hai khi gia nhập (202 thảo luận) nhưng gần như biến mất khỏi các cuộc thảo luận rời bỏ, ngược lại Seller Amazon tăng tỷ trọng khi xét rời bỏ (28 vs 71), gợi ý họ có xu hướng giữ lâu hơn. Các cuộc thảo luận phản ánh hành vi \"cut and run\" của một số seller—tạo tài khoản mới khi gặp vấn đề, hoặc tạm dừng hoạt động do bận rộn—cho thấy nhu cầu hỗ trợ onboarding mạnh mẽ hơn và các công cụ quản lý tồn kho, logistics tự động để giảm friction trong giai đoạn đầu kinh doanh.",
-  "Q10": "Listing là chủ đề chiếm ưu thế tuyệt đối với 210 lần đề cập, gấp 2,4 lần so với FBA (86 lần) và gấp 4 lần so với VIV (52 lần), phản ánh nhu cầu cấp bách của sellers trong việc tối ưu hóa cách trình bày sản phẩm trên sàn. Các cuộc thảo luận xoay quanh những vấn đề thực tế như quản lý tồn kho, tránh hết hàng bất ngờ, và cách định giá cạnh tranh để bán được hàng, cho thấy sellers đang tìm kiếm giải pháp để nâng cao conversion và giữ đơn hàng. Mặc dù FBA và FBM cũng được quan tâm (86 và 42 lần), nhưng chúng chỉ là công cụ hỗ trợ, trong khi listing optimization vẫn là nền tảng quyết định thành công bán hàng. Cơ hội để phát triển content hướng dẫn chi tiết về listing best practices, tool quản lý tồn kho tự động, và chiến lược pricing động sẽ giúp sellers giải quyết những pain point này.",
-  "Q11": "FBA là tool được sử dụng rộng rãi nhất với 61 lần nhắc đến, nhưng mức độ hài lòng chỉ đạt 25% (15/61) trong khi vấn đề về lỗi hệ thống và tài khoản bị khóa vẫn là nỗi lo chính (24 và 9 lần báo cáo). PPC/Ads và FBM đạt tỷ lệ hài lòng tương đối cao hơn (32% và 36%), cho thấy seller quan tâm nhiều hơn đến các giải pháp quản lý bán hàng trực tiếp. Điểm sáng là yếu tố \"giá hợp lý\" được đánh giá cao nhất (30 lần), nhưng các tool quản lý tồn kho chỉ có 1 người hài lòng trên 14 người dùng, phản ánh nhu cầu cấp bách về cải thiện trải nghiệm quản lý hàng tồn. Cần ưu tiên giải quyết các lỗi hệ thống và tạo hướng dẫn sử dụng đơn giản hơn cho FBA, đồng thời phát triển công cụ quản lý tồn kho thân thiện hơn để tăng adoption rate.",
-  "Q12": "Kế toán và thuế là nhu cầu cấp bách nhất với 80 lần đề cập, nhưng mức độ hài lòng chỉ 54% cho thấy seller gặp khó khăn trong việc tìm dịch vụ chất lượng và đáng tin cậy. Vận chuyển/Forwarder cũng được nhắc đến 72 lần với mức hài lòng cao hơn (64%), phản ánh nhu cầu ổn định nhưng vẫn có khoảng trống về giải pháp tối ưu. Đáng chú ý, dịch vụ sourcing mặc dù chỉ được đề cập 22 lần nhưng có mức hài lòng cao nhất (92%) và nhu cầu tiềm ẩn cao (9), cho thấy đây là cơ hội để mở rộng dịch vụ này. Trợ lý ảo (VA) hiện chỉ có 5 lần đề cập nhưng nhu cầu tiềm ẩn lên tới 40%, gợi ý rằng seller chưa nhận thức đầy đủ về giá trị của dịch vụ này. Cần ưu tiên cải thiện chất lượng dịch vụ kế toán/thuế và tăng cường marketing cho sourcing cũng như VA để khai th",
-  "Q13": "Nhu cầu đào tạo trong cộng đồng seller Amazon Việt tập trung chủ yếu vào đào tạo tổng quát (7 lần nhắc đến), trong đó seller quan tâm đến việc nắm vững toàn bộ quy trình vận hành từ nghiên cứu sản phẩm, tối ưu listing cho đến quản lý đơn hàng và phân tích dữ liệu. Bên cạnh đó, nhu cầu về mentor và coaching cá nhân hóa (3 lần) cũng xuất hiện, phản ánh mong muốn của seller được hướng dẫn trực tiếp và chuyển giao năng lực thực chiến thay vì chỉ học lý thuyết. Khóa Amazon FBA chuyên sâu có mặt nhưng với tần suất thấp, cho thấy seller không chỉ tìm kiếm khóa học độc lập mà còn ưu tiên các dịch vụ vận hành toàn diện kết hợp đào tạo. Cơ hội nằm ở việc phát triển chương trình đào tạo modular kết hợp coaching 1-1 và công cụ quản trị tích hợp để giải quyết bài toán dữ liệu rời rạc mà seller đang gặp phải.",
-  "Q14": "Tự động hóa và công cụ quản lý là mối quan tâm hàng đầu của seller (30 mentions, 47% positive sentiment), phản ánh nhu cầu tối ưu hóa quy trình từ listing, PPC cho đến bulk operations khi scale. Xây dựng team (28 mentions) và mở rộng thị trường (26 mentions) cũng được bàn luận sôi nổi nhưng với tâm lý hỗn hợp cao (68% mixed sentiment cho team building), cho thấy seller vừa thấy cần thiết vừa lo lắng về chi phí và hiệu quả. Scale vận hành (25 mentions, 56% positive) được đánh giá tích cực hơn, nhất là khi seller nhận ra những sai lầm trong chiến lược quảng cáo hay lựa chọn sản phẩm ban đầu. Gợi ý: nên phát triển content/tool hướng dẫn seller cách đánh giá ROI đúng cách (không chỉ ACOS) và quy trình chọn sản phẩm chuẩn trước khi scale, vì đây là điểm đau chính ảnh hưởng đến P&L."
+  "Q1": "Cộng đồng Amazon Sellers Việt Nam tập trung chủ yếu vào các vấn đề vận hành cốt lõi, với \"Bán hàng trên Amazon\" (14,6%) và \"Vận chuyển & Logistics\" (12,3%) là hai chủ đề chiếm tỉ trọng lớn nhất sau phần \"Khác\" (33,7%). Các thảo luận thường xoay quanh những thách thức thực tế như quản lý tồn kho, lựa chọn đối tác logistics phù hợp với loại hàng và tốc độ giao hàng, cũng như cách xử lý các vấn đề tài khoản khi gặp sự cố. Bên cạnh đó, \"Sức khỏe tài khoản\" (12,2%) và \"Dịch vụ bên thứ ba\" (11,0%) cũng được quan tâm đáng kể, phản ánh nhu cầu tìm kiếm hỗ trợ từ các công cụ và dịch vụ bên ngoài để tối ưu hóa hoạt động kinh doanh. Để tăng cường giá trị cho cộng đồng, có thể phát triển các khóa học hoặc webinar chuyên sâu về logistics optimization và account health management, hai lĩnh vực mà sellers đang tích c",
+  "Q2": "Nhóm Seller trên Amazon (2.941 bài thảo luận ở MT1) và Seller nền tảng khác (1.250 bài ở MT2) là những người tích cực nhất trong cộng đồng, tập trung vào các vấn đề vận hành hàng ngày như quản lý đơn hàng, logistics và tối ưu giá bán. Ngược lại, nhóm dịch vụ CBEC lại tập trung nặng vào MT5 (1.064 bài) và MT3 (809 bài), cho thấy họ quan tâm đến những chủ đề chuyên sâu hơn liên quan đến quy trình và công nghệ. Prospect trên nền tảng khác cũng có sự hiện diện đáng kể ở MT1 (984 bài) và MT6 (551 bài), phản ánh nhu cầu tìm hiểu cơ bản trước khi bắt đầu kinh doanh. Cơ hội ở đây là phân biệt rõ nội dung hướng dẫn cho từng nhóm: Seller cần công cụ quản lý vận hành, Prospect cần roadmap khởi động, còn dịch vụ CBEC cần deep-dive về chiến lược và compliance.",
+  "Q3": "Người bán hiện tại tập trung nhiều hơn vào các vấn đề vận hành thực tế như chi phí logistics (6,14%), tình trạng tài khoản (8,09% về lỗi tài khoản, 6,15% về đình chỉ), và tuân thủ thuế (9,2%), trong khi những người chưa bán chủ yếu lo lắng về các bước khởi động như xác minh tài khoản (7,33%), loại tài khoản phù hợp (3,34%), và tìm dịch vụ hỗ trợ (3,1%). Điều này phản ánh rõ ở mức chênh lệch 12,1 điểm phần trăm ở chủ đề \"Tạo tài khoản\" — prospect quan tâm gấp 2,4 lần so với seller hiện tại. Các seller đang hoạt động cũng thảo luận nhiều hơn về thực tiễn bán hàng tốt (8,77%) và chi phí vận chuyển cụ thể, trong khi prospect tìm kiếm khóa đào tạo và mentorship (1,78% vs 0,37% ở seller). Cơ hội ở đây là xây dựng content hướng dẫn từng bước cho giai đoạn khởi động (xác minh, chọn loại tài khoản",
+  "Q4": "Trong giai đoạn tháng 3-4 năm 2026, cộng đồng sellers tập trung vào các vấn đề thực tiễn như quản lý tài khoản (đổi tab, tạo account mới khi gặp hạn chế), xử lý đơn hàng (huỷ đơn, tối ưu giá bán), và logistics (lựa chọn đơn vị vận chuyển phù hợp với loại hàng và tốc độ giao). Nhận thấy sellers đang tìm kiếm giải pháp thực tế hơn là lý thuyết, với xu hướng chia sẻ kinh nghiệm về quản lý tồn kho, setup hệ thống thông báo tự động, và xây dựng mạng lưới nhà cung cấp dự phòng để tránh mất đơn. Đây là tín hiệu rằng cộng đồng cần nhiều content về automation tools, best practices quản lý inventory real-time, và hướng dẫn tích hợp các nền tảng logistics phổ biến để giảm rủi ro kinh doanh.",
+  "Q5": "Vấn đề tài khoản chiếm ưu thế trong các khiếu nại tiêu cực, với Account issues/errors (324 lần) và Account suspension (277 lần) dẫn đầu, phản ánh lo ngại lớn về khóa shop, pending thanh toán và bị tạch tài khoản. Áp lực này tập trung vào cuối tuần, đặc biệt thứ Sáu (476 lần đề cập) khi người bán kiểm tra tình trạng tài khoản sau những ngày hoạt động, và cao nhất vào khung 8-11 giờ sáng (927 lần trong 5 giờ) khi mọi người online để xử lý vấn đề hoặc tìm kiếm giải pháp. Ngoài tài khoản, chi phí logistics (192 lần) và tuân thủ thuế (170 lần) cũng gây căng thẳng, nhưng không bằng nỗi sợ mất tài khoản. Cần tăng cường support proactive vào sáng thứ Sáu và chuẩn bị tài liệu hướng dẫn phòng chống suspension để giảm volume khiếu nại ở peak hours.",
+  "Q7": "Seller gia nhập Amazon chủ yếu được thu hút bởi mục tiêu thành công và thu nhập (392 lần đề cập), với passive income là động lực thứ hai (104 lần). Tuy nhiên, nhu cầu học hỏi và chia sẻ kinh nghiệm chiếm ưu thế trong cộng đồng (173 bài thảo luận), cho thấy seller không chỉ tìm kiếm lợi nhuận mà còn muốn nắm vững chiến lược vận hành, từ tối ưu listing, sử dụng automation tool, đến khai thác dữ liệu chi tiết từ Amazon Analytics và PPC Ads. Cơ hội thị trường (66 lần) và tính dễ bắt đầu (52 lần) cũng là yếu tố hỗ trợ quyết định, nhất là khi seller có thể tham khảo kinh nghiệm từ những người đã thành công. Để tăng tỷ lệ chuyển đổi, nên tập trung vào các khóa đào tạo thực hành về automation, data analytics và chiến lược listing tối ưu, kết hợp với cộng đồng mentoring để giảm rủi ro cho người mới.",
+  "Q8": "Người bán Amazon đang rời bỏ chủ yếu do thua lỗ và chi phí cao (10 trường hợp), tiếp theo là tài khoản bị khóa (8 trường hợp) và kiệt sức mất động lực (6 trường hợp). Trong 262 người có dấu hiệu rời bỏ, đa số là các seller Amazon hiện tại (211 người) đang gặp khó khăn với các vấn đề như xử lý thuế phức tạp, yêu cầu re-verify tài khoản, hoặc quyết định tắt campaign quảng cáo vì nhìn ACOS cao mà không hiểu tác động dài hạn. Cạnh tranh khốc liệt cũng là yếu tố đẩy họ rời đi, khi không có điểm khác biệt rõ ràng so với đối thủ ngoài việc cạnh tranh về giá. Cần tăng cường hỗ trợ về quản lý chi phí, quy trình xác minh tài khoản, và đào tạo chiến lược quảng cáo dài hạn để giữ chân segment này.",
+  "Q9": "Nhóm Seller (Others) chiếm ưu thế áp đảo trong cộng đồng với 457 thảo luận về gia nhập và 143 về rời bỏ, cho thấy đây là đối tượng chính tham gia nhất, trong khi Service Provider CBEC (202 lần gia nhập) và Prospect Others (184 lần) cũng có sức nóng đáng kể. Tuy nhiên tỷ lệ rời bỏ của Seller Others (31%) cao hơn đáng kể so với các nhóm khác, phản ánh những thách thức thực tế mà họ gặp phải như quản lý tồn kho, tìm nhà cung cấp ổn định, hay áp lực từ việc phải thử nghiệm liên tục trên các sàn khác nhau. Các cuộc trao đổi cho thấy nhiều seller đang tìm kiếm giải pháp hỗ trợ thực tế như tool tracking tồn kho, hệ thống thông báo tự động, hoặc dịch vụ logistics đáng tin cậy, chứ không chỉ tìm kiếm thông tin lý thuyết. Cơ hội nằm ở việc phát triển các công cụ quản lý vận hành hoặc dịch vụ tư vấn logistics/cung ứng để giả",
+  "Q10": "Listing là chủ đề chiếm ưu thế tuyệt đối với 210 lần thảo luận, gấp 2,4 lần so với FBA (86 lần), phản ánh nhu cầu cấp thiết của seller về tối ưu hóa mô tả sản phẩm và chiến lược hiển thị. Bên cạnh đó, VIV (52 lần) và FBM (42 lần) cũng được quan tâm đáng kể, cho thấy seller vừa lo lắng về xác thực danh tính vừa tìm cách linh hoạt trong logistics. Các công cụ hỗ trợ như OX, Seller Guidebook hay Sponsored Products có lượng thảo luận thấp hơn (20, 17, 13 lần), nhưng cộng đồng vẫn tích cực chia sẻ kinh nghiệm thực tế về quản lý tồn kho, tìm nhà cung cấp dự phòng và tối ưu chi phí vận chuyển. Cơ hội nằm ở việc tạo content hướng dẫn chi tiết về listing optimization và FBA/FBM strategy, kết hợp với các case study thực tế từ seller VN để tăng engagement.",
+  "Q11": "FBA vẫn là công cụ được sử dụng rộng rãi nhất với 61 lần nhắc đến, nhưng mức độ hài lòng chỉ đạt 25% (15/61) trong khi vấn đề về lỗi hệ thống chiếm 24 trường hợp trên tổng số 49 vấn đề được báo cáo. Bên cạnh đó, PPC/Ads và FBM cũng được áp dụng rộng rãi (mỗi công cụ 28 lần) nhưng chỉ có 32% và 36% người dùng cảm thấy hài lòng, cho thấy khoảng cách giữa adoption và satisfaction. Vấn đề quản lý tồn kho đặc biệt đáng chú ý với tỷ lệ hài lòng chỉ 7% (1/14), phản ánh nhu cầu cấp bách về cải thiện tính năng này. Để nâng cao trải nghiệm người dùng, cần ưu tiên khắc phục các lỗi hệ thống và phát triển công cụ quản lý tồn kho thân thiện hơn, đồng thời tạo thêm tài liệu hướng dẫn chi tiết vì yếu tố \"dễ dùng\" chỉ được",
+  "Q12": "Kế toán và thuế là nhu cầu cấp bách nhất với 80 lần đề cập, nhưng mức độ hài lòng chỉ 54% cho thấy seller gặp khó khăn lớn trong việc tìm dịch vụ phù hợp và đáng tin cậy. Vận chuyển/Forwarder cũng được nhắc tới 72 lần với mức hài lòng cao hơn (64%), nhưng nhu cầu vẫn ở mức 6/10, phản ánh rằng seller đang tìm kiếm giải pháp tối ưu hơn cho logistics. Đáng chú ý, dịch vụ sourcing chỉ được đề cập 22 lần nhưng có nhu cầu cao (9/10) và hài lòng rất cao (92%), cho thấy đây là lĩnh vực có tiềm năng phát triển mạnh. Trợ lý ảo (VA) mặc dù ít được nhắc (5 lần) nhưng nhu cầu lên tới 40/10, gợi ý rằng seller đang tìm kiếm hỗ trợ quản lý hoạt động hàng ngày nhưng chưa có lựa chọn tốt trên thị trường. Cơ hội để phát triển dịch vụ kế toán chuy",
+  "Q13": "Nhu cầu đào tạo của seller Amazon Việt tập trung chủ yếu vào đào tạo tổng quát (7 lần nhắc đến) và dịch vụ mentor/coaching (3 lần), trong khi khóa FBA chuyên sâu chỉ xuất hiện 1 lần. Các seller không chỉ tìm kiếm kiến thức lý thuyết mà còn muốn có người hướng dẫn thực chiến và chuyển giao năng lực để vận hành gian hàng hiệu quả, đặc biệt là trong việc quản lý dữ liệu, tối ưu listing và xử lý các vấn đề phát sinh. Điều này cho thấy cơ hội phát triển chương trình đào tạo linh hoạt kết hợp giữa kiến thức nền tảng và coaching 1-1, cũng như các công cụ hỗ trợ quản trị tích hợp để giải quyết bài toán \"dữ liệu rời rạc\" mà seller đang gặp phải.",
+  "Q14": "Tự động hóa và tool dẫn đầu với 30 mentions và 47% sentiment tích cực, phản ánh nhu cầu cấp bách của seller trong việc tối ưu quy trình từ PPC, listing đến bulk file management mà không cần mở rộng team ngay lập tức. Xây dựng team xếp thứ hai (28 mentions) nhưng lại có 68% mixed sentiment, cho thấy seller gặp khó khăn trong việc cân bằng chi phí nhân sự với lợi nhuận, đặc biệt khi phí FBA tăng và margin bị ép. Scale vận hành (25 mentions, 56% positive) được đánh giá tích cực hơn, chủ yếu vì seller tập trung vào tối ưu hóa quy trình hiện tại thay vì tuyển dụng, trong khi mở rộng thị trường (26 mentions) vẫn gây lo ngại về chi phí setup và rủi ro listing bị từ chối ở các market mới. Cơ hội nằm ở việc cung cấp các công cụ automation và training về PPC optimization, cũng như hướng dẫn thực tế cho seller muốn scale vận hành mà không cần tăng headcount ngay."
 };
   const DATE_RANGE          = {
   "start": "2026-04-01",
@@ -2495,106 +3270,106 @@ window.ChiComData2 = (() => {
 };
   const Q7_POS_SUBS_SOA   = [
   {
-    "vn": "Dịch vụ vận chuyển và fulfillment",
-    "en": "Shipping & fulfillment services",
-    "count": 57
+    "vn": "Misc / Other",
+    "en": "Misc / Other",
+    "count": 28
   },
   {
-    "vn": "Thanh toán và rút tiền Amazon qua Payoneer/PingPong",
-    "en": "Amazon payouts via Payoneer / PingPong",
-    "count": 56
+    "vn": "Fulfillment models",
+    "en": "Fulfillment models",
+    "count": 27
   },
   {
-    "vn": "Vận hành tài khoản và thanh toán quốc tế cho seller",
-    "en": "Account ops & international payments (sellers)",
-    "count": 54
+    "vn": "Selling Best Practices",
+    "en": "Selling Best Practices",
+    "count": 26
   },
   {
-    "vn": "Thuế và Chi phí Kinh doanh trên Amazon cho Seller Việt Nam",
-    "en": "Tax & costs for Vietnamese Amazon sellers",
-    "count": 38
+    "vn": "Amazon advertising best practices",
+    "en": "Amazon advertising best practices",
+    "count": 24
   },
   {
-    "vn": "Ưu đãi giảm giá Helium10 cho người bán Amazon",
-    "en": "Helium 10 discounts for Amazon sellers",
-    "count": 37
+    "vn": "Logistics costs",
+    "en": "Logistics costs",
+    "count": 20
   },
   {
-    "vn": "Bán hàng và vận hành kinh doanh trên Amazon",
-    "en": "Amazon selling & operations",
-    "count": 23
+    "vn": "Third-party service introduction",
+    "en": "Third-party service introduction",
+    "count": 20
   },
   {
-    "vn": "Dịch vụ hỗ trợ và xử lý tài khoản Amazon",
-    "en": "Amazon account support & recovery services",
+    "vn": "Product Selection",
+    "en": "Product Selection",
     "count": 13
   },
   {
-    "vn": "Vấn đề xác minh, khoá, rủi zo Amazon",
-    "en": "Amazon account verification, suspension & risks",
-    "count": 5
+    "vn": "Community Events And Contests",
+    "en": "Community Events And Contests",
+    "count": 11
   },
   {
-    "vn": "Hỗ trợ khởi đầu bán hàng Amazon",
-    "en": "Amazon selling — getting started support",
-    "count": 5
+    "vn": "Identity Verification (SIV)",
+    "en": "Identity Verification (SIV)",
+    "count": 11
   },
   {
-    "vn": "Cảnh báo rủi ro và lừa đảo khi kinh doanh Amazon",
-    "en": "Scam & risk warnings for Amazon sellers",
-    "count": 2
+    "vn": "Registration Documents",
+    "en": "Registration Documents",
+    "count": 11
   }
 ];
   const Q7_POS_SUBS_EC    = [
   {
-    "vn": "Vận hành tài khoản và thanh toán quốc tế cho seller",
-    "en": "Account ops & international payments (sellers)",
-    "count": 400
+    "vn": "Third-party service introduction",
+    "en": "Third-party service introduction",
+    "count": 280
   },
   {
-    "vn": "Thuế và Chi phí Kinh doanh trên Amazon cho Seller Việt Nam",
-    "en": "Tax & costs for Vietnamese Amazon sellers",
-    "count": 362
+    "vn": "Selling Best Practices",
+    "en": "Selling Best Practices",
+    "count": 213
   },
   {
-    "vn": "Ưu đãi giảm giá Helium10 cho người bán Amazon",
-    "en": "Helium 10 discounts for Amazon sellers",
-    "count": 255
+    "vn": "Logistics costs",
+    "en": "Logistics costs",
+    "count": 196
   },
   {
-    "vn": "Thanh toán và rút tiền Amazon qua Payoneer/PingPong",
-    "en": "Amazon payouts via Payoneer / PingPong",
-    "count": 245
+    "vn": "Misc / Other",
+    "en": "Misc / Other",
+    "count": 167
   },
   {
-    "vn": "Dịch vụ vận chuyển và fulfillment",
-    "en": "Shipping & fulfillment services",
-    "count": 144
+    "vn": "Supplier sourcing",
+    "en": "Supplier sourcing",
+    "count": 126
   },
   {
-    "vn": "Hỏi đáp và hỗ trợ cộng đồng bán hàng",
-    "en": "Community Q&A and seller support",
-    "count": 138
-  },
-  {
-    "vn": "Bán hàng và vận hành kinh doanh trên Amazon",
-    "en": "Amazon selling & operations",
-    "count": 106
-  },
-  {
-    "vn": "Dịch vụ hỗ trợ và xử lý tài khoản Amazon",
-    "en": "Amazon account support & recovery services",
+    "vn": "Product Selection",
+    "en": "Product Selection",
     "count": 65
   },
   {
-    "vn": "Hướng dẫn và hỗ trợ khởi đầu bán hàng Amazon",
-    "en": "Getting started on Amazon — guides & onboarding",
+    "vn": "Incentives & Training",
+    "en": "Incentives & Training",
     "count": 58
   },
   {
-    "vn": "Cảnh báo rủi ro và lừa đảo khi kinh doanh Amazon",
-    "en": "Scam & risk warnings for Amazon sellers",
-    "count": 40
+    "vn": "Fulfillment models",
+    "en": "Fulfillment models",
+    "count": 54
+  },
+  {
+    "vn": "Account issues / Account errors",
+    "en": "Account issues / Account errors",
+    "count": 54
+  },
+  {
+    "vn": "Account suspension",
+    "en": "Account suspension",
+    "count": 47
   }
 ];
   const Q8_TRIGGERS    = [
@@ -3790,106 +4565,106 @@ window.ChiComData2 = (() => {
 ];
   const Q10_SUBS_SOA   = [
   {
-    "vn": "Thanh toán và rút tiền Amazon qua Payoneer/PingPong",
-    "en": "Amazon payouts via Payoneer / PingPong",
-    "count": 326
+    "vn": "Misc / Other",
+    "en": "Misc / Other",
+    "count": 214
   },
   {
-    "vn": "Vận hành tài khoản và thanh toán quốc tế cho seller",
-    "en": "Account ops & international payments (sellers)",
-    "count": 325
+    "vn": "Fulfillment models",
+    "en": "Fulfillment models",
+    "count": 98
   },
   {
-    "vn": "Dịch vụ vận chuyển và fulfillment",
-    "en": "Shipping & fulfillment services",
-    "count": 258
+    "vn": "Account issues / Account errors",
+    "en": "Account issues / Account errors",
+    "count": 88
   },
   {
-    "vn": "Thuế và Chi phí Kinh doanh trên Amazon cho Seller Việt Nam",
-    "en": "Tax & costs for Vietnamese Amazon sellers",
-    "count": 215
+    "vn": "Amazon advertising best practices",
+    "en": "Amazon advertising best practices",
+    "count": 80
   },
   {
-    "vn": "Ưu đãi giảm giá Helium10 cho người bán Amazon",
-    "en": "Helium 10 discounts for Amazon sellers",
-    "count": 121
+    "vn": "Third-party service introduction",
+    "en": "Third-party service introduction",
+    "count": 75
   },
   {
-    "vn": "Bán hàng và vận hành kinh doanh trên Amazon",
-    "en": "Amazon selling & operations",
-    "count": 121
+    "vn": "Logistics costs",
+    "en": "Logistics costs",
+    "count": 74
   },
   {
-    "vn": "Hỗ trợ khởi đầu bán hàng Amazon",
-    "en": "Amazon selling — getting started support",
-    "count": 46
+    "vn": "Cost & Fees",
+    "en": "Cost & Fees",
+    "count": 65
   },
   {
-    "vn": "Cảnh báo rủi ro và lừa đảo khi kinh doanh Amazon",
-    "en": "Scam & risk warnings for Amazon sellers",
-    "count": 29
+    "vn": "Selling Best Practices",
+    "en": "Selling Best Practices",
+    "count": 65
   },
   {
-    "vn": "Hỏi đáp và hỗ trợ cộng đồng bán hàng",
-    "en": "Community Q&A and seller support",
-    "count": 12
+    "vn": "Identity Verification (SIV)",
+    "en": "Identity Verification (SIV)",
+    "count": 64
   },
   {
-    "vn": "Sự kiện, đào tạo và kết nối cộng đồng bán hàng Amazon",
-    "en": "Events, training & community networking",
-    "count": 11
+    "vn": "Product Selection",
+    "en": "Product Selection",
+    "count": 62
   }
 ];
   const Q10_SUBS_EC    = [
   {
-    "vn": "Vận hành tài khoản và thanh toán quốc tế cho seller",
-    "en": "Account ops & international payments (sellers)",
-    "count": 3021
+    "vn": "Misc / Other",
+    "en": "Misc / Other",
+    "count": 1619
   },
   {
-    "vn": "Thanh toán và rút tiền Amazon qua Payoneer/PingPong",
-    "en": "Amazon payouts via Payoneer / PingPong",
-    "count": 2438
+    "vn": "Logistics costs",
+    "en": "Logistics costs",
+    "count": 1201
   },
   {
-    "vn": "Thuế và Chi phí Kinh doanh trên Amazon cho Seller Việt Nam",
-    "en": "Tax & costs for Vietnamese Amazon sellers",
-    "count": 2387
+    "vn": "Selling Best Practices",
+    "en": "Selling Best Practices",
+    "count": 921
   },
   {
-    "vn": "Ưu đãi giảm giá Helium10 cho người bán Amazon",
-    "en": "Helium 10 discounts for Amazon sellers",
-    "count": 1260
+    "vn": "Tax Compliance And Declarations",
+    "en": "Tax Compliance And Declarations",
+    "count": 902
   },
   {
-    "vn": "Dịch vụ vận chuyển và fulfillment",
-    "en": "Shipping & fulfillment services",
-    "count": 1070
+    "vn": "Third-party service introduction",
+    "en": "Third-party service introduction",
+    "count": 828
   },
   {
-    "vn": "Bán hàng và vận hành kinh doanh trên Amazon",
-    "en": "Amazon selling & operations",
-    "count": 876
+    "vn": "Account issues / Account errors",
+    "en": "Account issues / Account errors",
+    "count": 745
   },
   {
-    "vn": "Hỏi đáp và hỗ trợ cộng đồng bán hàng",
-    "en": "Community Q&A and seller support",
-    "count": 483
+    "vn": "Account suspension",
+    "en": "Account suspension",
+    "count": 590
   },
   {
-    "vn": "Cảnh báo rủi ro và lừa đảo khi kinh doanh Amazon",
-    "en": "Scam & risk warnings for Amazon sellers",
+    "vn": "Account Verification",
+    "en": "Account Verification",
+    "count": 479
+  },
+  {
+    "vn": "Supplier sourcing",
+    "en": "Supplier sourcing",
+    "count": 426
+  },
+  {
+    "vn": "Payment Processing And Withdrawals",
+    "en": "Payment Processing And Withdrawals",
     "count": 392
-  },
-  {
-    "vn": "Hướng dẫn và hỗ trợ khởi đầu bán hàng Amazon",
-    "en": "Getting started on Amazon — guides & onboarding",
-    "count": 203
-  },
-  {
-    "vn": "Hỗ trợ khởi đầu bán hàng Amazon",
-    "en": "Amazon selling — getting started support",
-    "count": 143
   }
 ];
   const Q11_TOOLS        = [

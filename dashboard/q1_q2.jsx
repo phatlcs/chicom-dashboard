@@ -159,16 +159,21 @@ function Q1() {
     );
   };
 
-  const SubTopicBars = () => (
+  const SubTopicBars = () => {
+    const displayedSubs = subTopics.filter(s => s.display !== false);
+    const hiddenCount = subTopics.length - displayedSubs.length;
+    const maxSubWDisplay = displayedSubs.length ? Math.max(...displayedSubs.map(s => s.weight)) : 1;
+
+    return (
     <div className="card" style={{ minHeight: 440 }}>
       <div className="card-head">
         <div>
           <div className="card-title">Overall sub-topic weights</div>
         </div>
-        <span className="card-meta">{subTopics.length} sub-topics · % of all mentions</span>
+        <span className="card-meta">{displayedSubs.length} sub-topics{hiddenCount > 0 ? ` (+${hiddenCount} hidden)` : ''} · % of all mentions</span>
       </div>
       <div>
-        {subTopics.map((s, i) => (
+        {displayedSubs.map((s, i) => (
           <div key={s.vn} className="rowbar"
             onMouseEnter={e => tt.show(e, `<b>${s.en || s.vn}</b><br/>${s.vn}<br/>${s.count.toLocaleString()} mentions · ${s.weight}%`)}
             onMouseMove={tt.move} onMouseLeave={tt.hide}
@@ -178,12 +183,12 @@ function Q1() {
               {s.en || s.vn}
             </div>
             <div className="rowbar-track">
-              <div className="rowbar-fill" style={{ width: `${(s.weight / maxSubW) * 100}%`, background: s.color }}></div>
+              <div className="rowbar-fill" style={{ width: `${(s.weight / maxSubWDisplay) * 100}%`, background: s.color }}></div>
             </div>
             <div className="rowbar-value">{s.weight}%</div>
           </div>
         ))}
-        {!subTopics.length && (
+        {!displayedSubs.length && (
           <div style={{ padding: '24px 8px', fontSize: 12, color: 'var(--text-3)' }}>
             No sub-topic data available (the <code>sub_topic</code> column is empty).
           </div>
@@ -191,7 +196,8 @@ function Q1() {
       </div>
       <window.CardComments chartId="Q1_SUB" />
     </div>
-  );
+    );
+  };
 
   return (
     <>

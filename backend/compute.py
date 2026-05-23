@@ -234,9 +234,8 @@ def _normalize_master_topic(series: pd.Series) -> pd.Series:
 
 
 def _normalize_sub_topics(series: pd.Series) -> pd.Series:
-    """Force-match ALL sub_topic values to the 24 canonical sub-topics (SUBTOPIC_TRANSLATIONS keys).
-    Uses case-insensitive fuzzy matching with NO cutoff — every non-empty value
-    MUST map to one of the 24 canonical labels."""
+    """Normalize sub_topic values. If data is already in new English format (not in
+    SUBTOPIC_TRANSLATIONS), preserve it as-is. Otherwise, force-match to canonical set."""
     import difflib
     clean = series.fillna('').astype(str).str.strip()
 
@@ -244,6 +243,17 @@ def _normalize_sub_topics(series: pd.Series) -> pd.Series:
     canonical_vn = list(SUBTOPIC_TRANSLATIONS.keys())
     canonical_lower = {c.lower(): c for c in canonical_vn}
 
+    # Check if data is already in new format: if >50% of unique non-empty values
+    # are NOT in the canonical set, treat as new format and preserve as-is
+    unique_vals = clean[clean != ''].unique()
+    matches_in_canonical = sum(1 for v in unique_vals if v.lower() in canonical_lower)
+    if len(unique_vals) > 0:
+        match_ratio = matches_in_canonical / len(unique_vals)
+        if match_ratio < 0.5:
+            # Data is in new format (not Vietnamese canonical names) — preserve as-is
+            return clean
+
+    # Otherwise, force-match to canonical Vietnamese sub-topics
     def match(val: str) -> str:
         if not val:
             return val
@@ -521,6 +531,32 @@ def compute_all(df: pd.DataFrame):
                 })
             # Sort by parent topic rank (q1_master order), then by weight desc within each topic
             q1_subtopics.sort(key=lambda s: (s['parent_rank'], -s['weight']))
+
+            # Apply filtering: show all ≥3% + ensure minimum 3 per MT
+            # Group by parent_topic
+            mt_groups = {}
+            for st in q1_subtopics:
+                mt_id = st['parent_topic']
+                if mt_id not in mt_groups:
+                    mt_groups[mt_id] = []
+                mt_groups[mt_id].append(st)
+
+            # Mark display status for each subtopic
+            threshold_pct = 3.0
+            for st in q1_subtopics:
+                mt_id = st['parent_topic']
+                mt_subs = mt_groups[mt_id]
+
+                # Show if >= threshold OR if needed to reach minimum 3 for this MT
+                above_threshold = [s for s in mt_subs if s['weight'] >= threshold_pct]
+                if len(above_threshold) >= 3:
+                    # Show only items >= threshold
+                    st['display'] = st['weight'] >= threshold_pct
+                else:
+                    # Show top N items until we reach 3 (or all if MT has < 3)
+                    min_entries = min(3, len(mt_subs))
+                    position = next((i for i, s in enumerate(mt_subs) if s == st), -1)
+                    st['display'] = position < min_entries
 
     # ── Q4 trends ───────────────────────────────────────────────────────────
     q4_trends = []
