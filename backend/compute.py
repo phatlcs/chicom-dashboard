@@ -50,7 +50,7 @@ TOPIC_MAP = {
 }
 
 MASTER_TOPICS = [
-    {'id': 'mt1', 'vn': 'Khác / Vấn đề chung',          'en': 'Misc & cross-cutting topics'},
+    {'id': 'mt1', 'vn': 'Khác',                         'en': 'Others'},
     {'id': 'mt2', 'vn': 'Bán hàng trên Amazon (SOA)',   'en': 'Selling on Amazon (SOA)'},
     {'id': 'mt3', 'vn': 'Vận chuyển & Logistics',        'en': 'Logistics & fulfillment'},
     {'id': 'mt4', 'vn': 'Sức khỏe tài khoản',            'en': 'Account health'},
