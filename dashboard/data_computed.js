@@ -782,7 +782,7 @@ window.ChiComData = (() => {
     "color": "oklch(0.62 0.15 290)",
     "parent_topic": "mt8",
     "parent_rank": 7,
-    "display": true
+    "display": false
   },
   {
     "vn": "Product images",
@@ -792,7 +792,7 @@ window.ChiComData = (() => {
     "color": "oklch(0.62 0.15 290)",
     "parent_topic": "mt8",
     "parent_rank": 7,
-    "display": true
+    "display": false
   },
   {
     "vn": "Product barcodes & labeling",
@@ -802,7 +802,7 @@ window.ChiComData = (() => {
     "color": "oklch(0.62 0.15 290)",
     "parent_topic": "mt8",
     "parent_rank": 7,
-    "display": true
+    "display": false
   },
   {
     "vn": "ASIN creation",
@@ -812,7 +812,7 @@ window.ChiComData = (() => {
     "color": "oklch(0.62 0.15 290)",
     "parent_topic": "mt8",
     "parent_rank": 7,
-    "display": true
+    "display": false
   },
   {
     "vn": "GTIN exemption",
@@ -822,7 +822,7 @@ window.ChiComData = (() => {
     "color": "oklch(0.62 0.15 290)",
     "parent_topic": "mt8",
     "parent_rank": 7,
-    "display": true
+    "display": false
   },
   {
     "vn": "Intellectual property disputes resolution",
@@ -842,7 +842,7 @@ window.ChiComData = (() => {
     "color": "oklch(0.62 0.15 350)",
     "parent_topic": "mt9",
     "parent_rank": 8,
-    "display": true
+    "display": false
   }
 ];
   const SUBTOPICS           = {

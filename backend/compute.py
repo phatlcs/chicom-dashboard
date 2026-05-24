@@ -549,7 +549,7 @@ def compute_all(df: pd.DataFrame):
                 below_threshold = [s for s in mt_subs if s['weight'] < threshold_pct]
 
                 if above_threshold and below_threshold:
-                    # Add the count and weight of <1% items to the top item
+                    # Has both ≥1% and <1% items: show ≥1%, roll <1% into top item
                     top_item = above_threshold[0]  # already sorted by weight desc
                     below_count = sum(s['count'] for s in below_threshold)
                     below_weight = sum(s['weight'] for s in below_threshold)
@@ -563,10 +563,14 @@ def compute_all(df: pd.DataFrame):
                     # Mark ≥1% items as displayed
                     for s in above_threshold:
                         s['display'] = True
-                else:
-                    # All items shown (either all ≥1% or all < 1%)
-                    for s in mt_subs:
+                elif above_threshold:
+                    # All items ≥1%: show all
+                    for s in above_threshold:
                         s['display'] = True
+                else:
+                    # All items <1%: show only top item, hide rest
+                    for i, s in enumerate(mt_subs):
+                        s['display'] = (i == 0)  # only first (top) item shown
 
     # ── Q4 trends ───────────────────────────────────────────────────────────
     q4_trends = []
