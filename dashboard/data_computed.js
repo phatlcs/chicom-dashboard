@@ -3135,19 +3135,19 @@ window.ChiComData = (() => {
   ]
 };
   const INSIGHTS            = {
-  "Q1": "Toàn bộ 886 bài thảo luận được phân loại vào \"Khác\" (2.2% tổng thể), cho thấy cộng đồng Amazon Sellers Việt Nam hiện đang nói chuyện về những vấn đề ngoài các chủ đề cốt lõi được định nghĩa sẵn như bán hàng, logistics, sức khỏe tài khoản hay quảng cáo. Các cuộc trao đổi chủ yếu xoay quanh những vấn đề hành chính, kỹ thuật nhỏ lẻ (gửi đơn không thấy, suspend shop bất ngờ, vấn đề thanh toán), cũng như các yêu cầu hỗ trợ cá nhân và tìm kiếm thông tin từ các thành viên khác trong cộng đồng. Điều này gợi ý rằng người bán hàng đang gặp phải những vấn đề không được giải quyết rõ ràng trong các kênh hỗ trợ chính thức, hoặc họ tin tưởng hơn vào kinh nghiệm chia sẻ từ đồng nghiệp. Cơ hội để Amazon cân nhắc là tạo các tài liệu hướng dẫn hoặc webinar cụ thể về các vấn đề \"nó",
-  "Q2": "Toàn bộ thảo luận trong cộng đồng tập trung vào MT1 (chủ đề chính), với 812 bài viết từ hai nhóm chính: Prospect Other (418 bài, 51%) và Seller Other (394 bài, 49%), trong khi các nhóm khác như Seller Amazon, Service Amazon, Prospect Amazon hầu như không có hoạt động. Nội dung MT1 xoay quanh các vấn đề thực tiễn như gửi đơn hàng, liên hệ hỗ trợ, xử lý suspend shop và giải quyết tranh chấp thanh toán, phản ánh nhu cầu cấp bách của cả người bán và người mua trong việc giải quyết các vấn đề giao dịch hàng ngày. Sự cân bằng giữa Prospect và Seller cho thấy cộng đồng hoạt động như một không gian hỗ trợ lẫn nhau, nơi mọi người tìm kiếm lời khuyên từ những người có kinh nghiệm. Để tối ưu hóa giá trị, nên tạo các hướng dẫn chi tiết về xử lý suspend, quy trình gửi đơn và giải quyết tranh chấp thanh toán, đồng thời xây dựng cơ chế hỗ trợ chính thức để",
-  "Q3": "Cộng đồng seller hiện tại tập trung chủ yếu vào các vấn đề vận hành và rủi ro tài khoản (14,34% seller vs 7,01% prospect), trong khi nhóm prospect lại quan tâm nhiều hơn đến xuất nhập khẩu và bán hàng quốc tế (24,6% prospect vs 11,14% seller). Seller đang tích cực chia sẻ kinh nghiệm và học hỏi từ nhau (7,03% seller), nhưng prospect chủ yếu tìm kiếm hướng dẫn khởi đầu (4,43% prospect vs 0,12% seller) và thông tin về vận hành tài khoản quốc tế (10,71% prospect). Nhu cầu này phản ánh rõ qua các câu hỏi thực tế: seller lo lắng về suspension tài khoản, cần hỗ trợ xử lý vấn đề ngân hàng và thanh toán, còn prospect chưa biết bắt đầu từ đâu với xuất nhập khẩu. Cơ hội nằm ở việc tạo content hướng dẫn rõ ràng cho prospect về quy trình khởi tạo tài khoản và xuất nhập khẩu, đồng thời phát triển dịch vụ hỗ trợ tài kho",
-  "Q4": "Trong ba tuần liên tiếp từ giữa tháng 3 (9-23/3), lượng thảo luận về các chủ đề chính tăng vọt với mức độ spike lần lượt +68%, +70% và +56%, cho thấy một giai đoạn căng thẳng trong cộng đồng seller. Các nội dung trong giai đoạn này tập trung vào những vấn đề cấp bách như xử lý suspend shop, tranh chấp thanh toán và khó khăn trong liên lạc với hỗ trợ, phản ánh tình trạng nhiều seller gặp rắc rối đồng thời. Đây có thể là dấu hiệu của một sự kiện hệ thống (policy change, payment issue) hoặc đợt kiểm duyệt hàng loạt từ nền tảng. Cần theo dõi thêm dữ liệu chi tiết về loại vấn đề chính để chuẩn bị content hỗ trợ hoặc webinar giải đáp kịp thời cho seller.",
-  "Q5": "Vấn đề xác minh và khóa tài khoản Amazon chiếm ưu thế với 2.153 lượt đề cập, tiếp theo là khó khăn khi bán hàng (1.330) và chi phí kinh doanh (737), phản ánh mức độ lo ngại cao về rủi ro tài khoản và áp lực tài chính từ các seller. Nhóm người dùng tập trung trao đổi vào các ngày thứ Ba đến thứ Sáu (1.384-1.505 lượt/ngày), đặc biệt là khung giờ 9-13 giờ với 2.727 lượt nói chuyện, khi mà những seller đang bắt đầu ngày làm việc và gặp phải các vấn đề cấp bách như bị từ chối xác minh, mất tiền phí, hay lo lắng về hành động của nền tảng. Cơ hội để xây dựng content hỗ trợ hoặc webinar hướng dẫn vào sáng thứ Ba-thứ Sáu sẽ bắt được đúng lúc khi seller cần giải pháp nhất.",
-  "Q7": "Seller gia nhập Amazon chủ yếu được thu hút bởi tiềm năng thành công và thu nhập cao (1.517 lần đề cập), với 441 cuộc thảo luận tập trung vào chia sẻ kinh nghiệm và học hỏi từ cộng đồng. Những seller mới như người bán được 3 tháng đã đạt 15k$ doanh số hàng tháng, hoặc những người khám phá các ngách sản phẩm lặp lại hàng năm (như \"100 Days of School\" hay phụ kiện trang trí), đều thấy rõ cơ hội kiếm lợi nhuận ổn định với công việc tương đối nhẹ nhàng. Ngoài lợi nhuận trực tiếp, 231 lần nhắc đến passive income và 235 cuộc thảo luận về sự kiện, đào tạo cho thấy seller cũng đánh giá cao việc được kết nối với cộng đồng, học hỏi chiến lược bán hàng và tìm kiếm cơ hội hợp tác lâu dài. Để tăng cường sự hấp dẫn này, Amazon có thể phát triển thêm các chương trình đào tạo về quản lý tồn kho, tối ưu hóa ngành hàng theo mùa",
-  "Q8": "Người bán Amazon (1.006 người) chiếm đa số trong nhóm rời bỏ, với hai nguyên nhân nổi bật ngang nhau là tài khoản bị khóa và thua lỗ/chi phí cao (mỗi loại 16 trường hợp), theo sau là lo ngại bị lừa đảo (15 trường hợp). Các seller gặp phải những vấn đề thực tế như listing bị khóa do không phản hồi kịp yêu cầu xác minh, bị kiện về vi phạm bản quyền dẫn tới tạm khóa rút tiền, hoặc rơi vào các scheme lừa đảo giả mạo Amazon yêu cầu nạp tiền. Sự kết hợp giữa rủi ro pháp lý, áp lực chi phí hoạt động, và thiếu sự hỗ trợ kịp thời khiến nhiều seller mất động lực tiếp tục kinh doanh. Cơ hội để xây dựng content giáo dục về quy trình appeal account, quản lý rủi ro bản quyền, và nhận diện scam có thể giúp giữ chân segment này.",
-  "Q9": "Seller từ các nền tảng khác (không Amazon) chiếm đa số trong cộng đồng với 1.063 thành viên tham gia thảo luận, gấp đôi so với Seller Amazon (528 người), trong khi Prospect và Service Provider có tỷ lệ thấp hơn đáng kể. Tuy nhiên, khi xét đến những người rời bỏ cộng đồng, Seller Others vẫn dẫn đầu với 453 lượt nhưng tỷ lệ churn cao hơn (42,6% so với 21,4% của Seller Amazon), cho thấy nhóm seller ngoài Amazon có mức độ gắn bó thấp hơn. Các cuộc thảo luận chủ yếu xoay quanh vấn đề kỹ thuật (lỗi đơn hàng, suspend shop), yêu cầu hỗ trợ trực tiếp và tìm kiếm thông tin thực tế, phản ánh nhu cầu cấp bách của seller đang gặp khó khăn. Để cải thiện retention, cần tập trung vào nội dung giải quyết vấn đề cụ thể và xây dựng cơ chế hỗ trợ nhanh chóng cho nhóm seller ngoài Amazon.",
-  "Q10": "Home & Garden dẫn đầu với 1.398 lượt thảo luận, gấp 3 lần so với Apparel & Fashion (448), cho thấy cộng đồng sellers Việt tập trung mạnh vào các sản phẩm nội thất, trang trí nhà cửa và vật dụng gia đình. Tuy nhiên, lượng lớn thảo luận \"Other / Undisclosed\" (1.217) phản ánh rằng nhiều sellers vẫn chưa rõ ràng về phân loại hàng hóa của mình hoặc không muốn công khai ngành hàng. Ngoài top 3, các ngành như Jewelry & Accessories (273), Electronics từ Trung Quốc (257) và các sản phẩm nông sản USDA (145) cũng có sự quan tâm nhất định, nhưng phần lớn cuộc trò chuyện xoay quanh các vấn đề vận hành chung (thanh toán, suspend shop, liên hệ support) hơn là tư vấn sản phẩm cụ thể. Cơ hội nằm ở việc tạo content hướng dẫn phân loại hàng hóa chính xác và các best practice riêng cho từng ngành, đặc biệt là Home & Garden và Apparel & Fashion.",
-  "Q11": "FBA là tool được sử dụng rộng rộng nhất với 119 người dùng nhưng mức độ hài lòng chỉ 14% (17/119), trong khi PPC/Ads dù chỉ có 45 người dùng lại đạt tỷ lệ hài lòng cao nhất 49% (22/45) và gần như không có vấn đề (3 issues). Vấn đề chính khiến seller khó chịu là lỗi hệ thống/bug (122 lần được đề cập), đặc biệt ảnh hưởng đến FBA và FBM, trong khi những yếu tố khiến seller hài lòng tập trung vào tính dễ dùng (42 lần) và hiệu quả rõ rệt (35 lần). Điều này gợi ý cần ưu tiên cải thiện độ ổn định của FBA/FBM và tăng cường hướng dẫn sử dụng để giảm độ phức tạp, đồng thời có thể phát triển thêm content về PPC strategy vì đây là tool có tỷ lệ thành công cao nhất.",
-  "Q12": "Kế toán và thuế là nhu cầu cấp bách nhất với 258 lần nhắc đến, nhưng mức độ hài lòng chỉ 33% cho thấy seller gặp khó khăn lớn trong việc tìm dịch vụ phù hợp và đáng tin cậy. Vận chuyển/Forwarder xếp thứ hai với 105 lần nhắc và mức hài lòng cao hơn (61%), trong khi nhu cầu về Sourcing (70% hài lòng) và Listing Optimization (40% demand) đang tăng mạnh nhưng chưa được chú ý đủ. Khoảng cách lớn giữa số lần nhắc đến dịch vụ kế toán (258) và mức hài lòng thấp (33%) gợi ý cơ hội để Amazon phát triển hoặc kết nối seller với các đối tác kế toán/thuế chuyên biệt cho bán hàng online, đồng thời tăng cường hỗ trợ trong các lĩnh vực Listing Optimization và VA nơi demand cao nhưng hiện chưa có nhiều lựa chọn.",
-  "Q13": "Đào tạo tổng quát là nhu cầu áp đảo với 35 lần nhắc đến, trong đó 20 lần có đánh giá tích cực từ cộng đồng, chủ yếu từ những người mới bắt đầu hoặc muốn chuyển hướng sang Amazon. Bên cạnh đó, Mentor/Coaching cũng gây chú ý với tỷ lệ quan tâm cao (14 lần), phản ánh xu hướng sellers không chỉ muốn học lý thuyết mà còn cần hướng dẫn thực hành trực tiếp từ những người có kinh nghiệm. Các seller mới thường lưỡng lự về chi phí khóa học (1-200 triệu đồng) nhưng vẫn sẵn sàng đầu tư nếu thấy giá trị rõ ràng, đặc biệt là những khóa kết hợp training nội bộ tại công ty hoặc coaching one-on-one. Cơ hội ở đây là phát triển chương trình đào tạo modular, bắt đầu từ kiến thức nền tảng cho newbie, kèm theo tùy chọn mentoring để tăng conversion và giảm rủi ro cho người học.",
-  "Q14": "Xây dựng team là chủ đề tăng trưởng được nói tới nhiều nhất (123 lần), nhưng cộng đồng có cảm nhận hỗn hợp: 42 bài tích cực so với 67 bài có vấn đề và 14 bài tiêu cực, cho thấy việc mở rộng đội ngũ gặp nhiều thách thức thực tế từ quản lý, chi phí nhân sự đến hỗ trợ kỹ thuật không đủ. Ngược lại, tự động hóa & tool (106 lần) có tỷ lệ tích cực cao hơn (52 tích cực, 44 hỗn hợp, 10 tiêu cực), cho thấy các seller tin tưởng hơn vào giải pháp công nghệ để tăng trưởng. Scale vận hành cũng được đánh giá tích cực (38 tích cực, chỉ 2 tiêu cực), trong khi mở rộng thị trường lại gây lo ngại với 38 bài hỗn hợp và chỉ 11 tích cực. Cơ hội ở đây là tập trung hỗ trợ các seller về quy trình tuyển dụng, quản lý chi phí nhân sự, và cung cấp các công cụ tự động h"
+  "Q1": "Cộng đồng Amazon Sellers Việt Nam hiện tập trung chủ yếu vào các vấn đề không nằm trong các chủ đề chính thức được định nghĩa, với 886 bài thảo luận (2.2% tỉ trọng) thuộc danh mục \"Khác\", trong khi các topic như Bán hàng trên Amazon, Vận chuyển & Logistics, Sức khỏe tài khoản hay Quảng cáo hiện chưa có hoạt động ghi nhận. Nội dung thảo luận thực tế cho thấy thành viên chủ yếu trao đổi về các vấn đề cấp tính như tài khoản bị suspend, thanh toán, gửi đơn hàng, và tìm kiếm giải pháp nhanh chóng thông qua liên hệ cá nhân hoặc chia sẻ kinh nghiệm. Điều này phản ánh nhu cầu cấp bách của cộng đồng là giải quyết các sự cố vận hành hàng ngày thay vì học tập các best practice có cấu trúc. Cơ hội để xây dựng các chuyên đề hướng dẫn cụ thể về account health, payment issues, và order management có thể giúp chuyển hướng những thảo luận rời rạc này thành ki",
+  "Q2": "Toàn bộ hoạt động thảo luận tập trung vào MT1 với 872 bài viết, trong đó nhóm prospect ngoài Amazon (418) và seller ngoài Amazon (394) chiếm áp đảy, còn các nhóm dịch vụ CBEC chỉ có 53 bài. Nội dung chủ yếu xoay quanh các vấn đề vận hành thực tế như gửi đơn, liên lạc với support, xử lý suspend shop và thanh toán, phản ánh nhu cầu cấp bách của những người bán hàng đang hoạt động trên nền tảng. Các topic khác (MT2-MT9) hoàn toàn không có dữ liệu, cho thấy cộng đồng hiện tại chưa có sự đa dạng hóa thảo luận. Để mở rộng engagement, cần xây dựng content và dịch vụ hỗ trợ tập trung vào nhóm prospect và seller ngoài Amazon, đồng thời khám phá các chủ đề mới mà cộng đồng chưa thảo luận.",
+  "Q3": "Cộng đồng seller hiện tại tập trung chủ yếu vào các vấn đề vận hành thực tế như xác minh tài khoản, xử lý tình trạng bị khóa (14,34%), cùng với các thách thức về thuế, chi phí kinh doanh (13,51%) và bán hàng trên Amazon (14,78%), trong khi nhóm prospect lại quan tâm nhiều hơn đến xuất nhập khẩu và bán hàng quốc tế (24,6% so với 11,14% của seller). Các seller đang tích cực chia sẻ kinh nghiệm và học hỏi từ nhau (7,03%), nhưng prospect chỉ chiếm 2,09%, cho thấy nhóm này chưa sẵn sàng tham gia cộng đồng hay còn đang tìm hiểu cơ bản. Prospect cũng quan tâm hơn đến hướng dẫn khởi đầu (4,43% vs 0,12% seller), phản ánh nhu cầu onboarding rõ ràng từ những người mới. Cơ hội nằm ở việc xây dựng chương trình mentorship có cấu trúc và content khởi đầu cụ thể cho prospect, đồng thời tạo kênh để seller chia sẻ kinh nghiệm xử lý",
+  "Q4": "Trong ba tuần liên tiếp từ giữa tháng 3 (9-23/3), lượng thảo luận về các chủ đề Master Topics tăng đột biến với mức tăng 56-70%, cao nhất vào tuần 12 (16/3). Các cuộc trao đổi trong giai đoạn này chủ yếu xoay quanh những vấn đề cấp bách như xử lý đơn hàng, liên hệ hỗ trợ từ Amazon, và các tình huống suspend shop khiến người bán cần tìm kiếm giải pháp nhanh chóng. Sự gia tăng này cho thấy có một sự kiện hoặc chính sách thay đổi từ Amazon vào khoảng đầu tháng 3 đã tạo ra làn sóng thắc mắc và trao đổi kinh nghiệm trong cộng đồng. Nên cân nhắc tăng cường nội dung hướng dẫn về quy trình appeal, xử lý account issues và best practices liên hệ support trong khoảng thời gian này để giảm áp lực cho team hỗ trợ.",
+  "Q5": "Vấn đề xác minh và khóa tài khoản Amazon chiếm ưu thế với 2.153 lần đề cập, tiếp theo là các khó khăn trong bán hàng (1.330) và chi phí kinh doanh (737), phản ánh lo ngại sâu sắc của seller về rủi ro tài khoản và áp lực tài chính. Những thảo luận tiêu cực tập trung vào thứ Sáu (1.505 lần) và giữa tuần Thứ Ba-Tư (1.384-1.385 lần), với đỉnh cao rõ ràng từ 9h-13h (2.727 lần trong 4 giờ), khi seller kiểm tra tài khoản, xử lý đơn hàng và phát hiện vấn đề. Nội dung từ cộng đồng cho thấy seller vật lộn với chi phí ẩn (phí xác minh, thuế chậm nộp), tỷ lệ chuyển đổi thấp trên các đơn không freeship, và tâm lý kiệt sức (\"bán chán\"). Cơ hội để xây dựng content hướng dẫn về quản lý rủi ro tài khoản và tối ưu chi phí vào sáng thứ Ba-Sáu, hoặc cung cấp công cụ",
+  "Q7": "Seller gia nhập Amazon chủ yếu được thu hút bởi tiềm năng thành công và thu nhập cao (1.517 lần đề cập), với 441 cuộc thảo luận xoay quanh việc chia sẻ kinh nghiệm và học hỏi từ cộng đồng. Dữ liệu cho thấy những seller mới như người chia sẻ đã đạt 15k$ doanh số trong 3 tháng, hoặc những người tìm kiếm niches lặp lại hằng năm (như 100 Days of School, seasonal apparel) để xây dựng dòng thu nhập ổn định. Ngoài lợi nhuận, 235 cuộc thảo luận về sự kiện, đào tạo và kết nối cho thấy seller coi trọng việc tiếp cận các chiến lược bán hàng cụ thể và hợp tác với đối tác để tối ưu hóa vận hành. Cơ hội ở đây là xây dựng chương trình mentoring hoặc workshop định kỳ giúp seller mới nắm vững quản lý tồn kho, tính toán lợi nhuận, và xác định niches có tiềm năng cao.",
+  "Q8": "Khối Seller Amazon chiếm 1.006 trường hợp rời bỏ, trong đó tài khoản bị khóa và thua lỗ/chi phí cao là hai nguyên nhân hàng đầu (mỗi loại 16 lần), tiếp theo là các vụ lừa đảo (15 lần) và kiệt sức mất động lực (12 lần). Các seller gặp phải tình huống khóa listing do vi phạm chính sách (hàng không đúng mô tả, claim giả hàng, vi phạm bản quyền), hoặc bị lừa qua các dịch vụ hỗ trợ giả mạo, dẫn đến mất tiền và niềm tin vào nền tảng. Sự kết hợp giữa rủi ro pháp lý cao, quy trình xác minh ngặt nghèo, và chi phí quản lý tài khoản khiến nhiều seller cảm thấy kiệt sức, đặc biệt những người mới hoặc chưa hiểu rõ chính sách. Cần tăng cường content hướng dẫn về quy trình appeal, quản lý rủi ro pháp lý, và các dấu hiệu lừa đảo để giữ chân seller trong giai đoạn khó khăn.",
+  "Q9": "Seller từ các nền tảng khác (1.063 người) chiếm đa số trong thảo luận về gia nhập, gấp đôi so với Prospect (689 người), cho thấy cộng đồng chủ yếu là những người đã có kinh nghiệm bán hàng trên các sàn khác đang tìm hiểu hoặc cân nhắc mở rộng sang Amazon. Tuy nhiên, khi nhìn vào nhóm rời bỏ, Seller (Others) vẫn chiếm 453 người nhưng tỷ lệ Prospect rơi xuống chỉ còn 27 người, cho thấy những người chưa có kinh nghiệm bán hàng dễ dàng từ bỏ ý định hơn. Các cuộc thảo luận phản ánh những vấn đề thực tế như khó khăn với thanh toán, suspend shop, hoặc thiếu hỗ trợ kịp thời, điều này giải thích tại sao Prospect nhanh chóng rời đi. Để giữ chân nhóm Prospect, cần tập trung vào content hướng dẫn cơ bản, hỗ trợ thanh toán rõ ràng, và cơ chế escalation nhanh cho các vấn đề account.",
+  "Q10": "Ngành hàng được thảo luận nhiều nhất trong cộng đồng là \"Other / Undisclosed\" với 1.217 lượt đề cập, tiếp theo là Apparel & Fashion (448), Jewelry & Accessories (273) và Home & Garden (271). Tuy nhiên, phần lớn các cuộc trao đổi không tập trung vào chi tiết sản phẩm mà quanh các vấn đề vận hành chung như xử lý đơn hàng, liên lạc với Amazon, và giải quyết tranh chấp thanh toán. Điều này cho thấy cộng đồng sellers Việt Nam đang gặp khó khăn với các quy trình hành chính và hỗ trợ khách hàng hơn là tìm kiếm cơ hội sản phẩm mới, đặc biệt là những seller chưa có chiến lược ngành hàng rõ ràng. Cần tăng cường nội dung hướng dẫn về quản lý đơn hàng, chính sách thanh toán và cách liên hệ hỗ trợ hiệu quả để giảm bớt sự bối rối trong cộng đồng.",
+  "Q11": "FBA là tool được sử dụng rộng rộng nhất với 119 người dùng, nhưng mức độ hài lòng chỉ 14% (17/119) trong khi 11% gặp vấn đề, chủ yếu là lỗi hệ thống (122 lần báo cáo). Ngược lại, PPC/Ads có tỷ lệ hài lòng cao nhất 49% (22/45 người) với ít vấn đề (3 lần), cho thấy người dùng đánh giá cao hiệu quả quảng cáo. Các tool phụ trợ như Helium 10 (35% hài lòng, 0 vấn đề) và Content A+ (75% hài lòng) cũng nhận được phản hồi tích cực, trong khi Seller Central và Brand Registry gặp khó khăn với tỷ lệ hài lòng dưới 15%. Cần ưu tiên cải thiện độ ổn định hệ thống FBA và tăng cường hướng dẫn sử dụng các công cụ quản lý tài khoản để nâng trải nghiệm người dùng.",
+  "Q12": "Kế toán và thuế là dịch vụ được nhắc đến nhiều nhất (258 lần) nhưng mức độ hài lòng chỉ 33%, cho thấy seller gặp khó khăn lớn trong việc tìm đơn vị tư vấn thuế uy tín và hiểu rõ quy định cho bán hàng online. Ngược lại, dịch vụ sourcing và VA có mức hài lòng cao (70% và 80%) nhưng nhu cầu vẫn còn khá lớn (12 và 3 người cần), chứng tỏ seller đã tìm được giải pháp nhưng vẫn muốn tìm hiểu thêm lựa chọn. Tối ưu listing là dịch vụ có nhu cầu tiềm ẩn cao nhất (40% demand) dù chỉ được nhắc 10 lần, phản ánh rằng seller nhận ra tầm quan trọng của nó nhưng chưa có nhiều lựa chọn chất lượng trên thị trường. Cơ hội ngay là xây dựng dịch vụ tư vấn thuế chuyên biệt cho seller Amazon hoặc kết nối với các đơn vị kế toán có kinh nghiệm xuất nhập khẩu, đồng thời phát triển content về tối ưu listing để",
+  "Q13": "Đào tạo tổng quát là nhu cầu áp đảo với 35 lần được nhắc đến, trong đó 20 lần có đánh giá tích cực từ cộng đồng, cho thấy seller mới và những người muốn chuyển hướng sang Amazon đều tìm kiếm kiến thức nền tảng toàn diện. Bên cạnh đó, mentor hoặc coaching một-một cũng thu hút sự quan tâm cao (14 lần) dù số lượng bài thảo luận ít hơn, phản ánh nhu cầu của những seller muốn được hướng dẫn thực hành trực tiếp thay vì học lý thuyết. Các câu hỏi từ newbie như \"em nên bắt đầu từ đâu\" hay \"có trung tâm nào nhận đào tạo không\" cùng với những lời khuyên từ senior về việc \"tuyển người có kinh nghiệm để training trực tiếp\" cho thấy cộng đồng vừa cần khóa học cơ bản có cấu trúc, vừa cần sự hỗ trợ cá nhân hóa để áp dụng nhanh chóng. Cơ hội nằm ở việc phát triển chương trình đào tạo modular kết hợp cả phần lý thuyết tổng qu",
+  "Q14": "Xây dựng team là ưu tiên hàng đầu của sellers khi tìm cách tăng trưởng, với 123 thảo luận và 42 bình luận tích cực, nhưng cũng là chủ đề gây tranh cãi nhất (67 bình luận hỗn hợp). Các seller lo ngại về chi phí nhân sự, chất lượng support và khả năng giữ chân nhân viên khi margin bị ép—đặc biệt là khi mở rộng sang thị trường quốc tế. Tự động hóa & tool lại được đánh giá tích cực hơn (52 positive vs 44 mixed), cho thấy sellers tin rằng công nghệ là cách hiệu quả hơn để scale mà không phải tăng headcount. Gợi ý: tập trung content về best practice quản lý team chi phí thấp, automation workflow cho SOA, và case study về scaling mà không tăng staff."
 };
   const DATE_RANGE          = {
   "start": "2025-12-24",
@@ -4217,31 +4217,31 @@ window.ChiComData2 = (() => {
 ];
   const Q10_TOP        = [
   {
-    "vn": "Home & Garden",
-    "name": "Home & Garden",
-    "en": "Home & Garden",
-    "count": 1398,
-    "color": "oklch(0.60 0.20 25)"
-  },
-  {
     "vn": "Other / Undisclosed",
     "name": "Other / Undisclosed",
     "en": "Other / Undisclosed",
     "count": 1217,
-    "color": "oklch(0.68 0.17 50)"
+    "color": "oklch(0.60 0.20 25)"
   },
   {
     "vn": "Apparel & Fashion",
     "name": "Apparel & Fashion",
     "en": "Apparel & Fashion",
     "count": 448,
-    "color": "oklch(0.75 0.17 90)"
+    "color": "oklch(0.68 0.17 50)"
   },
   {
     "vn": "Jewelry & Accessories",
     "name": "Jewelry & Accessories",
     "en": "Jewelry & Accessories",
     "count": 273,
+    "color": "oklch(0.75 0.17 90)"
+  },
+  {
+    "vn": "Home & Garden",
+    "name": "Home & Garden",
+    "en": "Home & Garden",
+    "count": 271,
     "color": "oklch(0.62 0.15 155)"
   },
   {
@@ -4303,24 +4303,24 @@ window.ChiComData2 = (() => {
     "color": "oklch(0.60 0.20 25)"
   },
   {
-    "vn": "Home & Garden",
-    "name": "Home & Garden",
-    "en": "Home & Garden",
-    "count": 187,
-    "color": "oklch(0.68 0.17 50)"
-  },
-  {
     "vn": "Apparel & Fashion",
     "name": "Apparel & Fashion",
     "en": "Apparel & Fashion",
     "count": 41,
-    "color": "oklch(0.75 0.17 90)"
+    "color": "oklch(0.68 0.17 50)"
   },
   {
     "vn": "Electronics (China-sourced)",
     "name": "Electronics (China-sourced)",
     "en": "Electronics (China-sourced)",
     "count": 39,
+    "color": "oklch(0.75 0.17 90)"
+  },
+  {
+    "vn": "Home & Garden",
+    "name": "Home & Garden",
+    "en": "Home & Garden",
+    "count": 34,
     "color": "oklch(0.62 0.15 155)"
   },
   {
@@ -4375,31 +4375,31 @@ window.ChiComData2 = (() => {
 ];
   const Q10_TOP_EC     = [
   {
-    "vn": "Home & Garden",
-    "name": "Home & Garden",
-    "en": "Home & Garden",
-    "count": 1211,
-    "color": "oklch(0.60 0.20 25)"
-  },
-  {
     "vn": "Other / Undisclosed",
     "name": "Other / Undisclosed",
     "en": "Other / Undisclosed",
     "count": 1015,
-    "color": "oklch(0.68 0.17 50)"
+    "color": "oklch(0.60 0.20 25)"
   },
   {
     "vn": "Apparel & Fashion",
     "name": "Apparel & Fashion",
     "en": "Apparel & Fashion",
     "count": 407,
-    "color": "oklch(0.75 0.17 90)"
+    "color": "oklch(0.68 0.17 50)"
   },
   {
     "vn": "Jewelry & Accessories",
     "name": "Jewelry & Accessories",
     "en": "Jewelry & Accessories",
     "count": 242,
+    "color": "oklch(0.75 0.17 90)"
+  },
+  {
+    "vn": "Home & Garden",
+    "name": "Home & Garden",
+    "en": "Home & Garden",
+    "count": 237,
     "color": "oklch(0.62 0.15 155)"
   },
   {
@@ -4508,11 +4508,9 @@ window.ChiComData2 = (() => {
     "mũ"
   ],
   "Home & Garden": [
-    "home",
     "garden",
     "gia dụng",
     "vườn",
-    "nhà",
     "gardening",
     "garden tools",
     "home decor",
@@ -4520,10 +4518,10 @@ window.ChiComData2 = (() => {
     "storage",
     "kệ",
     "tủ",
-    "home items",
-    "household",
     "small home items",
-    "garden products"
+    "garden products",
+    "plant",
+    "outdoor furniture"
   ],
   "Electronics (China-sourced)": [
     "electronics",
@@ -4652,32 +4650,9 @@ window.ChiComData2 = (() => {
 ];
   const Q10_WEEKLY     = [
   {
-    "name": "Home & Garden",
-    "en": "Home & Garden",
-    "color": "oklch(0.60 0.20 25)",
-    "points": [
-      4,
-      78,
-      112,
-      85,
-      68,
-      91,
-      105,
-      101,
-      56,
-      72,
-      134,
-      177,
-      124,
-      135,
-      55,
-      1
-    ]
-  },
-  {
     "name": "Other / Undisclosed",
     "en": "Other / Undisclosed",
-    "color": "oklch(0.68 0.17 50)",
+    "color": "oklch(0.60 0.20 25)",
     "points": [
       1,
       56,
@@ -4700,7 +4675,7 @@ window.ChiComData2 = (() => {
   {
     "name": "Apparel & Fashion",
     "en": "Apparel & Fashion",
-    "color": "oklch(0.75 0.17 90)",
+    "color": "oklch(0.68 0.17 50)",
     "points": [
       1,
       19,
@@ -4723,7 +4698,7 @@ window.ChiComData2 = (() => {
   {
     "name": "Jewelry & Accessories",
     "en": "Jewelry & Accessories",
-    "color": "oklch(0.62 0.15 155)",
+    "color": "oklch(0.75 0.17 90)",
     "points": [
       0,
       11,
@@ -4740,6 +4715,29 @@ window.ChiComData2 = (() => {
       33,
       25,
       13,
+      0
+    ]
+  },
+  {
+    "name": "Home & Garden",
+    "en": "Home & Garden",
+    "color": "oklch(0.62 0.15 155)",
+    "points": [
+      1,
+      19,
+      26,
+      7,
+      12,
+      14,
+      10,
+      10,
+      10,
+      14,
+      35,
+      30,
+      37,
+      38,
+      8,
       0
     ]
   },

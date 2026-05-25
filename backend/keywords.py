@@ -267,10 +267,9 @@ Q10_CATEGORY_KW = {
         'phụ kiện', 'accessories', 'scarf', 'mũ',
     ],
     'Home & Garden': [
-        'home', 'garden', 'gia dụng', 'vườn', 'nhà',
-        'gardening', 'garden tools', 'home decor', 'organizer',
-        'storage', 'kệ', 'tủ', 'home items', 'household',
-        'small home items', 'garden products',
+        'garden', 'gia dụng', 'vườn', 'gardening', 'garden tools',
+        'home decor', 'organizer', 'storage', 'kệ', 'tủ',
+        'small home items', 'garden products', 'plant', 'outdoor furniture',
     ],
     'Electronics (China-sourced)': [
         'electronics', 'gadget', 'điện tử', 'điện thoại',

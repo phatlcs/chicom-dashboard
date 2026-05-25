@@ -293,7 +293,7 @@ def run(raw_xlsx_path: str | Path = None) -> Tuple[Path, Path]:
     cleaned.to_csv(cleaned_csv, index=False, encoding='utf-8-sig')
     cleaned.to_excel(cleaned_xlsx, index=False)
 
-    print(f'[spam]   → {annotated_csv.name}, {cleaned_csv.name}')
+    print(f'[spam]   => {annotated_csv.name}, {cleaned_csv.name}')
     return annotated_csv, cleaned_csv
 
 
