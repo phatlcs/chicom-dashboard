@@ -149,22 +149,6 @@ function Q10MiniRows({ data }) {
   );
 }
 
-function Q10MethodologyNote() {
-  return (
-    <div style={{
-      marginTop: 18, padding: '12px 16px',
-      background: 'oklch(0.96 0.04 70 / 0.4)',
-      border: '1px solid oklch(0.80 0.10 70)',
-      borderRadius: 8, fontSize: 11, color: 'var(--text-2)', lineHeight: 1.6,
-    }}>
-      <strong>Methodology:</strong> Categories are extracted by keyword-matching post content
-      against the dictionary in <code>backend/keywords.py:Q10_CATEGORY_KW</code>. Counts reflect
-      the number of relevant posts that explicitly mention each category. Most posts don't
-      mention a specific category, so totals here are smaller than the headline mention totals.
-    </div>
-  );
-}
-
 function Q10TabNav({ tab, setTab, totals }) {
   const tabs = [
     { id: 'soa', label: 'SOA Groups', sub: (totals.soa || 0).toLocaleString(), accent: 'oklch(0.55 0.17 290)' },
@@ -299,8 +283,48 @@ function Q10() {
           </>
         )}
 
+        {/* Detailed keywords — what each category matches against in post content */}
+        <div className="col-12">
+          <div className="card" style={{ padding: 0 }}>
+            <div className="card-head" style={{ padding: '14px 18px' }}>
+              <div className="card-title">Detailed keywords <span className="en">per category</span></div>
+              <span className="card-meta" style={{ fontSize: 11, color: 'var(--text-3)' }}>
+                Keyword dictionary used by the matcher — backend/keywords.py:Q10_CATEGORY_KW
+              </span>
+            </div>
+            <div style={{ padding: '12px 18px' }}>
+              {p.data.map((d, i) => {
+                const kws = (D2.Q10_KEYWORDS || {})[d.cat] || [];
+                return (
+                  <div key={d.cat} style={{
+                    display: 'grid', gridTemplateColumns: '220px 1fr 60px',
+                    gap: 12, alignItems: 'baseline',
+                    padding: '10px 0',
+                    borderBottom: i < p.data.length - 1 ? '1px solid var(--border)' : 'none',
+                  }}>
+                    <div style={{ fontSize: 13, fontWeight: 600, display: 'flex', alignItems: 'center', gap: 6 }}>
+                      <span style={{ width: 8, height: 8, borderRadius: 2, background: d.color, flexShrink: 0 }}></span>
+                      {d.cat}
+                    </div>
+                    <div style={{ fontSize: 12, color: 'var(--text-2)', lineHeight: 1.6, display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+                      {kws.length === 0 ? (
+                        <span style={{ color: 'var(--text-3)', fontStyle: 'italic' }}>(no keywords mapped)</span>
+                      ) : kws.map(k => (
+                        <span key={k} className="mono" style={{
+                          padding: '2px 8px', borderRadius: 4,
+                          background: 'var(--panel-2)', fontSize: 11,
+                        }}>{k}</span>
+                      ))}
+                    </div>
+                    <span className="mono" style={{ textAlign: 'right', fontSize: 11, color: 'var(--text-3)' }}>{kws.length} kws</span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
         <div style={{ gridColumn: '1 / -1' }}>
-          <Q10MethodologyNote />
           <window.CardComments chartId={`Q10_${tab}`} />
         </div>
       </div>
@@ -548,7 +572,8 @@ function Q13() {
   let acc = 0;
   const donutSeg = Q13_COURSES.map((c, i) => {
     const start = acc; acc += c.mentions / total;
-    const colors = [blue, green, 'oklch(0.75 0.17 75)', 'oklch(0.60 0.20 25)'];
+    // 4 distinct non-sentiment hues — red/green reserved for sentiment only
+    const colors = ['oklch(0.55 0.17 260)', 'oklch(0.62 0.15 290)', 'oklch(0.75 0.17 80)', 'oklch(0.62 0.15 320)'];
     return { ...c, start, end: acc, color: colors[i] };
   });
   const arc = (cx, cy, r, r2, a0, a1) => {

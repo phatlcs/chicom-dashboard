@@ -161,16 +161,17 @@ function PersonaByGroupChart() {
 
   // Persona palette: each segment-type gets one hue, sub-segments are shade variants.
   // Avoids red/green so sentiment colors (red=neg, green=pos) stay unambiguous.
-  //   Seller          → blue   (Amazon = darker, Others = lighter)
-  //   Prospect        → orange (Amazon = darker, Others = lighter)
-  //   Service Provider → teal  (Amazon = darker, CBEC   = lighter)
+  // High chroma so the colours stay distinct even at the lighter "Others" shade.
+  //   Seller          → cobalt/navy blue (Amazon = deep saturated, Others = medium)
+  //   Prospect        → vivid orange     (Amazon = deep,            Others = peach)
+  //   Service Provider → teal             (Amazon = deep,            CBEC   = light)
   const PCOL = {
-    p_seller_az:    'oklch(0.50 0.16 245)',
-    p_seller_ot:    'oklch(0.72 0.10 245)',
-    p_prospect_az:  'oklch(0.55 0.17 55)',
-    p_prospect_ot:  'oklch(0.75 0.12 55)',
-    p_svc_az:       'oklch(0.50 0.10 195)',
-    p_svc_cbec:     'oklch(0.72 0.08 195)',
+    p_seller_az:    'oklch(0.42 0.24 255)',
+    p_seller_ot:    'oklch(0.70 0.16 250)',
+    p_prospect_az:  'oklch(0.58 0.20 50)',
+    p_prospect_ot:  'oklch(0.78 0.16 50)',
+    p_svc_az:       'oklch(0.52 0.13 195)',
+    p_svc_cbec:     'oklch(0.74 0.11 195)',
   };
 
   const visibleGroups = groups;
@@ -391,7 +392,7 @@ function HighlightsBar() {
 
         {/* Top mentioned Product category — keyword-matched categories from Q10 */}
         <div className="card">
-          <div className="card-title">Top mentioned Product category</div>
+          <div className="card-title">Top Mentioned Selection</div>
           <div className="card-sub" style={{ fontSize: 11, color: 'var(--text-3)', marginBottom: 8 }}>
             Top 3 keyword-matched categories · from Q10
           </div>
@@ -491,7 +492,7 @@ function AnchorRail() {
     ['Q7',  '#Q7',  'Amazon join-trigger topics'],
     ['Q8',  '#Q8',  'Amazon abandon-signal topics'],
     ['Q9',  '#Q9',  'Top 10 discussed threads'],
-    ['Q10', '#Q10', 'Top mentioned Product category'],
+    ['Q10', '#Q10', 'Top Mentioned Selection'],
     ['Q11', '#Q11', 'Top mentioned Amazon Product / Program'],
     ['Q12', '#Q12', '3rd-party services needed'],
     ['Q13', '#Q13', 'Amazon courses of interest'],
@@ -530,8 +531,8 @@ function Section({ id, num, title, scope, soaOnly, children }) {
         <div style={{
           margin: '0 0 10px',
           padding: '8px 14px',
-          background: 'oklch(0.96 0.04 25 / 0.4)',
-          border: '1px solid oklch(0.80 0.08 25)',
+          background: 'oklch(0.96 0.04 290 / 0.4)',
+          border: '1px solid oklch(0.80 0.08 290)',
           borderRadius: 4,
           fontSize: 11,
           color: 'var(--text-2)',
@@ -997,7 +998,7 @@ function SectionBanner({ label, sublabel }) {
     <div style={{
       margin: '24px 0 16px',
       padding: '14px 20px',
-      background: 'linear-gradient(90deg, oklch(0.68 0.17 60), oklch(0.72 0.15 30))',
+      background: 'linear-gradient(90deg, oklch(0.68 0.17 60), oklch(0.62 0.15 80))',
       borderRadius: 6,
       color: '#fff',
       display: 'flex',
@@ -1043,10 +1044,12 @@ function OverviewPanel() {
   const ov = (window.ChiComData || {}).OVERVIEW;
   if (!ov) return null;
 
-  const palette = [
-    'oklch(0.68 0.17 60)', 'oklch(0.55 0.17 260)', 'oklch(0.62 0.15 155)',
-    'oklch(0.60 0.20 25)', 'oklch(0.58 0.14 190)', 'oklch(0.55 0.17 290)',
-    'oklch(0.75 0.17 90)', 'oklch(0.62 0.15 320)', 'oklch(0.70 0.02 260)',
+  // Non-sentiment palette — red and green are reserved for negative/positive
+  // sentiment, so they're omitted here. Reuses TOPIC_COLORS where possible.
+  const palette = window.TOPIC_COLORS || [
+    'oklch(0.62 0.15 260)', 'oklch(0.62 0.15 80)',  'oklch(0.62 0.15 230)',
+    'oklch(0.62 0.15 60)',  'oklch(0.62 0.15 320)', 'oklch(0.62 0.15 200)',
+    'oklch(0.62 0.15 110)', 'oklch(0.62 0.15 290)', 'oklch(0.62 0.15 350)',
   ];
 
   const arc = (cx, cy, r, a0, a1) => {
@@ -1065,11 +1068,22 @@ function OverviewPanel() {
     return { ...c, start: s, end: cAcc, color: palette[i % palette.length] };
   });
 
+  // Persona-specific palette — must mirror PersonaByGroupChart's PCOL so
+  // a given persona always renders in the same hue across the dashboard.
+  // Red and green are reserved for negative / positive sentiment.
+  const PERSONA_COLOR = {
+    p_seller_az:   'oklch(0.42 0.24 255)',
+    p_seller_ot:   'oklch(0.70 0.16 250)',
+    p_prospect_az: 'oklch(0.58 0.20 50)',
+    p_prospect_ot: 'oklch(0.78 0.16 50)',
+    p_svc_az:      'oklch(0.52 0.13 195)',
+    p_svc_cbec:    'oklch(0.74 0.11 195)',
+  };
   const persTotal = ov.personas.reduce((a, b) => a + b.count, 0) || 1;
   let pAcc = 0;
-  const persSeg = ov.personas.map((p, i) => {
+  const persSeg = ov.personas.map((p) => {
     const s = pAcc; pAcc += p.count / persTotal;
-    return { ...p, start: s, end: pAcc, color: palette[i % palette.length] };
+    return { ...p, start: s, end: pAcc, color: PERSONA_COLOR[p.id] || 'oklch(0.55 0.10 290)' };
   });
   const maxComm = Math.max(...ov.communities.map(c => c.count), 1);
 
@@ -1170,10 +1184,10 @@ function OverviewPanel() {
               </tr>
             </thead>
             <tbody>
-              {ov.personas.map((p, i) => (
+              {persSeg.map((p) => (
                 <tr key={p.id} style={{ borderBottom: '1px solid var(--border)' }}>
                   <td style={{ padding: '7px 6px' }}>
-                    <span style={{ display: 'inline-block', width: 8, height: 8, background: palette[i % palette.length], borderRadius: 2, marginRight: 8, verticalAlign: 'middle' }}></span>
+                    <span style={{ display: 'inline-block', width: 8, height: 8, background: p.color, borderRadius: 2, marginRight: 8, verticalAlign: 'middle' }}></span>
                     {p.vn}
                   </td>
                   <td className="mono" style={{ textAlign: 'right', padding: '7px 6px' }}>{p.count.toLocaleString()}</td>

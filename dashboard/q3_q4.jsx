@@ -130,24 +130,29 @@ window.Q3 = Q3;
 // ============ Q4 — Trends over time ============
 function Q4() {
   const tt = window.useTooltip();
-  const trends = D.Q4_TRENDS;
-  const months = D.MONTHS;
+  // Single-month datasets (e.g. April-only build) collapse the monthly view to
+  // a single point. Auto-switch to weekly granularity in that case so the
+  // chart has something to draw across the time axis.
+  const useWeekly = (D.MONTHS || []).length < 2;
+  const trends = useWeekly ? D.Q4_WEEKLY : D.Q4_TRENDS;
+  const months = useWeekly ? D.WEEKS : D.MONTHS;
+  const granLabel = useWeekly ? 'weekly' : 'monthly';
   const W = 700, H = 280, pad = { t: 20, r: 20, b: 30, l: 40 };
   const maxY = Math.max(...trends.flatMap(t => t.points));
   const plotW = W - pad.l - pad.r, plotH = H - pad.t - pad.b;
 
   const linePts = (pts) => pts.map((v, i) => {
-    const x = pad.l + (i / (pts.length - 1)) * plotW;
+    const x = pad.l + (i / Math.max(pts.length - 1, 1)) * plotW;
     const y = pad.t + plotH - (v / maxY) * plotH;
     return [x, y];
   });
 
   // Stacked percentage area chart
   const stacked = months.map((m, mi) => {
-    const total = trends.reduce((a, t) => a + t.points[mi], 0);
+    const total = trends.reduce((a, t) => a + (t.points[mi] || 0), 0) || 1;
     let acc = 0;
     return trends.map(t => {
-      const frac = t.points[mi] / total;
+      const frac = (t.points[mi] || 0) / total;
       const seg = { start: acc, end: acc + frac, id: t.id, color: t.color };
       acc += frac;
       return seg;
@@ -155,8 +160,8 @@ function Q4() {
   });
 
   const stackedPath = (tIdx) => {
-    const topPts = stacked.map((s, mi) => [pad.l + (mi / (months.length - 1)) * plotW, pad.t + plotH - s[tIdx].end * plotH]);
-    const botPts = stacked.map((s, mi) => [pad.l + (mi / (months.length - 1)) * plotW, pad.t + plotH - s[tIdx].start * plotH]).reverse();
+    const topPts = stacked.map((s, mi) => [pad.l + (mi / Math.max(months.length - 1, 1)) * plotW, pad.t + plotH - s[tIdx].end * plotH]);
+    const botPts = stacked.map((s, mi) => [pad.l + (mi / Math.max(months.length - 1, 1)) * plotW, pad.t + plotH - s[tIdx].start * plotH]).reverse();
     return [...topPts, ...botPts].map(([x, y], i) => `${i === 0 ? 'M' : 'L'}${x},${y}`).join(' ') + ' Z';
   };
 
@@ -178,7 +183,7 @@ function Q4() {
             <div>
               <div className="card-title">Master Topics — absolute counts</div>
             </div>
-            <span className="card-meta">monthly</span>
+            <span className="card-meta">{granLabel}</span>
           </div>
           <svg width="100%" viewBox={`0 0 ${W} ${H}`} style={{ display: 'block' }}>
             {[0, 0.25, 0.5, 0.75, 1].map((f, i) => (
@@ -190,7 +195,7 @@ function Q4() {
               </g>
             ))}
             {months.map((m, i) => (
-              <text key={m} x={pad.l + (i / (months.length - 1)) * plotW} y={H - 10} textAnchor="middle" className="axis-tick">{m}</text>
+              <text key={m} x={pad.l + (i / Math.max(months.length - 1, 1)) * plotW} y={H - 10} textAnchor="middle" className="axis-tick">{m}</text>
             ))}
             {trends.map((t, ti) => {
               const pts = linePts(t.points);
@@ -234,7 +239,7 @@ function Q4() {
                 onMouseMove={tt.move} onMouseLeave={tt.hide} />
             ))}
             {months.map((m, i) => (
-              <text key={m} x={pad.l + (i / (months.length - 1)) * plotW} y={H - 10} textAnchor="middle" className="axis-tick">{m}</text>
+              <text key={m} x={pad.l + (i / Math.max(months.length - 1, 1)) * plotW} y={H - 10} textAnchor="middle" className="axis-tick">{m}</text>
             ))}
             {[0, 0.25, 0.5, 0.75, 1].map((f, i) => (
               <text key={i} x={pad.l - 6} y={pad.t + plotH * f + 3} textAnchor="end" className="axis-tick">
@@ -304,15 +309,24 @@ function Q4() {
           </svg>
           {(() => {
             const spikeCount = (D.Q4_EVENTS || []).length;
-            const topTrend = [...trends].sort((a, b) => b.points[b.points.length - 1] - a.points[a.points.length - 1])[0];
-            const lastIdx = topTrend ? topTrend.points.length - 1 : 0;
+            // For multi-week single-month builds, find the topic with the
+            // largest peak across the weeks of the month and report it.
+            const peakOf = (t) => Math.max(...t.points);
+            const topTrend = [...(D.Q4_WEEKLY || [])].sort((a, b) => peakOf(b) - peakOf(a))[0];
+            const peakIdx = topTrend ? topTrend.points.indexOf(peakOf(topTrend)) : -1;
+            const peakWk = peakIdx >= 0 ? (D.WEEKS || [])[peakIdx] : '';
+            const peakVal = peakIdx >= 0 ? topTrend.points[peakIdx] : 0;
             const first = topTrend?.points[0] || 0;
-            const last  = topTrend?.points[lastIdx] || 0;
+            const last  = topTrend ? topTrend.points[topTrend.points.length - 1] : 0;
             const delta = first > 0 ? Math.round((last / first - 1) * 100) : 0;
             return (
               <window.Insight qId="Q4">
-                Detected <b>{spikeCount}</b> weeks with volume exceeding 1.5× avg.
-                {topTrend && <> Leading topic last month: <b>{topTrend.en}</b> ({last.toLocaleString()} mentions, {delta >= 0 ? '+' : ''}{delta}% vs first month).</>}
+                {spikeCount > 0 && <>Detected <b>{spikeCount}</b> weeks with volume exceeding 1.5× avg. </>}
+                {topTrend && (
+                  useWeekly
+                    ? <>Top topic this April: <b>{topTrend.en}</b> — peaked at <b>{peakVal.toLocaleString()}</b> mentions in week of <b>{peakWk}</b>, closing at {last.toLocaleString()} ({delta >= 0 ? '+' : ''}{delta}% vs first week).</>
+                    : <>Leading topic last month: <b>{topTrend.en}</b> ({last.toLocaleString()} mentions, {delta >= 0 ? '+' : ''}{delta}% vs first month).</>
+                )}
               </window.Insight>
             );
           })()}

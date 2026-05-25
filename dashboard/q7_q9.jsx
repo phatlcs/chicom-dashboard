@@ -213,39 +213,55 @@ function Q8() {
             </div>
             <span className="card-meta">mentions · max {maxTrend}</span>
           </div>
-          <svg width="100%" viewBox="0 0 720 180">
-            {[0, 0.25, 0.5, 0.75, 1].map((f, i) => (
-              <g key={i}>
-                <line x1={40} y1={20 + 130 * f} x2={700} y2={20 + 130 * f} className="grid-line" />
-                <text x={34} y={20 + 130 * f + 3} textAnchor="end" className="axis-tick">
-                  {Math.round(maxTrend * (1 - f))}
-                </text>
-              </g>
-            ))}
-            <path d={Q8_TREND.map((v, i) => {
-              const x = 40 + (i / (Q8_TREND.length - 1)) * 660;
-              const y = 150 - (v / maxTrend) * 130;
-              return `${i === 0 ? 'M' : 'L'}${x},${y}`;
-            }).join(' ')} fill="none" stroke="oklch(0.60 0.20 25)" strokeWidth={2} />
-            <path d={
-              Q8_TREND.map((v, i) => {
+          {Q8_TREND.length < 2 ? (
+            // Single-month data — the line chart would divide by zero. Render
+            // a single big-number tile instead so the panel still says something.
+            <div style={{ padding: '32px 16px', textAlign: 'center' }}>
+              <div className="mono" style={{ fontSize: 36, fontWeight: 700, color: 'var(--neg)', lineHeight: 1 }}>
+                {Q8_TREND[0].toLocaleString()}
+              </div>
+              <div style={{ fontSize: 12, color: 'var(--text-3)', marginTop: 6 }}>
+                negative abandonment mentions in {months[0] || 'this month'}
+              </div>
+              <div style={{ fontSize: 11, color: 'var(--text-3)', marginTop: 4, fontStyle: 'italic' }}>
+                Trend chart needs ≥ 2 months of data — single-month dataset shows the volume number only.
+              </div>
+            </div>
+          ) : (
+            <svg width="100%" viewBox="0 0 720 180">
+              {[0, 0.25, 0.5, 0.75, 1].map((f, i) => (
+                <g key={i}>
+                  <line x1={40} y1={20 + 130 * f} x2={700} y2={20 + 130 * f} className="grid-line" />
+                  <text x={34} y={20 + 130 * f + 3} textAnchor="end" className="axis-tick">
+                    {Math.round(maxTrend * (1 - f))}
+                  </text>
+                </g>
+              ))}
+              <path d={Q8_TREND.map((v, i) => {
                 const x = 40 + (i / (Q8_TREND.length - 1)) * 660;
                 const y = 150 - (v / maxTrend) * 130;
                 return `${i === 0 ? 'M' : 'L'}${x},${y}`;
-              }).join(' ') + ' L700,150 L40,150 Z'
-            } fill="oklch(0.60 0.20 25)" opacity={0.1} />
-            {Q8_TREND.map((v, i) => {
-              const x = 40 + (i / (Q8_TREND.length - 1)) * 660;
-              const y = 150 - (v / maxTrend) * 130;
-              return <circle key={i} cx={x} cy={y} r={3} fill="oklch(0.60 0.20 25)"
-                onMouseEnter={e => tt.show(e, `<b>${months[i] || `M${i}`}</b><br/>${v} abandonment mentions`)}
-                onMouseMove={tt.move} onMouseLeave={tt.hide} style={{ cursor: 'pointer' }} />;
-            })}
-            {months.map((m, i) => i % 2 === 0 && (
-              <text key={m} x={40 + (i / (Q8_TREND.length - 1)) * 660} y={170} textAnchor="middle" className="axis-tick">{m}</text>
-            ))}
-          </svg>
-        
+              }).join(' ')} fill="none" stroke="oklch(0.60 0.20 25)" strokeWidth={2} />
+              <path d={
+                Q8_TREND.map((v, i) => {
+                  const x = 40 + (i / (Q8_TREND.length - 1)) * 660;
+                  const y = 150 - (v / maxTrend) * 130;
+                  return `${i === 0 ? 'M' : 'L'}${x},${y}`;
+                }).join(' ') + ' L700,150 L40,150 Z'
+              } fill="oklch(0.60 0.20 25)" opacity={0.1} />
+              {Q8_TREND.map((v, i) => {
+                const x = 40 + (i / (Q8_TREND.length - 1)) * 660;
+                const y = 150 - (v / maxTrend) * 130;
+                return <circle key={i} cx={x} cy={y} r={3} fill="oklch(0.60 0.20 25)"
+                  onMouseEnter={e => tt.show(e, `<b>${months[i] || `M${i}`}</b><br/>${v} abandonment mentions`)}
+                  onMouseMove={tt.move} onMouseLeave={tt.hide} style={{ cursor: 'pointer' }} />;
+              })}
+              {months.map((m, i) => i % 2 === 0 && (
+                <text key={m} x={40 + (i / (Q8_TREND.length - 1)) * 660} y={170} textAnchor="middle" className="axis-tick">{m}</text>
+              ))}
+            </svg>
+          )}
+
         <window.CardComments chartId="Q8_3" />
       </div>
       </div>

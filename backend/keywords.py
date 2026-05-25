@@ -245,49 +245,64 @@ Q9_BARRIER_KW = {
     ],
 }
 
-# ── Q10 — Product categories ─────────────────────────────────────────────────
+# ── Q10 — Product categories (what sellers are selling)
+# Keywords to detect which product category a seller is selling in.
+# ────────────────────────────────────────────────────────────────────────────
 Q10_CATEGORY_KW = {
-    'Làm đẹp & Sức khỏe': [
-        'làm đẹp', 'mỹ phẩm', 'skincare', 'collagen', 'vitamin',
-        'supplement', 'beauty', 'serum', 'kem dưỡng', 'thực phẩm chức năng',
-        'health supplement', 'organic', 'wellness',
+    'Health & Beauty / Supplements': [
+        'skincare', 'beauty', 'makeup', 'mỹ phẩm', 'làm đẹp',
+        'supplement', 'vitamin', 'collagen', 'serum', 'wellness',
+        'cosmetics', 'perfume', 'nước hoa', 'chăm sóc da',
+        'essential oils', 'tinh dầu', 'cream', 'kem dưỡng',
+        'shampoo', 'dầu gội', 'moisturizer', 'sunscreen',
     ],
-    'Thời trang': [
-        'quần áo', 'thời trang', 'clothing', 'fashion', 'áo thun',
-        'áo khoác', 'giày', 'túi xách', 'phụ kiện thời trang', 'apparel',
-        'garment', 't-shirt', 'hoodie',
+    'Private Label (undisclosed)': [
+        'private label', 'white label', 'proprietary',
+        'undisclosed', 'confidential', 'niche',
     ],
-    'Gia dụng & Bếp': [
-        'gia dụng', 'nhà bếp', 'home', 'kitchen', 'nội thất',
-        'đồ dùng nhà', 'cleaning', 'organizer', 'storage', 'decor',
+    'Apparel & Fashion': [
+        'fashion', 'quần áo', 'áo thun', 'váy', 'quần jean',
+        'clothing', 'apparel', 'dress', 'shirt', 'pants', 'jacket',
+        'giày', 'shoes', 'boots', 'sneaker', 'thời trang',
+        'phụ kiện', 'accessories', 'scarf', 'mũ',
     ],
-    'Điện tử & Gadget': [
-        'điện tử', 'electronics', 'gadget', 'cable', 'charger',
-        'phụ kiện điện thoại', 'tech', 'smart home', 'led light',
+    'Home & Garden': [
+        'garden', 'gia dụng', 'vườn', 'gardening', 'garden tools',
+        'home decor', 'organizer', 'storage', 'kệ', 'tủ',
+        'small home items', 'garden products', 'plant', 'outdoor furniture',
     ],
-    'Đồ chơi & Trẻ em': [
-        'đồ chơi', 'toys', 'kids', 'children', 'baby', 'trẻ em',
-        'educational toy', 'lego', 'puzzle',
+    'Electronics (China-sourced)': [
+        'electronics', 'gadget', 'điện tử', 'điện thoại',
+        'phone accessories', 'headphones', 'earbuds', 'tai nghe',
+        'cables', 'charger', 'adapter', 'usb',
+        'bluetooth', 'wireless', 'tech gadgets',
     ],
-    'Thể thao & Ngoài trời': [
-        'thể thao', 'sports', 'fitness', 'gym', 'outdoor', 'camping',
-        'yoga', 'exercise', 'dụng cụ thể thao',
+    'Toys & Games': [
+        'toy', 'đồ chơi', 'toys', 'games', 'lego',
+        'action figure', 'búp bê', 'gấu bông', 'puzzle',
+        'board game', 'trò chơi', 'stem', 'educational toys',
+        'fidget', 'fidget products',
     ],
-    'Thực phẩm': [
-        'thực phẩm', 'grocery', 'food', 'đồ ăn', 'snack',
-        'cà phê', 'coffee', 'nước uống', 'organic food',
+    'Kitchen & Home Goods': [
+        'kitchen', 'bếp', 'cookware', 'kitchenware', 'nồi',
+        'chảo', 'dao', 'đũa', 'muỗng', 'chén', 'cốc',
+        'storage', 'appliances', 'kitchen gadgets',
+        'small appliances', 'kitchen tools',
     ],
-    'Thú cưng': [
-        'thú cưng', 'pet', 'dog', 'cat', 'chó mèo', 'pet supplies',
-        'dog food', 'cat food',
+    'Jewelry & Accessories': [
+        'jewelry', 'trang sức', 'earring', 'necklace', 'bracelet',
+        'ring', 'vòng', 'watch', 'đồng hồ', 'sunglasses',
+        'kính', 'silver jewelry', 'accessories', 'phụ kiện',
     ],
-    'Nội thất': [
-        'nội thất', 'furniture', 'bàn ghế', 'giường', 'tủ',
-        'sofa', 'desk', 'chair',
+    'Pet Products': [
+        'pet', 'thú cưng', 'chó', 'mèo', 'dog', 'cat',
+        'pet food', 'thức ăn thú cưng', 'pet toy', 'pet accessories',
+        'grooming', 'pet bed', 'animal products',
     ],
-    'Vali & Túi xách': [
-        'túi xách', 'luggage', 'bag', 'backpack', 'balo', 'vali',
-        'travel bag', 'handbag',
+    'USDA Agricultural Products': [
+        'agricultural', 'coffee', 'cà phê', 'cashew', 'cashews',
+        'spices', 'gia vị', 'tea', 'trà', 'usda',
+        'organic', 'agricultural products', 'vietnamese coffee',
     ],
 }
 
@@ -313,6 +328,10 @@ Q11_TOOL_KW = {
     'Brand Registry': [
         'brand registry', 'đăng ký brand', 'amazon brand', 'brand protection',
         'registered brand',
+    ],
+    'Helium 10': [
+        'helium 10', 'helium10', 'h10', 'cerebro', 'magnet', 'black box',
+        'xray helium',
     ],
     'Jungle Scout': [
         'jungle scout', 'junglescout', 'js ', 'jungle',
@@ -660,15 +679,23 @@ def extract_q8(df: pd.DataFrame, months: list):
         triggers = _extract_from_column(neg['trigger_to_leave'])
     else:
         triggers = _extract(neg['content'], Q8_TRIGGER_KW)
-    # Persona breakdown of negative posts
+    # Persona breakdown of negative posts.
+    # Color palette mirrors the persona PCOL in shell.jsx so a given persona
+    # always renders in the same hue across the dashboard. Red and green are
+    # reserved for negative / positive sentiment, never used here.
+    PERSONA_COLOR = {
+        'Seller (Amazon)':            'oklch(0.42 0.24 255)',  # cobalt/navy, deep
+        'Seller (Others)':            'oklch(0.70 0.16 250)',  # blue, medium
+        'Prospect (Amazon)':          'oklch(0.58 0.20 50)',   # orange, vivid
+        'Prospect (Others)':          'oklch(0.78 0.16 50)',   # peach
+        'Service Provider (Amazon)':  'oklch(0.52 0.13 195)',  # teal, deep
+        'Service Provider (CBEC)':    'oklch(0.74 0.11 195)',  # teal, light
+    }
+    FALLBACK = 'oklch(0.55 0.10 290)'  # purple — distinct from sentiment + personas
     persona_counts = neg['persona'].value_counts()
-    COLORS = [
-        'oklch(0.60 0.20 25)', 'oklch(0.70 0.17 60)', 'oklch(0.62 0.15 260)',
-        'oklch(0.62 0.15 155)', 'oklch(0.62 0.15 320)',
-    ]
     persona_list = [
-        {'label': str(p), 'count': int(c), 'color': COLORS[i % len(COLORS)]}
-        for i, (p, c) in enumerate(persona_counts.items())
+        {'label': str(p), 'count': int(c), 'color': PERSONA_COLOR.get(str(p), FALLBACK)}
+        for p, c in persona_counts.items()
     ]
     # Monthly trend
     neg2 = neg.copy()

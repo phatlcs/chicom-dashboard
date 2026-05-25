@@ -31,30 +31,34 @@ GROUP_INFO = {
     9: {'id': 'ec7',  'name': 'Cộng đồng ETSY Việt Nam',             'short': 'ETSY VN',            'type': 'EC'},
 }
 
+# ────────────────────────────────────────────────────────────────────────────
+# New taxonomy (from Apr 2026 classified dataset). Master topics + personas
+# moved to English-keyed labels that match the data exactly. Compare to the
+# prior VN-keyed taxonomy preserved in git history.
+# ────────────────────────────────────────────────────────────────────────────
+
 TOPIC_MAP = {
-    'Chiến lược, kinh nghiệm và hỗ trợ cộng đồng bán hàng Amazon':             'mt1',
-    'Cảnh báo rủi ro và lừa đảo khi kinh doanh Amazon':                         'mt2',
-    'Vận hành và quản lý tài khoản Amazon Seller':                               'mt3',
-    'Dịch vụ và giải pháp pháp lý, thương hiệu và công cụ cho Seller Amazon':   'mt4',
-    'Vận chuyển, logistics và fulfillment Amazon':                                'mt5',
-    'Thanh toán, tài khoản và các vấn đề tài chính quốc tế cho Seller Amazon':  'mt6',
-    'Kinh doanh xuất nhập khẩu và thương mại điện tử xuyên biên giới':           'mt7',
-    'Kinh doanh, vận hành và tối ưu hóa bán hàng Amazon':                        'mt8',
+    'Others':                  'mt1',
+    'SOA (Selling on Amazon)': 'mt2',
+    'Logistics':               'mt3',
+    'Account Health':          'mt4',
+    'Third Party':             'mt5',
+    'Account Creation':        'mt6',
+    'Ads':                     'mt7',
+    'Listing':                 'mt8',
+    'Brand Registry':          'mt9',
 }
 
-# Official 9-topic taxonomy. MT9 stays in the list even though the current
-# classifier never emits it — shown at 0% rather than hidden, so stakeholders
-# see the full taxonomy and know the slot exists.
 MASTER_TOPICS = [
-    {'id': 'mt1', 'vn': 'Chiến lược, kinh nghiệm & hỗ trợ cộng đồng bán hàng',  'en': 'Strategy, experience & community support'},
-    {'id': 'mt2', 'vn': 'Cảnh báo rủi ro & lừa đảo khi kinh doanh Amazon',        'en': 'Risk warnings & fraud'},
-    {'id': 'mt3', 'vn': 'Vận hành và quản lý tài khoản Amazon Seller',             'en': 'Account operations & management'},
-    {'id': 'mt4', 'vn': 'Dịch vụ & giải pháp pháp lý, thương hiệu',               'en': 'Legal, branding & services'},
-    {'id': 'mt5', 'vn': 'Vận chuyển, logistics và fulfillment',                    'en': 'Shipping, logistics & fulfillment'},
-    {'id': 'mt6', 'vn': 'Thanh toán, tài khoản và tài chính quốc tế',             'en': "Payment, accounts & int'l finance"},
-    {'id': 'mt7', 'vn': 'Kinh doanh xuất nhập khẩu & TMĐT xuyên biên giới',       'en': 'Import-export & cross-border'},
-    {'id': 'mt8', 'vn': 'Kinh doanh, vận hành và tối ưu hóa bán hàng Amazon',     'en': 'Business, ops & Amazon optimization'},
-    {'id': 'mt9', 'vn': 'Khóa học và thách thức kinh doanh Amazon',               'en': 'Courses & Amazon challenges'},
+    {'id': 'mt1', 'vn': 'Khác',                         'en': 'Others'},
+    {'id': 'mt2', 'vn': 'Bán hàng trên Amazon (SOA)',   'en': 'Selling on Amazon (SOA)'},
+    {'id': 'mt3', 'vn': 'Vận chuyển & Logistics',        'en': 'Logistics & fulfillment'},
+    {'id': 'mt4', 'vn': 'Sức khỏe tài khoản',            'en': 'Account health'},
+    {'id': 'mt5', 'vn': 'Dịch vụ bên thứ ba',            'en': 'Third-party services'},
+    {'id': 'mt6', 'vn': 'Tạo tài khoản',                 'en': 'Account creation'},
+    {'id': 'mt7', 'vn': 'Quảng cáo',                     'en': 'Advertising'},
+    {'id': 'mt8', 'vn': 'Listing & Catalog',             'en': 'Listing & catalog'},
+    {'id': 'mt9', 'vn': 'Brand Registry & IP',           'en': 'Brand Registry & IP'},
 ]
 
 PERSONAS = [
@@ -76,9 +80,17 @@ PERSONA_MAP = {
 }
 
 TC = [
-    'oklch(0.62 0.15 260)', 'oklch(0.62 0.15 25)',  'oklch(0.62 0.15 155)',
-    'oklch(0.62 0.15 60)',  'oklch(0.62 0.15 320)', 'oklch(0.62 0.15 200)',
-    'oklch(0.62 0.15 90)',  'oklch(0.62 0.15 290)', 'oklch(0.62 0.15 0)',
+    # Master-topic palette. Red (hue ~0-30) and green (hue ~140-170) are
+    # reserved for negative / positive sentiment — never use them here.
+    'oklch(0.62 0.15 260)',  # mt1 — blue
+    'oklch(0.62 0.15 80)',   # mt2 — gold        (was 25 red — fixed)
+    'oklch(0.62 0.15 230)',  # mt3 — cyan-blue   (was 155 green — fixed)
+    'oklch(0.62 0.15 60)',   # mt4 — orange
+    'oklch(0.62 0.15 320)',  # mt5 — magenta
+    'oklch(0.62 0.15 200)',  # mt6 — cyan
+    'oklch(0.62 0.15 110)',  # mt7 — yellow-lime (was 90 — nudged for spacing)
+    'oklch(0.62 0.15 290)',  # mt8 — purple
+    'oklch(0.62 0.15 350)',  # mt9 — rose        (was 0 red — fixed)
 ]
 
 DAYS_VN = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN']
@@ -88,15 +100,27 @@ SOA_IDS = [1, 2]
 EC_IDS  = [3, 4, 5, 6, 7, 8, 9]
 
 SUBTOPICS = {
-    'mt1': ['Chia sẻ chiến lược Amazon','Kinh nghiệm launch SP mới','Hỗ trợ seller mới bắt đầu','Networking seller VN'],
-    'mt2': ['Cảnh báo scam Amazon','Lừa đảo PPC agency','Rủi ro suspension','Phishing & hijack'],
-    'mt3': ['Tạo & verify tài khoản','Health score & metrics','Tool quản lý listing','Xử lý A-Z claim'],
-    'mt4': ['Brand registry','Kế toán US','Pháp lý LLC','Trademark & IP'],
-    'mt5': ['FBA vs FBM','Forwarder VN→US','Cước vận chuyển','Kho 3PL ở Mỹ'],
-    'mt6': ['Payoneer & tài khoản US','Thẻ Visa virtual','Quy đổi USD→VND','Hoàn thuế VAT EU'],
-    'mt7': ['TMĐT xuyên biên giới','Dropshipping CBEC','Nguồn hàng TQ','Thủ tục XNK'],
-    'mt8': ['PPC optimization','SEO listing','A/B test main image','Tối ưu CVR'],
-    'mt9': ['Khóa học mentor','Thử thách 30 ngày','Bootcamp PPC','Coaching 1-1'],
+    # Real sub-topics observed in the Apr 2026 classified dataset, grouped
+    # by master topic. (Display-only — used by the JSX legend/tooltips.)
+    'mt1': ['Misc / Other', 'Tax Compliance And Declarations',
+            'Payment Processing And Withdrawals', 'Market Trends And Sales Performance',
+            'Community Events And Contests'],
+    'mt2': ['Selling Best Practices', 'Cost & Fees', 'Product Selection',
+            'Incentives & Training', 'Supplier Sourcing', 'Quality & Compliance',
+            'Pricing/Cost'],
+    'mt3': ['Logistics costs', 'Fulfillment models', 'Packaging & shipping optimization',
+            'Inventory management best practices', 'Amazon logistics solutions'],
+    'mt4': ['Account issues / Account errors', 'Account suspension',
+            'Account verification', 'Account updates', 'Inactive account'],
+    'mt5': ['Third-party service introduction', 'Supplier sourcing',
+            'Finding third-party services'],
+    'mt6': ['Account Verification', 'Identity Verification (SIV)', 'Account Types',
+            'Legal Entity Setup', 'Registration Documents', 'Account Updates'],
+    'mt7': ['Off-platform advertising', 'Amazon advertising best practices',
+            'Advertising costs'],
+    'mt8': ['Listing guidelines & best practices', 'Listing errors',
+            'Product images', 'Product barcodes & labeling'],
+    'mt9': ['Intellectual property disputes resolution', 'Brand registration documents'],
 }
 
 SUBTOPIC_TRANSLATIONS = {
@@ -210,9 +234,8 @@ def _normalize_master_topic(series: pd.Series) -> pd.Series:
 
 
 def _normalize_sub_topics(series: pd.Series) -> pd.Series:
-    """Force-match ALL sub_topic values to the 24 canonical sub-topics (SUBTOPIC_TRANSLATIONS keys).
-    Uses case-insensitive fuzzy matching with NO cutoff — every non-empty value
-    MUST map to one of the 24 canonical labels."""
+    """Normalize sub_topic values. If data is already in new English format (not in
+    SUBTOPIC_TRANSLATIONS), preserve it as-is. Otherwise, force-match to canonical set."""
     import difflib
     clean = series.fillna('').astype(str).str.strip()
 
@@ -220,6 +243,17 @@ def _normalize_sub_topics(series: pd.Series) -> pd.Series:
     canonical_vn = list(SUBTOPIC_TRANSLATIONS.keys())
     canonical_lower = {c.lower(): c for c in canonical_vn}
 
+    # Check if data is already in new format: if >50% of unique non-empty values
+    # are NOT in the canonical set, treat as new format and preserve as-is
+    unique_vals = clean[clean != ''].unique()
+    matches_in_canonical = sum(1 for v in unique_vals if v.lower() in canonical_lower)
+    if len(unique_vals) > 0:
+        match_ratio = matches_in_canonical / len(unique_vals)
+        if match_ratio < 0.5:
+            # Data is in new format (not Vietnamese canonical names) — preserve as-is
+            return clean
+
+    # Otherwise, force-match to canonical Vietnamese sub-topics
     def match(val: str) -> str:
         if not val:
             return val
@@ -498,6 +532,46 @@ def compute_all(df: pd.DataFrame):
             # Sort by parent topic rank (q1_master order), then by weight desc within each topic
             q1_subtopics.sort(key=lambda s: (s['parent_rank'], -s['weight']))
 
+            # Apply filtering: show all ≥1%, roll <1% items into the top subtopic of each MT
+            threshold_pct = 1.0
+
+            # Group by parent_topic
+            mt_groups = {}
+            for st in q1_subtopics:
+                mt_id = st['parent_topic']
+                if mt_id not in mt_groups:
+                    mt_groups[mt_id] = []
+                mt_groups[mt_id].append(st)
+
+            # For each MT, aggregate <1% items into the top item
+            for mt_id, mt_subs in mt_groups.items():
+                above_threshold = [s for s in mt_subs if s['weight'] >= threshold_pct]
+                below_threshold = [s for s in mt_subs if s['weight'] < threshold_pct]
+
+                if above_threshold and below_threshold:
+                    # Has both ≥1% and <1% items: show ≥1%, roll <1% into top item
+                    top_item = above_threshold[0]  # already sorted by weight desc
+                    below_count = sum(s['count'] for s in below_threshold)
+                    below_weight = sum(s['weight'] for s in below_threshold)
+
+                    top_item['count'] += below_count
+                    top_item['weight'] = round(top_item['weight'] + below_weight, 1)
+
+                    # Mark <1% items as hidden
+                    for s in below_threshold:
+                        s['display'] = False
+                    # Mark ≥1% items as displayed
+                    for s in above_threshold:
+                        s['display'] = True
+                elif above_threshold:
+                    # All items ≥1%: show all
+                    for s in above_threshold:
+                        s['display'] = True
+                else:
+                    # All items <1%: show only top item, hide rest
+                    for i, s in enumerate(mt_subs):
+                        s['display'] = (i == 0)  # only first (top) item shown
+
     # ── Q4 trends ───────────────────────────────────────────────────────────
     q4_trends = []
     for i, mt in enumerate(MASTER_TOPICS):
@@ -769,6 +843,10 @@ def compute_all(df: pd.DataFrame):
     q10_top      = extract_q10(rel)
     q10_top_soa  = extract_q10(soa_rel)
     q10_top_ec   = extract_q10(ec_rel)
+    # Map each category's English label -> keyword list so the dashboard
+    # can show "Detailed Keywords" under each row.
+    from keywords import Q10_CATEGORY_KW as _q10_kw_dict, translate_label as _tl
+    q10_keywords = {_tl(vn): list(kws) for vn, kws in _q10_kw_dict.items()}
     q11_tools         = extract_q11(soa_rel)                                # SOA only
     q11_issues        = extract_q11_issues(soa_rel)                         # SOA only
     q11_satisfaction  = extract_q11_satisfaction(soa_rel)                   # SOA only
@@ -868,7 +946,7 @@ def compute_all(df: pd.DataFrame):
 
     try:
         from insights import generate_insights_for_all_qs
-        insights = generate_insights_for_all_qs(
+        insights, _ = generate_insights_for_all_qs(
             rel_for_sampling, soa_rel_for_sampling, insight_aggregates,
         )
     except Exception as e:
@@ -967,6 +1045,7 @@ window.ChiComData2 = (() => {{
   const Q10_TOP        = {_j(q10_top)};
   const Q10_TOP_SOA    = {_j(q10_top_soa)};
   const Q10_TOP_EC     = {_j(q10_top_ec)};
+  const Q10_KEYWORDS   = {_j(q10_keywords)};
   const Q10_WEEKS      = {_j(q10_weeks)};
   const Q10_WEEKLY     = {_j(q10_weekly)};
   const Q10_SUBS_SOA   = {_j(q10_subs_soa)};
@@ -994,7 +1073,7 @@ window.ChiComData2 = (() => {{
     Q9_Q7_PERSONAS_SOA, Q9_Q8_PERSONAS_SOA,
     Q9_Q7_PERSONAS_EC,  Q9_Q8_PERSONAS_EC,
     Q9_TOP_THREADS, Q9_TOP_THREADS_SOA, Q9_TOP_THREADS_EC,
-    Q10_TOP, Q10_TOP_SOA, Q10_TOP_EC, Q10_WEEKS, Q10_WEEKLY, Q10_SUBS_SOA, Q10_SUBS_EC,
+    Q10_TOP, Q10_TOP_SOA, Q10_TOP_EC, Q10_KEYWORDS, Q10_WEEKS, Q10_WEEKLY, Q10_SUBS_SOA, Q10_SUBS_EC,
     Q11_TOOLS, Q11_ISSUES, Q11_SATISFACTION,
     Q12_SERVICES, Q12_SERVICES_SOA, Q12_SERVICES_EC,
     Q13_COURSES,  Q13_COURSES_SOA,  Q13_COURSES_EC,
