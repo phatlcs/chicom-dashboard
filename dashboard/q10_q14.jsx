@@ -235,13 +235,7 @@ function Q10() {
       <Q10TabNav tab={tab} setTab={setTab} totals={totals} />
 
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 24, marginBottom: 18, flexWrap: 'wrap' }}>
-        <div style={{ flex: '1 1 480px', minWidth: 0 }}>
-          <h3 style={{ fontSize: 18, fontWeight: 700, margin: 0, marginBottom: 4, letterSpacing: '-0.3px' }}>{p.title}</h3>
-          <p style={{ fontSize: 12, color: 'var(--text-3)', maxWidth: 640, lineHeight: 1.55, margin: 0 }}>
-            Categories matched from post content via keyword dictionary. Numbers are real mention counts —
-            most posts don't mention a category, so totals are smaller than headline mention totals.
-          </p>
-        </div>
+        <div style={{ flex: '1 1 480px', minWidth: 0 }}></div>
         <div style={{ display: 'flex', gap: 10, flexShrink: 0 }}>
           <div className="card" style={{ padding: '10px 14px', minWidth: 110, textAlign: 'right' }}>
             <div style={{ fontSize: 10, color: 'var(--text-3)', textTransform: 'uppercase', letterSpacing: 1, fontWeight: 600, marginBottom: 4 }}>
