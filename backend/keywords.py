@@ -245,103 +245,69 @@ Q9_BARRIER_KW = {
     ],
 }
 
-# ── Q10 — Amazon products/programs (customer taxonomy: SELECTION / COMPLIANCE
-#         / BRANDING / LOGISTICS). Each product is one bucket. A single post can
-#         appear in multiple buckets if it mentions multiple products (e.g. FBA
-#         and FBM in the same comment both count). Keywords cover the abbrev,
-#         the full English name, and Vietnamese phrasings the community uses.
-#
-#         Short tokens (≤6 chars, no spaces) auto-get \b word boundaries from
-#         _extract(), so "ox", "siv", "fba" etc. won't match inside "BOX", "siva",
-#         "fbacme" etc. Longer multi-word phrases get literal substring matching.
+# ── Q10 — Product categories (what sellers are selling)
+# Keywords to detect which product category a seller is selling in.
 # ────────────────────────────────────────────────────────────────────────────
 Q10_CATEGORY_KW = {
-    # ── SELECTION (product research / sourcing) ───────────────────────────
-    'OX (Opportunity Explorer)': [
-        'opportunity explorer', 'product opportunity explorer',
-        'amazon ox', 'ox amazon', 'opportunity',
-        'tìm sản phẩm', 'sản phẩm tiềm năng', 'tool tìm sản phẩm',
-        'product opportunity', 'product research', 'niche research',
-        'find product', 'nghiên cứu sản phẩm', 'chọn ngách', 'find niche',
+    'Health & Beauty / Supplements': [
+        'skincare', 'beauty', 'makeup', 'mỹ phẩm', 'làm đẹp',
+        'supplement', 'vitamin', 'collagen', 'serum', 'wellness',
+        'cosmetics', 'perfume', 'nước hoa', 'chăm sóc da',
+        'essential oils', 'tinh dầu', 'cream', 'kem dưỡng',
+        'shampoo', 'dầu gội', 'moisturizer', 'sunscreen',
     ],
-    'Seller Guidebook': [
-        'guidebook', 'guideline', 'playbook', 'cẩm nang', 'bí kíp',
-        'lộ trình', 'sách hướng dẫn', 'seller guide', 'amazon guide',
-        'guidebook amazon', 'guideline amazon', 'tài liệu hướng dẫn',
+    'Private Label (undisclosed)': [
+        'private label', 'white label', 'proprietary',
+        'undisclosed', 'confidential', 'niche',
     ],
-
-    # ── COMPLIANCE (account / identity verification) ──────────────────────
-    'SIV (Seller Identity Verification)': [
-        'siv', 'seller identity verification',
-        'identity verification', 'xác minh danh tính người bán',
-        'xác minh tài khoản', 'quy trình đăng ký tài khoản',
-        'mở tài khoản amazon', 'đăng ký tài khoản amazon',
-        'verify seller account', 'verify amazon',
+    'Apparel & Fashion': [
+        'fashion', 'quần áo', 'áo thun', 'váy', 'quần jean',
+        'clothing', 'apparel', 'dress', 'shirt', 'pants', 'jacket',
+        'giày', 'shoes', 'boots', 'sneaker', 'thời trang',
+        'phụ kiện', 'accessories', 'scarf', 'mũ',
     ],
-    'VIV (Video Identity Verification)': [
-        'viv', 'video identity verification', 'video verification',
-        'xác minh',                          # ⚠ broad — matches any "verify" mention
-        'xác minh danh tính trực tuyến',     # exact phrasing from customer example
-        'xác minh danh tính',                # without "online"
-        'xác minh trực tuyến', 'xác minh online',
-        'xác minh video', 'xác minh qua video', 'verification video',
-        'video call amazon', 'video identity',
-        'quy trình xác minh danh tính',
+    'Home & Garden': [
+        'home', 'garden', 'gia dụng', 'vườn', 'nhà',
+        'gardening', 'garden tools', 'home decor', 'organizer',
+        'storage', 'kệ', 'tủ', 'home items', 'household',
+        'small home items', 'garden products',
     ],
-
-    # ── BRANDING (listing & advertising) ──────────────────────────────────
-    'Content A+': [
-        'a+ content', 'a-plus content', 'content a+', 'enhanced brand content',
-        'ebc', 'premium a+ content', 'a+ premium', 'tool a+', 'nội dung a+',
-        'a plus content',
+    'Electronics (China-sourced)': [
+        'electronics', 'gadget', 'điện tử', 'điện thoại',
+        'phone accessories', 'headphones', 'earbuds', 'tai nghe',
+        'cables', 'charger', 'adapter', 'usb',
+        'bluetooth', 'wireless', 'tech gadgets',
     ],
-    'Listing': [
-        'listing', 'đăng sản phẩm', 'đăng tải sản phẩm', 'tạo listing',
-        'upload listing', 'đăng bán', 'product listing', 'listing optimization',
-        'quy trình listing', 'optimize listing', 'tối ưu listing',
+    'Toys & Games': [
+        'toy', 'đồ chơi', 'toys', 'games', 'lego',
+        'action figure', 'búp bê', 'gấu bông', 'puzzle',
+        'board game', 'trò chơi', 'stem', 'educational toys',
+        'fidget', 'fidget products',
     ],
-    'Sponsored Products': [
-        'sponsored product', 'sponsored products', 'sp ads', 'amazon sp',
-        'ppc', 'ppc amazon', 'amazon ppc', 'quảng cáo sản phẩm',
-        'quảng cáo amazon', 'sponsored ads', 'campaign amazon',
+    'Kitchen & Home Goods': [
+        'kitchen', 'bếp', 'cookware', 'kitchenware', 'nồi',
+        'chảo', 'dao', 'đũa', 'muỗng', 'chén', 'cốc',
+        'storage', 'appliances', 'kitchen gadgets',
+        'small appliances', 'kitchen tools',
     ],
-    'Sponsored Brands': [
-        'sponsored brand', 'sponsored brands', 'sb ads', 'amazon sb',
-        'sb amazon', 'brand ads', 'brand ad', 'amazon brand ad',
-        'quảng cáo thương hiệu', 'quảng cáo brand', 'brand campaign',
-        'thương hiệu amazon',
+    'Jewelry & Accessories': [
+        'jewelry', 'trang sức', 'earring', 'necklace', 'bracelet',
+        'ring', 'vòng', 'watch', 'đồng hồ', 'sunglasses',
+        'kính', 'silver jewelry', 'accessories', 'phụ kiện',
     ],
-    'NSI (New Seller Incentive)': [
-        'nsi', 'new seller incentive', 'new seller incentives',
-        'ưu đãi nhà bán mới', 'ưu đãi seller mới', 'incentive program',
-        'chương trình ưu đãi', 'new seller program', 'mở acc mới',
-        'mở tài khoản mới', 'nhà bán mới amazon', 'seller mới',
+    'Pet Products': [
+        'pet', 'thú cưng', 'chó', 'mèo', 'dog', 'cat',
+        'pet food', 'thức ăn thú cưng', 'pet toy', 'pet accessories',
+        'grooming', 'pet bed', 'animal products',
     ],
-
-    # ── LOGISTICS (fulfillment & shipping) ────────────────────────────────
-    'FBA': [
-        'fba', 'fulfillment by amazon',
-        'kho amazon', 'gửi vào fba', 'inbound shipment', 'prep center',
-        'fba prep', 'fba shipment', 'gửi hàng fba',
+    'USDA Agricultural Products': [
+        'agricultural', 'coffee', 'cà phê', 'cashew', 'cashews',
+        'spices', 'gia vị', 'tea', 'trà', 'usda',
+        'organic', 'agricultural products', 'vietnamese coffee',
     ],
-    'FBM': [
-        'fbm', 'fulfillment by merchant', 'tự ship',
-        'self fulfillment', 'merchant fulfilled', 'fbm tự ship',
-    ],
-    'AGL (Amazon Global Logistics)': [
-        'agl', 'amazon global logistics',
-        'global logistics amazon', 'vận chuyển amazon', 'dịch vụ vận chuyển amazon',
-    ],
-    'SPN (Service Provider Network)': [
-        'spn', 'service provider network', 'service provider',
-        'amazon service provider', 'dịch vụ hỗ trợ nhà bán hàng',
-        'dịch vụ hỗ trợ', 'amazon spn', 'nhà cung cấp dịch vụ amazon',
-        'service provider amazon',
-    ],
-    'NSP (New Seller Program)': [
-        'nsp', 'new seller program', 'new seller promotion',
-        'chương trình nhà bán mới', 'amazon new seller program',
-        'new seller', 'chương trình seller mới', 'newbie amazon',
+    'Other / Undisclosed': [
+        'other', 'undisclosed', 'various', 'miscellaneous',
+        'khác', 'không xác định',
     ],
 }
 

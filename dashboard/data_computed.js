@@ -120,103 +120,103 @@ window.ChiComData = (() => {
 ];
   const Q1_WEIGHTS          = {
   "mt1": {
-    "soa1": 19.3,
-    "soa2": 33.7,
-    "ec1": 98.7,
-    "ec2": 57.4,
-    "ec3": 44.2,
-    "ec4": 59.8,
-    "ec5": 29.6,
-    "ec6": 22.0,
-    "ec7": 27.0
+    "soa1": 0.4,
+    "soa2": 0.7,
+    "ec1": 53.8,
+    "ec2": 0.2,
+    "ec3": 1.6,
+    "ec4": 0.9,
+    "ec5": 5.5,
+    "ec6": 0.7,
+    "ec7": 0.2
   },
   "mt2": {
-    "soa1": 13.3,
-    "soa2": 19.4,
-    "ec1": 0.7,
-    "ec2": 8.8,
-    "ec3": 19.0,
-    "ec4": 14.6,
-    "ec5": 9.9,
-    "ec6": 4.8,
-    "ec7": 9.3
-  },
-  "mt3": {
-    "soa1": 11.9,
-    "soa2": 5.7,
-    "ec1": 0.1,
-    "ec2": 10.2,
-    "ec3": 7.4,
-    "ec4": 11.6,
-    "ec5": 10.5,
-    "ec6": 16.7,
-    "ec7": 16.4
-  },
-  "mt4": {
-    "soa1": 13.0,
-    "soa2": 15.6,
+    "soa1": 0.0,
+    "soa2": 0.0,
     "ec1": 0.0,
     "ec2": 0.0,
-    "ec3": 1.5,
-    "ec4": 5.8,
-    "ec5": 15.7,
-    "ec6": 21.1,
-    "ec7": 19.3
+    "ec3": 0.0,
+    "ec4": 0.0,
+    "ec5": 0.0,
+    "ec6": 0.0,
+    "ec7": 0.0
+  },
+  "mt3": {
+    "soa1": 0.0,
+    "soa2": 0.0,
+    "ec1": 0.0,
+    "ec2": 0.0,
+    "ec3": 0.0,
+    "ec4": 0.0,
+    "ec5": 0.0,
+    "ec6": 0.0,
+    "ec7": 0.0
+  },
+  "mt4": {
+    "soa1": 0.0,
+    "soa2": 0.0,
+    "ec1": 0.0,
+    "ec2": 0.0,
+    "ec3": 0.0,
+    "ec4": 0.0,
+    "ec5": 0.0,
+    "ec6": 0.0,
+    "ec7": 0.0
   },
   "mt5": {
-    "soa1": 18.9,
-    "soa2": 7.6,
-    "ec1": 0.4,
-    "ec2": 18.4,
-    "ec3": 17.8,
-    "ec4": 1.5,
-    "ec5": 22.1,
-    "ec6": 21.1,
-    "ec7": 11.4
+    "soa1": 0.0,
+    "soa2": 0.0,
+    "ec1": 0.0,
+    "ec2": 0.0,
+    "ec3": 0.0,
+    "ec4": 0.0,
+    "ec5": 0.0,
+    "ec6": 0.0,
+    "ec7": 0.0
   },
   "mt6": {
-    "soa1": 8.0,
-    "soa2": 9.4,
-    "ec1": 0.1,
-    "ec2": 0.2,
-    "ec3": 2.5,
-    "ec4": 0.9,
-    "ec5": 8.2,
-    "ec6": 12.3,
-    "ec7": 10.5
+    "soa1": 0.0,
+    "soa2": 0.0,
+    "ec1": 0.0,
+    "ec2": 0.0,
+    "ec3": 0.0,
+    "ec4": 0.0,
+    "ec5": 0.0,
+    "ec6": 0.0,
+    "ec7": 0.0
   },
   "mt7": {
-    "soa1": 7.4,
-    "soa2": 2.1,
+    "soa1": 0.0,
+    "soa2": 0.0,
     "ec1": 0.0,
-    "ec2": 3.7,
-    "ec3": 5.5,
-    "ec4": 4.2,
-    "ec5": 1.5,
-    "ec6": 0.2,
-    "ec7": 2.6
+    "ec2": 0.0,
+    "ec3": 0.0,
+    "ec4": 0.0,
+    "ec5": 0.0,
+    "ec6": 0.0,
+    "ec7": 0.0
   },
   "mt8": {
-    "soa1": 4.3,
-    "soa2": 3.0,
+    "soa1": 0.0,
+    "soa2": 0.0,
     "ec1": 0.0,
-    "ec2": 0.5,
-    "ec3": 1.7,
-    "ec4": 1.1,
-    "ec5": 1.3,
-    "ec6": 1.7,
-    "ec7": 2.1
+    "ec2": 0.0,
+    "ec3": 0.0,
+    "ec4": 0.0,
+    "ec5": 0.0,
+    "ec6": 0.0,
+    "ec7": 0.0
   },
   "mt9": {
-    "soa1": 3.8,
-    "soa2": 3.4,
+    "soa1": 0.0,
+    "soa2": 0.0,
     "ec1": 0.0,
-    "ec2": 0.7,
-    "ec3": 0.4,
-    "ec4": 0.6,
-    "ec5": 1.1,
+    "ec2": 0.0,
+    "ec3": 0.0,
+    "ec4": 0.0,
+    "ec5": 0.0,
     "ec6": 0.0,
-    "ec7": 1.3
+    "ec7": 0.0
   }
 };
   const Q1_MASTER           = [
@@ -224,644 +224,634 @@ window.ChiComData = (() => {
     "id": "mt1",
     "vn": "Khác",
     "en": "Others",
-    "weight": 41.1,
-    "count": 17129,
+    "weight": 2.2,
+    "count": 886,
     "color": "oklch(0.62 0.15 260)"
   },
   {
     "id": "mt2",
     "vn": "Bán hàng trên Amazon (SOA)",
     "en": "Selling on Amazon (SOA)",
-    "weight": 13.1,
-    "count": 5478,
+    "weight": 0.0,
+    "count": 0,
     "color": "oklch(0.62 0.15 80)"
-  },
-  {
-    "id": "mt4",
-    "vn": "Sức khỏe tài khoản",
-    "en": "Account health",
-    "weight": 11.8,
-    "count": 4931,
-    "color": "oklch(0.62 0.15 60)"
   },
   {
     "id": "mt3",
     "vn": "Vận chuyển & Logistics",
     "en": "Logistics & fulfillment",
-    "weight": 11.6,
-    "count": 4821,
+    "weight": 0.0,
+    "count": 0,
     "color": "oklch(0.62 0.15 230)"
+  },
+  {
+    "id": "mt4",
+    "vn": "Sức khỏe tài khoản",
+    "en": "Account health",
+    "weight": 0.0,
+    "count": 0,
+    "color": "oklch(0.62 0.15 60)"
   },
   {
     "id": "mt5",
     "vn": "Dịch vụ bên thứ ba",
     "en": "Third-party services",
-    "weight": 10.1,
-    "count": 4224,
+    "weight": 0.0,
+    "count": 0,
     "color": "oklch(0.62 0.15 320)"
   },
   {
     "id": "mt6",
     "vn": "Tạo tài khoản",
     "en": "Account creation",
-    "weight": 6.1,
-    "count": 2547,
+    "weight": 0.0,
+    "count": 0,
     "color": "oklch(0.62 0.15 200)"
   },
   {
     "id": "mt7",
     "vn": "Quảng cáo",
     "en": "Advertising",
-    "weight": 3.2,
-    "count": 1355,
+    "weight": 0.0,
+    "count": 0,
     "color": "oklch(0.62 0.15 110)"
   },
   {
     "id": "mt8",
     "vn": "Listing & Catalog",
     "en": "Listing & catalog",
-    "weight": 1.7,
-    "count": 726,
+    "weight": 0.0,
+    "count": 0,
     "color": "oklch(0.62 0.15 290)"
   },
   {
     "id": "mt9",
     "vn": "Brand Registry & IP",
     "en": "Brand Registry & IP",
-    "weight": 1.2,
-    "count": 510,
+    "weight": 0.0,
+    "count": 0,
     "color": "oklch(0.62 0.15 350)"
   }
 ];
   const Q1_SUBTOPICS        = [
   {
-    "vn": "Misc / Other",
-    "en": "Misc / Other",
-    "count": 9626,
-    "weight": 23.0,
+    "vn": "Kinh doanh xuất nhập khẩu và bán hàng quốc tế",
+    "en": "Import-export & international selling",
+    "count": 8230,
+    "weight": 20.2,
     "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1",
-    "parent_rank": 0,
+    "parent_topic": null,
+    "parent_rank": 999,
     "display": true
   },
   {
-    "vn": "Tax Compliance And Declarations",
-    "en": "Tax Compliance And Declarations",
-    "count": 4307,
-    "weight": 10.3,
+    "vn": "Bán hàng và vận hành kinh doanh trên Amazon",
+    "en": "Amazon selling & operations",
+    "count": 4741,
+    "weight": 11.8,
     "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1",
-    "parent_rank": 0,
+    "parent_topic": null,
+    "parent_rank": 999,
     "display": true
   },
   {
-    "vn": "Market Trends And Sales Performance",
-    "en": "Market Trends And Sales Performance",
-    "count": 1376,
-    "weight": 3.3,
+    "vn": "Dịch vụ vận chuyển và fulfillment",
+    "en": "Shipping & fulfillment services",
+    "count": 4738,
+    "weight": 11.8,
     "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1",
-    "parent_rank": 0,
+    "parent_topic": null,
+    "parent_rank": 999,
     "display": true
   },
   {
-    "vn": "Community Events And Contests",
-    "en": "Community Events And Contests",
-    "count": 983,
-    "weight": 2.4,
+    "vn": "Thuế và Chi phí Kinh doanh trên Amazon cho Seller Việt Nam",
+    "en": "Tax & costs for Vietnamese Amazon sellers",
+    "count": 4496,
+    "weight": 11.2,
     "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1",
-    "parent_rank": 0,
+    "parent_topic": null,
+    "parent_rank": 999,
     "display": true
   },
   {
-    "vn": "Payment Processing And Withdrawals",
-    "en": "Payment Processing And Withdrawals",
-    "count": 837,
-    "weight": 2.0,
+    "vn": "Vấn đề xác minh, khoá, rủi ro tài khoản Amazon",
+    "en": "Amazon account verification, suspension & risks",
+    "count": 3899,
+    "weight": 9.7,
     "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1",
-    "parent_rank": 0,
+    "parent_topic": null,
+    "parent_rank": 999,
     "display": true
   },
   {
-    "vn": "Legal Issues And Account Suspensions",
-    "en": "Legal Issues And Account Suspensions",
-    "count": 62,
-    "weight": 0.1,
+    "vn": "Vận hành tài khoản và thanh toán quốc tế cho seller",
+    "en": "Account ops & international payments (sellers)",
+    "count": 2490,
+    "weight": 6.2,
     "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1",
-    "parent_rank": 0,
+    "parent_topic": null,
+    "parent_rank": 999,
+    "display": true
+  },
+  {
+    "vn": "Dịch vụ hỗ trợ và xử lý tài khoản Amazon",
+    "en": "Amazon account support & recovery services",
+    "count": 1957,
+    "weight": 4.9,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
+    "display": true
+  },
+  {
+    "vn": "Chia sẻ, học hỏi và hợp tác kinh nghiệm bán hàng Amazon",
+    "en": "Sharing, learning & peer collaboration on Amazon",
+    "count": 1847,
+    "weight": 4.6,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
+    "display": true
+  },
+  {
+    "vn": "Khó khăn và thách thức khi bán hàng trên Amazon",
+    "en": "Pain points & challenges selling on Amazon",
+    "count": 1504,
+    "weight": 3.7,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
+    "display": true
+  },
+  {
+    "vn": "Sự kiện, đào tạo và kết nối cộng đồng bán hàng Amazon",
+    "en": "Events, training & community networking",
+    "count": 1308,
+    "weight": 3.2,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
+    "display": true
+  },
+  {
+    "vn": "Hợp tác, hỗ trợ và vận hành bán hàng Amazon",
+    "en": "Partnerships, support & Amazon selling ops",
+    "count": 780,
+    "weight": 1.9,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
+    "display": true
+  },
+  {
+    "vn": "Kinh nghiệm và chiến lược bán hàng trên Amazon",
+    "en": "Amazon selling strategy & experience",
+    "count": 650,
+    "weight": 1.6,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
+    "display": true
+  },
+  {
+    "vn": "Vấn đề xác minh, khoá, rủi ko tài khoản Amazon",
+    "en": "Vấn đề xác minh, khoá, rủi ko tài khoản Amazon",
+    "count": 607,
+    "weight": 1.5,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
+    "display": true
+  },
+  {
+    "vn": "Hướng dẫn và hỗ trợ khởi đầu bán hàng Amazon",
+    "en": "Getting started on Amazon — guides & onboarding",
+    "count": 549,
+    "weight": 1.4,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
+    "display": true
+  },
+  {
+    "vn": "Dịch vụ và giải pháp pháp lý, thương hiệu và công cụ kinh doanh cho người bán Amazon",
+    "en": "Legal, brand & business-tool services for Amazon sellers",
+    "count": 541,
+    "weight": 1.3,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
+    "display": true
+  },
+  {
+    "vn": "Thanh toán và rút tiền Amazon qua Payoneer/PingPong",
+    "en": "Amazon payouts via Payoneer / PingPong",
+    "count": 484,
+    "weight": 1.2,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
+    "display": true
+  },
+  {
+    "vn": "Kinh doanh Amazon FBA và FBM: vận hành & tối ưu chi phí",
+    "en": "Amazon FBA & FBM — ops & cost optimization",
+    "count": 384,
+    "weight": 1.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
+    "display": true
+  },
+  {
+    "vn": "Cảnh báo rủi ro và lừa đảo khi kinh doanh Amazon",
+    "en": "Scam & risk warnings for Amazon sellers",
+    "count": 376,
+    "weight": 0.9,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
     "display": false
   },
   {
-    "vn": "Supplier And Fulfillment Services",
-    "en": "Supplier And Fulfillment Services",
-    "count": 43,
-    "weight": 0.1,
+    "vn": "Vấn đề xác minh, khoá, rủi zo tài khoản Amazon",
+    "en": "Vấn đề xác minh, khoá, rủi zo tài khoản Amazon",
+    "count": 270,
+    "weight": 0.7,
     "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1",
-    "parent_rank": 0,
+    "parent_topic": null,
+    "parent_rank": 999,
     "display": false
   },
   {
-    "vn": "Account Hiring And Leasing",
-    "en": "Account Hiring And Leasing",
+    "vn": "Vấn đề xác minh, khoá, rủi ico tài khoản Amazon",
+    "en": "Vấn đề xác minh, khoá, rủi ico tài khoản Amazon",
+    "count": 52,
+    "weight": 0.1,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
+    "display": false
+  },
+  {
+    "vn": "Vấn đề không nhận được mã OTP Amazon",
+    "en": "Missing Amazon OTP codes",
     "count": 38,
     "weight": 0.1,
     "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1",
-    "parent_rank": 0,
+    "parent_topic": null,
+    "parent_rank": 999,
     "display": false
   },
   {
-    "vn": "Platform Policy Changes And Announcements",
-    "en": "Platform Policy Changes And Announcements",
+    "vn": "Cảnh báo rủi ko và lừa đảo khi kinh doanh Amazon",
+    "en": "Cảnh báo rủi ko và lừa đảo khi kinh doanh Amazon",
     "count": 30,
     "weight": 0.1,
     "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1",
-    "parent_rank": 0,
+    "parent_topic": null,
+    "parent_rank": 999,
     "display": false
   },
   {
-    "vn": "Recruitment And Job Opportunities",
-    "en": "Recruitment And Job Opportunities",
-    "count": 27,
-    "weight": 0.1,
-    "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1",
-    "parent_rank": 0,
-    "display": false
-  },
-  {
-    "vn": "Scams And Fraud Prevention",
-    "en": "Scams And Fraud Prevention",
+    "vn": "Vấn đề xác minh, khoá, rủi ro tài khoán Amazon",
+    "en": "Vấn đề xác minh, khoá, rủi ro tài khoán Amazon",
     "count": 21,
     "weight": 0.1,
     "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1",
-    "parent_rank": 0,
+    "parent_topic": null,
+    "parent_rank": 999,
     "display": false
   },
   {
-    "vn": "Training Courses And Mentorship",
-    "en": "Training Courses And Mentorship",
-    "count": 19,
+    "vn": "Cảnh báo rủi zo và lừa đảo khi kinh doanh Amazon",
+    "en": "Cảnh báo rủi zo và lừa đảo khi kinh doanh Amazon",
+    "count": 14,
     "weight": 0.0,
     "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1",
-    "parent_rank": 0,
+    "parent_topic": null,
+    "parent_rank": 999,
     "display": false
   },
   {
-    "vn": "Banking And Financial Services",
-    "en": "Banking And Financial Services",
-    "count": 18,
+    "vn": "Ưu đãi giảm giá Helium10 cho người bán Amazon",
+    "en": "Helium 10 discounts for Amazon sellers",
+    "count": 10,
     "weight": 0.0,
     "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1",
-    "parent_rank": 0,
+    "parent_topic": null,
+    "parent_rank": 999,
     "display": false
   },
   {
-    "vn": "Tool Recommendations And Software",
-    "en": "Tool Recommendations And Software",
-    "count": 16,
+    "vn": "Thuế và Chi phí Kinh doanh tron Amazon cho Seller Việt Nam",
+    "en": "Thuế và Chi phí Kinh doanh tron Amazon cho Seller Việt Nam",
+    "count": 10,
     "weight": 0.0,
     "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1",
-    "parent_rank": 0,
+    "parent_topic": null,
+    "parent_rank": 999,
     "display": false
   },
   {
-    "vn": "Selling Best Practices",
-    "en": "Selling Best Practices",
-    "count": 3004,
-    "weight": 7.1,
-    "color": "oklch(0.62 0.15 80)",
-    "parent_topic": "mt2",
-    "parent_rank": 1,
-    "display": true
-  },
-  {
-    "vn": "Cost & Fees",
-    "en": "Cost & Fees",
-    "count": 1070,
-    "weight": 2.6,
-    "color": "oklch(0.62 0.15 80)",
-    "parent_topic": "mt2",
-    "parent_rank": 1,
-    "display": true
-  },
-  {
-    "vn": "Product Selection",
-    "en": "Product Selection",
-    "count": 855,
-    "weight": 2.0,
-    "color": "oklch(0.62 0.15 80)",
-    "parent_topic": "mt2",
-    "parent_rank": 1,
-    "display": true
-  },
-  {
-    "vn": "Incentives & Training",
-    "en": "Incentives & Training",
-    "count": 547,
-    "weight": 1.3,
-    "color": "oklch(0.62 0.15 80)",
-    "parent_topic": "mt2",
-    "parent_rank": 1,
-    "display": true
-  },
-  {
-    "vn": "Quality & Compliance",
-    "en": "Quality & Compliance",
-    "count": 137,
-    "weight": 0.3,
-    "color": "oklch(0.62 0.15 80)",
-    "parent_topic": "mt2",
-    "parent_rank": 1,
-    "display": false
-  },
-  {
-    "vn": "Supplier Sourcing",
-    "en": "Supplier Sourcing",
-    "count": 133,
-    "weight": 0.3,
-    "color": "oklch(0.62 0.15 80)",
-    "parent_topic": "mt2",
-    "parent_rank": 1,
-    "display": false
-  },
-  {
-    "vn": "Pricing/Cost",
-    "en": "Pricing/Cost",
-    "count": 4,
+    "vn": "Kinh doanh xuất nhập khẩ và bán hàng quốc tế",
+    "en": "Kinh doanh xuất nhập khẩ và bán hàng quốc tế",
+    "count": 10,
     "weight": 0.0,
-    "color": "oklch(0.62 0.15 80)",
-    "parent_topic": "mt2",
-    "parent_rank": 1,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
     "display": false
   },
   {
-    "vn": "Pricing/cost",
-    "en": "Pricing/cost",
-    "count": 1,
+    "vn": "Vấn đề xác minh, khoá, rủi ico tài khoán Amazon",
+    "en": "Vấn đề xác minh, khoá, rủi ico tài khoán Amazon",
+    "count": 9,
     "weight": 0.0,
-    "color": "oklch(0.62 0.15 80)",
-    "parent_topic": "mt2",
-    "parent_rank": 1,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
     "display": false
   },
   {
-    "vn": "Account issues / Account errors",
-    "en": "Account issues / Account errors",
-    "count": 1924,
-    "weight": 4.6,
-    "color": "oklch(0.62 0.15 60)",
-    "parent_topic": "mt4",
-    "parent_rank": 2,
-    "display": true
-  },
-  {
-    "vn": "Account suspension",
-    "en": "Account suspension",
-    "count": 1714,
-    "weight": 4.1,
-    "color": "oklch(0.62 0.15 60)",
-    "parent_topic": "mt4",
-    "parent_rank": 2,
-    "display": true
-  },
-  {
-    "vn": "Account verification",
-    "en": "Account verification",
-    "count": 1306,
-    "weight": 3.1,
-    "color": "oklch(0.62 0.15 60)",
-    "parent_topic": "mt4",
-    "parent_rank": 2,
-    "display": true
-  },
-  {
-    "vn": "Account updates",
-    "en": "Account updates",
-    "count": 118,
-    "weight": 0.3,
-    "color": "oklch(0.62 0.15 60)",
-    "parent_topic": "mt4",
-    "parent_rank": 2,
-    "display": false
-  },
-  {
-    "vn": "Inactive account",
-    "en": "Inactive account",
-    "count": 13,
+    "vn": "Kinh nghiệm và chiến lStrategy bán hàng trên Amazon",
+    "en": "Kinh nghiệm và chiến lStrategy bán hàng trên Amazon",
+    "count": 7,
     "weight": 0.0,
-    "color": "oklch(0.62 0.15 60)",
-    "parent_topic": "mt4",
-    "parent_rank": 2,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
     "display": false
   },
   {
-    "vn": "Account health",
-    "en": "Account health",
-    "count": 1,
+    "vn": "Vận hành tài khoán và thanh toán quốc tế cho seller",
+    "en": "Vận hành tài khoán và thanh toán quốc tế cho seller",
+    "count": 6,
     "weight": 0.0,
-    "color": "oklch(0.62 0.15 60)",
-    "parent_topic": "mt4",
-    "parent_rank": 2,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
     "display": false
   },
   {
-    "vn": "Packaging & shipping optimization",
-    "en": "Packaging & shipping optimization",
-    "count": 2162,
-    "weight": 5.2,
-    "color": "oklch(0.62 0.15 230)",
-    "parent_topic": "mt3",
-    "parent_rank": 3,
-    "display": true
-  },
-  {
-    "vn": "Logistics costs",
-    "en": "Logistics costs",
-    "count": 1522,
-    "weight": 3.6,
-    "color": "oklch(0.62 0.15 230)",
-    "parent_topic": "mt3",
-    "parent_rank": 3,
-    "display": true
-  },
-  {
-    "vn": "Fulfillment models",
-    "en": "Fulfillment models",
-    "count": 1141,
-    "weight": 2.7,
-    "color": "oklch(0.62 0.15 230)",
-    "parent_topic": "mt3",
-    "parent_rank": 3,
-    "display": true
-  },
-  {
-    "vn": "Inventory management best practices",
-    "en": "Inventory management best practices",
-    "count": 106,
-    "weight": 0.3,
-    "color": "oklch(0.62 0.15 230)",
-    "parent_topic": "mt3",
-    "parent_rank": 3,
-    "display": false
-  },
-  {
-    "vn": "Amazon logistics solutions",
-    "en": "Amazon logistics solutions",
-    "count": 12,
+    "vn": "Dịch vụ hỗ trợ và xử ly tài khoản Amazon",
+    "en": "Dịch vụ hỗ trợ và xử ly tài khoản Amazon",
+    "count": 3,
     "weight": 0.0,
-    "color": "oklch(0.62 0.15 230)",
-    "parent_topic": "mt3",
-    "parent_rank": 3,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
     "display": false
   },
   {
-    "vn": "Third-party service introduction",
-    "en": "Third-party service introduction",
-    "count": 1852,
-    "weight": 4.4,
-    "color": "oklch(0.62 0.15 320)",
-    "parent_topic": "mt5",
-    "parent_rank": 4,
-    "display": true
-  },
-  {
-    "vn": "Supplier sourcing",
-    "en": "Supplier sourcing",
-    "count": 1239,
-    "weight": 3.0,
-    "color": "oklch(0.62 0.15 320)",
-    "parent_topic": "mt5",
-    "parent_rank": 4,
-    "display": true
-  },
-  {
-    "vn": "Finding third-party services",
-    "en": "Finding third-party services",
-    "count": 1133,
-    "weight": 2.7,
-    "color": "oklch(0.62 0.15 320)",
-    "parent_topic": "mt5",
-    "parent_rank": 4,
-    "display": true
-  },
-  {
-    "vn": "Identity Verification (SIV)",
-    "en": "Identity Verification (SIV)",
-    "count": 867,
-    "weight": 2.1,
-    "color": "oklch(0.62 0.15 200)",
-    "parent_topic": "mt6",
-    "parent_rank": 5,
-    "display": true
-  },
-  {
-    "vn": "Account Verification",
-    "en": "Account Verification",
-    "count": 631,
-    "weight": 1.5,
-    "color": "oklch(0.62 0.15 200)",
-    "parent_topic": "mt6",
-    "parent_rank": 5,
-    "display": true
-  },
-  {
-    "vn": "Account Types",
-    "en": "Account Types",
-    "count": 534,
-    "weight": 1.3,
-    "color": "oklch(0.62 0.15 200)",
-    "parent_topic": "mt6",
-    "parent_rank": 5,
-    "display": true
-  },
-  {
-    "vn": "Legal Entity Setup",
-    "en": "Legal Entity Setup",
-    "count": 502,
-    "weight": 1.2,
-    "color": "oklch(0.62 0.15 200)",
-    "parent_topic": "mt6",
-    "parent_rank": 5,
-    "display": true
-  },
-  {
-    "vn": "Registration Documents",
-    "en": "Registration Documents",
-    "count": 188,
-    "weight": 0.5,
-    "color": "oklch(0.62 0.15 200)",
-    "parent_topic": "mt6",
-    "parent_rank": 5,
-    "display": false
-  },
-  {
-    "vn": "Account errors",
-    "en": "Account errors",
-    "count": 1,
+    "vn": "Vấn đề xác minh, khoá, rủi ko tài khoán Amazon",
+    "en": "Vấn đề xác minh, khoá, rủi ko tài khoán Amazon",
+    "count": 3,
     "weight": 0.0,
-    "color": "oklch(0.62 0.15 200)",
-    "parent_topic": "mt6",
-    "parent_rank": 5,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
     "display": false
   },
   {
-    "vn": "Account Registration",
-    "en": "Account Registration",
-    "count": 1,
+    "vn": "Dịch vụ và giải pháp pháp lý, thương hiệu và công cụ cho Seller Amazon",
+    "en": "Legal, brand & tool services for Amazon sellers",
+    "count": 3,
     "weight": 0.0,
-    "color": "oklch(0.62 0.15 200)",
-    "parent_topic": "mt6",
-    "parent_rank": 5,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
     "display": false
   },
   {
-    "vn": "Account Updates",
-    "en": "Account Updates",
-    "count": 1,
+    "vn": "Vấn đề xác minh, khoá, rủi do tài khoản Amazon",
+    "en": "Vấn đề xác minh, khoá, rủi do tài khoản Amazon",
+    "count": 3,
     "weight": 0.0,
-    "color": "oklch(0.62 0.15 200)",
-    "parent_topic": "mt6",
-    "parent_rank": 5,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
     "display": false
   },
   {
-    "vn": "Amazon advertising best practices",
-    "en": "Amazon advertising best practices",
-    "count": 1355,
-    "weight": 3.2,
-    "color": "oklch(0.62 0.15 110)",
-    "parent_topic": "mt7",
-    "parent_rank": 6,
-    "display": true
-  },
-  {
-    "vn": "Advertising costs",
-    "en": "Advertising costs",
-    "count": 349,
-    "weight": 0.8,
-    "color": "oklch(0.62 0.15 110)",
-    "parent_topic": "mt7",
-    "parent_rank": 6,
-    "display": false
-  },
-  {
-    "vn": "Off-platform advertising",
-    "en": "Off-platform advertising",
-    "count": 339,
-    "weight": 0.8,
-    "color": "oklch(0.62 0.15 110)",
-    "parent_topic": "mt7",
-    "parent_rank": 6,
-    "display": false
-  },
-  {
-    "vn": "Advertising best practices",
-    "en": "Advertising best practices",
-    "count": 5,
-    "weight": 0.0,
-    "color": "oklch(0.62 0.15 110)",
-    "parent_topic": "mt7",
-    "parent_rank": 6,
-    "display": false
-  },
-  {
-    "vn": "Listing guidelines & best practices",
-    "en": "Listing guidelines & best practices",
-    "count": 365,
-    "weight": 0.9,
-    "color": "oklch(0.62 0.15 290)",
-    "parent_topic": "mt8",
-    "parent_rank": 7,
-    "display": true
-  },
-  {
-    "vn": "Listing errors",
-    "en": "Listing errors",
-    "count": 216,
-    "weight": 0.5,
-    "color": "oklch(0.62 0.15 290)",
-    "parent_topic": "mt8",
-    "parent_rank": 7,
-    "display": false
-  },
-  {
-    "vn": "Product images",
-    "en": "Product images",
-    "count": 98,
-    "weight": 0.2,
-    "color": "oklch(0.62 0.15 290)",
-    "parent_topic": "mt8",
-    "parent_rank": 7,
-    "display": false
-  },
-  {
-    "vn": "GTIN exemption",
-    "en": "GTIN exemption",
-    "count": 21,
-    "weight": 0.1,
-    "color": "oklch(0.62 0.15 290)",
-    "parent_topic": "mt8",
-    "parent_rank": 7,
-    "display": false
-  },
-  {
-    "vn": "Product barcodes & labeling",
-    "en": "Product barcodes & labeling",
-    "count": 11,
-    "weight": 0.0,
-    "color": "oklch(0.62 0.15 290)",
-    "parent_topic": "mt8",
-    "parent_rank": 7,
-    "display": false
-  },
-  {
-    "vn": "Listing best practices & guidelines",
-    "en": "Listing best practices & guidelines",
-    "count": 11,
-    "weight": 0.0,
-    "color": "oklch(0.62 0.15 290)",
-    "parent_topic": "mt8",
-    "parent_rank": 7,
-    "display": false
-  },
-  {
-    "vn": "ASIN creation",
-    "en": "ASIN creation",
+    "vn": "Vấn đề xác minh, khoá, rủi quo tài khoản Amazon",
+    "en": "Vấn đề xác minh, khoá, rủi quo tài khoản Amazon",
     "count": 2,
     "weight": 0.0,
-    "color": "oklch(0.62 0.15 290)",
-    "parent_topic": "mt8",
-    "parent_rank": 7,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
     "display": false
   },
   {
-    "vn": "Intellectual property disputes resolution",
-    "en": "Intellectual property disputes resolution",
-    "count": 510,
-    "weight": 1.2,
-    "color": "oklch(0.62 0.15 350)",
-    "parent_topic": "mt9",
-    "parent_rank": 8,
-    "display": true
+    "vn": "Vấn đề xác minh, khoá, rủi ro tài khoại Amazon",
+    "en": "Vấn đề xác minh, khoá, rủi ro tài khoại Amazon",
+    "count": 2,
+    "weight": 0.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
+    "display": false
   },
   {
-    "vn": "Brand registration documents",
-    "en": "Brand registration documents",
-    "count": 45,
-    "weight": 0.1,
-    "color": "oklch(0.62 0.15 350)",
-    "parent_topic": "mt9",
-    "parent_rank": 8,
+    "vn": "Vấn đề xác minh, khoá, rủi ro tài khoảnAmazon",
+    "en": "Vấn đề xác minh, khoá, rủi ro tài khoảnAmazon",
+    "count": 2,
+    "weight": 0.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
+    "display": false
+  },
+  {
+    "vn": "Hỏi đáp và hỗ trợ cộng đồng bán hàng",
+    "en": "Community Q&A and seller support",
+    "count": 2,
+    "weight": 0.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
+    "display": false
+  },
+  {
+    "vn": "Khó khăn và thách thức khi bán hàng tron Amazon",
+    "en": "Khó khăn và thách thức khi bán hàng tron Amazon",
+    "count": 2,
+    "weight": 0.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
+    "display": false
+  },
+  {
+    "vn": "Vấn đề xác minh, khoá, rủi zo tài khoận Amazon",
+    "en": "Vấn đề xác minh, khoá, rủi zo tài khoận Amazon",
+    "count": 1,
+    "weight": 0.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
+    "display": false
+  },
+  {
+    "vn": "Hỗ trợ khởi đầu bán hàng Amazon",
+    "en": "Amazon selling — getting started support",
+    "count": 1,
+    "weight": 0.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
+    "display": false
+  },
+  {
+    "vn": "Dịch vụ hỗ trợ và xử lý tài khoán Amazon",
+    "en": "Dịch vụ hỗ trợ và xử lý tài khoán Amazon",
+    "count": 1,
+    "weight": 0.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
+    "display": false
+  },
+  {
+    "vn": "Vấn đề xác minh, khoá, rủi ico tài khoân Amazon",
+    "en": "Vấn đề xác minh, khoá, rủi ico tài khoân Amazon",
+    "count": 1,
+    "weight": 0.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
+    "display": false
+  },
+  {
+    "vn": "Khó khăn và thải thức khi bán hàng trên Amazon",
+    "en": "Khó khăn và thải thức khi bán hàng trên Amazon",
+    "count": 1,
+    "weight": 0.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
+    "display": false
+  },
+  {
+    "vn": "Vấn đề xác minh, khoá, rủi ro tài khoành Amazon",
+    "en": "Vấn đề xác minh, khoá, rủi ro tài khoành Amazon",
+    "count": 1,
+    "weight": 0.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
+    "display": false
+  },
+  {
+    "vn": "Vấn đề xác minh, khoá, rủi rio tài khoản Amazon",
+    "en": "Vấn đề xác minh, khoá, rủi rio tài khoản Amazon",
+    "count": 1,
+    "weight": 0.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
+    "display": false
+  },
+  {
+    "vn": "Dịch vụ hỗ trợ và xử lý tài khoان Amazon",
+    "en": "Dịch vụ hỗ trợ và xử lý tài khoان Amazon",
+    "count": 1,
+    "weight": 0.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
+    "display": false
+  },
+  {
+    "vn": "Dịch vụ hỗ trợ và xử lय lý tài khoản Amazon",
+    "en": "Dịch vụ hỗ trợ và xử lय lý tài khoản Amazon",
+    "count": 1,
+    "weight": 0.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
+    "display": false
+  },
+  {
+    "vn": "Bán hàng và vận hành kinh doanh tron Amazon",
+    "en": "Bán hàng và vận hành kinh doanh tron Amazon",
+    "count": 1,
+    "weight": 0.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
+    "display": false
+  },
+  {
+    "vn": "Kinh doanh xuất nhập khẩo và bán hàng quốc tế",
+    "en": "Kinh doanh xuất nhập khẩo và bán hàng quốc tế",
+    "count": 1,
+    "weight": 0.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
+    "display": false
+  },
+  {
+    "vn": "Dịch vụ hỗ trợ và xử lly tài khoản Amazon",
+    "en": "Dịch vụ hỗ trợ và xử lly tài khoản Amazon",
+    "count": 1,
+    "weight": 0.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
+    "display": false
+  },
+  {
+    "vn": "Chiến lược, kinh nghiệm và hỗ trợ cộng đồng bán hàng Amazon",
+    "en": "Amazon strategy, experience & community support",
+    "count": 1,
+    "weight": 0.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
+    "display": false
+  },
+  {
+    "vn": "Hương dẫn và hỗ trợ khởi đầu bán hàng Amazon",
+    "en": "Hương dẫn và hỗ trợ khởi đầu bán hàng Amazon",
+    "count": 1,
+    "weight": 0.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
+    "display": false
+  },
+  {
+    "vn": "Vấn đề xác minh, khoá, rủi rủi tài khoản Amazon",
+    "en": "Vấn đề xác minh, khoá, rủi rủi tài khoản Amazon",
+    "count": 1,
+    "weight": 0.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
+    "display": false
+  },
+  {
+    "vn": "Vấn đề xác minh, khoá, rủi ko Amazon",
+    "en": "Amazon account verification, suspension & risks",
+    "count": 1,
+    "weight": 0.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
+    "display": false
+  },
+  {
+    "vn": "Vấn đề xác minh, khoá, rủi wo tài khoản Amazon",
+    "en": "Vấn đề xác minh, khoá, rủi wo tài khoản Amazon",
+    "count": 1,
+    "weight": 0.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null,
+    "parent_rank": 999,
     "display": false
   }
 ];
@@ -965,224 +955,224 @@ window.ChiComData = (() => {
 ];
   const Q2_MATRIX           = {
   "mt1": {
-    "p_seller_az": 2457,
-    "p_prospect_az": 499,
-    "p_svc_az": 317,
-    "p_svc_cbec": 1443,
-    "p_prospect_ot": 4471,
-    "p_seller_ot": 7942
+    "p_seller_az": 5,
+    "p_prospect_az": 0,
+    "p_svc_az": 2,
+    "p_svc_cbec": 53,
+    "p_prospect_ot": 418,
+    "p_seller_ot": 394
   },
   "mt2": {
-    "p_seller_az": 774,
-    "p_prospect_az": 359,
-    "p_svc_az": 78,
-    "p_svc_cbec": 584,
-    "p_prospect_ot": 1423,
-    "p_seller_ot": 2260
+    "p_seller_az": 0,
+    "p_prospect_az": 0,
+    "p_svc_az": 0,
+    "p_svc_cbec": 0,
+    "p_prospect_ot": 0,
+    "p_seller_ot": 0
   },
   "mt3": {
-    "p_seller_az": 267,
-    "p_prospect_az": 141,
-    "p_svc_az": 61,
-    "p_svc_cbec": 1856,
-    "p_prospect_ot": 931,
-    "p_seller_ot": 1565
+    "p_seller_az": 0,
+    "p_prospect_az": 0,
+    "p_svc_az": 0,
+    "p_svc_cbec": 0,
+    "p_prospect_ot": 0,
+    "p_seller_ot": 0
   },
   "mt4": {
-    "p_seller_az": 2030,
-    "p_prospect_az": 127,
-    "p_svc_az": 40,
-    "p_svc_cbec": 41,
-    "p_prospect_ot": 569,
-    "p_seller_ot": 2124
+    "p_seller_az": 0,
+    "p_prospect_az": 0,
+    "p_svc_az": 0,
+    "p_svc_cbec": 0,
+    "p_prospect_ot": 0,
+    "p_seller_ot": 0
   },
   "mt5": {
-    "p_seller_az": 108,
-    "p_prospect_az": 105,
-    "p_svc_az": 214,
-    "p_svc_cbec": 2576,
-    "p_prospect_ot": 873,
-    "p_seller_ot": 348
+    "p_seller_az": 0,
+    "p_prospect_az": 0,
+    "p_svc_az": 0,
+    "p_svc_cbec": 0,
+    "p_prospect_ot": 0,
+    "p_seller_ot": 0
   },
   "mt6": {
-    "p_seller_az": 451,
-    "p_prospect_az": 445,
-    "p_svc_az": 18,
-    "p_svc_cbec": 161,
-    "p_prospect_ot": 933,
-    "p_seller_ot": 539
+    "p_seller_az": 0,
+    "p_prospect_az": 0,
+    "p_svc_az": 0,
+    "p_svc_cbec": 0,
+    "p_prospect_ot": 0,
+    "p_seller_ot": 0
   },
   "mt7": {
-    "p_seller_az": 216,
-    "p_prospect_az": 113,
-    "p_svc_az": 37,
-    "p_svc_cbec": 66,
-    "p_prospect_ot": 233,
-    "p_seller_ot": 690
+    "p_seller_az": 0,
+    "p_prospect_az": 0,
+    "p_svc_az": 0,
+    "p_svc_cbec": 0,
+    "p_prospect_ot": 0,
+    "p_seller_ot": 0
   },
   "mt8": {
-    "p_seller_az": 210,
-    "p_prospect_az": 77,
-    "p_svc_az": 5,
-    "p_svc_cbec": 27,
-    "p_prospect_ot": 168,
-    "p_seller_ot": 239
+    "p_seller_az": 0,
+    "p_prospect_az": 0,
+    "p_svc_az": 0,
+    "p_svc_cbec": 0,
+    "p_prospect_ot": 0,
+    "p_seller_ot": 0
   },
   "mt9": {
-    "p_seller_az": 192,
-    "p_prospect_az": 29,
-    "p_svc_az": 26,
-    "p_svc_cbec": 9,
-    "p_prospect_ot": 55,
-    "p_seller_ot": 199
+    "p_seller_az": 0,
+    "p_prospect_az": 0,
+    "p_svc_az": 0,
+    "p_svc_cbec": 0,
+    "p_prospect_ot": 0,
+    "p_seller_ot": 0
   }
 };
   const Q2_MATRIX_SOA       = {
   "mt1": {
-    "p_seller_az": 1146,
-    "p_prospect_az": 194,
-    "p_svc_az": 226,
-    "p_svc_cbec": 52,
-    "p_prospect_ot": 120,
-    "p_seller_ot": 126
+    "p_seller_az": 5,
+    "p_prospect_az": 0,
+    "p_svc_az": 0,
+    "p_svc_cbec": 4,
+    "p_prospect_ot": 18,
+    "p_seller_ot": 11
   },
   "mt2": {
-    "p_seller_az": 636,
-    "p_prospect_az": 263,
-    "p_svc_az": 64,
-    "p_svc_cbec": 12,
-    "p_prospect_ot": 42,
-    "p_seller_ot": 71
+    "p_seller_az": 0,
+    "p_prospect_az": 0,
+    "p_svc_az": 0,
+    "p_svc_cbec": 0,
+    "p_prospect_ot": 0,
+    "p_seller_ot": 0
   },
   "mt3": {
-    "p_seller_az": 163,
-    "p_prospect_az": 86,
-    "p_svc_az": 52,
-    "p_svc_cbec": 42,
-    "p_prospect_ot": 30,
-    "p_seller_ot": 8
+    "p_seller_az": 0,
+    "p_prospect_az": 0,
+    "p_svc_az": 0,
+    "p_svc_cbec": 0,
+    "p_prospect_ot": 0,
+    "p_seller_ot": 0
   },
   "mt4": {
-    "p_seller_az": 793,
-    "p_prospect_az": 64,
-    "p_svc_az": 32,
-    "p_svc_cbec": 2,
-    "p_prospect_ot": 1,
-    "p_seller_ot": 3
+    "p_seller_az": 0,
+    "p_prospect_az": 0,
+    "p_svc_az": 0,
+    "p_svc_cbec": 0,
+    "p_prospect_ot": 0,
+    "p_seller_ot": 0
   },
   "mt5": {
-    "p_seller_az": 88,
-    "p_prospect_az": 68,
-    "p_svc_az": 185,
-    "p_svc_cbec": 149,
-    "p_prospect_ot": 20,
-    "p_seller_ot": 16
+    "p_seller_az": 0,
+    "p_prospect_az": 0,
+    "p_svc_az": 0,
+    "p_svc_cbec": 0,
+    "p_prospect_ot": 0,
+    "p_seller_ot": 0
   },
   "mt6": {
-    "p_seller_az": 255,
-    "p_prospect_az": 261,
-    "p_svc_az": 15,
-    "p_svc_cbec": 3,
-    "p_prospect_ot": 7,
+    "p_seller_az": 0,
+    "p_prospect_az": 0,
+    "p_svc_az": 0,
+    "p_svc_cbec": 0,
+    "p_prospect_ot": 0,
     "p_seller_ot": 0
   },
   "mt7": {
-    "p_seller_az": 67,
-    "p_prospect_az": 45,
-    "p_svc_az": 37,
-    "p_svc_cbec": 4,
-    "p_prospect_ot": 3,
-    "p_seller_ot": 6
+    "p_seller_az": 0,
+    "p_prospect_az": 0,
+    "p_svc_az": 0,
+    "p_svc_cbec": 0,
+    "p_prospect_ot": 0,
+    "p_seller_ot": 0
   },
   "mt8": {
-    "p_seller_az": 135,
-    "p_prospect_az": 42,
-    "p_svc_az": 5,
+    "p_seller_az": 0,
+    "p_prospect_az": 0,
+    "p_svc_az": 0,
     "p_svc_cbec": 0,
-    "p_prospect_ot": 1,
-    "p_seller_ot": 1
+    "p_prospect_ot": 0,
+    "p_seller_ot": 0
   },
   "mt9": {
-    "p_seller_az": 147,
-    "p_prospect_az": 25,
-    "p_svc_az": 22,
-    "p_svc_cbec": 2,
-    "p_prospect_ot": 1,
-    "p_seller_ot": 5
+    "p_seller_az": 0,
+    "p_prospect_az": 0,
+    "p_svc_az": 0,
+    "p_svc_cbec": 0,
+    "p_prospect_ot": 0,
+    "p_seller_ot": 0
   }
 };
   const Q2_MATRIX_EC        = {
   "mt1": {
-    "p_seller_az": 1311,
-    "p_prospect_az": 305,
-    "p_svc_az": 91,
-    "p_svc_cbec": 1391,
-    "p_prospect_ot": 4351,
-    "p_seller_ot": 7816
+    "p_seller_az": 0,
+    "p_prospect_az": 0,
+    "p_svc_az": 2,
+    "p_svc_cbec": 49,
+    "p_prospect_ot": 400,
+    "p_seller_ot": 383
   },
   "mt2": {
-    "p_seller_az": 138,
-    "p_prospect_az": 96,
-    "p_svc_az": 14,
-    "p_svc_cbec": 572,
-    "p_prospect_ot": 1381,
-    "p_seller_ot": 2189
+    "p_seller_az": 0,
+    "p_prospect_az": 0,
+    "p_svc_az": 0,
+    "p_svc_cbec": 0,
+    "p_prospect_ot": 0,
+    "p_seller_ot": 0
   },
   "mt3": {
-    "p_seller_az": 104,
-    "p_prospect_az": 55,
-    "p_svc_az": 9,
-    "p_svc_cbec": 1814,
-    "p_prospect_ot": 901,
-    "p_seller_ot": 1557
+    "p_seller_az": 0,
+    "p_prospect_az": 0,
+    "p_svc_az": 0,
+    "p_svc_cbec": 0,
+    "p_prospect_ot": 0,
+    "p_seller_ot": 0
   },
   "mt4": {
-    "p_seller_az": 1237,
-    "p_prospect_az": 63,
-    "p_svc_az": 8,
-    "p_svc_cbec": 39,
-    "p_prospect_ot": 568,
-    "p_seller_ot": 2121
+    "p_seller_az": 0,
+    "p_prospect_az": 0,
+    "p_svc_az": 0,
+    "p_svc_cbec": 0,
+    "p_prospect_ot": 0,
+    "p_seller_ot": 0
   },
   "mt5": {
-    "p_seller_az": 20,
-    "p_prospect_az": 37,
-    "p_svc_az": 29,
-    "p_svc_cbec": 2427,
-    "p_prospect_ot": 853,
-    "p_seller_ot": 332
+    "p_seller_az": 0,
+    "p_prospect_az": 0,
+    "p_svc_az": 0,
+    "p_svc_cbec": 0,
+    "p_prospect_ot": 0,
+    "p_seller_ot": 0
   },
   "mt6": {
-    "p_seller_az": 196,
-    "p_prospect_az": 184,
-    "p_svc_az": 3,
-    "p_svc_cbec": 158,
-    "p_prospect_ot": 926,
-    "p_seller_ot": 539
+    "p_seller_az": 0,
+    "p_prospect_az": 0,
+    "p_svc_az": 0,
+    "p_svc_cbec": 0,
+    "p_prospect_ot": 0,
+    "p_seller_ot": 0
   },
   "mt7": {
-    "p_seller_az": 149,
-    "p_prospect_az": 68,
+    "p_seller_az": 0,
+    "p_prospect_az": 0,
     "p_svc_az": 0,
-    "p_svc_cbec": 62,
-    "p_prospect_ot": 230,
-    "p_seller_ot": 684
+    "p_svc_cbec": 0,
+    "p_prospect_ot": 0,
+    "p_seller_ot": 0
   },
   "mt8": {
-    "p_seller_az": 75,
-    "p_prospect_az": 35,
+    "p_seller_az": 0,
+    "p_prospect_az": 0,
     "p_svc_az": 0,
-    "p_svc_cbec": 27,
-    "p_prospect_ot": 167,
-    "p_seller_ot": 238
+    "p_svc_cbec": 0,
+    "p_prospect_ot": 0,
+    "p_seller_ot": 0
   },
   "mt9": {
-    "p_seller_az": 45,
-    "p_prospect_az": 4,
-    "p_svc_az": 4,
-    "p_svc_cbec": 7,
-    "p_prospect_ot": 54,
-    "p_seller_ot": 194
+    "p_seller_az": 0,
+    "p_prospect_az": 0,
+    "p_svc_az": 0,
+    "p_svc_cbec": 0,
+    "p_prospect_ot": 0,
+    "p_seller_ot": 0
   }
 };
   const Q3_SELLER_PROSPECT  = [
@@ -1190,606 +1180,597 @@ window.ChiComData = (() => {
     "id": "mt1",
     "vn": "Khác",
     "en": "Others",
-    "seller": 10399,
-    "prospect": 4970,
-    "sellerPct": 46.0,
-    "prospectPct": 43.0,
-    "diff": 3.0
+    "seller": 399,
+    "prospect": 418,
+    "sellerPct": 100.0,
+    "prospectPct": 100.0,
+    "diff": 0.0
   },
   {
     "id": "mt2",
     "vn": "Bán hàng trên Amazon (SOA)",
     "en": "Selling on Amazon (SOA)",
-    "seller": 3034,
-    "prospect": 1782,
-    "sellerPct": 13.4,
-    "prospectPct": 15.4,
-    "diff": -2.0
+    "seller": 0,
+    "prospect": 0,
+    "sellerPct": 0.0,
+    "prospectPct": 0.0,
+    "diff": 0.0
   },
   {
     "id": "mt3",
     "vn": "Vận chuyển & Logistics",
     "en": "Logistics & fulfillment",
-    "seller": 1832,
-    "prospect": 1072,
-    "sellerPct": 8.1,
-    "prospectPct": 9.3,
-    "diff": -1.2
+    "seller": 0,
+    "prospect": 0,
+    "sellerPct": 0.0,
+    "prospectPct": 0.0,
+    "diff": 0.0
   },
   {
     "id": "mt4",
     "vn": "Sức khỏe tài khoản",
     "en": "Account health",
-    "seller": 4154,
-    "prospect": 696,
-    "sellerPct": 18.4,
-    "prospectPct": 6.0,
-    "diff": 12.4
+    "seller": 0,
+    "prospect": 0,
+    "sellerPct": 0.0,
+    "prospectPct": 0.0,
+    "diff": 0.0
   },
   {
     "id": "mt5",
     "vn": "Dịch vụ bên thứ ba",
     "en": "Third-party services",
-    "seller": 456,
-    "prospect": 978,
-    "sellerPct": 2.0,
-    "prospectPct": 8.5,
-    "diff": -6.5
+    "seller": 0,
+    "prospect": 0,
+    "sellerPct": 0.0,
+    "prospectPct": 0.0,
+    "diff": 0.0
   },
   {
     "id": "mt6",
     "vn": "Tạo tài khoản",
     "en": "Account creation",
-    "seller": 990,
-    "prospect": 1378,
-    "sellerPct": 4.4,
-    "prospectPct": 11.9,
-    "diff": -7.5
+    "seller": 0,
+    "prospect": 0,
+    "sellerPct": 0.0,
+    "prospectPct": 0.0,
+    "diff": 0.0
   },
   {
     "id": "mt7",
     "vn": "Quảng cáo",
     "en": "Advertising",
-    "seller": 906,
-    "prospect": 346,
-    "sellerPct": 4.0,
-    "prospectPct": 3.0,
-    "diff": 1.0
+    "seller": 0,
+    "prospect": 0,
+    "sellerPct": 0.0,
+    "prospectPct": 0.0,
+    "diff": 0.0
   },
   {
     "id": "mt8",
     "vn": "Listing & Catalog",
     "en": "Listing & catalog",
-    "seller": 449,
-    "prospect": 245,
-    "sellerPct": 2.0,
-    "prospectPct": 2.1,
-    "diff": -0.1
+    "seller": 0,
+    "prospect": 0,
+    "sellerPct": 0.0,
+    "prospectPct": 0.0,
+    "diff": 0.0
   },
   {
     "id": "mt9",
     "vn": "Brand Registry & IP",
     "en": "Brand Registry & IP",
-    "seller": 391,
-    "prospect": 84,
-    "sellerPct": 1.7,
-    "prospectPct": 0.7,
-    "diff": 1.0
+    "seller": 0,
+    "prospect": 0,
+    "sellerPct": 0.0,
+    "prospectPct": 0.0,
+    "diff": 0.0
   }
 ];
   const Q3_SUBS             = [
   {
-    "vn": "Misc / Other",
-    "en": "Misc / Other",
-    "seller": 23.26,
-    "prospect": 24.08,
-    "diff": -0.82,
+    "vn": "Kinh doanh xuất nhập khẩu và bán hàng quốc tế",
+    "en": "Import-export & international selling",
+    "seller": 11.14,
+    "prospect": 24.6,
+    "diff": -13.46,
     "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1"
+    "parent_topic": null
   },
   {
-    "vn": "Tax Compliance And Declarations",
-    "en": "Tax Compliance And Declarations",
-    "seller": 11.87,
+    "vn": "Bán hàng và vận hành kinh doanh trên Amazon",
+    "en": "Amazon selling & operations",
+    "seller": 14.78,
+    "prospect": 12.23,
+    "diff": 2.55,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
+  },
+  {
+    "vn": "Thuế và Chi phí Kinh doanh trên Amazon cho Seller Việt Nam",
+    "en": "Tax & costs for Vietnamese Amazon sellers",
+    "seller": 13.51,
     "prospect": 12.93,
-    "diff": -1.06,
+    "diff": 0.58,
     "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1"
+    "parent_topic": null
   },
   {
-    "vn": "Selling Best Practices",
-    "en": "Selling Best Practices",
-    "seller": 7.45,
-    "prospect": 7.9,
-    "diff": -0.45,
-    "color": "oklch(0.62 0.15 80)",
-    "parent_topic": "mt2"
-  },
-  {
-    "vn": "Account issues / Account errors",
-    "en": "Account issues / Account errors",
-    "seller": 6.81,
-    "prospect": 1.86,
-    "diff": 4.95,
-    "color": "oklch(0.62 0.15 60)",
-    "parent_topic": "mt4"
-  },
-  {
-    "vn": "Account suspension",
-    "en": "Account suspension",
-    "seller": 6.61,
-    "prospect": 1.71,
-    "diff": 4.9,
-    "color": "oklch(0.62 0.15 60)",
-    "parent_topic": "mt4"
-  },
-  {
-    "vn": "Packaging & shipping optimization",
-    "en": "Packaging & shipping optimization",
-    "seller": 3.74,
-    "prospect": 3.77,
-    "diff": -0.03,
-    "color": "oklch(0.62 0.15 230)",
-    "parent_topic": "mt3"
-  },
-  {
-    "vn": "Market Trends And Sales Performance",
-    "en": "Market Trends And Sales Performance",
-    "seller": 5.28,
-    "prospect": 1.45,
-    "diff": 3.83,
+    "vn": "Vấn đề xác minh, khoá, rủi ro tài khoản Amazon",
+    "en": "Amazon account verification, suspension & risks",
+    "seller": 14.34,
+    "prospect": 7.01,
+    "diff": 7.33,
     "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1"
+    "parent_topic": null
   },
   {
-    "vn": "Account verification",
-    "en": "Account verification",
-    "seller": 4.67,
-    "prospect": 1.99,
-    "diff": 2.68,
-    "color": "oklch(0.62 0.15 60)",
-    "parent_topic": "mt4"
-  },
-  {
-    "vn": "Cost & Fees",
-    "en": "Cost & Fees",
-    "seller": 3.57,
-    "prospect": 2.16,
-    "diff": 1.41,
-    "color": "oklch(0.62 0.15 80)",
-    "parent_topic": "mt2"
-  },
-  {
-    "vn": "Logistics costs",
-    "en": "Logistics costs",
-    "seller": 2.61,
-    "prospect": 2.58,
-    "diff": 0.03,
-    "color": "oklch(0.62 0.15 230)",
-    "parent_topic": "mt3"
-  },
-  {
-    "vn": "Payment Processing And Withdrawals",
-    "en": "Payment Processing And Withdrawals",
-    "seller": 2.01,
-    "prospect": 2.94,
-    "diff": -0.93,
+    "vn": "Vận hành tài khoản và thanh toán quốc tế cho seller",
+    "en": "Account ops & international payments (sellers)",
+    "seller": 5.07,
+    "prospect": 10.71,
+    "diff": -5.64,
     "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1"
+    "parent_topic": null
   },
   {
-    "vn": "Finding third-party services",
-    "en": "Finding third-party services",
-    "seller": 0.67,
-    "prospect": 3.97,
-    "diff": -3.3,
-    "color": "oklch(0.62 0.15 320)",
-    "parent_topic": "mt5"
-  },
-  {
-    "vn": "Fulfillment models",
-    "en": "Fulfillment models",
-    "seller": 1.44,
-    "prospect": 2.67,
-    "diff": -1.23,
-    "color": "oklch(0.62 0.15 230)",
-    "parent_topic": "mt3"
-  },
-  {
-    "vn": "Account Verification",
-    "en": "Account Verification",
-    "seller": 1.18,
-    "prospect": 2.87,
-    "diff": -1.69,
-    "color": "oklch(0.62 0.15 200)",
-    "parent_topic": "mt6"
-  },
-  {
-    "vn": "Identity Verification (SIV)",
-    "en": "Identity Verification (SIV)",
-    "seller": 1.63,
-    "prospect": 2.37,
-    "diff": -0.74,
-    "color": "oklch(0.62 0.15 200)",
-    "parent_topic": "mt6"
-  },
-  {
-    "vn": "Community Events And Contests",
-    "en": "Community Events And Contests",
-    "seller": 2.78,
-    "prospect": 1.13,
-    "diff": 1.65,
+    "vn": "Dịch vụ vận chuyển và fulfillment",
+    "en": "Shipping & fulfillment services",
+    "seller": 4.23,
+    "prospect": 5.93,
+    "diff": -1.7,
     "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1"
+    "parent_topic": null
   },
   {
-    "vn": "Account Types",
-    "en": "Account Types",
-    "seller": 0.54,
-    "prospect": 3.19,
-    "diff": -2.65,
-    "color": "oklch(0.62 0.15 200)",
-    "parent_topic": "mt6"
-  },
-  {
-    "vn": "Product Selection",
-    "en": "Product Selection",
-    "seller": 1.54,
-    "prospect": 2.18,
-    "diff": -0.64,
-    "color": "oklch(0.62 0.15 80)",
-    "parent_topic": "mt2"
-  },
-  {
-    "vn": "Amazon advertising best practices",
-    "en": "Amazon advertising best practices",
-    "seller": 2.03,
-    "prospect": 1.29,
-    "diff": 0.74,
-    "color": "oklch(0.62 0.15 110)",
-    "parent_topic": "mt7"
-  },
-  {
-    "vn": "Legal Entity Setup",
-    "en": "Legal Entity Setup",
-    "seller": 0.69,
-    "prospect": 2.52,
-    "diff": -1.83,
-    "color": "oklch(0.62 0.15 200)",
-    "parent_topic": "mt6"
-  },
-  {
-    "vn": "Supplier sourcing",
-    "en": "Supplier sourcing",
-    "seller": 0.61,
-    "prospect": 2.33,
-    "diff": -1.72,
-    "color": "oklch(0.62 0.15 320)",
-    "parent_topic": "mt5"
-  },
-  {
-    "vn": "Third-party service introduction",
-    "en": "Third-party service introduction",
-    "seller": 0.74,
-    "prospect": 2.16,
-    "diff": -1.42,
-    "color": "oklch(0.62 0.15 320)",
-    "parent_topic": "mt5"
-  },
-  {
-    "vn": "Incentives & Training",
-    "en": "Incentives & Training",
-    "seller": 0.25,
-    "prospect": 2.24,
-    "diff": -1.99,
-    "color": "oklch(0.62 0.15 80)",
-    "parent_topic": "mt2"
-  },
-  {
-    "vn": "Intellectual property disputes resolution",
-    "en": "Intellectual property disputes resolution",
-    "seller": 1.69,
-    "prospect": 0.56,
-    "diff": 1.13,
-    "color": "oklch(0.62 0.15 350)",
-    "parent_topic": "mt9"
-  },
-  {
-    "vn": "Listing guidelines & best practices",
-    "en": "Listing guidelines & best practices",
-    "seller": 0.82,
-    "prospect": 1.41,
-    "diff": -0.59,
-    "color": "oklch(0.62 0.15 290)",
-    "parent_topic": "mt8"
-  },
-  {
-    "vn": "Off-platform advertising",
-    "en": "Off-platform advertising",
-    "seller": 0.76,
-    "prospect": 1.08,
-    "diff": -0.32,
-    "color": "oklch(0.62 0.15 110)",
-    "parent_topic": "mt7"
-  },
-  {
-    "vn": "Advertising costs",
-    "en": "Advertising costs",
-    "seller": 1.2,
-    "prospect": 0.61,
-    "diff": 0.59,
-    "color": "oklch(0.62 0.15 110)",
-    "parent_topic": "mt7"
-  },
-  {
-    "vn": "Registration Documents",
-    "en": "Registration Documents",
-    "seller": 0.31,
-    "prospect": 0.9,
-    "diff": -0.59,
-    "color": "oklch(0.62 0.15 200)",
-    "parent_topic": "mt6"
-  },
-  {
-    "vn": "Listing errors",
-    "en": "Listing errors",
-    "seller": 0.8,
-    "prospect": 0.26,
-    "diff": 0.54,
-    "color": "oklch(0.62 0.15 290)",
-    "parent_topic": "mt8"
-  },
-  {
-    "vn": "Quality & Compliance",
-    "en": "Quality & Compliance",
-    "seller": 0.38,
-    "prospect": 0.42,
-    "diff": -0.04,
-    "color": "oklch(0.62 0.15 80)",
-    "parent_topic": "mt2"
-  },
-  {
-    "vn": "Account updates",
-    "en": "Account updates",
-    "seller": 0.27,
-    "prospect": 0.48,
-    "diff": -0.21,
-    "color": "oklch(0.62 0.15 60)",
-    "parent_topic": "mt4"
-  },
-  {
-    "vn": "Supplier Sourcing",
-    "en": "Supplier Sourcing",
-    "seller": 0.19,
-    "prospect": 0.53,
-    "diff": -0.34,
-    "color": "oklch(0.62 0.15 80)",
-    "parent_topic": "mt2"
-  },
-  {
-    "vn": "Inventory management best practices",
-    "en": "Inventory management best practices",
-    "seller": 0.3,
-    "prospect": 0.26,
-    "diff": 0.04,
-    "color": "oklch(0.62 0.15 230)",
-    "parent_topic": "mt3"
-  },
-  {
-    "vn": "Product images",
-    "en": "Product images",
-    "seller": 0.23,
-    "prospect": 0.29,
-    "diff": -0.06,
-    "color": "oklch(0.62 0.15 290)",
-    "parent_topic": "mt8"
-  },
-  {
-    "vn": "Legal Issues And Account Suspensions",
-    "en": "Legal Issues And Account Suspensions",
-    "seller": 0.26,
-    "prospect": 0.03,
-    "diff": 0.23,
+    "vn": "Dịch vụ hỗ trợ và xử lý tài khoản Amazon",
+    "en": "Amazon account support & recovery services",
+    "seller": 6.26,
+    "prospect": 3.51,
+    "diff": 2.75,
     "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1"
+    "parent_topic": null
   },
   {
-    "vn": "Brand registration documents",
-    "en": "Brand registration documents",
-    "seller": 0.04,
-    "prospect": 0.16,
-    "diff": -0.12,
-    "color": "oklch(0.62 0.15 350)",
-    "parent_topic": "mt9"
+    "vn": "Chia sẻ, học hỏi và hợp tác kinh nghiệm bán hàng Amazon",
+    "en": "Sharing, learning & peer collaboration on Amazon",
+    "seller": 7.03,
+    "prospect": 2.09,
+    "diff": 4.94,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
   },
   {
-    "vn": "Supplier And Fulfillment Services",
-    "en": "Supplier And Fulfillment Services",
-    "seller": 0.09,
-    "prospect": 0.07,
+    "vn": "Khó khăn và thách thức khi bán hàng trên Amazon",
+    "en": "Pain points & challenges selling on Amazon",
+    "seller": 6.68,
+    "prospect": 0.64,
+    "diff": 6.04,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
+  },
+  {
+    "vn": "Sự kiện, đào tạo và kết nối cộng đồng bán hàng Amazon",
+    "en": "Events, training & community networking",
+    "seller": 2.64,
+    "prospect": 2.26,
+    "diff": 0.38,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
+  },
+  {
+    "vn": "Hướng dẫn và hỗ trợ khởi đầu bán hàng Amazon",
+    "en": "Getting started on Amazon — guides & onboarding",
+    "seller": 0.12,
+    "prospect": 4.43,
+    "diff": -4.31,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
+  },
+  {
+    "vn": "Vấn đề xác minh, khoá, rủi ko tài khoản Amazon",
+    "en": "Vấn đề xác minh, khoá, rủi ko tài khoản Amazon",
+    "seller": 2.04,
+    "prospect": 1.42,
+    "diff": 0.62,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
+  },
+  {
+    "vn": "Hợp tác, hỗ trợ và vận hành bán hàng Amazon",
+    "en": "Partnerships, support & Amazon selling ops",
+    "seller": 1.46,
+    "prospect": 1.7,
+    "diff": -0.24,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
+  },
+  {
+    "vn": "Kinh nghiệm và chiến lược bán hàng trên Amazon",
+    "en": "Amazon selling strategy & experience",
+    "seller": 2.6,
+    "prospect": 0.5,
+    "diff": 2.1,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
+  },
+  {
+    "vn": "Thanh toán và rút tiền Amazon qua Payoneer/PingPong",
+    "en": "Amazon payouts via Payoneer / PingPong",
+    "seller": 1.47,
+    "prospect": 1.33,
+    "diff": 0.14,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
+  },
+  {
+    "vn": "Kinh doanh Amazon FBA và FBM: vận hành & tối ưu chi phí",
+    "en": "Amazon FBA & FBM — ops & cost optimization",
+    "seller": 1.12,
+    "prospect": 1.26,
+    "diff": -0.14,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
+  },
+  {
+    "vn": "Cảnh báo rủi ro và lừa đảo khi kinh doanh Amazon",
+    "en": "Scam & risk warnings for Amazon sellers",
+    "seller": 1.14,
+    "prospect": 1.12,
     "diff": 0.02,
     "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1"
+    "parent_topic": null
   },
   {
-    "vn": "Recruitment And Job Opportunities",
-    "en": "Recruitment And Job Opportunities",
-    "seller": 0.02,
-    "prospect": 0.13,
-    "diff": -0.11,
+    "vn": "Vấn đề xác minh, khoá, rủi zo tài khoản Amazon",
+    "en": "Vấn đề xác minh, khoá, rủi zo tài khoản Amazon",
+    "seller": 0.77,
+    "prospect": 0.9,
+    "diff": -0.13,
     "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1"
+    "parent_topic": null
   },
   {
-    "vn": "Platform Policy Changes And Announcements",
-    "en": "Platform Policy Changes And Announcements",
-    "seller": 0.13,
-    "prospect": 0.01,
-    "diff": 0.12,
+    "vn": "Dịch vụ và giải pháp pháp lý, thương hiệu và công cụ kinh doanh cho người bán Amazon",
+    "en": "Legal, brand & business-tool services for Amazon sellers",
+    "seller": 0.34,
+    "prospect": 0.92,
+    "diff": -0.58,
     "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1"
+    "parent_topic": null
   },
   {
-    "vn": "Account Hiring And Leasing",
-    "en": "Account Hiring And Leasing",
+    "vn": "Vấn đề xác minh, khoá, rủi ico tài khoản Amazon",
+    "en": "Vấn đề xác minh, khoá, rủi ico tài khoản Amazon",
+    "seller": 0.17,
+    "prospect": 0.12,
+    "diff": 0.05,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
+  },
+  {
+    "vn": "Vấn đề không nhận được mã OTP Amazon",
+    "en": "Missing Amazon OTP codes",
     "seller": 0.11,
-    "prospect": 0.03,
-    "diff": 0.08,
+    "prospect": 0.12,
+    "diff": -0.01,
     "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1"
+    "parent_topic": null
   },
   {
-    "vn": "Banking And Financial Services",
-    "en": "Banking And Financial Services",
-    "seller": 0.04,
-    "prospect": 0.07,
-    "diff": -0.03,
+    "vn": "Cảnh báo rủi ko và lừa đảo khi kinh doanh Amazon",
+    "en": "Cảnh báo rủi ko và lừa đảo khi kinh doanh Amazon",
+    "seller": 0.07,
+    "prospect": 0.13,
+    "diff": -0.06,
     "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1"
+    "parent_topic": null
   },
   {
-    "vn": "GTIN exemption",
-    "en": "GTIN exemption",
+    "vn": "Vấn đề xác minh, khoá, rủi ro tài khoán Amazon",
+    "en": "Vấn đề xác minh, khoá, rủi ro tài khoán Amazon",
     "seller": 0.08,
     "prospect": 0.03,
     "diff": 0.05,
-    "color": "oklch(0.62 0.15 290)",
-    "parent_topic": "mt8"
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
   },
   {
-    "vn": "Training Courses And Mentorship",
-    "en": "Training Courses And Mentorship",
+    "vn": "Cảnh báo rủi zo và lừa đảo khi kinh doanh Amazon",
+    "en": "Cảnh báo rủi zo và lừa đảo khi kinh doanh Amazon",
     "seller": 0.06,
-    "prospect": 0.05,
-    "diff": 0.01,
+    "prospect": 0.01,
+    "diff": 0.05,
     "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1"
+    "parent_topic": null
   },
   {
-    "vn": "Inactive account",
-    "en": "Inactive account",
+    "vn": "Vấn đề xác minh, khoá, rủi ico tài khoán Amazon",
+    "en": "Vấn đề xác minh, khoá, rủi ico tài khoán Amazon",
     "seller": 0.03,
-    "prospect": 0.06,
-    "diff": -0.03,
-    "color": "oklch(0.62 0.15 60)",
-    "parent_topic": "mt4"
-  },
-  {
-    "vn": "Scams And Fraud Prevention",
-    "en": "Scams And Fraud Prevention",
-    "seller": 0.04,
-    "prospect": 0.05,
-    "diff": -0.01,
-    "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1"
-  },
-  {
-    "vn": "Product barcodes & labeling",
-    "en": "Product barcodes & labeling",
-    "seller": 0.02,
-    "prospect": 0.06,
-    "diff": -0.04,
-    "color": "oklch(0.62 0.15 290)",
-    "parent_topic": "mt8"
-  },
-  {
-    "vn": "Listing best practices & guidelines",
-    "en": "Listing best practices & guidelines",
-    "seller": 0.02,
-    "prospect": 0.06,
-    "diff": -0.04,
-    "color": "oklch(0.62 0.15 290)",
-    "parent_topic": "mt8"
-  },
-  {
-    "vn": "Tool Recommendations And Software",
-    "en": "Tool Recommendations And Software",
-    "seller": 0.04,
-    "prospect": 0.04,
+    "prospect": 0.03,
     "diff": 0.0,
     "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1"
+    "parent_topic": null
   },
   {
-    "vn": "Amazon logistics solutions",
-    "en": "Amazon logistics solutions",
+    "vn": "Thuế và Chi phí Kinh doanh tron Amazon cho Seller Việt Nam",
+    "en": "Thuế và Chi phí Kinh doanh tron Amazon cho Seller Việt Nam",
+    "seller": 0.04,
+    "prospect": 0.01,
+    "diff": 0.03,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
+  },
+  {
+    "vn": "Vận hành tài khoán và thanh toán quốc tế cho seller",
+    "en": "Vận hành tài khoán và thanh toán quốc tế cho seller",
+    "seller": 0.01,
+    "prospect": 0.03,
+    "diff": -0.02,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
+  },
+  {
+    "vn": "Kinh nghiệm và chiến lStrategy bán hàng trên Amazon",
+    "en": "Kinh nghiệm và chiến lStrategy bán hàng trên Amazon",
     "seller": 0.03,
-    "prospect": 0.01,
-    "diff": 0.02,
-    "color": "oklch(0.62 0.15 230)",
-    "parent_topic": "mt3"
+    "prospect": 0.0,
+    "diff": 0.03,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
   },
   {
-    "vn": "Advertising best practices",
-    "en": "Advertising best practices",
-    "seller": 0.02,
-    "prospect": 0.01,
-    "diff": 0.01,
-    "color": "oklch(0.62 0.15 110)",
-    "parent_topic": "mt7"
+    "vn": "Dịch vụ và giải pháp pháp lý, thương hiệu và công cụ cho Seller Amazon",
+    "en": "Legal, brand & tool services for Amazon sellers",
+    "seller": 0.0,
+    "prospect": 0.03,
+    "diff": -0.03,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
   },
   {
-    "vn": "Pricing/Cost",
-    "en": "Pricing/Cost",
+    "vn": "Kinh doanh xuất nhập khẩ và bán hàng quốc tế",
+    "en": "Kinh doanh xuất nhập khẩ và bán hàng quốc tế",
     "seller": 0.01,
     "prospect": 0.02,
     "diff": -0.01,
-    "color": "oklch(0.62 0.15 80)",
-    "parent_topic": "mt2"
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
   },
   {
-    "vn": "ASIN creation",
-    "en": "ASIN creation",
+    "vn": "Vấn đề xác minh, khoá, rủi do tài khoản Amazon",
+    "en": "Vấn đề xác minh, khoá, rủi do tài khoản Amazon",
+    "seller": 0.01,
+    "prospect": 0.01,
+    "diff": 0.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
+  },
+  {
+    "vn": "Dịch vụ hỗ trợ và xử ly tài khoản Amazon",
+    "en": "Dịch vụ hỗ trợ và xử ly tài khoản Amazon",
+    "seller": 0.01,
+    "prospect": 0.01,
+    "diff": 0.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
+  },
+  {
+    "vn": "Vấn đề xác minh, khoá, rủi ko tài khoán Amazon",
+    "en": "Vấn đề xác minh, khoá, rủi ko tài khoán Amazon",
+    "seller": 0.01,
+    "prospect": 0.01,
+    "diff": 0.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
+  },
+  {
+    "vn": "Vấn đề xác minh, khoá, rủi ro tài khoảnAmazon",
+    "en": "Vấn đề xác minh, khoá, rủi ro tài khoảnAmazon",
+    "seller": 0.0,
+    "prospect": 0.01,
+    "diff": -0.01,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
+  },
+  {
+    "vn": "Ưu đãi giảm giá Helium10 cho người bán Amazon",
+    "en": "Helium 10 discounts for Amazon sellers",
+    "seller": 0.0,
+    "prospect": 0.01,
+    "diff": -0.01,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
+  },
+  {
+    "vn": "Vấn đề xác minh, khoá, rủi ko Amazon",
+    "en": "Amazon account verification, suspension & risks",
+    "seller": 0.0,
+    "prospect": 0.01,
+    "diff": -0.01,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
+  },
+  {
+    "vn": "Vấn đề xác minh, khoá, rủi rủi tài khoản Amazon",
+    "en": "Vấn đề xác minh, khoá, rủi rủi tài khoản Amazon",
+    "seller": 0.0,
+    "prospect": 0.01,
+    "diff": -0.01,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
+  },
+  {
+    "vn": "Hương dẫn và hỗ trợ khởi đầu bán hàng Amazon",
+    "en": "Hương dẫn và hỗ trợ khởi đầu bán hàng Amazon",
+    "seller": 0.0,
+    "prospect": 0.01,
+    "diff": -0.01,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
+  },
+  {
+    "vn": "Chiến lược, kinh nghiệm và hỗ trợ cộng đồng bán hàng Amazon",
+    "en": "Amazon strategy, experience & community support",
+    "seller": 0.0,
+    "prospect": 0.01,
+    "diff": -0.01,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
+  },
+  {
+    "vn": "Hỏi đáp và hỗ trợ cộng đồng bán hàng",
+    "en": "Community Q&A and seller support",
     "seller": 0.01,
     "prospect": 0.0,
     "diff": 0.01,
-    "color": "oklch(0.62 0.15 290)",
-    "parent_topic": "mt8"
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
   },
   {
-    "vn": "Account Registration",
-    "en": "Account Registration",
+    "vn": "Khó khăn và thách thức khi bán hàng tron Amazon",
+    "en": "Khó khăn và thách thức khi bán hàng tron Amazon",
+    "seller": 0.01,
+    "prospect": 0.0,
+    "diff": 0.01,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
+  },
+  {
+    "vn": "Vấn đề xác minh, khoá, rủi ro tài khoại Amazon",
+    "en": "Vấn đề xác minh, khoá, rủi ro tài khoại Amazon",
+    "seller": 0.01,
+    "prospect": 0.0,
+    "diff": 0.01,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
+  },
+  {
+    "vn": "Vấn đề xác minh, khoá, rủi quo tài khoản Amazon",
+    "en": "Vấn đề xác minh, khoá, rủi quo tài khoản Amazon",
     "seller": 0.0,
     "prospect": 0.01,
     "diff": -0.01,
-    "color": "oklch(0.62 0.15 200)",
-    "parent_topic": "mt6"
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
   },
   {
-    "vn": "Account errors",
-    "en": "Account errors",
+    "vn": "Dịch vụ hỗ trợ và xử lý tài khoán Amazon",
+    "en": "Dịch vụ hỗ trợ và xử lý tài khoán Amazon",
     "seller": 0.0,
     "prospect": 0.01,
     "diff": -0.01,
-    "color": "oklch(0.62 0.15 200)",
-    "parent_topic": "mt6"
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
   },
   {
-    "vn": "Account health",
-    "en": "Account health",
+    "vn": "Vấn đề xác minh, khoá, rủi rio tài khoản Amazon",
+    "en": "Vấn đề xác minh, khoá, rủi rio tài khoản Amazon",
     "seller": 0.0,
     "prospect": 0.0,
     "diff": 0.0,
-    "color": "oklch(0.62 0.15 60)",
-    "parent_topic": "mt4"
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
   },
   {
-    "vn": "Account Updates",
-    "en": "Account Updates",
+    "vn": "Dịch vụ hỗ trợ và xử lly tài khoản Amazon",
+    "en": "Dịch vụ hỗ trợ và xử lly tài khoản Amazon",
     "seller": 0.0,
     "prospect": 0.0,
     "diff": 0.0,
-    "color": "oklch(0.62 0.15 200)",
-    "parent_topic": "mt6"
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
   },
   {
-    "vn": "Pricing/cost",
-    "en": "Pricing/cost",
+    "vn": "Kinh doanh xuất nhập khẩo và bán hàng quốc tế",
+    "en": "Kinh doanh xuất nhập khẩo và bán hàng quốc tế",
     "seller": 0.0,
     "prospect": 0.0,
     "diff": 0.0,
-    "color": "oklch(0.62 0.15 80)",
-    "parent_topic": "mt2"
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
+  },
+  {
+    "vn": "Bán hàng và vận hành kinh doanh tron Amazon",
+    "en": "Bán hàng và vận hành kinh doanh tron Amazon",
+    "seller": 0.0,
+    "prospect": 0.0,
+    "diff": 0.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
+  },
+  {
+    "vn": "Dịch vụ hỗ trợ và xử lय lý tài khoản Amazon",
+    "en": "Dịch vụ hỗ trợ và xử lय lý tài khoản Amazon",
+    "seller": 0.0,
+    "prospect": 0.0,
+    "diff": 0.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
+  },
+  {
+    "vn": "Dịch vụ hỗ trợ và xử lý tài khoان Amazon",
+    "en": "Dịch vụ hỗ trợ và xử lý tài khoان Amazon",
+    "seller": 0.0,
+    "prospect": 0.0,
+    "diff": 0.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
+  },
+  {
+    "vn": "Khó khăn và thải thức khi bán hàng trên Amazon",
+    "en": "Khó khăn và thải thức khi bán hàng trên Amazon",
+    "seller": 0.0,
+    "prospect": 0.0,
+    "diff": 0.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
+  },
+  {
+    "vn": "Vấn đề xác minh, khoá, rủi ico tài khoân Amazon",
+    "en": "Vấn đề xác minh, khoá, rủi ico tài khoân Amazon",
+    "seller": 0.0,
+    "prospect": 0.0,
+    "diff": 0.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
+  },
+  {
+    "vn": "Hỗ trợ khởi đầu bán hàng Amazon",
+    "en": "Amazon selling — getting started support",
+    "seller": 0.0,
+    "prospect": 0.0,
+    "diff": 0.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
+  },
+  {
+    "vn": "Vấn đề xác minh, khoá, rủi ro tài khoành Amazon",
+    "en": "Vấn đề xác minh, khoá, rủi ro tài khoành Amazon",
+    "seller": 0.0,
+    "prospect": 0.0,
+    "diff": 0.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
+  },
+  {
+    "vn": "Vấn đề xác minh, khoá, rủi zo tài khoận Amazon",
+    "en": "Vấn đề xác minh, khoá, rủi zo tài khoận Amazon",
+    "seller": 0.0,
+    "prospect": 0.0,
+    "diff": 0.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
+  },
+  {
+    "vn": "Vấn đề xác minh, khoá, rủi wo tài khoản Amazon",
+    "en": "Vấn đề xác minh, khoá, rủi wo tài khoản Amazon",
+    "seller": 0.0,
+    "prospect": 0.0,
+    "diff": 0.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": null
   }
 ];
   const MONTHS              = [
@@ -1805,11 +1786,11 @@ window.ChiComData = (() => {
     "vn": "Khác",
     "en": "Others",
     "points": [
-      530,
-      4785,
-      4068,
-      6826,
-      920
+      8,
+      317,
+      265,
+      292,
+      4
     ],
     "color": "oklch(0.62 0.15 260)"
   },
@@ -1818,11 +1799,11 @@ window.ChiComData = (() => {
     "vn": "Bán hàng trên Amazon (SOA)",
     "en": "Selling on Amazon (SOA)",
     "points": [
-      136,
-      1353,
-      1389,
-      2248,
-      352
+      0,
+      0,
+      0,
+      0,
+      0
     ],
     "color": "oklch(0.62 0.15 80)"
   },
@@ -1831,11 +1812,11 @@ window.ChiComData = (() => {
     "vn": "Vận chuyển & Logistics",
     "en": "Logistics & fulfillment",
     "points": [
-      113,
-      1405,
-      1108,
-      1909,
-      286
+      0,
+      0,
+      0,
+      0,
+      0
     ],
     "color": "oklch(0.62 0.15 230)"
   },
@@ -1844,11 +1825,11 @@ window.ChiComData = (() => {
     "vn": "Sức khỏe tài khoản",
     "en": "Account health",
     "points": [
-      71,
-      1406,
-      1347,
-      1738,
-      369
+      0,
+      0,
+      0,
+      0,
+      0
     ],
     "color": "oklch(0.62 0.15 60)"
   },
@@ -1857,11 +1838,11 @@ window.ChiComData = (() => {
     "vn": "Dịch vụ bên thứ ba",
     "en": "Third-party services",
     "points": [
-      60,
-      1112,
-      773,
-      2058,
-      221
+      0,
+      0,
+      0,
+      0,
+      0
     ],
     "color": "oklch(0.62 0.15 320)"
   },
@@ -1870,11 +1851,11 @@ window.ChiComData = (() => {
     "vn": "Tạo tài khoản",
     "en": "Account creation",
     "points": [
-      17,
-      648,
-      650,
-      974,
-      258
+      0,
+      0,
+      0,
+      0,
+      0
     ],
     "color": "oklch(0.62 0.15 200)"
   },
@@ -1883,11 +1864,11 @@ window.ChiComData = (() => {
     "vn": "Quảng cáo",
     "en": "Advertising",
     "points": [
-      40,
-      352,
-      377,
-      506,
-      80
+      0,
+      0,
+      0,
+      0,
+      0
     ],
     "color": "oklch(0.62 0.15 110)"
   },
@@ -1896,11 +1877,11 @@ window.ChiComData = (() => {
     "vn": "Listing & Catalog",
     "en": "Listing & catalog",
     "points": [
-      12,
-      209,
-      146,
-      319,
-      40
+      0,
+      0,
+      0,
+      0,
+      0
     ],
     "color": "oklch(0.62 0.15 290)"
   },
@@ -1909,11 +1890,11 @@ window.ChiComData = (() => {
     "vn": "Brand Registry & IP",
     "en": "Brand Registry & IP",
     "points": [
-      64,
-      193,
-      85,
-      158,
-      10
+      0,
+      0,
+      0,
+      0,
+      0
     ],
     "color": "oklch(0.62 0.15 350)"
   }
@@ -1939,15 +1920,15 @@ window.ChiComData = (() => {
   const Q4_EVENTS           = [
   {
     "week": 11,
-    "label": "Spike Mar 9 · +62%"
+    "label": "Spike Mar 9 · +68%"
   },
   {
     "week": 12,
-    "label": "Spike Mar 16 · +64%"
+    "label": "Spike Mar 16 · +70%"
   },
   {
     "week": 13,
-    "label": "Spike Mar 23 · +51%"
+    "label": "Spike Mar 23 · +56%"
   }
 ];
   const Q4_WEEKLY           = [
@@ -1957,22 +1938,22 @@ window.ChiComData = (() => {
     "en": "Others",
     "color": "oklch(0.62 0.15 260)",
     "points": [
-      16,
-      1065,
-      1134,
-      1140,
-      963,
-      1104,
-      1129,
-      1017,
-      634,
-      1304,
-      1420,
-      2154,
-      1508,
-      1449,
-      914,
-      178
+      0,
+      10,
+      38,
+      25,
+      231,
+      23,
+      43,
+      52,
+      35,
+      139,
+      41,
+      45,
+      111,
+      89,
+      4,
+      0
     ]
   },
   {
@@ -1981,22 +1962,46 @@ window.ChiComData = (() => {
     "en": "Selling on Amazon (SOA)",
     "color": "oklch(0.62 0.15 80)",
     "points": [
-      7,
-      191,
-      310,
-      288,
-      323,
-      409,
-      412,
-      303,
-      299,
-      408,
-      414,
-      471,
-      672,
-      563,
-      325,
-      83
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "mt3",
+    "vn": "Vận chuyển & Logistics",
+    "en": "Logistics & fulfillment",
+    "color": "oklch(0.62 0.15 230)",
+    "points": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
     ]
   },
   {
@@ -2006,45 +2011,21 @@ window.ChiComData = (() => {
     "color": "oklch(0.62 0.15 60)",
     "points": [
       0,
-      226,
-      371,
-      305,
-      338,
-      259,
-      268,
-      300,
-      333,
-      447,
-      250,
-      410,
-      465,
-      473,
-      418,
-      68
-    ]
-  },
-  {
-    "id": "mt3",
-    "vn": "Vận chuyển & Logistics",
-    "en": "Logistics & fulfillment",
-    "color": "oklch(0.62 0.15 230)",
-    "points": [
-      9,
-      277,
-      310,
-      313,
-      294,
-      358,
-      334,
-      389,
-      114,
-      236,
-      517,
-      303,
-      514,
-      500,
-      301,
-      52
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
     ]
   }
 ];
@@ -2068,30 +2049,30 @@ window.ChiComData = (() => {
 ];
   const Q56_HEATMAP         = [
   [
-    36,
-    15,
+    35,
+    13,
     8,
     16,
     4,
     7,
-    19,
-    41,
-    61,
-    66,
-    100,
-    104,
-    86,
-    51,
-    64,
+    17,
+    44,
+    58,
+    67,
+    98,
+    101,
+    82,
+    48,
+    59,
+    79,
     81,
-    90,
-    49,
-    50,
-    51,
-    89,
+    46,
+    47,
+    46,
     86,
-    38,
-    26
+    78,
+    30,
+    24
   ],
   [
     21,
@@ -2127,22 +2108,22 @@ window.ChiComData = (() => {
     2,
     9,
     18,
-    38,
-    61,
-    122,
-    121,
-    144,
+    39,
+    62,
+    125,
+    119,
+    145,
     73,
     68,
-    86,
-    96,
-    68,
+    84,
+    91,
+    66,
     74,
-    49,
+    56,
     68,
-    60,
+    59,
     64,
-    41,
+    42,
     63
   ],
   [
@@ -2153,108 +2134,108 @@ window.ChiComData = (() => {
     4,
     7,
     14,
-    33,
-    45,
-    51,
-    91,
-    113,
-    128,
-    61,
+    32,
+    41,
+    50,
+    93,
+    111,
+    126,
+    58,
     62,
-    69,
+    70,
     55,
-    39,
+    36,
     39,
     54,
-    54,
-    97,
-    71,
-    59
+    50,
+    83,
+    67,
+    53
   ],
   [
-    29,
-    14,
-    14,
+    23,
+    12,
+    13,
     3,
     9,
-    9,
-    28,
-    49,
-    87,
-    127,
-    119,
-    140,
-    138,
-    85,
-    112,
-    98,
-    88,
-    79,
-    63,
-    52,
-    59,
-    77,
-    70,
-    41
+    7,
+    25,
+    42,
+    76,
+    120,
+    114,
+    136,
+    134,
+    81,
+    111,
+    94,
+    86,
+    71,
+    56,
+    50,
+    58,
+    74,
+    71,
+    39
   ],
   [
-    25,
+    26,
     12,
     6,
     5,
     3,
     4,
-    18,
-    43,
-    65,
-    109,
-    137,
-    109,
-    95,
-    69,
-    73,
-    62,
+    17,
+    40,
+    53,
+    102,
+    133,
+    99,
+    86,
+    66,
+    72,
+    61,
     79,
-    80,
-    73,
+    81,
+    67,
     69,
-    56,
-    52,
-    52,
-    52
+    49,
+    43,
+    48,
+    46
   ],
   [
-    33,
-    14,
+    32,
+    13,
     6,
     5,
     5,
     3,
     19,
-    39,
-    40,
-    82,
-    68,
-    50,
-    39,
+    37,
+    35,
+    76,
+    64,
+    45,
+    36,
     31,
-    69,
-    44,
-    58,
-    38,
+    68,
     42,
-    63,
-    65,
-    63,
-    95,
-    48
+    56,
+    35,
+    41,
+    60,
+    62,
+    55,
+    92,
+    46
   ]
 ];
   const Q5_BY_DAY           = [
   {
     "day": "T2",
     "en": "Mon",
-    "count": 1238
+    "count": 1174
   },
   {
     "day": "T3",
@@ -2264,34 +2245,34 @@ window.ChiComData = (() => {
   {
     "day": "T4",
     "en": "Wed",
-    "count": 1383
+    "count": 1385
   },
   {
     "day": "T5",
     "en": "Thu",
-    "count": 1200
+    "count": 1159
   },
   {
     "day": "T6",
     "en": "Fri",
-    "count": 1590
+    "count": 1505
   },
   {
     "day": "T7",
     "en": "Sat",
-    "count": 1348
+    "count": 1267
   },
   {
     "day": "CN",
     "en": "Sun",
-    "count": 1019
+    "count": 964
   }
 ];
   const Q5_BY_DAY_SOA       = [
   {
     "day": "T2",
     "en": "Mon",
-    "count": 223
+    "count": 201
   },
   {
     "day": "T3",
@@ -2301,34 +2282,34 @@ window.ChiComData = (() => {
   {
     "day": "T4",
     "en": "Wed",
-    "count": 176
+    "count": 162
   },
   {
     "day": "T5",
     "en": "Thu",
-    "count": 161
+    "count": 150
   },
   {
     "day": "T6",
     "en": "Fri",
-    "count": 272
+    "count": 247
   },
   {
     "day": "T7",
     "en": "Sat",
-    "count": 181
+    "count": 171
   },
   {
     "day": "CN",
     "en": "Sun",
-    "count": 48
+    "count": 43
   }
 ];
   const Q5_BY_DAY_EC        = [
   {
     "day": "T2",
     "en": "Mon",
-    "count": 1015
+    "count": 973
   },
   {
     "day": "T3",
@@ -2338,41 +2319,41 @@ window.ChiComData = (() => {
   {
     "day": "T4",
     "en": "Wed",
-    "count": 1207
+    "count": 1223
   },
   {
     "day": "T5",
     "en": "Thu",
-    "count": 1039
+    "count": 1009
   },
   {
     "day": "T6",
     "en": "Fri",
-    "count": 1318
+    "count": 1258
   },
   {
     "day": "T7",
     "en": "Sat",
-    "count": 1167
+    "count": 1096
   },
   {
     "day": "CN",
     "en": "Sun",
-    "count": 971
+    "count": 921
   }
 ];
   const Q6_BY_HOUR          = [
   {
     "hour": 0,
-    "count": 210
+    "count": 203
   },
   {
     "hour": 1,
-    "count": 79
+    "count": 74
   },
   {
     "hour": 2,
-    "count": 54
+    "count": 53
   },
   {
     "hour": 3,
@@ -2384,93 +2365,93 @@ window.ChiComData = (() => {
   },
   {
     "hour": 5,
-    "count": 46
+    "count": 44
   },
   {
     "hour": 6,
-    "count": 129
+    "count": 123
   },
   {
     "hour": 7,
-    "count": 299
+    "count": 290
   },
   {
     "hour": 8,
-    "count": 433
+    "count": 399
   },
   {
     "hour": 9,
-    "count": 649
+    "count": 632
   },
   {
     "hour": 10,
-    "count": 729
+    "count": 714
   },
   {
     "hour": 11,
-    "count": 778
+    "count": 755
   },
   {
     "hour": 12,
-    "count": 648
+    "count": 626
   },
   {
     "hour": 13,
-    "count": 428
+    "count": 415
   },
   {
     "hour": 14,
-    "count": 526
+    "count": 516
   },
   {
     "hour": 15,
-    "count": 545
+    "count": 532
   },
   {
     "hour": 16,
-    "count": 513
+    "count": 498
   },
   {
     "hour": 17,
-    "count": 441
+    "count": 425
   },
   {
     "hour": 18,
-    "count": 385
+    "count": 375
   },
   {
     "hour": 19,
-    "count": 424
+    "count": 414
   },
   {
     "hour": 20,
-    "count": 451
+    "count": 432
   },
   {
     "hour": 21,
-    "count": 517
+    "count": 475
   },
   {
     "hour": 22,
-    "count": 470
+    "count": 453
   },
   {
     "hour": 23,
-    "count": 325
+    "count": 307
   }
 ];
   const Q6_BY_HOUR_SOA      = [
   {
     "hour": 0,
-    "count": 23
+    "count": 19
   },
   {
     "hour": 1,
-    "count": 15
+    "count": 14
   },
   {
     "hour": 2,
-    "count": 6
+    "count": 5
   },
   {
     "hour": 3,
@@ -2490,81 +2471,81 @@ window.ChiComData = (() => {
   },
   {
     "hour": 7,
-    "count": 24
+    "count": 20
   },
   {
     "hour": 8,
-    "count": 51
+    "count": 45
   },
   {
     "hour": 9,
-    "count": 54
+    "count": 51
   },
   {
     "hour": 10,
-    "count": 84
+    "count": 77
   },
   {
     "hour": 11,
-    "count": 146
+    "count": 143
   },
   {
     "hour": 12,
-    "count": 90
+    "count": 85
   },
   {
     "hour": 13,
-    "count": 64
+    "count": 63
   },
   {
     "hour": 14,
-    "count": 87
+    "count": 80
   },
   {
     "hour": 15,
-    "count": 84
+    "count": 79
   },
   {
     "hour": 16,
-    "count": 73
+    "count": 63
   },
   {
     "hour": 17,
-    "count": 55
+    "count": 49
   },
   {
     "hour": 18,
-    "count": 75
+    "count": 72
   },
   {
     "hour": 19,
-    "count": 68
+    "count": 63
   },
   {
     "hour": 20,
-    "count": 62
+    "count": 59
   },
   {
     "hour": 21,
-    "count": 65
+    "count": 58
   },
   {
     "hour": 22,
-    "count": 52
+    "count": 49
   },
   {
     "hour": 23,
-    "count": 27
+    "count": 24
   }
 ];
   const Q6_BY_HOUR_EC       = [
   {
     "hour": 0,
-    "count": 187
+    "count": 184
   },
   {
     "hour": 1,
-    "count": 64
+    "count": 60
   },
   {
     "hour": 2,
@@ -2580,213 +2561,213 @@ window.ChiComData = (() => {
   },
   {
     "hour": 5,
-    "count": 34
+    "count": 32
   },
   {
     "hour": 6,
-    "count": 118
+    "count": 112
   },
   {
     "hour": 7,
-    "count": 275
+    "count": 270
   },
   {
     "hour": 8,
-    "count": 382
+    "count": 354
   },
   {
     "hour": 9,
-    "count": 595
+    "count": 581
   },
   {
     "hour": 10,
-    "count": 645
+    "count": 637
   },
   {
     "hour": 11,
-    "count": 632
+    "count": 612
   },
   {
     "hour": 12,
-    "count": 558
+    "count": 541
   },
   {
     "hour": 13,
-    "count": 364
+    "count": 352
   },
   {
     "hour": 14,
-    "count": 439
+    "count": 436
   },
   {
     "hour": 15,
-    "count": 461
+    "count": 453
   },
   {
     "hour": 16,
-    "count": 440
+    "count": 435
   },
   {
     "hour": 17,
-    "count": 386
+    "count": 376
   },
   {
     "hour": 18,
-    "count": 310
+    "count": 303
   },
   {
     "hour": 19,
-    "count": 356
+    "count": 351
   },
   {
     "hour": 20,
-    "count": 389
+    "count": 373
   },
   {
     "hour": 21,
-    "count": 452
+    "count": 417
   },
   {
     "hour": 22,
-    "count": 418
+    "count": 404
   },
   {
     "hour": 23,
-    "count": 298
+    "count": 283
   }
 ];
   const Q5_TOP_NEG          = [
   {
-    "vn": "Misc / Other",
-    "en": "Misc / Other",
-    "count": 1902
+    "vn": "Vấn đề xác minh, khoá, rủi ro tài khoản Amazon",
+    "en": "Amazon account verification, suspension & risks",
+    "count": 2153
   },
   {
-    "vn": "Account suspension",
-    "en": "Account suspension",
-    "count": 1079
+    "vn": "Khó khăn và thách thức khi bán hàng trên Amazon",
+    "en": "Pain points & challenges selling on Amazon",
+    "count": 1330
   },
   {
-    "vn": "Account issues / Account errors",
-    "en": "Account issues / Account errors",
-    "count": 984
+    "vn": "Bán hàng và vận hành kinh doanh trên Amazon",
+    "en": "Amazon selling & operations",
+    "count": 836
   },
   {
-    "vn": "Account verification",
-    "en": "Account verification",
-    "count": 659
+    "vn": "Dịch vụ hỗ trợ và xử lý tài khoản Amazon",
+    "en": "Amazon account support & recovery services",
+    "count": 791
   },
   {
-    "vn": "Tax Compliance And Declarations",
-    "en": "Tax Compliance And Declarations",
-    "count": 637
+    "vn": "Thuế và Chi phí Kinh doanh trên Amazon cho Seller Việt Nam",
+    "en": "Tax & costs for Vietnamese Amazon sellers",
+    "count": 737
   },
   {
-    "vn": "Market Trends And Sales Performance",
-    "en": "Market Trends And Sales Performance",
-    "count": 562
+    "vn": "Kinh doanh xuất nhập khẩu và bán hàng quốc tế",
+    "en": "Import-export & international selling",
+    "count": 652
   }
 ];
   const Q5_TOP_NEG_SOA      = [
   {
-    "vn": "Account issues / Account errors",
-    "en": "Account issues / Account errors",
-    "count": 225
+    "vn": "Vấn đề xác minh, khoá, rủi ro tài khoản Amazon",
+    "en": "Amazon account verification, suspension & risks",
+    "count": 480
   },
   {
-    "vn": "Account suspension",
-    "en": "Account suspension",
-    "count": 176
+    "vn": "Dịch vụ hỗ trợ và xử lý tài khoản Amazon",
+    "en": "Amazon account support & recovery services",
+    "count": 196
   },
   {
-    "vn": "Misc / Other",
-    "en": "Misc / Other",
-    "count": 164
+    "vn": "Khó khăn và thách thức khi bán hàng trên Amazon",
+    "en": "Pain points & challenges selling on Amazon",
+    "count": 105
   },
   {
-    "vn": "Intellectual property disputes resolution",
-    "en": "Intellectual property disputes resolution",
-    "count": 106
+    "vn": "Kinh doanh xuất nhập khẩu và bán hàng quốc tế",
+    "en": "Import-export & international selling",
+    "count": 66
   },
   {
-    "vn": "Selling Best Practices",
-    "en": "Selling Best Practices",
-    "count": 103
+    "vn": "Chia sẻ, học hỏi và hợp tác kinh nghiệm bán hàng Amazon",
+    "en": "Sharing, learning & peer collaboration on Amazon",
+    "count": 58
   },
   {
-    "vn": "Account verification",
-    "en": "Account verification",
-    "count": 75
+    "vn": "Bán hàng và vận hành kinh doanh trên Amazon",
+    "en": "Amazon selling & operations",
+    "count": 30
   }
 ];
   const Q5_TOP_NEG_EC       = [
   {
-    "vn": "Misc / Other",
-    "en": "Misc / Other",
-    "count": 1738
+    "vn": "Vấn đề xác minh, khoá, rủi ro tài khoản Amazon",
+    "en": "Amazon account verification, suspension & risks",
+    "count": 1673
   },
   {
-    "vn": "Account suspension",
-    "en": "Account suspension",
-    "count": 903
+    "vn": "Khó khăn và thách thức khi bán hàng trên Amazon",
+    "en": "Pain points & challenges selling on Amazon",
+    "count": 1225
   },
   {
-    "vn": "Account issues / Account errors",
-    "en": "Account issues / Account errors",
-    "count": 759
+    "vn": "Bán hàng và vận hành kinh doanh trên Amazon",
+    "en": "Amazon selling & operations",
+    "count": 806
   },
   {
-    "vn": "Tax Compliance And Declarations",
-    "en": "Tax Compliance And Declarations",
-    "count": 633
+    "vn": "Thuế và Chi phí Kinh doanh trên Amazon cho Seller Việt Nam",
+    "en": "Tax & costs for Vietnamese Amazon sellers",
+    "count": 717
   },
   {
-    "vn": "Account verification",
-    "en": "Account verification",
-    "count": 584
+    "vn": "Dịch vụ hỗ trợ và xử lý tài khoản Amazon",
+    "en": "Amazon account support & recovery services",
+    "count": 595
   },
   {
-    "vn": "Market Trends And Sales Performance",
-    "en": "Market Trends And Sales Performance",
-    "count": 519
+    "vn": "Kinh doanh xuất nhập khẩu và bán hàng quốc tế",
+    "en": "Import-export & international selling",
+    "count": 586
   }
 ];
   const Q5_EARLY_DIST       = [
   {
-    "vn": "Misc / Other",
-    "en": "Misc / Other",
-    "count": 1902,
-    "slot": 615
+    "vn": "Vấn đề xác minh, khoá, rủi ro tài khoản Amazon",
+    "en": "Amazon account verification, suspension & risks",
+    "count": 2153,
+    "slot": 673
   },
   {
-    "vn": "Account suspension",
-    "en": "Account suspension",
-    "count": 1079,
-    "slot": 279
+    "vn": "Khó khăn và thách thức khi bán hàng trên Amazon",
+    "en": "Pain points & challenges selling on Amazon",
+    "count": 1330,
+    "slot": 428
   },
   {
-    "vn": "Account issues / Account errors",
-    "en": "Account issues / Account errors",
-    "count": 984,
-    "slot": 318
+    "vn": "Bán hàng và vận hành kinh doanh trên Amazon",
+    "en": "Amazon selling & operations",
+    "count": 836,
+    "slot": 242
   },
   {
-    "vn": "Account verification",
-    "en": "Account verification",
-    "count": 659,
-    "slot": 217
+    "vn": "Dịch vụ hỗ trợ và xử lý tài khoản Amazon",
+    "en": "Amazon account support & recovery services",
+    "count": 791,
+    "slot": 193
   },
   {
-    "vn": "Tax Compliance And Declarations",
-    "en": "Tax Compliance And Declarations",
-    "count": 637,
-    "slot": 176
+    "vn": "Thuế và Chi phí Kinh doanh trên Amazon cho Seller Việt Nam",
+    "en": "Tax & costs for Vietnamese Amazon sellers",
+    "count": 737,
+    "slot": 203
   },
   {
-    "vn": "Market Trends And Sales Performance",
-    "en": "Market Trends And Sales Performance",
-    "count": 562,
-    "slot": 187
+    "vn": "Kinh doanh xuất nhập khẩu và bán hàng quốc tế",
+    "en": "Import-export & international selling",
+    "count": 652,
+    "slot": 236
   }
 ];
   const Q5_PEAK_WINDOW      = {
@@ -2799,51 +2780,51 @@ window.ChiComData = (() => {
     12
   ],
   "windowSize": 4,
-  "totalMentions": 2804,
+  "totalMentions": 2727,
   "hourlyCounts": [
-    210,
-    79,
-    54,
+    203,
+    74,
+    53,
     50,
     33,
-    46,
-    129,
-    299,
-    433,
-    649,
-    729,
-    778,
-    648,
-    428,
-    526,
-    545,
-    513,
-    441,
-    385,
-    424,
-    451,
-    517,
-    470,
-    325
+    44,
+    123,
+    290,
+    399,
+    632,
+    714,
+    755,
+    626,
+    415,
+    516,
+    532,
+    498,
+    425,
+    375,
+    414,
+    432,
+    475,
+    453,
+    307
   ]
 };
   const KPI                 = {
-  "totalPosts": 48008,
-  "relevantPosts": 41721,
-  "negativeMentions": 9162,
-  "positiveMentions": 5411,
-  "soaPositivePct": 25.7,
-  "soaNegativePct": 21.2,
-  "ecPositivePct": 10.9,
+  "totalPosts": 46636,
+  "relevantPosts": 40258,
+  "negativeMentions": 8838,
+  "positiveMentions": 5157,
+  "soaPositivePct": 26.2,
+  "soaNegativePct": 21.0,
+  "ecPositivePct": 10.7,
   "ecNegativePct": 22.1,
-  "soaRelevant": 5843,
-  "ecRelevant": 35878,
+  "soaRelevant": 5468,
+  "ecRelevant": 34790,
   "activeGroups": 9,
   "analysedGroups": 9,
   "soaGroups": 2,
   "ecGroups": 7,
   "masterTopics": 9,
-  "subTopics": 57
+  "subTopics": 56
 };
   const OVERVIEW            = {
   "communities": [
@@ -2852,63 +2833,63 @@ window.ChiComData = (() => {
       "name": "Cộng đồng ETSY Việt Nam",
       "short": "ETSY VN",
       "type": "EC",
-      "count": 12520
+      "count": 12102
     },
     {
       "id": "ec4",
       "name": "Chuyện Nhà Bán (Shopee/TikTok)",
       "short": "Chuyện Nhà Bán",
       "type": "EC",
-      "count": 12059
-    },
-    {
-      "id": "soa2",
-      "name": "Cộng đồng Amazon Sellers VN",
-      "short": "CĐ Amazon Sellers",
-      "type": "SOA",
-      "count": 5114
+      "count": 11518
     },
     {
       "id": "ec3",
       "name": "Cộng Đồng Dropshipping & Shopify VN",
       "short": "Dropship & Shopify",
       "type": "EC",
-      "count": 4884
+      "count": 4836
     },
     {
       "id": "ec5",
       "name": "Etsy To Go",
       "short": "Etsy To Go",
       "type": "EC",
-      "count": 4805
+      "count": 4780
+    },
+    {
+      "id": "soa2",
+      "name": "Cộng đồng Amazon Sellers VN",
+      "short": "CĐ Amazon Sellers",
+      "type": "SOA",
+      "count": 4775
     },
     {
       "id": "ec1",
       "name": "Cộng Đồng MMO",
       "short": "MMO",
       "type": "EC",
-      "count": 767
+      "count": 704
     },
     {
       "id": "soa1",
       "name": "Amazon Sellers Viet Nam",
       "short": "Amazon Sellers VN",
       "type": "SOA",
-      "count": 729
+      "count": 693
     },
     {
       "id": "ec2",
       "name": "Cuồng Phong Hội (Crossborder CBEC)",
       "short": "Cuồng Phong Hội",
       "type": "EC",
-      "count": 430
+      "count": 429
     },
     {
       "id": "ec6",
       "name": "Etsy E-Z Cộng Đồng Etsy Việt",
       "short": "Etsy E-Z",
       "type": "EC",
-      "count": 413
+      "count": 421
     }
   ],
   "personas": [
@@ -2917,53 +2898,53 @@ window.ChiComData = (() => {
       "short": "Seller",
       "segment": "Others",
       "vn": "Seller (Others)",
-      "count": 15906,
-      "pct": 38.1
+      "count": 14906,
+      "pct": 37.0
     },
     {
       "id": "p_prospect_ot",
       "short": "Prospect",
       "segment": "Others",
       "vn": "Prospect (Others)",
-      "count": 9656,
-      "pct": 23.1
+      "count": 9500,
+      "pct": 23.6
     },
     {
       "id": "p_svc_cbec",
       "short": "Service Provider",
       "segment": "CBEC",
       "vn": "Service Provider (CBEC)",
-      "count": 6763,
-      "pct": 16.2
+      "count": 6647,
+      "pct": 16.5
     },
     {
       "id": "p_seller_az",
       "short": "Seller",
       "segment": "Amazon",
       "vn": "Seller (Amazon)",
-      "count": 6705,
-      "pct": 16.1
+      "count": 6530,
+      "pct": 16.2
     },
     {
       "id": "p_prospect_az",
       "short": "Prospect",
       "segment": "Amazon",
       "vn": "Prospect (Amazon)",
-      "count": 1895,
-      "pct": 4.5
+      "count": 1886,
+      "pct": 4.7
     },
     {
       "id": "p_svc_az",
       "short": "Service Provider",
       "segment": "Amazon",
       "vn": "Service Provider (Amazon)",
-      "count": 796,
+      "count": 768,
       "pct": 1.9
     }
   ],
-  "totalRelevant": 41721,
-  "soaTotal": 5843,
-  "ecTotal": 35878,
+  "totalRelevant": 40258,
+  "soaTotal": 5468,
+  "ecTotal": 34790,
   "soaPct": 14,
   "ecPct": 86,
   "soaGroupCount": 2,
@@ -2974,24 +2955,24 @@ window.ChiComData = (() => {
     "name": "Cộng đồng ETSY Việt Nam",
     "short": "ETSY VN",
     "type": "EC",
-    "count": 12520
+    "count": 12102
   },
-  "topCommunityPct": 30.0,
+  "topCommunityPct": 30.1,
   "topPersona": {
     "id": "p_seller_ot",
     "short": "Seller",
     "segment": "Others",
     "vn": "Seller (Others)",
-    "count": 15906,
-    "pct": 38.1
+    "count": 14906,
+    "pct": 37.0
   },
   "secondPersona": {
     "id": "p_prospect_ot",
     "short": "Prospect",
     "segment": "Others",
     "vn": "Prospect (Others)",
-    "count": 9656,
-    "pct": 23.1
+    "count": 9500,
+    "pct": 23.6
   }
 };
   const PERSONA_BY_GROUP    = [
@@ -3000,12 +2981,12 @@ window.ChiComData = (() => {
     "short": "Amazon Sellers VN",
     "name": "Amazon Sellers Viet Nam",
     "type": "SOA",
-    "total": 729,
+    "total": 693,
     "personas": {
-      "p_seller_az": 397,
-      "p_prospect_az": 119,
-      "p_svc_az": 139,
-      "p_svc_cbec": 47,
+      "p_seller_az": 373,
+      "p_prospect_az": 113,
+      "p_svc_az": 135,
+      "p_svc_cbec": 45,
       "p_prospect_ot": 16,
       "p_seller_ot": 11
     }
@@ -3015,11 +2996,11 @@ window.ChiComData = (() => {
     "short": "CĐ Amazon Sellers",
     "name": "Cộng đồng Amazon Sellers VN",
     "type": "SOA",
-    "total": 5114,
+    "total": 4775,
     "personas": {
-      "p_seller_az": 3033,
-      "p_prospect_az": 929,
-      "p_svc_az": 499,
+      "p_seller_az": 2775,
+      "p_prospect_az": 875,
+      "p_svc_az": 472,
       "p_svc_cbec": 219,
       "p_prospect_ot": 209,
       "p_seller_ot": 225
@@ -3030,14 +3011,14 @@ window.ChiComData = (() => {
     "short": "MMO",
     "name": "Cộng Đồng MMO",
     "type": "EC",
-    "total": 767,
+    "total": 690,
     "personas": {
-      "p_seller_az": 57,
+      "p_seller_az": 58,
       "p_prospect_az": 1,
       "p_svc_az": 28,
-      "p_svc_cbec": 186,
-      "p_prospect_ot": 253,
-      "p_seller_ot": 242
+      "p_svc_cbec": 150,
+      "p_prospect_ot": 226,
+      "p_seller_ot": 227
     }
   },
   {
@@ -3045,14 +3026,14 @@ window.ChiComData = (() => {
     "short": "Cuồng Phong Hội",
     "name": "Cuồng Phong Hội (Crossborder CBEC)",
     "type": "EC",
-    "total": 430,
+    "total": 429,
     "personas": {
-      "p_seller_az": 63,
-      "p_prospect_az": 28,
+      "p_seller_az": 64,
+      "p_prospect_az": 30,
       "p_svc_az": 3,
       "p_svc_cbec": 58,
-      "p_prospect_ot": 171,
-      "p_seller_ot": 107
+      "p_prospect_ot": 169,
+      "p_seller_ot": 105
     }
   },
   {
@@ -3060,14 +3041,14 @@ window.ChiComData = (() => {
     "short": "Dropship & Shopify",
     "name": "Cộng Đồng Dropshipping & Shopify VN",
     "type": "EC",
-    "total": 4884,
+    "total": 4836,
     "personas": {
       "p_seller_az": 137,
       "p_prospect_az": 79,
       "p_svc_az": 71,
-      "p_svc_cbec": 1640,
-      "p_prospect_ot": 1838,
-      "p_seller_ot": 1119
+      "p_svc_cbec": 1628,
+      "p_prospect_ot": 1814,
+      "p_seller_ot": 1107
     }
   },
   {
@@ -3075,14 +3056,14 @@ window.ChiComData = (() => {
     "short": "Chuyện Nhà Bán",
     "name": "Chuyện Nhà Bán (Shopee/TikTok)",
     "type": "EC",
-    "total": 12059,
+    "total": 11513,
     "personas": {
       "p_seller_az": 1048,
       "p_prospect_az": 212,
-      "p_svc_az": 9,
-      "p_svc_cbec": 286,
-      "p_prospect_ot": 2087,
-      "p_seller_ot": 8417
+      "p_svc_az": 8,
+      "p_svc_cbec": 273,
+      "p_prospect_ot": 2041,
+      "p_seller_ot": 7931
     }
   },
   {
@@ -3090,14 +3071,14 @@ window.ChiComData = (() => {
     "short": "Etsy To Go",
     "name": "Etsy To Go",
     "type": "EC",
-    "total": 4805,
+    "total": 4780,
     "personas": {
-      "p_seller_az": 465,
-      "p_prospect_az": 49,
-      "p_svc_az": 24,
-      "p_svc_cbec": 1535,
-      "p_prospect_ot": 1008,
-      "p_seller_ot": 1724
+      "p_seller_az": 519,
+      "p_prospect_az": 90,
+      "p_svc_az": 27,
+      "p_svc_cbec": 1596,
+      "p_prospect_ot": 1001,
+      "p_seller_ot": 1547
     }
   },
   {
@@ -3105,14 +3086,14 @@ window.ChiComData = (() => {
     "short": "Etsy E-Z",
     "name": "Etsy E-Z Cộng Đồng Etsy Việt",
     "type": "EC",
-    "total": 413,
+    "total": 421,
     "personas": {
-      "p_seller_az": 18,
-      "p_prospect_az": 19,
+      "p_seller_az": 19,
+      "p_prospect_az": 22,
       "p_svc_az": 0,
-      "p_svc_cbec": 137,
-      "p_prospect_ot": 136,
-      "p_seller_ot": 103
+      "p_svc_cbec": 148,
+      "p_prospect_ot": 125,
+      "p_seller_ot": 107
     }
   },
   {
@@ -3120,30 +3101,30 @@ window.ChiComData = (() => {
     "short": "ETSY VN",
     "name": "Cộng đồng ETSY Việt Nam",
     "type": "EC",
-    "total": 12520,
+    "total": 12100,
     "personas": {
-      "p_seller_az": 1487,
-      "p_prospect_az": 459,
-      "p_svc_az": 23,
-      "p_svc_cbec": 2655,
-      "p_prospect_ot": 3938,
-      "p_seller_ot": 3958
+      "p_seller_az": 1537,
+      "p_prospect_az": 464,
+      "p_svc_az": 24,
+      "p_svc_cbec": 2530,
+      "p_prospect_ot": 3899,
+      "p_seller_ot": 3646
     }
   }
 ];
   const MASTER_TOPIC_COUNTS = {
-  "mt1": 17129,
-  "mt2": 5478,
-  "mt3": 4821,
-  "mt4": 4931,
-  "mt5": 4224,
-  "mt6": 2547,
-  "mt7": 1355,
-  "mt8": 726,
-  "mt9": 510
+  "mt1": 886,
+  "mt2": 0,
+  "mt3": 0,
+  "mt4": 0,
+  "mt5": 0,
+  "mt6": 0,
+  "mt7": 0,
+  "mt8": 0,
+  "mt9": 0
 };
   const SOA_SCOPE           = {
-  "totalRelevant": 5843,
+  "totalRelevant": 5468,
   "groupIds": [
     1,
     2
@@ -3154,19 +3135,19 @@ window.ChiComData = (() => {
   ]
 };
   const INSIGHTS            = {
-  "Q1": "Cộng đồng Amazon Sellers Việt Nam tập trung chủ yếu vào các vấn đề vận hành nền tảng, với \"Bán hàng trên Amazon\" (13,1%), \"Sức khỏe tài khoản\" (11,8%) và \"Vận chuyển & Logistics\" (11,6%) chiếm tỉ trọng lớn nhất sau nhóm \"Khác\" (41,1%). Tuy nhiên, phần lớn thảo luận vẫn rơi vào các chủ đề không được phân loại rõ ràng, cho thấy nhu cầu của cộng đồng rất đa dạng và thường xuyên thay đổi theo tình huống thực tế—từ những lo ngại về hiệu suất bán hàng hàng ngày đến các câu hỏi về logistics, tìm kiếm KOC, hay theo dõi các thay đổi chính sách từ các sàn khác. Điều này gợi ý rằng cần xây dựng các kênh hỗ trợ hoặc content linh hoạt hơn để giải quyết các vấn đề nổi lên từng lúc, thay vì chỉ tập trung vào các chủ đề cố định.",
-  "Q2": "Nhóm bán hàng trên Amazon (seller_az) tập trung chủ yếu vào MT1 với 2.457 lượt thảo luận, trong khi nhóm bán hàng nền tảng khác (seller_ot) phân tán hơn với đỉnh điểm cũng ở MT1 (7.942 lượt) nhưng vẫn có sự quan tâm đáng kể tới MT4 (2.124 lượt). Nhóm dịch vụ CBEC lại có hành vi khác biệt rõ rệt, tập trung mạnh vào MT5 (2.576 lượt) và MT3 (1.856 lượt), cho thấy họ quan tâm tới các chủ đề khác so với seller. Nhóm prospect trên các nền tảng khác (prospect_ot) cũng theo xu hướng của seller_ot với MT1 dẫn đầu (4.471 lượt), phản ánh nhu cầu tìm hiểu cơ bản về bán hàng online. Các mẫu thảo luận từ cộng đồng cho thấy seller quan tâm tới logistics quốc tế, điều chỉnh phí hoa hồng, và tìm kiếm KOL, trong khi nhóm dịch vụ CBEC lại hỏi về chi phí và cách thức h",
-  "Q3": "Seller đang chịu áp lực lớn từ vấn đề sức khỏe tài khoản, với 18,4% thảo luận liên quan so với chỉ 6,0% ở prospect, đặc biệt là các vấn đề như account suspension (6,61%) và account issues (6,81%). Ngược lại, prospect tập trung nhiều hơn vào dịch vụ bên thứ ba (8,5% vs 2,0% seller) và tạo tài khoản (11,9% vs 4,4%), phản ánh nhu cầu tìm kiếm hỗ trợ logistics, KOL marketing, và các giải pháp outsource trước khi bắt đầu kinh doanh. Seller hiện tại đang gặp khó khăn với các quy định, chính sách thay đổi và rủi ro bị khóa tài khoản, trong khi những người mới vào thị trường cần hướng dẫn về quy trình thiết lập và các dịch vụ hỗ trợ toàn diện. Cơ hội để phát triển content hướng dẫn về account health management và tạo kênh hỗ trợ nhanh chóng cho seller đang hoạt động sẽ giúp giảm rủi ro và tăng retention.",
-  "Q4": "Tháng 3 năm 2026 ghi nhận ba tuần liên tiếp có lượng thảo luận tăng vọt, với tuần 12 (16/3) đạt mức cao nhất +64%, theo sau là tuần 11 (+62%) và tuần 13 (+51%), cho thấy cộng đồng sellers tập trung bàn luận về các chủ đề cấp bách trong giai đoạn này. Dựa trên các cuộc trò chuyện, nhu cầu chính xoay quanh ba lĩnh vực: logistics quốc tế (xnk, liên hệ đơn vị vận chuyển), chiến lược marketing (tìm KOC, chi phí quảng cáo video), và ứng phó với thay đổi chính sách sàn (điều chỉnh phí hoa hồng TikTok Shop). Các seller đang tích cực tìm kiếm giải pháp để tối ưu chi phí và mở rộng kênh bán, đặc biệt trong bối cảnh áp lực từ các quyết định điều chỉnh phí của các sàn lớn. Cơ hội để cung cấp content hướng dẫn về logistics xnk, định giá dịch vụ KOC, và phân tích chính sách sàn sẽ giúp giải quyết nhu cầu",
-  "Q5": "Các vấn đề tiêu cực tập trung chủ yếu vào tạm khóa tài khoản (1.079 lần đề cập) và lỗi hệ thống tài khoản (984 lần), với đỉnh điểm vào thứ Sáu (1.590 lần) và khung giờ 9-13 giờ chiều (2.804 lần trong 4 giờ). Người bán phản ánh lo ngại về việc tài khoản bị \"quét\" mất tiền, xác minh tài khoản kéo dài, cùng với những thách thức về vận chuyển và hiệu suất bán hàng kém, đặc biệt là khi khách hủy đơn sau khi shop đã chuẩn bị hàng. Tập trung hỗ trợ tài khoản và giải đáp nhanh vào sáng thứ Sáu sẽ giúp giảm căng thẳng và tăng lòng tin của cộng đồng seller.",
-  "Q7": "Seller gia nhập Amazon chủ yếu được thu hút bởi triển vọng thành công và thu nhập (1.555 lần nhắc), với nhu cầu học hỏi và chia sẻ kinh nghiệm là động lực mạnh nhất (465 bài thảo luận). Các seller đang tìm kiếm chiến lược sản phẩm thực tế—từ việc chọn hàng nhỏ gọn, base cost thấp dễ test đến xây dựng content marketing đều đặn để duy trì doanh thu ổn định. Bên cạnh đó, nhu cầu hợp tác và hỗ trợ vận hành (282 bài) cho thấy seller cần sự kết nối với cộng đồng để giải quyết các vấn đề thực tiễn như liên kết sản phẩm, tối ưu hóa listing. Để tăng cường giá trị cho seller mới, nên tập trung vào các khóa học về chiến lược sản phẩm, content marketing và automation, kết hợp với cơ hội networking định kỳ trong cộng đồng.",
-  "Q8": "Những seller đang rời bỏ Amazon chủ yếu gặp phải ba vấn đề cấp bách: tài khoản bị khóa và lừa đảo (mỗi loại 18 trường hợp), cùng với thua lỗ và chi phí cao (17 trường hợp). Nhóm này chủ yếu là những seller Amazon hiện tại (1.081 người), những người đã đầu tư thời gian và vốn nhưng lại đối mặt với rủi ro kinh doanh cao, chính sách thay đổi liên tục, và áp lực tài chính khiến họ mất động lực tiếp tục. Các câu chuyện từ cộng đồng phản ánh rõ tâm trạng kiệt sức: bán hàng lỗ, bị kiện tài khoản, bị deactivate, hay bị lừa đảo khiến họ cảm thấy \"hành\" và muốn bỏ cuộc. Để giữ chân nhóm này, cần tập trung vào hỗ trợ quản lý rủi ro tài chính, hướng dẫn tuân thủ chính sách, và cung cấp công cụ phòng chống gian lận hiệu quả hơn.",
-  "Q9": "Người bán hàng trên các sàn khác (không Amazon) chiếm đa số trong các thảo luận về gia nhập cộng đồng với 1.115 lượt (42% tổng), tiếp theo là những người chưa bán hàng nhưng quan tâm (702 lượt), trong khi những người rời bỏ lại chủ yếu là các seller từ các nền tảng khác (490 lượt, 80% tổng rời bỏ). Điều này cho thấy cộng đồng Amazon Sellers VN đang thu hút chủ yếu những người bán hàng từ TikTok Shop, Shopee hay các sàn TMĐT khác, nhưng tỷ lệ giữ chân họ còn thấp - phần lớn những cuộc trao đổi trong nhóm xoay quanh các vấn đề thực tế như điều chỉnh phí, tìm kiếm KOL, hoặc các thách thức vận hành hàng ngày. Cần tập trung vào việc xây dựng giá trị riêng biệt của Amazon và tạo các chương trình hỗ trợ onboarding mạnh mẽ để chuyển đổi những seller từ các sàn khác thành cộng sự lâu dài.",
-  "Q10": "Cộng đồng Amazon Sellers Việt Nam tập trung chủ yếu vào các vấn đề kỹ thuật và vận hành nền tảng, với Listing (491 lần thảo luận) và FBA (177 lần) dẫn đầu, theo sau là các quy trình xác minh như VIV (150 lần) và FBM (108 lần). Những thảo luận này phản ánh nhu cầu cấp thiết của người bán trong việc hiểu rõ cách tối ưu hóa sản phẩm, quản lý kho hàng và tuân thủ các yêu cầu xác minh danh tính của sàn. Mặc dù các công cụ quảng cáo như Sponsored Products chỉ xuất hiện 29 lần, nhưng nhu cầu về tìm kiếm KOL và chiến lược marketing vẫn tiềm ẩn trong cộng đồng. Để hỗ trợ tốt hơn, nên tập trung vào các khóa học hoặc hướng dẫn chi tiết về Listing optimization và FBA logistics, đồng thời cung cấp tài liệu rõ ràng về quy trình VIV để giảm bớt sự nhầm lẫn và lo lắng của người bán mới.",
-  "Q11": "FBA là công cụ được sử dụng rộng rãi nhất với 135 người dùng, nhưng mức độ hài lòng chỉ đạt 12,6% (17/135) trong khi vấn đề được báo cáo lên tới 14%, chủ yếu là lỗi hệ thống và bug (128 trường hợp). Ngược lại, PPC/Ads thể hiện tỷ lệ hài lòng cao nhất ở 47,9% (23/48) với ít vấn đề (4 trường hợp), cho thấy người bán cảm thấy công cụ quảng cáo mang lại hiệu quả rõ rệt. Quản lý tồn kho cũng ghi nhận mức hài lòng tương đối tốt 40% (14/35) với số vấn đề thấp, trong khi Seller Central và Brand Registry chỉ có 10,5% hài lòng dù được sử dụng ít hơn. Cần ưu tiên cải thiện độ ổn định và giao diện của FBA cùng các công cụ quản lý cốt lõi, đồng thời mở rộng training và tài liệu hướng dẫn để giảm độ phức tạp.",
-  "Q12": "Kế toán và thuế là nhu cầu cấp bách nhất với 269 lần đề cập nhưng mức độ hài lòng chỉ 30%, cho thấy seller đang gặp khó khăn lớn trong việc tìm dịch vụ kế toán uy tín và phù hợp. Ngược lại, dịch vụ sourcing và phần mềm/tool có mức hài lòng cao (70% và 100%) nhưng nhu cầu vẫn tồn tại, đặc biệt là tối ưu listing với 36% nhu cầu chưa được đáp ứng dù chỉ có 11 lần nhắc đến. Vận chuyển/forwarder cũng được đề cập nhiều (117 lần) với mức hài lòng 55%, cho thấy đây là lĩnh vực cạnh tranh nhưng chưa có giải pháp tối ưu. Cơ hội nằm ở việc phát triển dịch vụ kế toán chuyên biệt cho seller Amazon hoặc xây dựng nền tảng tối ưu listing tự động để giải quyết khoảng trống giữa nhu cầu cao và sự hài lòng thấp.",
-  "Q13": "Đào tạo tổng quát là nhu cầu áp đảo với 35 lần nhắc đến, trong đó 20 phản hồi tích cực từ cộng đồng, cho thấy seller mới và những người muốn chuyển hướng kinh doanh đang tìm kiếm hướng dẫn từ cơ bản. Bên cạnh đó, mentor và coaching cũng thu hút sự quan tâm cao (12 lần interest) mặc dù số lượng nhắc đến ít hơn, phản ánh nhu cầu hướng dẫn cá nhân hóa từ những người có kinh nghiệm. Các seller mới thường bối rối về điểm khởi đầu, từ việc chọn sản phẩm, quản lý gian hàng cho đến tối ưu quảng cáo, và họ sẵn sàng đầu tư vào học tập để nâng cao kỹ năng. Cơ hội nằm ở việc xây dựng chương trình đào tạo modular (từ cơ bản đến nâng cao) kết hợp với dịch vụ coaching cá nhân hóa, đặc biệt tập trung vào các bước đầu tiên và tối ưu hóa quảng cáo.",
-  "Q14": "Xây dựng team là chủ đề nóng nhất trong cộng đồng sellers khi nói đến tăng trưởng, với 128 bài thảo luận nhưng cảm nhận khá chia rẽ (72 mixed, 42 positive, 14 negative), phản ánh những lo ngại thực tế về chi phí nhân sự, giữ chân talent và rủi ro khi scale. Ngược lại, tự động hóa & tool (112 bài) lại nhận được đánh giá tích cực hơn (55 positive), cho thấy sellers ưu tiên tìm giải pháp công nghệ để thay thế hoặc hỗ trợ nhân lực. Mở rộng thị trường (59 bài) gây nhiều bất định (39 mixed) vì sellers vừa muốn scale sang kênh khác nhưng lo ngại về chi phí vận hành tăng cao và margin bị ép chặt. Cơ hội ở đây là cung cấp content/tool hướng dẫn cách xây dựng team hiệu quả với chi phí tối ưu, hoặc giới thiệu các giải pháp automation để sellers có thể scale mà không cần tăng headcount quá nhiều."
+  "Q1": "Toàn bộ 886 bài thảo luận được phân loại vào \"Khác\" (2.2% tổng thể), cho thấy cộng đồng Amazon Sellers Việt Nam hiện đang nói chuyện về những vấn đề ngoài các chủ đề cốt lõi được định nghĩa sẵn như bán hàng, logistics, sức khỏe tài khoản hay quảng cáo. Các cuộc trao đổi chủ yếu xoay quanh những vấn đề hành chính, kỹ thuật nhỏ lẻ (gửi đơn không thấy, suspend shop bất ngờ, vấn đề thanh toán), cũng như các yêu cầu hỗ trợ cá nhân và tìm kiếm thông tin từ các thành viên khác trong cộng đồng. Điều này gợi ý rằng người bán hàng đang gặp phải những vấn đề không được giải quyết rõ ràng trong các kênh hỗ trợ chính thức, hoặc họ tin tưởng hơn vào kinh nghiệm chia sẻ từ đồng nghiệp. Cơ hội để Amazon cân nhắc là tạo các tài liệu hướng dẫn hoặc webinar cụ thể về các vấn đề \"nó",
+  "Q2": "Toàn bộ thảo luận trong cộng đồng tập trung vào MT1 (chủ đề chính), với 812 bài viết từ hai nhóm chính: Prospect Other (418 bài, 51%) và Seller Other (394 bài, 49%), trong khi các nhóm khác như Seller Amazon, Service Amazon, Prospect Amazon hầu như không có hoạt động. Nội dung MT1 xoay quanh các vấn đề thực tiễn như gửi đơn hàng, liên hệ hỗ trợ, xử lý suspend shop và giải quyết tranh chấp thanh toán, phản ánh nhu cầu cấp bách của cả người bán và người mua trong việc giải quyết các vấn đề giao dịch hàng ngày. Sự cân bằng giữa Prospect và Seller cho thấy cộng đồng hoạt động như một không gian hỗ trợ lẫn nhau, nơi mọi người tìm kiếm lời khuyên từ những người có kinh nghiệm. Để tối ưu hóa giá trị, nên tạo các hướng dẫn chi tiết về xử lý suspend, quy trình gửi đơn và giải quyết tranh chấp thanh toán, đồng thời xây dựng cơ chế hỗ trợ chính thức để",
+  "Q3": "Cộng đồng seller hiện tại tập trung chủ yếu vào các vấn đề vận hành và rủi ro tài khoản (14,34% seller vs 7,01% prospect), trong khi nhóm prospect lại quan tâm nhiều hơn đến xuất nhập khẩu và bán hàng quốc tế (24,6% prospect vs 11,14% seller). Seller đang tích cực chia sẻ kinh nghiệm và học hỏi từ nhau (7,03% seller), nhưng prospect chủ yếu tìm kiếm hướng dẫn khởi đầu (4,43% prospect vs 0,12% seller) và thông tin về vận hành tài khoản quốc tế (10,71% prospect). Nhu cầu này phản ánh rõ qua các câu hỏi thực tế: seller lo lắng về suspension tài khoản, cần hỗ trợ xử lý vấn đề ngân hàng và thanh toán, còn prospect chưa biết bắt đầu từ đâu với xuất nhập khẩu. Cơ hội nằm ở việc tạo content hướng dẫn rõ ràng cho prospect về quy trình khởi tạo tài khoản và xuất nhập khẩu, đồng thời phát triển dịch vụ hỗ trợ tài kho",
+  "Q4": "Trong ba tuần liên tiếp từ giữa tháng 3 (9-23/3), lượng thảo luận về các chủ đề chính tăng vọt với mức độ spike lần lượt +68%, +70% và +56%, cho thấy một giai đoạn căng thẳng trong cộng đồng seller. Các nội dung trong giai đoạn này tập trung vào những vấn đề cấp bách như xử lý suspend shop, tranh chấp thanh toán và khó khăn trong liên lạc với hỗ trợ, phản ánh tình trạng nhiều seller gặp rắc rối đồng thời. Đây có thể là dấu hiệu của một sự kiện hệ thống (policy change, payment issue) hoặc đợt kiểm duyệt hàng loạt từ nền tảng. Cần theo dõi thêm dữ liệu chi tiết về loại vấn đề chính để chuẩn bị content hỗ trợ hoặc webinar giải đáp kịp thời cho seller.",
+  "Q5": "Vấn đề xác minh và khóa tài khoản Amazon chiếm ưu thế với 2.153 lượt đề cập, tiếp theo là khó khăn khi bán hàng (1.330) và chi phí kinh doanh (737), phản ánh mức độ lo ngại cao về rủi ro tài khoản và áp lực tài chính từ các seller. Nhóm người dùng tập trung trao đổi vào các ngày thứ Ba đến thứ Sáu (1.384-1.505 lượt/ngày), đặc biệt là khung giờ 9-13 giờ với 2.727 lượt nói chuyện, khi mà những seller đang bắt đầu ngày làm việc và gặp phải các vấn đề cấp bách như bị từ chối xác minh, mất tiền phí, hay lo lắng về hành động của nền tảng. Cơ hội để xây dựng content hỗ trợ hoặc webinar hướng dẫn vào sáng thứ Ba-thứ Sáu sẽ bắt được đúng lúc khi seller cần giải pháp nhất.",
+  "Q7": "Seller gia nhập Amazon chủ yếu được thu hút bởi tiềm năng thành công và thu nhập cao (1.517 lần đề cập), với 441 cuộc thảo luận tập trung vào chia sẻ kinh nghiệm và học hỏi từ cộng đồng. Những seller mới như người bán được 3 tháng đã đạt 15k$ doanh số hàng tháng, hoặc những người khám phá các ngách sản phẩm lặp lại hàng năm (như \"100 Days of School\" hay phụ kiện trang trí), đều thấy rõ cơ hội kiếm lợi nhuận ổn định với công việc tương đối nhẹ nhàng. Ngoài lợi nhuận trực tiếp, 231 lần nhắc đến passive income và 235 cuộc thảo luận về sự kiện, đào tạo cho thấy seller cũng đánh giá cao việc được kết nối với cộng đồng, học hỏi chiến lược bán hàng và tìm kiếm cơ hội hợp tác lâu dài. Để tăng cường sự hấp dẫn này, Amazon có thể phát triển thêm các chương trình đào tạo về quản lý tồn kho, tối ưu hóa ngành hàng theo mùa",
+  "Q8": "Người bán Amazon (1.006 người) chiếm đa số trong nhóm rời bỏ, với hai nguyên nhân nổi bật ngang nhau là tài khoản bị khóa và thua lỗ/chi phí cao (mỗi loại 16 trường hợp), theo sau là lo ngại bị lừa đảo (15 trường hợp). Các seller gặp phải những vấn đề thực tế như listing bị khóa do không phản hồi kịp yêu cầu xác minh, bị kiện về vi phạm bản quyền dẫn tới tạm khóa rút tiền, hoặc rơi vào các scheme lừa đảo giả mạo Amazon yêu cầu nạp tiền. Sự kết hợp giữa rủi ro pháp lý, áp lực chi phí hoạt động, và thiếu sự hỗ trợ kịp thời khiến nhiều seller mất động lực tiếp tục kinh doanh. Cơ hội để xây dựng content giáo dục về quy trình appeal account, quản lý rủi ro bản quyền, và nhận diện scam có thể giúp giữ chân segment này.",
+  "Q9": "Seller từ các nền tảng khác (không Amazon) chiếm đa số trong cộng đồng với 1.063 thành viên tham gia thảo luận, gấp đôi so với Seller Amazon (528 người), trong khi Prospect và Service Provider có tỷ lệ thấp hơn đáng kể. Tuy nhiên, khi xét đến những người rời bỏ cộng đồng, Seller Others vẫn dẫn đầu với 453 lượt nhưng tỷ lệ churn cao hơn (42,6% so với 21,4% của Seller Amazon), cho thấy nhóm seller ngoài Amazon có mức độ gắn bó thấp hơn. Các cuộc thảo luận chủ yếu xoay quanh vấn đề kỹ thuật (lỗi đơn hàng, suspend shop), yêu cầu hỗ trợ trực tiếp và tìm kiếm thông tin thực tế, phản ánh nhu cầu cấp bách của seller đang gặp khó khăn. Để cải thiện retention, cần tập trung vào nội dung giải quyết vấn đề cụ thể và xây dựng cơ chế hỗ trợ nhanh chóng cho nhóm seller ngoài Amazon.",
+  "Q10": "Home & Garden dẫn đầu với 1.398 lượt thảo luận, gấp 3 lần so với Apparel & Fashion (448), cho thấy cộng đồng sellers Việt tập trung mạnh vào các sản phẩm nội thất, trang trí nhà cửa và vật dụng gia đình. Tuy nhiên, lượng lớn thảo luận \"Other / Undisclosed\" (1.217) phản ánh rằng nhiều sellers vẫn chưa rõ ràng về phân loại hàng hóa của mình hoặc không muốn công khai ngành hàng. Ngoài top 3, các ngành như Jewelry & Accessories (273), Electronics từ Trung Quốc (257) và các sản phẩm nông sản USDA (145) cũng có sự quan tâm nhất định, nhưng phần lớn cuộc trò chuyện xoay quanh các vấn đề vận hành chung (thanh toán, suspend shop, liên hệ support) hơn là tư vấn sản phẩm cụ thể. Cơ hội nằm ở việc tạo content hướng dẫn phân loại hàng hóa chính xác và các best practice riêng cho từng ngành, đặc biệt là Home & Garden và Apparel & Fashion.",
+  "Q11": "FBA là tool được sử dụng rộng rộng nhất với 119 người dùng nhưng mức độ hài lòng chỉ 14% (17/119), trong khi PPC/Ads dù chỉ có 45 người dùng lại đạt tỷ lệ hài lòng cao nhất 49% (22/45) và gần như không có vấn đề (3 issues). Vấn đề chính khiến seller khó chịu là lỗi hệ thống/bug (122 lần được đề cập), đặc biệt ảnh hưởng đến FBA và FBM, trong khi những yếu tố khiến seller hài lòng tập trung vào tính dễ dùng (42 lần) và hiệu quả rõ rệt (35 lần). Điều này gợi ý cần ưu tiên cải thiện độ ổn định của FBA/FBM và tăng cường hướng dẫn sử dụng để giảm độ phức tạp, đồng thời có thể phát triển thêm content về PPC strategy vì đây là tool có tỷ lệ thành công cao nhất.",
+  "Q12": "Kế toán và thuế là nhu cầu cấp bách nhất với 258 lần nhắc đến, nhưng mức độ hài lòng chỉ 33% cho thấy seller gặp khó khăn lớn trong việc tìm dịch vụ phù hợp và đáng tin cậy. Vận chuyển/Forwarder xếp thứ hai với 105 lần nhắc và mức hài lòng cao hơn (61%), trong khi nhu cầu về Sourcing (70% hài lòng) và Listing Optimization (40% demand) đang tăng mạnh nhưng chưa được chú ý đủ. Khoảng cách lớn giữa số lần nhắc đến dịch vụ kế toán (258) và mức hài lòng thấp (33%) gợi ý cơ hội để Amazon phát triển hoặc kết nối seller với các đối tác kế toán/thuế chuyên biệt cho bán hàng online, đồng thời tăng cường hỗ trợ trong các lĩnh vực Listing Optimization và VA nơi demand cao nhưng hiện chưa có nhiều lựa chọn.",
+  "Q13": "Đào tạo tổng quát là nhu cầu áp đảo với 35 lần nhắc đến, trong đó 20 lần có đánh giá tích cực từ cộng đồng, chủ yếu từ những người mới bắt đầu hoặc muốn chuyển hướng sang Amazon. Bên cạnh đó, Mentor/Coaching cũng gây chú ý với tỷ lệ quan tâm cao (14 lần), phản ánh xu hướng sellers không chỉ muốn học lý thuyết mà còn cần hướng dẫn thực hành trực tiếp từ những người có kinh nghiệm. Các seller mới thường lưỡng lự về chi phí khóa học (1-200 triệu đồng) nhưng vẫn sẵn sàng đầu tư nếu thấy giá trị rõ ràng, đặc biệt là những khóa kết hợp training nội bộ tại công ty hoặc coaching one-on-one. Cơ hội ở đây là phát triển chương trình đào tạo modular, bắt đầu từ kiến thức nền tảng cho newbie, kèm theo tùy chọn mentoring để tăng conversion và giảm rủi ro cho người học.",
+  "Q14": "Xây dựng team là chủ đề tăng trưởng được nói tới nhiều nhất (123 lần), nhưng cộng đồng có cảm nhận hỗn hợp: 42 bài tích cực so với 67 bài có vấn đề và 14 bài tiêu cực, cho thấy việc mở rộng đội ngũ gặp nhiều thách thức thực tế từ quản lý, chi phí nhân sự đến hỗ trợ kỹ thuật không đủ. Ngược lại, tự động hóa & tool (106 lần) có tỷ lệ tích cực cao hơn (52 tích cực, 44 hỗn hợp, 10 tiêu cực), cho thấy các seller tin tưởng hơn vào giải pháp công nghệ để tăng trưởng. Scale vận hành cũng được đánh giá tích cực (38 tích cực, chỉ 2 tiêu cực), trong khi mở rộng thị trường lại gây lo ngại với 38 bài hỗn hợp và chỉ 11 tích cực. Cơ hội ở đây là tập trung hỗ trợ các seller về quy trình tuyển dụng, quản lý chi phí nhân sự, và cung cấp các công cụ tự động h"
 };
   const DATE_RANGE          = {
   "start": "2025-12-24",
@@ -3193,31 +3174,31 @@ window.ChiComData2 = (() => {
     "vn": "Chia sẻ, học hỏi & trợ giúp",
     "name": "Chia sẻ, học hỏi & trợ giúp",
     "en": "Sharing, learning & help",
-    "count": 465
+    "count": 441
   },
   {
     "vn": "Hợp tác, hỗ trợ & vận hành",
     "name": "Hợp tác, hỗ trợ & vận hành",
     "en": "Collaboration, support & operations",
-    "count": 282
+    "count": 274
   },
   {
     "vn": "Kinh nghiệm & chiến lược",
     "name": "Kinh nghiệm & chiến lược",
     "en": "Experience & strategy",
-    "count": 278
+    "count": 269
   },
   {
     "vn": "Sự kiện, đào tạo & kết nối",
     "name": "Sự kiện, đào tạo & kết nối",
     "en": "Events, training & networking",
-    "count": 239
+    "count": 235
   },
   {
     "vn": "Bán hàng & vận hành",
     "name": "Bán hàng & vận hành",
     "en": "Selling & operations",
-    "count": 239
+    "count": 232
   },
   {
     "vn": "Passive income & cơ hội",
@@ -3231,31 +3212,31 @@ window.ChiComData2 = (() => {
     "vn": "Chia sẻ, học hỏi & trợ giúp",
     "name": "Chia sẻ, học hỏi & trợ giúp",
     "en": "Sharing, learning & help",
-    "count": 101
+    "count": 92
   },
   {
     "vn": "Kinh nghiệm & chiến lược",
     "name": "Kinh nghiệm & chiến lược",
     "en": "Experience & strategy",
-    "count": 70
+    "count": 66
   },
   {
     "vn": "Sự kiện, đào tạo & kết nối",
     "name": "Sự kiện, đào tạo & kết nối",
     "en": "Events, training & networking",
-    "count": 61
+    "count": 60
   },
   {
     "vn": "Bán hàng & vận hành",
     "name": "Bán hàng & vận hành",
     "en": "Selling & operations",
-    "count": 56
+    "count": 55
   },
   {
     "vn": "Hợp tác, hỗ trợ & vận hành",
     "name": "Hợp tác, hỗ trợ & vận hành",
     "en": "Collaboration, support & operations",
-    "count": 48
+    "count": 46
   },
   {
     "vn": "Passive income & cơ hội",
@@ -3269,31 +3250,31 @@ window.ChiComData2 = (() => {
     "vn": "Chia sẻ, học hỏi & trợ giúp",
     "name": "Chia sẻ, học hỏi & trợ giúp",
     "en": "Sharing, learning & help",
-    "count": 364
+    "count": 349
   },
   {
     "vn": "Hợp tác, hỗ trợ & vận hành",
     "name": "Hợp tác, hỗ trợ & vận hành",
     "en": "Collaboration, support & operations",
-    "count": 234
+    "count": 228
   },
   {
     "vn": "Kinh nghiệm & chiến lược",
     "name": "Kinh nghiệm & chiến lược",
     "en": "Experience & strategy",
-    "count": 208
+    "count": 203
   },
   {
     "vn": "Bán hàng & vận hành",
     "name": "Bán hàng & vận hành",
     "en": "Selling & operations",
-    "count": 183
+    "count": 177
   },
   {
     "vn": "Sự kiện, đào tạo & kết nối",
     "name": "Sự kiện, đào tạo & kết nối",
     "en": "Events, training & networking",
-    "count": 178
+    "count": 175
   },
   {
     "vn": "Passive income & cơ hội",
@@ -3307,31 +3288,31 @@ window.ChiComData2 = (() => {
     "vn": "Thành công & thu nhập",
     "name": "Thành công & thu nhập",
     "en": "Success & income",
-    "count": 1555
+    "count": 1517
   },
   {
     "vn": "Passive income",
     "name": "Passive income",
     "en": "Passive income",
-    "count": 236
+    "count": 231
   },
   {
     "vn": "Dễ bắt đầu",
     "name": "Dễ bắt đầu",
     "en": "Easy to start",
-    "count": 186
+    "count": 183
   },
   {
     "vn": "Cơ hội thị trường",
     "name": "Cơ hội thị trường",
     "en": "Market opportunities",
-    "count": 144
+    "count": 142
   },
   {
     "vn": "Hỗ trợ & đào tạo",
     "name": "Hỗ trợ & đào tạo",
     "en": "Support & training",
-    "count": 66
+    "count": 65
   }
 ];
   const Q7_BENEFITS_SOA   = [
@@ -3339,19 +3320,19 @@ window.ChiComData2 = (() => {
     "vn": "Thành công & thu nhập",
     "name": "Thành công & thu nhập",
     "en": "Success & income",
-    "count": 205
+    "count": 195
   },
   {
     "vn": "Passive income",
     "name": "Passive income",
     "en": "Passive income",
-    "count": 41
+    "count": 40
   },
   {
     "vn": "Dễ bắt đầu",
     "name": "Dễ bắt đầu",
     "en": "Easy to start",
-    "count": 40
+    "count": 38
   },
   {
     "vn": "Cơ hội thị trường",
@@ -3371,31 +3352,31 @@ window.ChiComData2 = (() => {
     "vn": "Thành công & thu nhập",
     "name": "Thành công & thu nhập",
     "en": "Success & income",
-    "count": 1350
+    "count": 1322
   },
   {
     "vn": "Passive income",
     "name": "Passive income",
     "en": "Passive income",
-    "count": 195
+    "count": 191
   },
   {
     "vn": "Dễ bắt đầu",
     "name": "Dễ bắt đầu",
     "en": "Easy to start",
-    "count": 146
+    "count": 145
   },
   {
     "vn": "Cơ hội thị trường",
     "name": "Cơ hội thị trường",
     "en": "Market opportunities",
-    "count": 108
+    "count": 106
   },
   {
     "vn": "Hỗ trợ & đào tạo",
     "name": "Hỗ trợ & đào tạo",
     "en": "Support & training",
-    "count": 57
+    "count": 56
   }
 ];
   const Q7_SENTIMENT      = {
@@ -3415,106 +3396,106 @@ window.ChiComData2 = (() => {
 };
   const Q7_POS_SUBS_SOA   = [
   {
-    "vn": "Community Events And Contests",
-    "en": "Community Events And Contests",
-    "count": 399
+    "vn": "Sự kiện, đào tạo và kết nối cộng đồng bán hàng Amazon",
+    "en": "Events, training & community networking",
+    "count": 473
   },
   {
-    "vn": "Misc / Other",
-    "en": "Misc / Other",
-    "count": 345
+    "vn": "Chia sẻ, học hỏi và hợp tác kinh nghiệm bán hàng Amazon",
+    "en": "Sharing, learning & peer collaboration on Amazon",
+    "count": 421
   },
   {
-    "vn": "Selling Best Practices",
-    "en": "Selling Best Practices",
-    "count": 301
+    "vn": "Kinh doanh xuất nhập khẩu và bán hàng quốc tế",
+    "en": "Import-export & international selling",
+    "count": 129
   },
   {
-    "vn": "Product Selection",
-    "en": "Product Selection",
+    "vn": "Bán hàng và vận hành kinh doanh trên Amazon",
+    "en": "Amazon selling & operations",
+    "count": 99
+  },
+  {
+    "vn": "Kinh nghiệm và chiến lược bán hàng trên Amazon",
+    "en": "Amazon selling strategy & experience",
+    "count": 90
+  },
+  {
+    "vn": "Hợp tác, hỗ trợ và vận hành bán hàng Amazon",
+    "en": "Partnerships, support & Amazon selling ops",
     "count": 77
   },
   {
-    "vn": "Third-party service introduction",
-    "en": "Third-party service introduction",
-    "count": 74
+    "vn": "Khó khăn và thách thức khi bán hàng trên Amazon",
+    "en": "Pain points & challenges selling on Amazon",
+    "count": 33
   },
   {
-    "vn": "Amazon advertising best practices",
-    "en": "Amazon advertising best practices",
-    "count": 62
+    "vn": "Hướng dẫn và hỗ trợ khởi đầu bán hàng Amazon",
+    "en": "Getting started on Amazon — guides & onboarding",
+    "count": 30
   },
   {
-    "vn": "Market Trends And Sales Performance",
-    "en": "Market Trends And Sales Performance",
-    "count": 46
-  },
-  {
-    "vn": "Supplier sourcing",
-    "en": "Supplier sourcing",
-    "count": 38
-  },
-  {
-    "vn": "Incentives & Training",
-    "en": "Incentives & Training",
-    "count": 25
-  },
-  {
-    "vn": "Account issues / Account errors",
-    "en": "Account issues / Account errors",
+    "vn": "Kinh doanh Amazon FBA và FBM: vận hành & tối ưu chi phí",
+    "en": "Amazon FBA & FBM — ops & cost optimization",
     "count": 22
+  },
+  {
+    "vn": "Dịch vụ vận chuyển và fulfillment",
+    "en": "Shipping & fulfillment services",
+    "count": 12
   }
 ];
   const Q7_POS_SUBS_EC    = [
   {
-    "vn": "Misc / Other",
-    "en": "Misc / Other",
-    "count": 1028
+    "vn": "Kinh doanh xuất nhập khẩu và bán hàng quốc tế",
+    "en": "Import-export & international selling",
+    "count": 1261
   },
   {
-    "vn": "Third-party service introduction",
-    "en": "Third-party service introduction",
-    "count": 550
+    "vn": "Sự kiện, đào tạo và kết nối cộng đồng bán hàng Amazon",
+    "en": "Events, training & community networking",
+    "count": 462
   },
   {
-    "vn": "Community Events And Contests",
-    "en": "Community Events And Contests",
-    "count": 415
+    "vn": "Chia sẻ, học hỏi và hợp tác kinh nghiệm bán hàng Amazon",
+    "en": "Sharing, learning & peer collaboration on Amazon",
+    "count": 381
   },
   {
-    "vn": "Product Selection",
-    "en": "Product Selection",
-    "count": 305
+    "vn": "Dịch vụ vận chuyển và fulfillment",
+    "en": "Shipping & fulfillment services",
+    "count": 378
   },
   {
-    "vn": "Selling Best Practices",
-    "en": "Selling Best Practices",
-    "count": 271
+    "vn": "Bán hàng và vận hành kinh doanh trên Amazon",
+    "en": "Amazon selling & operations",
+    "count": 294
   },
   {
-    "vn": "Incentives & Training",
-    "en": "Incentives & Training",
-    "count": 220
+    "vn": "Dịch vụ và giải pháp pháp lý, thương hiệu và công cụ kinh doanh cho người bán Amazon",
+    "en": "Legal, brand & business-tool services for Amazon sellers",
+    "count": 217
   },
   {
-    "vn": "Supplier sourcing",
-    "en": "Supplier sourcing",
-    "count": 164
+    "vn": "Kinh nghiệm và chiến lược bán hàng trên Amazon",
+    "en": "Amazon selling strategy & experience",
+    "count": 166
   },
   {
-    "vn": "Market Trends And Sales Performance",
-    "en": "Market Trends And Sales Performance",
-    "count": 131
-  },
-  {
-    "vn": "Logistics costs",
-    "en": "Logistics costs",
-    "count": 108
-  },
-  {
-    "vn": "Finding third-party services",
-    "en": "Finding third-party services",
+    "vn": "Hợp tác, hỗ trợ và vận hành bán hàng Amazon",
+    "en": "Partnerships, support & Amazon selling ops",
     "count": 92
+  },
+  {
+    "vn": "Dịch vụ hỗ trợ và xử lý tài khoản Amazon",
+    "en": "Amazon account support & recovery services",
+    "count": 55
+  },
+  {
+    "vn": "Thuế và Chi phí Kinh doanh trên Amazon cho Seller Việt Nam",
+    "en": "Tax & costs for Vietnamese Amazon sellers",
+    "count": 54
   }
 ];
   const Q8_TRIGGERS    = [
@@ -3522,43 +3503,43 @@ window.ChiComData2 = (() => {
     "vn": "Tài khoản bị khóa",
     "name": "Tài khoản bị khóa",
     "en": "Account locked",
-    "count": 18
-  },
-  {
-    "vn": "Lừa đảo",
-    "name": "Lừa đảo",
-    "en": "Scam",
-    "count": 18
+    "count": 16
   },
   {
     "vn": "Thua lỗ / chi phí cao",
     "name": "Thua lỗ / chi phí cao",
     "en": "Losses / high costs",
-    "count": 17
+    "count": 16
+  },
+  {
+    "vn": "Lừa đảo",
+    "name": "Lừa đảo",
+    "en": "Scam",
+    "count": 15
   },
   {
     "vn": "Kiệt sức / mất động lực",
     "name": "Kiệt sức / mất động lực",
     "en": "Burnout / lost motivation",
-    "count": 16
+    "count": 12
   },
   {
     "vn": "Rủi ro kinh doanh",
     "name": "Rủi ro kinh doanh",
     "en": "Business Risk",
-    "count": 12
+    "count": 9
   },
   {
     "vn": "Chính sách phức tạp",
     "name": "Chính sách phức tạp",
     "en": "Complex policy",
-    "count": 7
+    "count": 5
   },
   {
     "vn": "Cạnh tranh khốc liệt",
     "name": "Cạnh tranh khốc liệt",
     "en": "Fierce competition",
-    "count": 3
+    "count": 2
   },
   {
     "vn": "Thiếu kinh nghiệm / kỹ năng",
@@ -3570,12 +3551,12 @@ window.ChiComData2 = (() => {
   const Q8_PERSONA     = [
   {
     "label": "Seller (Amazon)",
-    "count": 1081,
+    "count": 1006,
     "color": "oklch(0.42 0.24 255)"
   },
   {
     "label": "Prospect (Amazon)",
-    "count": 83,
+    "count": 71,
     "color": "oklch(0.58 0.20 50)"
   },
   {
@@ -3601,47 +3582,47 @@ window.ChiComData2 = (() => {
 ];
   const Q8_TREND       = [
   107,
-  477,
+  479,
   195,
   369,
-  89
+  0
 ];
   const Q9_BARRIERS        = [
   {
     "vn": "Thuế & pháp lý",
     "name": "Thuế & pháp lý",
     "en": "Tax & legal",
-    "count": 792
+    "count": 795
   },
   {
     "vn": "Thiếu kiến thức",
     "name": "Thiếu kiến thức",
     "en": "Knowledge gap",
-    "count": 327
+    "count": 317
   },
   {
     "vn": "Thanh toán quốc tế",
     "name": "Thanh toán quốc tế",
     "en": "International payments",
-    "count": 252
+    "count": 247
   },
   {
     "vn": "Xác minh tài khoản",
     "name": "Xác minh tài khoản",
     "en": "Account verification",
-    "count": 215
+    "count": 217
   },
   {
     "vn": "Vốn ban đầu",
     "name": "Vốn ban đầu",
     "en": "Initial capital",
-    "count": 79
+    "count": 77
   },
   {
     "vn": "Chọn sản phẩm",
     "name": "Chọn sản phẩm",
     "en": "Product selection",
-    "count": 37
+    "count": 35
   },
   {
     "vn": "Vận chuyển quốc tế",
@@ -3653,60 +3634,65 @@ window.ChiComData2 = (() => {
     "vn": "Tiếng Anh / giao tiếp",
     "name": "Tiếng Anh / giao tiếp",
     "en": "English / communication",
-    "count": 12
+    "count": 11
   }
 ];
   const Q9_Q7_PERSONAS     = [
   {
     "name": "Seller (Others)",
-    "count": 1115,
+    "count": 1063,
     "color": "oklch(0.55 0.17 260)"
   },
   {
     "name": "Prospect (Others)",
-    "count": 702,
+    "count": 689,
     "color": "oklch(0.60 0.20 25)"
   },
   {
     "name": "Service Provider (CBEC)",
-    "count": 624,
+    "count": 614,
     "color": "oklch(0.68 0.17 60)"
   },
   {
     "name": "Seller (Amazon)",
-    "count": 539,
+    "count": 528,
     "color": "oklch(0.58 0.14 190)"
   },
   {
     "name": "Prospect (Amazon)",
-    "count": 136,
+    "count": 128,
     "color": "oklch(0.62 0.15 155)"
   },
   {
     "name": "Service Provider (Amazon)",
-    "count": 55,
+    "count": 54,
     "color": "oklch(0.55 0.17 290)"
+  },
+  {
+    "name": "Service Provider (Others)",
+    "count": 1,
+    "color": "oklch(0.55 0.17 260)"
   }
 ];
   const Q9_Q8_PERSONAS     = [
   {
     "name": "Seller (Others)",
-    "count": 490,
+    "count": 453,
     "color": "oklch(0.55 0.17 260)"
   },
   {
     "name": "Seller (Amazon)",
-    "count": 120,
+    "count": 113,
     "color": "oklch(0.60 0.20 25)"
   },
   {
     "name": "Prospect (Others)",
-    "count": 28,
+    "count": 27,
     "color": "oklch(0.68 0.17 60)"
   },
   {
     "name": "Prospect (Amazon)",
-    "count": 13,
+    "count": 12,
     "color": "oklch(0.58 0.14 190)"
   },
   {
@@ -3723,21 +3709,21 @@ window.ChiComData2 = (() => {
   const Q9_Q7_PERSONAS_SOA = [
   {
     "name": "Seller (Amazon)",
-    "count": 276,
+    "count": 261,
     "color": "oklch(0.55 0.17 260)"
   },
   {
     "name": "Prospect (Amazon)",
-    "count": 98,
+    "count": 86,
     "color": "oklch(0.60 0.20 25)"
   },
   {
-    "name": "Service Provider (Amazon)",
-    "count": 49,
+    "name": "Service Provider (CBEC)",
+    "count": 48,
     "color": "oklch(0.68 0.17 60)"
   },
   {
-    "name": "Service Provider (CBEC)",
+    "name": "Service Provider (Amazon)",
     "count": 48,
     "color": "oklch(0.58 0.14 190)"
   },
@@ -3755,12 +3741,12 @@ window.ChiComData2 = (() => {
   const Q9_Q8_PERSONAS_SOA = [
   {
     "name": "Seller (Amazon)",
-    "count": 72,
+    "count": 60,
     "color": "oklch(0.55 0.17 260)"
   },
   {
     "name": "Prospect (Amazon)",
-    "count": 11,
+    "count": 10,
     "color": "oklch(0.60 0.20 25)"
   },
   {
@@ -3772,49 +3758,54 @@ window.ChiComData2 = (() => {
   const Q9_Q7_PERSONAS_EC  = [
   {
     "name": "Seller (Others)",
-    "count": 1088,
+    "count": 1036,
     "color": "oklch(0.55 0.17 260)"
   },
   {
     "name": "Prospect (Others)",
-    "count": 682,
+    "count": 669,
     "color": "oklch(0.60 0.20 25)"
   },
   {
     "name": "Service Provider (CBEC)",
-    "count": 576,
+    "count": 566,
     "color": "oklch(0.68 0.17 60)"
   },
   {
     "name": "Seller (Amazon)",
-    "count": 263,
+    "count": 267,
     "color": "oklch(0.58 0.14 190)"
   },
   {
     "name": "Prospect (Amazon)",
-    "count": 38,
+    "count": 42,
     "color": "oklch(0.62 0.15 155)"
   },
   {
     "name": "Service Provider (Amazon)",
     "count": 6,
     "color": "oklch(0.55 0.17 290)"
+  },
+  {
+    "name": "Service Provider (Others)",
+    "count": 1,
+    "color": "oklch(0.55 0.17 260)"
   }
 ];
   const Q9_Q8_PERSONAS_EC  = [
   {
     "name": "Seller (Others)",
-    "count": 490,
+    "count": 453,
     "color": "oklch(0.55 0.17 260)"
   },
   {
     "name": "Seller (Amazon)",
-    "count": 48,
+    "count": 53,
     "color": "oklch(0.60 0.20 25)"
   },
   {
     "name": "Prospect (Others)",
-    "count": 28,
+    "count": 27,
     "color": "oklch(0.68 0.17 60)"
   },
   {
@@ -3840,7 +3831,7 @@ window.ChiComData2 = (() => {
     "group_type": "EC",
     "sentiment": "positive",
     "persona": "Service Provider (CBEC)",
-    "master_topic": "Others"
+    "master_topic": "Chiến lược, kinh nghiệm và hỗ trợ cộng đồng bán hàng Amazon"
   },
   {
     "id": "2333634087135443",
@@ -3866,20 +3857,7 @@ window.ChiComData2 = (() => {
     "group_type": "EC",
     "sentiment": "positive",
     "persona": "Service Provider (CBEC)",
-    "master_topic": "Others"
-  },
-  {
-    "id": "1471293041241205",
-    "link": "https://www.facebook.com/groups/chuyennhaban/permalink/1471293041241205/",
-    "count": 100,
-    "comments": 99,
-    "preview": "Cho em xin hướng giải quyết với ạ😭 em còn đi học và có nhiều khó khăn về tài chính, shop em đã bị khoá từ lâu, nay shopee gửi mail này em rất lo sợ. Em vừa s…",
-    "group_id": 6,
-    "group_name": "Chuyện Nhà Bán",
-    "group_type": "EC",
-    "sentiment": "negative",
-    "persona": "Seller (Others)",
-    "master_topic": "Account Health"
+    "master_topic": "Chiến lược, kinh nghiệm và hỗ trợ cộng đồng bán hàng Amazon"
   },
   {
     "id": "2315616098937242",
@@ -3892,7 +3870,20 @@ window.ChiComData2 = (() => {
     "group_type": "EC",
     "sentiment": "positive",
     "persona": "Seller (Others)",
-    "master_topic": "Others"
+    "master_topic": "Chiến lược, kinh nghiệm và hỗ trợ cộng đồng bán hàng Amazon"
+  },
+  {
+    "id": "1471293041241205",
+    "link": "https://www.facebook.com/groups/chuyennhaban/permalink/1471293041241205/",
+    "count": 100,
+    "comments": 99,
+    "preview": "Cho em xin hướng giải quyết với ạ😭 em còn đi học và có nhiều khó khăn về tài chính, shop em đã bị khoá từ lâu, nay shopee gửi mail này em rất lo sợ. Em vừa s…",
+    "group_id": 6,
+    "group_name": "Chuyện Nhà Bán",
+    "group_type": "EC",
+    "sentiment": "negative",
+    "persona": "Seller (Others)",
+    "master_topic": "Vận hành và quản lý tài khoản Amazon Seller"
   },
   {
     "id": "2207250333134763",
@@ -3905,20 +3896,7 @@ window.ChiComData2 = (() => {
     "group_type": "SOA",
     "sentiment": "positive",
     "persona": "Seller (Amazon)",
-    "master_topic": "SOA (Selling on Amazon)"
-  },
-  {
-    "id": "26167833476243408",
-    "link": "https://www.facebook.com/groups/congdongetsyvietnam/permalink/26167833476243406/",
-    "count": 99,
-    "comments": 98,
-    "preview": "Hà Đông - Có anh em newbie nào đang solo làm POD hay handmade etsy ko ạ ? Làm 1m nản quá có ae nào thi thoảng cafe giao lưu tí ! kk",
-    "group_id": 9,
-    "group_name": "ETSY VN",
-    "group_type": "EC",
-    "sentiment": "neutral",
-    "persona": "Prospect (Others)",
-    "master_topic": "SOA (Selling on Amazon)"
+    "master_topic": "Chiến lược, kinh nghiệm và hỗ trợ cộng đồng bán hàng Amazon"
   },
   {
     "id": "2205704596622670",
@@ -3931,7 +3909,20 @@ window.ChiComData2 = (() => {
     "group_type": "SOA",
     "sentiment": "positive",
     "persona": "Seller (Amazon)",
-    "master_topic": "SOA (Selling on Amazon)"
+    "master_topic": "Chiến lược, kinh nghiệm và hỗ trợ cộng đồng bán hàng Amazon"
+  },
+  {
+    "id": "26167833476243408",
+    "link": "https://www.facebook.com/groups/congdongetsyvietnam/permalink/26167833476243406/",
+    "count": 99,
+    "comments": 98,
+    "preview": "Hà Đông - Có anh em newbie nào đang solo làm POD hay handmade etsy ko ạ ? Làm 1m nản quá có ae nào thi thoảng cafe giao lưu tí ! kk",
+    "group_id": 9,
+    "group_name": "ETSY VN",
+    "group_type": "EC",
+    "sentiment": "neutral",
+    "persona": "Prospect (Others)",
+    "master_topic": "Kinh doanh xuất nhập khẩu và thương mại điện tử xuyên biên giới"
   },
   {
     "id": "1421575209546322",
@@ -3944,7 +3935,7 @@ window.ChiComData2 = (() => {
     "group_type": "EC",
     "sentiment": "negative",
     "persona": "Seller (Others)",
-    "master_topic": "Others"
+    "master_topic": "Thanh toán, tài khoản và các vấn đề tài chính quốc tế cho Seller Amazon"
   },
   {
     "id": "1450869523283557",
@@ -3957,7 +3948,7 @@ window.ChiComData2 = (() => {
     "group_type": "EC",
     "sentiment": "negative",
     "persona": "Seller (Others)",
-    "master_topic": "SOA (Selling on Amazon)"
+    "master_topic": "Thanh toán, tài khoản và các vấn đề tài chính quốc tế cho Seller Amazon"
   }
 ];
   const Q9_TOP_THREADS_SOA = [
@@ -3972,7 +3963,7 @@ window.ChiComData2 = (() => {
     "group_type": "SOA",
     "sentiment": "positive",
     "persona": "Seller (Amazon)",
-    "master_topic": "SOA (Selling on Amazon)"
+    "master_topic": "Chiến lược, kinh nghiệm và hỗ trợ cộng đồng bán hàng Amazon"
   },
   {
     "id": "2205704596622670",
@@ -3985,7 +3976,7 @@ window.ChiComData2 = (() => {
     "group_type": "SOA",
     "sentiment": "positive",
     "persona": "Seller (Amazon)",
-    "master_topic": "SOA (Selling on Amazon)"
+    "master_topic": "Chiến lược, kinh nghiệm và hỗ trợ cộng đồng bán hàng Amazon"
   },
   {
     "id": "2248191662373963",
@@ -3998,7 +3989,7 @@ window.ChiComData2 = (() => {
     "group_type": "SOA",
     "sentiment": "neutral",
     "persona": "Service Provider (Amazon)",
-    "master_topic": "Others"
+    "master_topic": "Chiến lược, kinh nghiệm và hỗ trợ cộng đồng bán hàng Amazon"
   },
   {
     "id": "2245644715961991",
@@ -4011,7 +4002,7 @@ window.ChiComData2 = (() => {
     "group_type": "SOA",
     "sentiment": "neutral",
     "persona": "Seller (Amazon)",
-    "master_topic": "Others"
+    "master_topic": "Chiến lược, kinh nghiệm và hỗ trợ cộng đồng bán hàng Amazon"
   },
   {
     "id": "2215491078977355",
@@ -4024,7 +4015,7 @@ window.ChiComData2 = (() => {
     "group_type": "SOA",
     "sentiment": "positive",
     "persona": "Seller (Amazon)",
-    "master_topic": "SOA (Selling on Amazon)"
+    "master_topic": "Chiến lược, kinh nghiệm và hỗ trợ cộng đồng bán hàng Amazon"
   },
   {
     "id": "2225960907930372",
@@ -4037,7 +4028,7 @@ window.ChiComData2 = (() => {
     "group_type": "SOA",
     "sentiment": "positive",
     "persona": "Seller (Amazon)",
-    "master_topic": "Others"
+    "master_topic": "Chiến lược, kinh nghiệm và hỗ trợ cộng đồng bán hàng Amazon"
   },
   {
     "id": "2248769432316186",
@@ -4050,7 +4041,7 @@ window.ChiComData2 = (() => {
     "group_type": "SOA",
     "sentiment": "positive",
     "persona": "Service Provider (CBEC)",
-    "master_topic": "Third Party"
+    "master_topic": "Kinh doanh xuất nhập khẩu và thương mại điện tử xuyên biên giới"
   },
   {
     "id": "2196591477533982",
@@ -4063,7 +4054,7 @@ window.ChiComData2 = (() => {
     "group_type": "SOA",
     "sentiment": "neutral",
     "persona": "Seller (Others)",
-    "master_topic": "Others"
+    "master_topic": "Kinh doanh xuất nhập khẩu và thương mại điện tử xuyên biên giới"
   },
   {
     "id": "2212566372603159",
@@ -4076,7 +4067,7 @@ window.ChiComData2 = (() => {
     "group_type": "SOA",
     "sentiment": "positive",
     "persona": "Seller (Amazon)",
-    "master_topic": "SOA (Selling on Amazon)"
+    "master_topic": "Chiến lược, kinh nghiệm và hỗ trợ cộng đồng bán hàng Amazon"
   },
   {
     "id": "2246616685864794",
@@ -4089,7 +4080,7 @@ window.ChiComData2 = (() => {
     "group_type": "SOA",
     "sentiment": "neutral",
     "persona": "Seller (Others)",
-    "master_topic": "Others"
+    "master_topic": "Kinh doanh xuất nhập khẩu và thương mại điện tử xuyên biên giới"
   }
 ];
   const Q9_TOP_THREADS_EC  = [
@@ -4104,7 +4095,7 @@ window.ChiComData2 = (() => {
     "group_type": "EC",
     "sentiment": "positive",
     "persona": "Service Provider (CBEC)",
-    "master_topic": "Others"
+    "master_topic": "Chiến lược, kinh nghiệm và hỗ trợ cộng đồng bán hàng Amazon"
   },
   {
     "id": "2333634087135443",
@@ -4130,20 +4121,7 @@ window.ChiComData2 = (() => {
     "group_type": "EC",
     "sentiment": "positive",
     "persona": "Service Provider (CBEC)",
-    "master_topic": "Others"
-  },
-  {
-    "id": "1471293041241205",
-    "link": "https://www.facebook.com/groups/chuyennhaban/permalink/1471293041241205/",
-    "count": 100,
-    "comments": 99,
-    "preview": "Cho em xin hướng giải quyết với ạ😭 em còn đi học và có nhiều khó khăn về tài chính, shop em đã bị khoá từ lâu, nay shopee gửi mail này em rất lo sợ. Em vừa s…",
-    "group_id": 6,
-    "group_name": "Chuyện Nhà Bán",
-    "group_type": "EC",
-    "sentiment": "negative",
-    "persona": "Seller (Others)",
-    "master_topic": "Account Health"
+    "master_topic": "Chiến lược, kinh nghiệm và hỗ trợ cộng đồng bán hàng Amazon"
   },
   {
     "id": "2315616098937242",
@@ -4156,7 +4134,20 @@ window.ChiComData2 = (() => {
     "group_type": "EC",
     "sentiment": "positive",
     "persona": "Seller (Others)",
-    "master_topic": "Others"
+    "master_topic": "Chiến lược, kinh nghiệm và hỗ trợ cộng đồng bán hàng Amazon"
+  },
+  {
+    "id": "1471293041241205",
+    "link": "https://www.facebook.com/groups/chuyennhaban/permalink/1471293041241205/",
+    "count": 100,
+    "comments": 99,
+    "preview": "Cho em xin hướng giải quyết với ạ😭 em còn đi học và có nhiều khó khăn về tài chính, shop em đã bị khoá từ lâu, nay shopee gửi mail này em rất lo sợ. Em vừa s…",
+    "group_id": 6,
+    "group_name": "Chuyện Nhà Bán",
+    "group_type": "EC",
+    "sentiment": "negative",
+    "persona": "Seller (Others)",
+    "master_topic": "Vận hành và quản lý tài khoản Amazon Seller"
   },
   {
     "id": "26167833476243408",
@@ -4169,7 +4160,7 @@ window.ChiComData2 = (() => {
     "group_type": "EC",
     "sentiment": "neutral",
     "persona": "Prospect (Others)",
-    "master_topic": "SOA (Selling on Amazon)"
+    "master_topic": "Kinh doanh xuất nhập khẩu và thương mại điện tử xuyên biên giới"
   },
   {
     "id": "1421575209546322",
@@ -4182,7 +4173,7 @@ window.ChiComData2 = (() => {
     "group_type": "EC",
     "sentiment": "negative",
     "persona": "Seller (Others)",
-    "master_topic": "Others"
+    "master_topic": "Thanh toán, tài khoản và các vấn đề tài chính quốc tế cho Seller Amazon"
   },
   {
     "id": "1450869523283557",
@@ -4195,7 +4186,7 @@ window.ChiComData2 = (() => {
     "group_type": "EC",
     "sentiment": "negative",
     "persona": "Seller (Others)",
-    "master_topic": "SOA (Selling on Amazon)"
+    "master_topic": "Thanh toán, tài khoản và các vấn đề tài chính quốc tế cho Seller Amazon"
   },
   {
     "id": "1471466871223822",
@@ -4208,480 +4199,437 @@ window.ChiComData2 = (() => {
     "group_type": "EC",
     "sentiment": "negative",
     "persona": "Seller (Others)",
-    "master_topic": "Others"
+    "master_topic": "Kinh doanh, vận hành và tối ưu hóa bán hàng Amazon"
   },
   {
-    "id": "26079755708384520",
-    "link": "https://www.facebook.com/groups/congdongetsyvietnam/permalink/26079755708384517/",
+    "id": "1467225668314609",
+    "link": "https://www.facebook.com/groups/chuyennhaban/permalink/1467225668314609/",
     "count": 91,
     "comments": 90,
-    "preview": "M cần bên vận hành etsy chuyên nghiệp từ tạo tk đến bán sản phẩm. Có bên nào làm ko ạ sư",
-    "group_id": 9,
-    "group_name": "ETSY VN",
+    "preview": "Hỏi thật các bác. Nếu mình vay shoppe 1 tỏi. Mà làm ăn thua lỗ không có khả năng trả nợ thì nó đòi cách nào nhỉ. Khóa shop là xong phải không\nwith a Photo: h…",
+    "group_id": 6,
+    "group_name": "Chuyện Nhà Bán",
     "group_type": "EC",
-    "sentiment": "neutral",
+    "sentiment": "negative",
     "persona": "Prospect (Others)",
-    "master_topic": "Third Party"
+    "master_topic": "Thanh toán, tài khoản và các vấn đề tài chính quốc tế cho Seller Amazon"
   }
 ];
   const Q10_TOP        = [
   {
-    "vn": "Listing",
-    "name": "Listing",
-    "en": "Listing",
-    "count": 491,
+    "vn": "Home & Garden",
+    "name": "Home & Garden",
+    "en": "Home & Garden",
+    "count": 1398,
     "color": "oklch(0.60 0.20 25)"
   },
   {
-    "vn": "FBA",
-    "name": "FBA",
-    "en": "FBA",
-    "count": 177,
+    "vn": "Other / Undisclosed",
+    "name": "Other / Undisclosed",
+    "en": "Other / Undisclosed",
+    "count": 1217,
     "color": "oklch(0.68 0.17 50)"
   },
   {
-    "vn": "VIV (Video Identity Verification)",
-    "name": "VIV (Video Identity Verification)",
-    "en": "VIV (Video Identity Verification)",
-    "count": 150,
+    "vn": "Apparel & Fashion",
+    "name": "Apparel & Fashion",
+    "en": "Apparel & Fashion",
+    "count": 448,
     "color": "oklch(0.75 0.17 90)"
   },
   {
-    "vn": "FBM",
-    "name": "FBM",
-    "en": "FBM",
-    "count": 108,
+    "vn": "Jewelry & Accessories",
+    "name": "Jewelry & Accessories",
+    "en": "Jewelry & Accessories",
+    "count": 273,
     "color": "oklch(0.62 0.15 155)"
   },
   {
-    "vn": "OX (Opportunity Explorer)",
-    "name": "OX (Opportunity Explorer)",
-    "en": "OX (Opportunity Explorer)",
-    "count": 46,
+    "vn": "Electronics (China-sourced)",
+    "name": "Electronics (China-sourced)",
+    "en": "Electronics (China-sourced)",
+    "count": 257,
     "color": "oklch(0.58 0.14 190)"
   },
   {
-    "vn": "Seller Guidebook",
-    "name": "Seller Guidebook",
-    "en": "Seller Guidebook",
-    "count": 43,
+    "vn": "USDA Agricultural Products",
+    "name": "USDA Agricultural Products",
+    "en": "USDA Agricultural Products",
+    "count": 145,
     "color": "oklch(0.55 0.17 290)"
   },
   {
-    "vn": "NSI (New Seller Incentive)",
-    "name": "NSI (New Seller Incentive)",
-    "en": "NSI (New Seller Incentive)",
-    "count": 40,
+    "vn": "Private Label (undisclosed)",
+    "name": "Private Label (undisclosed)",
+    "en": "Private Label (undisclosed)",
+    "count": 140,
     "color": "oklch(0.60 0.20 320)"
   },
   {
-    "vn": "Sponsored Products",
-    "name": "Sponsored Products",
-    "en": "Sponsored Products",
-    "count": 29,
+    "vn": "Kitchen & Home Goods",
+    "name": "Kitchen & Home Goods",
+    "en": "Kitchen & Home Goods",
+    "count": 134,
     "color": "oklch(0.55 0.15 230)"
   },
   {
-    "vn": "SIV (Seller Identity Verification)",
-    "name": "SIV (Seller Identity Verification)",
-    "en": "SIV (Seller Identity Verification)",
-    "count": 16,
+    "vn": "Pet Products",
+    "name": "Pet Products",
+    "en": "Pet Products",
+    "count": 112,
     "color": "oklch(0.55 0.17 260)"
   },
   {
-    "vn": "SPN (Service Provider Network)",
-    "name": "SPN (Service Provider Network)",
-    "en": "SPN (Service Provider Network)",
-    "count": 7,
+    "vn": "Health & Beauty / Supplements",
+    "name": "Health & Beauty / Supplements",
+    "en": "Health & Beauty / Supplements",
+    "count": 70,
     "color": "oklch(0.65 0.12 60)"
   },
   {
-    "vn": "Content A+",
-    "name": "Content A+",
-    "en": "Content A+",
-    "count": 6,
+    "vn": "Toys & Games",
+    "name": "Toys & Games",
+    "en": "Toys & Games",
+    "count": 48,
     "color": "oklch(0.60 0.20 25)"
-  },
-  {
-    "vn": "AGL (Amazon Global Logistics)",
-    "name": "AGL (Amazon Global Logistics)",
-    "en": "AGL (Amazon Global Logistics)",
-    "count": 4,
-    "color": "oklch(0.68 0.17 50)"
-  },
-  {
-    "vn": "Sponsored Brands",
-    "name": "Sponsored Brands",
-    "en": "Sponsored Brands",
-    "count": 2,
-    "color": "oklch(0.75 0.17 90)"
-  },
-  {
-    "vn": "NSP (New Seller Program)",
-    "name": "NSP (New Seller Program)",
-    "en": "NSP (New Seller Program)",
-    "count": 2,
-    "color": "oklch(0.62 0.15 155)"
   }
 ];
   const Q10_TOP_SOA    = [
   {
-    "vn": "FBA",
-    "name": "FBA",
-    "en": "FBA",
-    "count": 135,
+    "vn": "Other / Undisclosed",
+    "name": "Other / Undisclosed",
+    "en": "Other / Undisclosed",
+    "count": 202,
     "color": "oklch(0.60 0.20 25)"
   },
   {
-    "vn": "Listing",
-    "name": "Listing",
-    "en": "Listing",
-    "count": 91,
+    "vn": "Home & Garden",
+    "name": "Home & Garden",
+    "en": "Home & Garden",
+    "count": 187,
     "color": "oklch(0.68 0.17 50)"
   },
   {
-    "vn": "FBM",
-    "name": "FBM",
-    "en": "FBM",
-    "count": 79,
+    "vn": "Apparel & Fashion",
+    "name": "Apparel & Fashion",
+    "en": "Apparel & Fashion",
+    "count": 41,
     "color": "oklch(0.75 0.17 90)"
   },
   {
-    "vn": "VIV (Video Identity Verification)",
-    "name": "VIV (Video Identity Verification)",
-    "en": "VIV (Video Identity Verification)",
-    "count": 46,
+    "vn": "Electronics (China-sourced)",
+    "name": "Electronics (China-sourced)",
+    "en": "Electronics (China-sourced)",
+    "count": 39,
     "color": "oklch(0.62 0.15 155)"
   },
   {
-    "vn": "Sponsored Products",
-    "name": "Sponsored Products",
-    "en": "Sponsored Products",
-    "count": 23,
+    "vn": "Jewelry & Accessories",
+    "name": "Jewelry & Accessories",
+    "en": "Jewelry & Accessories",
+    "count": 31,
     "color": "oklch(0.58 0.14 190)"
   },
   {
-    "vn": "OX (Opportunity Explorer)",
-    "name": "OX (Opportunity Explorer)",
-    "en": "OX (Opportunity Explorer)",
-    "count": 16,
+    "vn": "Kitchen & Home Goods",
+    "name": "Kitchen & Home Goods",
+    "en": "Kitchen & Home Goods",
+    "count": 29,
     "color": "oklch(0.55 0.17 290)"
   },
   {
-    "vn": "Seller Guidebook",
-    "name": "Seller Guidebook",
-    "en": "Seller Guidebook",
-    "count": 11,
+    "vn": "Private Label (undisclosed)",
+    "name": "Private Label (undisclosed)",
+    "en": "Private Label (undisclosed)",
+    "count": 19,
     "color": "oklch(0.60 0.20 320)"
   },
   {
-    "vn": "NSI (New Seller Incentive)",
-    "name": "NSI (New Seller Incentive)",
-    "en": "NSI (New Seller Incentive)",
-    "count": 10,
+    "vn": "USDA Agricultural Products",
+    "name": "USDA Agricultural Products",
+    "en": "USDA Agricultural Products",
+    "count": 19,
     "color": "oklch(0.55 0.15 230)"
   },
   {
-    "vn": "SIV (Seller Identity Verification)",
-    "name": "SIV (Seller Identity Verification)",
-    "en": "SIV (Seller Identity Verification)",
-    "count": 7,
+    "vn": "Pet Products",
+    "name": "Pet Products",
+    "en": "Pet Products",
+    "count": 11,
     "color": "oklch(0.55 0.17 260)"
   },
   {
-    "vn": "Content A+",
-    "name": "Content A+",
-    "en": "Content A+",
-    "count": 5,
+    "vn": "Health & Beauty / Supplements",
+    "name": "Health & Beauty / Supplements",
+    "en": "Health & Beauty / Supplements",
+    "count": 8,
     "color": "oklch(0.65 0.12 60)"
   },
   {
-    "vn": "AGL (Amazon Global Logistics)",
-    "name": "AGL (Amazon Global Logistics)",
-    "en": "AGL (Amazon Global Logistics)",
-    "count": 4,
+    "vn": "Toys & Games",
+    "name": "Toys & Games",
+    "en": "Toys & Games",
+    "count": 8,
     "color": "oklch(0.60 0.20 25)"
-  },
-  {
-    "vn": "SPN (Service Provider Network)",
-    "name": "SPN (Service Provider Network)",
-    "en": "SPN (Service Provider Network)",
-    "count": 2,
-    "color": "oklch(0.68 0.17 50)"
-  },
-  {
-    "vn": "NSP (New Seller Program)",
-    "name": "NSP (New Seller Program)",
-    "en": "NSP (New Seller Program)",
-    "count": 1,
-    "color": "oklch(0.75 0.17 90)"
   }
 ];
   const Q10_TOP_EC     = [
   {
-    "vn": "Listing",
-    "name": "Listing",
-    "en": "Listing",
-    "count": 400,
+    "vn": "Home & Garden",
+    "name": "Home & Garden",
+    "en": "Home & Garden",
+    "count": 1211,
     "color": "oklch(0.60 0.20 25)"
   },
   {
-    "vn": "VIV (Video Identity Verification)",
-    "name": "VIV (Video Identity Verification)",
-    "en": "VIV (Video Identity Verification)",
-    "count": 104,
+    "vn": "Other / Undisclosed",
+    "name": "Other / Undisclosed",
+    "en": "Other / Undisclosed",
+    "count": 1015,
     "color": "oklch(0.68 0.17 50)"
   },
   {
-    "vn": "FBA",
-    "name": "FBA",
-    "en": "FBA",
-    "count": 42,
+    "vn": "Apparel & Fashion",
+    "name": "Apparel & Fashion",
+    "en": "Apparel & Fashion",
+    "count": 407,
     "color": "oklch(0.75 0.17 90)"
   },
   {
-    "vn": "Seller Guidebook",
-    "name": "Seller Guidebook",
-    "en": "Seller Guidebook",
-    "count": 32,
+    "vn": "Jewelry & Accessories",
+    "name": "Jewelry & Accessories",
+    "en": "Jewelry & Accessories",
+    "count": 242,
     "color": "oklch(0.62 0.15 155)"
   },
   {
-    "vn": "OX (Opportunity Explorer)",
-    "name": "OX (Opportunity Explorer)",
-    "en": "OX (Opportunity Explorer)",
-    "count": 30,
+    "vn": "Electronics (China-sourced)",
+    "name": "Electronics (China-sourced)",
+    "en": "Electronics (China-sourced)",
+    "count": 218,
     "color": "oklch(0.58 0.14 190)"
   },
   {
-    "vn": "NSI (New Seller Incentive)",
-    "name": "NSI (New Seller Incentive)",
-    "en": "NSI (New Seller Incentive)",
-    "count": 30,
+    "vn": "USDA Agricultural Products",
+    "name": "USDA Agricultural Products",
+    "en": "USDA Agricultural Products",
+    "count": 126,
     "color": "oklch(0.55 0.17 290)"
   },
   {
-    "vn": "FBM",
-    "name": "FBM",
-    "en": "FBM",
-    "count": 29,
+    "vn": "Private Label (undisclosed)",
+    "name": "Private Label (undisclosed)",
+    "en": "Private Label (undisclosed)",
+    "count": 121,
     "color": "oklch(0.60 0.20 320)"
   },
   {
-    "vn": "SIV (Seller Identity Verification)",
-    "name": "SIV (Seller Identity Verification)",
-    "en": "SIV (Seller Identity Verification)",
-    "count": 9,
+    "vn": "Kitchen & Home Goods",
+    "name": "Kitchen & Home Goods",
+    "en": "Kitchen & Home Goods",
+    "count": 105,
     "color": "oklch(0.55 0.15 230)"
   },
   {
-    "vn": "Sponsored Products",
-    "name": "Sponsored Products",
-    "en": "Sponsored Products",
-    "count": 6,
+    "vn": "Pet Products",
+    "name": "Pet Products",
+    "en": "Pet Products",
+    "count": 101,
     "color": "oklch(0.55 0.17 260)"
   },
   {
-    "vn": "SPN (Service Provider Network)",
-    "name": "SPN (Service Provider Network)",
-    "en": "SPN (Service Provider Network)",
-    "count": 5,
+    "vn": "Health & Beauty / Supplements",
+    "name": "Health & Beauty / Supplements",
+    "en": "Health & Beauty / Supplements",
+    "count": 62,
     "color": "oklch(0.65 0.12 60)"
   },
   {
-    "vn": "Sponsored Brands",
-    "name": "Sponsored Brands",
-    "en": "Sponsored Brands",
-    "count": 2,
+    "vn": "Toys & Games",
+    "name": "Toys & Games",
+    "en": "Toys & Games",
+    "count": 40,
     "color": "oklch(0.60 0.20 25)"
-  },
-  {
-    "vn": "Content A+",
-    "name": "Content A+",
-    "en": "Content A+",
-    "count": 1,
-    "color": "oklch(0.68 0.17 50)"
-  },
-  {
-    "vn": "NSP (New Seller Program)",
-    "name": "NSP (New Seller Program)",
-    "en": "NSP (New Seller Program)",
-    "count": 1,
-    "color": "oklch(0.75 0.17 90)"
   }
 ];
   const Q10_KEYWORDS   = {
-  "OX (Opportunity Explorer)": [
-    "opportunity explorer",
-    "product opportunity explorer",
-    "amazon ox",
-    "ox amazon",
-    "opportunity",
-    "tìm sản phẩm",
-    "sản phẩm tiềm năng",
-    "tool tìm sản phẩm",
-    "product opportunity",
-    "product research",
-    "niche research",
-    "find product",
-    "nghiên cứu sản phẩm",
-    "chọn ngách",
-    "find niche"
+  "Health & Beauty / Supplements": [
+    "skincare",
+    "beauty",
+    "makeup",
+    "mỹ phẩm",
+    "làm đẹp",
+    "supplement",
+    "vitamin",
+    "collagen",
+    "serum",
+    "wellness",
+    "cosmetics",
+    "perfume",
+    "nước hoa",
+    "chăm sóc da",
+    "essential oils",
+    "tinh dầu",
+    "cream",
+    "kem dưỡng",
+    "shampoo",
+    "dầu gội",
+    "moisturizer",
+    "sunscreen"
   ],
-  "Seller Guidebook": [
-    "guidebook",
-    "guideline",
-    "playbook",
-    "cẩm nang",
-    "bí kíp",
-    "lộ trình",
-    "sách hướng dẫn",
-    "seller guide",
-    "amazon guide",
-    "guidebook amazon",
-    "guideline amazon",
-    "tài liệu hướng dẫn"
+  "Private Label (undisclosed)": [
+    "private label",
+    "white label",
+    "proprietary",
+    "undisclosed",
+    "confidential",
+    "niche"
   ],
-  "SIV (Seller Identity Verification)": [
-    "siv",
-    "seller identity verification",
-    "identity verification",
-    "xác minh danh tính người bán",
-    "xác minh tài khoản",
-    "quy trình đăng ký tài khoản",
-    "mở tài khoản amazon",
-    "đăng ký tài khoản amazon",
-    "verify seller account",
-    "verify amazon"
+  "Apparel & Fashion": [
+    "fashion",
+    "quần áo",
+    "áo thun",
+    "váy",
+    "quần jean",
+    "clothing",
+    "apparel",
+    "dress",
+    "shirt",
+    "pants",
+    "jacket",
+    "giày",
+    "shoes",
+    "boots",
+    "sneaker",
+    "thời trang",
+    "phụ kiện",
+    "accessories",
+    "scarf",
+    "mũ"
   ],
-  "VIV (Video Identity Verification)": [
-    "viv",
-    "video identity verification",
-    "video verification",
-    "xác minh",
-    "xác minh danh tính trực tuyến",
-    "xác minh danh tính",
-    "xác minh trực tuyến",
-    "xác minh online",
-    "xác minh video",
-    "xác minh qua video",
-    "verification video",
-    "video call amazon",
-    "video identity",
-    "quy trình xác minh danh tính"
+  "Home & Garden": [
+    "home",
+    "garden",
+    "gia dụng",
+    "vườn",
+    "nhà",
+    "gardening",
+    "garden tools",
+    "home decor",
+    "organizer",
+    "storage",
+    "kệ",
+    "tủ",
+    "home items",
+    "household",
+    "small home items",
+    "garden products"
   ],
-  "Content A+": [
-    "a+ content",
-    "a-plus content",
-    "content a+",
-    "enhanced brand content",
-    "ebc",
-    "premium a+ content",
-    "a+ premium",
-    "tool a+",
-    "nội dung a+",
-    "a plus content"
+  "Electronics (China-sourced)": [
+    "electronics",
+    "gadget",
+    "điện tử",
+    "điện thoại",
+    "phone accessories",
+    "headphones",
+    "earbuds",
+    "tai nghe",
+    "cables",
+    "charger",
+    "adapter",
+    "usb",
+    "bluetooth",
+    "wireless",
+    "tech gadgets"
   ],
-  "Listing": [
-    "listing",
-    "đăng sản phẩm",
-    "đăng tải sản phẩm",
-    "tạo listing",
-    "upload listing",
-    "đăng bán",
-    "product listing",
-    "listing optimization",
-    "quy trình listing",
-    "optimize listing",
-    "tối ưu listing"
+  "Toys & Games": [
+    "toy",
+    "đồ chơi",
+    "toys",
+    "games",
+    "lego",
+    "action figure",
+    "búp bê",
+    "gấu bông",
+    "puzzle",
+    "board game",
+    "trò chơi",
+    "stem",
+    "educational toys",
+    "fidget",
+    "fidget products"
   ],
-  "Sponsored Products": [
-    "sponsored product",
-    "sponsored products",
-    "sp ads",
-    "amazon sp",
-    "ppc",
-    "ppc amazon",
-    "amazon ppc",
-    "quảng cáo sản phẩm",
-    "quảng cáo amazon",
-    "sponsored ads",
-    "campaign amazon"
+  "Kitchen & Home Goods": [
+    "kitchen",
+    "bếp",
+    "cookware",
+    "kitchenware",
+    "nồi",
+    "chảo",
+    "dao",
+    "đũa",
+    "muỗng",
+    "chén",
+    "cốc",
+    "storage",
+    "appliances",
+    "kitchen gadgets",
+    "small appliances",
+    "kitchen tools"
   ],
-  "Sponsored Brands": [
-    "sponsored brand",
-    "sponsored brands",
-    "sb ads",
-    "amazon sb",
-    "sb amazon",
-    "brand ads",
-    "brand ad",
-    "amazon brand ad",
-    "quảng cáo thương hiệu",
-    "quảng cáo brand",
-    "brand campaign",
-    "thương hiệu amazon"
+  "Jewelry & Accessories": [
+    "jewelry",
+    "trang sức",
+    "earring",
+    "necklace",
+    "bracelet",
+    "ring",
+    "vòng",
+    "watch",
+    "đồng hồ",
+    "sunglasses",
+    "kính",
+    "silver jewelry",
+    "accessories",
+    "phụ kiện"
   ],
-  "NSI (New Seller Incentive)": [
-    "nsi",
-    "new seller incentive",
-    "new seller incentives",
-    "ưu đãi nhà bán mới",
-    "ưu đãi seller mới",
-    "incentive program",
-    "chương trình ưu đãi",
-    "new seller program",
-    "mở acc mới",
-    "mở tài khoản mới",
-    "nhà bán mới amazon",
-    "seller mới"
+  "Pet Products": [
+    "pet",
+    "thú cưng",
+    "chó",
+    "mèo",
+    "dog",
+    "cat",
+    "pet food",
+    "thức ăn thú cưng",
+    "pet toy",
+    "pet accessories",
+    "grooming",
+    "pet bed",
+    "animal products"
   ],
-  "FBA": [
-    "fba",
-    "fulfillment by amazon",
-    "kho amazon",
-    "gửi vào fba",
-    "inbound shipment",
-    "prep center",
-    "fba prep",
-    "fba shipment",
-    "gửi hàng fba"
+  "USDA Agricultural Products": [
+    "agricultural",
+    "coffee",
+    "cà phê",
+    "cashew",
+    "cashews",
+    "spices",
+    "gia vị",
+    "tea",
+    "trà",
+    "usda",
+    "organic",
+    "agricultural products",
+    "vietnamese coffee"
   ],
-  "FBM": [
-    "fbm",
-    "fulfillment by merchant",
-    "tự ship",
-    "self fulfillment",
-    "merchant fulfilled",
-    "fbm tự ship"
-  ],
-  "AGL (Amazon Global Logistics)": [
-    "agl",
-    "amazon global logistics",
-    "global logistics amazon",
-    "vận chuyển amazon",
-    "dịch vụ vận chuyển amazon"
-  ],
-  "SPN (Service Provider Network)": [
-    "spn",
-    "service provider network",
-    "service provider",
-    "amazon service provider",
-    "dịch vụ hỗ trợ nhà bán hàng",
-    "dịch vụ hỗ trợ",
-    "amazon spn",
-    "nhà cung cấp dịch vụ amazon",
-    "service provider amazon"
-  ],
-  "NSP (New Seller Program)": [
-    "nsp",
-    "new seller program",
-    "new seller promotion",
-    "chương trình nhà bán mới",
-    "amazon new seller program",
-    "new seller",
-    "chương trình seller mới",
-    "newbie amazon"
+  "Other / Undisclosed": [
+    "other",
+    "undisclosed",
+    "various",
+    "miscellaneous",
+    "khác",
+    "không xác định"
   ]
 };
   const Q10_WEEKS      = [
@@ -4704,269 +4652,269 @@ window.ChiComData2 = (() => {
 ];
   const Q10_WEEKLY     = [
   {
-    "name": "Listing",
-    "en": "Listing",
+    "name": "Home & Garden",
+    "en": "Home & Garden",
     "color": "oklch(0.60 0.20 25)",
     "points": [
-      1,
-      19,
-      44,
-      32,
-      31,
-      18,
-      21,
-      17,
-      17,
-      42,
-      39,
+      4,
+      78,
+      112,
+      85,
+      68,
+      91,
+      105,
+      101,
+      56,
+      72,
+      134,
+      177,
+      124,
+      135,
       55,
-      54,
-      47,
-      42,
-      12
+      1
     ]
   },
   {
-    "name": "FBA",
-    "en": "FBA",
+    "name": "Other / Undisclosed",
+    "en": "Other / Undisclosed",
     "color": "oklch(0.68 0.17 50)",
     "points": [
       1,
-      10,
-      10,
-      9,
-      16,
-      16,
-      13,
-      12,
-      3,
-      6,
-      6,
-      29,
-      14,
-      14,
-      14,
-      4
+      56,
+      108,
+      80,
+      68,
+      91,
+      94,
+      79,
+      48,
+      69,
+      110,
+      114,
+      139,
+      109,
+      50,
+      1
     ]
   },
   {
-    "name": "VIV (Video Identity Verification)",
-    "en": "VIV (Video Identity Verification)",
+    "name": "Apparel & Fashion",
+    "en": "Apparel & Fashion",
     "color": "oklch(0.75 0.17 90)",
     "points": [
-      3,
-      13,
-      14,
-      12,
-      10,
-      6,
-      10,
-      14,
-      6,
-      12,
-      11,
-      8,
-      9,
-      13,
-      8,
-      1
-    ]
-  },
-  {
-    "name": "FBM",
-    "en": "FBM",
-    "color": "oklch(0.62 0.15 155)",
-    "points": [
       1,
-      6,
-      10,
-      11,
-      3,
-      6,
-      5,
-      5,
-      1,
-      5,
-      3,
-      15,
-      21,
-      9,
-      6,
-      1
-    ]
-  },
-  {
-    "name": "OX (Opportunity Explorer)",
-    "en": "OX (Opportunity Explorer)",
-    "color": "oklch(0.58 0.14 190)",
-    "points": [
-      0,
-      1,
-      3,
-      1,
-      1,
-      5,
-      3,
-      2,
-      1,
-      5,
-      3,
-      4,
-      8,
-      7,
-      1,
-      1
-    ]
-  },
-  {
-    "name": "Seller Guidebook",
-    "en": "Seller Guidebook",
-    "color": "oklch(0.55 0.17 290)",
-    "points": [
-      0,
-      4,
-      3,
-      4,
-      1,
-      4,
-      2,
-      0,
-      2,
-      4,
-      6,
-      3,
-      3,
-      6,
-      1,
+      19,
+      19,
+      29,
+      17,
+      22,
+      25,
+      19,
+      16,
+      28,
+      47,
+      80,
+      64,
+      46,
+      16,
       0
     ]
   },
   {
-    "name": "NSI (New Seller Incentive)",
-    "en": "NSI (New Seller Incentive)",
+    "name": "Jewelry & Accessories",
+    "en": "Jewelry & Accessories",
+    "color": "oklch(0.62 0.15 155)",
+    "points": [
+      0,
+      11,
+      18,
+      23,
+      15,
+      16,
+      19,
+      13,
+      10,
+      17,
+      25,
+      35,
+      33,
+      25,
+      13,
+      0
+    ]
+  },
+  {
+    "name": "Electronics (China-sourced)",
+    "en": "Electronics (China-sourced)",
+    "color": "oklch(0.58 0.14 190)",
+    "points": [
+      3,
+      19,
+      12,
+      16,
+      21,
+      13,
+      17,
+      19,
+      16,
+      22,
+      24,
+      27,
+      24,
+      22,
+      2,
+      0
+    ]
+  },
+  {
+    "name": "USDA Agricultural Products",
+    "en": "USDA Agricultural Products",
+    "color": "oklch(0.55 0.17 290)",
+    "points": [
+      0,
+      6,
+      6,
+      8,
+      5,
+      8,
+      28,
+      16,
+      2,
+      7,
+      5,
+      20,
+      20,
+      10,
+      4,
+      0
+    ]
+  },
+  {
+    "name": "Private Label (undisclosed)",
+    "en": "Private Label (undisclosed)",
     "color": "oklch(0.60 0.20 320)",
     "points": [
       0,
-      1,
+      3,
+      10,
       5,
-      3,
+      7,
       9,
-      3,
-      2,
-      1,
-      1,
-      3,
-      1,
-      2,
-      3,
-      2,
-      4,
+      8,
+      8,
+      0,
+      14,
+      11,
+      20,
+      23,
+      12,
+      10,
       0
     ]
   }
 ];
   const Q10_SUBS_SOA   = [
   {
-    "vn": "Misc / Other",
-    "en": "Misc / Other",
-    "count": 1141
+    "vn": "Chia sẻ, học hỏi và hợp tác kinh nghiệm bán hàng Amazon",
+    "en": "Sharing, learning & peer collaboration on Amazon",
+    "count": 633
   },
   {
-    "vn": "Selling Best Practices",
-    "en": "Selling Best Practices",
-    "count": 616
+    "vn": "Kinh doanh xuất nhập khẩu và bán hàng quốc tế",
+    "en": "Import-export & international selling",
+    "count": 576
   },
   {
-    "vn": "Account issues / Account errors",
-    "en": "Account issues / Account errors",
-    "count": 452
+    "vn": "Sự kiện, đào tạo và kết nối cộng đồng bán hàng Amazon",
+    "en": "Events, training & community networking",
+    "count": 564
   },
   {
-    "vn": "Community Events And Contests",
-    "en": "Community Events And Contests",
-    "count": 437
+    "vn": "Bán hàng và vận hành kinh doanh trên Amazon",
+    "en": "Amazon selling & operations",
+    "count": 446
   },
   {
-    "vn": "Third-party service introduction",
-    "en": "Third-party service introduction",
-    "count": 332
+    "vn": "Thuế và Chi phí Kinh doanh trên Amazon cho Seller Việt Nam",
+    "en": "Tax & costs for Vietnamese Amazon sellers",
+    "count": 282
   },
   {
-    "vn": "Account suspension",
-    "en": "Account suspension",
-    "count": 254
+    "vn": "Hợp tác, hỗ trợ và vận hành bán hàng Amazon",
+    "en": "Partnerships, support & Amazon selling ops",
+    "count": 241
   },
   {
-    "vn": "Product Selection",
-    "en": "Product Selection",
-    "count": 198
+    "vn": "Dịch vụ vận chuyển và fulfillment",
+    "en": "Shipping & fulfillment services",
+    "count": 229
   },
   {
-    "vn": "Legal Entity Setup",
-    "en": "Legal Entity Setup",
-    "count": 193
+    "vn": "Kinh doanh Amazon FBA và FBM: vận hành & tối ưu chi phí",
+    "en": "Amazon FBA & FBM — ops & cost optimization",
+    "count": 210
   },
   {
-    "vn": "Fulfillment models",
-    "en": "Fulfillment models",
-    "count": 185
+    "vn": "Khó khăn và thách thức khi bán hàng trên Amazon",
+    "en": "Pain points & challenges selling on Amazon",
+    "count": 164
   },
   {
-    "vn": "Intellectual property disputes resolution",
-    "en": "Intellectual property disputes resolution",
-    "count": 161
+    "vn": "Kinh nghiệm và chiến lược bán hàng trên Amazon",
+    "en": "Amazon selling strategy & experience",
+    "count": 149
   }
 ];
   const Q10_SUBS_EC    = [
   {
-    "vn": "Misc / Other",
-    "en": "Misc / Other",
-    "count": 8211
+    "vn": "Kinh doanh xuất nhập khẩu và bán hàng quốc tế",
+    "en": "Import-export & international selling",
+    "count": 6762
   },
   {
-    "vn": "Tax Compliance And Declarations",
-    "en": "Tax Compliance And Declarations",
-    "count": 4177
+    "vn": "Dịch vụ vận chuyển và fulfillment",
+    "en": "Shipping & fulfillment services",
+    "count": 4509
   },
   {
-    "vn": "Selling Best Practices",
-    "en": "Selling Best Practices",
-    "count": 2113
+    "vn": "Bán hàng và vận hành kinh doanh trên Amazon",
+    "en": "Amazon selling & operations",
+    "count": 4295
   },
   {
-    "vn": "Packaging & shipping optimization",
-    "en": "Packaging & shipping optimization",
-    "count": 1986
+    "vn": "Thuế và Chi phí Kinh doanh trên Amazon cho Seller Việt Nam",
+    "en": "Tax & costs for Vietnamese Amazon sellers",
+    "count": 4214
   },
   {
-    "vn": "Third-party service introduction",
-    "en": "Third-party service introduction",
-    "count": 1520
+    "vn": "Vận hành tài khoản và thanh toán quốc tế cho seller",
+    "en": "Account ops & international payments (sellers)",
+    "count": 2410
   },
   {
-    "vn": "Account suspension",
-    "en": "Account suspension",
-    "count": 1460
-  },
-  {
-    "vn": "Logistics costs",
-    "en": "Logistics costs",
-    "count": 1435
-  },
-  {
-    "vn": "Account issues / Account errors",
-    "en": "Account issues / Account errors",
+    "vn": "Khó khăn và thách thức khi bán hàng trên Amazon",
+    "en": "Pain points & challenges selling on Amazon",
     "count": 1340
   },
   {
-    "vn": "Market Trends And Sales Performance",
-    "en": "Market Trends And Sales Performance",
-    "count": 1265
+    "vn": "Chia sẻ, học hỏi và hợp tác kinh nghiệm bán hàng Amazon",
+    "en": "Sharing, learning & peer collaboration on Amazon",
+    "count": 1214
   },
   {
-    "vn": "Account verification",
-    "en": "Account verification",
-    "count": 1148
+    "vn": "Sự kiện, đào tạo và kết nối cộng đồng bán hàng Amazon",
+    "en": "Events, training & community networking",
+    "count": 744
+  },
+  {
+    "vn": "Hợp tác, hỗ trợ và vận hành bán hàng Amazon",
+    "en": "Partnerships, support & Amazon selling ops",
+    "count": 539
+  },
+  {
+    "vn": "Kinh nghiệm và chiến lược bán hàng trên Amazon",
+    "en": "Amazon selling strategy & experience",
+    "count": 501
   }
 ];
   const Q11_TOOLS        = [
@@ -4974,54 +4922,36 @@ window.ChiComData2 = (() => {
     "name": "FBA",
     "vn": "FBA",
     "en": "FBA",
-    "count": 135,
-    "use": 135,
+    "count": 119,
+    "use": 119,
     "satisfied": 17,
-    "issues": 19
+    "issues": 13
   },
   {
     "name": "FBM",
     "vn": "FBM",
     "en": "FBM",
-    "count": 79,
-    "use": 79,
+    "count": 75,
+    "use": 75,
     "satisfied": 4,
-    "issues": 14
+    "issues": 12
   },
   {
     "name": "PPC/Ads",
     "vn": "PPC/Ads",
     "en": "PPC/Ads",
-    "count": 48,
-    "use": 48,
-    "satisfied": 23,
-    "issues": 4
+    "count": 45,
+    "use": 45,
+    "satisfied": 22,
+    "issues": 3
   },
   {
     "name": "Quản lý tồn kho",
     "vn": "Quản lý tồn kho",
     "en": "Inventory management",
-    "count": 35,
-    "use": 35,
+    "count": 33,
+    "use": 33,
     "satisfied": 14,
-    "issues": 4
-  },
-  {
-    "name": "Seller Central",
-    "vn": "Seller Central",
-    "en": "Seller Central",
-    "count": 19,
-    "use": 19,
-    "satisfied": 2,
-    "issues": 4
-  },
-  {
-    "name": "Brand Registry",
-    "vn": "Brand Registry",
-    "en": "Brand Registry",
-    "count": 17,
-    "use": 17,
-    "satisfied": 2,
     "issues": 4
   },
   {
@@ -5032,6 +4962,24 @@ window.ChiComData2 = (() => {
     "use": 17,
     "satisfied": 6,
     "issues": 0
+  },
+  {
+    "name": "Seller Central",
+    "vn": "Seller Central",
+    "en": "Seller Central",
+    "count": 17,
+    "use": 17,
+    "satisfied": 2,
+    "issues": 4
+  },
+  {
+    "name": "Brand Registry",
+    "vn": "Brand Registry",
+    "en": "Brand Registry",
+    "count": 16,
+    "use": 16,
+    "satisfied": 2,
+    "issues": 4
   },
   {
     "name": "Amazon Support",
@@ -5046,17 +4994,17 @@ window.ChiComData2 = (() => {
     "name": "AWD",
     "vn": "AWD",
     "en": "AWD",
-    "count": 6,
-    "use": 6,
-    "satisfied": 1,
+    "count": 4,
+    "use": 4,
+    "satisfied": 0,
     "issues": 1
   },
   {
     "name": "Content A+",
     "vn": "Content A+",
     "en": "Content A+",
-    "count": 5,
-    "use": 5,
+    "count": 4,
+    "use": 4,
     "satisfied": 3,
     "issues": 0
   },
@@ -5064,8 +5012,8 @@ window.ChiComData2 = (() => {
     "name": "AGL",
     "vn": "AGL",
     "en": "AGL",
-    "count": 4,
-    "use": 4,
+    "count": 2,
+    "use": 2,
     "satisfied": 1,
     "issues": 0
   },
@@ -5093,13 +5041,13 @@ window.ChiComData2 = (() => {
     "vn": "Lỗi hệ thống / Bug",
     "name": "Lỗi hệ thống / Bug",
     "en": "System error / bug",
-    "count": 128
+    "count": 122
   },
   {
     "vn": "Khó dùng / phức tạp",
     "name": "Khó dùng / phức tạp",
     "en": "Hard to use / complex",
-    "count": 19
+    "count": 18
   },
   {
     "vn": "Tài khoản bị khóa / suspend",
@@ -5111,7 +5059,7 @@ window.ChiComData2 = (() => {
     "vn": "Phí & chi phí cao",
     "name": "Phí & chi phí cao",
     "en": "High fees & costs",
-    "count": 15
+    "count": 12
   },
   {
     "vn": "Hỗ trợ chậm / kém",
@@ -5123,7 +5071,7 @@ window.ChiComData2 = (() => {
     "vn": "Cập nhật chậm / outdated",
     "name": "Cập nhật chậm / outdated",
     "en": "Slow updates / outdated",
-    "count": 4
+    "count": 3
   },
   {
     "vn": "Dữ liệu sai / không chính xác",
@@ -5137,13 +5085,7 @@ window.ChiComData2 = (() => {
     "vn": "Dễ dùng / trực quan",
     "name": "Dễ dùng / trực quan",
     "en": "Easy to use / intuitive",
-    "count": 44
-  },
-  {
-    "vn": "Giá hợp lý / đáng tiền",
-    "name": "Giá hợp lý / đáng tiền",
-    "en": "Reasonable price / value for money",
-    "count": 35
+    "count": 42
   },
   {
     "vn": "Hiệu quả rõ rệt",
@@ -5152,22 +5094,28 @@ window.ChiComData2 = (() => {
     "count": 35
   },
   {
+    "vn": "Giá hợp lý / đáng tiền",
+    "name": "Giá hợp lý / đáng tiền",
+    "en": "Reasonable price / value for money",
+    "count": 34
+  },
+  {
     "vn": "Dữ liệu chính xác",
     "name": "Dữ liệu chính xác",
     "en": "Accurate data",
-    "count": 18
+    "count": 17
   },
   {
     "vn": "Tiết kiệm thời gian",
     "name": "Tiết kiệm thời gian",
     "en": "Time saving",
-    "count": 16
+    "count": 15
   },
   {
     "vn": "Cộng đồng & tài liệu tốt",
     "name": "Cộng đồng & tài liệu tốt",
     "en": "Good community & docs",
-    "count": 12
+    "count": 11
   },
   {
     "vn": "Hỗ trợ tận tình",
@@ -5187,28 +5135,28 @@ window.ChiComData2 = (() => {
     "name": "Kế toán / Thuế",
     "vn": "Kế toán / Thuế",
     "en": "Accounting / Tax",
-    "count": 269,
-    "mentions": 269,
-    "need": 24,
-    "satisfaction": 30,
+    "count": 258,
+    "mentions": 258,
+    "need": 23,
+    "satisfaction": 33,
     "demand": 9
   },
   {
     "name": "Vận chuyển / Forwarder",
     "vn": "Vận chuyển / Forwarder",
     "en": "Shipping / Forwarder",
-    "count": 117,
-    "mentions": 117,
+    "count": 105,
+    "mentions": 105,
     "need": 18,
-    "satisfaction": 55,
-    "demand": 15
+    "satisfaction": 61,
+    "demand": 17
   },
   {
     "name": "Pháp lý / Nhãn hiệu",
     "vn": "Pháp lý / Nhãn hiệu",
     "en": "Legal / Trademark",
-    "count": 105,
-    "mentions": 105,
+    "count": 102,
+    "mentions": 102,
     "need": 7,
     "satisfaction": 55,
     "demand": 7
@@ -5227,11 +5175,11 @@ window.ChiComData2 = (() => {
     "name": "Phần mềm / Tool",
     "vn": "Phần mềm / Tool",
     "en": "Software / Tools",
-    "count": 48,
-    "mentions": 48,
+    "count": 43,
+    "mentions": 43,
     "need": 6,
     "satisfaction": 100,
-    "demand": 12
+    "demand": 14
   },
   {
     "name": "Trợ lý ảo / VA",
@@ -5247,11 +5195,11 @@ window.ChiComData2 = (() => {
     "name": "Tối ưu Listing",
     "vn": "Tối ưu Listing",
     "en": "Listing Optimization",
-    "count": 11,
-    "mentions": 11,
+    "count": 10,
+    "mentions": 10,
     "need": 4,
     "satisfaction": 75,
-    "demand": 36
+    "demand": 40
   },
   {
     "name": "Chụp ảnh sản phẩm",
@@ -5269,28 +5217,28 @@ window.ChiComData2 = (() => {
     "name": "Kế toán / Thuế",
     "vn": "Kế toán / Thuế",
     "en": "Accounting / Tax",
-    "count": 269,
-    "mentions": 269,
-    "need": 24,
-    "satisfaction": 30,
+    "count": 258,
+    "mentions": 258,
+    "need": 23,
+    "satisfaction": 33,
     "demand": 9
   },
   {
     "name": "Vận chuyển / Forwarder",
     "vn": "Vận chuyển / Forwarder",
     "en": "Shipping / Forwarder",
-    "count": 117,
-    "mentions": 117,
+    "count": 105,
+    "mentions": 105,
     "need": 18,
-    "satisfaction": 55,
-    "demand": 15
+    "satisfaction": 61,
+    "demand": 17
   },
   {
     "name": "Pháp lý / Nhãn hiệu",
     "vn": "Pháp lý / Nhãn hiệu",
     "en": "Legal / Trademark",
-    "count": 105,
-    "mentions": 105,
+    "count": 102,
+    "mentions": 102,
     "need": 7,
     "satisfaction": 55,
     "demand": 7
@@ -5309,11 +5257,11 @@ window.ChiComData2 = (() => {
     "name": "Phần mềm / Tool",
     "vn": "Phần mềm / Tool",
     "en": "Software / Tools",
-    "count": 48,
-    "mentions": 48,
+    "count": 43,
+    "mentions": 43,
     "need": 6,
     "satisfaction": 100,
-    "demand": 12
+    "demand": 14
   },
   {
     "name": "Trợ lý ảo / VA",
@@ -5329,11 +5277,11 @@ window.ChiComData2 = (() => {
     "name": "Tối ưu Listing",
     "vn": "Tối ưu Listing",
     "en": "Listing Optimization",
-    "count": 11,
-    "mentions": 11,
+    "count": 10,
+    "mentions": 10,
     "need": 4,
     "satisfaction": 75,
-    "demand": 36
+    "demand": 40
   },
   {
     "name": "Chụp ảnh sản phẩm",
@@ -5351,28 +5299,28 @@ window.ChiComData2 = (() => {
     "name": "Kế toán / Thuế",
     "vn": "Kế toán / Thuế",
     "en": "Accounting / Tax",
-    "count": 2130,
-    "mentions": 2130,
-    "need": 121,
-    "satisfaction": 19,
+    "count": 2099,
+    "mentions": 2099,
+    "need": 119,
+    "satisfaction": 18,
     "demand": 6
   },
   {
     "name": "Vận chuyển / Forwarder",
     "vn": "Vận chuyển / Forwarder",
     "en": "Shipping / Forwarder",
-    "count": 1056,
-    "mentions": 1056,
-    "need": 56,
-    "satisfaction": 35,
+    "count": 1019,
+    "mentions": 1019,
+    "need": 54,
+    "satisfaction": 33,
     "demand": 5
   },
   {
     "name": "Phần mềm / Tool",
     "vn": "Phần mềm / Tool",
     "en": "Software / Tools",
-    "count": 319,
-    "mentions": 319,
+    "count": 313,
+    "mentions": 313,
     "need": 18,
     "satisfaction": 75,
     "demand": 6
@@ -5381,31 +5329,31 @@ window.ChiComData2 = (() => {
     "name": "Nguồn hàng / Sourcing",
     "vn": "Nguồn hàng / Sourcing",
     "en": "Sourcing",
-    "count": 244,
-    "mentions": 244,
-    "need": 11,
-    "satisfaction": 72,
-    "demand": 5
+    "count": 240,
+    "mentions": 240,
+    "need": 10,
+    "satisfaction": 70,
+    "demand": 4
   },
   {
     "name": "Pháp lý / Nhãn hiệu",
     "vn": "Pháp lý / Nhãn hiệu",
     "en": "Legal / Trademark",
-    "count": 99,
-    "mentions": 99,
-    "need": 7,
-    "satisfaction": 22,
+    "count": 88,
+    "mentions": 88,
+    "need": 6,
+    "satisfaction": 17,
     "demand": 7
   },
   {
     "name": "Trợ lý ảo / VA",
     "vn": "Trợ lý ảo / VA",
     "en": "Virtual Assistant / VA",
-    "count": 50,
-    "mentions": 50,
-    "need": 3,
+    "count": 49,
+    "mentions": 49,
+    "need": 2,
     "satisfaction": 57,
-    "demand": 6
+    "demand": 4
   },
   {
     "name": "Chụp ảnh sản phẩm",
@@ -5444,10 +5392,10 @@ window.ChiComData2 = (() => {
     "name": "Mentor / Coaching",
     "vn": "Mentor / Coaching",
     "en": "Mentor / Coaching",
-    "count": 8,
-    "mentions": 8,
+    "count": 7,
+    "mentions": 7,
     "seeking": 1,
-    "interest": 12,
+    "interest": 14,
     "positive": 3,
     "negative": 1
   },
@@ -5479,10 +5427,10 @@ window.ChiComData2 = (() => {
     "name": "Mentor / Coaching",
     "vn": "Mentor / Coaching",
     "en": "Mentor / Coaching",
-    "count": 8,
-    "mentions": 8,
+    "count": 7,
+    "mentions": 7,
     "seeking": 1,
-    "interest": 12,
+    "interest": 14,
     "positive": 3,
     "negative": 1
   },
@@ -5503,12 +5451,12 @@ window.ChiComData2 = (() => {
     "name": "Đào tạo tổng quát",
     "vn": "Đào tạo tổng quát",
     "en": "General training",
-    "count": 64,
-    "mentions": 64,
+    "count": 59,
+    "mentions": 59,
     "seeking": 4,
-    "interest": 6,
+    "interest": 7,
     "positive": 22,
-    "negative": 8
+    "negative": 5
   },
   {
     "name": "Mentor / Coaching",
@@ -5520,17 +5468,6 @@ window.ChiComData2 = (() => {
     "interest": 0,
     "positive": 4,
     "negative": 0
-  },
-  {
-    "name": "Khóa Amazon FBA",
-    "vn": "Khóa Amazon FBA",
-    "en": "Amazon FBA course",
-    "count": 1,
-    "mentions": 1,
-    "seeking": 1,
-    "interest": 100,
-    "positive": 0,
-    "negative": 0
   }
 ];
   const Q14_GROWTH       = [
@@ -5538,32 +5475,32 @@ window.ChiComData2 = (() => {
     "name": "Xây dựng Team",
     "vn": "Xây dựng Team",
     "en": "Team building",
-    "count": 128,
+    "count": 123,
     "color": "oklch(0.55 0.17 290)",
     "seeking": 8,
     "positive": 42,
-    "mixed": 72,
+    "mixed": 67,
     "negative": 14
   },
   {
     "name": "Tự động hóa & Tool",
     "vn": "Tự động hóa & Tool",
     "en": "Automation & Tools",
-    "count": 112,
+    "count": 106,
     "color": "oklch(0.75 0.17 60)",
-    "seeking": 6,
-    "positive": 55,
-    "mixed": 46,
-    "negative": 11
+    "seeking": 5,
+    "positive": 52,
+    "mixed": 44,
+    "negative": 10
   },
   {
     "name": "Scale vận hành",
     "vn": "Scale vận hành",
     "en": "Operational scaling",
-    "count": 62,
+    "count": 61,
     "color": "oklch(0.55 0.17 260)",
     "seeking": 3,
-    "positive": 39,
+    "positive": 38,
     "mixed": 21,
     "negative": 2
   },
@@ -5571,22 +5508,22 @@ window.ChiComData2 = (() => {
     "name": "Mở rộng thị trường",
     "vn": "Mở rộng thị trường",
     "en": "Market expansion",
-    "count": 59,
+    "count": 57,
     "color": "oklch(0.60 0.20 25)",
     "seeking": 8,
     "positive": 11,
-    "mixed": 39,
-    "negative": 9
+    "mixed": 38,
+    "negative": 8
   },
   {
     "name": "Marketing & Quảng cáo",
     "vn": "Marketing & Quảng cáo",
     "en": "Marketing & Advertising",
-    "count": 29,
+    "count": 27,
     "color": "oklch(0.62 0.15 155)",
     "seeking": 3,
-    "positive": 16,
-    "mixed": 12,
+    "positive": 15,
+    "mixed": 11,
     "negative": 1
   }
 ];
@@ -5595,32 +5532,32 @@ window.ChiComData2 = (() => {
     "name": "Xây dựng Team",
     "vn": "Xây dựng Team",
     "en": "Team building",
-    "count": 128,
+    "count": 123,
     "color": "oklch(0.55 0.17 290)",
     "seeking": 8,
     "positive": 42,
-    "mixed": 72,
+    "mixed": 67,
     "negative": 14
   },
   {
     "name": "Tự động hóa & Tool",
     "vn": "Tự động hóa & Tool",
     "en": "Automation & Tools",
-    "count": 112,
+    "count": 106,
     "color": "oklch(0.75 0.17 60)",
-    "seeking": 6,
-    "positive": 55,
-    "mixed": 46,
-    "negative": 11
+    "seeking": 5,
+    "positive": 52,
+    "mixed": 44,
+    "negative": 10
   },
   {
     "name": "Scale vận hành",
     "vn": "Scale vận hành",
     "en": "Operational scaling",
-    "count": 62,
+    "count": 61,
     "color": "oklch(0.55 0.17 260)",
     "seeking": 3,
-    "positive": 39,
+    "positive": 38,
     "mixed": 21,
     "negative": 2
   },
@@ -5628,22 +5565,22 @@ window.ChiComData2 = (() => {
     "name": "Mở rộng thị trường",
     "vn": "Mở rộng thị trường",
     "en": "Market expansion",
-    "count": 59,
+    "count": 57,
     "color": "oklch(0.60 0.20 25)",
     "seeking": 8,
     "positive": 11,
-    "mixed": 39,
-    "negative": 9
+    "mixed": 38,
+    "negative": 8
   },
   {
     "name": "Marketing & Quảng cáo",
     "vn": "Marketing & Quảng cáo",
     "en": "Marketing & Advertising",
-    "count": 29,
+    "count": 27,
     "color": "oklch(0.62 0.15 155)",
     "seeking": 3,
-    "positive": 16,
-    "mixed": 12,
+    "positive": 15,
+    "mixed": 11,
     "negative": 1
   }
 ];
@@ -5652,54 +5589,54 @@ window.ChiComData2 = (() => {
     "name": "Xây dựng Team",
     "vn": "Xây dựng Team",
     "en": "Team building",
-    "count": 373,
+    "count": 369,
     "color": "oklch(0.55 0.17 290)",
     "seeking": 11,
-    "positive": 119,
+    "positive": 117,
     "mixed": 204,
-    "negative": 50
+    "negative": 48
   },
   {
     "name": "Tự động hóa & Tool",
     "vn": "Tự động hóa & Tool",
     "en": "Automation & Tools",
-    "count": 342,
+    "count": 336,
     "color": "oklch(0.75 0.17 60)",
     "seeking": 11,
-    "positive": 120,
-    "mixed": 196,
-    "negative": 26
+    "positive": 121,
+    "mixed": 190,
+    "negative": 25
   },
   {
     "name": "Scale vận hành",
     "vn": "Scale vận hành",
     "en": "Operational scaling",
-    "count": 324,
+    "count": 317,
     "color": "oklch(0.55 0.17 260)",
-    "seeking": 9,
+    "seeking": 7,
     "positive": 220,
-    "mixed": 96,
-    "negative": 8
+    "mixed": 91,
+    "negative": 6
   },
   {
     "name": "Mở rộng thị trường",
     "vn": "Mở rộng thị trường",
     "en": "Market expansion",
-    "count": 175,
+    "count": 169,
     "color": "oklch(0.60 0.20 25)",
-    "seeking": 12,
-    "positive": 21,
-    "mixed": 150,
-    "negative": 4
+    "seeking": 11,
+    "positive": 19,
+    "mixed": 149,
+    "negative": 1
   },
   {
     "name": "Marketing & Quảng cáo",
     "vn": "Marketing & Quảng cáo",
     "en": "Marketing & Advertising",
-    "count": 71,
+    "count": 69,
     "color": "oklch(0.62 0.15 155)",
     "seeking": 1,
-    "positive": 32,
+    "positive": 30,
     "mixed": 36,
     "negative": 3
   },
@@ -5707,11 +5644,11 @@ window.ChiComData2 = (() => {
     "name": "Tăng doanh thu",
     "vn": "Tăng doanh thu",
     "en": "Revenue growth",
-    "count": 15,
+    "count": 14,
     "color": "oklch(0.62 0.15 200)",
-    "seeking": 1,
+    "seeking": 0,
     "positive": 6,
-    "mixed": 7,
+    "mixed": 6,
     "negative": 2
   }
 ];
