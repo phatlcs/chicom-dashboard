@@ -946,7 +946,7 @@ def compute_all(df: pd.DataFrame):
 
     try:
         from insights import generate_insights_for_all_qs
-        insights = generate_insights_for_all_qs(
+        insights, _ = generate_insights_for_all_qs(
             rel_for_sampling, soa_rel_for_sampling, insight_aggregates,
         )
     except Exception as e:
