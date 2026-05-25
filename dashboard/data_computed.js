@@ -3143,7 +3143,7 @@ window.ChiComData = (() => {
   "Q7": "Seller gia nhập Amazon chủ yếu được thu hút bởi tiềm năng thành công và thu nhập cao (1.517 lần đề cập), với 441 cuộc thảo luận xoay quanh việc chia sẻ kinh nghiệm và học hỏi từ cộng đồng. Dữ liệu cho thấy những seller mới như người chia sẻ đã đạt 15k$ doanh số trong 3 tháng, hoặc những người tìm kiếm niches lặp lại hằng năm (như 100 Days of School, seasonal apparel) để xây dựng dòng thu nhập ổn định. Ngoài lợi nhuận, 235 cuộc thảo luận về sự kiện, đào tạo và kết nối cho thấy seller coi trọng việc tiếp cận các chiến lược bán hàng cụ thể và hợp tác với đối tác để tối ưu hóa vận hành. Cơ hội ở đây là xây dựng chương trình mentoring hoặc workshop định kỳ giúp seller mới nắm vững quản lý tồn kho, tính toán lợi nhuận, và xác định niches có tiềm năng cao.",
   "Q8": "Khối Seller Amazon chiếm 1.006 trường hợp rời bỏ, trong đó tài khoản bị khóa và thua lỗ/chi phí cao là hai nguyên nhân hàng đầu (mỗi loại 16 lần), tiếp theo là các vụ lừa đảo (15 lần) và kiệt sức mất động lực (12 lần). Các seller gặp phải tình huống khóa listing do vi phạm chính sách (hàng không đúng mô tả, claim giả hàng, vi phạm bản quyền), hoặc bị lừa qua các dịch vụ hỗ trợ giả mạo, dẫn đến mất tiền và niềm tin vào nền tảng. Sự kết hợp giữa rủi ro pháp lý cao, quy trình xác minh ngặt nghèo, và chi phí quản lý tài khoản khiến nhiều seller cảm thấy kiệt sức, đặc biệt những người mới hoặc chưa hiểu rõ chính sách. Cần tăng cường content hướng dẫn về quy trình appeal, quản lý rủi ro pháp lý, và các dấu hiệu lừa đảo để giữ chân seller trong giai đoạn khó khăn.",
   "Q9": "Seller từ các nền tảng khác (1.063 người) chiếm đa số trong thảo luận về gia nhập, gấp đôi so với Prospect (689 người), cho thấy cộng đồng chủ yếu là những người đã có kinh nghiệm bán hàng trên các sàn khác đang tìm hiểu hoặc cân nhắc mở rộng sang Amazon. Tuy nhiên, khi nhìn vào nhóm rời bỏ, Seller (Others) vẫn chiếm 453 người nhưng tỷ lệ Prospect rơi xuống chỉ còn 27 người, cho thấy những người chưa có kinh nghiệm bán hàng dễ dàng từ bỏ ý định hơn. Các cuộc thảo luận phản ánh những vấn đề thực tế như khó khăn với thanh toán, suspend shop, hoặc thiếu hỗ trợ kịp thời, điều này giải thích tại sao Prospect nhanh chóng rời đi. Để giữ chân nhóm Prospect, cần tập trung vào content hướng dẫn cơ bản, hỗ trợ thanh toán rõ ràng, và cơ chế escalation nhanh cho các vấn đề account.",
-  "Q10": "Ngành hàng được thảo luận nhiều nhất trong cộng đồng là \"Other / Undisclosed\" với 1.217 lượt đề cập, tiếp theo là Apparel & Fashion (448), Jewelry & Accessories (273) và Home & Garden (271). Tuy nhiên, phần lớn các cuộc trao đổi không tập trung vào chi tiết sản phẩm mà quanh các vấn đề vận hành chung như xử lý đơn hàng, liên lạc với Amazon, và giải quyết tranh chấp thanh toán. Điều này cho thấy cộng đồng sellers Việt Nam đang gặp khó khăn với các quy trình hành chính và hỗ trợ khách hàng hơn là tìm kiếm cơ hội sản phẩm mới, đặc biệt là những seller chưa có chiến lược ngành hàng rõ ràng. Cần tăng cường nội dung hướng dẫn về quản lý đơn hàng, chính sách thanh toán và cách liên hệ hỗ trợ hiệu quả để giảm bớt sự bối rối trong cộng đồng.",
+  "Q10": "Ngành hàng thời trang và phụ kiện dẫn đầu các cuộc thảo luận với 448 bài viết về Apparel & Fashion, tiếp theo là Jewelry & Accessories (273) và Home & Garden (271), cho thấy các seller Việt tập trung chủ yếu vào những mặt hàng có margin tốt và dễ sourcing từ Trung Quốc. Điện tử nhập khẩu (257 bài) cũng là chủ đề nóng, phản ánh nhu cầu tìm kiếm kiến thức về logistics, compliance và quản lý inventory của nhóm này. Bên cạnh đó, các ngành niche như Pet Products (112), Health & Beauty (70) và Toys & Games (48) vẫn thu hút sự quan tâm, mặc dù ít hơn, cho thấy cơ hội phân khúc cho những seller muốn tránh cạnh tranh quá gay gắt. Để hỗ trợ tốt hơn, nên phát triển content chuyên sâu về sourcing, compliance và marketing cho top 3 ngành hàng này, đồng thời tạo các khóa học riêng cho các ngành niche để giúp seller tối ưu hóa chiến lược kinh doanh.",
   "Q11": "FBA là tool được sử dụng rộng rộng nhất với 119 người dùng, nhưng mức độ hài lòng chỉ 14% (17/119) trong khi 11% gặp vấn đề, chủ yếu là lỗi hệ thống (122 lần báo cáo). Ngược lại, PPC/Ads có tỷ lệ hài lòng cao nhất 49% (22/45 người) với ít vấn đề (3 lần), cho thấy người dùng đánh giá cao hiệu quả quảng cáo. Các tool phụ trợ như Helium 10 (35% hài lòng, 0 vấn đề) và Content A+ (75% hài lòng) cũng nhận được phản hồi tích cực, trong khi Seller Central và Brand Registry gặp khó khăn với tỷ lệ hài lòng dưới 15%. Cần ưu tiên cải thiện độ ổn định hệ thống FBA và tăng cường hướng dẫn sử dụng các công cụ quản lý tài khoản để nâng trải nghiệm người dùng.",
   "Q12": "Kế toán và thuế là dịch vụ được nhắc đến nhiều nhất (258 lần) nhưng mức độ hài lòng chỉ 33%, cho thấy seller gặp khó khăn lớn trong việc tìm đơn vị tư vấn thuế uy tín và hiểu rõ quy định cho bán hàng online. Ngược lại, dịch vụ sourcing và VA có mức hài lòng cao (70% và 80%) nhưng nhu cầu vẫn còn khá lớn (12 và 3 người cần), chứng tỏ seller đã tìm được giải pháp nhưng vẫn muốn tìm hiểu thêm lựa chọn. Tối ưu listing là dịch vụ có nhu cầu tiềm ẩn cao nhất (40% demand) dù chỉ được nhắc 10 lần, phản ánh rằng seller nhận ra tầm quan trọng của nó nhưng chưa có nhiều lựa chọn chất lượng trên thị trường. Cơ hội ngay là xây dựng dịch vụ tư vấn thuế chuyên biệt cho seller Amazon hoặc kết nối với các đơn vị kế toán có kinh nghiệm xuất nhập khẩu, đồng thời phát triển content về tối ưu listing để",
   "Q13": "Đào tạo tổng quát là nhu cầu áp đảo với 35 lần được nhắc đến, trong đó 20 lần có đánh giá tích cực từ cộng đồng, cho thấy seller mới và những người muốn chuyển hướng sang Amazon đều tìm kiếm kiến thức nền tảng toàn diện. Bên cạnh đó, mentor hoặc coaching một-một cũng thu hút sự quan tâm cao (14 lần) dù số lượng bài thảo luận ít hơn, phản ánh nhu cầu của những seller muốn được hướng dẫn thực hành trực tiếp thay vì học lý thuyết. Các câu hỏi từ newbie như \"em nên bắt đầu từ đâu\" hay \"có trung tâm nào nhận đào tạo không\" cùng với những lời khuyên từ senior về việc \"tuyển người có kinh nghiệm để training trực tiếp\" cho thấy cộng đồng vừa cần khóa học cơ bản có cấu trúc, vừa cần sự hỗ trợ cá nhân hóa để áp dụng nhanh chóng. Cơ hội nằm ở việc phát triển chương trình đào tạo modular kết hợp cả phần lý thuyết tổng qu",
@@ -4217,239 +4217,218 @@ window.ChiComData2 = (() => {
 ];
   const Q10_TOP        = [
   {
-    "vn": "Other / Undisclosed",
-    "name": "Other / Undisclosed",
-    "en": "Other / Undisclosed",
-    "count": 1217,
-    "color": "oklch(0.60 0.20 25)"
-  },
-  {
     "vn": "Apparel & Fashion",
     "name": "Apparel & Fashion",
     "en": "Apparel & Fashion",
     "count": 448,
-    "color": "oklch(0.68 0.17 50)"
+    "color": "oklch(0.60 0.20 25)"
   },
   {
     "vn": "Jewelry & Accessories",
     "name": "Jewelry & Accessories",
     "en": "Jewelry & Accessories",
     "count": 273,
-    "color": "oklch(0.75 0.17 90)"
+    "color": "oklch(0.68 0.17 50)"
   },
   {
     "vn": "Home & Garden",
     "name": "Home & Garden",
     "en": "Home & Garden",
     "count": 271,
-    "color": "oklch(0.62 0.15 155)"
+    "color": "oklch(0.75 0.17 90)"
   },
   {
     "vn": "Electronics (China-sourced)",
     "name": "Electronics (China-sourced)",
     "en": "Electronics (China-sourced)",
     "count": 257,
-    "color": "oklch(0.58 0.14 190)"
+    "color": "oklch(0.62 0.15 155)"
   },
   {
     "vn": "USDA Agricultural Products",
     "name": "USDA Agricultural Products",
     "en": "USDA Agricultural Products",
     "count": 145,
-    "color": "oklch(0.55 0.17 290)"
+    "color": "oklch(0.58 0.14 190)"
   },
   {
     "vn": "Private Label (undisclosed)",
     "name": "Private Label (undisclosed)",
     "en": "Private Label (undisclosed)",
     "count": 140,
-    "color": "oklch(0.60 0.20 320)"
+    "color": "oklch(0.55 0.17 290)"
   },
   {
     "vn": "Kitchen & Home Goods",
     "name": "Kitchen & Home Goods",
     "en": "Kitchen & Home Goods",
     "count": 134,
-    "color": "oklch(0.55 0.15 230)"
+    "color": "oklch(0.60 0.20 320)"
   },
   {
     "vn": "Pet Products",
     "name": "Pet Products",
     "en": "Pet Products",
     "count": 112,
-    "color": "oklch(0.55 0.17 260)"
+    "color": "oklch(0.55 0.15 230)"
   },
   {
     "vn": "Health & Beauty / Supplements",
     "name": "Health & Beauty / Supplements",
     "en": "Health & Beauty / Supplements",
     "count": 70,
-    "color": "oklch(0.65 0.12 60)"
+    "color": "oklch(0.55 0.17 260)"
   },
   {
     "vn": "Toys & Games",
     "name": "Toys & Games",
     "en": "Toys & Games",
     "count": 48,
-    "color": "oklch(0.60 0.20 25)"
+    "color": "oklch(0.65 0.12 60)"
   }
 ];
   const Q10_TOP_SOA    = [
-  {
-    "vn": "Other / Undisclosed",
-    "name": "Other / Undisclosed",
-    "en": "Other / Undisclosed",
-    "count": 202,
-    "color": "oklch(0.60 0.20 25)"
-  },
   {
     "vn": "Apparel & Fashion",
     "name": "Apparel & Fashion",
     "en": "Apparel & Fashion",
     "count": 41,
-    "color": "oklch(0.68 0.17 50)"
+    "color": "oklch(0.60 0.20 25)"
   },
   {
     "vn": "Electronics (China-sourced)",
     "name": "Electronics (China-sourced)",
     "en": "Electronics (China-sourced)",
     "count": 39,
-    "color": "oklch(0.75 0.17 90)"
+    "color": "oklch(0.68 0.17 50)"
   },
   {
     "vn": "Home & Garden",
     "name": "Home & Garden",
     "en": "Home & Garden",
     "count": 34,
-    "color": "oklch(0.62 0.15 155)"
+    "color": "oklch(0.75 0.17 90)"
   },
   {
     "vn": "Jewelry & Accessories",
     "name": "Jewelry & Accessories",
     "en": "Jewelry & Accessories",
     "count": 31,
-    "color": "oklch(0.58 0.14 190)"
+    "color": "oklch(0.62 0.15 155)"
   },
   {
     "vn": "Kitchen & Home Goods",
     "name": "Kitchen & Home Goods",
     "en": "Kitchen & Home Goods",
     "count": 29,
-    "color": "oklch(0.55 0.17 290)"
+    "color": "oklch(0.58 0.14 190)"
   },
   {
     "vn": "Private Label (undisclosed)",
     "name": "Private Label (undisclosed)",
     "en": "Private Label (undisclosed)",
     "count": 19,
-    "color": "oklch(0.60 0.20 320)"
+    "color": "oklch(0.55 0.17 290)"
   },
   {
     "vn": "USDA Agricultural Products",
     "name": "USDA Agricultural Products",
     "en": "USDA Agricultural Products",
     "count": 19,
-    "color": "oklch(0.55 0.15 230)"
+    "color": "oklch(0.60 0.20 320)"
   },
   {
     "vn": "Pet Products",
     "name": "Pet Products",
     "en": "Pet Products",
     "count": 11,
-    "color": "oklch(0.55 0.17 260)"
+    "color": "oklch(0.55 0.15 230)"
   },
   {
     "vn": "Health & Beauty / Supplements",
     "name": "Health & Beauty / Supplements",
     "en": "Health & Beauty / Supplements",
     "count": 8,
-    "color": "oklch(0.65 0.12 60)"
+    "color": "oklch(0.55 0.17 260)"
   },
   {
     "vn": "Toys & Games",
     "name": "Toys & Games",
     "en": "Toys & Games",
     "count": 8,
-    "color": "oklch(0.60 0.20 25)"
+    "color": "oklch(0.65 0.12 60)"
   }
 ];
   const Q10_TOP_EC     = [
-  {
-    "vn": "Other / Undisclosed",
-    "name": "Other / Undisclosed",
-    "en": "Other / Undisclosed",
-    "count": 1015,
-    "color": "oklch(0.60 0.20 25)"
-  },
   {
     "vn": "Apparel & Fashion",
     "name": "Apparel & Fashion",
     "en": "Apparel & Fashion",
     "count": 407,
-    "color": "oklch(0.68 0.17 50)"
+    "color": "oklch(0.60 0.20 25)"
   },
   {
     "vn": "Jewelry & Accessories",
     "name": "Jewelry & Accessories",
     "en": "Jewelry & Accessories",
     "count": 242,
-    "color": "oklch(0.75 0.17 90)"
+    "color": "oklch(0.68 0.17 50)"
   },
   {
     "vn": "Home & Garden",
     "name": "Home & Garden",
     "en": "Home & Garden",
     "count": 237,
-    "color": "oklch(0.62 0.15 155)"
+    "color": "oklch(0.75 0.17 90)"
   },
   {
     "vn": "Electronics (China-sourced)",
     "name": "Electronics (China-sourced)",
     "en": "Electronics (China-sourced)",
     "count": 218,
-    "color": "oklch(0.58 0.14 190)"
+    "color": "oklch(0.62 0.15 155)"
   },
   {
     "vn": "USDA Agricultural Products",
     "name": "USDA Agricultural Products",
     "en": "USDA Agricultural Products",
     "count": 126,
-    "color": "oklch(0.55 0.17 290)"
+    "color": "oklch(0.58 0.14 190)"
   },
   {
     "vn": "Private Label (undisclosed)",
     "name": "Private Label (undisclosed)",
     "en": "Private Label (undisclosed)",
     "count": 121,
-    "color": "oklch(0.60 0.20 320)"
+    "color": "oklch(0.55 0.17 290)"
   },
   {
     "vn": "Kitchen & Home Goods",
     "name": "Kitchen & Home Goods",
     "en": "Kitchen & Home Goods",
     "count": 105,
-    "color": "oklch(0.55 0.15 230)"
+    "color": "oklch(0.60 0.20 320)"
   },
   {
     "vn": "Pet Products",
     "name": "Pet Products",
     "en": "Pet Products",
     "count": 101,
-    "color": "oklch(0.55 0.17 260)"
+    "color": "oklch(0.55 0.15 230)"
   },
   {
     "vn": "Health & Beauty / Supplements",
     "name": "Health & Beauty / Supplements",
     "en": "Health & Beauty / Supplements",
     "count": 62,
-    "color": "oklch(0.65 0.12 60)"
+    "color": "oklch(0.55 0.17 260)"
   },
   {
     "vn": "Toys & Games",
     "name": "Toys & Games",
     "en": "Toys & Games",
     "count": 40,
-    "color": "oklch(0.60 0.20 25)"
+    "color": "oklch(0.65 0.12 60)"
   }
 ];
   const Q10_KEYWORDS   = {
@@ -4620,14 +4599,6 @@ window.ChiComData2 = (() => {
     "organic",
     "agricultural products",
     "vietnamese coffee"
-  ],
-  "Other / Undisclosed": [
-    "other",
-    "undisclosed",
-    "various",
-    "miscellaneous",
-    "khác",
-    "không xác định"
   ]
 };
   const Q10_WEEKS      = [
@@ -4650,32 +4621,9 @@ window.ChiComData2 = (() => {
 ];
   const Q10_WEEKLY     = [
   {
-    "name": "Other / Undisclosed",
-    "en": "Other / Undisclosed",
-    "color": "oklch(0.60 0.20 25)",
-    "points": [
-      1,
-      56,
-      108,
-      80,
-      68,
-      91,
-      94,
-      79,
-      48,
-      69,
-      110,
-      114,
-      139,
-      109,
-      50,
-      1
-    ]
-  },
-  {
     "name": "Apparel & Fashion",
     "en": "Apparel & Fashion",
-    "color": "oklch(0.68 0.17 50)",
+    "color": "oklch(0.60 0.20 25)",
     "points": [
       1,
       19,
@@ -4698,7 +4646,7 @@ window.ChiComData2 = (() => {
   {
     "name": "Jewelry & Accessories",
     "en": "Jewelry & Accessories",
-    "color": "oklch(0.75 0.17 90)",
+    "color": "oklch(0.68 0.17 50)",
     "points": [
       0,
       11,
@@ -4721,7 +4669,7 @@ window.ChiComData2 = (() => {
   {
     "name": "Home & Garden",
     "en": "Home & Garden",
-    "color": "oklch(0.62 0.15 155)",
+    "color": "oklch(0.75 0.17 90)",
     "points": [
       1,
       19,
@@ -4744,7 +4692,7 @@ window.ChiComData2 = (() => {
   {
     "name": "Electronics (China-sourced)",
     "en": "Electronics (China-sourced)",
-    "color": "oklch(0.58 0.14 190)",
+    "color": "oklch(0.62 0.15 155)",
     "points": [
       3,
       19,
@@ -4767,7 +4715,7 @@ window.ChiComData2 = (() => {
   {
     "name": "USDA Agricultural Products",
     "en": "USDA Agricultural Products",
-    "color": "oklch(0.55 0.17 290)",
+    "color": "oklch(0.58 0.14 190)",
     "points": [
       0,
       6,
@@ -4790,7 +4738,7 @@ window.ChiComData2 = (() => {
   {
     "name": "Private Label (undisclosed)",
     "en": "Private Label (undisclosed)",
-    "color": "oklch(0.60 0.20 320)",
+    "color": "oklch(0.55 0.17 290)",
     "points": [
       0,
       3,
@@ -4807,6 +4755,29 @@ window.ChiComData2 = (() => {
       23,
       12,
       10,
+      0
+    ]
+  },
+  {
+    "name": "Kitchen & Home Goods",
+    "en": "Kitchen & Home Goods",
+    "color": "oklch(0.60 0.20 320)",
+    "points": [
+      1,
+      8,
+      11,
+      6,
+      10,
+      7,
+      15,
+      7,
+      4,
+      6,
+      11,
+      13,
+      14,
+      19,
+      2,
       0
     ]
   }

@@ -304,10 +304,6 @@ Q10_CATEGORY_KW = {
         'spices', 'gia vị', 'tea', 'trà', 'usda',
         'organic', 'agricultural products', 'vietnamese coffee',
     ],
-    'Other / Undisclosed': [
-        'other', 'undisclosed', 'various', 'miscellaneous',
-        'khác', 'không xác định',
-    ],
 }
 
 # ── Q11 — Tools ──────────────────────────────────────────────────────────────
