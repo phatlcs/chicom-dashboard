@@ -5,13 +5,12 @@ For each of the 14 research questions, assemble:
   - the aggregated numbers already computed by compute.py
   - a small sample of representative raw Vietnamese posts from the CSV
 
-and ask Claude Haiku 4.5 to write a 3-5 sentence Vietnamese analyst-style
-summary. Cached on disk by content-hash so rebuilds with unchanged data
+and ask Claude Haiku 4.5 to write a structured analysis in English.
+Cached on disk by content-hash so rebuilds with unchanged data
 pay zero LLM cost.
 
 Becomes a no-op (returns {Q1: None, ...}) when ANTHROPIC_API_KEY is
-unset or skip_llm=True — the dashboard JSX falls back to its existing
-terse template in that case.
+unset or skip_llm=True.
 """
 
 from __future__ import annotations
@@ -34,7 +33,7 @@ _BACKEND_DIR = Path(__file__).resolve().parent
 _PROJECT_DIR = _BACKEND_DIR.parent
 
 MODEL_ID        = "claude-haiku-4-5-20251001"
-MAX_TOKENS      = 400
+MAX_TOKENS      = 1200
 TEMPERATURE     = 0.3
 SAMPLES_PER_Q   = 8
 SAMPLE_CHARS    = 300
@@ -341,7 +340,8 @@ Q_SPECS: list[tuple[str, str, Callable, str]] = [
     ("Q2",  "Ma trận Persona × Master Topics — nhóm nào thảo luận topic nào",  _samples_q2,   "rel"),
     ("Q3",  "Seller vs Prospect — khác biệt Master Topics + sub-topics",       _samples_q3,   "rel"),
     ("Q4",  "Xu hướng Master Topics theo tháng + tuần đỉnh (auto-detect)",     _samples_q4,   "rel"),
-    ("Q5",  "Sub-topic tiêu cực × ngày trong tuần + khung giờ cao điểm",       _samples_q5_q6, "rel"),
+    ("Q5",  "Sub-topic tiêu cực × ngày trong tuần",                            _samples_q5_q6, "rel"),
+    ("Q6",  "Khung giờ cao điểm thảo luận tiêu cực",                           _samples_q5_q6, "rel"),
     ("Q7",  "Lý do + benefit khiến seller gia nhập Amazon",                    _samples_q7,   "rel"),
     ("Q8",  "Dấu hiệu rời bỏ Amazon + persona đang rời bỏ (SOA only)",         _samples_q8,   "soa_rel"),
     ("Q9",  "Phân bố persona trong thảo luận gia nhập vs rời bỏ",              _samples_q9,   "rel"),
@@ -356,34 +356,49 @@ Q_SPECS: list[tuple[str, str, Callable, str]] = [
 # ── LLM call ────────────────────────────────────────────────────────────────
 
 _SYSTEM_PROMPT = """\
-Bạn là chuyên gia phân tích cộng đồng thương mại điện tử Việt Nam, chuyên \
-viết insight ngắn gọn cho dashboard nội bộ (đội ngũ Amazon Việt Nam).
+You are an expert analyst for the Vietnamese e-commerce community, writing insights for an internal dashboard for the Amazon Vietnam team.
 
-Mỗi lần bạn nhận:
-- `title`: câu hỏi nghiên cứu đang phân tích
-- `aggregate`: các con số và top items đã được tính sẵn từ 40,000+ bài \
-thảo luận trong cộng đồng Facebook của Amazon Sellers / EC Sellers VN
-- `samples`: 4-8 đoạn nội dung thật từ người dùng (tiếng Việt + tiếng Anh \
-trộn lẫn, có thể có lỗi chính tả, viết tắt như "ae"=anh em, "mn"=mọi người, \
-"tq"=Trung Quốc, "xnk"=xuất nhập khẩu, "ib"=inbox)
+Input:
+- `title`: The research question being analyzed.
+- `period`: The time period for the data (e.g., 'April 2026' or 'Q1 2026').
+- `aggregate`: Pre-computed numbers and top items from a dataset.
+- `samples`: 4-8 real post snippets from users.
 
-Nhiệm vụ: viết ĐÚNG 1 đoạn 3-5 câu tiếng Việt tự nhiên mô tả xu hướng \
-nổi bật quan sát được. Yêu cầu:
+Task:
+Produce a structured analysis in JSON format. The language of the analysis MUST be English.
+Follow the existing expert_insights.json schema:
 
-1. Bám vào con số trong `aggregate` (trích dẫn top item + % hoặc count).
-2. Trích xuất hành vi hoặc nhu cầu thật từ `samples` - kể lại bằng ngôn \
-ngữ của stakeholder (không copy nguyên văn, không dịch sang tiếng Anh).
-3. KHÔNG bịa thêm con số không có trong `aggregate`.
-4. KHÔNG viết lời mở đầu kiểu "Dựa trên dữ liệu...". Đi thẳng vào insight.
-5. Nếu dữ liệu cho thấy cơ hội action (khóa học, dịch vụ, content), nêu \
-gợi ý ngắn ở câu cuối.
+{
+  "scope": "Brief string describing the data scope (e.g., 'Scope: SOA (5,461 mentions) · EC (34,794 mentions) · April 2026')",
+  "stats": [
+    { "label": "Short label", "value": "Number/Percentage", "variant": "warn|danger|soa|ec|both", "note": "Brief context like 'Others (1,234)'" }
+  ],
+  "findings": [
+    {
+      "variant": "warn|danger|soa|ec|both",
+      "label": "Punchy headline with emoji",
+      "html": "<p>Detailed analysis paragraph using <strong>bolding</strong> for emphasis. Refer to specific numbers from aggregate data. Explain the 'why' based on the samples.</p>"
+    }
+  ],
+  "recommendations": [
+    "Concrete, actionable advice #1",
+    "Concrete, actionable advice #2"
+  ]
+}
 
-Chỉ trả về đoạn văn, không dùng markdown, không bullet, không tiêu đề.
+Constraints:
+1. Stick strictly to the numbers in `aggregate`. Do not invent data.
+2. Use `samples` to provide qualitative color and identify specific pain points.
+3. Use the `period` provided for the scope and all temporal references.
+4. Output ONLY the JSON object. No preamble, no markdown blocks.
+5. Ensure 'variant' choices align with the content (e.g., 'soa' for Amazon-specific findings).
+6. Always provide exactly 4 stats and exactly 3 findings.
+7. Ensure all strings in JSON are correctly escaped.
 """
 
 
-def _call_claude(title: str, payload: dict, api_key: str) -> str | None:
-    """Make one LLM call. Returns string or None on failure."""
+def _call_claude(title: str, period: str, payload: dict, api_key: str) -> dict | None:
+    """Make one LLM call. Returns dict or None on failure."""
     try:
         from anthropic import Anthropic
     except ImportError:
@@ -393,7 +408,8 @@ def _call_claude(title: str, payload: dict, api_key: str) -> str | None:
 
     client = Anthropic(api_key=api_key)
     user_text = (
-        f"title: {title}\n\n"
+        f"title: {title}\n"
+        f"period: {period}\n\n"
         f"aggregate:\n{json.dumps(payload['aggregate'], ensure_ascii=False, indent=2)}\n\n"
         f"samples:\n"
         + "\n".join(f"- {s}" for s in payload.get("samples", []))
@@ -418,9 +434,14 @@ def _call_claude(title: str, payload: dict, api_key: str) -> str | None:
         text = "".join(
             b.text for b in resp.content if getattr(b, "type", None) == "text"
         ).strip()
-        return text or None
+        
+        # Strip potential markdown blocks if LLM ignored instructions
+        if text.startswith("```"):
+            text = re.sub(r"^```json\s*|\s*```$", "", text, flags=re.MULTILINE)
+        
+        return json.loads(text)
     except Exception as e:
-        print(f"  [insight] API error: {e}", file=sys.stderr)
+        print(f"  [insight] API error ({title}): {e}", file=sys.stderr)
         return None
 
 
@@ -431,30 +452,37 @@ def generate_insights_for_all_qs(
     soa_rel: pd.DataFrame,
     aggregates: dict,
     skip_llm: bool = False,
-) -> dict:
+) -> tuple[dict, dict]:
     """
-    Return {q_id: insight_string_or_None} for all 14 Q sections.
-    Uses on-disk hash cache at INSIGHT_CACHE_PATH.
+    Return (insights_dict, expert_insights_dict) for all 14 Q sections.
     """
     _load_env()
     api_key = os.getenv("ANTHROPIC_API_KEY")
 
-    # CLI-driven skip (set by build_data.py --no-llm)
     if os.getenv("INSIGHTS_SKIP_LLM") == "1":
         skip_llm = True
 
-    manual = _load_manual()
-
     if skip_llm or not api_key:
         reason = "skip_llm=True" if skip_llm else "ANTHROPIC_API_KEY not set"
-        if manual:
-            print(f"  [insight] {reason} — using {len(manual)} hand-written paragraphs from {MANUAL_PATH.name}")
-            return {q_id: manual.get(q_id) for q_id, *_ in Q_SPECS}
-        print(f"  [insight] {reason} — no LLM, no manual overrides")
-        return {q_id: None for q_id, *_ in Q_SPECS}
+        print(f"  [insight] {reason} — skipping LLM insights")
+        return {q_id: None for q_id, *_ in Q_SPECS}, {}
+
+    # Determine period
+    start = rel["created_date"].min()
+    end = rel["created_date"].max()
+    if pd.notna(start) and pd.notna(end):
+        if start.month == end.month and start.year == end.year:
+            period = start.strftime("%B %Y")
+        else:
+            # Check if it spans a quarter
+            q = (start.month - 1) // 3 + 1
+            period = f"Q{q} {start.year}"
+    else:
+        period = "Recent Period"
 
     cache = _load_cache()
-    results: dict = {}
+    plain_results: dict = {}
+    expert_results: dict = {}
     hits = 0
     misses = 0
     t0 = time.time()
@@ -469,23 +497,52 @@ def generate_insights_for_all_qs(
 
         agg_for_q = aggregates.get(q_id, {})
         payload = {"aggregate": agg_for_q, "samples": samples}
-        key = _hash_payload({"model": MODEL_ID, "payload": payload, "title": title})
+        # Include a version/schema flag in the hash so refactors trigger a rebuild
+        key = _hash_payload({
+            "model": MODEL_ID, 
+            "payload": payload, 
+            "title": title, 
+            "period": period,
+            "schema": "v3-structured-en-period"
+        })
 
         cached = cache.get(q_id)
-        if cached and cached.get("hash") == key and cached.get("insight"):
-            results[q_id] = cached["insight"]
+        if cached and cached.get("hash") == key and cached.get("expert"):
+            expert_results[q_id] = cached["expert"]
+            findings = cached["expert"].get("findings", [])
+            plain_results[q_id] = findings[0].get("html", "") if findings else ""
             hits += 1
             continue
 
-        insight = _call_claude(title, payload, api_key)
-        if insight:
-            cache[q_id] = {"hash": key, "insight": insight}
+        structured = _call_claude(title, period, payload, api_key)
+        if structured:
+            cache[q_id] = {"hash": key, "expert": structured}
+            expert_results[q_id] = structured
+            findings = structured.get("findings", [])
+            plain_results[q_id] = findings[0].get("html", "") if findings else ""
             misses += 1
         else:
-            cache.pop(q_id, None)
-        results[q_id] = insight
+            # Don't pop cache if it's a transient failure, but for this build we want results
+            expert_results[q_id] = None
+            plain_results[q_id] = None
 
     _save_cache(cache)
+    
+    # Write to expert_insights.json
+    total_relevant = len(rel)
+    header = {
+        "_comment": f"Expert analyst panels — auto-generated by insights.py ({total_relevant:,} relevant rows). Re-run build_data.py to refresh."
+    }
+    final_expert = {**header, **expert_results}
+    
+    out_path = _PROJECT_DIR / "dashboard" / "expert_insights.json"
+    try:
+        out_path.write_text(json.dumps(final_expert, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"  [insight] updated {out_path.name}")
+    except Exception as e:
+        print(f"  [insight] failed to write expert_insights.json: {e}", file=sys.stderr)
+
     print(f"  [insight] {hits} cache hits, {misses} API calls, "
           f"{time.time() - t0:.1f}s")
-    return results
+    
+    return plain_results, expert_results
