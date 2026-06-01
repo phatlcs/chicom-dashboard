@@ -1,0 +1,70 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches: [ master, main, english_UI ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup SSH
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.EC2_PRIVATE_KEY }}" > ~/.ssh/Boost.pem
+        chmod 600 ~/.ssh/Boost.pem
+        ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
+
+    - name: Deploy to EC2
+      run: |
+        ssh -i ~/.ssh/Boost.pem ec2-user@${{ secrets.EC2_HOST }} << 'EOF'
+          set -e
+          echo "🚀 Starting deployment..."
+
+          cd /home/ec2-user/chicom-dashboard
+
+          # Pull latest code
+          echo "📥 Pulling latest code..."
+          git pull origin ${{ github.ref_name }}
+
+          # Install/update Node dependencies
+          echo "📦 Installing dependencies..."
+          cd nextjs
+          npm install
+
+          # Build Next.js app
+          echo "🏗️  Building app..."
+          npm run build
+
+          # Restart PM2 app
+          echo "🔄 Restarting app..."
+          pm2 restart chicom-admin
+          pm2 save
+
+          echo "✅ Deployment complete!"
+          echo "🌐 App is live at: http://${{ secrets.EC2_HOST }}"
+        EOF
+
+    - name: Notify Slack (optional)
+      if: always()
+      uses: slackapi/slack-github-action@v1.24.0
+      with:
+        webhook-url: ${{ secrets.SLACK_WEBHOOK }}
+        payload: |
+          {
+            "text": "ChiCom Dashboard deployment ${{ job.status }}",
+            "blocks": [
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "*ChiCom Dashboard Deployment*\nStatus: ${{ job.status }}\nBranch: ${{ github.ref_name }}\nCommit: ${{ github.sha }}"
+                }
+              }
+            ]
+          }
