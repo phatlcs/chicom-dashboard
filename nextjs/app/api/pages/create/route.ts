@@ -1,6 +1,6 @@
 'use server'
 
-import { pool } from '@/lib/db'
+import { sql } from '@/lib/db'
 import { generatePageDataFile } from '@/lib/generate-data'
 
 function slugify(name: string): string {
@@ -16,12 +16,11 @@ async function getUniqueSlug(baseName: string): Promise<{ slug: string; finalNam
   const baseSlug = slugify(baseName)
 
   // Try to find existing page with this slug
-  const { rows } = await pool.query(
-    'SELECT page_name FROM pages WHERE page_slug = $1',
-    [baseSlug]
-  )
+  const existing = await sql`
+    SELECT page_name FROM pages WHERE page_slug = ${baseSlug}
+  `
 
-  if (rows.length === 0) {
+  if (existing.length === 0) {
     // No conflict, use as-is
     return { slug: baseSlug, finalName: baseName }
   }
@@ -32,11 +31,10 @@ async function getUniqueSlug(baseName: string): Promise<{ slug: string; finalNam
   let conflict = true
 
   while (conflict) {
-    const { rows: existing } = await pool.query(
-      'SELECT id FROM pages WHERE page_slug = $1',
-      [newSlug]
-    )
-    if (existing.length === 0) {
+    const found = await sql`
+      SELECT id FROM pages WHERE page_slug = ${newSlug}
+    `
+    if (found.length === 0) {
       conflict = false
     } else {
       version++
@@ -62,35 +60,23 @@ export async function POST(req: Request) {
     const { slug, finalName } = await getUniqueSlug(name)
 
     // Count posts for this page
-    const countResult = await pool.query(
-      `SELECT
+    const counts = await sql`
+      SELECT
         COUNT(*) as total,
         COUNT(CASE WHEN is_relevant = true THEN 1 END) as relevant
       FROM pooled_posts_all
-      WHERE created_date >= $1 AND created_date <= $2`,
-      [timeStart, timeEnd]
-    )
+      WHERE created_date >= ${timeStart}::date AND created_date <= ${timeEnd}::date
+    `
 
-    const postCount = countResult.rows[0] || { total: 0, relevant: 0 }
+    const postCount = counts[0] || { total: 0, relevant: 0 }
 
     // Create page record
-    const { rows: pages } = await pool.query(
-      `INSERT INTO pages
+    const pages = await sql`
+      INSERT INTO pages
         (page_slug, page_name, time_range_start, time_range_end, filters, page_type, total_posts, relevant_posts, status)
-      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
-      RETURNING id`,
-      [
-        slug,
-        finalName,
-        timeStart,
-        timeEnd,
-        JSON.stringify(filters),
-        'custom',
-        postCount.total,
-        postCount.relevant,
-        'PROCESSING',
-      ]
-    )
+      VALUES (${slug}, ${finalName}, ${timeStart}::date, ${timeEnd}::date, ${JSON.stringify(filters)}::jsonb, 'custom', ${parseInt(postCount.total)}, ${parseInt(postCount.relevant)}, 'PROCESSING')
+      RETURNING id
+    `
 
     const pageId = pages[0].id
 
@@ -114,11 +100,10 @@ export async function POST(req: Request) {
     }
 
     // Store insights
-    await pool.query(
-      `INSERT INTO page_insights (page_id, page_slug, insights, sample_post_ids)
-      VALUES ($1, $2, $3, $4)`,
-      [pageId, slug, JSON.stringify(insights), JSON.stringify({})]
-    )
+    await sql`
+      INSERT INTO page_insights (page_id, page_slug, insights, sample_post_ids)
+      VALUES (${pageId}, ${slug}, ${JSON.stringify(insights)}::jsonb, ${JSON.stringify({})}::jsonb)
+    `
 
     // Generate data file
     try {
@@ -129,7 +114,7 @@ export async function POST(req: Request) {
     }
 
     // Update status to ACTIVE
-    await pool.query('UPDATE pages SET status = $1 WHERE id = $2', ['ACTIVE', pageId])
+    await sql`UPDATE pages SET status = 'ACTIVE' WHERE id = ${pageId}`
 
     return Response.json({
       status: 'success',

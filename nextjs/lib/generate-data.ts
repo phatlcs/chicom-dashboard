@@ -1,4 +1,4 @@
-import { pool } from './db'
+import { sql } from './db'
 import { promises as fs } from 'fs'
 import path from 'path'
 
@@ -45,80 +45,76 @@ export interface PageAggregates {
 }
 
 async function queryQ1(timeStart: string, timeEnd: string): Promise<Record<string, number>> {
-  const { rows } = await pool.query(
-    `SELECT master_topic, COUNT(*) as count
+  const rows = await sql`
+    SELECT master_topic, COUNT(*) as count
     FROM pooled_posts_all
     WHERE is_relevant = true
-    AND created_date >= $1 AND created_date <= $2
+    AND created_date >= ${timeStart}::date AND created_date <= ${timeEnd}::date
     GROUP BY master_topic
-    ORDER BY count DESC`,
-    [timeStart, timeEnd]
-  )
+    ORDER BY count DESC
+  `
 
   const result: Record<string, number> = {}
   rows.forEach((row) => {
     if (row.master_topic) {
-      result[row.master_topic] = parseInt(row.count)
+      result[row.master_topic] = parseInt(String(row.count))
     }
   })
   return result
 }
 
 async function queryQ2(timeStart: string, timeEnd: string): Promise<Record<string, Record<string, number>>> {
-  const { rows } = await pool.query(
-    `SELECT master_topic, persona, COUNT(*) as count
+  const rows = await sql`
+    SELECT master_topic, persona, COUNT(*) as count
     FROM pooled_posts_all
     WHERE is_relevant = true
-    AND created_date >= $1 AND created_date <= $2
+    AND created_date >= ${timeStart}::date AND created_date <= ${timeEnd}::date
     GROUP BY master_topic, persona
-    ORDER BY master_topic, count DESC`,
-    [timeStart, timeEnd]
-  )
+    ORDER BY master_topic, count DESC
+  `
 
   const result: Record<string, Record<string, number>> = {}
   rows.forEach((row) => {
     if (row.master_topic && row.persona) {
       if (!result[row.master_topic]) result[row.master_topic] = {}
-      result[row.master_topic][row.persona] = parseInt(row.count)
+      result[row.master_topic][row.persona] = parseInt(String(row.count))
     }
   })
   return result
 }
 
 async function queryQ3(timeStart: string, timeEnd: string): Promise<Record<string, number>> {
-  const { rows } = await pool.query(
-    `SELECT sub_topic, COUNT(*) as count
+  const rows = await sql`
+    SELECT sub_topic, COUNT(*) as count
     FROM pooled_posts_all
     WHERE is_relevant = true
-    AND created_date >= $1 AND created_date <= $2
+    AND created_date >= ${timeStart}::date AND created_date <= ${timeEnd}::date
     GROUP BY sub_topic
-    ORDER BY count DESC`,
-    [timeStart, timeEnd]
-  )
+    ORDER BY count DESC
+  `
 
   const result: Record<string, number> = {}
   rows.forEach((row) => {
     if (row.sub_topic) {
-      result[row.sub_topic] = parseInt(row.count)
+      result[row.sub_topic] = parseInt(String(row.count))
     }
   })
   return result
 }
 
 async function getPostCount(timeStart: string, timeEnd: string): Promise<{ total: number; relevant: number }> {
-  const { rows } = await pool.query(
-    `SELECT
+  const counts = await sql`
+    SELECT
       COUNT(*) as total,
       COUNT(CASE WHEN is_relevant = true THEN 1 END) as relevant
     FROM pooled_posts_all
-    WHERE created_date >= $1 AND created_date <= $2`,
-    [timeStart, timeEnd]
-  )
+    WHERE created_date >= ${timeStart}::date AND created_date <= ${timeEnd}::date
+  `
 
-  const counts = rows[0]
+  const row = counts[0]
   return {
-    total: parseInt(counts.total) || 0,
-    relevant: parseInt(counts.relevant) || 0,
+    total: parseInt(String(row.total)) || 0,
+    relevant: parseInt(String(row.relevant)) || 0,
   }
 }
 

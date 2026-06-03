@@ -1,16 +1,18 @@
 'use server'
 
-import { pool } from '@/lib/db'
+import { sql } from '@/lib/db'
 
 export async function GET(req: Request) {
   try {
-    const { rows } = await pool.query(
-      'SELECT id, page_slug, page_name, time_range_start, time_range_end, page_type, total_posts, relevant_posts, status FROM pages ORDER BY created_at DESC'
-    )
+    const pages = await sql`
+      SELECT id, page_slug, page_name, time_range_start, time_range_end, page_type, total_posts, relevant_posts, status
+      FROM pages
+      ORDER BY created_at DESC
+    `
 
     return Response.json({
       status: 'success',
-      pages: rows.map((page) => ({
+      pages: pages.map((page) => ({
         id: page.id,
         slug: page.page_slug,
         name: page.page_name,
