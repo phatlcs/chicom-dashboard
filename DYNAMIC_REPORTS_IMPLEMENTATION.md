@@ -48,13 +48,35 @@ Serve dashboard with new data
 
 ## 3. Database Schema
 
-### 3.1 Page Registry + Dynamic Tables
+### 3.1 Single Pooled Data + Page Association
 
-Each page gets **its own data table** with pooled posts.
+**One big pool, traceable by page.**
 
 ```sql
 -- ============================================================================
--- REGISTRY: Track all pages (predefined + custom)
+-- BIG POOL: All posts across all time ranges (no duplicates)
+-- ============================================================================
+CREATE TABLE pooled_posts_all (
+  id BIGSERIAL PRIMARY KEY,
+  post_id VARCHAR(255) NOT NULL UNIQUE,
+  group_id INTEGER,
+  batch_id INTEGER NOT NULL REFERENCES data_batches(id),
+  created_date TIMESTAMP,
+  content TEXT,
+  post_type VARCHAR(50),
+  master_topic VARCHAR(255),
+  sub_topic VARCHAR(255),
+  persona VARCHAR(100),
+  is_relevant BOOLEAN DEFAULT TRUE,
+  pooled_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  
+  INDEX idx_topic (master_topic),
+  INDEX idx_persona (persona),
+  INDEX idx_relevant (is_relevant)
+);
+
+-- ============================================================================
+-- PAGE REGISTRY: Track all pages (predefined + custom)
 -- ============================================================================
 CREATE TABLE pages (
   id SERIAL PRIMARY KEY,
@@ -62,8 +84,7 @@ CREATE TABLE pages (
   page_name VARCHAR(255) NOT NULL,  -- Display name
   time_range_start DATE NOT NULL,
   time_range_end DATE NOT NULL,
-  data_table_name VARCHAR(255) NOT NULL,  -- Table name (e.g., 'page_q1_posts')
-  filters JSONB,  -- {topics: [], personas: [], groups: []}
+  filters JSONB,  -- {topics: [], personas: [], groups: []} for filtering
   page_type VARCHAR(50),  -- 'predefined' or 'custom'
   status VARCHAR(50),  -- 'ACTIVE', 'ARCHIVED'
   total_posts INTEGER,
@@ -75,6 +96,20 @@ CREATE TABLE pages (
   INDEX idx_slug (page_slug),
   INDEX idx_type (page_type),
   INDEX idx_status (status)
+);
+
+-- ============================================================================
+-- PAGE-POST ASSOCIATION: Maps posts to pages (for traceability)
+-- ============================================================================
+CREATE TABLE page_post_mapping (
+  id BIGSERIAL PRIMARY KEY,
+  page_id INTEGER NOT NULL REFERENCES pages(id) ON DELETE CASCADE,
+  post_id BIGINT NOT NULL REFERENCES pooled_posts_all(id) ON DELETE CASCADE,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  
+  UNIQUE(page_id, post_id),
+  INDEX idx_page (page_id),
+  INDEX idx_post (post_id)
 );
 
 -- ============================================================================
@@ -93,10 +128,10 @@ CREATE TABLE page_insights (
               -- "Q14": "insight text..."
               -- }
   
-  -- Sample posts used for generation
+  -- Sample posts used for generation (with IDs)
   sample_posts JSONB,  -- {
-               -- "Q1": [{post data}, {post data}, ...],
-               -- "Q2": [{post data}, ...],
+               -- "Q1": [post_id_1, post_id_2, ...],
+               -- "Q2": [post_id_3, ...],
                -- ...
                -- }
   
@@ -115,79 +150,42 @@ CREATE TABLE report_name_index (
   max_version INTEGER DEFAULT 0,
   last_used TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-
--- ============================================================================
--- DYNAMIC PAGE TABLES (created per page)
--- ============================================================================
--- Example for page 'q1':
--- 
--- CREATE TABLE page_q1_posts (
---   id BIGSERIAL PRIMARY KEY,
---   post_id VARCHAR(255) NOT NULL UNIQUE,
---   group_id INTEGER,
---   batch_id INTEGER REFERENCES data_batches(id),
---   created_date TIMESTAMP,
---   content TEXT,
---   post_type VARCHAR(50),
---   master_topic VARCHAR(255),
---   sub_topic VARCHAR(255),
---   persona VARCHAR(100),
---   is_relevant BOOLEAN DEFAULT TRUE,
---   pooled_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
---   
---   INDEX idx_topic (master_topic),
---   INDEX idx_persona (persona),
---   INDEX idx_relevant (is_relevant)
--- );
 ```
 
-### 3.2 Table Creation Workflow
+### 3.2 Page Creation Workflow
 
-When user creates a page "Q1 Analysis":
+When user creates page "Q1 Analysis":
 
 1. **Create entry in `pages` table:**
    ```sql
    INSERT INTO pages (
      page_slug, page_name, time_range_start, time_range_end,
-     data_table_name, filters, page_type
+     filters, page_type
    ) VALUES (
      'q1-analysis', 'Q1 Analysis', '2026-01-01', '2026-03-31',
-     'page_q1_analysis_posts', '{}', 'custom'
-   ) RETURNING id;
+     '{}', 'custom'
+   ) RETURNING id;  -- Returns page_id = 5
    ```
 
-2. **Create dedicated data table:**
+2. **Pool posts into `page_post_mapping`:**
    ```sql
-   CREATE TABLE page_q1_analysis_posts (
-     id BIGSERIAL PRIMARY KEY,
-     post_id VARCHAR(255) NOT NULL UNIQUE,
-     group_id INTEGER,
-     batch_id INTEGER REFERENCES data_batches(id),
-     created_date TIMESTAMP,
-     content TEXT,
-     post_type VARCHAR(50),
-     master_topic VARCHAR(255),
-     sub_topic VARCHAR(255),
-     persona VARCHAR(100),
-     is_relevant BOOLEAN DEFAULT TRUE,
-     pooled_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-     
-     INDEX idx_topic (master_topic),
-     INDEX idx_persona (persona)
-   );
+   INSERT INTO page_post_mapping (page_id, post_id)
+   SELECT 5, p.id
+   FROM pooled_posts_all p
+   WHERE p.batch_id IN (SELECT id FROM data_batches 
+                        WHERE month_year BETWEEN '2026-01-01' AND '2026-03-31')
    ```
 
-3. **Pool data into the table:**
-   ```sql
-   INSERT INTO page_q1_analysis_posts
-   SELECT * FROM post_classifications
-   WHERE batch_id IN (SELECT id FROM data_batches 
-                      WHERE month_year BETWEEN '2026-01-01' AND '2026-03-31')
-   ```
+3. **Generate insights** from the page's posts → store in `page_insights`
 
-4. **Generate insights** from that table → store in `page_insights`
+4. **API queries** using the mapping table for fast aggregation
 
-5. **API queries** the page's dedicated table (no filtering needed)
+### 3.2 Benefits
+
+✅ **No duplication** - posts stored once in `pooled_posts_all`  
+✅ **Fully traceable** - `page_post_mapping` shows exactly which posts belong to which page  
+✅ **Easy to update** - repool data without affecting other pages  
+✅ **Fast queries** - the mapping table is lean (just IDs)
 
 ### 3.2 Example Data Flow
 
