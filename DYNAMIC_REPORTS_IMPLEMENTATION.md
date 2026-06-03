@@ -48,43 +48,42 @@ Serve dashboard with new data
 
 ## 3. Database Schema
 
-### 3.1 New Tables
+### 3.1 Page Registry + Dynamic Tables
+
+Each page gets **its own data table** with pooled posts.
 
 ```sql
 -- ============================================================================
--- CORE: One big pooled data table (all months)
+-- REGISTRY: Track all pages (predefined + custom)
 -- ============================================================================
-CREATE TABLE pooled_posts_all (
-  id BIGSERIAL PRIMARY KEY,
-  post_id VARCHAR(255) NOT NULL,
-  group_id INTEGER,
-  batch_id INTEGER NOT NULL REFERENCES data_batches(id),
-  created_date TIMESTAMP,
-  content TEXT,
-  post_type VARCHAR(50),
-  master_topic VARCHAR(255),
-  sub_topic VARCHAR(255),
-  persona VARCHAR(100),
-  is_relevant BOOLEAN DEFAULT TRUE,
-  month DATE,  -- First day of month (2026-01-01, 2026-04-01, etc)
-  year_month VARCHAR(7),  -- '2026-01', '2026-04' for easy filtering
-  ingested_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+CREATE TABLE pages (
+  id SERIAL PRIMARY KEY,
+  page_slug VARCHAR(255) NOT NULL UNIQUE,  -- 'q1', 'april', 'q1-custom-1'
+  page_name VARCHAR(255) NOT NULL,  -- Display name
+  time_range_start DATE NOT NULL,
+  time_range_end DATE NOT NULL,
+  data_table_name VARCHAR(255) NOT NULL,  -- Table name (e.g., 'page_q1_posts')
+  filters JSONB,  -- {topics: [], personas: [], groups: []}
+  page_type VARCHAR(50),  -- 'predefined' or 'custom'
+  status VARCHAR(50),  -- 'ACTIVE', 'ARCHIVED'
+  total_posts INTEGER,
+  relevant_posts INTEGER,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  created_by VARCHAR(255),
   
-  INDEX idx_month (year_month),
-  INDEX idx_batch (batch_id),
-  INDEX idx_topic (master_topic),
-  INDEX idx_relevant (is_relevant)
+  INDEX idx_slug (page_slug),
+  INDEX idx_type (page_type),
+  INDEX idx_status (status)
 );
 
 -- ============================================================================
--- INSIGHTS: One record per report page (stores all 14 questions)
+-- INSIGHTS: One record per page (stores all 14 questions)
 -- ============================================================================
 CREATE TABLE page_insights (
   id SERIAL PRIMARY KEY,
-  page_slug VARCHAR(255) NOT NULL UNIQUE,  -- 'q1', 'april', 'q1-1', etc
-  page_name VARCHAR(255) NOT NULL,  -- 'Q1 2026', 'April 2026', etc
-  time_range_start DATE NOT NULL,
-  time_range_end DATE NOT NULL,
+  page_id INTEGER NOT NULL REFERENCES pages(id) ON DELETE CASCADE,
+  page_slug VARCHAR(255) NOT NULL,  -- Denormalized for easy lookup
   
   -- All insights as JSONB (Q1-Q14 keys)
   insights JSONB,  -- {
@@ -101,29 +100,10 @@ CREATE TABLE page_insights (
                -- ...
                -- }
   
-  status VARCHAR(50),  -- 'DRAFT', 'GENERATING', 'PUBLISHED', 'FAILED'
   generated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  created_by VARCHAR(255),
   
-  INDEX idx_slug (page_slug),
-  INDEX idx_status (status)
-);
-
--- ============================================================================
--- REPORTS: Track custom report generation jobs
--- ============================================================================
-CREATE TABLE generated_reports (
-  id SERIAL PRIMARY KEY,
-  page_slug VARCHAR(255) NOT NULL REFERENCES page_insights(page_slug),
-  report_name VARCHAR(255) NOT NULL,
-  original_name VARCHAR(255) NOT NULL,  -- User input before auto-increment
-  status VARCHAR(50),  -- 'PENDING', 'PROCESSING', 'COMPLETED', 'FAILED'
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  created_by VARCHAR(255),
-  
-  INDEX idx_status (status),
-  INDEX idx_created (created_at DESC)
+  INDEX idx_page_slug (page_slug),
+  UNIQUE(page_id)
 );
 
 -- ============================================================================
@@ -135,7 +115,79 @@ CREATE TABLE report_name_index (
   max_version INTEGER DEFAULT 0,
   last_used TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+-- ============================================================================
+-- DYNAMIC PAGE TABLES (created per page)
+-- ============================================================================
+-- Example for page 'q1':
+-- 
+-- CREATE TABLE page_q1_posts (
+--   id BIGSERIAL PRIMARY KEY,
+--   post_id VARCHAR(255) NOT NULL UNIQUE,
+--   group_id INTEGER,
+--   batch_id INTEGER REFERENCES data_batches(id),
+--   created_date TIMESTAMP,
+--   content TEXT,
+--   post_type VARCHAR(50),
+--   master_topic VARCHAR(255),
+--   sub_topic VARCHAR(255),
+--   persona VARCHAR(100),
+--   is_relevant BOOLEAN DEFAULT TRUE,
+--   pooled_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+--   
+--   INDEX idx_topic (master_topic),
+--   INDEX idx_persona (persona),
+--   INDEX idx_relevant (is_relevant)
+-- );
 ```
+
+### 3.2 Table Creation Workflow
+
+When user creates a page "Q1 Analysis":
+
+1. **Create entry in `pages` table:**
+   ```sql
+   INSERT INTO pages (
+     page_slug, page_name, time_range_start, time_range_end,
+     data_table_name, filters, page_type
+   ) VALUES (
+     'q1-analysis', 'Q1 Analysis', '2026-01-01', '2026-03-31',
+     'page_q1_analysis_posts', '{}', 'custom'
+   ) RETURNING id;
+   ```
+
+2. **Create dedicated data table:**
+   ```sql
+   CREATE TABLE page_q1_analysis_posts (
+     id BIGSERIAL PRIMARY KEY,
+     post_id VARCHAR(255) NOT NULL UNIQUE,
+     group_id INTEGER,
+     batch_id INTEGER REFERENCES data_batches(id),
+     created_date TIMESTAMP,
+     content TEXT,
+     post_type VARCHAR(50),
+     master_topic VARCHAR(255),
+     sub_topic VARCHAR(255),
+     persona VARCHAR(100),
+     is_relevant BOOLEAN DEFAULT TRUE,
+     pooled_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+     
+     INDEX idx_topic (master_topic),
+     INDEX idx_persona (persona)
+   );
+   ```
+
+3. **Pool data into the table:**
+   ```sql
+   INSERT INTO page_q1_analysis_posts
+   SELECT * FROM post_classifications
+   WHERE batch_id IN (SELECT id FROM data_batches 
+                      WHERE month_year BETWEEN '2026-01-01' AND '2026-03-31')
+   ```
+
+4. **Generate insights** from that table → store in `page_insights`
+
+5. **API queries** the page's dedicated table (no filtering needed)
 
 ### 3.2 Example Data Flow
 
@@ -410,64 +462,86 @@ def generate_report_insights(report_id: int, data: dict):
 def get_page_data(page_slug: str):
     """
     Query PostgreSQL to aggregate data for a page
+    Each page has its own data table with pooled posts
     Returns Q1-Q14 aggregates + metadata
     """
     
-    page = db.get_page_insights(page_slug)
+    # Get page metadata
+    page = db.query(
+        'SELECT * FROM pages WHERE page_slug = %s',
+        [page_slug]
+    ).fetch_one()
     
     if not page:
         raise NotFoundError(f"Page {page_slug} not found")
     
-    # Query aggregates from pooled_posts_all
-    data = {}
-    for q_num in range(1, 15):
-        if q_num in [1, 2]:  # Master topics
-            cur.execute("""
-                SELECT master_topic, COUNT(*) as count
-                FROM pooled_posts_all
-                WHERE year_month BETWEEN %s AND %s
-                  AND is_relevant = TRUE
-                GROUP BY master_topic
-                ORDER BY count DESC
-            """, (page.time_range_start.strftime('%Y-%m'),
-                  page.time_range_end.strftime('%Y-%m')))
-            
-            data[f'Q{q_num}'] = dict(cur.fetchall())
-        
-        elif q_num == 3:  # Sub-topics
-            cur.execute("""
-                SELECT sub_topic, COUNT(*) as count
-                FROM pooled_posts_all
-                WHERE year_month BETWEEN %s AND %s
-                  AND is_relevant = TRUE
-                GROUP BY sub_topic
-                ORDER BY count DESC
-            """, (...))
-            
-            data['Q3'] = dict(cur.fetchall())
-        
-        # ... etc for Q4-Q14
+    # Use the page's dedicated data table
+    data_table = page['data_table_name']  # e.g., 'page_q1_posts'
     
-    # Load pre-generated insights from DB
-    insights = json.loads(page.insights)
+    # Query aggregates from the page's table
+    data = {}
+    
+    # Q1: Master Topics
+    cur.execute(f"""
+        SELECT master_topic, COUNT(*) as count
+        FROM {data_table}
+        WHERE is_relevant = TRUE
+        GROUP BY master_topic
+        ORDER BY count DESC
+    """)
+    data['Q1'] = dict(cur.fetchall())
+    
+    # Q2: Master Topics by Persona
+    cur.execute(f"""
+        SELECT persona, master_topic, COUNT(*) as count
+        FROM {data_table}
+        WHERE is_relevant = TRUE
+        GROUP BY persona, master_topic
+        ORDER BY persona, count DESC
+    """)
+    data['Q2'] = dict(cur.fetchall())
+    
+    # Q3: Sub-topics
+    cur.execute(f"""
+        SELECT sub_topic, COUNT(*) as count
+        FROM {data_table}
+        WHERE is_relevant = TRUE
+        GROUP BY sub_topic
+        ORDER BY count DESC
+    """)
+    data['Q3'] = dict(cur.fetchall())
+    
+    # ... Q4-Q14 similar queries
+    
+    # Load pre-generated insights from page_insights table
+    insights_row = db.query(
+        'SELECT insights FROM page_insights WHERE page_slug = %s',
+        [page_slug]
+    ).fetch_one()
+    
+    insights = json.loads(insights_row['insights']) if insights_row else {}
     
     return {
         "data": data,
         "insights": insights,
         "metadata": {
-            "totalPosts": page.total_posts,
-            "relevantPosts": page.relevant_posts,
-            "generated": page.generated_at
+            "pageName": page['page_name'],
+            "totalPosts": page['total_posts'],
+            "relevantPosts": page['relevant_posts'],
+            "timeStart": page['time_range_start'],
+            "timeEnd": page['time_range_end'],
+            "generated": insights_row['generated_at'] if insights_row else None
         }
     }
 ```
 
-### 7.2 No Static Files
+### 7.2 Architecture Benefits
 
-- **No `data_computed.js` generation**
-- **All data loaded on-demand** via `/api/pages/:slug`
-- **Insights stored in `page_insights.insights` JSONB column**
-- **Real-time aggregation** from `pooled_posts_all` table
+- **No `data_computed.js` generation** - data always fresh from DB
+- **Each page isolated** - its own table, no filtering needed
+- **Fast aggregation** - small table vs massive pooled table
+- **Easy to update** - re-pool data without affecting other pages
+- **Dynamic routes** - add new pages without code changes
 
 ---
 
