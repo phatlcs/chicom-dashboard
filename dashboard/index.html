@@ -17,24 +17,8 @@
 
 <script>
   // Load data: /q1 → pages/q1.js, /april → pages/april.js, / → data_computed.js
-  let slug;
-
-  // First check for injected slug (from API route)
-  if (window.__REPORT_SLUG__) {
-    slug = window.__REPORT_SLUG__;
-  } else {
-    // Extract from URL path
-    const path = window.location.pathname;
-    const parts = path.split('/').filter(Boolean);
-
-    // Handle /api/dashboard/q1 paths
-    if (parts[0] === 'api' && parts[1] === 'dashboard') {
-      slug = parts[2];
-    } else {
-      slug = parts[0];
-    }
-  }
-
+  const params = new URLSearchParams(window.location.search);
+  const slug = params.get('slug') || window.__REPORT_SLUG__;
   const dataFile = slug ? `/dashboard/pages/${slug}.js` : '/dashboard/data_computed.js';
 
   const script = document.createElement('script');
