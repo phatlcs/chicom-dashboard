@@ -16,24 +16,37 @@
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 
 <script>
-  // Extract page slug from URL
+  // Extract page slug from URL (only if not root)
   const path = window.location.pathname;
-  const pageSlug = path.split('/').filter(Boolean)[0] || 'q1';
+  const pathParts = path.split('/').filter(Boolean);
+  const pageSlug = pathParts.length > 0 ? pathParts[0] : null;
 
-  // Load ONLY the data file for this page
-  const script = document.createElement('script');
-  script.src = `/pages/${pageSlug}.js`;
-  script.onerror = () => {
-    console.error(`Failed to load page: ${pageSlug}`);
-    // Fallback to default data if file not found
-    window.ChiComData = {};
-    window.ChiComData2 = {};
-    window.INSIGHTS = {};
-  };
-  script.onload = () => {
-    console.log(`✓ Loaded data for page: ${pageSlug}`);
-  };
-  document.head.appendChild(script);
+  if (pageSlug) {
+    // Load page-specific data file (e.g., /q1, /april, /q1-custom)
+    const script = document.createElement('script');
+    script.src = `/pages/${pageSlug}.js`;
+    script.onerror = () => {
+      console.error(`Failed to load page: ${pageSlug}`);
+      window.ChiComData = {};
+      window.ChiComData2 = {};
+      window.INSIGHTS = {};
+    };
+    script.onload = () => {
+      console.log(`✓ Loaded data for page: ${pageSlug}`);
+    };
+    document.head.appendChild(script);
+  } else {
+    // Root path (/) - load original data_computed.js
+    const script = document.createElement('script');
+    script.src = 'data_computed.js';
+    script.onerror = () => {
+      console.warn('data_computed.js not found, using empty data');
+      window.ChiComData = {};
+      window.ChiComData2 = {};
+      window.INSIGHTS = {};
+    };
+    document.head.appendChild(script);
+  }
 </script>
 <script type="text/babel" src="shell.jsx"></script>
 <script type="text/babel" src="q1_q2.jsx"></script>
