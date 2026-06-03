@@ -41,9 +41,10 @@ jobs:
           echo "🏗️  Building app..."
           npm run build
 
-          # Restart PM2 app
-          echo "🔄 Restarting app..."
-          pm2 restart chicom-admin
+          # Start or restart PM2 app
+          echo "🔄 Starting/restarting app..."
+          pm2 delete chicom-admin 2>/dev/null || true
+          pm2 start npm --name "chicom-admin" -- start
           pm2 save
 
           echo "✅ Deployment complete!"
