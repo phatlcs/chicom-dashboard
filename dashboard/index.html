@@ -6,7 +6,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="/dashboard/styles.css">
 </head>
 <body>
 <div id="root"></div>
@@ -17,9 +17,25 @@
 
 <script>
   // Load data: /q1 → pages/q1.js, /april → pages/april.js, / → data_computed.js
-  const path = window.location.pathname;
-  const slug = path.split('/').filter(Boolean)[0];
-  const dataFile = slug ? `/pages/${slug}.js` : 'data_computed.js';
+  let slug;
+
+  // First check for injected slug (from API route)
+  if (window.__REPORT_SLUG__) {
+    slug = window.__REPORT_SLUG__;
+  } else {
+    // Extract from URL path
+    const path = window.location.pathname;
+    const parts = path.split('/').filter(Boolean);
+
+    // Handle /api/dashboard/q1 paths
+    if (parts[0] === 'api' && parts[1] === 'dashboard') {
+      slug = parts[2];
+    } else {
+      slug = parts[0];
+    }
+  }
+
+  const dataFile = slug ? `/dashboard/pages/${slug}.js` : '/dashboard/data_computed.js';
 
   const script = document.createElement('script');
   script.src = dataFile;
@@ -31,13 +47,13 @@
   };
   document.head.appendChild(script);
 </script>
-<script type="text/babel" src="shell.jsx"></script>
-<script type="text/babel" src="q1_q2.jsx"></script>
-<script type="text/babel" src="q3_q4.jsx"></script>
-<script type="text/babel" src="q5_q6.jsx"></script>
-<script type="text/babel" src="q7_q9.jsx"></script>
-<script type="text/babel" src="q10_q14.jsx"></script>
-<script type="text/babel" src="upload_panel.jsx"></script>
-<script type="text/babel" src="app.jsx"></script>
+<script type="text/babel" src="/dashboard/shell.jsx"></script>
+<script type="text/babel" src="/dashboard/q1_q2.jsx"></script>
+<script type="text/babel" src="/dashboard/q3_q4.jsx"></script>
+<script type="text/babel" src="/dashboard/q5_q6.jsx"></script>
+<script type="text/babel" src="/dashboard/q7_q9.jsx"></script>
+<script type="text/babel" src="/dashboard/q10_q14.jsx"></script>
+<script type="text/babel" src="/dashboard/upload_panel.jsx"></script>
+<script type="text/babel" src="/dashboard/app.jsx"></script>
 </body>
 </html>
