@@ -43,7 +43,7 @@ def main():
 
     js_str, info = compute_mod.compute_all(df)
 
-    out_dir = os.path.join(ROOT, "nextjs", "public", "dashboard", "pages")
+    out_dir = os.path.join(ROOT, "public", "dashboard", "pages")
     os.makedirs(out_dir, exist_ok=True)
     out_path = os.path.join(out_dir, f"{slug}.js")
     with open(out_path, "w", encoding="utf-8") as f:

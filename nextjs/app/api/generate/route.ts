@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Invalid slug' }, { status: 400 })
   }
 
-  const root = join(process.cwd(), '..')
+  const root = process.cwd()
   const script = join(root, 'backend', 'generate_range.py')
 
   try {
