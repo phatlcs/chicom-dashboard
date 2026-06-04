@@ -469,3 +469,55 @@ body { padding-left: 48px; }
 }
 .timeline-nav-item:hover { color: var(--text); }
 .timeline-nav-item.on    { color: var(--accent); font-weight: 600; }
+
+/* ── Mobile Responsive ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Remove timeline rail space */
+  body { padding-left: 0 !important; }
+  .timeline-nav { display: none; }
+
+  /* Topbar */
+  .topbar-inner { padding: 10px 16px; gap: 10px; flex-wrap: wrap; }
+  .nav-pills { display: none; }
+  .topbar-right .chip:not(:first-child) { display: none; }
+  .brand-sub { display: none; }
+
+  /* Page layout */
+  .page { padding: 16px; }
+  .page-header h1 { font-size: 20px; }
+  .anchor-list { padding: 0 16px; }
+
+  /* KPI strip */
+  .kpi-strip { grid-template-columns: repeat(2, 1fr); }
+  .kpi-value { font-size: 18px; }
+
+  /* All grids collapse to single column */
+  .grid-2 { grid-template-columns: 1fr; }
+  .grid-3 { grid-template-columns: 1fr; }
+  .grid-12 { grid-template-columns: 1fr; }
+  .grid-12 .col-4,
+  .grid-12 .col-5,
+  .grid-12 .col-6,
+  .grid-12 .col-7,
+  .grid-12 .col-8,
+  .grid-12 .col-12 { grid-column: span 1; }
+
+  /* Row bars — shrink label width */
+  .rowbar { grid-template-columns: 120px 1fr 40px; font-size: 11px; }
+
+  /* Section heading */
+  .qtitle h2 { font-size: 15px; }
+
+  /* Expert insight stats */
+  .ei-stat { flex: 1 1 100%; }
+  .ei-stats { gap: 8px; }
+
+  /* Section banner */
+  .section-banner { padding: 12px 16px; }
+
+  /* Cards */
+  .card { padding: 14px; }
+
+  /* Anchor rail */
+  .anchor-grid { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-flow: row; }
+}
