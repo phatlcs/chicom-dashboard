@@ -2,7 +2,7 @@ name: Deploy to EC2
 
 on:
   push:
-    branches: [ master, main, english_UI ]
+    branches: [ AWS_deployment ]
   workflow_dispatch:
 
 jobs:
@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
+    - name: Checkout
       uses: actions/checkout@v4
 
     - name: Setup SSH
@@ -20,34 +20,22 @@ jobs:
         chmod 600 ~/.ssh/Boost.pem
         ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
 
-    - name: Deploy to EC2
+    - name: Deploy
       run: |
+        rsync -az --delete \
+          --exclude='.git' \
+          --exclude='node_modules' \
+          --exclude='.next' \
+          -e "ssh -i ~/.ssh/Boost.pem" \
+          ./nextjs/ ec2-user@${{ secrets.EC2_HOST }}:~/app/
+
         ssh -i ~/.ssh/Boost.pem ec2-user@${{ secrets.EC2_HOST }} << 'EOF'
           set -e
-          echo "🚀 Starting deployment..."
-
-          cd /home/ec2-user/chicom-dashboard
-
-          # Pull latest code
-          echo "📥 Pulling latest code..."
-          git pull origin ${{ github.ref_name }}
-
-          # Install/update Node dependencies
-          echo "📦 Installing dependencies..."
-          cd nextjs
-          npm install
-
-          # Build Next.js app
-          echo "🏗️  Building app..."
+          cd ~/app
+          npm install --production=false
           npm run build
-
-          # Start or restart PM2 app
-          echo "🔄 Starting/restarting app..."
-          pm2 delete chicom-admin 2>/dev/null || true
-          pm2 start npm --name "chicom-admin" -- start
+          pm2 delete chicom 2>/dev/null || true
+          pm2 start npm --name chicom -- start
           pm2 save
-
-          echo "✅ Deployment complete!"
-          echo "🌐 App is live at: http://${{ secrets.EC2_HOST }}"
+          echo "Done — $(date)"
         EOF
-
