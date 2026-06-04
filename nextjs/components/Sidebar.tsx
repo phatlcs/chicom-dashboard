@@ -46,6 +46,13 @@ export default function Sidebar() {
                   </span>
                 </Link>
               </li>
+              <li>
+                <Link href="/overview">
+                  <span className={`block px-4 py-2 rounded-lg transition ${pathname === '/overview' ? 'bg-blue-600 text-white' : 'text-slate-300 hover:bg-slate-800'}`} onClick={() => setIsOpen(false)}>
+                    Overview
+                  </span>
+                </Link>
+              </li>
             </ul>
           </div>
 
