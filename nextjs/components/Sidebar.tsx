@@ -4,15 +4,17 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
+const REPORTS = [
+  { slug: 'q1', label: 'Q1 2026 (Jan-Mar)' },
+  { slug: 'april', label: 'April 2026' },
+]
+
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
 
-  const isActive = (path: string) => pathname === path || pathname?.startsWith(path + '/')
-
   return (
     <>
-      {/* Hamburger Toggle - Always Visible */}
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="fixed top-4 left-4 z-50 p-2 rounded-lg bg-slate-900 text-white hover:bg-slate-800 transition"
@@ -23,24 +25,13 @@ export default function Sidebar() {
         </svg>
       </button>
 
-      {/* Backdrop */}
       {isOpen && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-40"
-          onClick={() => setIsOpen(false)}
-        />
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-40" onClick={() => setIsOpen(false)} />
       )}
 
-      {/* Sidebar */}
-      <aside
-        className={`fixed top-0 left-0 h-screen w-64 bg-slate-900 text-white overflow-y-auto z-40 transition-transform duration-300 ${
-          isOpen ? 'translate-x-0' : '-translate-x-full'
-        }`}
-      >
+      <aside className={`fixed top-0 left-0 h-screen w-64 bg-slate-900 text-white overflow-y-auto z-40 transition-transform duration-300 ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
         <div className="p-6 mt-4">
-          <Link href="/">
-            <h1 className="text-xl font-bold text-white">ChiCom Admin</h1>
-          </Link>
+          <Link href="/"><h1 className="text-xl font-bold text-white">ChiCom Admin</h1></Link>
           <p className="text-slate-400 text-sm mt-1">Dashboard</p>
         </div>
 
@@ -50,43 +41,8 @@ export default function Sidebar() {
             <ul className="space-y-2">
               <li>
                 <Link href="/">
-                  <span
-                    className={`block px-4 py-2 rounded-lg transition ${
-                      isActive('/') && pathname === '/'
-                        ? 'bg-blue-600 text-white'
-                        : 'text-slate-300 hover:bg-slate-800'
-                    }`}
-                    onClick={() => setIsOpen(false)}
-                  >
+                  <span className={`block px-4 py-2 rounded-lg transition ${pathname === '/' ? 'bg-blue-600 text-white' : 'text-slate-300 hover:bg-slate-800'}`} onClick={() => setIsOpen(false)}>
                     Dashboard
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/upload">
-                  <span
-                    className={`block px-4 py-2 rounded-lg transition ${
-                      isActive('/upload')
-                        ? 'bg-blue-600 text-white'
-                        : 'text-slate-300 hover:bg-slate-800'
-                    }`}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    Upload Data
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/batches">
-                  <span
-                    className={`block px-4 py-2 rounded-lg transition ${
-                      isActive('/batches')
-                        ? 'bg-blue-600 text-white'
-                        : 'text-slate-300 hover:bg-slate-800'
-                    }`}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    Batch History
                   </span>
                 </Link>
               </li>
@@ -96,48 +52,16 @@ export default function Sidebar() {
           <div>
             <p className="text-slate-400 text-xs uppercase font-semibold mb-4">Monthly Reports</p>
             <ul className="space-y-2">
-              <li>
-                <Link href="/months/q1-2026">
-                  <span
-                    className={`block px-4 py-2 rounded-lg transition text-sm ${
-                      isActive('/months/q1-2026')
-                        ? 'bg-blue-600 text-white'
-                        : 'text-slate-300 hover:bg-slate-800'
-                    }`}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    Q1 2026 (Jan-Mar)
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/months/april-2026">
-                  <span
-                    className={`block px-4 py-2 rounded-lg transition text-sm ${
-                      isActive('/months/april-2026')
-                        ? 'bg-blue-600 text-white'
-                        : 'text-slate-300 hover:bg-slate-800'
-                    }`}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    April 2026
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/months/may-2026">
-                  <span
-                    className={`block px-4 py-2 rounded-lg transition text-sm ${
-                      isActive('/months/may-2026')
-                        ? 'bg-blue-600 text-white'
-                        : 'text-slate-300 hover:bg-slate-800'
-                    }`}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    May 2026
-                  </span>
-                </Link>
-              </li>
+              {REPORTS.map(r => (
+                <li key={r.slug}>
+                  {/* Use <a> to force full page load so Next.js rewrites apply */}
+                  <a href={`/${r.slug}`}>
+                    <span className="block px-4 py-2 rounded-lg transition text-sm text-slate-300 hover:bg-slate-800" onClick={() => setIsOpen(false)}>
+                      {r.label}
+                    </span>
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </nav>
