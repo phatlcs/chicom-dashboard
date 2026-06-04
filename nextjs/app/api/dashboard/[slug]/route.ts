@@ -1,30 +1,28 @@
-import { readFile } from 'fs/promises'
+import { NextResponse } from 'next/server'
+import { readFileSync } from 'fs'
 import { join } from 'path'
 
 export async function GET(
-  req: Request,
+  _req: Request,
   { params }: { params: { slug: string } }
 ) {
+  const { slug } = params
+  const htmlPath = join(process.cwd(), 'public', 'dashboard', 'index.html')
+
+  let html: string
   try {
-    const dashboardIndexPath = join(process.cwd(), 'public/dashboard/index.html')
-    let html = await readFile(dashboardIndexPath, 'utf-8')
-
-    // Inject slug into the HTML so the dashboard knows which data file to load
-    html = html.replace(
-      '<script>',
-      `<script>
-        window.__REPORT_SLUG__ = "${params.slug}";
-      </script>
-      <script>`
-    )
-
-    return new Response(html, {
-      headers: {
-        'Content-Type': 'text/html; charset=utf-8',
-      },
-    })
-  } catch (error) {
-    console.error('Dashboard error:', error)
-    return new Response('Dashboard not found', { status: 404 })
+    html = readFileSync(htmlPath, 'utf-8')
+  } catch {
+    return new NextResponse('Dashboard not found', { status: 404 })
   }
+
+  // Inject slug before any scripts run
+  html = html.replace(
+    '<script>',
+    `<script>window.__REPORT_SLUG__ = ${JSON.stringify(slug)};</script>\n<script>`
+  )
+
+  return new NextResponse(html, {
+    headers: { 'Content-Type': 'text/html; charset=utf-8' },
+  })
 }

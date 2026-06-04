@@ -16,8 +16,7 @@
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 
 <script>
-  const params = new URLSearchParams(window.location.search);
-  const slug = params.get('slug') || window.__REPORT_SLUG__;
+  const slug = window.__REPORT_SLUG__ || new URLSearchParams(window.location.search).get('slug');
   const dataFile = slug ? `/dashboard/pages/${slug}.js` : '/dashboard/data_computed.js';
 
   // Load data synchronously so it's available when Babel compiles the JSX below
