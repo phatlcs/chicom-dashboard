@@ -8,6 +8,7 @@ export async function GET(
 ) {
   const { slug } = params
   const htmlPath = join(process.cwd(), 'public', 'dashboard', 'index.html')
+  const dataPath = join(process.cwd(), 'public', 'dashboard', 'pages', `${slug}.js`)
 
   let html: string
   try {
@@ -16,10 +17,17 @@ export async function GET(
     return new NextResponse('Dashboard not found', { status: 404 })
   }
 
-  // Inject slug before any scripts run
+  let dataJs: string
+  try {
+    dataJs = readFileSync(dataPath, 'utf-8')
+  } catch {
+    dataJs = 'window.ChiComData={}; window.ChiComData2={};'
+  }
+
+  // Inline the data directly — no XHR race condition
   html = html.replace(
     '<script>',
-    `<script>window.__REPORT_SLUG__ = ${JSON.stringify(slug)};</script>\n<script>`
+    `<script>\n${dataJs}\n</script>\n<script>`
   )
 
   return new NextResponse(html, {
