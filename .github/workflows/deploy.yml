@@ -33,6 +33,7 @@ jobs:
           set -e
           cd ~/app
           npm install --production=false
+          rm -rf .next
           npm run build
           pm2 delete chicom 2>/dev/null || true
           pm2 start npm --name chicom -- start
