@@ -120,103 +120,103 @@ window.ChiComData = (() => {
 ];
   const Q1_WEIGHTS          = {
   "mt1": {
-    "soa1": 30.8,
-    "soa2": 30.8,
-    "ec1": 92.3,
-    "ec2": 59.0,
-    "ec3": 38.3,
-    "ec4": 52.2,
-    "ec5": 29.7,
-    "ec6": 19.8,
-    "ec7": 22.2
+    "soa1": 18.6,
+    "soa2": 33.5,
+    "ec1": 99.3,
+    "ec2": 57.2,
+    "ec3": 44.1,
+    "ec4": 60.0,
+    "ec5": 29.6,
+    "ec6": 21.6,
+    "ec7": 27.2
   },
   "mt2": {
-    "soa1": 9.5,
-    "soa2": 15.9,
-    "ec1": 3.8,
-    "ec2": 5.3,
-    "ec3": 19.9,
-    "ec4": 20.8,
-    "ec5": 11.4,
-    "ec6": 9.2,
-    "ec7": 11.9
+    "soa1": 12.8,
+    "soa2": 20.2,
+    "ec1": 0.3,
+    "ec2": 8.9,
+    "ec3": 18.9,
+    "ec4": 14.4,
+    "ec5": 9.8,
+    "ec6": 4.2,
+    "ec7": 9.0
   },
   "mt3": {
-    "soa1": 20.4,
-    "soa2": 12.5,
-    "ec1": 0.0,
-    "ec2": 0.0,
-    "ec3": 8.0,
-    "ec4": 11.1,
-    "ec5": 7.2,
-    "ec6": 28.2,
-    "ec7": 17.5
+    "soa1": 11.7,
+    "soa2": 5.5,
+    "ec1": 0.1,
+    "ec2": 10.4,
+    "ec3": 7.5,
+    "ec4": 11.7,
+    "ec5": 10.6,
+    "ec6": 17.0,
+    "ec7": 16.3
   },
   "mt4": {
-    "soa1": 3.8,
-    "soa2": 13.0,
+    "soa1": 13.3,
+    "soa2": 15.8,
     "ec1": 0.0,
-    "ec2": 0.5,
-    "ec3": 2.6,
-    "ec4": 9.0,
-    "ec5": 16.2,
-    "ec6": 6.1,
-    "ec7": 17.0
+    "ec2": 0.0,
+    "ec3": 1.5,
+    "ec4": 5.5,
+    "ec5": 15.6,
+    "ec6": 21.4,
+    "ec7": 19.6
   },
   "mt5": {
-    "soa1": 11.4,
-    "soa2": 5.4,
-    "ec1": 1.3,
-    "ec2": 12.8,
-    "ec3": 16.4,
+    "soa1": 19.9,
+    "soa2": 7.8,
+    "ec1": 0.3,
+    "ec2": 18.6,
+    "ec3": 17.9,
     "ec4": 1.5,
-    "ec5": 17.0,
-    "ec6": 13.0,
-    "ec7": 12.1
+    "ec5": 22.2,
+    "ec6": 21.4,
+    "ec7": 11.4
   },
   "mt6": {
-    "soa1": 3.8,
-    "soa2": 13.6,
-    "ec1": 0.4,
-    "ec2": 11.7,
-    "ec3": 7.5,
-    "ec4": 1.4,
-    "ec5": 13.3,
-    "ec6": 21.4,
-    "ec7": 13.3
+    "soa1": 8.3,
+    "soa2": 8.6,
+    "ec1": 0.0,
+    "ec2": 0.0,
+    "ec3": 2.6,
+    "ec4": 1.0,
+    "ec5": 8.3,
+    "ec6": 12.5,
+    "ec7": 10.6
   },
   "mt7": {
-    "soa1": 14.2,
-    "soa2": 4.2,
-    "ec1": 0.4,
-    "ec2": 7.4,
-    "ec3": 6.4,
-    "ec4": 2.5,
-    "ec5": 2.7,
-    "ec6": 0.8,
-    "ec7": 2.5
+    "soa1": 7.5,
+    "soa2": 2.1,
+    "ec1": 0.0,
+    "ec2": 3.8,
+    "ec3": 5.6,
+    "ec4": 4.4,
+    "ec5": 1.5,
+    "ec6": 0.2,
+    "ec7": 2.6
   },
   "mt8": {
-    "soa1": 6.2,
-    "soa2": 2.6,
-    "ec1": 1.7,
-    "ec2": 2.7,
-    "ec3": 0.6,
-    "ec4": 1.5,
-    "ec5": 1.4,
-    "ec6": 1.5,
-    "ec7": 2.0
-  },
-  "mt9": {
-    "soa1": 0.0,
-    "soa2": 2.0,
+    "soa1": 3.9,
+    "soa2": 3.0,
     "ec1": 0.0,
     "ec2": 0.5,
+    "ec3": 1.7,
+    "ec4": 1.0,
+    "ec5": 1.3,
+    "ec6": 1.7,
+    "ec7": 2.1
+  },
+  "mt9": {
+    "soa1": 4.1,
+    "soa2": 3.6,
+    "ec1": 0.0,
+    "ec2": 0.7,
     "ec3": 0.4,
-    "ec4": 0.2,
-    "ec5": 1.2,
+    "ec4": 0.6,
+    "ec5": 1.1,
     "ec6": 0.0,
-    "ec7": 1.4
+    "ec7": 1.3
   }
 };
   const Q1_MASTER           = [
@@ -224,56 +224,56 @@ window.ChiComData = (() => {
     "id": "mt1",
     "vn": "Khác",
     "en": "Others",
-    "weight": 33.7,
-    "count": 4805,
+    "weight": 41.0,
+    "count": 16497,
     "color": "oklch(0.62 0.15 260)"
   },
   {
     "id": "mt2",
     "vn": "Bán hàng trên Amazon (SOA)",
     "en": "Selling on Amazon (SOA)",
-    "weight": 14.6,
-    "count": 2083,
+    "weight": 13.0,
+    "count": 5232,
     "color": "oklch(0.62 0.15 80)"
-  },
-  {
-    "id": "mt3",
-    "vn": "Vận chuyển & Logistics",
-    "en": "Logistics & fulfillment",
-    "weight": 12.3,
-    "count": 1749,
-    "color": "oklch(0.62 0.15 230)"
   },
   {
     "id": "mt4",
     "vn": "Sức khỏe tài khoản",
     "en": "Account health",
-    "weight": 12.2,
-    "count": 1737,
+    "weight": 11.8,
+    "count": 4760,
     "color": "oklch(0.62 0.15 60)"
+  },
+  {
+    "id": "mt3",
+    "vn": "Vận chuyển & Logistics",
+    "en": "Logistics & fulfillment",
+    "weight": 11.6,
+    "count": 4656,
+    "color": "oklch(0.62 0.15 230)"
   },
   {
     "id": "mt5",
     "vn": "Dịch vụ bên thứ ba",
     "en": "Third-party services",
-    "weight": 11.0,
-    "count": 1571,
+    "weight": 10.3,
+    "count": 4144,
     "color": "oklch(0.62 0.15 320)"
   },
   {
     "id": "mt6",
     "vn": "Tạo tài khoản",
     "en": "Account creation",
-    "weight": 10.1,
-    "count": 1446,
+    "weight": 6.1,
+    "count": 2440,
     "color": "oklch(0.62 0.15 200)"
   },
   {
     "id": "mt7",
     "vn": "Quảng cáo",
     "en": "Advertising",
-    "weight": 3.5,
-    "count": 493,
+    "weight": 3.3,
+    "count": 1330,
     "color": "oklch(0.62 0.15 110)"
   },
   {
@@ -281,15 +281,15 @@ window.ChiComData = (() => {
     "vn": "Listing & Catalog",
     "en": "Listing & catalog",
     "weight": 1.7,
-    "count": 246,
+    "count": 693,
     "color": "oklch(0.62 0.15 290)"
   },
   {
     "id": "mt9",
     "vn": "Brand Registry & IP",
     "en": "Brand Registry & IP",
-    "weight": 1.0,
-    "count": 142,
+    "weight": 1.2,
+    "count": 503,
     "color": "oklch(0.62 0.15 350)"
   }
 ];
@@ -297,8 +297,8 @@ window.ChiComData = (() => {
   {
     "vn": "Misc / Other",
     "en": "Misc / Other",
-    "count": 2508,
-    "weight": 17.5,
+    "count": 9145,
+    "weight": 22.6,
     "color": "oklch(0.62 0.15 260)",
     "parent_topic": "mt1",
     "parent_rank": 0,
@@ -307,18 +307,8 @@ window.ChiComData = (() => {
   {
     "vn": "Tax Compliance And Declarations",
     "en": "Tax Compliance And Declarations",
-    "count": 954,
-    "weight": 6.7,
-    "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1",
-    "parent_rank": 0,
-    "display": true
-  },
-  {
-    "vn": "Payment Processing And Withdrawals",
-    "en": "Payment Processing And Withdrawals",
-    "count": 408,
-    "weight": 2.9,
+    "count": 4271,
+    "weight": 10.6,
     "color": "oklch(0.62 0.15 260)",
     "parent_topic": "mt1",
     "parent_rank": 0,
@@ -327,8 +317,28 @@ window.ChiComData = (() => {
   {
     "vn": "Market Trends And Sales Performance",
     "en": "Market Trends And Sales Performance",
-    "count": 236,
-    "weight": 1.7,
+    "count": 1286,
+    "weight": 3.2,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": "mt1",
+    "parent_rank": 0,
+    "display": true
+  },
+  {
+    "vn": "Community Events And Contests",
+    "en": "Community Events And Contests",
+    "count": 971,
+    "weight": 2.4,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": "mt1",
+    "parent_rank": 0,
+    "display": true
+  },
+  {
+    "vn": "Payment Processing And Withdrawals",
+    "en": "Payment Processing And Withdrawals",
+    "count": 824,
+    "weight": 2.0,
     "color": "oklch(0.62 0.15 260)",
     "parent_topic": "mt1",
     "parent_rank": 0,
@@ -337,68 +347,8 @@ window.ChiComData = (() => {
   {
     "vn": "Supplier And Fulfillment Services",
     "en": "Supplier And Fulfillment Services",
-    "count": 212,
-    "weight": 1.5,
-    "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1",
-    "parent_rank": 0,
-    "display": true
-  },
-  {
-    "vn": "Account Hiring And Leasing",
-    "en": "Account Hiring And Leasing",
-    "count": 197,
-    "weight": 1.4,
-    "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1",
-    "parent_rank": 0,
-    "display": true
-  },
-  {
-    "vn": "Scams And Fraud Prevention",
-    "en": "Scams And Fraud Prevention",
-    "count": 146,
-    "weight": 1.0,
-    "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1",
-    "parent_rank": 0,
-    "display": true
-  },
-  {
-    "vn": "Platform Policy Changes And Announcements",
-    "en": "Platform Policy Changes And Announcements",
-    "count": 144,
-    "weight": 1.0,
-    "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1",
-    "parent_rank": 0,
-    "display": true
-  },
-  {
-    "vn": "Legal Issues And Account Suspensions",
-    "en": "Legal Issues And Account Suspensions",
-    "count": 127,
-    "weight": 0.9,
-    "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1",
-    "parent_rank": 0,
-    "display": false
-  },
-  {
-    "vn": "Banking And Financial Services",
-    "en": "Banking And Financial Services",
-    "count": 126,
-    "weight": 0.9,
-    "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1",
-    "parent_rank": 0,
-    "display": false
-  },
-  {
-    "vn": "Community Events And Contests",
-    "en": "Community Events And Contests",
-    "count": 125,
-    "weight": 0.9,
+    "count": 24,
+    "weight": 0.1,
     "color": "oklch(0.62 0.15 260)",
     "parent_topic": "mt1",
     "parent_rank": 0,
@@ -407,8 +357,28 @@ window.ChiComData = (() => {
   {
     "vn": "Recruitment And Job Opportunities",
     "en": "Recruitment And Job Opportunities",
-    "count": 117,
-    "weight": 0.8,
+    "count": 16,
+    "weight": 0.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": "mt1",
+    "parent_rank": 0,
+    "display": false
+  },
+  {
+    "vn": "Banking And Financial Services",
+    "en": "Banking And Financial Services",
+    "count": 15,
+    "weight": 0.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": "mt1",
+    "parent_rank": 0,
+    "display": false
+  },
+  {
+    "vn": "Account Hiring And Leasing",
+    "en": "Account Hiring And Leasing",
+    "count": 10,
+    "weight": 0.0,
     "color": "oklch(0.62 0.15 260)",
     "parent_topic": "mt1",
     "parent_rank": 0,
@@ -417,8 +387,18 @@ window.ChiComData = (() => {
   {
     "vn": "Training Courses And Mentorship",
     "en": "Training Courses And Mentorship",
-    "count": 105,
-    "weight": 0.7,
+    "count": 10,
+    "weight": 0.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": "mt1",
+    "parent_rank": 0,
+    "display": false
+  },
+  {
+    "vn": "Scams And Fraud Prevention",
+    "en": "Scams And Fraud Prevention",
+    "count": 5,
+    "weight": 0.0,
     "color": "oklch(0.62 0.15 260)",
     "parent_topic": "mt1",
     "parent_rank": 0,
@@ -427,8 +407,28 @@ window.ChiComData = (() => {
   {
     "vn": "Tool Recommendations And Software",
     "en": "Tool Recommendations And Software",
-    "count": 75,
-    "weight": 0.5,
+    "count": 4,
+    "weight": 0.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": "mt1",
+    "parent_rank": 0,
+    "display": false
+  },
+  {
+    "vn": "Legal Issues And Account Suspensions",
+    "en": "Legal Issues And Account Suspensions",
+    "count": 4,
+    "weight": 0.0,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": "mt1",
+    "parent_rank": 0,
+    "display": false
+  },
+  {
+    "vn": "Platform Policy Changes And Announcements",
+    "en": "Platform Policy Changes And Announcements",
+    "count": 2,
+    "weight": 0.0,
     "color": "oklch(0.62 0.15 260)",
     "parent_topic": "mt1",
     "parent_rank": 0,
@@ -437,8 +437,8 @@ window.ChiComData = (() => {
   {
     "vn": "Selling Best Practices",
     "en": "Selling Best Practices",
-    "count": 1131,
-    "weight": 7.8,
+    "count": 2881,
+    "weight": 7.1,
     "color": "oklch(0.62 0.15 80)",
     "parent_topic": "mt2",
     "parent_rank": 1,
@@ -447,8 +447,8 @@ window.ChiComData = (() => {
   {
     "vn": "Cost & Fees",
     "en": "Cost & Fees",
-    "count": 411,
-    "weight": 2.9,
+    "count": 994,
+    "weight": 2.5,
     "color": "oklch(0.62 0.15 80)",
     "parent_topic": "mt2",
     "parent_rank": 1,
@@ -457,8 +457,8 @@ window.ChiComData = (() => {
   {
     "vn": "Product Selection",
     "en": "Product Selection",
-    "count": 330,
-    "weight": 2.3,
+    "count": 822,
+    "weight": 2.0,
     "color": "oklch(0.62 0.15 80)",
     "parent_topic": "mt2",
     "parent_rank": 1,
@@ -467,28 +467,28 @@ window.ChiComData = (() => {
   {
     "vn": "Incentives & Training",
     "en": "Incentives & Training",
-    "count": 211,
-    "weight": 1.5,
+    "count": 533,
+    "weight": 1.3,
     "color": "oklch(0.62 0.15 80)",
     "parent_topic": "mt2",
     "parent_rank": 1,
     "display": true
   },
   {
-    "vn": "Supplier Sourcing",
-    "en": "Supplier Sourcing",
-    "count": 63,
-    "weight": 0.4,
+    "vn": "Quality & Compliance",
+    "en": "Quality & Compliance",
+    "count": 132,
+    "weight": 0.3,
     "color": "oklch(0.62 0.15 80)",
     "parent_topic": "mt2",
     "parent_rank": 1,
     "display": false
   },
   {
-    "vn": "Quality & Compliance",
-    "en": "Quality & Compliance",
-    "count": 58,
-    "weight": 0.4,
+    "vn": "Supplier Sourcing",
+    "en": "Supplier Sourcing",
+    "count": 124,
+    "weight": 0.3,
     "color": "oklch(0.62 0.15 80)",
     "parent_topic": "mt2",
     "parent_rank": 1,
@@ -497,138 +497,128 @@ window.ChiComData = (() => {
   {
     "vn": "Pricing/Cost",
     "en": "Pricing/Cost",
-    "count": 16,
-    "weight": 0.1,
-    "color": "oklch(0.62 0.15 80)",
-    "parent_topic": "mt2",
-    "parent_rank": 1,
-    "display": false
-  },
-  {
-    "vn": "Pricing/cost",
-    "en": "Pricing/cost",
-    "count": 7,
+    "count": 4,
     "weight": 0.0,
     "color": "oklch(0.62 0.15 80)",
     "parent_topic": "mt2",
     "parent_rank": 1,
-    "display": false
-  },
-  {
-    "vn": "Selling best practices",
-    "en": "Selling best practices",
-    "count": 1,
-    "weight": 0.0,
-    "color": "oklch(0.62 0.15 80)",
-    "parent_topic": "mt2",
-    "parent_rank": 1,
-    "display": false
-  },
-  {
-    "vn": "Logistics costs",
-    "en": "Logistics costs",
-    "count": 1434,
-    "weight": 10.0,
-    "color": "oklch(0.62 0.15 230)",
-    "parent_topic": "mt3",
-    "parent_rank": 2,
-    "display": true
-  },
-  {
-    "vn": "Fulfillment models",
-    "en": "Fulfillment models",
-    "count": 315,
-    "weight": 2.2,
-    "color": "oklch(0.62 0.15 230)",
-    "parent_topic": "mt3",
-    "parent_rank": 2,
-    "display": true
-  },
-  {
-    "vn": "Packaging & shipping optimization",
-    "en": "Packaging & shipping optimization",
-    "count": 125,
-    "weight": 0.9,
-    "color": "oklch(0.62 0.15 230)",
-    "parent_topic": "mt3",
-    "parent_rank": 2,
-    "display": false
-  },
-  {
-    "vn": "Inventory management best practices",
-    "en": "Inventory management best practices",
-    "count": 29,
-    "weight": 0.2,
-    "color": "oklch(0.62 0.15 230)",
-    "parent_topic": "mt3",
-    "parent_rank": 2,
-    "display": false
-  },
-  {
-    "vn": "Amazon logistics solutions",
-    "en": "Amazon logistics solutions",
-    "count": 5,
-    "weight": 0.0,
-    "color": "oklch(0.62 0.15 230)",
-    "parent_topic": "mt3",
-    "parent_rank": 2,
     "display": false
   },
   {
     "vn": "Account issues / Account errors",
     "en": "Account issues / Account errors",
-    "count": 873,
-    "weight": 6.0,
+    "count": 1811,
+    "weight": 4.5,
     "color": "oklch(0.62 0.15 60)",
     "parent_topic": "mt4",
-    "parent_rank": 3,
+    "parent_rank": 2,
     "display": true
   },
   {
     "vn": "Account suspension",
     "en": "Account suspension",
-    "count": 643,
-    "weight": 4.5,
+    "count": 1667,
+    "weight": 4.1,
     "color": "oklch(0.62 0.15 60)",
     "parent_topic": "mt4",
-    "parent_rank": 3,
+    "parent_rank": 2,
     "display": true
   },
   {
     "vn": "Account verification",
     "en": "Account verification",
-    "count": 229,
-    "weight": 1.6,
+    "count": 1295,
+    "weight": 3.2,
     "color": "oklch(0.62 0.15 60)",
     "parent_topic": "mt4",
-    "parent_rank": 3,
+    "parent_rank": 2,
     "display": true
   },
   {
     "vn": "Account updates",
     "en": "Account updates",
-    "count": 33,
-    "weight": 0.2,
+    "count": 115,
+    "weight": 0.3,
     "color": "oklch(0.62 0.15 60)",
     "parent_topic": "mt4",
-    "parent_rank": 3,
+    "parent_rank": 2,
     "display": false
   },
   {
     "vn": "Inactive account",
     "en": "Inactive account",
-    "count": 7,
+    "count": 13,
     "weight": 0.0,
     "color": "oklch(0.62 0.15 60)",
     "parent_topic": "mt4",
+    "parent_rank": 2,
+    "display": false
+  },
+  {
+    "vn": "Account health",
+    "en": "Account health",
+    "count": 1,
+    "weight": 0.0,
+    "color": "oklch(0.62 0.15 60)",
+    "parent_topic": "mt4",
+    "parent_rank": 2,
+    "display": false
+  },
+  {
+    "vn": "Packaging & shipping optimization",
+    "en": "Packaging & shipping optimization",
+    "count": 2134,
+    "weight": 5.2,
+    "color": "oklch(0.62 0.15 230)",
+    "parent_topic": "mt3",
+    "parent_rank": 3,
+    "display": true
+  },
+  {
+    "vn": "Logistics costs",
+    "en": "Logistics costs",
+    "count": 1402,
+    "weight": 3.5,
+    "color": "oklch(0.62 0.15 230)",
+    "parent_topic": "mt3",
+    "parent_rank": 3,
+    "display": true
+  },
+  {
+    "vn": "Fulfillment models",
+    "en": "Fulfillment models",
+    "count": 1124,
+    "weight": 2.8,
+    "color": "oklch(0.62 0.15 230)",
+    "parent_topic": "mt3",
+    "parent_rank": 3,
+    "display": true
+  },
+  {
+    "vn": "Inventory management best practices",
+    "en": "Inventory management best practices",
+    "count": 100,
+    "weight": 0.2,
+    "color": "oklch(0.62 0.15 230)",
+    "parent_topic": "mt3",
+    "parent_rank": 3,
+    "display": false
+  },
+  {
+    "vn": "Amazon logistics solutions",
+    "en": "Amazon logistics solutions",
+    "count": 9,
+    "weight": 0.0,
+    "color": "oklch(0.62 0.15 230)",
+    "parent_topic": "mt3",
     "parent_rank": 3,
     "display": false
   },
   {
     "vn": "Third-party service introduction",
     "en": "Third-party service introduction",
-    "count": 903,
-    "weight": 6.3,
+    "count": 1810,
+    "weight": 4.5,
     "color": "oklch(0.62 0.15 320)",
     "parent_topic": "mt5",
     "parent_rank": 4,
@@ -637,7 +627,7 @@ window.ChiComData = (() => {
   {
     "vn": "Supplier sourcing",
     "en": "Supplier sourcing",
-    "count": 432,
+    "count": 1213,
     "weight": 3.0,
     "color": "oklch(0.62 0.15 320)",
     "parent_topic": "mt5",
@@ -647,8 +637,8 @@ window.ChiComData = (() => {
   {
     "vn": "Finding third-party services",
     "en": "Finding third-party services",
-    "count": 236,
-    "weight": 1.7,
+    "count": 1121,
+    "weight": 2.8,
     "color": "oklch(0.62 0.15 320)",
     "parent_topic": "mt5",
     "parent_rank": 4,
@@ -657,8 +647,8 @@ window.ChiComData = (() => {
   {
     "vn": "Account Verification",
     "en": "Account Verification",
-    "count": 529,
-    "weight": 3.7,
+    "count": 797,
+    "weight": 1.9,
     "color": "oklch(0.62 0.15 200)",
     "parent_topic": "mt6",
     "parent_rank": 5,
@@ -667,8 +657,8 @@ window.ChiComData = (() => {
   {
     "vn": "Identity Verification (SIV)",
     "en": "Identity Verification (SIV)",
-    "count": 330,
-    "weight": 2.3,
+    "count": 611,
+    "weight": 1.5,
     "color": "oklch(0.62 0.15 200)",
     "parent_topic": "mt6",
     "parent_rank": 5,
@@ -677,8 +667,8 @@ window.ChiComData = (() => {
   {
     "vn": "Account Types",
     "en": "Account Types",
-    "count": 227,
-    "weight": 1.6,
+    "count": 521,
+    "weight": 1.3,
     "color": "oklch(0.62 0.15 200)",
     "parent_topic": "mt6",
     "parent_rank": 5,
@@ -687,8 +677,8 @@ window.ChiComData = (() => {
   {
     "vn": "Legal Entity Setup",
     "en": "Legal Entity Setup",
-    "count": 209,
-    "weight": 1.5,
+    "count": 498,
+    "weight": 1.2,
     "color": "oklch(0.62 0.15 200)",
     "parent_topic": "mt6",
     "parent_rank": 5,
@@ -697,27 +687,17 @@ window.ChiComData = (() => {
   {
     "vn": "Registration Documents",
     "en": "Registration Documents",
-    "count": 143,
-    "weight": 1.0,
-    "color": "oklch(0.62 0.15 200)",
-    "parent_topic": "mt6",
-    "parent_rank": 5,
-    "display": true
-  },
-  {
-    "vn": "Account Updates",
-    "en": "Account Updates",
-    "count": 10,
-    "weight": 0.1,
+    "count": 181,
+    "weight": 0.4,
     "color": "oklch(0.62 0.15 200)",
     "parent_topic": "mt6",
     "parent_rank": 5,
     "display": false
   },
   {
-    "vn": "Identity Verification",
-    "en": "Identity Verification",
-    "count": 3,
+    "vn": "Account errors",
+    "en": "Account errors",
+    "count": 1,
     "weight": 0.0,
     "color": "oklch(0.62 0.15 200)",
     "parent_topic": "mt6",
@@ -725,20 +705,20 @@ window.ChiComData = (() => {
     "display": false
   },
   {
-    "vn": "Off-platform advertising",
-    "en": "Off-platform advertising",
-    "count": 292,
-    "weight": 2.0,
-    "color": "oklch(0.62 0.15 110)",
-    "parent_topic": "mt7",
-    "parent_rank": 6,
-    "display": true
+    "vn": "Account Registration",
+    "en": "Account Registration",
+    "count": 1,
+    "weight": 0.0,
+    "color": "oklch(0.62 0.15 200)",
+    "parent_topic": "mt6",
+    "parent_rank": 5,
+    "display": false
   },
   {
     "vn": "Amazon advertising best practices",
     "en": "Amazon advertising best practices",
-    "count": 201,
-    "weight": 1.4,
+    "count": 1330,
+    "weight": 3.3,
     "color": "oklch(0.62 0.15 110)",
     "parent_topic": "mt7",
     "parent_rank": 6,
@@ -747,8 +727,18 @@ window.ChiComData = (() => {
   {
     "vn": "Advertising costs",
     "en": "Advertising costs",
-    "count": 87,
-    "weight": 0.6,
+    "count": 345,
+    "weight": 0.9,
+    "color": "oklch(0.62 0.15 110)",
+    "parent_topic": "mt7",
+    "parent_rank": 6,
+    "display": false
+  },
+  {
+    "vn": "Off-platform advertising",
+    "en": "Off-platform advertising",
+    "count": 331,
+    "weight": 0.8,
     "color": "oklch(0.62 0.15 110)",
     "parent_topic": "mt7",
     "parent_rank": 6,
@@ -757,7 +747,7 @@ window.ChiComData = (() => {
   {
     "vn": "Advertising best practices",
     "en": "Advertising best practices",
-    "count": 3,
+    "count": 5,
     "weight": 0.0,
     "color": "oklch(0.62 0.15 110)",
     "parent_topic": "mt7",
@@ -767,7 +757,7 @@ window.ChiComData = (() => {
   {
     "vn": "Listing guidelines & best practices",
     "en": "Listing guidelines & best practices",
-    "count": 133,
+    "count": 348,
     "weight": 0.9,
     "color": "oklch(0.62 0.15 290)",
     "parent_topic": "mt8",
@@ -777,8 +767,8 @@ window.ChiComData = (() => {
   {
     "vn": "Listing errors",
     "en": "Listing errors",
-    "count": 58,
-    "weight": 0.4,
+    "count": 207,
+    "weight": 0.5,
     "color": "oklch(0.62 0.15 290)",
     "parent_topic": "mt8",
     "parent_rank": 7,
@@ -787,28 +777,8 @@ window.ChiComData = (() => {
   {
     "vn": "Product images",
     "en": "Product images",
-    "count": 39,
-    "weight": 0.3,
-    "color": "oklch(0.62 0.15 290)",
-    "parent_topic": "mt8",
-    "parent_rank": 7,
-    "display": false
-  },
-  {
-    "vn": "Product barcodes & labeling",
-    "en": "Product barcodes & labeling",
-    "count": 13,
-    "weight": 0.1,
-    "color": "oklch(0.62 0.15 290)",
-    "parent_topic": "mt8",
-    "parent_rank": 7,
-    "display": false
-  },
-  {
-    "vn": "ASIN creation",
-    "en": "ASIN creation",
-    "count": 2,
-    "weight": 0.0,
+    "count": 95,
+    "weight": 0.2,
     "color": "oklch(0.62 0.15 290)",
     "parent_topic": "mt8",
     "parent_rank": 7,
@@ -817,6 +787,36 @@ window.ChiComData = (() => {
   {
     "vn": "GTIN exemption",
     "en": "GTIN exemption",
+    "count": 21,
+    "weight": 0.1,
+    "color": "oklch(0.62 0.15 290)",
+    "parent_topic": "mt8",
+    "parent_rank": 7,
+    "display": false
+  },
+  {
+    "vn": "Listing best practices & guidelines",
+    "en": "Listing best practices & guidelines",
+    "count": 11,
+    "weight": 0.0,
+    "color": "oklch(0.62 0.15 290)",
+    "parent_topic": "mt8",
+    "parent_rank": 7,
+    "display": false
+  },
+  {
+    "vn": "Product barcodes & labeling",
+    "en": "Product barcodes & labeling",
+    "count": 8,
+    "weight": 0.0,
+    "color": "oklch(0.62 0.15 290)",
+    "parent_topic": "mt8",
+    "parent_rank": 7,
+    "display": false
+  },
+  {
+    "vn": "ASIN creation",
+    "en": "ASIN creation",
     "count": 1,
     "weight": 0.0,
     "color": "oklch(0.62 0.15 290)",
@@ -827,8 +827,8 @@ window.ChiComData = (() => {
   {
     "vn": "Intellectual property disputes resolution",
     "en": "Intellectual property disputes resolution",
-    "count": 123,
-    "weight": 0.9,
+    "count": 503,
+    "weight": 1.2,
     "color": "oklch(0.62 0.15 350)",
     "parent_topic": "mt9",
     "parent_rank": 8,
@@ -837,7 +837,7 @@ window.ChiComData = (() => {
   {
     "vn": "Brand registration documents",
     "en": "Brand registration documents",
-    "count": 19,
+    "count": 42,
     "weight": 0.1,
     "color": "oklch(0.62 0.15 350)",
     "parent_topic": "mt9",
@@ -945,224 +945,224 @@ window.ChiComData = (() => {
 ];
   const Q2_MATRIX           = {
   "mt1": {
-    "p_seller_az": 298,
-    "p_prospect_az": 77,
-    "p_svc_az": 67,
-    "p_svc_cbec": 438,
-    "p_prospect_ot": 984,
-    "p_seller_ot": 2941
+    "p_seller_az": 2357,
+    "p_prospect_az": 500,
+    "p_svc_az": 314,
+    "p_svc_cbec": 1429,
+    "p_prospect_ot": 4384,
+    "p_seller_ot": 7513
   },
   "mt2": {
-    "p_seller_az": 161,
-    "p_prospect_az": 50,
-    "p_svc_az": 21,
-    "p_svc_cbec": 132,
-    "p_prospect_ot": 469,
-    "p_seller_ot": 1250
+    "p_seller_az": 755,
+    "p_prospect_az": 362,
+    "p_svc_az": 77,
+    "p_svc_cbec": 581,
+    "p_prospect_ot": 1396,
+    "p_seller_ot": 2061
   },
   "mt3": {
-    "p_seller_az": 64,
-    "p_prospect_az": 11,
-    "p_svc_az": 92,
-    "p_svc_cbec": 809,
-    "p_prospect_ot": 124,
-    "p_seller_ot": 649
+    "p_seller_az": 243,
+    "p_prospect_az": 137,
+    "p_svc_az": 54,
+    "p_svc_cbec": 1812,
+    "p_prospect_ot": 945,
+    "p_seller_ot": 1465
   },
   "mt4": {
-    "p_seller_az": 150,
-    "p_prospect_az": 23,
-    "p_svc_az": 9,
-    "p_svc_cbec": 11,
-    "p_prospect_ot": 304,
-    "p_seller_ot": 1240
+    "p_seller_az": 2049,
+    "p_prospect_az": 122,
+    "p_svc_az": 40,
+    "p_svc_cbec": 41,
+    "p_prospect_ot": 542,
+    "p_seller_ot": 1966
   },
   "mt5": {
-    "p_seller_az": 17,
-    "p_prospect_az": 4,
-    "p_svc_az": 53,
-    "p_svc_cbec": 1064,
-    "p_prospect_ot": 169,
-    "p_seller_ot": 264
+    "p_seller_az": 101,
+    "p_prospect_az": 104,
+    "p_svc_az": 206,
+    "p_svc_cbec": 2549,
+    "p_prospect_ot": 874,
+    "p_seller_ot": 310
   },
   "mt6": {
-    "p_seller_az": 111,
-    "p_prospect_az": 61,
-    "p_svc_az": 17,
-    "p_svc_cbec": 138,
-    "p_prospect_ot": 551,
-    "p_seller_ot": 568
+    "p_seller_az": 425,
+    "p_prospect_az": 436,
+    "p_svc_az": 12,
+    "p_svc_cbec": 155,
+    "p_prospect_ot": 924,
+    "p_seller_ot": 488
   },
   "mt7": {
-    "p_seller_az": 72,
-    "p_prospect_az": 6,
-    "p_svc_az": 8,
-    "p_svc_cbec": 17,
-    "p_prospect_ot": 110,
-    "p_seller_ot": 280
+    "p_seller_az": 213,
+    "p_prospect_az": 113,
+    "p_svc_az": 35,
+    "p_svc_cbec": 65,
+    "p_prospect_ot": 227,
+    "p_seller_ot": 677
   },
   "mt8": {
-    "p_seller_az": 43,
-    "p_prospect_az": 6,
-    "p_svc_az": 1,
-    "p_svc_cbec": 0,
-    "p_prospect_ot": 60,
-    "p_seller_ot": 136
+    "p_seller_az": 198,
+    "p_prospect_az": 76,
+    "p_svc_az": 5,
+    "p_svc_cbec": 27,
+    "p_prospect_ot": 162,
+    "p_seller_ot": 225
   },
   "mt9": {
-    "p_seller_az": 12,
-    "p_prospect_az": 4,
-    "p_svc_az": 11,
-    "p_svc_cbec": 5,
-    "p_prospect_ot": 15,
-    "p_seller_ot": 95
+    "p_seller_az": 191,
+    "p_prospect_az": 29,
+    "p_svc_az": 25,
+    "p_svc_cbec": 8,
+    "p_prospect_ot": 52,
+    "p_seller_ot": 198
   }
 };
   const Q2_MATRIX_SOA       = {
   "mt1": {
-    "p_seller_az": 297,
-    "p_prospect_az": 77,
-    "p_svc_az": 65,
-    "p_svc_cbec": 19,
-    "p_prospect_ot": 5,
-    "p_seller_ot": 15
+    "p_seller_az": 1025,
+    "p_prospect_az": 181,
+    "p_svc_az": 222,
+    "p_svc_cbec": 52,
+    "p_prospect_ot": 120,
+    "p_seller_ot": 126
   },
   "mt2": {
-    "p_seller_az": 160,
-    "p_prospect_az": 50,
-    "p_svc_az": 21,
-    "p_svc_cbec": 0,
-    "p_prospect_ot": 0,
-    "p_seller_ot": 2
+    "p_seller_az": 612,
+    "p_prospect_az": 252,
+    "p_svc_az": 63,
+    "p_svc_cbec": 12,
+    "p_prospect_ot": 42,
+    "p_seller_ot": 71
   },
   "mt3": {
-    "p_seller_az": 64,
-    "p_prospect_az": 11,
-    "p_svc_az": 92,
-    "p_svc_cbec": 42,
-    "p_prospect_ot": 1,
-    "p_seller_ot": 1
+    "p_seller_az": 138,
+    "p_prospect_az": 82,
+    "p_svc_az": 44,
+    "p_svc_cbec": 40,
+    "p_prospect_ot": 30,
+    "p_seller_ot": 8
   },
   "mt4": {
-    "p_seller_az": 150,
-    "p_prospect_az": 23,
-    "p_svc_az": 9,
-    "p_svc_cbec": 0,
-    "p_prospect_ot": 0,
-    "p_seller_ot": 0
+    "p_seller_az": 752,
+    "p_prospect_az": 57,
+    "p_svc_az": 32,
+    "p_svc_cbec": 2,
+    "p_prospect_ot": 1,
+    "p_seller_ot": 3
   },
   "mt5": {
-    "p_seller_az": 16,
-    "p_prospect_az": 4,
-    "p_svc_az": 53,
-    "p_svc_cbec": 23,
-    "p_prospect_ot": 0,
-    "p_seller_ot": 1
+    "p_seller_az": 81,
+    "p_prospect_az": 67,
+    "p_svc_az": 175,
+    "p_svc_cbec": 148,
+    "p_prospect_ot": 20,
+    "p_seller_ot": 16
   },
   "mt6": {
-    "p_seller_az": 111,
-    "p_prospect_az": 61,
-    "p_svc_az": 17,
+    "p_seller_az": 209,
+    "p_prospect_az": 238,
+    "p_svc_az": 9,
+    "p_svc_cbec": 3,
+    "p_prospect_ot": 7,
+    "p_seller_ot": 0
+  },
+  "mt7": {
+    "p_seller_az": 62,
+    "p_prospect_az": 44,
+    "p_svc_az": 35,
+    "p_svc_cbec": 4,
+    "p_prospect_ot": 3,
+    "p_seller_ot": 6
+  },
+  "mt8": {
+    "p_seller_az": 121,
+    "p_prospect_az": 40,
+    "p_svc_az": 5,
     "p_svc_cbec": 0,
     "p_prospect_ot": 1,
     "p_seller_ot": 1
   },
-  "mt7": {
-    "p_seller_az": 72,
-    "p_prospect_az": 6,
-    "p_svc_az": 8,
-    "p_svc_cbec": 0,
-    "p_prospect_ot": 0,
-    "p_seller_ot": 0
-  },
-  "mt8": {
-    "p_seller_az": 42,
-    "p_prospect_az": 5,
-    "p_svc_az": 1,
-    "p_svc_cbec": 0,
-    "p_prospect_ot": 0,
-    "p_seller_ot": 0
-  },
   "mt9": {
-    "p_seller_az": 12,
-    "p_prospect_az": 4,
-    "p_svc_az": 11,
-    "p_svc_cbec": 0,
-    "p_prospect_ot": 0,
-    "p_seller_ot": 0
+    "p_seller_az": 146,
+    "p_prospect_az": 24,
+    "p_svc_az": 21,
+    "p_svc_cbec": 2,
+    "p_prospect_ot": 1,
+    "p_seller_ot": 5
   }
 };
   const Q2_MATRIX_EC        = {
   "mt1": {
-    "p_seller_az": 1,
-    "p_prospect_az": 0,
-    "p_svc_az": 2,
-    "p_svc_cbec": 419,
-    "p_prospect_ot": 979,
-    "p_seller_ot": 2926
+    "p_seller_az": 1332,
+    "p_prospect_az": 319,
+    "p_svc_az": 92,
+    "p_svc_cbec": 1377,
+    "p_prospect_ot": 4264,
+    "p_seller_ot": 7387
   },
   "mt2": {
-    "p_seller_az": 1,
-    "p_prospect_az": 0,
-    "p_svc_az": 0,
-    "p_svc_cbec": 132,
-    "p_prospect_ot": 469,
-    "p_seller_ot": 1248
+    "p_seller_az": 143,
+    "p_prospect_az": 110,
+    "p_svc_az": 14,
+    "p_svc_cbec": 569,
+    "p_prospect_ot": 1354,
+    "p_seller_ot": 1990
   },
   "mt3": {
-    "p_seller_az": 0,
-    "p_prospect_az": 0,
-    "p_svc_az": 0,
-    "p_svc_cbec": 767,
-    "p_prospect_ot": 123,
-    "p_seller_ot": 648
+    "p_seller_az": 105,
+    "p_prospect_az": 55,
+    "p_svc_az": 10,
+    "p_svc_cbec": 1772,
+    "p_prospect_ot": 915,
+    "p_seller_ot": 1457
   },
   "mt4": {
-    "p_seller_az": 0,
-    "p_prospect_az": 0,
-    "p_svc_az": 0,
-    "p_svc_cbec": 11,
-    "p_prospect_ot": 304,
-    "p_seller_ot": 1240
+    "p_seller_az": 1297,
+    "p_prospect_az": 65,
+    "p_svc_az": 8,
+    "p_svc_cbec": 39,
+    "p_prospect_ot": 541,
+    "p_seller_ot": 1963
   },
   "mt5": {
-    "p_seller_az": 1,
-    "p_prospect_az": 0,
-    "p_svc_az": 0,
-    "p_svc_cbec": 1041,
-    "p_prospect_ot": 169,
-    "p_seller_ot": 263
+    "p_seller_az": 20,
+    "p_prospect_az": 37,
+    "p_svc_az": 31,
+    "p_svc_cbec": 2401,
+    "p_prospect_ot": 854,
+    "p_seller_ot": 294
   },
   "mt6": {
-    "p_seller_az": 0,
-    "p_prospect_az": 0,
-    "p_svc_az": 0,
-    "p_svc_cbec": 138,
-    "p_prospect_ot": 550,
-    "p_seller_ot": 567
+    "p_seller_az": 216,
+    "p_prospect_az": 198,
+    "p_svc_az": 3,
+    "p_svc_cbec": 152,
+    "p_prospect_ot": 917,
+    "p_seller_ot": 488
   },
   "mt7": {
-    "p_seller_az": 0,
-    "p_prospect_az": 0,
+    "p_seller_az": 151,
+    "p_prospect_az": 69,
     "p_svc_az": 0,
-    "p_svc_cbec": 17,
-    "p_prospect_ot": 110,
-    "p_seller_ot": 280
+    "p_svc_cbec": 61,
+    "p_prospect_ot": 224,
+    "p_seller_ot": 671
   },
   "mt8": {
-    "p_seller_az": 1,
-    "p_prospect_az": 1,
+    "p_seller_az": 77,
+    "p_prospect_az": 36,
     "p_svc_az": 0,
-    "p_svc_cbec": 0,
-    "p_prospect_ot": 60,
-    "p_seller_ot": 136
+    "p_svc_cbec": 27,
+    "p_prospect_ot": 161,
+    "p_seller_ot": 224
   },
   "mt9": {
-    "p_seller_az": 0,
-    "p_prospect_az": 0,
-    "p_svc_az": 0,
-    "p_svc_cbec": 5,
-    "p_prospect_ot": 15,
-    "p_seller_ot": 95
+    "p_seller_az": 45,
+    "p_prospect_az": 5,
+    "p_svc_az": 4,
+    "p_svc_cbec": 6,
+    "p_prospect_ot": 51,
+    "p_seller_ot": 193
   }
 };
   const Q3_SELLER_PROSPECT  = [
@@ -1170,591 +1170,595 @@ window.ChiComData = (() => {
     "id": "mt1",
     "vn": "Khác",
     "en": "Others",
-    "seller": 3239,
-    "prospect": 1061,
-    "sellerPct": 38.8,
-    "prospectPct": 35.0,
-    "diff": 3.8
+    "seller": 9870,
+    "prospect": 4884,
+    "sellerPct": 46.0,
+    "prospectPct": 42.9,
+    "diff": 3.1
   },
   {
     "id": "mt2",
     "vn": "Bán hàng trên Amazon (SOA)",
     "en": "Selling on Amazon (SOA)",
-    "seller": 1411,
-    "prospect": 519,
-    "sellerPct": 16.9,
-    "prospectPct": 17.1,
-    "diff": -0.2
+    "seller": 2816,
+    "prospect": 1758,
+    "sellerPct": 13.1,
+    "prospectPct": 15.4,
+    "diff": -2.3
   },
   {
     "id": "mt3",
     "vn": "Vận chuyển & Logistics",
     "en": "Logistics & fulfillment",
-    "seller": 713,
-    "prospect": 135,
-    "sellerPct": 8.5,
-    "prospectPct": 4.5,
-    "diff": 4.0
+    "seller": 1708,
+    "prospect": 1082,
+    "sellerPct": 8.0,
+    "prospectPct": 9.5,
+    "diff": -1.5
   },
   {
     "id": "mt4",
     "vn": "Sức khỏe tài khoản",
     "en": "Account health",
-    "seller": 1390,
-    "prospect": 327,
-    "sellerPct": 16.6,
-    "prospectPct": 10.8,
-    "diff": 5.8
+    "seller": 4015,
+    "prospect": 664,
+    "sellerPct": 18.7,
+    "prospectPct": 5.8,
+    "diff": 12.9
   },
   {
     "id": "mt5",
     "vn": "Dịch vụ bên thứ ba",
     "en": "Third-party services",
-    "seller": 281,
-    "prospect": 173,
-    "sellerPct": 3.4,
-    "prospectPct": 5.7,
-    "diff": -2.3
+    "seller": 411,
+    "prospect": 978,
+    "sellerPct": 1.9,
+    "prospectPct": 8.6,
+    "diff": -6.7
   },
   {
     "id": "mt6",
     "vn": "Tạo tài khoản",
     "en": "Account creation",
-    "seller": 679,
-    "prospect": 612,
-    "sellerPct": 8.1,
-    "prospectPct": 20.2,
-    "diff": -12.1
+    "seller": 913,
+    "prospect": 1360,
+    "sellerPct": 4.3,
+    "prospectPct": 11.9,
+    "diff": -7.6
   },
   {
     "id": "mt7",
     "vn": "Quảng cáo",
     "en": "Advertising",
-    "seller": 352,
-    "prospect": 116,
+    "seller": 890,
+    "prospect": 340,
     "sellerPct": 4.2,
-    "prospectPct": 3.8,
-    "diff": 0.4
+    "prospectPct": 3.0,
+    "diff": 1.2
   },
   {
     "id": "mt8",
     "vn": "Listing & Catalog",
     "en": "Listing & catalog",
-    "seller": 179,
-    "prospect": 66,
-    "sellerPct": 2.1,
-    "prospectPct": 2.2,
+    "seller": 423,
+    "prospect": 238,
+    "sellerPct": 2.0,
+    "prospectPct": 2.1,
     "diff": -0.1
   },
   {
     "id": "mt9",
     "vn": "Brand Registry & IP",
     "en": "Brand Registry & IP",
-    "seller": 107,
-    "prospect": 19,
-    "sellerPct": 1.3,
-    "prospectPct": 0.6,
-    "diff": 0.7
+    "seller": 389,
+    "prospect": 81,
+    "sellerPct": 1.8,
+    "prospectPct": 0.7,
+    "diff": 1.1
   }
 ];
   const Q3_SUBS             = [
   {
     "vn": "Misc / Other",
     "en": "Misc / Other",
-    "seller": 14.38,
-    "prospect": 15.03,
-    "diff": -0.65,
+    "seller": 23.45,
+    "prospect": 23.93,
+    "diff": -0.48,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": "mt1"
+  },
+  {
+    "vn": "Tax Compliance And Declarations",
+    "en": "Tax Compliance And Declarations",
+    "seller": 12.31,
+    "prospect": 13.19,
+    "diff": -0.88,
     "color": "oklch(0.62 0.15 260)",
     "parent_topic": "mt1"
   },
   {
     "vn": "Selling Best Practices",
     "en": "Selling Best Practices",
-    "seller": 8.77,
-    "prospect": 7.03,
-    "diff": 1.74,
+    "seller": 7.39,
+    "prospect": 7.91,
+    "diff": -0.52,
     "color": "oklch(0.62 0.15 80)",
     "parent_topic": "mt2"
-  },
-  {
-    "vn": "Tax Compliance And Declarations",
-    "en": "Tax Compliance And Declarations",
-    "seller": 9.2,
-    "prospect": 5.68,
-    "diff": 3.52,
-    "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1"
-  },
-  {
-    "vn": "Account issues / Account errors",
-    "en": "Account issues / Account errors",
-    "seller": 8.09,
-    "prospect": 5.09,
-    "diff": 3.0,
-    "color": "oklch(0.62 0.15 60)",
-    "parent_topic": "mt4"
-  },
-  {
-    "vn": "Account Verification",
-    "en": "Account Verification",
-    "seller": 3.07,
-    "prospect": 7.33,
-    "diff": -4.26,
-    "color": "oklch(0.62 0.15 200)",
-    "parent_topic": "mt6"
   },
   {
     "vn": "Account suspension",
     "en": "Account suspension",
-    "seller": 6.15,
-    "prospect": 3.83,
-    "diff": 2.32,
+    "seller": 6.8,
+    "prospect": 1.65,
+    "diff": 5.15,
     "color": "oklch(0.62 0.15 60)",
     "parent_topic": "mt4"
   },
   {
-    "vn": "Logistics costs",
-    "en": "Logistics costs",
-    "seller": 6.14,
-    "prospect": 2.51,
-    "diff": 3.63,
+    "vn": "Account issues / Account errors",
+    "en": "Account issues / Account errors",
+    "seller": 6.78,
+    "prospect": 1.67,
+    "diff": 5.11,
+    "color": "oklch(0.62 0.15 60)",
+    "parent_topic": "mt4"
+  },
+  {
+    "vn": "Packaging & shipping optimization",
+    "en": "Packaging & shipping optimization",
+    "seller": 3.86,
+    "prospect": 3.82,
+    "diff": 0.04,
     "color": "oklch(0.62 0.15 230)",
     "parent_topic": "mt3"
   },
   {
-    "vn": "Cost & Fees",
-    "en": "Cost & Fees",
-    "seller": 3.69,
-    "prospect": 3.27,
-    "diff": 0.42,
-    "color": "oklch(0.62 0.15 80)",
-    "parent_topic": "mt2"
-  },
-  {
-    "vn": "Identity Verification (SIV)",
-    "en": "Identity Verification (SIV)",
-    "seller": 2.06,
-    "prospect": 4.79,
-    "diff": -2.73,
-    "color": "oklch(0.62 0.15 200)",
-    "parent_topic": "mt6"
-  },
-  {
-    "vn": "Payment Processing And Withdrawals",
-    "en": "Payment Processing And Withdrawals",
-    "seller": 3.53,
-    "prospect": 2.81,
-    "diff": 0.72,
-    "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1"
-  },
-  {
-    "vn": "Product Selection",
-    "en": "Product Selection",
-    "seller": 2.81,
-    "prospect": 2.48,
-    "diff": 0.33,
-    "color": "oklch(0.62 0.15 80)",
-    "parent_topic": "mt2"
-  },
-  {
-    "vn": "Account Types",
-    "en": "Account Types",
-    "seller": 1.09,
-    "prospect": 3.34,
-    "diff": -2.25,
-    "color": "oklch(0.62 0.15 200)",
-    "parent_topic": "mt6"
-  },
-  {
-    "vn": "Finding third-party services",
-    "en": "Finding third-party services",
-    "seller": 1.03,
-    "prospect": 3.1,
-    "diff": -2.07,
-    "color": "oklch(0.62 0.15 320)",
-    "parent_topic": "mt5"
-  },
-  {
     "vn": "Account verification",
     "en": "Account verification",
-    "seller": 2.08,
-    "prospect": 1.72,
-    "diff": 0.36,
+    "seller": 4.87,
+    "prospect": 2.04,
+    "diff": 2.83,
     "color": "oklch(0.62 0.15 60)",
     "parent_topic": "mt4"
   },
   {
-    "vn": "Incentives & Training",
-    "en": "Incentives & Training",
-    "seller": 0.44,
-    "prospect": 3.27,
-    "diff": -2.83,
-    "color": "oklch(0.62 0.15 80)",
-    "parent_topic": "mt2"
-  },
-  {
     "vn": "Market Trends And Sales Performance",
     "en": "Market Trends And Sales Performance",
-    "seller": 2.36,
-    "prospect": 1.16,
-    "diff": 1.2,
+    "seller": 5.21,
+    "prospect": 1.35,
+    "diff": 3.86,
     "color": "oklch(0.62 0.15 260)",
     "parent_topic": "mt1"
   },
   {
-    "vn": "Off-platform advertising",
-    "en": "Off-platform advertising",
-    "seller": 1.62,
-    "prospect": 1.82,
-    "diff": -0.2,
+    "vn": "Cost & Fees",
+    "en": "Cost & Fees",
+    "seller": 3.48,
+    "prospect": 2.07,
+    "diff": 1.41,
+    "color": "oklch(0.62 0.15 80)",
+    "parent_topic": "mt2"
+  },
+  {
+    "vn": "Logistics costs",
+    "en": "Logistics costs",
+    "seller": 2.37,
+    "prospect": 2.68,
+    "diff": -0.31,
+    "color": "oklch(0.62 0.15 230)",
+    "parent_topic": "mt3"
+  },
+  {
+    "vn": "Payment Processing And Withdrawals",
+    "en": "Payment Processing And Withdrawals",
+    "seller": 2.09,
+    "prospect": 2.93,
+    "diff": -0.84,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": "mt1"
+  },
+  {
+    "vn": "Finding third-party services",
+    "en": "Finding third-party services",
+    "seller": 0.65,
+    "prospect": 4.03,
+    "diff": -3.38,
+    "color": "oklch(0.62 0.15 320)",
+    "parent_topic": "mt5"
+  },
+  {
+    "vn": "Fulfillment models",
+    "en": "Fulfillment models",
+    "seller": 1.45,
+    "prospect": 2.73,
+    "diff": -1.28,
+    "color": "oklch(0.62 0.15 230)",
+    "parent_topic": "mt3"
+  },
+  {
+    "vn": "Community Events And Contests",
+    "en": "Community Events And Contests",
+    "seller": 2.89,
+    "prospect": 1.12,
+    "diff": 1.77,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": "mt1"
+  },
+  {
+    "vn": "Account Verification",
+    "en": "Account Verification",
+    "seller": 1.18,
+    "prospect": 2.82,
+    "diff": -1.64,
+    "color": "oklch(0.62 0.15 200)",
+    "parent_topic": "mt6"
+  },
+  {
+    "vn": "Identity Verification (SIV)",
+    "en": "Identity Verification (SIV)",
+    "seller": 1.53,
+    "prospect": 2.27,
+    "diff": -0.74,
+    "color": "oklch(0.62 0.15 200)",
+    "parent_topic": "mt6"
+  },
+  {
+    "vn": "Account Types",
+    "en": "Account Types",
+    "seller": 0.53,
+    "prospect": 3.21,
+    "diff": -2.68,
+    "color": "oklch(0.62 0.15 200)",
+    "parent_topic": "mt6"
+  },
+  {
+    "vn": "Product Selection",
+    "en": "Product Selection",
+    "seller": 1.47,
+    "prospect": 2.2,
+    "diff": -0.73,
+    "color": "oklch(0.62 0.15 80)",
+    "parent_topic": "mt2"
+  },
+  {
+    "vn": "Amazon advertising best practices",
+    "en": "Amazon advertising best practices",
+    "seller": 2.09,
+    "prospect": 1.3,
+    "diff": 0.79,
     "color": "oklch(0.62 0.15 110)",
     "parent_topic": "mt7"
   },
   {
     "vn": "Legal Entity Setup",
     "en": "Legal Entity Setup",
-    "seller": 0.84,
-    "prospect": 2.51,
-    "diff": -1.67,
-    "color": "oklch(0.62 0.15 200)",
-    "parent_topic": "mt6"
-  },
-  {
-    "vn": "Amazon advertising best practices",
-    "en": "Amazon advertising best practices",
-    "seller": 1.8,
-    "prospect": 1.35,
-    "diff": 0.45,
-    "color": "oklch(0.62 0.15 110)",
-    "parent_topic": "mt7"
-  },
-  {
-    "vn": "Registration Documents",
-    "en": "Registration Documents",
-    "seller": 0.93,
-    "prospect": 1.98,
-    "diff": -1.05,
+    "seller": 0.7,
+    "prospect": 2.62,
+    "diff": -1.92,
     "color": "oklch(0.62 0.15 200)",
     "parent_topic": "mt6"
   },
   {
     "vn": "Supplier sourcing",
     "en": "Supplier sourcing",
-    "seller": 1.11,
-    "prospect": 1.72,
-    "diff": -0.61,
+    "seller": 0.59,
+    "prospect": 2.38,
+    "diff": -1.79,
     "color": "oklch(0.62 0.15 320)",
     "parent_topic": "mt5"
   },
   {
-    "vn": "Supplier And Fulfillment Services",
-    "en": "Supplier And Fulfillment Services",
-    "seller": 1.04,
-    "prospect": 1.72,
-    "diff": -0.68,
-    "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1"
+    "vn": "Third-party service introduction",
+    "en": "Third-party service introduction",
+    "seller": 0.68,
+    "prospect": 2.18,
+    "diff": -1.5,
+    "color": "oklch(0.62 0.15 320)",
+    "parent_topic": "mt5"
   },
   {
-    "vn": "Scams And Fraud Prevention",
-    "en": "Scams And Fraud Prevention",
-    "seller": 1.17,
-    "prospect": 1.22,
-    "diff": -0.05,
-    "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1"
+    "vn": "Incentives & Training",
+    "en": "Incentives & Training",
+    "seller": 0.23,
+    "prospect": 2.27,
+    "diff": -2.04,
+    "color": "oklch(0.62 0.15 80)",
+    "parent_topic": "mt2"
+  },
+  {
+    "vn": "Intellectual property disputes resolution",
+    "en": "Intellectual property disputes resolution",
+    "seller": 1.77,
+    "prospect": 0.55,
+    "diff": 1.22,
+    "color": "oklch(0.62 0.15 350)",
+    "parent_topic": "mt9"
   },
   {
     "vn": "Listing guidelines & best practices",
     "en": "Listing guidelines & best practices",
-    "seller": 1.14,
-    "prospect": 1.25,
-    "diff": -0.11,
+    "seller": 0.81,
+    "prospect": 1.4,
+    "diff": -0.59,
+    "color": "oklch(0.62 0.15 290)",
+    "parent_topic": "mt8"
+  },
+  {
+    "vn": "Off-platform advertising",
+    "en": "Off-platform advertising",
+    "seller": 0.77,
+    "prospect": 1.09,
+    "diff": -0.32,
+    "color": "oklch(0.62 0.15 110)",
+    "parent_topic": "mt7"
+  },
+  {
+    "vn": "Advertising costs",
+    "en": "Advertising costs",
+    "seller": 1.27,
+    "prospect": 0.59,
+    "diff": 0.68,
+    "color": "oklch(0.62 0.15 110)",
+    "parent_topic": "mt7"
+  },
+  {
+    "vn": "Registration Documents",
+    "en": "Registration Documents",
+    "seller": 0.29,
+    "prospect": 0.95,
+    "diff": -0.66,
+    "color": "oklch(0.62 0.15 200)",
+    "parent_topic": "mt6"
+  },
+  {
+    "vn": "Listing errors",
+    "en": "Listing errors",
+    "seller": 0.81,
+    "prospect": 0.25,
+    "diff": 0.56,
+    "color": "oklch(0.62 0.15 290)",
+    "parent_topic": "mt8"
+  },
+  {
+    "vn": "Quality & Compliance",
+    "en": "Quality & Compliance",
+    "seller": 0.37,
+    "prospect": 0.45,
+    "diff": -0.08,
+    "color": "oklch(0.62 0.15 80)",
+    "parent_topic": "mt2"
+  },
+  {
+    "vn": "Account updates",
+    "en": "Account updates",
+    "seller": 0.27,
+    "prospect": 0.48,
+    "diff": -0.21,
+    "color": "oklch(0.62 0.15 60)",
+    "parent_topic": "mt4"
+  },
+  {
+    "vn": "Supplier Sourcing",
+    "en": "Supplier Sourcing",
+    "seller": 0.18,
+    "prospect": 0.52,
+    "diff": -0.34,
+    "color": "oklch(0.62 0.15 80)",
+    "parent_topic": "mt2"
+  },
+  {
+    "vn": "Inventory management best practices",
+    "en": "Inventory management best practices",
+    "seller": 0.3,
+    "prospect": 0.26,
+    "diff": 0.04,
+    "color": "oklch(0.62 0.15 230)",
+    "parent_topic": "mt3"
+  },
+  {
+    "vn": "Product images",
+    "en": "Product images",
+    "seller": 0.24,
+    "prospect": 0.28,
+    "diff": -0.04,
+    "color": "oklch(0.62 0.15 290)",
+    "parent_topic": "mt8"
+  },
+  {
+    "vn": "Brand registration documents",
+    "en": "Brand registration documents",
+    "seller": 0.04,
+    "prospect": 0.16,
+    "diff": -0.12,
+    "color": "oklch(0.62 0.15 350)",
+    "parent_topic": "mt9"
+  },
+  {
+    "vn": "GTIN exemption",
+    "en": "GTIN exemption",
+    "seller": 0.08,
+    "prospect": 0.03,
+    "diff": 0.05,
+    "color": "oklch(0.62 0.15 290)",
+    "parent_topic": "mt8"
+  },
+  {
+    "vn": "Banking And Financial Services",
+    "en": "Banking And Financial Services",
+    "seller": 0.04,
+    "prospect": 0.06,
+    "diff": -0.02,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": "mt1"
+  },
+  {
+    "vn": "Inactive account",
+    "en": "Inactive account",
+    "seller": 0.03,
+    "prospect": 0.06,
+    "diff": -0.03,
+    "color": "oklch(0.62 0.15 60)",
+    "parent_topic": "mt4"
+  },
+  {
+    "vn": "Recruitment And Job Opportunities",
+    "en": "Recruitment And Job Opportunities",
+    "seller": 0.0,
+    "prospect": 0.09,
+    "diff": -0.09,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": "mt1"
+  },
+  {
+    "vn": "Training Courses And Mentorship",
+    "en": "Training Courses And Mentorship",
+    "seller": 0.0,
+    "prospect": 0.09,
+    "diff": -0.09,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": "mt1"
+  },
+  {
+    "vn": "Listing best practices & guidelines",
+    "en": "Listing best practices & guidelines",
+    "seller": 0.02,
+    "prospect": 0.06,
+    "diff": -0.04,
     "color": "oklch(0.62 0.15 290)",
     "parent_topic": "mt8"
   },
   {
     "vn": "Account Hiring And Leasing",
     "en": "Account Hiring And Leasing",
-    "seller": 0.93,
-    "prospect": 1.39,
-    "diff": -0.46,
+    "seller": 0.01,
+    "prospect": 0.06,
+    "diff": -0.05,
     "color": "oklch(0.62 0.15 260)",
     "parent_topic": "mt1"
   },
   {
-    "vn": "Fulfillment models",
-    "en": "Fulfillment models",
-    "seller": 1.04,
-    "prospect": 1.22,
-    "diff": -0.18,
-    "color": "oklch(0.62 0.15 230)",
-    "parent_topic": "mt3"
+    "vn": "Product barcodes & labeling",
+    "en": "Product barcodes & labeling",
+    "seller": 0.0,
+    "prospect": 0.06,
+    "diff": -0.06,
+    "color": "oklch(0.62 0.15 290)",
+    "parent_topic": "mt8"
   },
   {
-    "vn": "Training Courses And Mentorship",
-    "en": "Training Courses And Mentorship",
-    "seller": 0.37,
-    "prospect": 1.78,
-    "diff": -1.41,
+    "vn": "Supplier And Fulfillment Services",
+    "en": "Supplier And Fulfillment Services",
+    "seller": 0.0,
+    "prospect": 0.04,
+    "diff": -0.04,
     "color": "oklch(0.62 0.15 260)",
     "parent_topic": "mt1"
   },
   {
-    "vn": "Third-party service introduction",
-    "en": "Third-party service introduction",
-    "seller": 1.22,
-    "prospect": 0.89,
-    "diff": 0.33,
-    "color": "oklch(0.62 0.15 320)",
-    "parent_topic": "mt5"
-  },
-  {
-    "vn": "Banking And Financial Services",
-    "en": "Banking And Financial Services",
-    "seller": 0.84,
-    "prospect": 1.22,
-    "diff": -0.38,
+    "vn": "Scams And Fraud Prevention",
+    "en": "Scams And Fraud Prevention",
+    "seller": 0.01,
+    "prospect": 0.03,
+    "diff": -0.02,
     "color": "oklch(0.62 0.15 260)",
     "parent_topic": "mt1"
   },
   {
-    "vn": "Platform Policy Changes And Announcements",
-    "en": "Platform Policy Changes And Announcements",
-    "seller": 1.66,
-    "prospect": 0.17,
-    "diff": 1.49,
-    "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1"
+    "vn": "Pricing/Cost",
+    "en": "Pricing/Cost",
+    "seller": 0.0,
+    "prospect": 0.04,
+    "diff": -0.04,
+    "color": "oklch(0.62 0.15 80)",
+    "parent_topic": "mt2"
   },
   {
-    "vn": "Community Events And Contests",
-    "en": "Community Events And Contests",
-    "seller": 0.9,
-    "prospect": 0.83,
-    "diff": 0.07,
-    "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1"
+    "vn": "Advertising best practices",
+    "en": "Advertising best practices",
+    "seller": 0.02,
+    "prospect": 0.01,
+    "diff": 0.01,
+    "color": "oklch(0.62 0.15 110)",
+    "parent_topic": "mt7"
   },
   {
-    "vn": "Intellectual property disputes resolution",
-    "en": "Intellectual property disputes resolution",
-    "seller": 1.17,
-    "prospect": 0.5,
-    "diff": 0.67,
-    "color": "oklch(0.62 0.15 350)",
-    "parent_topic": "mt9"
-  },
-  {
-    "vn": "Packaging & shipping optimization",
-    "en": "Packaging & shipping optimization",
-    "seller": 1.03,
-    "prospect": 0.59,
-    "diff": 0.44,
+    "vn": "Amazon logistics solutions",
+    "en": "Amazon logistics solutions",
+    "seller": 0.01,
+    "prospect": 0.01,
+    "diff": 0.0,
     "color": "oklch(0.62 0.15 230)",
     "parent_topic": "mt3"
   },
   {
     "vn": "Legal Issues And Account Suspensions",
     "en": "Legal Issues And Account Suspensions",
-    "seller": 1.4,
-    "prospect": 0.2,
-    "diff": 1.2,
+    "seller": 0.02,
+    "prospect": 0.0,
+    "diff": 0.02,
     "color": "oklch(0.62 0.15 260)",
     "parent_topic": "mt1"
   },
   {
-    "vn": "Recruitment And Job Opportunities",
-    "en": "Recruitment And Job Opportunities",
-    "seller": 0.47,
-    "prospect": 1.12,
-    "diff": -0.65,
-    "color": "oklch(0.62 0.15 260)",
-    "parent_topic": "mt1"
+    "vn": "Account Registration",
+    "en": "Account Registration",
+    "seller": 0.0,
+    "prospect": 0.01,
+    "diff": -0.01,
+    "color": "oklch(0.62 0.15 200)",
+    "parent_topic": "mt6"
   },
   {
-    "vn": "Advertising costs",
-    "en": "Advertising costs",
-    "seller": 0.77,
-    "prospect": 0.66,
-    "diff": 0.11,
-    "color": "oklch(0.62 0.15 110)",
-    "parent_topic": "mt7"
+    "vn": "Account errors",
+    "en": "Account errors",
+    "seller": 0.0,
+    "prospect": 0.01,
+    "diff": -0.01,
+    "color": "oklch(0.62 0.15 200)",
+    "parent_topic": "mt6"
   },
   {
     "vn": "Tool Recommendations And Software",
     "en": "Tool Recommendations And Software",
-    "seller": 0.53,
-    "prospect": 0.73,
-    "diff": -0.2,
+    "seller": 0.01,
+    "prospect": 0.0,
+    "diff": 0.01,
     "color": "oklch(0.62 0.15 260)",
     "parent_topic": "mt1"
   },
   {
-    "vn": "Listing errors",
-    "en": "Listing errors",
-    "seller": 0.49,
-    "prospect": 0.56,
-    "diff": -0.07,
-    "color": "oklch(0.62 0.15 290)",
-    "parent_topic": "mt8"
-  },
-  {
-    "vn": "Supplier Sourcing",
-    "en": "Supplier Sourcing",
-    "seller": 0.42,
-    "prospect": 0.63,
-    "diff": -0.21,
-    "color": "oklch(0.62 0.15 80)",
-    "parent_topic": "mt2"
-  },
-  {
-    "vn": "Quality & Compliance",
-    "en": "Quality & Compliance",
-    "seller": 0.53,
-    "prospect": 0.33,
-    "diff": 0.2,
-    "color": "oklch(0.62 0.15 80)",
-    "parent_topic": "mt2"
-  },
-  {
-    "vn": "Product images",
-    "en": "Product images",
-    "seller": 0.34,
-    "prospect": 0.33,
-    "diff": 0.01,
-    "color": "oklch(0.62 0.15 290)",
-    "parent_topic": "mt8"
-  },
-  {
-    "vn": "Account updates",
-    "en": "Account updates",
-    "seller": 0.29,
-    "prospect": 0.26,
-    "diff": 0.03,
-    "color": "oklch(0.62 0.15 60)",
-    "parent_topic": "mt4"
-  },
-  {
-    "vn": "Inventory management best practices",
-    "en": "Inventory management best practices",
-    "seller": 0.28,
-    "prospect": 0.1,
-    "diff": 0.18,
-    "color": "oklch(0.62 0.15 230)",
-    "parent_topic": "mt3"
-  },
-  {
-    "vn": "Pricing/Cost",
-    "en": "Pricing/Cost",
-    "seller": 0.14,
-    "prospect": 0.13,
-    "diff": 0.01,
-    "color": "oklch(0.62 0.15 80)",
-    "parent_topic": "mt2"
-  },
-  {
-    "vn": "Brand registration documents",
-    "en": "Brand registration documents",
-    "seller": 0.11,
-    "prospect": 0.13,
-    "diff": -0.02,
-    "color": "oklch(0.62 0.15 350)",
-    "parent_topic": "mt9"
-  },
-  {
-    "vn": "Product barcodes & labeling",
-    "en": "Product barcodes & labeling",
-    "seller": 0.14,
-    "prospect": 0.03,
-    "diff": 0.11,
-    "color": "oklch(0.62 0.15 290)",
-    "parent_topic": "mt8"
-  },
-  {
-    "vn": "Account Updates",
-    "en": "Account Updates",
-    "seller": 0.08,
-    "prospect": 0.07,
-    "diff": 0.01,
-    "color": "oklch(0.62 0.15 200)",
-    "parent_topic": "mt6"
-  },
-  {
-    "vn": "Inactive account",
-    "en": "Inactive account",
-    "seller": 0.06,
-    "prospect": 0.07,
-    "diff": -0.01,
-    "color": "oklch(0.62 0.15 60)",
-    "parent_topic": "mt4"
-  },
-  {
-    "vn": "Amazon logistics solutions",
-    "en": "Amazon logistics solutions",
-    "seller": 0.05,
-    "prospect": 0.03,
-    "diff": 0.02,
-    "color": "oklch(0.62 0.15 230)",
-    "parent_topic": "mt3"
-  },
-  {
-    "vn": "Pricing/cost",
-    "en": "Pricing/cost",
-    "seller": 0.08,
+    "vn": "Platform Policy Changes And Announcements",
+    "en": "Platform Policy Changes And Announcements",
+    "seller": 0.01,
     "prospect": 0.0,
-    "diff": 0.08,
-    "color": "oklch(0.62 0.15 80)",
-    "parent_topic": "mt2"
-  },
-  {
-    "vn": "Identity Verification",
-    "en": "Identity Verification",
-    "seller": 0.02,
-    "prospect": 0.03,
-    "diff": -0.01,
-    "color": "oklch(0.62 0.15 200)",
-    "parent_topic": "mt6"
-  },
-  {
-    "vn": "Advertising best practices",
-    "en": "Advertising best practices",
-    "seller": 0.04,
-    "prospect": 0.0,
-    "diff": 0.04,
-    "color": "oklch(0.62 0.15 110)",
-    "parent_topic": "mt7"
+    "diff": 0.01,
+    "color": "oklch(0.62 0.15 260)",
+    "parent_topic": "mt1"
   },
   {
     "vn": "ASIN creation",
     "en": "ASIN creation",
-    "seller": 0.02,
+    "seller": 0.0,
     "prospect": 0.0,
-    "diff": 0.02,
+    "diff": 0.0,
     "color": "oklch(0.62 0.15 290)",
     "parent_topic": "mt8"
   },
   {
-    "vn": "GTIN exemption",
-    "en": "GTIN exemption",
-    "seller": 0.01,
+    "vn": "Account health",
+    "en": "Account health",
+    "seller": 0.0,
     "prospect": 0.0,
-    "diff": 0.01,
-    "color": "oklch(0.62 0.15 290)",
-    "parent_topic": "mt8"
-  },
-  {
-    "vn": "Selling best practices",
-    "en": "Selling best practices",
-    "seller": 0.01,
-    "prospect": 0.0,
-    "diff": 0.01,
-    "color": "oklch(0.62 0.15 80)",
-    "parent_topic": "mt2"
+    "diff": 0.0,
+    "color": "oklch(0.62 0.15 60)",
+    "parent_topic": "mt4"
   }
 ];
   const MONTHS              = [
+  "2025-12",
+  "2026-01",
+  "2026-02",
+  "2026-03",
   "2026-04"
 ];
   const Q4_TRENDS           = [
@@ -1763,7 +1767,11 @@ window.ChiComData = (() => {
     "vn": "Khác",
     "en": "Others",
     "points": [
-      4805
+      530,
+      4785,
+      4068,
+      6826,
+      288
     ],
     "color": "oklch(0.62 0.15 260)"
   },
@@ -1772,7 +1780,11 @@ window.ChiComData = (() => {
     "vn": "Bán hàng trên Amazon (SOA)",
     "en": "Selling on Amazon (SOA)",
     "points": [
-      2083
+      136,
+      1353,
+      1389,
+      2248,
+      106
     ],
     "color": "oklch(0.62 0.15 80)"
   },
@@ -1781,7 +1793,11 @@ window.ChiComData = (() => {
     "vn": "Vận chuyển & Logistics",
     "en": "Logistics & fulfillment",
     "points": [
-      1749
+      113,
+      1405,
+      1108,
+      1909,
+      121
     ],
     "color": "oklch(0.62 0.15 230)"
   },
@@ -1790,7 +1806,11 @@ window.ChiComData = (() => {
     "vn": "Sức khỏe tài khoản",
     "en": "Account health",
     "points": [
-      1737
+      71,
+      1406,
+      1347,
+      1738,
+      198
     ],
     "color": "oklch(0.62 0.15 60)"
   },
@@ -1799,7 +1819,11 @@ window.ChiComData = (() => {
     "vn": "Dịch vụ bên thứ ba",
     "en": "Third-party services",
     "points": [
-      1571
+      60,
+      1112,
+      773,
+      2058,
+      141
     ],
     "color": "oklch(0.62 0.15 320)"
   },
@@ -1808,7 +1832,11 @@ window.ChiComData = (() => {
     "vn": "Tạo tài khoản",
     "en": "Account creation",
     "points": [
-      1446
+      17,
+      648,
+      650,
+      974,
+      151
     ],
     "color": "oklch(0.62 0.15 200)"
   },
@@ -1817,7 +1845,11 @@ window.ChiComData = (() => {
     "vn": "Quảng cáo",
     "en": "Advertising",
     "points": [
-      493
+      40,
+      352,
+      377,
+      506,
+      55
     ],
     "color": "oklch(0.62 0.15 110)"
   },
@@ -1826,7 +1858,11 @@ window.ChiComData = (() => {
     "vn": "Listing & Catalog",
     "en": "Listing & catalog",
     "points": [
-      246
+      12,
+      209,
+      146,
+      319,
+      7
     ],
     "color": "oklch(0.62 0.15 290)"
   },
@@ -1835,19 +1871,47 @@ window.ChiComData = (() => {
     "vn": "Brand Registry & IP",
     "en": "Brand Registry & IP",
     "points": [
-      142
+      64,
+      193,
+      85,
+      158,
+      3
     ],
     "color": "oklch(0.62 0.15 350)"
   }
 ];
   const WEEKS               = [
+  "Dec 22",
+  "Dec 29",
+  "Jan 5",
+  "Jan 12",
+  "Jan 19",
+  "Jan 26",
+  "Feb 2",
+  "Feb 9",
+  "Feb 16",
+  "Feb 23",
+  "Mar 2",
+  "Mar 9",
+  "Mar 16",
+  "Mar 23",
   "Mar 30",
-  "Apr 6",
-  "Apr 13",
-  "Apr 20",
-  "Apr 27"
+  "Apr 6"
 ];
-  const Q4_EVENTS           = [];
+  const Q4_EVENTS           = [
+  {
+    "week": 11,
+    "label": "Spike Mar 9 · +68%"
+  },
+  {
+    "week": 12,
+    "label": "Spike Mar 16 · +70%"
+  },
+  {
+    "week": 13,
+    "label": "Spike Mar 23 · +57%"
+  }
+];
   const Q4_WEEKLY           = [
   {
     "id": "mt1",
@@ -1855,11 +1919,22 @@ window.ChiComData = (() => {
     "en": "Others",
     "color": "oklch(0.62 0.15 260)",
     "points": [
-      765,
-      1306,
-      1087,
-      1230,
-      417
+      16,
+      1065,
+      1134,
+      1140,
+      963,
+      1104,
+      1129,
+      1017,
+      634,
+      1304,
+      1420,
+      2154,
+      1508,
+      1449,
+      442,
+      18
     ]
   },
   {
@@ -1868,24 +1943,22 @@ window.ChiComData = (() => {
     "en": "Selling on Amazon (SOA)",
     "color": "oklch(0.62 0.15 80)",
     "points": [
-      269,
-      508,
-      511,
-      548,
-      247
-    ]
-  },
-  {
-    "id": "mt3",
-    "vn": "Vận chuyển & Logistics",
-    "en": "Logistics & fulfillment",
-    "color": "oklch(0.62 0.15 230)",
-    "points": [
-      253,
-      345,
-      476,
-      463,
-      212
+      7,
+      191,
+      310,
+      288,
+      323,
+      409,
+      412,
+      303,
+      299,
+      408,
+      414,
+      471,
+      672,
+      563,
+      157,
+      5
     ]
   },
   {
@@ -1894,11 +1967,46 @@ window.ChiComData = (() => {
     "en": "Account health",
     "color": "oklch(0.62 0.15 60)",
     "points": [
+      0,
+      226,
+      371,
+      305,
+      338,
+      259,
+      268,
+      300,
+      333,
+      447,
+      250,
+      410,
+      465,
+      473,
+      308,
+      7
+    ]
+  },
+  {
+    "id": "mt3",
+    "vn": "Vận chuyển & Logistics",
+    "en": "Logistics & fulfillment",
+    "color": "oklch(0.62 0.15 230)",
+    "points": [
+      9,
+      277,
+      310,
+      313,
+      294,
+      358,
+      334,
+      389,
+      114,
+      236,
+      517,
       303,
-      431,
-      297,
-      530,
-      176
+      514,
+      500,
+      184,
+      4
     ]
   }
 ];
@@ -1922,777 +2030,776 @@ window.ChiComData = (() => {
 ];
   const Q56_HEATMAP         = [
   [
-    3,
-    6,
-    0,
-    0,
-    0,
-    2,
-    4,
-    7,
-    7,
-    7,
-    18,
-    13,
-    16,
-    10,
-    21,
-    18,
-    29,
-    10,
-    14,
-    8,
-    6,
-    11,
-    18,
-    7
-  ],
-  [
-    1,
-    3,
-    4,
-    1,
-    0,
-    2,
-    3,
-    17,
-    23,
-    25,
-    32,
-    26,
-    19,
-    12,
-    13,
-    34,
-    54,
-    12,
-    12,
-    10,
-    12,
-    14,
-    20,
-    14
-  ],
-  [
-    7,
-    2,
-    4,
-    2,
-    2,
-    1,
-    5,
-    16,
-    11,
-    40,
     35,
-    33,
-    24,
-    10,
-    12,
+    13,
+    8,
+    16,
+    4,
+    7,
+    17,
+    44,
+    58,
+    66,
+    98,
+    101,
+    82,
+    48,
+    59,
+    80,
+    81,
+    46,
+    47,
+    46,
+    87,
+    78,
+    30,
+    24
+  ],
+  [
+    21,
+    5,
+    9,
+    5,
+    6,
+    7,
+    13,
+    56,
+    74,
+    92,
+    93,
+    118,
+    89,
+    63,
+    60,
+    95,
+    75,
+    82,
+    69,
+    67,
+    68,
+    78,
+    103,
+    36
+  ],
+  [
+    39,
+    9,
+    7,
+    3,
+    2,
+    9,
     18,
-    15,
+    39,
+    62,
+    125,
+    119,
+    145,
+    72,
+    68,
+    84,
+    91,
+    66,
+    74,
+    56,
+    68,
+    59,
+    64,
+    42,
+    63
+  ],
+  [
+    27,
+    10,
+    4,
+    13,
+    4,
+    7,
+    14,
+    32,
+    41,
+    49,
+    93,
+    111,
+    126,
+    58,
+    62,
+    69,
+    55,
+    36,
+    39,
+    54,
+    51,
+    83,
+    67,
+    53
+  ],
+  [
+    23,
+    12,
+    13,
+    3,
+    9,
+    7,
+    25,
+    43,
+    76,
+    120,
+    113,
+    136,
+    134,
+    81,
+    111,
+    94,
+    85,
+    71,
+    56,
+    50,
+    58,
+    74,
+    71,
+    39
+  ],
+  [
+    26,
+    12,
+    6,
+    5,
+    3,
+    4,
+    17,
+    40,
+    53,
+    102,
+    133,
+    99,
+    87,
+    66,
+    71,
+    61,
+    79,
+    81,
+    67,
+    69,
+    49,
+    43,
+    48,
+    46
+  ],
+  [
+    32,
+    13,
+    6,
+    5,
+    5,
+    3,
+    19,
+    37,
+    35,
+    76,
+    64,
+    45,
     36,
     31,
-    22,
-    33,
-    21,
-    16,
-    14
-  ],
-  [
-    3,
-    3,
-    3,
-    2,
-    0,
-    2,
-    5,
-    12,
-    40,
-    34,
-    27,
-    35,
-    31,
-    23,
-    15,
-    22,
-    13,
-    24,
-    11,
-    9,
-    19,
-    30,
-    22,
-    15
-  ],
-  [
-    16,
-    7,
-    2,
-    2,
-    2,
-    7,
-    6,
-    24,
+    68,
+    42,
+    56,
     35,
     41,
-    44,
-    35,
-    20,
-    26,
-    12,
-    36,
-    33,
-    29,
-    28,
-    17,
-    7,
-    24,
-    12,
-    11
-  ],
-  [
-    10,
-    2,
-    4,
-    4,
-    1,
-    0,
-    6,
-    17,
-    23,
-    27,
-    29,
-    40,
-    34,
-    22,
-    14,
-    18,
-    10,
-    21,
-    17,
-    14,
-    18,
-    31,
-    20,
-    12
-  ],
-  [
-    3,
-    3,
-    1,
-    0,
-    0,
-    2,
-    8,
-    6,
-    17,
-    19,
-    25,
-    28,
-    14,
-    12,
-    19,
-    8,
-    11,
-    9,
-    9,
-    13,
-    16,
-    16,
-    14,
-    12
+    60,
+    62,
+    55,
+    92,
+    46
   ]
 ];
   const Q5_BY_DAY           = [
   {
     "day": "T2",
     "en": "Mon",
-    "count": 235
+    "count": 1175
   },
   {
     "day": "T3",
     "en": "Tue",
-    "count": 363
+    "count": 1384
   },
   {
     "day": "T4",
     "en": "Wed",
-    "count": 410
+    "count": 1384
   },
   {
     "day": "T5",
     "en": "Thu",
-    "count": 400
+    "count": 1158
   },
   {
     "day": "T6",
     "en": "Fri",
-    "count": 476
+    "count": 1504
   },
   {
     "day": "T7",
     "en": "Sat",
-    "count": 394
+    "count": 1267
   },
   {
     "day": "CN",
     "en": "Sun",
-    "count": 265
+    "count": 964
   }
 ];
   const Q5_BY_DAY_SOA       = [
   {
     "day": "T2",
     "en": "Mon",
-    "count": 38
+    "count": 201
   },
   {
     "day": "T3",
     "en": "Tue",
-    "count": 24
+    "count": 176
   },
   {
     "day": "T4",
     "en": "Wed",
-    "count": 36
+    "count": 162
   },
   {
     "day": "T5",
     "en": "Thu",
-    "count": 49
+    "count": 149
   },
   {
     "day": "T6",
     "en": "Fri",
-    "count": 54
+    "count": 246
   },
   {
     "day": "T7",
     "en": "Sat",
-    "count": 45
+    "count": 171
   },
   {
     "day": "CN",
     "en": "Sun",
-    "count": 16
+    "count": 43
   }
 ];
   const Q5_BY_DAY_EC        = [
   {
     "day": "T2",
     "en": "Mon",
-    "count": 197
+    "count": 974
   },
   {
     "day": "T3",
     "en": "Tue",
-    "count": 339
+    "count": 1208
   },
   {
     "day": "T4",
     "en": "Wed",
-    "count": 374
+    "count": 1222
   },
   {
     "day": "T5",
     "en": "Thu",
-    "count": 351
+    "count": 1009
   },
   {
     "day": "T6",
     "en": "Fri",
-    "count": 422
+    "count": 1258
   },
   {
     "day": "T7",
     "en": "Sat",
-    "count": 349
+    "count": 1096
   },
   {
     "day": "CN",
     "en": "Sun",
-    "count": 249
+    "count": 921
   }
 ];
   const Q6_BY_HOUR          = [
   {
     "hour": 0,
-    "count": 43
+    "count": 203
   },
   {
     "hour": 1,
-    "count": 26
+    "count": 74
   },
   {
     "hour": 2,
-    "count": 18
+    "count": 53
   },
   {
     "hour": 3,
-    "count": 11
+    "count": 50
   },
   {
     "hour": 4,
-    "count": 5
+    "count": 33
   },
   {
     "hour": 5,
-    "count": 16
+    "count": 44
   },
   {
     "hour": 6,
-    "count": 37
+    "count": 123
   },
   {
     "hour": 7,
-    "count": 99
+    "count": 291
   },
   {
     "hour": 8,
-    "count": 156
+    "count": 399
   },
   {
     "hour": 9,
-    "count": 193
+    "count": 630
   },
   {
     "hour": 10,
-    "count": 210
+    "count": 713
   },
   {
     "hour": 11,
-    "count": 210
+    "count": 755
   },
   {
     "hour": 12,
-    "count": 158
+    "count": 626
   },
   {
     "hour": 13,
-    "count": 115
+    "count": 415
   },
   {
     "hour": 14,
-    "count": 106
+    "count": 515
   },
   {
     "hour": 15,
-    "count": 154
+    "count": 532
   },
   {
     "hour": 16,
-    "count": 165
+    "count": 497
   },
   {
     "hour": 17,
-    "count": 141
+    "count": 425
   },
   {
     "hour": 18,
-    "count": 122
+    "count": 375
   },
   {
     "hour": 19,
-    "count": 93
+    "count": 414
   },
   {
     "hour": 20,
-    "count": 111
+    "count": 434
   },
   {
     "hour": 21,
-    "count": 147
+    "count": 475
   },
   {
     "hour": 22,
-    "count": 122
+    "count": 453
   },
   {
     "hour": 23,
-    "count": 85
+    "count": 307
   }
 ];
   const Q6_BY_HOUR_SOA      = [
   {
     "hour": 0,
-    "count": 5
-  },
-  {
-    "hour": 1,
-    "count": 7
-  },
-  {
-    "hour": 2,
-    "count": 1
-  },
-  {
-    "hour": 3,
-    "count": 1
-  },
-  {
-    "hour": 4,
-    "count": 0
-  },
-  {
-    "hour": 5,
-    "count": 0
-  },
-  {
-    "hour": 6,
-    "count": 2
-  },
-  {
-    "hour": 7,
-    "count": 7
-  },
-  {
-    "hour": 8,
-    "count": 12
-  },
-  {
-    "hour": 9,
-    "count": 16
-  },
-  {
-    "hour": 10,
     "count": 19
   },
   {
-    "hour": 11,
-    "count": 21
-  },
-  {
-    "hour": 12,
-    "count": 24
-  },
-  {
-    "hour": 13,
-    "count": 12
-  },
-  {
-    "hour": 14,
-    "count": 15
-  },
-  {
-    "hour": 15,
-    "count": 26
-  },
-  {
-    "hour": 16,
-    "count": 26
-  },
-  {
-    "hour": 17,
-    "count": 12
-  },
-  {
-    "hour": 18,
-    "count": 6
-  },
-  {
-    "hour": 19,
-    "count": 11
-  },
-  {
-    "hour": 20,
-    "count": 7
-  },
-  {
-    "hour": 21,
-    "count": 11
-  },
-  {
-    "hour": 22,
+    "hour": 1,
     "count": 14
   },
   {
+    "hour": 2,
+    "count": 5
+  },
+  {
+    "hour": 3,
+    "count": 5
+  },
+  {
+    "hour": 4,
+    "count": 4
+  },
+  {
+    "hour": 5,
+    "count": 12
+  },
+  {
+    "hour": 6,
+    "count": 11
+  },
+  {
+    "hour": 7,
+    "count": 20
+  },
+  {
+    "hour": 8,
+    "count": 45
+  },
+  {
+    "hour": 9,
+    "count": 50
+  },
+  {
+    "hour": 10,
+    "count": 76
+  },
+  {
+    "hour": 11,
+    "count": 143
+  },
+  {
+    "hour": 12,
+    "count": 85
+  },
+  {
+    "hour": 13,
+    "count": 63
+  },
+  {
+    "hour": 14,
+    "count": 80
+  },
+  {
+    "hour": 15,
+    "count": 79
+  },
+  {
+    "hour": 16,
+    "count": 63
+  },
+  {
+    "hour": 17,
+    "count": 49
+  },
+  {
+    "hour": 18,
+    "count": 72
+  },
+  {
+    "hour": 19,
+    "count": 63
+  },
+  {
+    "hour": 20,
+    "count": 59
+  },
+  {
+    "hour": 21,
+    "count": 58
+  },
+  {
+    "hour": 22,
+    "count": 49
+  },
+  {
     "hour": 23,
-    "count": 7
+    "count": 24
   }
 ];
   const Q6_BY_HOUR_EC       = [
   {
     "hour": 0,
-    "count": 38
+    "count": 184
   },
   {
     "hour": 1,
-    "count": 19
+    "count": 60
   },
   {
     "hour": 2,
-    "count": 17
+    "count": 48
   },
   {
     "hour": 3,
-    "count": 10
+    "count": 45
   },
   {
     "hour": 4,
-    "count": 5
+    "count": 29
   },
   {
     "hour": 5,
-    "count": 16
+    "count": 32
   },
   {
     "hour": 6,
-    "count": 35
+    "count": 112
   },
   {
     "hour": 7,
-    "count": 92
+    "count": 271
   },
   {
     "hour": 8,
-    "count": 144
+    "count": 354
   },
   {
     "hour": 9,
-    "count": 177
+    "count": 580
   },
   {
     "hour": 10,
-    "count": 191
+    "count": 637
   },
   {
     "hour": 11,
-    "count": 189
+    "count": 612
   },
   {
     "hour": 12,
-    "count": 134
+    "count": 541
   },
   {
     "hour": 13,
-    "count": 103
+    "count": 352
   },
   {
     "hour": 14,
-    "count": 91
+    "count": 435
   },
   {
     "hour": 15,
-    "count": 128
+    "count": 453
   },
   {
     "hour": 16,
-    "count": 139
+    "count": 434
   },
   {
     "hour": 17,
-    "count": 129
+    "count": 376
   },
   {
     "hour": 18,
-    "count": 116
+    "count": 303
   },
   {
     "hour": 19,
-    "count": 82
+    "count": 351
   },
   {
     "hour": 20,
-    "count": 104
+    "count": 375
   },
   {
     "hour": 21,
-    "count": 136
+    "count": 417
   },
   {
     "hour": 22,
-    "count": 108
+    "count": 404
   },
   {
     "hour": 23,
-    "count": 78
+    "count": 283
   }
 ];
   const Q5_TOP_NEG          = [
   {
-    "vn": "Account issues / Account errors",
-    "en": "Account issues / Account errors",
-    "count": 324
+    "vn": "Misc / Other",
+    "en": "Misc / Other",
+    "count": 1875
   },
   {
     "vn": "Account suspension",
     "en": "Account suspension",
-    "count": 277
+    "count": 1067
   },
   {
-    "vn": "Misc / Other",
-    "en": "Misc / Other",
-    "count": 223
+    "vn": "Account issues / Account errors",
+    "en": "Account issues / Account errors",
+    "count": 955
   },
   {
-    "vn": "Logistics costs",
-    "en": "Logistics costs",
-    "count": 192
+    "vn": "Account verification",
+    "en": "Account verification",
+    "count": 659
   },
   {
     "vn": "Tax Compliance And Declarations",
     "en": "Tax Compliance And Declarations",
-    "count": 170
+    "count": 625
   },
   {
-    "vn": "Selling Best Practices",
-    "en": "Selling Best Practices",
-    "count": 168
+    "vn": "Market Trends And Sales Performance",
+    "en": "Market Trends And Sales Performance",
+    "count": 524
   }
 ];
   const Q5_TOP_NEG_SOA      = [
   {
-    "vn": "Misc / Other",
-    "en": "Misc / Other",
-    "count": 39
-  },
-  {
     "vn": "Account issues / Account errors",
     "en": "Account issues / Account errors",
-    "count": 38
+    "count": 210
   },
   {
     "vn": "Account suspension",
     "en": "Account suspension",
-    "count": 23
+    "count": 169
   },
   {
-    "vn": "Identity Verification (SIV)",
-    "en": "Identity Verification (SIV)",
-    "count": 16
+    "vn": "Misc / Other",
+    "en": "Misc / Other",
+    "count": 149
   },
   {
-    "vn": "Tax Compliance And Declarations",
-    "en": "Tax Compliance And Declarations",
-    "count": 16
+    "vn": "Intellectual property disputes resolution",
+    "en": "Intellectual property disputes resolution",
+    "count": 106
   },
   {
-    "vn": "Cost & Fees",
-    "en": "Cost & Fees",
-    "count": 15
+    "vn": "Selling Best Practices",
+    "en": "Selling Best Practices",
+    "count": 102
+  },
+  {
+    "vn": "Account verification",
+    "en": "Account verification",
+    "count": 73
   }
 ];
   const Q5_TOP_NEG_EC       = [
   {
-    "vn": "Account issues / Account errors",
-    "en": "Account issues / Account errors",
-    "count": 286
+    "vn": "Misc / Other",
+    "en": "Misc / Other",
+    "count": 1726
   },
   {
     "vn": "Account suspension",
     "en": "Account suspension",
-    "count": 254
+    "count": 898
   },
   {
-    "vn": "Misc / Other",
-    "en": "Misc / Other",
-    "count": 184
-  },
-  {
-    "vn": "Logistics costs",
-    "en": "Logistics costs",
-    "count": 184
-  },
-  {
-    "vn": "Selling Best Practices",
-    "en": "Selling Best Practices",
-    "count": 159
+    "vn": "Account issues / Account errors",
+    "en": "Account issues / Account errors",
+    "count": 745
   },
   {
     "vn": "Tax Compliance And Declarations",
     "en": "Tax Compliance And Declarations",
-    "count": 154
+    "count": 622
+  },
+  {
+    "vn": "Account verification",
+    "en": "Account verification",
+    "count": 586
+  },
+  {
+    "vn": "Market Trends And Sales Performance",
+    "en": "Market Trends And Sales Performance",
+    "count": 482
   }
 ];
   const Q5_EARLY_DIST       = [
   {
-    "vn": "Account issues / Account errors",
-    "en": "Account issues / Account errors",
-    "count": 324,
-    "slot": 107
+    "vn": "Misc / Other",
+    "en": "Misc / Other",
+    "count": 1875,
+    "slot": 613
   },
   {
     "vn": "Account suspension",
     "en": "Account suspension",
-    "count": 277,
-    "slot": 108
+    "count": 1067,
+    "slot": 280
   },
   {
-    "vn": "Misc / Other",
-    "en": "Misc / Other",
-    "count": 223,
-    "slot": 74
+    "vn": "Account issues / Account errors",
+    "en": "Account issues / Account errors",
+    "count": 955,
+    "slot": 321
   },
   {
-    "vn": "Logistics costs",
-    "en": "Logistics costs",
-    "count": 192,
-    "slot": 92
+    "vn": "Account verification",
+    "en": "Account verification",
+    "count": 659,
+    "slot": 221
   },
   {
     "vn": "Tax Compliance And Declarations",
     "en": "Tax Compliance And Declarations",
-    "count": 170,
-    "slot": 69
+    "count": 625,
+    "slot": 173
   },
   {
-    "vn": "Selling Best Practices",
-    "en": "Selling Best Practices",
-    "count": 168,
-    "slot": 59
+    "vn": "Market Trends And Sales Performance",
+    "en": "Market Trends And Sales Performance",
+    "count": 524,
+    "slot": 171
   }
 ];
   const Q5_PEAK_WINDOW      = {
-  "startHour": 8,
+  "startHour": 9,
   "endHour": 13,
   "hours": [
-    8,
     9,
     10,
     11,
     12
   ],
-  "windowSize": 5,
-  "totalMentions": 927,
+  "windowSize": 4,
+  "totalMentions": 2724,
   "hourlyCounts": [
-    43,
-    26,
-    18,
-    11,
-    5,
-    16,
-    37,
-    99,
-    156,
-    193,
-    210,
-    210,
-    158,
-    115,
-    106,
-    154,
-    165,
-    141,
-    122,
-    93,
-    111,
-    147,
-    122,
-    85
+    203,
+    74,
+    53,
+    50,
+    33,
+    44,
+    123,
+    291,
+    399,
+    630,
+    713,
+    755,
+    626,
+    415,
+    515,
+    532,
+    497,
+    425,
+    375,
+    414,
+    434,
+    475,
+    453,
+    307
   ]
 };
   const KPI                 = {
-  "totalPosts": 16691,
-  "relevantPosts": 14272,
-  "negativeMentions": 2543,
-  "positiveMentions": 2174,
-  "soaPositivePct": 19.0,
-  "soaNegativePct": 16.9,
-  "ecPositivePct": 14.8,
-  "ecNegativePct": 17.9,
-  "soaRelevant": 1553,
-  "ecRelevant": 12719,
+  "totalPosts": 46636,
+  "relevantPosts": 40255,
+  "negativeMentions": 8836,
+  "positiveMentions": 5158,
+  "soaPositivePct": 26.3,
+  "soaNegativePct": 21.0,
+  "ecPositivePct": 10.7,
+  "ecNegativePct": 22.1,
+  "soaRelevant": 5461,
+  "ecRelevant": 34794,
   "activeGroups": 9,
   "analysedGroups": 9,
   "soaGroups": 2,
@@ -2707,63 +2814,63 @@ window.ChiComData = (() => {
       "name": "Cộng đồng ETSY Việt Nam",
       "short": "ETSY VN",
       "type": "EC",
-      "count": 4978
-    },
-    {
-      "id": "ec5",
-      "name": "Etsy To Go",
-      "short": "Etsy To Go",
-      "type": "EC",
-      "count": 2616
+      "count": 12204
     },
     {
       "id": "ec4",
       "name": "Chuyện Nhà Bán (Shopee/TikTok)",
       "short": "Chuyện Nhà Bán",
       "type": "EC",
-      "count": 2457
+      "count": 11512
     },
     {
       "id": "ec3",
       "name": "Cộng Đồng Dropshipping & Shopify VN",
       "short": "Dropship & Shopify",
       "type": "EC",
-      "count": 2115
+      "count": 4844
     },
     {
       "id": "soa2",
       "name": "Cộng đồng Amazon Sellers VN",
       "short": "CĐ Amazon Sellers",
       "type": "SOA",
-      "count": 1342
+      "count": 4771
     },
     {
-      "id": "ec1",
-      "name": "Cộng Đồng MMO",
-      "short": "MMO",
+      "id": "ec5",
+      "name": "Etsy To Go",
+      "short": "Etsy To Go",
       "type": "EC",
-      "count": 234
+      "count": 4714
     },
     {
       "id": "soa1",
       "name": "Amazon Sellers Viet Nam",
       "short": "Amazon Sellers VN",
       "type": "SOA",
-      "count": 211
+      "count": 690
+    },
+    {
+      "id": "ec1",
+      "name": "Cộng Đồng MMO",
+      "short": "MMO",
+      "type": "EC",
+      "count": 688
     },
     {
       "id": "ec2",
       "name": "Cuồng Phong Hội (Crossborder CBEC)",
       "short": "Cuồng Phong Hội",
       "type": "EC",
-      "count": 188
+      "count": 425
     },
     {
       "id": "ec6",
       "name": "Etsy E-Z Cộng Đồng Etsy Việt",
       "short": "Etsy E-Z",
       "type": "EC",
-      "count": 131
+      "count": 407
     }
   ],
   "personas": [
@@ -2772,81 +2879,81 @@ window.ChiComData = (() => {
       "short": "Seller",
       "segment": "Others",
       "vn": "Seller (Others)",
-      "count": 7423,
-      "pct": 52.0
+      "count": 14903,
+      "pct": 37.0
     },
     {
       "id": "p_prospect_ot",
       "short": "Prospect",
       "segment": "Others",
       "vn": "Prospect (Others)",
-      "count": 2786,
-      "pct": 19.5
+      "count": 9506,
+      "pct": 23.6
     },
     {
       "id": "p_svc_cbec",
       "short": "Service Provider",
       "segment": "CBEC",
       "vn": "Service Provider (CBEC)",
-      "count": 2614,
-      "pct": 18.3
+      "count": 6667,
+      "pct": 16.6
     },
     {
       "id": "p_seller_az",
       "short": "Seller",
       "segment": "Amazon",
       "vn": "Seller (Amazon)",
-      "count": 928,
-      "pct": 6.5
-    },
-    {
-      "id": "p_svc_az",
-      "short": "Service Provider",
-      "segment": "Amazon",
-      "vn": "Service Provider (Amazon)",
-      "count": 279,
-      "pct": 2.0
+      "count": 6532,
+      "pct": 16.2
     },
     {
       "id": "p_prospect_az",
       "short": "Prospect",
       "segment": "Amazon",
       "vn": "Prospect (Amazon)",
-      "count": 242,
-      "pct": 1.7
+      "count": 1879,
+      "pct": 4.7
+    },
+    {
+      "id": "p_svc_az",
+      "short": "Service Provider",
+      "segment": "Amazon",
+      "vn": "Service Provider (Amazon)",
+      "count": 768,
+      "pct": 1.9
     }
   ],
-  "totalRelevant": 14272,
-  "soaTotal": 1553,
-  "ecTotal": 12719,
-  "soaPct": 11,
-  "ecPct": 89,
+  "totalRelevant": 40255,
+  "soaTotal": 5461,
+  "ecTotal": 34794,
+  "soaPct": 14,
+  "ecPct": 86,
   "soaGroupCount": 2,
   "ecGroupCount": 7,
-  "monthsCount": 1,
+  "monthsCount": 5,
   "topCommunity": {
     "id": "ec7",
     "name": "Cộng đồng ETSY Việt Nam",
     "short": "ETSY VN",
     "type": "EC",
-    "count": 4978
+    "count": 12204
   },
-  "topCommunityPct": 34.9,
+  "topCommunityPct": 30.3,
   "topPersona": {
     "id": "p_seller_ot",
     "short": "Seller",
     "segment": "Others",
     "vn": "Seller (Others)",
-    "count": 7423,
-    "pct": 52.0
+    "count": 14903,
+    "pct": 37.0
   },
   "secondPersona": {
     "id": "p_prospect_ot",
     "short": "Prospect",
     "segment": "Others",
     "vn": "Prospect (Others)",
-    "count": 2786,
-    "pct": 19.5
+    "count": 9506,
+    "pct": 23.6
   }
 };
   const PERSONA_BY_GROUP    = [
@@ -2855,14 +2962,14 @@ window.ChiComData = (() => {
     "short": "Amazon Sellers VN",
     "name": "Amazon Sellers Viet Nam",
     "type": "SOA",
-    "total": 211,
+    "total": 690,
     "personas": {
-      "p_seller_az": 127,
-      "p_prospect_az": 17,
-      "p_svc_az": 52,
-      "p_svc_cbec": 14,
-      "p_prospect_ot": 1,
-      "p_seller_ot": 0
+      "p_seller_az": 371,
+      "p_prospect_az": 113,
+      "p_svc_az": 134,
+      "p_svc_cbec": 45,
+      "p_prospect_ot": 16,
+      "p_seller_ot": 11
     }
   },
   {
@@ -2870,14 +2977,14 @@ window.ChiComData = (() => {
     "short": "CĐ Amazon Sellers",
     "name": "Cộng đồng Amazon Sellers VN",
     "type": "SOA",
-    "total": 1342,
+    "total": 4771,
     "personas": {
-      "p_seller_az": 797,
-      "p_prospect_az": 224,
-      "p_svc_az": 225,
-      "p_svc_cbec": 70,
-      "p_prospect_ot": 6,
-      "p_seller_ot": 20
+      "p_seller_az": 2775,
+      "p_prospect_az": 872,
+      "p_svc_az": 472,
+      "p_svc_cbec": 218,
+      "p_prospect_ot": 209,
+      "p_seller_ot": 225
     }
   },
   {
@@ -2885,14 +2992,14 @@ window.ChiComData = (() => {
     "short": "MMO",
     "name": "Cộng Đồng MMO",
     "type": "EC",
-    "total": 234,
+    "total": 688,
     "personas": {
-      "p_seller_az": 1,
+      "p_seller_az": 57,
       "p_prospect_az": 1,
-      "p_svc_az": 0,
-      "p_svc_cbec": 61,
-      "p_prospect_ot": 106,
-      "p_seller_ot": 65
+      "p_svc_az": 28,
+      "p_svc_cbec": 162,
+      "p_prospect_ot": 214,
+      "p_seller_ot": 226
     }
   },
   {
@@ -2900,14 +3007,14 @@ window.ChiComData = (() => {
     "short": "Cuồng Phong Hội",
     "name": "Cuồng Phong Hội (Crossborder CBEC)",
     "type": "EC",
-    "total": 188,
+    "total": 425,
     "personas": {
-      "p_seller_az": 0,
-      "p_prospect_az": 0,
-      "p_svc_az": 0,
-      "p_svc_cbec": 23,
-      "p_prospect_ot": 19,
-      "p_seller_ot": 146
+      "p_seller_az": 63,
+      "p_prospect_az": 28,
+      "p_svc_az": 3,
+      "p_svc_cbec": 58,
+      "p_prospect_ot": 168,
+      "p_seller_ot": 105
     }
   },
   {
@@ -2915,14 +3022,14 @@ window.ChiComData = (() => {
     "short": "Dropship & Shopify",
     "name": "Cộng Đồng Dropshipping & Shopify VN",
     "type": "EC",
-    "total": 2115,
+    "total": 4844,
     "personas": {
-      "p_seller_az": 2,
-      "p_prospect_az": 0,
-      "p_svc_az": 2,
-      "p_svc_cbec": 711,
-      "p_prospect_ot": 564,
-      "p_seller_ot": 836
+      "p_seller_az": 137,
+      "p_prospect_az": 79,
+      "p_svc_az": 71,
+      "p_svc_cbec": 1632,
+      "p_prospect_ot": 1818,
+      "p_seller_ot": 1107
     }
   },
   {
@@ -2930,14 +3037,14 @@ window.ChiComData = (() => {
     "short": "Chuyện Nhà Bán",
     "name": "Chuyện Nhà Bán (Shopee/TikTok)",
     "type": "EC",
-    "total": 2457,
+    "total": 11512,
     "personas": {
-      "p_seller_az": 1,
-      "p_prospect_az": 0,
-      "p_svc_az": 0,
-      "p_svc_cbec": 51,
-      "p_prospect_ot": 151,
-      "p_seller_ot": 2254
+      "p_seller_az": 1048,
+      "p_prospect_az": 212,
+      "p_svc_az": 9,
+      "p_svc_cbec": 277,
+      "p_prospect_ot": 2039,
+      "p_seller_ot": 7927
     }
   },
   {
@@ -2945,14 +3052,14 @@ window.ChiComData = (() => {
     "short": "Etsy To Go",
     "name": "Etsy To Go",
     "type": "EC",
-    "total": 2616,
+    "total": 4714,
     "personas": {
-      "p_seller_az": 0,
-      "p_prospect_az": 0,
-      "p_svc_az": 0,
-      "p_svc_cbec": 508,
-      "p_prospect_ot": 563,
-      "p_seller_ot": 1545
+      "p_seller_az": 515,
+      "p_prospect_az": 88,
+      "p_svc_az": 27,
+      "p_svc_cbec": 1554,
+      "p_prospect_ot": 988,
+      "p_seller_ot": 1542
     }
   },
   {
@@ -2960,14 +3067,14 @@ window.ChiComData = (() => {
     "short": "Etsy E-Z",
     "name": "Etsy E-Z Cộng Đồng Etsy Việt",
     "type": "EC",
-    "total": 131,
+    "total": 407,
     "personas": {
-      "p_seller_az": 0,
-      "p_prospect_az": 0,
+      "p_seller_az": 19,
+      "p_prospect_az": 20,
       "p_svc_az": 0,
-      "p_svc_cbec": 43,
-      "p_prospect_ot": 44,
-      "p_seller_ot": 44
+      "p_svc_cbec": 137,
+      "p_prospect_ot": 124,
+      "p_seller_ot": 107
     }
   },
   {
@@ -2975,30 +3082,30 @@ window.ChiComData = (() => {
     "short": "ETSY VN",
     "name": "Cộng đồng ETSY Việt Nam",
     "type": "EC",
-    "total": 4978,
+    "total": 12204,
     "personas": {
-      "p_seller_az": 0,
-      "p_prospect_az": 0,
-      "p_svc_az": 0,
-      "p_svc_cbec": 1133,
-      "p_prospect_ot": 1332,
-      "p_seller_ot": 2513
+      "p_seller_az": 1547,
+      "p_prospect_az": 466,
+      "p_svc_az": 24,
+      "p_svc_cbec": 2584,
+      "p_prospect_ot": 3930,
+      "p_seller_ot": 3653
     }
   }
 ];
   const MASTER_TOPIC_COUNTS = {
-  "mt1": 4805,
-  "mt2": 2083,
-  "mt3": 1749,
-  "mt4": 1737,
-  "mt5": 1571,
-  "mt6": 1446,
-  "mt7": 493,
-  "mt8": 246,
-  "mt9": 142
+  "mt1": 16497,
+  "mt2": 5232,
+  "mt3": 4656,
+  "mt4": 4760,
+  "mt5": 4144,
+  "mt6": 2440,
+  "mt7": 1330,
+  "mt8": 693,
+  "mt9": 503
 };
   const SOA_SCOPE           = {
-  "totalRelevant": 1553,
+  "totalRelevant": 5461,
   "groupIds": [
     1,
     2
@@ -3009,25 +3116,25 @@ window.ChiComData = (() => {
   ]
 };
   const INSIGHTS            = {
-  "Q1": null,
-  "Q2": null,
-  "Q3": null,
-  "Q4": null,
-  "Q5": null,
-  "Q6": null,
-  "Q7": null,
-  "Q8": null,
-  "Q9": null,
-  "Q10": null,
-  "Q11": null,
-  "Q12": null,
-  "Q13": null,
-  "Q14": null
+  "Q1": "<p>With <strong>41.0% (16,497 posts)</strong> categorized as 'Others,' the community discourse is highly fragmented. This suggests members discuss tangential e-commerce topics (TikTok/Instagram strategies, general dropshipping, personal anecdotes) rather than Amazon-specific challenges. The samples reflect this scatter: mentions of TikTok, Canada warehouses, and general seller advice without Amazon context. <strong>Recommendation:</strong> Strengthen moderation and content guidelines to focus discussions on Amazon-relevant issues.</p>",
+  "Q2": "<p>MT1 captures <strong>15,148 mentions</strong> (31% of total matrix), making it the dominant topic across all personas. Seller OT (7,513) and Prospect OT (4,384) lead, but Seller AZ (2,357) also shows substantial engagement. This suggests MT1 addresses a foundational pain point—likely product sourcing, logistics, or general e-commerce mechanics—that resonates across both Amazon and other platforms. The samples hint at FBA/FBM service inquiries and fulfillment logistics, confirming MT1 as the operational backbone of community discourse.</p>",
+  "Q3": "<p>Account health represents <strong>18.7% of all seller discussions</strong> (4,015 mentions), with account suspension (6.8%) and account issues/errors (6.78%) as the two largest sub-topics. This is <strong>3.2× higher than prospects</strong> (5.8%, 664 mentions). The data reveals that <strong>active sellers are overwhelmingly preoccupied with staying compliant and avoiding account penalties</strong>. Samples show sellers discussing account verification challenges and suspension risks, indicating this is a persistent operational pain point that directly threatens revenue and business continuity.</p>",
+  "Q4": "<p>Three consecutive weeks (Mar 9–23) show sustained spikes with <strong>+70% peak on Mar 16</strong>, indicating a major community conversation inflection point. This period aligns with potential seasonal factors (post-Lunar New Year recovery, Q1 business planning) and suggests <strong>concentrated seller and buyer activity</strong> around sourcing, FBA/FBM logistics, and cross-border fulfillment strategies evident in samples mentioning 'kho canada,' 'Amazon US item,' and fulfillment support inquiries.</p>",
+  "Q5": "<p>Account suspensions (1,067 mentions) and account issues (955 mentions) represent <strong>20.4% of all negative sentiment</strong>. Friday's spike to 1,504 complaints suggests sellers face account lockouts mid-week, then flood the community seeking help before the weekend when support is unavailable. Sample posts reveal frustration: \"tài khoản mới ai cũng bị dính thôi, thường là giam 30 ngày\" (new accounts always get locked, usually for 30 days), indicating a systemic onboarding problem. The 30-day suspension cycle creates a predictable panic cycle on Fridays.</p>",
+  "Q6": "<p>Nearly <strong>40% of participants use anonymous accounts</strong> when discussing platform penalties, indicating deep distrust of official channels. Multiple sellers report <strong>30-day account locks on new accounts</strong> with no clear resolution path, forcing them to seek peer validation rather than Amazon support. This creates a vicious cycle where frustrated sellers amplify negative sentiment during peak hours (evening/night when sellers review daily performance).</p>",
+  "Q7": "<p>With <strong>1,517 mentions of 'Success & Income'</strong>, sellers are overwhelmingly drawn to Amazon for revenue potential. However, the samples reveal a paradox: while sellers celebrate revenue growth ('doanh thu tăng đều'), they simultaneously express deep uncertainty about <strong>why sales fluctuate</strong> ('Doanh số tụt dốc nhưng KHÔNG BIẾT VÌ SAO'). This suggests sellers join Amazon chasing financial gains but lack the analytical frameworks to sustain them. The <strong>22 negative posts</strong> and cautious tone indicate that early wins often mask operational blind spots—inventory management, competitive pricing, and product-market fit remain opaque to newcomers.</p>",
+  "Q8": "<p>Account locked (16 mentions) and losses/high costs (16 mentions) are the dominant churn triggers, suggesting <strong>Amazon's stricter compliance enforcement in 2025 is backfiring</strong>. Sample posts reveal sellers facing sudden account deactivation after brand registration or bank verification failures. One seller stated: \"Seller amz toàn acc cá nhân, ver bank nền tảng đã khó, nay chính sách còn bắt đki và ver bank lại thì khả năng acc lại ra bờ ao ngơi 1 loạt.\" This indicates that <strong>new policy requirements (bank verification, KYC) are locking out legitimate sellers faster than they can adapt</strong>, creating a perception of arbitrary enforcement.</p>",
+  "Q9": "<p><strong>Sellers (Others) represent 57.4% of leave-related posts (453 mentions)</strong>, compared to only 42.8% of join discussions (1,063 mentions). This 25% drop-off suggests friction in the non-Amazon seller ecosystem. Sample posts reveal frustration with product availability ('có những món k' / some items unavailable) and inconsistent service quality, pushing sellers toward alternative platforms like Shopee/Lazada.</p>",
+  "Q10": "<p><strong>Apparel & Fashion dominates with 448 mentions</strong>, significantly outpacing all other categories. This reflects strong consumer demand and seller interest in clothing and accessories across the Vietnamese e-commerce ecosystem. The category's prominence suggests established supply chains and competitive sourcing networks, with sellers actively discussing inventory management and fulfillment strategies (FBA/FBM options mentioned in samples).</p>",
+  "Q11": "<p>With <strong>122 mentions of system errors/bugs</strong>—nearly half of all reported issues—platform reliability is the critical blocker. FBA (119 mentions, 13 issues) and FBM (75 mentions, 12 issues) bear the brunt. Users report unpredictable outages, sync failures, and data inconsistencies that disrupt daily operations. This directly explains the low satisfaction rates: FBA achieves only 14% satisfaction (17/119) and FBM just 5% (4/75), despite being the most-used tools. Without urgent infrastructure fixes, seller confidence will continue to erode.</p>",
+  "Q12": "<p><strong>258 mentions with only 33% satisfaction</strong> reveals a critical pain point for SOA sellers. With <strong>23 unmet needs</strong> flagged, Vietnamese sellers struggle to navigate tax compliance, invoicing, and financial reporting—essential for cross-border operations. The high mention volume combined with low satisfaction suggests existing third-party services are either unavailable, unaffordable, or lack e-commerce expertise.</p>",
+  "Q13": "<p>With <strong>35 mentions and 57% positive sentiment</strong>, sellers overwhelmingly seek broad foundational training over niche courses. Samples reveal two distinct pain points: <strong>complete beginners asking 'where do I start?'</strong> and <strong>experienced operators (logistics, B2B) looking to pivot into Amazon</strong>. The absence of negative feedback suggests training itself is valued, but the high cost barrier (one seller notes '1-200tr' course fees) and skepticism about ROI are real friction points.</p>",
+  "Q14": "<p><strong>Operational scaling (61 posts, 62% positive)</strong> emerges as the most validated growth lever among SOA sellers. Posts emphasize mastering <strong>platform mechanics, cash flow optimization, and system efficiency</strong>—with minimal pushback (only 3% negative). Sample insights reveal sellers prioritizing <strong>product optimization, ad efficiency, and operational systems</strong> over aggressive expansion. This suggests sellers who focus on internal execution before scaling see measurable wins.</p>"
 };
   const DATE_RANGE          = {
-  "start": "2026-04-01",
-  "end": "2026-04-30",
-  "monthsCount": 1
+  "start": "2025-12-24",
+  "end": "2026-04-06",
+  "monthsCount": 5
 };
   return {
     SOA_GROUPS, EC_GROUPS, ALL_GROUPS,
@@ -3049,37 +3156,37 @@ window.ChiComData2 = (() => {
     "vn": "Chia sẻ, học hỏi & trợ giúp",
     "name": "Chia sẻ, học hỏi & trợ giúp",
     "en": "Sharing, learning & help",
-    "count": 173
-  },
-  {
-    "vn": "Sự kiện, đào tạo & kết nối",
-    "name": "Sự kiện, đào tạo & kết nối",
-    "en": "Events, training & networking",
-    "count": 86
+    "count": 441
   },
   {
     "vn": "Hợp tác, hỗ trợ & vận hành",
     "name": "Hợp tác, hỗ trợ & vận hành",
     "en": "Collaboration, support & operations",
-    "count": 81
-  },
-  {
-    "vn": "Bán hàng & vận hành",
-    "name": "Bán hàng & vận hành",
-    "en": "Selling & operations",
-    "count": 80
+    "count": 274
   },
   {
     "vn": "Kinh nghiệm & chiến lược",
     "name": "Kinh nghiệm & chiến lược",
     "en": "Experience & strategy",
-    "count": 77
+    "count": 269
+  },
+  {
+    "vn": "Sự kiện, đào tạo & kết nối",
+    "name": "Sự kiện, đào tạo & kết nối",
+    "en": "Events, training & networking",
+    "count": 235
+  },
+  {
+    "vn": "Bán hàng & vận hành",
+    "name": "Bán hàng & vận hành",
+    "en": "Selling & operations",
+    "count": 232
   },
   {
     "vn": "Passive income & cơ hội",
     "name": "Passive income & cơ hội",
     "en": "Passive income & opportunities",
-    "count": 2
+    "count": 3
   }
 ];
   const Q7_TOPICS_SOA     = [
@@ -3087,37 +3194,37 @@ window.ChiComData2 = (() => {
     "vn": "Chia sẻ, học hỏi & trợ giúp",
     "name": "Chia sẻ, học hỏi & trợ giúp",
     "en": "Sharing, learning & help",
-    "count": 24
+    "count": 92
   },
   {
     "vn": "Kinh nghiệm & chiến lược",
     "name": "Kinh nghiệm & chiến lược",
     "en": "Experience & strategy",
-    "count": 18
+    "count": 66
   },
   {
     "vn": "Sự kiện, đào tạo & kết nối",
     "name": "Sự kiện, đào tạo & kết nối",
     "en": "Events, training & networking",
-    "count": 15
-  },
-  {
-    "vn": "Hợp tác, hỗ trợ & vận hành",
-    "name": "Hợp tác, hỗ trợ & vận hành",
-    "en": "Collaboration, support & operations",
-    "count": 15
+    "count": 60
   },
   {
     "vn": "Bán hàng & vận hành",
     "name": "Bán hàng & vận hành",
     "en": "Selling & operations",
-    "count": 15
+    "count": 55
+  },
+  {
+    "vn": "Hợp tác, hỗ trợ & vận hành",
+    "name": "Hợp tác, hỗ trợ & vận hành",
+    "en": "Collaboration, support & operations",
+    "count": 46
   },
   {
     "vn": "Passive income & cơ hội",
     "name": "Passive income & cơ hội",
     "en": "Passive income & opportunities",
-    "count": 0
+    "count": 1
   }
 ];
   const Q7_TOPICS_EC      = [
@@ -3125,31 +3232,31 @@ window.ChiComData2 = (() => {
     "vn": "Chia sẻ, học hỏi & trợ giúp",
     "name": "Chia sẻ, học hỏi & trợ giúp",
     "en": "Sharing, learning & help",
-    "count": 149
-  },
-  {
-    "vn": "Sự kiện, đào tạo & kết nối",
-    "name": "Sự kiện, đào tạo & kết nối",
-    "en": "Events, training & networking",
-    "count": 71
+    "count": 349
   },
   {
     "vn": "Hợp tác, hỗ trợ & vận hành",
     "name": "Hợp tác, hỗ trợ & vận hành",
     "en": "Collaboration, support & operations",
-    "count": 66
-  },
-  {
-    "vn": "Bán hàng & vận hành",
-    "name": "Bán hàng & vận hành",
-    "en": "Selling & operations",
-    "count": 65
+    "count": 228
   },
   {
     "vn": "Kinh nghiệm & chiến lược",
     "name": "Kinh nghiệm & chiến lược",
     "en": "Experience & strategy",
-    "count": 59
+    "count": 203
+  },
+  {
+    "vn": "Bán hàng & vận hành",
+    "name": "Bán hàng & vận hành",
+    "en": "Selling & operations",
+    "count": 177
+  },
+  {
+    "vn": "Sự kiện, đào tạo & kết nối",
+    "name": "Sự kiện, đào tạo & kết nối",
+    "en": "Events, training & networking",
+    "count": 175
   },
   {
     "vn": "Passive income & cơ hội",
@@ -3163,31 +3270,31 @@ window.ChiComData2 = (() => {
     "vn": "Thành công & thu nhập",
     "name": "Thành công & thu nhập",
     "en": "Success & income",
-    "count": 392
+    "count": 1517
   },
   {
     "vn": "Passive income",
     "name": "Passive income",
     "en": "Passive income",
-    "count": 104
-  },
-  {
-    "vn": "Cơ hội thị trường",
-    "name": "Cơ hội thị trường",
-    "en": "Market opportunities",
-    "count": 66
+    "count": 231
   },
   {
     "vn": "Dễ bắt đầu",
     "name": "Dễ bắt đầu",
     "en": "Easy to start",
-    "count": 52
+    "count": 183
+  },
+  {
+    "vn": "Cơ hội thị trường",
+    "name": "Cơ hội thị trường",
+    "en": "Market opportunities",
+    "count": 142
   },
   {
     "vn": "Hỗ trợ & đào tạo",
     "name": "Hỗ trợ & đào tạo",
     "en": "Support & training",
-    "count": 18
+    "count": 65
   }
 ];
   const Q7_BENEFITS_SOA   = [
@@ -3195,31 +3302,31 @@ window.ChiComData2 = (() => {
     "vn": "Thành công & thu nhập",
     "name": "Thành công & thu nhập",
     "en": "Success & income",
-    "count": 41
-  },
-  {
-    "vn": "Cơ hội thị trường",
-    "name": "Cơ hội thị trường",
-    "en": "Market opportunities",
-    "count": 15
-  },
-  {
-    "vn": "Dễ bắt đầu",
-    "name": "Dễ bắt đầu",
-    "en": "Easy to start",
-    "count": 8
+    "count": 195
   },
   {
     "vn": "Passive income",
     "name": "Passive income",
     "en": "Passive income",
-    "count": 8
+    "count": 40
+  },
+  {
+    "vn": "Dễ bắt đầu",
+    "name": "Dễ bắt đầu",
+    "en": "Easy to start",
+    "count": 38
+  },
+  {
+    "vn": "Cơ hội thị trường",
+    "name": "Cơ hội thị trường",
+    "en": "Market opportunities",
+    "count": 36
   },
   {
     "vn": "Hỗ trợ & đào tạo",
     "name": "Hỗ trợ & đào tạo",
     "en": "Support & training",
-    "count": 0
+    "count": 9
   }
 ];
   const Q7_BENEFITS_EC    = [
@@ -3227,217 +3334,227 @@ window.ChiComData2 = (() => {
     "vn": "Thành công & thu nhập",
     "name": "Thành công & thu nhập",
     "en": "Success & income",
-    "count": 351
+    "count": 1322
   },
   {
     "vn": "Passive income",
     "name": "Passive income",
     "en": "Passive income",
-    "count": 96
-  },
-  {
-    "vn": "Cơ hội thị trường",
-    "name": "Cơ hội thị trường",
-    "en": "Market opportunities",
-    "count": 51
+    "count": 191
   },
   {
     "vn": "Dễ bắt đầu",
     "name": "Dễ bắt đầu",
     "en": "Easy to start",
-    "count": 44
+    "count": 145
+  },
+  {
+    "vn": "Cơ hội thị trường",
+    "name": "Cơ hội thị trường",
+    "en": "Market opportunities",
+    "count": 106
   },
   {
     "vn": "Hỗ trợ & đào tạo",
     "name": "Hỗ trợ & đào tạo",
     "en": "Support & training",
-    "count": 18
+    "count": 56
   }
 ];
   const Q7_SENTIMENT      = {
-  "positive": 15,
-  "neutral": 67,
-  "negative": 18
+  "positive": 13,
+  "neutral": 65,
+  "negative": 22
 };
   const Q7_SENTIMENT_SOA  = {
-  "positive": 19,
-  "neutral": 64,
-  "negative": 17
+  "positive": 26,
+  "neutral": 53,
+  "negative": 21
 };
   const Q7_SENTIMENT_EC   = {
-  "positive": 15,
+  "positive": 11,
   "neutral": 67,
-  "negative": 18
+  "negative": 22
 };
   const Q7_POS_SUBS_SOA   = [
   {
-    "vn": "Misc / Other",
-    "en": "Misc / Other",
-    "count": 28
+    "vn": "Community Events And Contests",
+    "en": "Community Events And Contests",
+    "count": 397
   },
   {
-    "vn": "Fulfillment models",
-    "en": "Fulfillment models",
-    "count": 27
+    "vn": "Misc / Other",
+    "en": "Misc / Other",
+    "count": 327
   },
   {
     "vn": "Selling Best Practices",
     "en": "Selling Best Practices",
-    "count": 26
+    "count": 297
+  },
+  {
+    "vn": "Product Selection",
+    "en": "Product Selection",
+    "count": 72
+  },
+  {
+    "vn": "Third-party service introduction",
+    "en": "Third-party service introduction",
+    "count": 71
   },
   {
     "vn": "Amazon advertising best practices",
     "en": "Amazon advertising best practices",
-    "count": 24
+    "count": 60
   },
   {
-    "vn": "Logistics costs",
-    "en": "Logistics costs",
-    "count": 20
-  },
-  {
-    "vn": "Third-party service introduction",
-    "en": "Third-party service introduction",
-    "count": 20
-  },
-  {
-    "vn": "Product Selection",
-    "en": "Product Selection",
-    "count": 13
-  },
-  {
-    "vn": "Community Events And Contests",
-    "en": "Community Events And Contests",
-    "count": 11
-  },
-  {
-    "vn": "Identity Verification (SIV)",
-    "en": "Identity Verification (SIV)",
-    "count": 11
-  },
-  {
-    "vn": "Registration Documents",
-    "en": "Registration Documents",
-    "count": 11
-  }
-];
-  const Q7_POS_SUBS_EC    = [
-  {
-    "vn": "Third-party service introduction",
-    "en": "Third-party service introduction",
-    "count": 280
-  },
-  {
-    "vn": "Selling Best Practices",
-    "en": "Selling Best Practices",
-    "count": 213
-  },
-  {
-    "vn": "Logistics costs",
-    "en": "Logistics costs",
-    "count": 196
-  },
-  {
-    "vn": "Misc / Other",
-    "en": "Misc / Other",
-    "count": 167
+    "vn": "Market Trends And Sales Performance",
+    "en": "Market Trends And Sales Performance",
+    "count": 46
   },
   {
     "vn": "Supplier sourcing",
     "en": "Supplier sourcing",
-    "count": 126
-  },
-  {
-    "vn": "Product Selection",
-    "en": "Product Selection",
-    "count": 65
+    "count": 38
   },
   {
     "vn": "Incentives & Training",
     "en": "Incentives & Training",
-    "count": 58
-  },
-  {
-    "vn": "Fulfillment models",
-    "en": "Fulfillment models",
-    "count": 54
+    "count": 25
   },
   {
     "vn": "Account issues / Account errors",
     "en": "Account issues / Account errors",
-    "count": 54
+    "count": 18
+  }
+];
+  const Q7_POS_SUBS_EC    = [
+  {
+    "vn": "Misc / Other",
+    "en": "Misc / Other",
+    "count": 1012
   },
   {
-    "vn": "Account suspension",
-    "en": "Account suspension",
-    "count": 47
+    "vn": "Third-party service introduction",
+    "en": "Third-party service introduction",
+    "count": 539
+  },
+  {
+    "vn": "Community Events And Contests",
+    "en": "Community Events And Contests",
+    "count": 411
+  },
+  {
+    "vn": "Product Selection",
+    "en": "Product Selection",
+    "count": 302
+  },
+  {
+    "vn": "Selling Best Practices",
+    "en": "Selling Best Practices",
+    "count": 253
+  },
+  {
+    "vn": "Incentives & Training",
+    "en": "Incentives & Training",
+    "count": 213
+  },
+  {
+    "vn": "Supplier sourcing",
+    "en": "Supplier sourcing",
+    "count": 158
+  },
+  {
+    "vn": "Market Trends And Sales Performance",
+    "en": "Market Trends And Sales Performance",
+    "count": 118
+  },
+  {
+    "vn": "Finding third-party services",
+    "en": "Finding third-party services",
+    "count": 93
+  },
+  {
+    "vn": "Logistics costs",
+    "en": "Logistics costs",
+    "count": 89
   }
 ];
   const Q8_TRIGGERS    = [
   {
-    "vn": "Thua lỗ / chi phí cao",
-    "name": "Thua lỗ / chi phí cao",
-    "en": "Losses / high costs",
-    "count": 10
-  },
-  {
     "vn": "Tài khoản bị khóa",
     "name": "Tài khoản bị khóa",
     "en": "Account locked",
-    "count": 8
+    "count": 16
   },
   {
-    "vn": "Kiệt sức / mất động lực",
-    "name": "Kiệt sức / mất động lực",
-    "en": "Burnout / lost motivation",
-    "count": 6
-  },
-  {
-    "vn": "Cạnh tranh khốc liệt",
-    "name": "Cạnh tranh khốc liệt",
-    "en": "Fierce competition",
-    "count": 4
-  },
-  {
-    "vn": "Chính sách phức tạp",
-    "name": "Chính sách phức tạp",
-    "en": "Complex policy",
-    "count": 3
+    "vn": "Thua lỗ / chi phí cao",
+    "name": "Thua lỗ / chi phí cao",
+    "en": "Losses / high costs",
+    "count": 16
   },
   {
     "vn": "Lừa đảo",
     "name": "Lừa đảo",
     "en": "Scam",
-    "count": 3
+    "count": 15
+  },
+  {
+    "vn": "Kiệt sức / mất động lực",
+    "name": "Kiệt sức / mất động lực",
+    "en": "Burnout / lost motivation",
+    "count": 12
   },
   {
     "vn": "Rủi ro kinh doanh",
     "name": "Rủi ro kinh doanh",
     "en": "Business Risk",
-    "count": 3
+    "count": 9
+  },
+  {
+    "vn": "Chính sách phức tạp",
+    "name": "Chính sách phức tạp",
+    "en": "Complex policy",
+    "count": 5
+  },
+  {
+    "vn": "Cạnh tranh khốc liệt",
+    "name": "Cạnh tranh khốc liệt",
+    "en": "Fierce competition",
+    "count": 2
   },
   {
     "vn": "Thiếu kinh nghiệm / kỹ năng",
     "name": "Thiếu kinh nghiệm / kỹ năng",
     "en": "Lack of experience / skills",
-    "count": 0
+    "count": 1
   }
 ];
   const Q8_PERSONA     = [
   {
     "label": "Seller (Amazon)",
-    "count": 211,
+    "count": 1005,
     "color": "oklch(0.42 0.24 255)"
   },
   {
     "label": "Prospect (Amazon)",
-    "count": 48,
+    "count": 70,
     "color": "oklch(0.58 0.20 50)"
   },
   {
     "label": "Seller (Others)",
-    "count": 2,
+    "count": 64,
     "color": "oklch(0.70 0.16 250)"
+  },
+  {
+    "label": "Service Provider (Amazon)",
+    "count": 6,
+    "color": "oklch(0.52 0.13 195)"
+  },
+  {
+    "label": "Prospect (Others)",
+    "count": 2,
+    "color": "oklch(0.78 0.16 50)"
   },
   {
     "label": "Service Provider (CBEC)",
@@ -3446,308 +3563,345 @@ window.ChiComData2 = (() => {
   }
 ];
   const Q8_TREND       = [
-  262
+  107,
+  477,
+  195,
+  369,
+  0
 ];
   const Q9_BARRIERS        = [
   {
     "vn": "Thuế & pháp lý",
     "name": "Thuế & pháp lý",
     "en": "Tax & legal",
-    "count": 118
+    "count": 795
   },
   {
     "vn": "Thiếu kiến thức",
     "name": "Thiếu kiến thức",
     "en": "Knowledge gap",
-    "count": 99
-  },
-  {
-    "vn": "Xác minh tài khoản",
-    "name": "Xác minh tài khoản",
-    "en": "Account verification",
-    "count": 84
+    "count": 318
   },
   {
     "vn": "Thanh toán quốc tế",
     "name": "Thanh toán quốc tế",
     "en": "International payments",
-    "count": 76
+    "count": 247
+  },
+  {
+    "vn": "Xác minh tài khoản",
+    "name": "Xác minh tài khoản",
+    "en": "Account verification",
+    "count": 217
   },
   {
     "vn": "Vốn ban đầu",
     "name": "Vốn ban đầu",
     "en": "Initial capital",
-    "count": 21
+    "count": 77
   },
   {
     "vn": "Chọn sản phẩm",
     "name": "Chọn sản phẩm",
     "en": "Product selection",
-    "count": 9
-  },
-  {
-    "vn": "Tiếng Anh / giao tiếp",
-    "name": "Tiếng Anh / giao tiếp",
-    "en": "English / communication",
-    "count": 3
+    "count": 35
   },
   {
     "vn": "Vận chuyển quốc tế",
     "name": "Vận chuyển quốc tế",
     "en": "International shipping",
-    "count": 1
+    "count": 19
+  },
+  {
+    "vn": "Tiếng Anh / giao tiếp",
+    "name": "Tiếng Anh / giao tiếp",
+    "en": "English / communication",
+    "count": 11
   }
 ];
   const Q9_Q7_PERSONAS     = [
   {
     "name": "Seller (Others)",
-    "count": 457,
+    "count": 1063,
     "color": "oklch(0.55 0.17 260)"
   },
   {
-    "name": "Service Provider (CBEC)",
-    "count": 202,
+    "name": "Prospect (Others)",
+    "count": 689,
     "color": "oklch(0.60 0.20 25)"
   },
   {
-    "name": "Prospect (Others)",
-    "count": 184,
+    "name": "Service Provider (CBEC)",
+    "count": 615,
     "color": "oklch(0.68 0.17 60)"
   },
   {
     "name": "Seller (Amazon)",
-    "count": 71,
+    "count": 528,
     "color": "oklch(0.58 0.14 190)"
   },
   {
     "name": "Prospect (Amazon)",
-    "count": 28,
+    "count": 128,
     "color": "oklch(0.62 0.15 155)"
   },
   {
     "name": "Service Provider (Amazon)",
-    "count": 12,
+    "count": 54,
     "color": "oklch(0.55 0.17 290)"
   }
 ];
   const Q9_Q8_PERSONAS     = [
   {
     "name": "Seller (Others)",
-    "count": 143,
+    "count": 453,
     "color": "oklch(0.55 0.17 260)"
   },
   {
     "name": "Seller (Amazon)",
-    "count": 28,
+    "count": 113,
     "color": "oklch(0.60 0.20 25)"
   },
   {
     "name": "Prospect (Others)",
-    "count": 21,
+    "count": 27,
     "color": "oklch(0.68 0.17 60)"
   },
   {
     "name": "Prospect (Amazon)",
-    "count": 4,
+    "count": 12,
     "color": "oklch(0.58 0.14 190)"
   },
   {
-    "name": "Service Provider (CBEC)",
-    "count": 4,
+    "name": "Service Provider (Amazon)",
+    "count": 1,
     "color": "oklch(0.62 0.15 155)"
+  },
+  {
+    "name": "Service Provider (CBEC)",
+    "count": 1,
+    "color": "oklch(0.55 0.17 290)"
   }
 ];
   const Q9_Q7_PERSONAS_SOA = [
   {
     "name": "Seller (Amazon)",
-    "count": 70,
+    "count": 261,
     "color": "oklch(0.55 0.17 260)"
   },
   {
     "name": "Prospect (Amazon)",
-    "count": 27,
+    "count": 86,
     "color": "oklch(0.60 0.20 25)"
   },
   {
     "name": "Service Provider (Amazon)",
-    "count": 11,
+    "count": 48,
     "color": "oklch(0.68 0.17 60)"
   },
   {
     "name": "Service Provider (CBEC)",
-    "count": 9,
+    "count": 48,
     "color": "oklch(0.58 0.14 190)"
   },
   {
     "name": "Seller (Others)",
-    "count": 5,
+    "count": 27,
     "color": "oklch(0.62 0.15 155)"
   },
   {
     "name": "Prospect (Others)",
-    "count": 2,
+    "count": 20,
     "color": "oklch(0.55 0.17 290)"
   }
 ];
   const Q9_Q8_PERSONAS_SOA = [
   {
     "name": "Seller (Amazon)",
-    "count": 28,
+    "count": 60,
     "color": "oklch(0.55 0.17 260)"
   },
   {
     "name": "Prospect (Amazon)",
-    "count": 4,
+    "count": 10,
     "color": "oklch(0.60 0.20 25)"
+  },
+  {
+    "name": "Service Provider (Amazon)",
+    "count": 1,
+    "color": "oklch(0.68 0.17 60)"
   }
 ];
   const Q9_Q7_PERSONAS_EC  = [
   {
     "name": "Seller (Others)",
-    "count": 452,
+    "count": 1036,
     "color": "oklch(0.55 0.17 260)"
   },
   {
-    "name": "Service Provider (CBEC)",
-    "count": 193,
+    "name": "Prospect (Others)",
+    "count": 669,
     "color": "oklch(0.60 0.20 25)"
   },
   {
-    "name": "Prospect (Others)",
-    "count": 182,
+    "name": "Service Provider (CBEC)",
+    "count": 567,
     "color": "oklch(0.68 0.17 60)"
   },
   {
-    "name": "Prospect (Amazon)",
-    "count": 1,
+    "name": "Seller (Amazon)",
+    "count": 267,
     "color": "oklch(0.58 0.14 190)"
   },
   {
-    "name": "Seller (Amazon)",
-    "count": 1,
+    "name": "Prospect (Amazon)",
+    "count": 42,
     "color": "oklch(0.62 0.15 155)"
   },
   {
     "name": "Service Provider (Amazon)",
-    "count": 1,
+    "count": 6,
     "color": "oklch(0.55 0.17 290)"
   }
 ];
   const Q9_Q8_PERSONAS_EC  = [
   {
     "name": "Seller (Others)",
-    "count": 143,
+    "count": 453,
     "color": "oklch(0.55 0.17 260)"
   },
   {
-    "name": "Prospect (Others)",
-    "count": 21,
+    "name": "Seller (Amazon)",
+    "count": 53,
     "color": "oklch(0.60 0.20 25)"
   },
   {
-    "name": "Service Provider (CBEC)",
-    "count": 4,
+    "name": "Prospect (Others)",
+    "count": 27,
     "color": "oklch(0.68 0.17 60)"
+  },
+  {
+    "name": "Prospect (Amazon)",
+    "count": 2,
+    "color": "oklch(0.58 0.14 190)"
+  },
+  {
+    "name": "Service Provider (CBEC)",
+    "count": 1,
+    "color": "oklch(0.62 0.15 155)"
   }
 ];
   const Q9_TOP_THREADS     = [
   {
-    "id": "26304298779263540",
-    "link": "https://www.facebook.com/groups/congdongetsyvietnam/permalink/26304298779263541/",
-    "count": 97,
-    "comments": 96,
-    "preview": "Lên cơ quan hỏi việc đăng ký mã số thuế và kê khai thuế thì bị cán bộ báo trước tiên phải đóng phạt ít nhất 2 khoản:\n4tr: tội không đăng ký mã số thuế sau kh…",
-    "group_id": 9,
-    "group_name": "ETSY VN",
+    "id": "2362163994282452",
+    "link": "https://www.facebook.com/groups/etsytogo/permalink/2362163994282452/",
+    "count": 109,
+    "comments": 108,
+    "preview": "**[NEW LUNA YEAR CONTEST 2026]** Xin chào toàn thể các anh chị em trong nhóm, đến hẹn lại lên năm cũ qua đi năm mới lại về mình xin phép thay mặt đội ngũ quả…",
+    "group_id": 7,
+    "group_name": "Etsy To Go",
     "group_type": "EC",
-    "sentiment": "negative",
-    "persona": "Prospect (Others)",
+    "sentiment": "positive",
+    "persona": "Service Provider (CBEC)",
     "master_topic": "Others"
   },
   {
-    "id": "2411959215969596",
-    "link": "https://www.facebook.com/groups/etsytogo/permalink/2411959215969596/",
-    "count": 85,
-    "comments": 84,
-    "preview": "**[ETSY SELLER - ZERO STORE] **Halo mọi người, mình đang Build lại 01 Store hoàn toàn mới từ số 0. Hi vọng sẽ sớm đạt 100 Sales đầu tiên để chia sẽ lại quá t…",
+    "id": "2333634087135443",
+    "link": "https://www.facebook.com/groups/etsytogo/permalink/2333634087135443/",
+    "count": 104,
+    "comments": 103,
+    "preview": "**[U23 ASIAN CUP 2026 - VIET NAM vs HAN QUOC] **Xin chào mọi người, trong 03 thập kỷ lịch sử đối đầu ở cấp độ U23 thì Việt Nam chúng ta chỉ toàn hòa (01 trận…",
     "group_id": 7,
     "group_name": "Etsy To Go",
     "group_type": "EC",
     "sentiment": "positive",
     "persona": "Seller (Others)",
-    "master_topic": "Account Creation"
-  },
-  {
-    "id": "26278316198528460",
-    "link": "https://www.facebook.com/groups/congdongetsyvietnam/permalink/26278316198528466/",
-    "count": 78,
-    "comments": 77,
-    "preview": "Update: Mình đã ver lại đc ròi\nKo cái ngu nào bằng cái ngu này, đang nhận tiền bình thường thì đi đổi bank, xong ko xác minh được lại đổi về bank cũ thì như …",
-    "group_id": 9,
-    "group_name": "ETSY VN",
-    "group_type": "EC",
-    "sentiment": "negative",
-    "persona": "Seller (Others)",
-    "master_topic": "Account Health"
-  },
-  {
-    "id": "1499678698402639",
-    "link": "https://www.facebook.com/groups/chuyennhaban/permalink/1499678698402639/",
-    "count": 77,
-    "comments": 76,
-    "preview": "MST đã được chuyển đổi đồng bộ với mã CCCD từ 1/7/2025 rồi. Ko hiểu sao đến giờ các shop vẫn xì xào đk mã 001 với 888 đâu ra nữa",
-    "group_id": 6,
-    "group_name": "Chuyện Nhà Bán",
-    "group_type": "EC",
-    "sentiment": "neutral",
-    "persona": "Seller (Others)",
     "master_topic": "Others"
   },
   {
-    "id": "2414641589034692",
-    "link": "https://www.facebook.com/groups/etsytogo/permalink/2414641589034692/",
-    "count": 64,
-    "comments": 63,
-    "preview": "Đang quét pk mng. Bên m bị sus 4 5 store rồi 🥹😱 !!!!",
+    "id": "2330866200745565",
+    "link": "https://www.facebook.com/groups/etsytogo/permalink/2330866200745565/",
+    "count": 101,
+    "comments": 100,
+    "preview": "**[U23 ASIAN CUP 2026 - VIET NAM vs TRUNG QUOC] **Hòa cùng không khí quyết thắng của đội tuyển U23 quốc gia Việt Nam trong trận bán kết Asian Cup 2026 sẽ diễ…",
     "group_id": 7,
     "group_name": "Etsy To Go",
     "group_type": "EC",
+    "sentiment": "positive",
+    "persona": "Service Provider (CBEC)",
+    "master_topic": "Others"
+  },
+  {
+    "id": "2315616098937242",
+    "link": "https://www.facebook.com/groups/etsytogo/permalink/2315616098937242/",
+    "count": 100,
+    "comments": 99,
+    "preview": "**[NEW YEAR CONTEST 2026]** Xin chào mọi người, đến hẹn lại lên năm cũ qua đi năm mới lại về mình xin được gửi lời mến chúc một năm mới mọi sự an vui tới toà…",
+    "group_id": 7,
+    "group_name": "Etsy To Go",
+    "group_type": "EC",
+    "sentiment": "positive",
+    "persona": "Seller (Others)",
+    "master_topic": "Others"
+  },
+  {
+    "id": "2207250333134763",
+    "link": "https://www.facebook.com/groups/congdongamazonvn/permalink/2207250333134763/",
+    "count": 100,
+    "comments": 99,
+    "preview": "# **TRUYỆN CỔ TÍCH 2025: THẰNG NHÓC 200X BƯỚC RA TỪ CỦ “HÀNH”! TƯ DUY ĐÚNG NHƯNG VẪN HÀNH ĐỘNG SAI?**\n\n**Tác giả: Phạm Minh Quân | Co-founder & CEO tại NextX…",
+    "group_id": 2,
+    "group_name": "CĐ Amazon Sellers",
+    "group_type": "SOA",
+    "sentiment": "positive",
+    "persona": "Seller (Amazon)",
+    "master_topic": "SOA (Selling on Amazon)"
+  },
+  {
+    "id": "1471293041241205",
+    "link": "https://www.facebook.com/groups/chuyennhaban/permalink/1471293041241205/",
+    "count": 100,
+    "comments": 99,
+    "preview": "Cho em xin hướng giải quyết với ạ😭 em còn đi học và có nhiều khó khăn về tài chính, shop em đã bị khoá từ lâu, nay shopee gửi mail này em rất lo sợ. Em vừa s…",
+    "group_id": 6,
+    "group_name": "Chuyện Nhà Bán",
+    "group_type": "EC",
     "sentiment": "negative",
     "persona": "Seller (Others)",
     "master_topic": "Account Health"
   },
   {
-    "id": "1497610751942767",
-    "link": "https://www.facebook.com/groups/chuyennhaban/permalink/1497610751942767/",
-    "count": 62,
-    "comments": 61,
-    "preview": "Giờ mới hiểu tại sao các đơn hàng lên vùng cao đều bị giao k thành công rất nhiều.",
-    "group_id": 6,
-    "group_name": "Chuyện Nhà Bán",
-    "group_type": "EC",
-    "sentiment": "negative",
-    "persona": "Seller (Others)",
-    "master_topic": "Logistics"
-  },
-  {
-    "id": "1485340056503170",
-    "link": "https://www.facebook.com/groups/chuyennhaban/permalink/1485340056503170/",
-    "count": 60,
-    "comments": 59,
-    "preview": "Mời các bạn định giá shop mình thử , đứa con tinh thần đã gây dựng được 4 năm và cũng muốn biết nó có giá trị bao nhiêu.\n\n- Ngành hàng: Giày Dép\n\n- Top tìm k…",
-    "group_id": 6,
-    "group_name": "Chuyện Nhà Bán",
-    "group_type": "EC",
-    "sentiment": "neutral",
-    "persona": "Seller (Others)",
+    "id": "2205704596622670",
+    "link": "https://www.facebook.com/groups/congdongamazonvn/permalink/2205704596622670/",
+    "count": 99,
+    "comments": 98,
+    "preview": "**AMAZON 2025: NẾU BẮT BUỘC PHẢI CHỌN LẠI VẠCH XUẤT PHÁT, TÔI SẼ CHỌN “CHUẨN” THAY VÌ “NHANH”**\nNếu tự đặt câu hỏi cho bản thân: “2025 có phải năm khó với tô…",
+    "group_id": 2,
+    "group_name": "CĐ Amazon Sellers",
+    "group_type": "SOA",
+    "sentiment": "positive",
+    "persona": "Seller (Amazon)",
     "master_topic": "SOA (Selling on Amazon)"
   },
   {
-    "id": "1504965671207275",
-    "link": "https://www.facebook.com/groups/chuyennhaban/permalink/1504965671207275/",
-    "count": 60,
-    "comments": 59,
-    "preview": "Sơ sơ cũng tăng khoảng 3% phí.\nQuả này dự sẽ kha khá sellers bỏ sàn đen sau ngày 9/5",
+    "id": "26167833476243408",
+    "link": "https://www.facebook.com/groups/congdongetsyvietnam/permalink/26167833476243406/",
+    "count": 99,
+    "comments": 98,
+    "preview": "Hà Đông - Có anh em newbie nào đang solo làm POD hay handmade etsy ko ạ ? Làm 1m nản quá có ae nào thi thoảng cafe giao lưu tí ! kk",
+    "group_id": 9,
+    "group_name": "ETSY VN",
+    "group_type": "EC",
+    "sentiment": "neutral",
+    "persona": "Prospect (Others)",
+    "master_topic": "SOA (Selling on Amazon)"
+  },
+  {
+    "id": "1421575209546322",
+    "link": "https://www.facebook.com/groups/chuyennhaban/permalink/1421575209546322/",
+    "count": 97,
+    "comments": 96,
+    "preview": "Có ai bị phạt vì chậm kê khai nộp thuế không. Mình bán tiktok shopee thì hàng tháng họ đã kê khai nộp thuế cho mình rồi mà sao bên thuế gửi thông báo phạt vì…",
     "group_id": 6,
     "group_name": "Chuyện Nhà Bán",
     "group_type": "EC",
@@ -3756,130 +3910,65 @@ window.ChiComData2 = (() => {
     "master_topic": "Others"
   },
   {
-    "id": "2270819846777811",
-    "link": "https://www.facebook.com/groups/congdongamazonvn/permalink/2270819846777811/",
-    "count": 56,
-    "comments": 55,
-    "preview": "Cả cộng đồng tk Việt làm Amazon chấp nhận chết dần chết mòn tài khoản vì recall sao ? Seller Việt quá thiệt thòi, thuế + recall",
-    "group_id": 2,
-    "group_name": "CĐ Amazon Sellers",
-    "group_type": "SOA",
-    "sentiment": "negative",
-    "persona": "Seller (Amazon)",
-    "master_topic": "Account Health"
-  },
-  {
-    "id": "2167753174002780",
-    "link": "https://www.facebook.com/groups/514921692619278/permalink/2167753174002780/",
-    "count": 52,
-    "comments": 51,
-    "preview": "M đang muốn tìm hiểu học làm dropshoping theo mọi người có nên theo khoá học của thầy nào đó không m có liên hệ tham khảo vài ng đi trước đc báo mức học phi …",
-    "group_id": 5,
-    "group_name": "Dropship & Shopify",
+    "id": "1450869523283557",
+    "link": "https://www.facebook.com/groups/chuyennhaban/permalink/1450869523283557/",
+    "count": 97,
+    "comments": 96,
+    "preview": "Vụ da đen thht húp chi phí 21% thêm 3k phí sử lí đh+3k phí bồi hoàn. Sao rồi các bạn??",
+    "group_id": 6,
+    "group_name": "Chuyện Nhà Bán",
     "group_type": "EC",
-    "sentiment": "neutral",
-    "persona": "Prospect (Others)",
+    "sentiment": "negative",
+    "persona": "Seller (Others)",
     "master_topic": "SOA (Selling on Amazon)"
   }
 ];
   const Q9_TOP_THREADS_SOA = [
   {
-    "id": "2270819846777811",
-    "link": "https://www.facebook.com/groups/congdongamazonvn/permalink/2270819846777811/",
-    "count": 56,
-    "comments": 55,
-    "preview": "Cả cộng đồng tk Việt làm Amazon chấp nhận chết dần chết mòn tài khoản vì recall sao ? Seller Việt quá thiệt thòi, thuế + recall",
+    "id": "2207250333134763",
+    "link": "https://www.facebook.com/groups/congdongamazonvn/permalink/2207250333134763/",
+    "count": 100,
+    "comments": 99,
+    "preview": "# **TRUYỆN CỔ TÍCH 2025: THẰNG NHÓC 200X BƯỚC RA TỪ CỦ “HÀNH”! TƯ DUY ĐÚNG NHƯNG VẪN HÀNH ĐỘNG SAI?**\n\n**Tác giả: Phạm Minh Quân | Co-founder & CEO tại NextX…",
     "group_id": 2,
     "group_name": "CĐ Amazon Sellers",
     "group_type": "SOA",
-    "sentiment": "negative",
+    "sentiment": "positive",
     "persona": "Seller (Amazon)",
-    "master_topic": "Account Health"
-  },
-  {
-    "id": "2266529550540174",
-    "link": "https://www.facebook.com/groups/congdongamazonvn/permalink/2266529550540174/",
-    "count": 47,
-    "comments": 46,
-    "preview": "[Thông báo đổi định hướng mới của cộng đồng]\nHi anh em, \n\nCó lẽ đây là một trong những status khó viết nhất của mình từ trước đến nay. Sau một thời gian dài …",
-    "group_id": 2,
-    "group_name": "CĐ Amazon Sellers",
-    "group_type": "SOA",
-    "sentiment": "negative",
-    "persona": "Seller (Amazon)",
-    "master_topic": "Others"
-  },
-  {
-    "id": "2271898503336612",
-    "link": "https://www.facebook.com/groups/congdongamazonvn/permalink/2271898503336612/",
-    "count": 30,
-    "comments": 29,
-    "preview": "POST TUYỂN DỤNG\nGần đây mình thấy ae tuyển nhân sự, tìm cơ hội hợp tác cùng như tìm việc remote rất nhiều. Anh em nào đang tuyển/ tìm việc Amazon/Ecom Global…",
-    "group_id": 2,
-    "group_name": "CĐ Amazon Sellers",
-    "group_type": "SOA",
-    "sentiment": "neutral",
-    "persona": "Seller (Amazon)",
-    "master_topic": "Others"
-  },
-  {
-    "id": "2266640880529041",
-    "link": "https://www.facebook.com/groups/congdongamazonvn/permalink/2266640880529041/",
-    "count": 30,
-    "comments": 29,
-    "preview": "Newbie Amazon\nEm mới tập tành tìm hiểu Amazon, nhờ a chị hỗ trợ. Em đang tự tính phí bán hàng thì thấy cũng khét như shopee. Mong nhận đc comments từ các bậc…",
-    "group_id": 2,
-    "group_name": "CĐ Amazon Sellers",
-    "group_type": "SOA",
-    "sentiment": "neutral",
-    "persona": "Prospect (Amazon)",
     "master_topic": "SOA (Selling on Amazon)"
   },
   {
-    "id": "2268541153672347",
-    "link": "https://www.facebook.com/groups/congdongamazonvn/permalink/2268541153672347/",
-    "count": 24,
-    "comments": 23,
-    "preview": "Recall\nAcc em bị recall, đã call xong và nhận được mail này sau đó khoảng 30 phút thì là đã qua chưa ạ\nwith a Photo: https://www.facebook.com/photo/?fbid=262…",
+    "id": "2205704596622670",
+    "link": "https://www.facebook.com/groups/congdongamazonvn/permalink/2205704596622670/",
+    "count": 99,
+    "comments": 98,
+    "preview": "**AMAZON 2025: NẾU BẮT BUỘC PHẢI CHỌN LẠI VẠCH XUẤT PHÁT, TÔI SẼ CHỌN “CHUẨN” THAY VÌ “NHANH”**\nNếu tự đặt câu hỏi cho bản thân: “2025 có phải năm khó với tô…",
     "group_id": 2,
     "group_name": "CĐ Amazon Sellers",
     "group_type": "SOA",
-    "sentiment": "negative",
+    "sentiment": "positive",
     "persona": "Seller (Amazon)",
-    "master_topic": "Account Health"
+    "master_topic": "SOA (Selling on Amazon)"
   },
   {
-    "id": "2267411943785268",
-    "link": "https://www.facebook.com/groups/congdongamazonvn/permalink/2267411943785268/",
-    "count": 23,
-    "comments": 22,
-    "preview": "Video call Verify thì có cần khai thật là dùng VPS không ạ?\nDạ, em là newbie mới sử dụng AMZ seller. Anh/chị cho em hỏi khi vào video call để verify mà mình …",
+    "id": "2248191662373963",
+    "link": "https://www.facebook.com/groups/congdongamazonvn/permalink/2248191662373963/",
+    "count": 83,
+    "comments": 82,
+    "preview": "POST TUYỂN DỤNG\nĐầu năm mình thấy các post tuyển nhân sự, hợp tác hay ae tìm việc remote khá nhiều . Anh em nào đang tuyển/ tìm việc trong mảng Amazon/Ecom G…",
     "group_id": 2,
     "group_name": "CĐ Amazon Sellers",
     "group_type": "SOA",
     "sentiment": "neutral",
-    "persona": "Prospect (Amazon)",
-    "master_topic": "Account Creation"
+    "persona": "Service Provider (Amazon)",
+    "master_topic": "Others"
   },
   {
-    "id": "2277248619468267",
-    "link": "https://www.facebook.com/groups/congdongamazonvn/permalink/2277248619468267/",
-    "count": 22,
-    "comments": 21,
-    "preview": "Xin cho hỏi có ai biết bên dịch vụ nào uy tín về lưu kho và xử lý đơn không nhỉ? Ai nhận được ib mình nhé!",
-    "group_id": 2,
-    "group_name": "CĐ Amazon Sellers",
-    "group_type": "SOA",
-    "sentiment": "neutral",
-    "persona": "Prospect (Amazon)",
-    "master_topic": "Logistics"
-  },
-  {
-    "id": "2267768217082974",
-    "link": "https://www.facebook.com/groups/congdongamazonvn/permalink/2267768217082974/",
-    "count": 22,
-    "comments": 21,
-    "preview": "Vì sao Seller Amazon càng làm lâu lại càng phải sống chung với đống dữ liệu rời rạc?\n\nAnh em có để ý một thực tế đang tồn tại khá rõ là:\n- Doanh số, P&L thườ…",
+    "id": "2245644715961991",
+    "link": "https://www.facebook.com/groups/congdongamazonvn/permalink/2245644715961991/",
+    "count": 82,
+    "comments": 81,
+    "preview": "Nhân viên thâm niên 5 năm làm việc trong cty nghỉ việc ra mở đúng ngành hàng mình đang kinh doanh. Ae xử lý vấn đề này như thế nào",
     "group_id": 2,
     "group_name": "CĐ Amazon Sellers",
     "group_type": "SOA",
@@ -3888,117 +3977,169 @@ window.ChiComData2 = (() => {
     "master_topic": "Others"
   },
   {
-    "id": "2274786993047763",
-    "link": "https://www.facebook.com/groups/congdongamazonvn/permalink/2274786993047763/",
-    "count": 21,
-    "comments": 20,
-    "preview": "Nghe đồn nhóm này toàn thu nhập khủng đúng không ạ?",
+    "id": "2215491078977355",
+    "link": "https://www.facebook.com/groups/congdongamazonvn/permalink/2215491078977355/",
+    "count": 57,
+    "comments": 56,
+    "preview": "**MỘT QUYẾT ĐỊNH SAI, TRẢ GIÁ BẰNG CẢ GIA TÀI: HÀNH TRÌNH CAY ĐẮNG VỚI AMAZON **\n\n*Không phải câu chuyện nào về Amazon cũng bắt đầu bằng thành công. Có những…",
     "group_id": 2,
     "group_name": "CĐ Amazon Sellers",
     "group_type": "SOA",
-    "sentiment": "neutral",
-    "persona": "Prospect (Amazon)",
+    "sentiment": "positive",
+    "persona": "Seller (Amazon)",
+    "master_topic": "SOA (Selling on Amazon)"
+  },
+  {
+    "id": "2225960907930372",
+    "link": "https://www.facebook.com/groups/congdongamazonvn/permalink/2225960907930372/",
+    "count": 55,
+    "comments": 54,
+    "preview": "# **TRAO GIẢI CONTEST 2025 - CỘNG ĐỒNG AMAZON SELLERS VN**\n\nDear anh chị em Cộng Đồng, @mọi người\n\n**Contest 2025 **đã kết thúc thành công rực rỡ sau gần 1 t…",
+    "group_id": 2,
+    "group_name": "CĐ Amazon Sellers",
+    "group_type": "SOA",
+    "sentiment": "positive",
+    "persona": "Seller (Amazon)",
     "master_topic": "Others"
   },
   {
-    "id": "2283787628814366",
-    "link": "https://www.facebook.com/groups/congdongamazonvn/permalink/2283787628814366/",
-    "count": 20,
-    "comments": 19,
-    "preview": "Đơn vị vận chuyển FBM\nMn ơi cho em hỏi chút ạ. Em bán FBM thì khi chọn đơn vị vận chuyển thì nên theo những tiêu chí gì ạ? Mn cho em xin recommend 1 số bên v…",
+    "id": "2248769432316186",
+    "link": "https://www.facebook.com/groups/congdongamazonvn/permalink/2248769432316186/",
+    "count": 53,
+    "comments": 52,
+    "preview": "POST KẾT NỐI NGUỒN HÀNG (Supplier x Seller). \nĐầu năm nhu cầu lớn, ae cần tìm nguồn hàng hoặc supplier muốn giới thiệu ngành hàng/ xưởng fulfill/ nhà máy/ th…",
+    "group_id": 2,
+    "group_name": "CĐ Amazon Sellers",
+    "group_type": "SOA",
+    "sentiment": "positive",
+    "persona": "Service Provider (CBEC)",
+    "master_topic": "Third Party"
+  },
+  {
+    "id": "2196591477533982",
+    "link": "https://www.facebook.com/groups/congdongamazonvn/permalink/2196591477533982/",
+    "count": 53,
+    "comments": 52,
+    "preview": "Ecommerce Manager mà giờ lương bèo như thế này hả anh em ơi. Em có kinh nghiệm vít camp lên hơn 1triệu$, quản lý hàng ngàn camp mà nhìn lương chán quá\nwith a…",
     "group_id": 2,
     "group_name": "CĐ Amazon Sellers",
     "group_type": "SOA",
     "sentiment": "neutral",
-    "persona": "Prospect (Amazon)",
-    "master_topic": "Logistics"
+    "persona": "Seller (Others)",
+    "master_topic": "Others"
+  },
+  {
+    "id": "2212566372603159",
+    "link": "https://www.facebook.com/groups/congdongamazonvn/permalink/2212566372603159/",
+    "count": 52,
+    "comments": 51,
+    "preview": "**Sau 8 năm làm Amazon, thứ tôi nhận được nhiều nhất không phải là tiền...**\n\n*Tác giả: Vũ Duy | Founder tại *Zonpal Amazon Agency\n\n-------------------------…",
+    "group_id": 2,
+    "group_name": "CĐ Amazon Sellers",
+    "group_type": "SOA",
+    "sentiment": "positive",
+    "persona": "Seller (Amazon)",
+    "master_topic": "SOA (Selling on Amazon)"
+  },
+  {
+    "id": "2246616685864794",
+    "link": "https://www.facebook.com/groups/congdongamazonvn/permalink/2246616685864794/",
+    "count": 51,
+    "comments": 50,
+    "preview": "Kể ra TMĐT là sân chơi cho những người trái ngành nhiều nhất ý ae nhỉ? \n\nLực lượng vô cùng đông đảo trên mọi mặt trận, trong khi ngành này các trường ĐH mới …",
+    "group_id": 2,
+    "group_name": "CĐ Amazon Sellers",
+    "group_type": "SOA",
+    "sentiment": "neutral",
+    "persona": "Seller (Others)",
+    "master_topic": "Others"
   }
 ];
   const Q9_TOP_THREADS_EC  = [
   {
-    "id": "26304298779263540",
-    "link": "https://www.facebook.com/groups/congdongetsyvietnam/permalink/26304298779263541/",
-    "count": 97,
-    "comments": 96,
-    "preview": "Lên cơ quan hỏi việc đăng ký mã số thuế và kê khai thuế thì bị cán bộ báo trước tiên phải đóng phạt ít nhất 2 khoản:\n4tr: tội không đăng ký mã số thuế sau kh…",
-    "group_id": 9,
-    "group_name": "ETSY VN",
+    "id": "2362163994282452",
+    "link": "https://www.facebook.com/groups/etsytogo/permalink/2362163994282452/",
+    "count": 109,
+    "comments": 108,
+    "preview": "**[NEW LUNA YEAR CONTEST 2026]** Xin chào toàn thể các anh chị em trong nhóm, đến hẹn lại lên năm cũ qua đi năm mới lại về mình xin phép thay mặt đội ngũ quả…",
+    "group_id": 7,
+    "group_name": "Etsy To Go",
     "group_type": "EC",
-    "sentiment": "negative",
-    "persona": "Prospect (Others)",
+    "sentiment": "positive",
+    "persona": "Service Provider (CBEC)",
     "master_topic": "Others"
   },
   {
-    "id": "2411959215969596",
-    "link": "https://www.facebook.com/groups/etsytogo/permalink/2411959215969596/",
-    "count": 85,
-    "comments": 84,
-    "preview": "**[ETSY SELLER - ZERO STORE] **Halo mọi người, mình đang Build lại 01 Store hoàn toàn mới từ số 0. Hi vọng sẽ sớm đạt 100 Sales đầu tiên để chia sẽ lại quá t…",
+    "id": "2333634087135443",
+    "link": "https://www.facebook.com/groups/etsytogo/permalink/2333634087135443/",
+    "count": 104,
+    "comments": 103,
+    "preview": "**[U23 ASIAN CUP 2026 - VIET NAM vs HAN QUOC] **Xin chào mọi người, trong 03 thập kỷ lịch sử đối đầu ở cấp độ U23 thì Việt Nam chúng ta chỉ toàn hòa (01 trận…",
     "group_id": 7,
     "group_name": "Etsy To Go",
     "group_type": "EC",
     "sentiment": "positive",
     "persona": "Seller (Others)",
-    "master_topic": "Account Creation"
-  },
-  {
-    "id": "26278316198528460",
-    "link": "https://www.facebook.com/groups/congdongetsyvietnam/permalink/26278316198528466/",
-    "count": 78,
-    "comments": 77,
-    "preview": "Update: Mình đã ver lại đc ròi\nKo cái ngu nào bằng cái ngu này, đang nhận tiền bình thường thì đi đổi bank, xong ko xác minh được lại đổi về bank cũ thì như …",
-    "group_id": 9,
-    "group_name": "ETSY VN",
-    "group_type": "EC",
-    "sentiment": "negative",
-    "persona": "Seller (Others)",
-    "master_topic": "Account Health"
-  },
-  {
-    "id": "1499678698402639",
-    "link": "https://www.facebook.com/groups/chuyennhaban/permalink/1499678698402639/",
-    "count": 77,
-    "comments": 76,
-    "preview": "MST đã được chuyển đổi đồng bộ với mã CCCD từ 1/7/2025 rồi. Ko hiểu sao đến giờ các shop vẫn xì xào đk mã 001 với 888 đâu ra nữa",
-    "group_id": 6,
-    "group_name": "Chuyện Nhà Bán",
-    "group_type": "EC",
-    "sentiment": "neutral",
-    "persona": "Seller (Others)",
     "master_topic": "Others"
   },
   {
-    "id": "2414641589034692",
-    "link": "https://www.facebook.com/groups/etsytogo/permalink/2414641589034692/",
-    "count": 64,
-    "comments": 63,
-    "preview": "Đang quét pk mng. Bên m bị sus 4 5 store rồi 🥹😱 !!!!",
+    "id": "2330866200745565",
+    "link": "https://www.facebook.com/groups/etsytogo/permalink/2330866200745565/",
+    "count": 101,
+    "comments": 100,
+    "preview": "**[U23 ASIAN CUP 2026 - VIET NAM vs TRUNG QUOC] **Hòa cùng không khí quyết thắng của đội tuyển U23 quốc gia Việt Nam trong trận bán kết Asian Cup 2026 sẽ diễ…",
     "group_id": 7,
     "group_name": "Etsy To Go",
     "group_type": "EC",
-    "sentiment": "negative",
-    "persona": "Seller (Others)",
-    "master_topic": "Account Health"
+    "sentiment": "positive",
+    "persona": "Service Provider (CBEC)",
+    "master_topic": "Others"
   },
   {
-    "id": "1497610751942767",
-    "link": "https://www.facebook.com/groups/chuyennhaban/permalink/1497610751942767/",
-    "count": 62,
-    "comments": 61,
-    "preview": "Giờ mới hiểu tại sao các đơn hàng lên vùng cao đều bị giao k thành công rất nhiều.",
+    "id": "2315616098937242",
+    "link": "https://www.facebook.com/groups/etsytogo/permalink/2315616098937242/",
+    "count": 100,
+    "comments": 99,
+    "preview": "**[NEW YEAR CONTEST 2026]** Xin chào mọi người, đến hẹn lại lên năm cũ qua đi năm mới lại về mình xin được gửi lời mến chúc một năm mới mọi sự an vui tới toà…",
+    "group_id": 7,
+    "group_name": "Etsy To Go",
+    "group_type": "EC",
+    "sentiment": "positive",
+    "persona": "Seller (Others)",
+    "master_topic": "Others"
+  },
+  {
+    "id": "1471293041241205",
+    "link": "https://www.facebook.com/groups/chuyennhaban/permalink/1471293041241205/",
+    "count": 100,
+    "comments": 99,
+    "preview": "Cho em xin hướng giải quyết với ạ😭 em còn đi học và có nhiều khó khăn về tài chính, shop em đã bị khoá từ lâu, nay shopee gửi mail này em rất lo sợ. Em vừa s…",
     "group_id": 6,
     "group_name": "Chuyện Nhà Bán",
     "group_type": "EC",
     "sentiment": "negative",
     "persona": "Seller (Others)",
-    "master_topic": "Logistics"
+    "master_topic": "Account Health"
   },
   {
-    "id": "1504965671207275",
-    "link": "https://www.facebook.com/groups/chuyennhaban/permalink/1504965671207275/",
-    "count": 60,
-    "comments": 59,
-    "preview": "Sơ sơ cũng tăng khoảng 3% phí.\nQuả này dự sẽ kha khá sellers bỏ sàn đen sau ngày 9/5",
+    "id": "26167833476243408",
+    "link": "https://www.facebook.com/groups/congdongetsyvietnam/permalink/26167833476243406/",
+    "count": 99,
+    "comments": 98,
+    "preview": "Hà Đông - Có anh em newbie nào đang solo làm POD hay handmade etsy ko ạ ? Làm 1m nản quá có ae nào thi thoảng cafe giao lưu tí ! kk",
+    "group_id": 9,
+    "group_name": "ETSY VN",
+    "group_type": "EC",
+    "sentiment": "neutral",
+    "persona": "Prospect (Others)",
+    "master_topic": "SOA (Selling on Amazon)"
+  },
+  {
+    "id": "1421575209546322",
+    "link": "https://www.facebook.com/groups/chuyennhaban/permalink/1421575209546322/",
+    "count": 97,
+    "comments": 96,
+    "preview": "Có ai bị phạt vì chậm kê khai nộp thuế không. Mình bán tiktok shopee thì hàng tháng họ đã kê khai nộp thuế cho mình rồi mà sao bên thuế gửi thông báo phạt vì…",
     "group_id": 6,
     "group_name": "Chuyện Nhà Bán",
     "group_type": "EC",
@@ -4007,43 +4148,43 @@ window.ChiComData2 = (() => {
     "master_topic": "Others"
   },
   {
-    "id": "1485340056503170",
-    "link": "https://www.facebook.com/groups/chuyennhaban/permalink/1485340056503170/",
-    "count": 60,
-    "comments": 59,
-    "preview": "Mời các bạn định giá shop mình thử , đứa con tinh thần đã gây dựng được 4 năm và cũng muốn biết nó có giá trị bao nhiêu.\n\n- Ngành hàng: Giày Dép\n\n- Top tìm k…",
+    "id": "1450869523283557",
+    "link": "https://www.facebook.com/groups/chuyennhaban/permalink/1450869523283557/",
+    "count": 97,
+    "comments": 96,
+    "preview": "Vụ da đen thht húp chi phí 21% thêm 3k phí sử lí đh+3k phí bồi hoàn. Sao rồi các bạn??",
     "group_id": 6,
     "group_name": "Chuyện Nhà Bán",
     "group_type": "EC",
-    "sentiment": "neutral",
+    "sentiment": "negative",
     "persona": "Seller (Others)",
     "master_topic": "SOA (Selling on Amazon)"
   },
   {
-    "id": "2167753174002780",
-    "link": "https://www.facebook.com/groups/514921692619278/permalink/2167753174002780/",
-    "count": 52,
-    "comments": 51,
-    "preview": "M đang muốn tìm hiểu học làm dropshoping theo mọi người có nên theo khoá học của thầy nào đó không m có liên hệ tham khảo vài ng đi trước đc báo mức học phi …",
-    "group_id": 5,
-    "group_name": "Dropship & Shopify",
+    "id": "1471466871223822",
+    "link": "https://www.facebook.com/groups/chuyennhaban/permalink/1471466871223822/",
+    "count": 96,
+    "comments": 95,
+    "preview": "Các bác nhìn cùng em đi ạ. Nó cắt ghép kiểu gì chứ e xem 7749 lần vẫn ko ra vì e có video đóng gói mà. Nhưng vẫn chưa nhìn thấy thủ đoạn tinh vi quá",
+    "group_id": 6,
+    "group_name": "Chuyện Nhà Bán",
     "group_type": "EC",
-    "sentiment": "neutral",
-    "persona": "Prospect (Others)",
-    "master_topic": "SOA (Selling on Amazon)"
+    "sentiment": "negative",
+    "persona": "Seller (Others)",
+    "master_topic": "Others"
   },
   {
-    "id": "26417952571231500",
-    "link": "https://www.facebook.com/groups/congdongetsyvietnam/permalink/26417952571231494/",
-    "count": 50,
-    "comments": 49,
-    "preview": "các bác ơi, cho e hỏi có ai **up sao kê techcombank để verify bank thành công** chưa ạ ? nếu có cho e xin kinh nghiệm với ạ\n\nEm có 1 con acc chính chủ duy nh…",
+    "id": "26079755708384520",
+    "link": "https://www.facebook.com/groups/congdongetsyvietnam/permalink/26079755708384517/",
+    "count": 91,
+    "comments": 90,
+    "preview": "M cần bên vận hành etsy chuyên nghiệp từ tạo tk đến bán sản phẩm. Có bên nào làm ko ạ sư",
     "group_id": 9,
     "group_name": "ETSY VN",
     "group_type": "EC",
-    "sentiment": "negative",
+    "sentiment": "neutral",
     "persona": "Prospect (Others)",
-    "master_topic": "Account Creation"
+    "master_topic": "Third Party"
   }
 ];
   const Q10_TOP        = [
@@ -4051,70 +4192,70 @@ window.ChiComData2 = (() => {
     "vn": "Apparel & Fashion",
     "name": "Apparel & Fashion",
     "en": "Apparel & Fashion",
-    "count": 182,
+    "count": 448,
     "color": "oklch(0.60 0.20 25)"
   },
   {
     "vn": "Jewelry & Accessories",
     "name": "Jewelry & Accessories",
     "en": "Jewelry & Accessories",
-    "count": 119,
+    "count": 273,
     "color": "oklch(0.68 0.17 50)"
   },
   {
     "vn": "Home & Garden",
     "name": "Home & Garden",
     "en": "Home & Garden",
-    "count": 86,
+    "count": 271,
     "color": "oklch(0.75 0.17 90)"
   },
   {
     "vn": "Electronics (China-sourced)",
     "name": "Electronics (China-sourced)",
     "en": "Electronics (China-sourced)",
-    "count": 73,
+    "count": 257,
     "color": "oklch(0.62 0.15 155)"
-  },
-  {
-    "vn": "Private Label (undisclosed)",
-    "name": "Private Label (undisclosed)",
-    "en": "Private Label (undisclosed)",
-    "count": 49,
-    "color": "oklch(0.58 0.14 190)"
   },
   {
     "vn": "USDA Agricultural Products",
     "name": "USDA Agricultural Products",
     "en": "USDA Agricultural Products",
-    "count": 42,
+    "count": 145,
+    "color": "oklch(0.58 0.14 190)"
+  },
+  {
+    "vn": "Private Label (undisclosed)",
+    "name": "Private Label (undisclosed)",
+    "en": "Private Label (undisclosed)",
+    "count": 140,
     "color": "oklch(0.55 0.17 290)"
   },
   {
     "vn": "Kitchen & Home Goods",
     "name": "Kitchen & Home Goods",
     "en": "Kitchen & Home Goods",
-    "count": 38,
+    "count": 134,
     "color": "oklch(0.60 0.20 320)"
   },
   {
     "vn": "Pet Products",
     "name": "Pet Products",
     "en": "Pet Products",
-    "count": 29,
+    "count": 112,
     "color": "oklch(0.55 0.15 230)"
   },
   {
     "vn": "Health & Beauty / Supplements",
     "name": "Health & Beauty / Supplements",
     "en": "Health & Beauty / Supplements",
-    "count": 20,
+    "count": 70,
     "color": "oklch(0.55 0.17 260)"
   },
   {
     "vn": "Toys & Games",
     "name": "Toys & Games",
     "en": "Toys & Games",
-    "count": 19,
+    "count": 48,
     "color": "oklch(0.65 0.12 60)"
   }
 ];
@@ -4123,70 +4264,70 @@ window.ChiComData2 = (() => {
     "vn": "Apparel & Fashion",
     "name": "Apparel & Fashion",
     "en": "Apparel & Fashion",
-    "count": 15,
+    "count": 41,
     "color": "oklch(0.60 0.20 25)"
   },
   {
-    "vn": "USDA Agricultural Products",
-    "name": "USDA Agricultural Products",
-    "en": "USDA Agricultural Products",
-    "count": 12,
+    "vn": "Electronics (China-sourced)",
+    "name": "Electronics (China-sourced)",
+    "en": "Electronics (China-sourced)",
+    "count": 39,
     "color": "oklch(0.68 0.17 50)"
-  },
-  {
-    "vn": "Jewelry & Accessories",
-    "name": "Jewelry & Accessories",
-    "en": "Jewelry & Accessories",
-    "count": 11,
-    "color": "oklch(0.75 0.17 90)"
   },
   {
     "vn": "Home & Garden",
     "name": "Home & Garden",
     "en": "Home & Garden",
-    "count": 8,
+    "count": 34,
+    "color": "oklch(0.75 0.17 90)"
+  },
+  {
+    "vn": "Jewelry & Accessories",
+    "name": "Jewelry & Accessories",
+    "en": "Jewelry & Accessories",
+    "count": 31,
     "color": "oklch(0.62 0.15 155)"
+  },
+  {
+    "vn": "Kitchen & Home Goods",
+    "name": "Kitchen & Home Goods",
+    "en": "Kitchen & Home Goods",
+    "count": 29,
+    "color": "oklch(0.58 0.14 190)"
+  },
+  {
+    "vn": "Private Label (undisclosed)",
+    "name": "Private Label (undisclosed)",
+    "en": "Private Label (undisclosed)",
+    "count": 19,
+    "color": "oklch(0.55 0.17 290)"
+  },
+  {
+    "vn": "USDA Agricultural Products",
+    "name": "USDA Agricultural Products",
+    "en": "USDA Agricultural Products",
+    "count": 19,
+    "color": "oklch(0.60 0.20 320)"
+  },
+  {
+    "vn": "Pet Products",
+    "name": "Pet Products",
+    "en": "Pet Products",
+    "count": 11,
+    "color": "oklch(0.55 0.15 230)"
+  },
+  {
+    "vn": "Health & Beauty / Supplements",
+    "name": "Health & Beauty / Supplements",
+    "en": "Health & Beauty / Supplements",
+    "count": 8,
+    "color": "oklch(0.55 0.17 260)"
   },
   {
     "vn": "Toys & Games",
     "name": "Toys & Games",
     "en": "Toys & Games",
     "count": 8,
-    "color": "oklch(0.58 0.14 190)"
-  },
-  {
-    "vn": "Kitchen & Home Goods",
-    "name": "Kitchen & Home Goods",
-    "en": "Kitchen & Home Goods",
-    "count": 8,
-    "color": "oklch(0.55 0.17 290)"
-  },
-  {
-    "vn": "Health & Beauty / Supplements",
-    "name": "Health & Beauty / Supplements",
-    "en": "Health & Beauty / Supplements",
-    "count": 7,
-    "color": "oklch(0.60 0.20 320)"
-  },
-  {
-    "vn": "Electronics (China-sourced)",
-    "name": "Electronics (China-sourced)",
-    "en": "Electronics (China-sourced)",
-    "count": 7,
-    "color": "oklch(0.55 0.15 230)"
-  },
-  {
-    "vn": "Private Label (undisclosed)",
-    "name": "Private Label (undisclosed)",
-    "en": "Private Label (undisclosed)",
-    "count": 3,
-    "color": "oklch(0.55 0.17 260)"
-  },
-  {
-    "vn": "Pet Products",
-    "name": "Pet Products",
-    "en": "Pet Products",
-    "count": 2,
     "color": "oklch(0.65 0.12 60)"
   }
 ];
@@ -4195,70 +4336,70 @@ window.ChiComData2 = (() => {
     "vn": "Apparel & Fashion",
     "name": "Apparel & Fashion",
     "en": "Apparel & Fashion",
-    "count": 167,
+    "count": 407,
     "color": "oklch(0.60 0.20 25)"
   },
   {
     "vn": "Jewelry & Accessories",
     "name": "Jewelry & Accessories",
     "en": "Jewelry & Accessories",
-    "count": 108,
+    "count": 242,
     "color": "oklch(0.68 0.17 50)"
   },
   {
     "vn": "Home & Garden",
     "name": "Home & Garden",
     "en": "Home & Garden",
-    "count": 78,
+    "count": 237,
     "color": "oklch(0.75 0.17 90)"
   },
   {
     "vn": "Electronics (China-sourced)",
     "name": "Electronics (China-sourced)",
     "en": "Electronics (China-sourced)",
-    "count": 66,
+    "count": 218,
     "color": "oklch(0.62 0.15 155)"
-  },
-  {
-    "vn": "Private Label (undisclosed)",
-    "name": "Private Label (undisclosed)",
-    "en": "Private Label (undisclosed)",
-    "count": 46,
-    "color": "oklch(0.58 0.14 190)"
-  },
-  {
-    "vn": "Kitchen & Home Goods",
-    "name": "Kitchen & Home Goods",
-    "en": "Kitchen & Home Goods",
-    "count": 30,
-    "color": "oklch(0.55 0.17 290)"
   },
   {
     "vn": "USDA Agricultural Products",
     "name": "USDA Agricultural Products",
     "en": "USDA Agricultural Products",
-    "count": 30,
+    "count": 126,
+    "color": "oklch(0.58 0.14 190)"
+  },
+  {
+    "vn": "Private Label (undisclosed)",
+    "name": "Private Label (undisclosed)",
+    "en": "Private Label (undisclosed)",
+    "count": 121,
+    "color": "oklch(0.55 0.17 290)"
+  },
+  {
+    "vn": "Kitchen & Home Goods",
+    "name": "Kitchen & Home Goods",
+    "en": "Kitchen & Home Goods",
+    "count": 105,
     "color": "oklch(0.60 0.20 320)"
   },
   {
     "vn": "Pet Products",
     "name": "Pet Products",
     "en": "Pet Products",
-    "count": 27,
+    "count": 101,
     "color": "oklch(0.55 0.15 230)"
   },
   {
     "vn": "Health & Beauty / Supplements",
     "name": "Health & Beauty / Supplements",
     "en": "Health & Beauty / Supplements",
-    "count": 13,
+    "count": 62,
     "color": "oklch(0.55 0.17 260)"
   },
   {
     "vn": "Toys & Games",
     "name": "Toys & Games",
     "en": "Toys & Games",
-    "count": 11,
+    "count": 40,
     "color": "oklch(0.65 0.12 60)"
   }
 ];
@@ -4433,11 +4574,22 @@ window.ChiComData2 = (() => {
   ]
 };
   const Q10_WEEKS      = [
+  "Dec 22",
+  "Dec 29",
+  "Jan 5",
+  "Jan 12",
+  "Jan 19",
+  "Jan 26",
+  "Feb 2",
+  "Feb 9",
+  "Feb 16",
+  "Feb 23",
+  "Mar 2",
+  "Mar 9",
+  "Mar 16",
+  "Mar 23",
   "Mar 30",
-  "Apr 6",
-  "Apr 13",
-  "Apr 20",
-  "Apr 27"
+  "Apr 6"
 ];
   const Q10_WEEKLY     = [
   {
@@ -4445,11 +4597,22 @@ window.ChiComData2 = (() => {
     "en": "Apparel & Fashion",
     "color": "oklch(0.60 0.20 25)",
     "points": [
-      24,
-      54,
-      51,
-      39,
-      14
+      1,
+      19,
+      19,
+      29,
+      17,
+      22,
+      25,
+      19,
+      16,
+      28,
+      47,
+      80,
+      64,
+      46,
+      16,
+      0
     ]
   },
   {
@@ -4457,11 +4620,22 @@ window.ChiComData2 = (() => {
     "en": "Jewelry & Accessories",
     "color": "oklch(0.68 0.17 50)",
     "points": [
+      0,
+      11,
+      18,
+      23,
       15,
-      40,
-      31,
-      26,
-      7
+      16,
+      19,
+      13,
+      10,
+      17,
+      25,
+      35,
+      33,
+      25,
+      13,
+      0
     ]
   },
   {
@@ -4469,11 +4643,22 @@ window.ChiComData2 = (() => {
     "en": "Home & Garden",
     "color": "oklch(0.75 0.17 90)",
     "points": [
+      1,
+      19,
+      26,
+      7,
+      12,
       14,
-      16,
-      29,
-      20,
-      7
+      10,
+      10,
+      10,
+      14,
+      35,
+      30,
+      37,
+      38,
+      8,
+      0
     ]
   },
   {
@@ -4481,35 +4666,68 @@ window.ChiComData2 = (() => {
     "en": "Electronics (China-sourced)",
     "color": "oklch(0.62 0.15 155)",
     "points": [
-      9,
-      22,
-      21,
+      3,
       19,
-      2
-    ]
-  },
-  {
-    "name": "Private Label (undisclosed)",
-    "en": "Private Label (undisclosed)",
-    "color": "oklch(0.58 0.14 190)",
-    "points": [
-      8,
-      18,
-      8,
+      12,
+      16,
+      21,
       13,
-      2
+      17,
+      19,
+      16,
+      22,
+      24,
+      27,
+      24,
+      22,
+      2,
+      0
     ]
   },
   {
     "name": "USDA Agricultural Products",
     "en": "USDA Agricultural Products",
+    "color": "oklch(0.58 0.14 190)",
+    "points": [
+      0,
+      6,
+      6,
+      8,
+      5,
+      8,
+      28,
+      16,
+      2,
+      7,
+      5,
+      20,
+      20,
+      10,
+      4,
+      0
+    ]
+  },
+  {
+    "name": "Private Label (undisclosed)",
+    "en": "Private Label (undisclosed)",
     "color": "oklch(0.55 0.17 290)",
     "points": [
+      0,
+      3,
+      10,
       5,
-      15,
+      7,
+      9,
       8,
-      4,
-      10
+      8,
+      0,
+      14,
+      11,
+      20,
+      23,
+      12,
+      10,
+      0
     ]
   },
   {
@@ -4517,11 +4735,22 @@ window.ChiComData2 = (() => {
     "en": "Kitchen & Home Goods",
     "color": "oklch(0.60 0.20 320)",
     "points": [
+      1,
+      8,
+      11,
+      6,
       10,
-      15,
-      5,
       7,
-      1
+      15,
+      7,
+      4,
+      6,
+      11,
+      13,
+      14,
+      19,
+      2,
+      0
     ]
   }
 ];
@@ -4529,104 +4758,104 @@ window.ChiComData2 = (() => {
   {
     "vn": "Misc / Other",
     "en": "Misc / Other",
-    "count": 214
-  },
-  {
-    "vn": "Fulfillment models",
-    "en": "Fulfillment models",
-    "count": 98
-  },
-  {
-    "vn": "Account issues / Account errors",
-    "en": "Account issues / Account errors",
-    "count": 88
-  },
-  {
-    "vn": "Amazon advertising best practices",
-    "en": "Amazon advertising best practices",
-    "count": 80
-  },
-  {
-    "vn": "Third-party service introduction",
-    "en": "Third-party service introduction",
-    "count": 75
-  },
-  {
-    "vn": "Logistics costs",
-    "en": "Logistics costs",
-    "count": 74
-  },
-  {
-    "vn": "Cost & Fees",
-    "en": "Cost & Fees",
-    "count": 65
+    "count": 1038
   },
   {
     "vn": "Selling Best Practices",
     "en": "Selling Best Practices",
-    "count": 65
+    "count": 609
   },
   {
-    "vn": "Identity Verification (SIV)",
-    "en": "Identity Verification (SIV)",
-    "count": 64
+    "vn": "Community Events And Contests",
+    "en": "Community Events And Contests",
+    "count": 433
+  },
+  {
+    "vn": "Account issues / Account errors",
+    "en": "Account issues / Account errors",
+    "count": 422
+  },
+  {
+    "vn": "Third-party service introduction",
+    "en": "Third-party service introduction",
+    "count": 321
+  },
+  {
+    "vn": "Account suspension",
+    "en": "Account suspension",
+    "count": 246
+  },
+  {
+    "vn": "Legal Entity Setup",
+    "en": "Legal Entity Setup",
+    "count": 191
   },
   {
     "vn": "Product Selection",
     "en": "Product Selection",
-    "count": 62
+    "count": 188
+  },
+  {
+    "vn": "Fulfillment models",
+    "en": "Fulfillment models",
+    "count": 175
+  },
+  {
+    "vn": "Intellectual property disputes resolution",
+    "en": "Intellectual property disputes resolution",
+    "count": 161
   }
 ];
   const Q10_SUBS_EC    = [
   {
     "vn": "Misc / Other",
     "en": "Misc / Other",
-    "count": 1619
-  },
-  {
-    "vn": "Logistics costs",
-    "en": "Logistics costs",
-    "count": 1201
-  },
-  {
-    "vn": "Selling Best Practices",
-    "en": "Selling Best Practices",
-    "count": 921
+    "count": 8017
   },
   {
     "vn": "Tax Compliance And Declarations",
     "en": "Tax Compliance And Declarations",
-    "count": 902
+    "count": 4142
+  },
+  {
+    "vn": "Selling Best Practices",
+    "en": "Selling Best Practices",
+    "count": 2012
+  },
+  {
+    "vn": "Packaging & shipping optimization",
+    "en": "Packaging & shipping optimization",
+    "count": 1967
   },
   {
     "vn": "Third-party service introduction",
     "en": "Third-party service introduction",
-    "count": 828
-  },
-  {
-    "vn": "Account issues / Account errors",
-    "en": "Account issues / Account errors",
-    "count": 745
+    "count": 1489
   },
   {
     "vn": "Account suspension",
     "en": "Account suspension",
-    "count": 590
+    "count": 1421
   },
   {
-    "vn": "Account Verification",
-    "en": "Account Verification",
-    "count": 479
+    "vn": "Logistics costs",
+    "en": "Logistics costs",
+    "count": 1337
   },
   {
-    "vn": "Supplier sourcing",
-    "en": "Supplier sourcing",
-    "count": 426
+    "vn": "Account issues / Account errors",
+    "en": "Account issues / Account errors",
+    "count": 1260
   },
   {
-    "vn": "Payment Processing And Withdrawals",
-    "en": "Payment Processing And Withdrawals",
-    "count": 392
+    "vn": "Market Trends And Sales Performance",
+    "en": "Market Trends And Sales Performance",
+    "count": 1179
+  },
+  {
+    "vn": "Account verification",
+    "en": "Account verification",
+    "count": 1144
   }
 ];
   const Q11_TOOLS        = [
@@ -4634,82 +4863,82 @@ window.ChiComData2 = (() => {
     "name": "FBA",
     "vn": "FBA",
     "en": "FBA",
-    "count": 61,
-    "use": 61,
-    "satisfied": 15,
-    "issues": 10
-  },
-  {
-    "name": "PPC/Ads",
-    "vn": "PPC/Ads",
-    "en": "PPC/Ads",
-    "count": 28,
-    "use": 28,
-    "satisfied": 9,
-    "issues": 4
+    "count": 119,
+    "use": 119,
+    "satisfied": 17,
+    "issues": 13
   },
   {
     "name": "FBM",
     "vn": "FBM",
     "en": "FBM",
-    "count": 28,
-    "use": 28,
-    "satisfied": 10,
-    "issues": 5
+    "count": 75,
+    "use": 75,
+    "satisfied": 4,
+    "issues": 12
+  },
+  {
+    "name": "PPC/Ads",
+    "vn": "PPC/Ads",
+    "en": "PPC/Ads",
+    "count": 45,
+    "use": 45,
+    "satisfied": 22,
+    "issues": 3
   },
   {
     "name": "Quản lý tồn kho",
     "vn": "Quản lý tồn kho",
     "en": "Inventory management",
-    "count": 14,
-    "use": 14,
-    "satisfied": 1,
-    "issues": 2
-  },
-  {
-    "name": "Brand Registry",
-    "vn": "Brand Registry",
-    "en": "Brand Registry",
-    "count": 11,
-    "use": 11,
-    "satisfied": 3,
-    "issues": 1
+    "count": 33,
+    "use": 33,
+    "satisfied": 14,
+    "issues": 4
   },
   {
     "name": "Helium 10",
     "vn": "Helium 10",
     "en": "Helium 10",
-    "count": 8,
-    "use": 8,
-    "satisfied": 4,
-    "issues": 1
+    "count": 17,
+    "use": 17,
+    "satisfied": 6,
+    "issues": 0
   },
   {
     "name": "Seller Central",
     "vn": "Seller Central",
     "en": "Seller Central",
-    "count": 8,
-    "use": 8,
+    "count": 17,
+    "use": 17,
     "satisfied": 2,
-    "issues": 0
+    "issues": 4
+  },
+  {
+    "name": "Brand Registry",
+    "vn": "Brand Registry",
+    "en": "Brand Registry",
+    "count": 16,
+    "use": 16,
+    "satisfied": 2,
+    "issues": 4
+  },
+  {
+    "name": "Amazon Support",
+    "vn": "Amazon Support",
+    "en": "Amazon Support",
+    "count": 13,
+    "use": 13,
+    "satisfied": 2,
+    "issues": 6
   },
   {
     "name": "AWD",
     "vn": "AWD",
     "en": "AWD",
-    "count": 7,
-    "use": 7,
-    "satisfied": 2,
-    "issues": 0
-  },
-  {
-    "name": "AGL",
-    "vn": "AGL",
-    "en": "AGL",
-    "count": 5,
-    "use": 5,
-    "satisfied": 1,
-    "issues": 0
+    "count": 4,
+    "use": 4,
+    "satisfied": 0,
+    "issues": 1
   },
   {
     "name": "Content A+",
@@ -4717,7 +4946,34 @@ window.ChiComData2 = (() => {
     "en": "Content A+",
     "count": 4,
     "use": 4,
-    "satisfied": 2,
+    "satisfied": 3,
+    "issues": 0
+  },
+  {
+    "name": "AGL",
+    "vn": "AGL",
+    "en": "AGL",
+    "count": 2,
+    "use": 2,
+    "satisfied": 1,
+    "issues": 0
+  },
+  {
+    "name": "Jungle Scout",
+    "vn": "Jungle Scout",
+    "en": "Jungle Scout",
+    "count": 1,
+    "use": 1,
+    "satisfied": 1,
+    "issues": 0
+  },
+  {
+    "name": "AI Canvas",
+    "vn": "AI Canvas",
+    "en": "AI Canvas",
+    "count": 1,
+    "use": 1,
+    "satisfied": 0,
     "issues": 0
   }
 ];
@@ -4726,69 +4982,87 @@ window.ChiComData2 = (() => {
     "vn": "Lỗi hệ thống / Bug",
     "name": "Lỗi hệ thống / Bug",
     "en": "System error / bug",
-    "count": 24
-  },
-  {
-    "vn": "Tài khoản bị khóa / suspend",
-    "name": "Tài khoản bị khóa / suspend",
-    "en": "Account locked / suspended",
-    "count": 9
-  },
-  {
-    "vn": "Phí & chi phí cao",
-    "name": "Phí & chi phí cao",
-    "en": "High fees & costs",
-    "count": 7
+    "count": 122
   },
   {
     "vn": "Khó dùng / phức tạp",
     "name": "Khó dùng / phức tạp",
     "en": "Hard to use / complex",
-    "count": 6
+    "count": 18
+  },
+  {
+    "vn": "Tài khoản bị khóa / suspend",
+    "name": "Tài khoản bị khóa / suspend",
+    "en": "Account locked / suspended",
+    "count": 17
+  },
+  {
+    "vn": "Phí & chi phí cao",
+    "name": "Phí & chi phí cao",
+    "en": "High fees & costs",
+    "count": 12
+  },
+  {
+    "vn": "Hỗ trợ chậm / kém",
+    "name": "Hỗ trợ chậm / kém",
+    "en": "Slow / poor support",
+    "count": 4
   },
   {
     "vn": "Cập nhật chậm / outdated",
     "name": "Cập nhật chậm / outdated",
     "en": "Slow updates / outdated",
     "count": 3
+  },
+  {
+    "vn": "Dữ liệu sai / không chính xác",
+    "name": "Dữ liệu sai / không chính xác",
+    "en": "Incorrect / inaccurate data",
+    "count": 1
   }
 ];
   const Q11_SATISFACTION = [
   {
-    "vn": "Giá hợp lý / đáng tiền",
-    "name": "Giá hợp lý / đáng tiền",
-    "en": "Reasonable price / value for money",
-    "count": 30
-  },
-  {
     "vn": "Dễ dùng / trực quan",
     "name": "Dễ dùng / trực quan",
     "en": "Easy to use / intuitive",
-    "count": 10
+    "count": 42
   },
   {
     "vn": "Hiệu quả rõ rệt",
     "name": "Hiệu quả rõ rệt",
     "en": "Clear effectiveness",
-    "count": 9
+    "count": 35
   },
   {
-    "vn": "Tiết kiệm thời gian",
-    "name": "Tiết kiệm thời gian",
-    "en": "Time saving",
-    "count": 5
+    "vn": "Giá hợp lý / đáng tiền",
+    "name": "Giá hợp lý / đáng tiền",
+    "en": "Reasonable price / value for money",
+    "count": 34
   },
   {
     "vn": "Dữ liệu chính xác",
     "name": "Dữ liệu chính xác",
     "en": "Accurate data",
-    "count": 4
+    "count": 17
+  },
+  {
+    "vn": "Tiết kiệm thời gian",
+    "name": "Tiết kiệm thời gian",
+    "en": "Time saving",
+    "count": 15
   },
   {
     "vn": "Cộng đồng & tài liệu tốt",
     "name": "Cộng đồng & tài liệu tốt",
     "en": "Good community & docs",
-    "count": 3
+    "count": 11
+  },
+  {
+    "vn": "Hỗ trợ tận tình",
+    "name": "Hỗ trợ tận tình",
+    "en": "Responsive support",
+    "count": 1
   },
   {
     "vn": "Nhiều tính năng / đầy đủ",
@@ -4802,78 +5076,78 @@ window.ChiComData2 = (() => {
     "name": "Kế toán / Thuế",
     "vn": "Kế toán / Thuế",
     "en": "Accounting / Tax",
-    "count": 80,
-    "mentions": 80,
-    "need": 7,
-    "satisfaction": 54,
+    "count": 258,
+    "mentions": 258,
+    "need": 23,
+    "satisfaction": 33,
     "demand": 9
   },
   {
     "name": "Vận chuyển / Forwarder",
     "vn": "Vận chuyển / Forwarder",
     "en": "Shipping / Forwarder",
-    "count": 72,
-    "mentions": 72,
-    "need": 6,
-    "satisfaction": 64,
-    "demand": 8
-  },
-  {
-    "name": "Nguồn hàng / Sourcing",
-    "vn": "Nguồn hàng / Sourcing",
-    "en": "Sourcing",
-    "count": 22,
-    "mentions": 22,
-    "need": 2,
-    "satisfaction": 92,
-    "demand": 9
-  },
-  {
-    "name": "Phần mềm / Tool",
-    "vn": "Phần mềm / Tool",
-    "en": "Software / Tools",
-    "count": 16,
-    "mentions": 16,
-    "need": 1,
-    "satisfaction": 75,
-    "demand": 6
+    "count": 104,
+    "mentions": 104,
+    "need": 18,
+    "satisfaction": 61,
+    "demand": 17
   },
   {
     "name": "Pháp lý / Nhãn hiệu",
     "vn": "Pháp lý / Nhãn hiệu",
     "en": "Legal / Trademark",
-    "count": 12,
-    "mentions": 12,
-    "need": 0,
-    "satisfaction": 83,
-    "demand": 0
+    "count": 102,
+    "mentions": 102,
+    "need": 7,
+    "satisfaction": 55,
+    "demand": 7
   },
   {
-    "name": "Tối ưu Listing",
-    "vn": "Tối ưu Listing",
-    "en": "Listing Optimization",
-    "count": 5,
-    "mentions": 5,
-    "need": 0,
+    "name": "Nguồn hàng / Sourcing",
+    "vn": "Nguồn hàng / Sourcing",
+    "en": "Sourcing",
+    "count": 68,
+    "mentions": 68,
+    "need": 12,
+    "satisfaction": 70,
+    "demand": 18
+  },
+  {
+    "name": "Phần mềm / Tool",
+    "vn": "Phần mềm / Tool",
+    "en": "Software / Tools",
+    "count": 43,
+    "mentions": 43,
+    "need": 6,
     "satisfaction": 100,
-    "demand": 0
+    "demand": 14
   },
   {
     "name": "Trợ lý ảo / VA",
     "vn": "Trợ lý ảo / VA",
     "en": "Virtual Assistant / VA",
-    "count": 5,
-    "mentions": 5,
-    "need": 2,
-    "satisfaction": 50,
+    "count": 17,
+    "mentions": 17,
+    "need": 3,
+    "satisfaction": 80,
+    "demand": 18
+  },
+  {
+    "name": "Tối ưu Listing",
+    "vn": "Tối ưu Listing",
+    "en": "Listing Optimization",
+    "count": 10,
+    "mentions": 10,
+    "need": 4,
+    "satisfaction": 75,
     "demand": 40
   },
   {
     "name": "Chụp ảnh sản phẩm",
     "vn": "Chụp ảnh sản phẩm",
     "en": "Product Photography",
-    "count": 3,
-    "mentions": 3,
+    "count": 8,
+    "mentions": 8,
     "need": 0,
     "satisfaction": 100,
     "demand": 0
@@ -4884,78 +5158,78 @@ window.ChiComData2 = (() => {
     "name": "Kế toán / Thuế",
     "vn": "Kế toán / Thuế",
     "en": "Accounting / Tax",
-    "count": 80,
-    "mentions": 80,
-    "need": 7,
-    "satisfaction": 54,
+    "count": 258,
+    "mentions": 258,
+    "need": 23,
+    "satisfaction": 33,
     "demand": 9
   },
   {
     "name": "Vận chuyển / Forwarder",
     "vn": "Vận chuyển / Forwarder",
     "en": "Shipping / Forwarder",
-    "count": 72,
-    "mentions": 72,
-    "need": 6,
-    "satisfaction": 64,
-    "demand": 8
-  },
-  {
-    "name": "Nguồn hàng / Sourcing",
-    "vn": "Nguồn hàng / Sourcing",
-    "en": "Sourcing",
-    "count": 22,
-    "mentions": 22,
-    "need": 2,
-    "satisfaction": 92,
-    "demand": 9
-  },
-  {
-    "name": "Phần mềm / Tool",
-    "vn": "Phần mềm / Tool",
-    "en": "Software / Tools",
-    "count": 16,
-    "mentions": 16,
-    "need": 1,
-    "satisfaction": 75,
-    "demand": 6
+    "count": 104,
+    "mentions": 104,
+    "need": 18,
+    "satisfaction": 61,
+    "demand": 17
   },
   {
     "name": "Pháp lý / Nhãn hiệu",
     "vn": "Pháp lý / Nhãn hiệu",
     "en": "Legal / Trademark",
-    "count": 12,
-    "mentions": 12,
-    "need": 0,
-    "satisfaction": 83,
-    "demand": 0
+    "count": 102,
+    "mentions": 102,
+    "need": 7,
+    "satisfaction": 55,
+    "demand": 7
   },
   {
-    "name": "Tối ưu Listing",
-    "vn": "Tối ưu Listing",
-    "en": "Listing Optimization",
-    "count": 5,
-    "mentions": 5,
-    "need": 0,
+    "name": "Nguồn hàng / Sourcing",
+    "vn": "Nguồn hàng / Sourcing",
+    "en": "Sourcing",
+    "count": 68,
+    "mentions": 68,
+    "need": 12,
+    "satisfaction": 70,
+    "demand": 18
+  },
+  {
+    "name": "Phần mềm / Tool",
+    "vn": "Phần mềm / Tool",
+    "en": "Software / Tools",
+    "count": 43,
+    "mentions": 43,
+    "need": 6,
     "satisfaction": 100,
-    "demand": 0
+    "demand": 14
   },
   {
     "name": "Trợ lý ảo / VA",
     "vn": "Trợ lý ảo / VA",
     "en": "Virtual Assistant / VA",
-    "count": 5,
-    "mentions": 5,
-    "need": 2,
-    "satisfaction": 50,
+    "count": 17,
+    "mentions": 17,
+    "need": 3,
+    "satisfaction": 80,
+    "demand": 18
+  },
+  {
+    "name": "Tối ưu Listing",
+    "vn": "Tối ưu Listing",
+    "en": "Listing Optimization",
+    "count": 10,
+    "mentions": 10,
+    "need": 4,
+    "satisfaction": 75,
     "demand": 40
   },
   {
     "name": "Chụp ảnh sản phẩm",
     "vn": "Chụp ảnh sản phẩm",
     "en": "Product Photography",
-    "count": 3,
-    "mentions": 3,
+    "count": 8,
+    "mentions": 8,
     "need": 0,
     "satisfaction": 100,
     "demand": 0
@@ -4966,29 +5240,29 @@ window.ChiComData2 = (() => {
     "name": "Kế toán / Thuế",
     "vn": "Kế toán / Thuế",
     "en": "Accounting / Tax",
-    "count": 592,
-    "mentions": 592,
-    "need": 39,
-    "satisfaction": 49,
-    "demand": 7
+    "count": 2099,
+    "mentions": 2099,
+    "need": 119,
+    "satisfaction": 18,
+    "demand": 6
   },
   {
     "name": "Vận chuyển / Forwarder",
     "vn": "Vận chuyển / Forwarder",
     "en": "Shipping / Forwarder",
-    "count": 416,
-    "mentions": 416,
-    "need": 24,
-    "satisfaction": 71,
-    "demand": 6
+    "count": 1020,
+    "mentions": 1020,
+    "need": 54,
+    "satisfaction": 34,
+    "demand": 5
   },
   {
     "name": "Phần mềm / Tool",
     "vn": "Phần mềm / Tool",
     "en": "Software / Tools",
-    "count": 104,
-    "mentions": 104,
-    "need": 6,
+    "count": 313,
+    "mentions": 313,
+    "need": 18,
     "satisfaction": 75,
     "demand": 6
   },
@@ -4996,38 +5270,38 @@ window.ChiComData2 = (() => {
     "name": "Nguồn hàng / Sourcing",
     "vn": "Nguồn hàng / Sourcing",
     "en": "Sourcing",
-    "count": 79,
-    "mentions": 79,
-    "need": 4,
-    "satisfaction": 88,
-    "demand": 5
+    "count": 240,
+    "mentions": 240,
+    "need": 10,
+    "satisfaction": 70,
+    "demand": 4
   },
   {
     "name": "Pháp lý / Nhãn hiệu",
     "vn": "Pháp lý / Nhãn hiệu",
     "en": "Legal / Trademark",
-    "count": 35,
-    "mentions": 35,
-    "need": 2,
-    "satisfaction": 62,
-    "demand": 6
+    "count": 88,
+    "mentions": 88,
+    "need": 6,
+    "satisfaction": 17,
+    "demand": 7
   },
   {
     "name": "Trợ lý ảo / VA",
     "vn": "Trợ lý ảo / VA",
     "en": "Virtual Assistant / VA",
-    "count": 18,
-    "mentions": 18,
-    "need": 1,
-    "satisfaction": 25,
-    "demand": 6
+    "count": 49,
+    "mentions": 49,
+    "need": 2,
+    "satisfaction": 57,
+    "demand": 4
   },
   {
     "name": "Chụp ảnh sản phẩm",
     "vn": "Chụp ảnh sản phẩm",
     "en": "Product Photography",
-    "count": 16,
-    "mentions": 16,
+    "count": 19,
+    "mentions": 19,
     "need": 0,
     "satisfaction": 100,
     "demand": 0
@@ -5036,11 +5310,11 @@ window.ChiComData2 = (() => {
     "name": "Tối ưu Listing",
     "vn": "Tối ưu Listing",
     "en": "Listing Optimization",
-    "count": 4,
-    "mentions": 4,
-    "need": 0,
+    "count": 14,
+    "mentions": 14,
+    "need": 2,
     "satisfaction": 100,
-    "demand": 0
+    "demand": 14
   }
 ];
   const Q13_COURSES      = [
@@ -5048,33 +5322,33 @@ window.ChiComData2 = (() => {
     "name": "Đào tạo tổng quát",
     "vn": "Đào tạo tổng quát",
     "en": "General training",
-    "count": 7,
-    "mentions": 7,
-    "seeking": 0,
-    "interest": 0,
-    "positive": 1,
+    "count": 35,
+    "mentions": 35,
+    "seeking": 3,
+    "interest": 9,
+    "positive": 20,
     "negative": 0
   },
   {
     "name": "Mentor / Coaching",
     "vn": "Mentor / Coaching",
     "en": "Mentor / Coaching",
-    "count": 3,
-    "mentions": 3,
-    "seeking": 0,
-    "interest": 0,
-    "positive": 1,
-    "negative": 0
+    "count": 7,
+    "mentions": 7,
+    "seeking": 1,
+    "interest": 14,
+    "positive": 3,
+    "negative": 1
   },
   {
     "name": "Khóa Amazon FBA",
     "vn": "Khóa Amazon FBA",
     "en": "Amazon FBA course",
-    "count": 1,
-    "mentions": 1,
+    "count": 3,
+    "mentions": 3,
     "seeking": 0,
     "interest": 0,
-    "positive": 0,
+    "positive": 2,
     "negative": 0
   }
 ];
@@ -5083,33 +5357,33 @@ window.ChiComData2 = (() => {
     "name": "Đào tạo tổng quát",
     "vn": "Đào tạo tổng quát",
     "en": "General training",
-    "count": 7,
-    "mentions": 7,
-    "seeking": 0,
-    "interest": 0,
-    "positive": 1,
+    "count": 35,
+    "mentions": 35,
+    "seeking": 3,
+    "interest": 9,
+    "positive": 20,
     "negative": 0
   },
   {
     "name": "Mentor / Coaching",
     "vn": "Mentor / Coaching",
     "en": "Mentor / Coaching",
-    "count": 3,
-    "mentions": 3,
-    "seeking": 0,
-    "interest": 0,
-    "positive": 1,
-    "negative": 0
+    "count": 7,
+    "mentions": 7,
+    "seeking": 1,
+    "interest": 14,
+    "positive": 3,
+    "negative": 1
   },
   {
     "name": "Khóa Amazon FBA",
     "vn": "Khóa Amazon FBA",
     "en": "Amazon FBA course",
-    "count": 1,
-    "mentions": 1,
+    "count": 3,
+    "mentions": 3,
     "seeking": 0,
     "interest": 0,
-    "positive": 0,
+    "positive": 2,
     "negative": 0
   }
 ];
@@ -5118,238 +5392,205 @@ window.ChiComData2 = (() => {
     "name": "Đào tạo tổng quát",
     "vn": "Đào tạo tổng quát",
     "en": "General training",
-    "count": 26,
-    "mentions": 26,
-    "seeking": 1,
-    "interest": 4,
-    "positive": 6,
-    "negative": 6
+    "count": 59,
+    "mentions": 59,
+    "seeking": 4,
+    "interest": 7,
+    "positive": 22,
+    "negative": 5
   },
   {
     "name": "Mentor / Coaching",
     "vn": "Mentor / Coaching",
     "en": "Mentor / Coaching",
-    "count": 4,
-    "mentions": 4,
+    "count": 11,
+    "mentions": 11,
     "seeking": 0,
     "interest": 0,
-    "positive": 2,
-    "negative": 1
-  },
-  {
-    "name": "Khóa Amazon FBA",
-    "vn": "Khóa Amazon FBA",
-    "en": "Amazon FBA course",
-    "count": 1,
-    "mentions": 1,
-    "seeking": 1,
-    "interest": 100,
-    "positive": 0,
+    "positive": 4,
     "negative": 0
   }
 ];
   const Q14_GROWTH       = [
   {
-    "name": "Tự động hóa & Tool",
-    "vn": "Tự động hóa & Tool",
-    "en": "Automation & Tools",
-    "count": 30,
-    "color": "oklch(0.75 0.17 60)",
-    "seeking": 3,
-    "positive": 14,
-    "mixed": 13,
-    "negative": 3
-  },
-  {
     "name": "Xây dựng Team",
     "vn": "Xây dựng Team",
     "en": "Team building",
-    "count": 28,
+    "count": 123,
     "color": "oklch(0.55 0.17 290)",
-    "seeking": 1,
-    "positive": 8,
-    "mixed": 19,
-    "negative": 1
+    "seeking": 8,
+    "positive": 42,
+    "mixed": 67,
+    "negative": 14
   },
   {
-    "name": "Mở rộng thị trường",
-    "vn": "Mở rộng thị trường",
-    "en": "Market expansion",
-    "count": 26,
-    "color": "oklch(0.60 0.20 25)",
-    "seeking": 2,
-    "positive": 7,
-    "mixed": 15,
-    "negative": 4
+    "name": "Tự động hóa & Tool",
+    "vn": "Tự động hóa & Tool",
+    "en": "Automation & Tools",
+    "count": 106,
+    "color": "oklch(0.75 0.17 60)",
+    "seeking": 5,
+    "positive": 52,
+    "mixed": 44,
+    "negative": 10
   },
   {
     "name": "Scale vận hành",
     "vn": "Scale vận hành",
     "en": "Operational scaling",
-    "count": 25,
+    "count": 61,
     "color": "oklch(0.55 0.17 260)",
-    "seeking": 0,
-    "positive": 14,
-    "mixed": 10,
-    "negative": 1
+    "seeking": 3,
+    "positive": 38,
+    "mixed": 21,
+    "negative": 2
+  },
+  {
+    "name": "Mở rộng thị trường",
+    "vn": "Mở rộng thị trường",
+    "en": "Market expansion",
+    "count": 57,
+    "color": "oklch(0.60 0.20 25)",
+    "seeking": 8,
+    "positive": 11,
+    "mixed": 38,
+    "negative": 8
   },
   {
     "name": "Marketing & Quảng cáo",
     "vn": "Marketing & Quảng cáo",
     "en": "Marketing & Advertising",
-    "count": 6,
+    "count": 27,
     "color": "oklch(0.62 0.15 155)",
-    "seeking": 0,
-    "positive": 2,
-    "mixed": 4,
-    "negative": 0
-  },
-  {
-    "name": "Tăng doanh thu",
-    "vn": "Tăng doanh thu",
-    "en": "Revenue growth",
-    "count": 1,
-    "color": "oklch(0.62 0.15 200)",
-    "seeking": 0,
-    "positive": 0,
-    "mixed": 0,
+    "seeking": 3,
+    "positive": 15,
+    "mixed": 11,
     "negative": 1
   }
 ];
   const Q14_GROWTH_SOA   = [
   {
-    "name": "Tự động hóa & Tool",
-    "vn": "Tự động hóa & Tool",
-    "en": "Automation & Tools",
-    "count": 30,
-    "color": "oklch(0.75 0.17 60)",
-    "seeking": 3,
-    "positive": 14,
-    "mixed": 13,
-    "negative": 3
-  },
-  {
     "name": "Xây dựng Team",
     "vn": "Xây dựng Team",
     "en": "Team building",
-    "count": 28,
+    "count": 123,
     "color": "oklch(0.55 0.17 290)",
-    "seeking": 1,
-    "positive": 8,
-    "mixed": 19,
-    "negative": 1
+    "seeking": 8,
+    "positive": 42,
+    "mixed": 67,
+    "negative": 14
   },
   {
-    "name": "Mở rộng thị trường",
-    "vn": "Mở rộng thị trường",
-    "en": "Market expansion",
-    "count": 26,
-    "color": "oklch(0.60 0.20 25)",
-    "seeking": 2,
-    "positive": 7,
-    "mixed": 15,
-    "negative": 4
+    "name": "Tự động hóa & Tool",
+    "vn": "Tự động hóa & Tool",
+    "en": "Automation & Tools",
+    "count": 106,
+    "color": "oklch(0.75 0.17 60)",
+    "seeking": 5,
+    "positive": 52,
+    "mixed": 44,
+    "negative": 10
   },
   {
     "name": "Scale vận hành",
     "vn": "Scale vận hành",
     "en": "Operational scaling",
-    "count": 25,
+    "count": 61,
     "color": "oklch(0.55 0.17 260)",
-    "seeking": 0,
-    "positive": 14,
-    "mixed": 10,
-    "negative": 1
+    "seeking": 3,
+    "positive": 38,
+    "mixed": 21,
+    "negative": 2
+  },
+  {
+    "name": "Mở rộng thị trường",
+    "vn": "Mở rộng thị trường",
+    "en": "Market expansion",
+    "count": 57,
+    "color": "oklch(0.60 0.20 25)",
+    "seeking": 8,
+    "positive": 11,
+    "mixed": 38,
+    "negative": 8
   },
   {
     "name": "Marketing & Quảng cáo",
     "vn": "Marketing & Quảng cáo",
     "en": "Marketing & Advertising",
-    "count": 6,
+    "count": 27,
     "color": "oklch(0.62 0.15 155)",
-    "seeking": 0,
-    "positive": 2,
-    "mixed": 4,
-    "negative": 0
-  },
-  {
-    "name": "Tăng doanh thu",
-    "vn": "Tăng doanh thu",
-    "en": "Revenue growth",
-    "count": 1,
-    "color": "oklch(0.62 0.15 200)",
-    "seeking": 0,
-    "positive": 0,
-    "mixed": 0,
+    "seeking": 3,
+    "positive": 15,
+    "mixed": 11,
     "negative": 1
   }
 ];
   const Q14_GROWTH_EC    = [
   {
-    "name": "Tự động hóa & Tool",
-    "vn": "Tự động hóa & Tool",
-    "en": "Automation & Tools",
-    "count": 170,
-    "color": "oklch(0.75 0.17 60)",
-    "seeking": 5,
-    "positive": 83,
-    "mixed": 72,
-    "negative": 15
-  },
-  {
     "name": "Xây dựng Team",
     "vn": "Xây dựng Team",
     "en": "Team building",
-    "count": 149,
+    "count": 369,
     "color": "oklch(0.55 0.17 290)",
-    "seeking": 8,
-    "positive": 57,
-    "mixed": 76,
-    "negative": 16
+    "seeking": 11,
+    "positive": 117,
+    "mixed": 204,
+    "negative": 48
+  },
+  {
+    "name": "Tự động hóa & Tool",
+    "vn": "Tự động hóa & Tool",
+    "en": "Automation & Tools",
+    "count": 336,
+    "color": "oklch(0.75 0.17 60)",
+    "seeking": 11,
+    "positive": 121,
+    "mixed": 190,
+    "negative": 25
   },
   {
     "name": "Scale vận hành",
     "vn": "Scale vận hành",
     "en": "Operational scaling",
-    "count": 125,
+    "count": 317,
     "color": "oklch(0.55 0.17 260)",
-    "seeking": 5,
-    "positive": 85,
-    "mixed": 32,
-    "negative": 8
+    "seeking": 7,
+    "positive": 220,
+    "mixed": 91,
+    "negative": 6
   },
   {
     "name": "Mở rộng thị trường",
     "vn": "Mở rộng thị trường",
     "en": "Market expansion",
-    "count": 69,
+    "count": 169,
     "color": "oklch(0.60 0.20 25)",
-    "seeking": 5,
-    "positive": 21,
-    "mixed": 41,
-    "negative": 7
+    "seeking": 11,
+    "positive": 19,
+    "mixed": 149,
+    "negative": 1
   },
   {
     "name": "Marketing & Quảng cáo",
     "vn": "Marketing & Quảng cáo",
     "en": "Marketing & Advertising",
-    "count": 36,
+    "count": 69,
     "color": "oklch(0.62 0.15 155)",
-    "seeking": 0,
-    "positive": 21,
-    "mixed": 12,
+    "seeking": 1,
+    "positive": 30,
+    "mixed": 36,
     "negative": 3
   },
   {
     "name": "Tăng doanh thu",
     "vn": "Tăng doanh thu",
     "en": "Revenue growth",
-    "count": 8,
+    "count": 14,
     "color": "oklch(0.62 0.15 200)",
-    "seeking": 1,
-    "positive": 4,
-    "mixed": 3,
-    "negative": 1
+    "seeking": 0,
+    "positive": 6,
+    "mixed": 6,
+    "negative": 2
   }
 ];
   return {
