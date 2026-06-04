@@ -21,33 +21,27 @@ def main():
     start, end, slug = sys.argv[1], sys.argv[2], sys.argv[3]
 
     conn = psycopg2.connect(dbname="chicom_dashboard", user="postgres", host="localhost")
-    df = pd.read_sql(f"""
-        SELECT
-            id::text             AS id,
-            group_id,
-            created_date         AS created_date,
-            content,
-            master_topic,
-            sub_topic,
-            persona,
-            sentiment,
-            is_relevant          AS relevant,
-            batch_label
+    cur = conn.cursor()
+    cur.execute("""
+        SELECT id::text, group_id, created_date, content, master_topic,
+               sub_topic, persona, sentiment, is_relevant, batch_label
         FROM pooled_posts_all
-        WHERE created_date BETWEEN '{start}'::date AND '{end}'::date
-    """, conn)
-    conn.close()
+        WHERE created_date BETWEEN %s::date AND %s::date
+    """, (start, end))
+    rows = cur.fetchall()
+    cols = [d[0] for d in cur.description]
+    cur.close(); conn.close()
+    df = pd.DataFrame(rows, columns=cols)
+    df = df.rename(columns={"is_relevant": "relevant"})
 
     if df.empty:
         print(f"No data for {start} to {end}", file=sys.stderr)
         sys.exit(2)
 
-    # rename columns to match what compute expects
-    df = df.rename(columns={"relevant": "relevant"})
     df["created_date"] = pd.to_datetime(df["created_date"])
     df["group_id"] = df["group_id"].fillna("").astype(str)
 
-    js_str, info = compute_mod.compute_all(df, skip_llm=True)
+    js_str, info = compute_mod.compute_all(df)
 
     out_dir = os.path.join(ROOT, "nextjs", "public", "dashboard", "pages")
     os.makedirs(out_dir, exist_ok=True)
@@ -55,7 +49,7 @@ def main():
     with open(out_path, "w", encoding="utf-8") as f:
         f.write(js_str)
 
-    print(f"OK:{out_path}:{info.get('total',0)}:{info.get('relevant',0)}")
+    print(f"OK:{out_path}:{info.get('totalPosts',0)}:{info.get('relevantPosts',0)}")
 
 if __name__ == "__main__":
     main()
