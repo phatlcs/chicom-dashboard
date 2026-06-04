@@ -1,0 +1,37 @@
+import { NextRequest, NextResponse } from 'next/server'
+import { execSync } from 'child_process'
+import { join } from 'path'
+import { readFileSync, existsSync } from 'fs'
+
+export async function POST(req: NextRequest) {
+  const { start, end, slug } = await req.json()
+
+  if (!start || !end || !slug) {
+    return NextResponse.json({ error: 'start, end, slug required' }, { status: 400 })
+  }
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(start) || !/^\d{4}-\d{2}-\d{2}$/.test(end)) {
+    return NextResponse.json({ error: 'Invalid date format' }, { status: 400 })
+  }
+  if (!/^[a-z0-9_-]+$/.test(slug)) {
+    return NextResponse.json({ error: 'Invalid slug' }, { status: 400 })
+  }
+
+  const root = join(process.cwd(), '..')
+  const script = join(root, 'backend', 'generate_range.py')
+
+  try {
+    const out = execSync(
+      `python3 "${script}" "${start}" "${end}" "${slug}"`,
+      { cwd: root, timeout: 120000, encoding: 'utf-8' }
+    ).trim()
+
+    if (!out.startsWith('OK:')) {
+      return NextResponse.json({ error: out }, { status: 500 })
+    }
+
+    const [, filePath, total, relevant] = out.split(':')
+    return NextResponse.json({ ok: true, slug, total: Number(total), relevant: Number(relevant) })
+  } catch (e: any) {
+    return NextResponse.json({ error: e.stderr ?? e.message }, { status: 500 })
+  }
+}
