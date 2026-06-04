@@ -6,21 +6,15 @@ export async function GET(
   _req: Request,
   { params }: { params: { slug: string } }
 ) {
-  const { slug } = params
-  const htmlPath = join(process.cwd(), 'public', 'dashboard', 'index.html')
+  const slug = params.slug
+  const filePath = join(process.cwd(), 'public', `${slug}.html`)
 
   let html: string
   try {
-    html = readFileSync(htmlPath, 'utf-8')
+    html = readFileSync(filePath, 'utf-8')
   } catch {
-    return new NextResponse('Dashboard not found', { status: 404 })
+    return new NextResponse(`Report "${slug}" not found`, { status: 404 })
   }
-
-  // Insert data as a separate <script src> tag — same pattern as original Vercel version
-  html = html.replace(
-    '<script>',
-    `<script src="/dashboard/pages/${slug}.js"></script>\n<script>`
-  )
 
   return new NextResponse(html, {
     headers: { 'Content-Type': 'text/html; charset=utf-8' },
