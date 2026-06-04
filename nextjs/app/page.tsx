@@ -180,7 +180,7 @@ export default function OverviewPage() {
         ) : (
           <div className="divide-y divide-gray-200">
             {pages.map((page) => (
-              <Link key={page.id} href={`/${page.slug}`}>
+              <a key={page.id} href={`/${page.slug}`}>
                 <div className="px-6 py-4 hover:bg-gray-50 transition cursor-pointer">
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
@@ -213,7 +213,7 @@ export default function OverviewPage() {
                     </div>
                   </div>
                 </div>
-              </Link>
+              </a>
             ))}
           </div>
         )}
