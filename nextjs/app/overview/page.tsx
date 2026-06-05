@@ -52,7 +52,9 @@ export default function OverviewPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ start: s, end: e, slug }),
       })
-      const data = await r.json()
+      const text = await r.text()
+      let data: any = {}
+      try { data = JSON.parse(text) } catch { throw new Error(text.slice(0, 200)) }
       if (!r.ok) throw new Error(data.error ?? 'Generation failed')
 
       const report: Report = {
