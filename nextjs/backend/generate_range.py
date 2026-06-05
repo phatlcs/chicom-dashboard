@@ -85,6 +85,7 @@ def main():
     html_path = os.path.join(ROOT, "public", f"{slug}.html")
     with open(html_path, "w", encoding="utf-8") as f:
         f.write(html)
+    os.chmod(html_path, 0o644)
 
     print(f"OK:{html_path}:{info.get('totalPosts',0)}:{info.get('relevantPosts',0)}")
 
