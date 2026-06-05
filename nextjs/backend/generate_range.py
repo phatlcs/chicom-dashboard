@@ -41,7 +41,8 @@ def main():
         sys.exit(2)
 
     df["created_date"] = pd.to_datetime(df["created_date"])
-    df["group_id"] = df["group_id"].fillna("").astype(str)
+    # compute.py uses integer group_ids (SOA_IDS = [1, 2])
+    df["group_id"] = pd.to_numeric(df["group_id"], errors="coerce").fillna(0).astype(int)
 
     js_str, info = compute_mod.compute_all(df)
 
