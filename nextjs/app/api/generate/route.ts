@@ -25,11 +25,12 @@ export async function POST(req: NextRequest) {
       { cwd: root, timeout: 120000, encoding: 'utf-8' }
     ).trim()
 
-    if (!out.startsWith('OK:')) {
+    const okLine = out.split('\n').find(l => l.startsWith('OK:'))
+    if (!okLine) {
       return NextResponse.json({ error: out }, { status: 500 })
     }
 
-    const [, filePath, total, relevant] = out.split(':')
+    const [, filePath, total, relevant] = okLine.split(':')
     return NextResponse.json({ ok: true, slug, total: Number(total), relevant: Number(relevant) })
   } catch (e: any) {
     return NextResponse.json({ error: e.stderr ?? e.message }, { status: 500 })
