@@ -17,7 +17,7 @@ export default function Sidebar() {
     <>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`fixed top-4 left-4 z-50 p-2 rounded-lg bg-slate-900 text-white hover:bg-slate-800 transition ${isOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+        className={`fixed top-16 left-4 z-50 p-2 rounded-lg bg-slate-900 text-white hover:bg-slate-800 transition ${isOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
         aria-label="Toggle sidebar"
       >
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
