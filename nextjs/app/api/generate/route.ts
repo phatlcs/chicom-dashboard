@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { execSync } from 'child_process'
 import { join } from 'path'
-import { readFileSync, existsSync } from 'fs'
+
+export const dynamic = 'force-dynamic'
 
 export async function POST(req: NextRequest) {
   const { start, end, slug } = await req.json()
