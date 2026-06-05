@@ -105,7 +105,7 @@ export default function OverviewPage() {
         ))}
 
         {/* Date range generator */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginLeft: 'auto' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
           <input type="date" value={start} onChange={e => setStart(e.target.value)}
             style={{ padding: '4px 8px', borderRadius: 6, border: '1px solid #475569', background: '#1e293b', color: '#fff', fontSize: 12 }} />
           <span style={{ color: '#64748b' }}>→</span>
