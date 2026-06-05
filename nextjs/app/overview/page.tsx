@@ -85,7 +85,7 @@ export default function OverviewPage() {
   return (
     <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, display: 'flex', flexDirection: 'column', zIndex: 1 }}>
       {/* Header */}
-      <div style={{ background: '#1e293b', color: '#fff', padding: '10px 16px', display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap', flexShrink: 0, zIndex: 2 }}>
+      <div style={{ background: '#1e293b', color: '#fff', padding: '10px 16px 10px 64px', display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap', flexShrink: 0, zIndex: 2 }}>
         <span style={{ fontWeight: 700, fontSize: 13, marginRight: 4 }}>Overview</span>
 
         {/* Preset buttons */}
