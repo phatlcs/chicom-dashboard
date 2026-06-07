@@ -23,7 +23,7 @@ export async function POST(req: NextRequest) {
   try {
     const out = execSync(
       `python3.9 "${script}" "${start}" "${end}" "${slug}"`,
-      { cwd: root, timeout: 120000, encoding: 'utf-8' }
+      { cwd: root, timeout: 300000, encoding: 'utf-8' }
     ).trim()
 
     const okLine = out.split('\n').find(l => l.startsWith('OK:'))

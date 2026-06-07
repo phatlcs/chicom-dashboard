@@ -37,7 +37,15 @@ def main():
     df = df.rename(columns={"is_relevant": "relevant"})
 
     if df.empty:
-        print(f"No data for {start} to {end}", file=sys.stderr)
+        # Try to find available data range and adjust
+        cur = conn.cursor()
+        cur.execute("SELECT MIN(created_date), MAX(created_date) FROM pooled_posts_all WHERE created_date IS NOT NULL")
+        result = cur.fetchone()
+        cur.close()
+        if result and result[0]:
+            print(f"ERROR: No data for {start} to {end}. Available data: {result[0]} to {result[1]}", file=sys.stderr)
+        else:
+            print(f"ERROR: No data available in database", file=sys.stderr)
         sys.exit(2)
 
     df["created_date"] = pd.to_datetime(df["created_date"])
