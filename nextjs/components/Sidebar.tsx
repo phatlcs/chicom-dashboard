@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation'
 const REPORTS = [
   { slug: 'q1', label: 'Q1 2026 (Jan-Mar)' },
   { slug: 'april', label: 'April 2026' },
+  { slug: 'may', label: 'May 2026' },
 ]
 
 export default function Sidebar() {
