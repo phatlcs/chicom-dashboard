@@ -99,20 +99,20 @@ function Q7() {
   // segment (matches the remixed analyst report). Falls back to the
   // keyword-matched Q7_TOPICS charts if the pipeline hasn't been rebuilt
   // with the new Q7_POS_SUBS_* fields yet.
-  const hasSubSplit = D2.Q7_POS_SUBS_SOA && D2.Q7_POS_SUBS_EC;
+  const hasSubSplit = window.D2.Q7_POS_SUBS_SOA && window.D2.Q7_POS_SUBS_EC;
 
   const soaBadge = <span className="badge soa">SOA</span>;
   const ecBadge  = <span className="badge ec">EC</span>;
 
-  const soaTop = (D2.Q7_POS_SUBS_SOA || [])[0] || { en: '—', vn: '—', count: 0 };
-  const ecTop  = (D2.Q7_POS_SUBS_EC  || [])[0] || { en: '—', vn: '—', count: 0 };
+  const soaTop = (window.D2.Q7_POS_SUBS_SOA || [])[0] || { en: '—', vn: '—', count: 0 };
+  const ecTop  = (window.D2.Q7_POS_SUBS_EC  || [])[0] || { en: '—', vn: '—', count: 0 };
 
   return (
     <div className="grid-12">
       {hasSubSplit ? (
         <>
-          <div className="col-6"><Q7BarCard items={D2.Q7_POS_SUBS_SOA} title="Top positive sub-topics" badge={soaBadge} chartId="Q7_1" tt={tt} /></div>
-          <div className="col-6"><Q7BarCard items={D2.Q7_POS_SUBS_EC}  title="Top positive sub-topics" badge={ecBadge}  chartId="Q7_2" tt={tt} /></div>
+          <div className="col-6"><Q7BarCard items={window.D2.Q7_POS_SUBS_SOA} title="Top positive sub-topics" badge={soaBadge} chartId="Q7_1" tt={tt} /></div>
+          <div className="col-6"><Q7BarCard items={window.D2.Q7_POS_SUBS_EC}  title="Top positive sub-topics" badge={ecBadge}  chartId="Q7_2" tt={tt} /></div>
         </>
       ) : (
         <>
@@ -396,8 +396,8 @@ function Q9ThreadList({ title, badge, items, chartId }) {
 }
 
 function Q9() {
-  const soa = D2.Q9_TOP_THREADS_SOA || [];
-  const ec  = D2.Q9_TOP_THREADS_EC  || [];
+  const soa = window.D2.Q9_TOP_THREADS_SOA || [];
+  const ec  = window.D2.Q9_TOP_THREADS_EC  || [];
   const soaBadge = <span className="badge soa">SOA</span>;
   const ecBadge  = <span className="badge ec">EC</span>;
 

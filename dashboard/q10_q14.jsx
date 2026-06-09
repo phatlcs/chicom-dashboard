@@ -190,9 +190,9 @@ function Q10() {
 
   // Pull keyword-matched category data from the data pipeline
   const D2 = window.ChiComData2 || {};
-  const rowsAll = D2.Q10_TOP     || [];
-  const rowsSOA = D2.Q10_TOP_SOA || [];
-  const rowsEC  = D2.Q10_TOP_EC  || [];
+  const rowsAll = window.D2.Q10_TOP     || [];
+  const rowsSOA = window.D2.Q10_TOP_SOA || [];
+  const rowsEC  = window.D2.Q10_TOP_EC  || [];
 
   // Sum of all keyword-matched mentions for each scope (denominator for %)
   const sumOf = rows => rows.reduce((acc, r) => acc + (r.count || 0), 0);
@@ -294,7 +294,7 @@ function Q10() {
             </div>
             <div style={{ padding: '12px 18px' }}>
               {p.data.map((d, i) => {
-                const kws = (D2.Q10_KEYWORDS || {})[d.cat] || [];
+                const kws = (window.D2.Q10_KEYWORDS || {})[d.cat] || [];
                 return (
                   <div key={d.cat} style={{
                     display: 'grid', gridTemplateColumns: '220px 1fr 60px',

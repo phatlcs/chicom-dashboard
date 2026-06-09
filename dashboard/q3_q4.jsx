@@ -4,7 +4,7 @@ const { useState: useStateQ3 } = React;
 // ============ Q3 — Seller vs Prospect deep dive ============
 function Q3() {
   const tt = window.useTooltip();
-  const q3 = [...D.Q3_SELLER_PROSPECT].sort((a, b) => Math.max(b.sellerPct, b.prospectPct) - Math.max(a.sellerPct, a.prospectPct));
+  const q3 = [...window.D.Q3_SELLER_PROSPECT].sort((a, b) => Math.max(b.sellerPct, b.prospectPct) - Math.max(a.sellerPct, a.prospectPct));
   const max = Math.max(...q3.flatMap(r => [r.sellerPct, r.prospectPct]));
 
   // Match the persona palette in shell.jsx (Seller=blue, Prospect=orange)
@@ -12,7 +12,7 @@ function Q3() {
   const prospectColor = 'oklch(0.55 0.17 55)';
 
   // Sub-topic difference — each bar uses its parent master-topic color
-  const subs = [...D.Q3_SUBS].sort((a, b) => b.diff - a.diff);
+  const subs = [...window.D.Q3_SUBS].sort((a, b) => b.diff - a.diff);
   const absMax = Math.max(...subs.map(s => Math.abs(s.diff))) + 1;
   // Fallback color for any sub-topic missing .color
   const defaultColor = 'oklch(0.62 0.15 260)';
@@ -23,7 +23,7 @@ function Q3() {
         <div className="card">
           <div className="card-head">
             <div>
-              <div className="card-title">{D.MASTER_TOPICS.length} Master Topics — Seller vs Prospect</div>
+              <div className="card-title">{window.D.MASTER_TOPICS.length} Master Topics — Seller vs Prospect</div>
             </div>
             <div className="legend-inline">
               <span><span className="dot" style={{ background: sellerColor }}></span>Seller</span>
@@ -133,9 +133,9 @@ function Q4() {
   // Single-month datasets (e.g. April-only build) collapse the monthly view to
   // a single point. Auto-switch to weekly granularity in that case so the
   // chart has something to draw across the time axis.
-  const useWeekly = (D.MONTHS || []).length < 2;
-  const trends = useWeekly ? D.Q4_WEEKLY : D.Q4_TRENDS;
-  const months = useWeekly ? D.WEEKS : D.MONTHS;
+  const useWeekly = (window.D.MONTHS || []).length < 2;
+  const trends = useWeekly ? window.D.Q4_WEEKLY : window.D.Q4_TRENDS;
+  const months = useWeekly ? window.D.WEEKS : window.D.MONTHS;
   const granLabel = useWeekly ? 'weekly' : 'monthly';
   const W = 700, H = 280, pad = { t: 20, r: 20, b: 30, l: 40 };
   const maxY = Math.max(...trends.flatMap(t => t.points));
@@ -166,13 +166,13 @@ function Q4() {
   };
 
   // weekly with events
-  const weekly = D.Q4_WEEKLY;
-  const weeks = D.Q4_EVENTS;
+  const weekly = window.D.Q4_WEEKLY;
+  const weeks = window.D.Q4_EVENTS;
   const WW = 820, WH = 320, wpad = { t: 64, r: 240, b: 32, l: 44 };
   const maxWY = Math.max(...weekly.flatMap(t => t.points));
   const wPlotW = WW - wpad.l - wpad.r, wPlotH = WH - wpad.t - wpad.b;
-  const weekRangeLabel = (D.WEEKS && D.WEEKS.length)
-    ? `${D.WEEKS[0]} — ${D.WEEKS[D.WEEKS.length - 1]} · weekly`
+  const weekRangeLabel = (window.D.WEEKS && window.D.WEEKS.length)
+    ? `${window.D.WEEKS[0]} — ${window.D.WEEKS[window.D.WEEKS.length - 1]} · weekly`
     : 'weekly';
 
   return (
@@ -265,7 +265,7 @@ function Q4() {
               <line key={i} x1={wpad.l} y1={wpad.t + wPlotH * f} x2={WW - wpad.r} y2={wpad.t + wPlotH * f} className="grid-line" />
             ))}
             {weeks.map((ev, i) => {
-              const x = wpad.l + (ev.week / (D.WEEKS.length - 1)) * wPlotW;
+              const x = wpad.l + (ev.week / (window.D.WEEKS.length - 1)) * wPlotW;
               // 3-row stagger so adjacent spike labels don't collide
               const yOffset = [-46, -30, -14][i % 3];
               return (
@@ -292,8 +292,8 @@ function Q4() {
                 </g>
               );
             })}
-            {D.WEEKS.map((w, i) => i % 2 === 0 && (
-              <text key={w} x={wpad.l + (i / (D.WEEKS.length - 1)) * wPlotW} y={WH - 10} textAnchor="middle" className="axis-tick">{w}</text>
+            {window.D.WEEKS.map((w, i) => i % 2 === 0 && (
+              <text key={w} x={wpad.l + (i / (window.D.WEEKS.length - 1)) * wPlotW} y={WH - 10} textAnchor="middle" className="axis-tick">{w}</text>
             ))}
             {weekly.map((t, i) => {
               const label = t.en.length > 24 ? t.en.slice(0, 22) + '…' : t.en;
@@ -308,13 +308,13 @@ function Q4() {
             })}
           </svg>
           {(() => {
-            const spikeCount = (D.Q4_EVENTS || []).length;
+            const spikeCount = (window.D.Q4_EVENTS || []).length;
             // For multi-week single-month builds, find the topic with the
             // largest peak across the weeks of the month and report it.
             const peakOf = (t) => Math.max(...t.points);
-            const topTrend = [...(D.Q4_WEEKLY || [])].sort((a, b) => peakOf(b) - peakOf(a))[0];
+            const topTrend = [...(window.D.Q4_WEEKLY || [])].sort((a, b) => peakOf(b) - peakOf(a))[0];
             const peakIdx = topTrend ? topTrend.points.indexOf(peakOf(topTrend)) : -1;
-            const peakWk = peakIdx >= 0 ? (D.WEEKS || [])[peakIdx] : '';
+            const peakWk = peakIdx >= 0 ? (window.D.WEEKS || [])[peakIdx] : '';
             const peakVal = peakIdx >= 0 ? topTrend.points[peakIdx] : 0;
             const first = topTrend?.points[0] || 0;
             const last  = topTrend ? topTrend.points[topTrend.points.length - 1] : 0;

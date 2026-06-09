@@ -126,8 +126,8 @@ function App() {
           title="Business growth & P&L discussion — positive and negative"><Q14 /></window.Section>
 
         <div style={{ padding: '24px 0', borderTop: '1px solid var(--border)', color: 'var(--text-3)', fontSize: 12, display: 'flex', justifyContent: 'space-between' }}>
-          <span>Boost Insights · data from {(window.BoostData && window.BoostData.KPI && window.BoostData.KPI.totalPosts.toLocaleString()) || '—'} mentions</span>
-          <span className="mono">14 questions · {(window.BoostData && window.BoostData.ALL_GROUPS && window.BoostData.ALL_GROUPS.length) || 9} communities</span>
+          <span>Boost Insights · data from {(window.ChiComData && window.ChiComData.KPI && window.ChiComData.KPI.totalPosts.toLocaleString()) || '—'} mentions</span>
+          <span className="mono">14 questions · {(window.ChiComData && window.ChiComData.ALL_GROUPS && window.ChiComData.ALL_GROUPS.length) || 9} communities</span>
         </div>
       </div>
 
@@ -136,5 +136,13 @@ function App() {
   );
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+if (window.D && window.D2) {
+  ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+} else {
+  setTimeout(() => {
+    if (window.D && window.D2) {
+      ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+    }
+  }, 100);
+}
 

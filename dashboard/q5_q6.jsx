@@ -82,11 +82,11 @@ function TopNegTopics({ items, title, badge, chartId, tt }) {
 
 function Q5() {
   const tt = window.useTooltip();
-  const hasSplit = D.Q5_BY_DAY_SOA && D.Q5_BY_DAY_EC && D.Q5_TOP_NEG_SOA && D.Q5_TOP_NEG_EC;
+  const hasSplit = window.D.Q5_BY_DAY_SOA && window.D.Q5_BY_DAY_EC && window.D.Q5_TOP_NEG_SOA && window.D.Q5_TOP_NEG_EC;
 
-  const daily  = D.Q5_BY_DAY;
+  const daily  = window.D.Q5_BY_DAY;
   const topDay = [...daily].sort((a, b) => b.count - a.count)[0] || { day: '—', count: 0 };
-  const topNeg = D.Q5_TOP_NEG[0] || { vn: '—', count: 0 };
+  const topNeg = window.D.Q5_TOP_NEG[0] || { vn: '—', count: 0 };
 
   const soaBadge = <span className="badge soa">SOA</span>;
   const ecBadge  = <span className="badge ec">EC</span>;
@@ -96,16 +96,16 @@ function Q5() {
       {hasSplit ? (
         <>
           <div className="col-6">
-            <DayBar daily={D.Q5_BY_DAY_SOA} title="Day of week" badge={soaBadge} chartId="Q5_1" tt={tt} />
+            <DayBar daily={window.D.Q5_BY_DAY_SOA} title="Day of week" badge={soaBadge} chartId="Q5_1" tt={tt} />
           </div>
           <div className="col-6">
-            <DayBar daily={D.Q5_BY_DAY_EC} title="Day of week" badge={ecBadge} chartId="Q5_3" tt={tt} />
+            <DayBar daily={window.D.Q5_BY_DAY_EC} title="Day of week" badge={ecBadge} chartId="Q5_3" tt={tt} />
           </div>
           <div className="col-6">
-            <TopNegTopics items={D.Q5_TOP_NEG_SOA} title="Top negative topics" badge={soaBadge} chartId="Q5_2" tt={tt} />
+            <TopNegTopics items={window.D.Q5_TOP_NEG_SOA} title="Top negative topics" badge={soaBadge} chartId="Q5_2" tt={tt} />
           </div>
           <div className="col-6">
-            <TopNegTopics items={D.Q5_TOP_NEG_EC} title="Top negative topics" badge={ecBadge} chartId="Q5_4" tt={tt} />
+            <TopNegTopics items={window.D.Q5_TOP_NEG_EC} title="Top negative topics" badge={ecBadge} chartId="Q5_4" tt={tt} />
           </div>
         </>
       ) : (
@@ -114,7 +114,7 @@ function Q5() {
             <DayBar daily={daily} title="Distribution by day of week" chartId="Q5_1" tt={tt} />
           </div>
           <div className="col-6">
-            <TopNegTopics items={D.Q5_TOP_NEG} title="Top 6 negative topics" chartId="Q5_2" tt={tt} />
+            <TopNegTopics items={window.D.Q5_TOP_NEG} title="Top 6 negative topics" chartId="Q5_2" tt={tt} />
           </div>
         </>
       )}
@@ -207,18 +207,18 @@ function HourLine({ hourly, title, badge, chartId, peakWindow, tt }) {
 
 function Q6() {
   const tt = window.useTooltip();
-  const heatmap = D.Q56_HEATMAP;
+  const heatmap = window.D.Q56_HEATMAP;
   const maxHeat = Math.max(1, ...heatmap.flat());
-  const hourly  = D.Q6_BY_HOUR;
+  const hourly  = window.D.Q6_BY_HOUR;
   const topHour = [...hourly].sort((a, b) => b.count - a.count)[0] || { hour: 0, count: 0 };
-  const pw      = D.Q5_PEAK_WINDOW;
+  const pw      = window.D.Q5_PEAK_WINDOW;
 
-  const hasSplit = D.Q6_BY_HOUR_SOA && D.Q6_BY_HOUR_EC;
+  const hasSplit = window.D.Q6_BY_HOUR_SOA && window.D.Q6_BY_HOUR_EC;
 
   // Donut for peak-window distribution (stays cross-cutting / combined)
-  const earlyTotal = D.Q5_EARLY_DIST.reduce((a, b) => a + b.slot, 0);
+  const earlyTotal = window.D.Q5_EARLY_DIST.reduce((a, b) => a + b.slot, 0);
   let donutAcc = 0;
-  const donutSeg = D.Q5_EARLY_DIST.map((t, i) => {
+  const donutSeg = window.D.Q5_EARLY_DIST.map((t, i) => {
     const frac = t.slot / earlyTotal;
     const start = donutAcc;
     donutAcc += frac;
@@ -233,10 +233,10 @@ function Q6() {
       {hasSplit ? (
         <>
           <div className="col-6">
-            <HourLine hourly={D.Q6_BY_HOUR_SOA} title="Hour of day" badge={soaBadge} chartId="Q6_1" peakWindow={pw} tt={tt} />
+            <HourLine hourly={window.D.Q6_BY_HOUR_SOA} title="Hour of day" badge={soaBadge} chartId="Q6_1" peakWindow={pw} tt={tt} />
           </div>
           <div className="col-6">
-            <HourLine hourly={D.Q6_BY_HOUR_EC}  title="Hour of day" badge={ecBadge}  chartId="Q6_4" peakWindow={pw} tt={tt} />
+            <HourLine hourly={window.D.Q6_BY_HOUR_EC}  title="Hour of day" badge={ecBadge}  chartId="Q6_4" peakWindow={pw} tt={tt} />
           </div>
         </>
       ) : (
@@ -262,10 +262,10 @@ function Q6() {
             </div>
           </div>
           <svg width="100%" viewBox="0 0 680 230">
-            {D.DAYS_VN.map((d, di) => (
+            {window.D.DAYS_VN.map((d, di) => (
               <text key={d} x={24} y={38 + di * 26} textAnchor="end" className="axis-tick">{d}</text>
             ))}
-            {D.DAYS_VN.map((d, di) => (
+            {window.D.DAYS_VN.map((d, di) => (
               Array.from({ length: 24 }, (_, h) => {
                 const v = heatmap[di][h];
                 const intensity = Math.pow(v / maxHeat, 0.6);
