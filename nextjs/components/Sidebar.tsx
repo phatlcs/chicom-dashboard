@@ -5,11 +5,11 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 const REPORTS = [
-  { slug: 'q1', label: 'Q1 2026 (Jan-Mar)' },
-  { slug: 'april', label: 'April 2026' },
-  { slug: 'may', label: 'May 2026' },
+  { slug: 'may', label: 'May 2026', created: new Date('2026-06-09') },
+  { slug: 'april', label: 'April 2026', created: new Date('2026-06-08') },
+  { slug: 'q1', label: 'Q1 2026 (Jan-Mar)', created: new Date('2026-06-07') },
   // Note: 'overview' report is hidden from this list - only accessible via /overview page
-]
+].sort((a, b) => b.created.getTime() - a.created.getTime())
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false)
