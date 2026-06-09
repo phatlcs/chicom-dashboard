@@ -1,9 +1,9 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import './globals.css'
 import Sidebar from '@/components/Sidebar'
 
 export const metadata: Metadata = {
-  title: 'ChiCom Dashboard Admin',
+  title: 'Boost Dashboard Admin',
   description: 'Admin panel for monthly data pooling and reporting',
 }
 
@@ -25,3 +25,4 @@ export default function RootLayout({
     </html>
   )
 }
+

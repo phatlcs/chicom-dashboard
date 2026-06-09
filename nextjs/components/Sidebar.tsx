@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useState } from 'react'
 import Link from 'next/link'
@@ -32,7 +32,7 @@ export default function Sidebar() {
 
       <aside className={`fixed top-0 left-0 h-screen w-64 bg-slate-900 text-white overflow-y-auto z-40 transition-transform duration-300 ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
         <div className="p-6 mt-4">
-          <Link href="/"><h1 className="text-xl font-bold text-white">ChiCom Admin</h1></Link>
+          <Link href="/"><h1 className="text-xl font-bold text-white">Boost Admin</h1></Link>
           <p className="text-slate-400 text-sm mt-1">Dashboard</p>
         </div>
 
@@ -75,9 +75,10 @@ export default function Sidebar() {
         </nav>
 
         <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-slate-800">
-          <p className="text-slate-400 text-xs">© 2026 ChiCom</p>
+          <p className="text-slate-400 text-xs">© 2026 Boost</p>
         </div>
       </aside>
     </>
   )
 }
+

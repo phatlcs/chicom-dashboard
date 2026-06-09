@@ -1,6 +1,6 @@
-/* global React */
+﻿/* global React */
 const { useState, useEffect, useRef, useMemo } = React;
-const D = window.ChiComData;
+const D = window.BoostData;
 
 // ----- shared helpers -----
 const clsx = (...xs) => xs.filter(Boolean).join(' ');
@@ -90,7 +90,7 @@ function TopBar() {
 window.TopBar = TopBar;
 
 function KpiStrip() {
-  const kpi = (window.ChiComData || {}).KPI || {};
+  const kpi = (window.BoostData || {}).KPI || {};
   const fmt = n => n ? n.toLocaleString() : '—';
   const rel = kpi.relevantPosts || 0;
   const posPct = rel ? (kpi.positiveMentions / rel) * 100 : 0;
@@ -152,7 +152,7 @@ window.KpiStrip = KpiStrip;
 // PersonaByGroupChart — stacked bar (Count / 100%) of persona composition per
 // community. Lives in Q1's section now, not in the topline.
 function PersonaByGroupChart() {
-  const D1 = window.ChiComData || {};
+  const D1 = window.BoostData || {};
   const groups = D1.PERSONA_BY_GROUP || [];
   const personas = D1.PERSONAS || [];
   const tt = window.useTooltip();
@@ -328,8 +328,8 @@ window.PersonaByGroupChart = PersonaByGroupChart;
 // HighlightsBar — topline highlight cards: hot topics, product category (Q10),
 // Amazon product/program (Q11).
 function HighlightsBar() {
-  const D1 = window.ChiComData || {};
-  const D2 = window.ChiComData2 || {};
+  const D1 = window.BoostData || {};
+  const D2 = window.BoostData2 || {};
   const q10 = D2.Q10_TOP   || [];
   const q11 = D2.Q11_TOOLS || [];
 
@@ -514,7 +514,7 @@ function AnchorRail() {
 window.AnchorRail = AnchorRail;
 
 function Section({ id, num, title, scope, soaOnly, children }) {
-  const soaScope = (window.ChiComData || {}).SOA_SCOPE;
+  const soaScope = (window.BoostData || {}).SOA_SCOPE;
   // Scope falls back to expert_insights.json entry if not passed explicitly.
   const expertScope = scope || ((window.ExpertInsights || {})[id] || {}).scope;
   return (
@@ -642,7 +642,7 @@ window.ScopeBadge = ScopeBadge;
 
 // ── Team-shared insight overrides (Vercel KV via /api/insights) ───────────
 // Fetched once on page load. Each <Insight qId="Q1"/> merges KV overrides
-// on top of the baked-in window.ChiComData.INSIGHTS, and in-place edits
+// on top of the baked-in window.BoostData.INSIGHTS, and in-place edits
 // POST back to the same endpoint so every teammate sees the latest.
 
 window.__kvInsights = window.__kvInsights || { loaded: false, data: {}, listeners: new Set() };
@@ -705,7 +705,7 @@ function CommentBox({ chartId, slot, label }) {
   const [status, setStatus] = useState(null);
   const ref = useRef(null);
   const id = `${chartId}:${slot}`;
-  const storageKey = `chicom_note_${id}`;
+  const storageKey = `Boost_note_${id}`;
 
   // Subscribe to the global KV fetch — once it lands we refresh
   useEffect(() => {
@@ -829,7 +829,7 @@ window.CardComments = CardComments;
 // Resolution order per qId:
 //   1. localStorage edit (instant, per-device)
 //   2. KV override fetched from /api/insights (team-shared)
-//   3. window.ChiComData.INSIGHTS[qId]   (baked-in LLM / manual)
+//   3. window.BoostData.INSIGHTS[qId]   (baked-in LLM / manual)
 //   4. children (terse fallback template)
 // contentEditable → on blur, saves to localStorage + KV.
 // "↺ Reset" button → clears both and falls back to the default.
@@ -845,9 +845,9 @@ function Insight({ qId, children }) {
   const [edited, setEdited] = useState(null);          // local override text
   const ref = useRef(null);
 
-  const storageKey = qId ? `chicom_insight_${qId}` : null;
+  const storageKey = qId ? `Boost_insight_${qId}` : null;
   const kvText = qId ? (window.__kvInsights.data[qId] || null) : null;
-  const llmText = qId ? (((window.ChiComData || {}).INSIGHTS || {})[qId] || null) : null;
+  const llmText = qId ? (((window.BoostData || {}).INSIGHTS || {})[qId] || null) : null;
 
   // Subscribe to KV-load event so the first fetch triggers a re-render
   useEffect(() => {
@@ -1014,7 +1014,7 @@ window.SectionBanner = SectionBanner;
 
 // Compact time-range pill (rendered near the page header)
 function TimeRangeBadge() {
-  const dr = (window.ChiComData || {}).DATE_RANGE || {};
+  const dr = (window.BoostData || {}).DATE_RANGE || {};
   const fmt = (s) => {
     if (!s) return '—';
     try {
@@ -1041,7 +1041,7 @@ window.TimeRangeBadge = TimeRangeBadge;
 // Overview panel — Section 1 content (community + persona breakdown)
 function OverviewPanel() {
   const tt = window.useTooltip();
-  const ov = (window.ChiComData || {}).OVERVIEW;
+  const ov = (window.BoostData || {}).OVERVIEW;
   if (!ov) return null;
 
   // Non-sentiment palette — red and green are reserved for negative/positive
@@ -1232,3 +1232,4 @@ function OverviewPanel() {
   );
 }
 window.OverviewPanel = OverviewPanel;
+
