@@ -16,9 +16,11 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-slate-50">
         <Sidebar />
-        <main className="overflow-auto min-h-screen ml-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pt-20">
-            {children}
+        <main className="overflow-auto min-h-screen">
+          <div className="ml-20 mr-4 mt-20 mb-8">
+            <div className="bg-white rounded-lg shadow p-6">
+              {children}
+            </div>
           </div>
         </main>
       </body>
