@@ -8,6 +8,7 @@ const REPORTS = [
   { slug: 'q1', label: 'Q1 2026 (Jan-Mar)' },
   { slug: 'april', label: 'April 2026' },
   { slug: 'may', label: 'May 2026' },
+  // Note: 'overview' report is hidden from this list - only accessible via /overview page
 ]
 
 export default function Sidebar() {

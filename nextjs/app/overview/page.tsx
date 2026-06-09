@@ -21,7 +21,7 @@ export default function OverviewPage() {
   }, [])
 
   async function generate() {
-    const slug = `custom-${start}-${end}`
+    const slug = 'overview'
     setLoading(true)
     setError('')
     setStats(null)
