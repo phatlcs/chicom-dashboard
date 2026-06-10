@@ -1,7 +1,7 @@
 """
 Called by the Next.js API to generate a self-contained dashboard HTML for a date range.
 Usage: python generate_range.py <start> <end> <out_slug>
-Writes public/<out_slug>.html (and public/dashboard/pages/<out_slug>.js)
+Writes nextjs/public/<out_slug>.html
 """
 import sys
 import os
@@ -45,22 +45,22 @@ def main():
 
     js_str, info = compute_mod.compute_all(df)
 
-    # Write data js file
-    pages_dir = os.path.join(ROOT, "public", "dashboard", "pages")
-    os.makedirs(pages_dir, exist_ok=True)
-    js_path = os.path.join(pages_dir, f"{slug}.js")
-    with open(js_path, "w", encoding="utf-8") as f:
-        f.write(js_str)
+    # Generate insights for this date range via LLM
+    try:
+        from backend import generate_page_insights
+        aggregates = {f'Q{i}': {} for i in range(1, 15)}
+        insights_data = generate_page_insights.generate_all_insights(slug, start, end, aggregates)
+        expert_json = json.dumps(insights_data)
 
-    # Load expert insights if available
-    expert_path = os.path.join(ROOT, "public", "dashboard", "expert_insights.json")
-    expert_json = "{}"
-    if os.path.exists(expert_path):
-        with open(expert_path, encoding="utf-8") as f:
-            expert_json = f.read()
+        insights_path = os.path.join(ROOT, "dashboard", f"{slug}_insights.json")
+        with open(insights_path, "w", encoding="utf-8") as f:
+            json.dump(insights_data, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        print(f"Warning: Failed to generate insights: {e}", file=sys.stderr)
+        expert_json = "{}"
 
-    # Load the HTML template
-    template_path = os.path.join(ROOT, "public", "dashboard", "index.html")
+    # Load the HTML template (source of truth in dashboard/)
+    template_path = os.path.join(ROOT, "dashboard", "index.html")
     with open(template_path, encoding="utf-8") as f:
         template = f.read()
 
@@ -72,7 +72,6 @@ def main():
         f"window.ExpertInsights = {expert_json};\n"
         f"</script>"
     )
-    # Replace the placeholder inline script
     html = template.replace(
         "<script>\n  // Expose globals so JSX files can access D and D2 without relying on\n"
         "  // Babel's const-to-var transpilation to leak across script boundaries.\n"
@@ -82,7 +81,10 @@ def main():
         injected
     )
 
-    html_path = os.path.join(ROOT, "public", f"{slug}.html")
+    # Write to nextjs/public/ so Next.js serves it at /{slug}.html
+    out_dir = os.path.join(ROOT, "nextjs", "public")
+    os.makedirs(out_dir, exist_ok=True)
+    html_path = os.path.join(out_dir, f"{slug}.html")
     with open(html_path, "w", encoding="utf-8") as f:
         f.write(html)
 

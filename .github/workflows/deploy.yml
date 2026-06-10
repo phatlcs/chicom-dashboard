@@ -20,20 +20,26 @@ jobs:
         chmod 600 ~/.ssh/Boost.pem
         ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
 
-    - name: Deploy
+    - name: Sync project to EC2
       run: |
         rsync -az --delete \
           --exclude='.git' \
           --exclude='node_modules' \
           --exclude='.next' \
+          --exclude='__pycache__' \
+          --exclude='*.pyc' \
+          --exclude='output/' \
+          --exclude='.insight_cache.json' \
+          --exclude='*.xlsx' \
           -e "ssh -i ~/.ssh/Boost.pem" \
-          ./nextjs/ ec2-user@${{ secrets.EC2_HOST }}:~/app/
+          ./ ubuntu@${{ secrets.EC2_HOST }}:~/app/
 
-        ssh -i ~/.ssh/Boost.pem ec2-user@${{ secrets.EC2_HOST }} << 'EOF'
+    - name: Build and restart
+      run: |
+        ssh -i ~/.ssh/Boost.pem ubuntu@${{ secrets.EC2_HOST }} << 'EOF'
           set -e
-          cd ~/app
+          cd ~/app/nextjs
           npm install --production=false
-          rm -rf .next
           npm run build
           pm2 delete chicom 2>/dev/null || true
           pm2 start npm --name chicom -- start
