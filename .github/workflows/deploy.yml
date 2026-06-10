@@ -34,11 +34,11 @@ jobs:
           --exclude='.insight_cache.json' \
           --exclude='*.xlsx' \
           -e "ssh -i ~/.ssh/Boost.pem -o StrictHostKeyChecking=no" \
-          ./ ubuntu@${{ secrets.EC2_HOST }}:~/app/
+          ./ ec2-user@${{ secrets.EC2_HOST }}:~/app/
 
     - name: Build and restart
       run: |
-        ssh -i ~/.ssh/Boost.pem -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_HOST }} << 'EOF'
+        ssh -i ~/.ssh/Boost.pem -o StrictHostKeyChecking=no ec2-user@${{ secrets.EC2_HOST }} << 'EOF'
           set -e
           cd ~/app/nextjs
           npm install --production=false
