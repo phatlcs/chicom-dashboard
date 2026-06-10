@@ -18,7 +18,9 @@ jobs:
         mkdir -p ~/.ssh
         echo "${{ secrets.EC2_PRIVATE_KEY }}" > ~/.ssh/Boost.pem
         chmod 600 ~/.ssh/Boost.pem
-        ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
+        echo "Host ${{ secrets.EC2_HOST }}
+          StrictHostKeyChecking no
+          IdentityFile ~/.ssh/Boost.pem" >> ~/.ssh/config
 
     - name: Sync project to EC2
       run: |
@@ -31,12 +33,12 @@ jobs:
           --exclude='output/' \
           --exclude='.insight_cache.json' \
           --exclude='*.xlsx' \
-          -e "ssh -i ~/.ssh/Boost.pem" \
+          -e "ssh -i ~/.ssh/Boost.pem -o StrictHostKeyChecking=no" \
           ./ ubuntu@${{ secrets.EC2_HOST }}:~/app/
 
     - name: Build and restart
       run: |
-        ssh -i ~/.ssh/Boost.pem ubuntu@${{ secrets.EC2_HOST }} << 'EOF'
+        ssh -i ~/.ssh/Boost.pem -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_HOST }} << 'EOF'
           set -e
           cd ~/app/nextjs
           npm install --production=false
