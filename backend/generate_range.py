@@ -59,8 +59,8 @@ def main():
         print(f"Warning: Failed to generate insights: {e}", file=sys.stderr)
         expert_json = "{}"
 
-    # Load the HTML template (source of truth in dashboard/)
-    template_path = os.path.join(ROOT, "dashboard", "index.html")
+    # Load the HTML template from the nginx-served public directory
+    template_path = os.path.join(ROOT, "public", "dashboard", "index.html")
     with open(template_path, encoding="utf-8") as f:
         template = f.read()
 
@@ -81,8 +81,8 @@ def main():
         injected
     )
 
-    # Write to nextjs/public/ so Next.js serves it at /{slug}.html
-    out_dir = os.path.join(ROOT, "nextjs", "public")
+    # Write to ~/app/public/ where nginx serves .html files
+    out_dir = os.path.join(ROOT, "public")
     os.makedirs(out_dir, exist_ok=True)
     html_path = os.path.join(out_dir, f"{slug}.html")
     with open(html_path, "w", encoding="utf-8") as f:

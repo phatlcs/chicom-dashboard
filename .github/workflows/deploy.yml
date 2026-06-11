@@ -33,9 +33,21 @@ jobs:
           --exclude='output/' \
           --exclude='.insight_cache.json' \
           --exclude='*.xlsx' \
-          --filter='protect nextjs/public/*.html' \
           -e "ssh -i ~/.ssh/Boost.pem -o StrictHostKeyChecking=no" \
           ./ ec2-user@${{ secrets.EC2_HOST }}:~/app/
+
+        # Sync public assets to where nginx serves them (~/app/public/)
+        # --existing on *.html means we update committed pages but never delete generated ones
+        rsync -az \
+          --exclude='*.html' \
+          -e "ssh -i ~/.ssh/Boost.pem -o StrictHostKeyChecking=no" \
+          ./nextjs/public/ ec2-user@${{ secrets.EC2_HOST }}:~/app/public/
+        rsync -az \
+          -e "ssh -i ~/.ssh/Boost.pem -o StrictHostKeyChecking=no" \
+          ./nextjs/public/q1.html \
+          ./nextjs/public/april.html \
+          ./nextjs/public/may.html \
+          ec2-user@${{ secrets.EC2_HOST }}:~/app/public/
 
     - name: Build and restart
       run: |
