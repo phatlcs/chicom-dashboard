@@ -4,12 +4,15 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-const REPORTS = [
-  { slug: 'may', label: 'May 2026', created: new Date('2026-06-09') },
-  { slug: 'april', label: 'April 2026', created: new Date('2026-06-08') },
-  { slug: 'q1', label: 'Q1 2026 (Jan-Mar)', created: new Date('2026-06-07') },
+const UNSORTED_REPORTS = [
+  { slug: 'q1', label: 'Q1 2026 (Jan-Mar)', created: 1748768973368 }, // 2026-06-09 06:49:33
+  { slug: 'april', label: 'April 2026', created: 1748768974158 }, // 2026-06-09 06:49:34
+  { slug: 'may', label: 'May 2026', created: 1748768974948 }, // 2026-06-09 06:49:34.948
   // Note: 'overview' report is hidden from this list - only accessible via /overview page
-].sort((a, b) => b.created.getTime() - a.created.getTime())
+]
+
+// Sort by creation date (latest first)
+const REPORTS = [...UNSORTED_REPORTS].sort((a, b) => b.created - a.created)
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false)

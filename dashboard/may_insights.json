@@ -255,57 +255,6 @@
       "Shift high-impact announcements (policy changes, fee updates) to Tuesday–Wednesday mornings to avoid the Friday–Thursday complaint surge. Pair announcements with seller success stories and cost-mitigation tools to reframe the narrative."
     ]
   },
-  "Q6": {
-    "scope": "Scope: Peak-hour negative discussion patterns · Vietnamese e-commerce community · 40,000+ posts analyzed",
-    "stats": [
-      {
-        "label": "Posts mentioning platform fee increases",
-        "value": "High frequency",
-        "variant": "danger",
-        "note": "Direct correlation with customer complaints about pricing and reduced purchasing intent"
-      },
-      {
-        "label": "Complaints about account suspension/violations",
-        "value": "Recurring theme",
-        "variant": "warn",
-        "note": "Users reporting sudden account bans, copyright strikes, and payment processing issues"
-      },
-      {
-        "label": "Quality vs. price sentiment",
-        "value": "Negative skew",
-        "variant": "both",
-        "note": "Customers perceiving platform prices as high relative to offline alternatives"
-      },
-      {
-        "label": "Refund and dispute resolution friction",
-        "value": "Systemic concern",
-        "variant": "danger",
-        "note": "Users reporting cancelled refunds, low refund rates, and unclear dispute handling"
-      }
-    ],
-    "findings": [
-      {
-        "variant": "danger",
-        "label": "🔄 Fee Spiral Driving Customer Exodus",
-        "html": "<p>Platform fee increases are triggering a <strong>negative feedback loop</strong>: sellers raise prices to offset costs, customers perceive poor value and abandon purchases, platform revenue drops, prompting further fee hikes. One user explicitly noted: <em>'Đây là hậu quả tăng phí sàn kéo theo NBH tăng giá, nên kh họ nhìn giá đã ngán ngẫm chẳng muốn mua'</em> (This is the consequence of platform fee increases leading to seller price hikes, so customers see high prices and lose interest in buying). This vicious cycle is eroding trust and driving traffic to offline and competing channels.</p>"
-      },
-      {
-        "variant": "warn",
-        "label": "⚠️ Account Security & Compliance Fears Deterring Participation",
-        "html": "<p>Users report <strong>sudden account suspensions, copyright strikes, and payment processing failures</strong> with minimal transparency or recourse. Samples include accounts being <em>'bay luôn'</em> (disappearing instantly) after payment, copyright claims on Shopee, and refund cancellations without explanation. These incidents create a chilling effect—sellers and buyers are hesitant to engage actively, fearing arbitrary enforcement or financial loss. The lack of clear communication around violations amplifies anxiety and reduces platform stickiness.</p>"
-      },
-      {
-        "variant": "both",
-        "label": "💔 Quality Perception Crisis Pushing Customers Offline",
-        "html": "<p>Despite platform convenience, customers are <strong>increasingly skeptical of product quality relative to price</strong>. One user stated: <em>'Giờ có dám mua quần áo trên sàn đâu. Giá cao mà chất như l. Mua ngoài chợ xịn đẹp hơn'</em> (Who dares buy clothes on the platform now? High prices but poor quality. Buying from offline markets is better and more beautiful). Combined with refund friction—users reporting low refund rates and cancelled refunds—the platform is losing its value proposition. Customers perceive higher risk and lower reward compared to traditional retail, accelerating migration to competitors.</p>"
-      }
-    ],
-    "recommendations": [
-      "Conduct urgent fee structure review: Model sustainable pricing that does not trigger cascading seller price increases. Consider tiered or performance-based fee models to reduce the burden on high-volume sellers and stabilize customer-facing prices.",
-      "Implement transparent account enforcement: Create clear, published guidelines for violations (copyright, payment abuse, etc.) and provide sellers/buyers with detailed explanations and appeal mechanisms when accounts are suspended. Reduce arbitrary-feeling enforcement through automated pre-warnings.",
-      "Launch quality assurance and customer confidence campaign: Introduce verified seller badges, quality guarantees, and hassle-free refund policies (e.g., 30-day money-back) to rebuild trust and differentiate from offline alternatives. Highlight these in peak-hour marketing to counter negative sentiment."
-    ]
-  },
   "Q7": {
     "scope": "Scope: Amazon seller motivations & benefits (667 mentions) · Q1 2026 · Vietnamese e-commerce community",
     "stats": [

@@ -1,23 +1,32 @@
 /*
-  Loader for expert insights. Source of truth is expert_insights.json —
-  edit that file when you need to tweak numbers, findings, or
-  recommendations. This loader does a synchronous XHR so
-  window.ExpertInsights is populated before React mounts.
+  Loader for expert insights. Loads page-specific insight files:
+  - expert_insights.json for Q1
+  - april_insights.json for April
+  - may_insights.json for May
 
-  Sync XHR triggers a deprecation warning in the console; it's benign
-  here because this dashboard is always served locally (or from Vercel)
-  and the JSON file is small (~50 KB). If the warning starts mattering,
-  switch to fetch() + delay ReactDOM.createRoot().render() in app.jsx.
+  This loader does a synchronous XHR so window.ExpertInsights is
+  populated before React mounts.
 */
 (function loadExpertInsights() {
   try {
+    // Detect which page we're on from window.ChiComData.DATE_RANGE.start
+    var pageSlug = 'q1';
+    if (window.ChiComData && window.ChiComData.DATE_RANGE && window.ChiComData.DATE_RANGE.start) {
+      var start = window.ChiComData.DATE_RANGE.start;
+      if (start.includes('2026-04')) pageSlug = 'april';
+      else if (start.includes('2026-05')) pageSlug = 'may';
+    }
+
+    var filename = pageSlug + '_insights.json';
+    if (pageSlug === 'q1') filename = 'expert_insights.json'; // Q1 uses the original name
+
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'expert_insights.json', false); // sync
+    xhr.open('GET', filename, false); // sync
     xhr.send();
     if (xhr.status >= 200 && xhr.status < 300) {
       window.ExpertInsights = JSON.parse(xhr.responseText);
     } else {
-      console.warn('[expert_insights] HTTP ' + xhr.status + ' — panel will be empty');
+      console.warn('[expert_insights] HTTP ' + xhr.status + ' for ' + filename + ' — panel will be empty');
       window.ExpertInsights = {};
     }
   } catch (e) {
