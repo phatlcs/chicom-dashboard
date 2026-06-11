@@ -17,8 +17,10 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Invalid slug' }, { status: 400 })
   }
 
+  // Next.js runs from nextjs/ subdirectory; backend/ is one level up at project root
   const root = process.cwd()
-  const script = join(root, 'backend', 'generate_range.py')
+  const projectRoot = join(root, '..')
+  const script = join(projectRoot, 'backend', 'generate_range.py')
 
   try {
     const out = execSync(
