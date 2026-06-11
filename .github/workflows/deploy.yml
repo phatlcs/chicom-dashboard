@@ -44,7 +44,7 @@ jobs:
           npm install --production=false
           npm run build
           pm2 delete chicom 2>/dev/null || true
-          pm2 start npm --name chicom -- start
+          pm2 start npm --name chicom --cwd /home/ec2-user/app/nextjs -- start
           pm2 save
           echo "Done — $(date)"
         EOF
