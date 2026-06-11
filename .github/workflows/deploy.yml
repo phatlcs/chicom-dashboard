@@ -33,6 +33,7 @@ jobs:
           --exclude='output/' \
           --exclude='.insight_cache.json' \
           --exclude='*.xlsx' \
+          --filter='protect nextjs/public/*.html' \
           -e "ssh -i ~/.ssh/Boost.pem -o StrictHostKeyChecking=no" \
           ./ ec2-user@${{ secrets.EC2_HOST }}:~/app/
 
