@@ -53,6 +53,7 @@ jobs:
           python3 -m pip install --user -r /home/ec2-user/app/backend/requirements.txt
           cd ~/app/nextjs
           npm install --production=false
+          rm -rf .next
           npm run build
           pm2 delete chicom 2>/dev/null || true
           pm2 start npm --name chicom --cwd /home/ec2-user/app/nextjs -- start
