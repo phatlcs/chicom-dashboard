@@ -2,12 +2,14 @@ name: Deploy to EC2
 
 on:
   push:
-    branches: [ AWS_deployment ]
+    branches: [ AWS_deployment, aws-deployment ]
   workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      EC2_USER: ${{ secrets.EC2_USER || 'ec2-user' }}
 
     steps:
     - name: Checkout
@@ -34,17 +36,17 @@ jobs:
           --exclude='.insight_cache.json' \
           --exclude='*.xlsx' \
           -e "ssh -i ~/.ssh/Boost.pem -o StrictHostKeyChecking=no" \
-          ./ ec2-user@${{ secrets.EC2_HOST }}:~/app/
+          ./ ${EC2_USER}@${{ secrets.EC2_HOST }}:~/app/
 
         # Sync public assets to where nginx serves them (~/app/public/)
         # No --delete so generated files (overview.html etc.) are preserved
         rsync -az \
           -e "ssh -i ~/.ssh/Boost.pem -o StrictHostKeyChecking=no" \
-          ./nextjs/public/ ec2-user@${{ secrets.EC2_HOST }}:~/app/public/
+          ./nextjs/public/ ${EC2_USER}@${{ secrets.EC2_HOST }}:~/app/public/
 
     - name: Build and restart
       run: |
-        ssh -i ~/.ssh/Boost.pem -o StrictHostKeyChecking=no ec2-user@${{ secrets.EC2_HOST }} << 'EOF'
+        ssh -i ~/.ssh/Boost.pem -o StrictHostKeyChecking=no ${EC2_USER}@${{ secrets.EC2_HOST }} << 'EOF'
           set -e
           cd ~/app/nextjs
           npm install --production=false
