@@ -48,6 +48,9 @@ jobs:
       run: |
         ssh -i ~/.ssh/Boost.pem -o StrictHostKeyChecking=no ${EC2_USER}@${{ secrets.EC2_HOST }} << 'EOF'
           set -e
+          sudo dnf install -y python3-pip
+          python3 -m pip install --user --upgrade pip
+          python3 -m pip install --user -r /home/ec2-user/app/backend/requirements.txt
           cd ~/app/nextjs
           npm install --production=false
           npm run build
