@@ -252,6 +252,14 @@ function Q4() {
       </div>
       </div>
 
+      {window.D.WEEKS.length < 2 ? (
+        <div className="col-12">
+          <div className="card" style={{ padding: '32px 24px', textAlign: 'center', color: 'var(--text-2)', fontSize: 13 }}>
+            <div style={{ marginBottom: 6, fontWeight: 600 }}>Weekly topic trends</div>
+            Select a date range spanning at least 2 weeks to see trend charts.
+          </div>
+        </div>
+      ) : (
       <div className="col-12">
         <div className="card">
           <div className="card-head">
@@ -265,7 +273,7 @@ function Q4() {
               <line key={i} x1={wpad.l} y1={wpad.t + wPlotH * f} x2={WW - wpad.r} y2={wpad.t + wPlotH * f} className="grid-line" />
             ))}
             {weeks.map((ev, i) => {
-              const x = wpad.l + (ev.week / (window.D.WEEKS.length - 1)) * wPlotW;
+              const x = wpad.l + (ev.week / Math.max(window.D.WEEKS.length - 1, 1)) * wPlotW;
               // 3-row stagger so adjacent spike labels don't collide
               const yOffset = [-46, -30, -14][i % 3];
               return (
@@ -278,7 +286,7 @@ function Q4() {
             })}
             {weekly.map(t => {
               const pts = t.points.map((v, i) => {
-                const x = wpad.l + (i / (t.points.length - 1)) * wPlotW;
+                const x = wpad.l + (i / Math.max(t.points.length - 1, 1)) * wPlotW;
                 const y = wpad.t + wPlotH - (v / maxWY) * wPlotH;
                 return [x, y];
               });
@@ -293,7 +301,7 @@ function Q4() {
               );
             })}
             {window.D.WEEKS.map((w, i) => i % 2 === 0 && (
-              <text key={w} x={wpad.l + (i / (window.D.WEEKS.length - 1)) * wPlotW} y={WH - 10} textAnchor="middle" className="axis-tick">{w}</text>
+              <text key={w} x={wpad.l + (i / Math.max(window.D.WEEKS.length - 1, 1)) * wPlotW} y={WH - 10} textAnchor="middle" className="axis-tick">{w}</text>
             ))}
             {weekly.map((t, i) => {
               const label = t.en.length > 24 ? t.en.slice(0, 22) + '…' : t.en;
@@ -334,6 +342,7 @@ function Q4() {
         <window.CardComments chartId="Q4_3" />
       </div>
       </div>
+      )}
 
       {tt.node}
     </div>

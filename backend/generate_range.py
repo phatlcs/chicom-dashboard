@@ -1,6 +1,8 @@
 """
 Called by the Next.js API to generate a self-contained dashboard HTML for a date range.
-Usage: python generate_range.py <start> <end> <out_slug>
+Usage: python generate_range.py <start> <end> <out_slug> [insights]
+Pass "insights" as the 4th arg to generate the 14 per-Q LLM analyst paragraphs
+(slower, ~30-90s extra). Omit it for raw-data-only generation (fast, no LLM calls).
 Writes nextjs/public/<out_slug>.html
 """
 import sys
@@ -16,10 +18,11 @@ from backend import compute as compute_mod
 
 def main():
     if len(sys.argv) < 4:
-        print("Usage: generate_range.py <start> <end> <slug>", file=sys.stderr)
+        print("Usage: generate_range.py <start> <end> <slug> [insights]", file=sys.stderr)
         sys.exit(1)
 
     start, end, slug = sys.argv[1], sys.argv[2], sys.argv[3]
+    with_insights = len(sys.argv) > 4 and sys.argv[4] == "insights"
 
     conn = psycopg2.connect(dbname="chicom_dashboard", user="postgres", host="localhost")
     cur = conn.cursor()
@@ -41,23 +44,18 @@ def main():
         sys.exit(2)
 
     df["created_date"] = pd.to_datetime(df["created_date"])
-    df["group_id"] = df["group_id"].fillna("").astype(str)
+    # compute.py's SOA_IDS/EC_IDS are plain ints — group_id must match that type,
+    # not the string the Postgres VARCHAR column round-trips as.
+    df["group_id"] = pd.to_numeric(df["group_id"], errors="coerce").astype("Int64")
 
-    js_str, info = compute_mod.compute_all(df)
+    js_str, info = compute_mod.compute_all(df, skip_llm=not with_insights)
 
-    # Generate insights for this date range via LLM
-    try:
-        from backend import generate_page_insights
-        aggregates = {f'Q{i}': {} for i in range(1, 15)}
-        insights_data = generate_page_insights.generate_all_insights(slug, start, end, aggregates)
-        expert_json = json.dumps(insights_data)
-
-        insights_path = os.path.join(ROOT, "dashboard", f"{slug}_insights.json")
-        with open(insights_path, "w", encoding="utf-8") as f:
-            json.dump(insights_data, f, ensure_ascii=False, indent=2)
-    except Exception as e:
-        print(f"Warning: Failed to generate insights: {e}", file=sys.stderr)
-        expert_json = "{}"
+    # The visible "Insights & Recommendations" panel reads window.ExpertInsights,
+    # not window.ChiComData.INSIGHTS (that one only feeds the disabled per-chart
+    # AI Insight box — see shell.jsx's SHOW_INSIGHT flag). Reuse the same LLM
+    # output for both so the panel actually shows something when insights run.
+    insights = info.get('insights') or {}
+    expert_json = json.dumps({k: v for k, v in insights.items() if v}, ensure_ascii=False)
 
     # Load the HTML template from the nginx-served public directory
     template_path = os.path.join(ROOT, "public", "dashboard", "index.html")
@@ -81,8 +79,9 @@ def main():
         injected
     )
 
-    # Write to ~/app/public/ where nginx serves .html files
-    out_dir = os.path.join(ROOT, "public")
+    # Write to nextjs/public/ — that's the directory Next.js actually serves
+    # static files from at runtime (pm2 runs `npm start` with cwd app/nextjs)
+    out_dir = os.path.join(ROOT, "nextjs", "public")
     os.makedirs(out_dir, exist_ok=True)
     html_path = os.path.join(out_dir, f"{slug}.html")
     with open(html_path, "w", encoding="utf-8") as f:

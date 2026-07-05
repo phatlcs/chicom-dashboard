@@ -10,14 +10,13 @@ export default function OverviewPage() {
   const [error, setError] = useState('')
   const [stats, setStats] = useState<{ total: number; relevant: number } | null>(null)
 
-  // Restore last used report on mount
+  // The 'overview' report lives on the server (nextjs/public/overview.html), so it
+  // persists across browsers/devices just like the q1/april static reports — no
+  // per-browser localStorage needed to know whether it's already been generated.
   useEffect(() => {
-    const saved = localStorage.getItem('overview-active-slug')
-    const savedStart = localStorage.getItem('overview-start')
-    const savedEnd = localStorage.getItem('overview-end')
-    if (saved) setActiveSlug(saved)
-    if (savedStart) setStart(savedStart)
-    if (savedEnd) setEnd(savedEnd)
+    fetch('/api/report/overview', { method: 'HEAD' }).then(r => {
+      if (r.ok) setActiveSlug('overview')
+    })
   }, [])
 
   async function generate() {
@@ -37,10 +36,6 @@ export default function OverviewPage() {
       if (!r.ok) throw new Error(data.error ?? 'Generation failed')
       setActiveSlug(slug)
       setStats({ total: data.total, relevant: data.relevant })
-      // Persist to localStorage
-      localStorage.setItem('overview-active-slug', slug)
-      localStorage.setItem('overview-start', start)
-      localStorage.setItem('overview-end', end)
     } catch (err: any) {
       setError(err.message)
     } finally {
@@ -48,7 +43,7 @@ export default function OverviewPage() {
     }
   }
 
-  const iframeSrc = activeSlug ? `/${activeSlug}.html` : null
+  const iframeSrc = activeSlug ? `/api/report/${activeSlug}` : null
 
   return (
     <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, display: 'flex', flexDirection: 'column', zIndex: 1 }}>

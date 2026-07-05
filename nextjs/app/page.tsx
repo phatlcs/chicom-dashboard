@@ -3,221 +3,156 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
-interface Page {
-  id: number
+interface CustomReport {
+  id: string
   slug: string
   name: string
   type: string
-  totalPosts: number
-  relevantPosts: number
+  totalPosts: number | null
+  relevantPosts: number | null
   status: string
-  timeStart: string
-  timeEnd: string
+  timeStart: string | null
+  timeEnd: string | null
+  createdAt: string | null
 }
 
-export default function OverviewPage() {
-  const [pages, setPages] = useState<Page[]>([])
-  const [loading, setLoading] = useState(true)
-  const [showCreateForm, setShowCreateForm] = useState(false)
-  const [formData, setFormData] = useState({
-    name: '',
-    timeStart: '',
-    timeEnd: '',
-  })
-  const [creating, setCreating] = useState(false)
-  const [error, setError] = useState<string | null>(null)
+const OFFICIAL_REPORTS = [
+  { slug: 'q1',    label: 'Q1 2026 (Jan – Mar)', period: 'Jan 2026 – Mar 2026' },
+  { slug: 'april', label: 'April 2026',           period: 'Apr 1 – Apr 30, 2026' },
+  { slug: 'may',   label: 'May 2026',             period: 'May 1 – May 31, 2026' },
+]
+
+export default function HomePage() {
+  const [tab, setTab] = useState<'official' | 'custom'>('official')
+  const [customReports, setCustomReports] = useState<CustomReport[]>([])
+  const [loading, setLoading] = useState(false)
+  const [role, setRole] = useState<string | null>(null)
 
   useEffect(() => {
-    fetchPages()
+    fetch('/api/auth/me').then(r => r.json()).then(d => setRole(d.role)).catch(() => {})
   }, [])
 
-  async function fetchPages() {
-    try {
-      const res = await fetch('/api/pages')
-      const data = await res.json()
-      if (data.pages) {
-        setPages(data.pages)
-      }
-    } catch (err) {
-      console.error('Failed to fetch pages:', err)
-      setError('Failed to load pages')
-    } finally {
-      setLoading(false)
+  useEffect(() => {
+    if (tab === 'custom' && customReports.length === 0) {
+      setLoading(true)
+      fetch('/api/pages')
+        .then(r => r.json())
+        .then(d => setCustomReports(d.pages ?? []))
+        .catch(() => {})
+        .finally(() => setLoading(false))
     }
-  }
-
-  async function handleCreateReport(e: React.FormEvent) {
-    e.preventDefault()
-    setCreating(true)
-    setError(null)
-
-    try {
-      const res = await fetch('/api/pages/create', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: formData.name,
-          timeStart: formData.timeStart,
-          timeEnd: formData.timeEnd,
-          filters: {},
-        }),
-      })
-
-      const data = await res.json()
-
-      if (data.status === 'success') {
-        setFormData({ name: '', timeStart: '', timeEnd: '' })
-        setShowCreateForm(false)
-        await fetchPages()
-        // Optionally redirect to the new page
-        window.location.href = `/${data.slug}`
-      } else {
-        setError(data.message || 'Failed to create report')
-      }
-    } catch (err) {
-      setError('Error creating report: ' + (err as Error).message)
-    } finally {
-      setCreating(false)
-    }
-  }
+  }, [tab])
 
   return (
     <div>
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Dashboard Overview</h1>
-        <p className="text-gray-600 mt-2">Manage all pages and create custom reports</p>
+      <div className="mb-6 flex items-center justify-between">
+        <div>
+          <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
+          <p className="text-gray-600 mt-1">Community Insights Reports</p>
+        </div>
+        {role === 'admin' && (
+          <Link href="/generate-report">
+            <span className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-sm font-medium">
+              + Create Custom Report
+            </span>
+          </Link>
+        )}
       </div>
 
-      {/* Create Report Button */}
-      <div className="mb-8">
+      {/* Tab bar */}
+      <div className="flex border-b border-gray-200 mb-6">
         <button
-          onClick={() => setShowCreateForm(!showCreateForm)}
-          className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-medium"
+          onClick={() => setTab('official')}
+          className={`px-6 py-3 text-sm font-medium border-b-2 transition ${
+            tab === 'official'
+              ? 'border-blue-600 text-blue-600'
+              : 'border-transparent text-gray-500 hover:text-gray-700'
+          }`}
         >
-          {showCreateForm ? '✕ Cancel' : '+ Create New Report'}
+          Official
+        </button>
+        <button
+          onClick={() => setTab('custom')}
+          className={`px-6 py-3 text-sm font-medium border-b-2 transition ${
+            tab === 'custom'
+              ? 'border-blue-600 text-blue-600'
+              : 'border-transparent text-gray-500 hover:text-gray-700'
+          }`}
+        >
+          Custom
         </button>
       </div>
 
-      {/* Create Report Form */}
-      {showCreateForm && (
-        <div className="bg-white rounded-lg shadow p-6 mb-8 border border-blue-200">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">Create Custom Report</h2>
-          {error && <div className="bg-red-50 text-red-700 p-4 rounded mb-4">{error}</div>}
-
-          <form onSubmit={handleCreateReport} className="space-y-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Report Name</label>
-              <input
-                type="text"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                placeholder="e.g., Q1 Analysis, April Custom Report"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                required
-              />
-              <p className="text-xs text-gray-500 mt-1">
-                If duplicate, will auto-increment: Q1 → Q1(1) → Q1(2)
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Start Date</label>
-                <input
-                  type="date"
-                  value={formData.timeStart}
-                  onChange={(e) => setFormData({ ...formData, timeStart: e.target.value })}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  required
-                />
+      {/* Official tab */}
+      {tab === 'official' && (
+        <div className="divide-y divide-gray-200 border border-gray-200 rounded-lg overflow-hidden">
+          {OFFICIAL_REPORTS.map(r => (
+            <a key={r.slug} href={`/api/report/${r.slug}`} className="block px-6 py-5 hover:bg-gray-50 transition">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="text-lg font-semibold text-blue-600">{r.label}</h3>
+                  <p className="text-sm text-gray-500 mt-0.5">{r.period}</p>
+                </div>
+                <span className="px-2 py-1 bg-green-100 text-green-800 rounded text-xs font-medium">
+                  OFFICIAL
+                </span>
               </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">End Date</label>
-                <input
-                  type="date"
-                  value={formData.timeEnd}
-                  onChange={(e) => setFormData({ ...formData, timeEnd: e.target.value })}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  required
-                />
-              </div>
-            </div>
-
-            <div className="flex gap-4">
-              <button
-                type="submit"
-                disabled={creating}
-                className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-medium disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {creating ? 'Creating...' : 'Create Report'}
-              </button>
-              <button
-                type="button"
-                onClick={() => setShowCreateForm(false)}
-                className="px-6 py-2 bg-gray-300 text-gray-900 rounded-lg hover:bg-gray-400 transition font-medium"
-              >
-                Cancel
-              </button>
-            </div>
-          </form>
+            </a>
+          ))}
         </div>
       )}
 
-      {/* Pages List */}
-      <div className="bg-white rounded-lg shadow overflow-hidden">
-        <div className="px-6 py-4 border-b border-gray-200">
-          <h2 className="text-xl font-bold text-gray-900">
-            All Reports ({pages.length})
-          </h2>
-        </div>
-
-        {loading ? (
-          <div className="p-6 text-center text-gray-500">Loading...</div>
-        ) : pages.length === 0 ? (
-          <div className="p-6 text-center text-gray-500">
-            <p>No pages yet. Create your first report to get started.</p>
-          </div>
-        ) : (
-          <div className="divide-y divide-gray-200">
-            {pages.map((page) => (
-              <a key={page.id} href={`/${page.slug}`}>
-                <div className="px-6 py-4 hover:bg-gray-50 transition cursor-pointer">
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <h3 className="text-lg font-semibold text-blue-600 hover:text-blue-700">
-                        {page.name}
-                      </h3>
-                      <p className="text-sm text-gray-600 mt-1">
-                        {page.timeStart} to {page.timeEnd}
-                      </p>
+      {/* Custom tab */}
+      {tab === 'custom' && (
+        <div>
+          {loading ? (
+            <div className="py-12 text-center text-gray-400">Loading...</div>
+          ) : customReports.length === 0 ? (
+            <div className="py-12 text-center text-gray-400">
+              <p>No custom reports yet.</p>
+              {role === 'admin' && (
+                <Link href="/generate-report">
+                  <span className="mt-3 inline-block text-blue-600 hover:underline text-sm">
+                    Create custom report →
+                  </span>
+                </Link>
+              )}
+            </div>
+          ) : (
+            <div className="divide-y divide-gray-200 border border-gray-200 rounded-lg overflow-hidden">
+              {customReports.map(r => (
+                <a key={r.slug} href={`/api/report/${r.slug}`} className="block px-6 py-5 hover:bg-gray-50 transition">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h3 className="text-lg font-semibold text-blue-600">{r.name}</h3>
+                      {r.timeStart && r.timeEnd && (
+                        <p className="text-sm text-gray-500 mt-0.5">{r.timeStart} → {r.timeEnd}</p>
+                      )}
+                      {r.createdAt && (
+                        <p className="text-xs text-gray-400 mt-0.5">
+                          Created: {new Date(r.createdAt).toLocaleString()}
+                        </p>
+                      )}
                     </div>
-
-                    <div className="text-right">
-                      <div className="text-sm">
-                        <span className="inline-block px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs font-medium mr-2">
-                          {page.type}
-                        </span>
-                        <span
-                          className={`inline-block px-2 py-1 rounded text-xs font-medium ${
-                            page.status === 'ACTIVE'
-                              ? 'bg-green-100 text-green-800'
-                              : 'bg-yellow-100 text-yellow-800'
-                          }`}
-                        >
-                          {page.status}
+                    <div className="text-right space-y-1">
+                      <div>
+                        <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs font-medium">
+                          CUSTOM
                         </span>
                       </div>
-                      <p className="text-sm text-gray-600 mt-2">
-                        {page.relevantPosts?.toLocaleString() || 0} / {page.totalPosts?.toLocaleString() || 0} posts
-                      </p>
+                      {r.totalPosts != null && (
+                        <p className="text-xs text-gray-500">
+                          {r.relevantPosts?.toLocaleString()} / {r.totalPosts?.toLocaleString()} posts
+                        </p>
+                      )}
                     </div>
                   </div>
-                </div>
-              </a>
-            ))}
-          </div>
-        )}
-      </div>
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
     </div>
   )
 }

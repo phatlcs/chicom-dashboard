@@ -268,9 +268,11 @@ def _normalize_sub_topics(series: pd.Series) -> pd.Series:
     return clean.map(match)
 
 
-def compute_all(df: pd.DataFrame):
+def compute_all(df: pd.DataFrame, skip_llm: bool = False):
     """
     df: raw DataFrame from uploaded CSV (or from file).
+    skip_llm: skip the per-Q LLM analyst paragraphs (INSIGHTS comes back all-None) —
+    used by fast/raw-data-only callers that don't want the latency of 14 LLM calls.
     Returns (js_string, info_dict).
     """
     df = df.copy()
@@ -947,7 +949,7 @@ def compute_all(df: pd.DataFrame):
     try:
         from insights import generate_insights_for_all_qs
         insights, _ = generate_insights_for_all_qs(
-            rel_for_sampling, soa_rel_for_sampling, insight_aggregates,
+            rel_for_sampling, soa_rel_for_sampling, insight_aggregates, skip_llm=skip_llm,
         )
     except Exception as e:
         import sys as _sys
@@ -1088,5 +1090,6 @@ window.ChiComData2 = (() => {{
         'relevantPosts': kpi['relevantPosts'],
         'months':        months,
         'groups':        kpi['activeGroups'],
+        'insights':      insights,
     }
     return js, info
