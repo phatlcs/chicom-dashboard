@@ -35,8 +35,15 @@ jobs:
           --exclude='output/' \
           --exclude='.insight_cache.json' \
           --exclude='*.xlsx' \
+          --exclude='.env' \
+          --exclude='data/' \
           -e "ssh -i ~/.ssh/Boost.pem -o StrictHostKeyChecking=no" \
           ./ ${EC2_USER}@${{ secrets.EC2_HOST }}:~/app/
+
+    - name: Write .env from GitHub secret
+      run: |
+        ssh -i ~/.ssh/Boost.pem -o StrictHostKeyChecking=no ${EC2_USER}@${{ secrets.EC2_HOST }} \
+          "echo 'ANTHROPIC_API_KEY=${{ secrets.ANTHROPIC_API_KEY }}' > ~/app/.env && chmod 600 ~/app/.env"
 
         # Sync public assets to where nginx serves them (~/app/public/)
         # No --delete so generated files (overview.html etc.) are preserved
