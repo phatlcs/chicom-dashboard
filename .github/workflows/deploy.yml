@@ -37,6 +37,7 @@ jobs:
           --exclude='*.xlsx' \
           --exclude='.env' \
           --exclude='data/' \
+          --exclude='/nextjs/public/*.html' \
           -e "ssh -i ~/.ssh/Boost.pem -o StrictHostKeyChecking=no" \
           ./ ${EC2_USER}@${{ secrets.EC2_HOST }}:~/app/
 
