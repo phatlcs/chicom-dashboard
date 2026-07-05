@@ -33,15 +33,13 @@ export default function HomePage() {
   }, [])
 
   useEffect(() => {
-    if (tab === 'custom' && customReports.length === 0) {
-      setLoading(true)
-      fetch('/api/pages')
-        .then(r => r.json())
-        .then(d => setCustomReports(d.pages ?? []))
-        .catch(() => {})
-        .finally(() => setLoading(false))
-    }
-  }, [tab])
+    setLoading(true)
+    fetch('/api/pages')
+      .then(r => r.json())
+      .then(d => setCustomReports(d.pages ?? []))
+      .catch(() => setCustomReports([]))
+      .finally(() => setLoading(false))
+  }, [])
 
   return (
     <div>
