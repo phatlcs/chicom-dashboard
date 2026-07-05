@@ -555,6 +555,20 @@ function ExpertInsightPanel({ qId }) {
   const data = qId && (window.ExpertInsights || {})[qId];
   if (!data) return null;
 
+  // generate_range.py injects plain HTML strings; handle that before the
+  // structured-object path below.
+  if (typeof data === 'string') {
+    return (
+      <div className="ei-panel">
+        <div className="ei-panel-header">
+          <span className="ei-panel-tag">Insights &amp; Recommendations</span>
+        </div>
+        <div style={{ padding: '12px 14px', fontSize: 13, lineHeight: 1.65, color: 'var(--text-2)' }}
+          dangerouslySetInnerHTML={{ __html: data }} />
+      </div>
+    );
+  }
+
   const hasFindings  = Array.isArray(data.findings) && data.findings.length > 0;
   const hasCallouts  = Array.isArray(data.callouts) && data.callouts.length > 0;
   const hasRecs      = Array.isArray(data.recommendations) && data.recommendations.length > 0;
