@@ -1,6 +1,6 @@
 ﻿'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
@@ -16,7 +16,12 @@ const REPORTS = [...UNSORTED_REPORTS].sort((a, b) => b.created - a.created)
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false)
+  const [role, setRole] = useState<string | null>(null)
   const pathname = usePathname()
+
+  useEffect(() => {
+    fetch('/api/auth/me').then(r => r.json()).then(d => setRole(d.role)).catch(() => {})
+  }, [])
 
   return (
     <>
@@ -60,6 +65,21 @@ export default function Sidebar() {
               </li>
             </ul>
           </div>
+
+          {role === 'admin' && (
+            <div className="mb-8">
+              <p className="text-slate-400 text-xs uppercase font-semibold mb-4">Actions</p>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="/generate-report">
+                    <span className={`block px-4 py-2 rounded-lg transition ${pathname === '/generate-report' ? 'bg-blue-600 text-white' : 'text-slate-300 hover:bg-slate-800'}`} onClick={() => setIsOpen(false)}>
+                      + Create Report
+                    </span>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          )}
 
           <div>
             <p className="text-slate-400 text-xs uppercase font-semibold mb-4">Monthly Reports</p>
