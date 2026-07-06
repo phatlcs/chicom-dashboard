@@ -105,8 +105,17 @@ export default function Sidebar() {
           </div>
         </nav>
 
-        <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-slate-800">
+        <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-slate-800 flex items-center justify-between">
           <p className="text-slate-400 text-xs">© 2026 Boost</p>
+          <button
+            onClick={async () => {
+              await fetch('/api/auth/logout', { method: 'POST' })
+              window.location.href = '/login'
+            }}
+            className="text-slate-400 hover:text-white text-xs transition"
+          >
+            Log out
+          </button>
         </div>
       </aside>
     </>
