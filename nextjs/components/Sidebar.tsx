@@ -23,6 +23,8 @@ export default function Sidebar() {
     fetch('/api/auth/me').then(r => r.json()).then(d => setRole(d.role)).catch(() => {})
   }, [])
 
+  if (pathname === '/login') return null
+
   return (
     <>
       <button
