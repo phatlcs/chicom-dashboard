@@ -68,12 +68,19 @@ export default function Sidebar() {
 
           {role === 'admin' && (
             <div className="mb-8">
-              <p className="text-slate-400 text-xs uppercase font-semibold mb-4">Actions</p>
+              <p className="text-slate-400 text-xs uppercase font-semibold mb-4">Admin</p>
               <ul className="space-y-2">
                 <li>
                   <Link href="/generate-report">
                     <span className={`block px-4 py-2 rounded-lg transition ${pathname === '/generate-report' ? 'bg-blue-600 text-white' : 'text-slate-300 hover:bg-slate-800'}`} onClick={() => setIsOpen(false)}>
                       + Create Report
+                    </span>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/admin/users">
+                    <span className={`block px-4 py-2 rounded-lg transition ${pathname === '/admin/users' ? 'bg-blue-600 text-white' : 'text-slate-300 hover:bg-slate-800'}`} onClick={() => setIsOpen(false)}>
+                      Manage Users
                     </span>
                   </Link>
                 </li>
