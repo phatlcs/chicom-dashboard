@@ -105,17 +105,20 @@ export default function Sidebar() {
           </div>
         </nav>
 
-        <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-slate-800 flex items-center justify-between">
-          <p className="text-slate-400 text-xs">© 2026 Boost</p>
+        <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-slate-800">
           <button
             onClick={async () => {
               await fetch('/api/auth/logout', { method: 'POST' })
               window.location.href = '/login'
             }}
-            className="text-slate-400 hover:text-white text-xs transition"
+            className="w-full flex items-center gap-2 px-3 py-2 rounded-lg border border-slate-600 text-slate-400 hover:text-white hover:border-slate-400 hover:bg-slate-700 transition text-sm font-medium"
           >
+            <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+            </svg>
             Log out
           </button>
+          <p className="text-slate-600 text-xs mt-2 text-center">© 2026 Boost</p>
         </div>
       </aside>
     </>
