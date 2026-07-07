@@ -17,9 +17,10 @@ interface CustomReport {
 }
 
 const OFFICIAL_REPORTS = [
-  { slug: 'q1',    label: 'Q1 2026 (Jan – Mar)', period: 'Jan 2026 – Mar 2026' },
-  { slug: 'april', label: 'April 2026',           period: 'Apr 1 – Apr 30, 2026' },
-  { slug: 'may',   label: 'May 2026',             period: 'May 1 – May 31, 2026' },
+  { slug: 'q1',         label: 'Q1 2026 (Jan – Mar)', period: 'Jan 2026 – Mar 2026',       url: '/api/report/q1' },
+  { slug: 'april',      label: 'April 2026',           period: 'Apr 1 – Apr 30, 2026',      url: '/api/report/april' },
+  { slug: 'may',        label: 'May 2026',             period: 'May 1 – May 31, 2026',      url: '/api/report/may' },
+  { slug: 'june-2026',  label: 'June 2026',            period: 'Jun 1 – Jun 30, 2026',      url: '/api/report/june-2026' },
 ]
 
 export default function HomePage() {
@@ -97,7 +98,7 @@ export default function HomePage() {
       {tab === 'official' && (
         <div className="divide-y divide-gray-200 border border-gray-200 rounded-lg overflow-hidden">
           {OFFICIAL_REPORTS.map(r => (
-            <a key={r.slug} href={`/api/report/${r.slug}`} className="block px-6 py-5 hover:bg-gray-50 transition">
+            <a key={r.slug} href={r.url} className="block px-6 py-5 hover:bg-gray-50 transition">
               <div className="flex items-center justify-between">
                 <div>
                   <h3 className="text-lg font-semibold text-blue-600">{r.label}</h3>
