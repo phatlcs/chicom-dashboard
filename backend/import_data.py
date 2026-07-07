@@ -13,7 +13,23 @@ import json
 import pandas as pd
 import psycopg2
 
+# Canonical column names and their accepted aliases
+COL_ALIASES = {
+    'post_id':     ['post_id', 'id', 'id_source'],
+    'is_relevant': ['is_relevant', 'relevant'],
+}
 REQUIRED_COLS = {'post_id', 'group_id', 'created_date', 'content'}
+
+def _remap_columns(df: pd.DataFrame) -> pd.DataFrame:
+    """Rename aliased columns to canonical names."""
+    rename = {}
+    for canonical, aliases in COL_ALIASES.items():
+        if canonical not in df.columns:
+            for alias in aliases:
+                if alias in df.columns:
+                    rename[alias] = canonical
+                    break
+    return df.rename(columns=rename)
 
 def coerce_bool(val) -> bool:
     if isinstance(val, bool):
@@ -45,6 +61,9 @@ def main():
     except Exception as e:
         print(f"ERROR:cannot read file: {e}", file=sys.stderr)
         sys.exit(1)
+
+    # --- remap column aliases (e.g. 'id' → 'post_id', 'relevant' → 'is_relevant') ---
+    df = _remap_columns(df)
 
     # --- validate columns ---
     missing = REQUIRED_COLS - set(df.columns)
