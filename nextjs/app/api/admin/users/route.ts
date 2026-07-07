@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { loadUsers, saveUsers, ManagedUser } from '@/lib/users'
 
+export const dynamic = 'force-dynamic'
+
 export async function GET() {
   const users = loadUsers().map(u => ({ username: u.username, role: u.role, createdAt: u.createdAt }))
   return NextResponse.json({ users })

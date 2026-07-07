@@ -1,6 +1,8 @@
 import { existsSync, readFileSync } from 'fs'
 import { join } from 'path'
 
+export const dynamic = 'force-dynamic'
+
 const REPORTS_FILE = join(process.cwd(), 'data', 'reports.json')
 
 export async function GET() {
