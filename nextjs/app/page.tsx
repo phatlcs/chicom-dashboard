@@ -32,14 +32,26 @@ export default function HomePage() {
     fetch('/api/auth/me').then(r => r.json()).then(d => setRole(d.role)).catch(() => {})
   }, [])
 
-  useEffect(() => {
+  function loadCustomReports() {
     setLoading(true)
     fetch('/api/pages')
       .then(r => r.json())
       .then(d => setCustomReports(d.pages ?? []))
       .catch(() => setCustomReports([]))
       .finally(() => setLoading(false))
-  }, [])
+  }
+
+  useEffect(() => { loadCustomReports() }, [])
+
+  async function deleteReport(slug: string, name: string) {
+    if (!confirm(`Delete custom report "${name}"? This cannot be undone.`)) return
+    await fetch('/api/pages', {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ slug }),
+    })
+    loadCustomReports()
+  }
 
   return (
     <div>
@@ -119,33 +131,44 @@ export default function HomePage() {
           ) : (
             <div className="divide-y divide-gray-200 border border-gray-200 rounded-lg overflow-hidden">
               {customReports.map(r => (
-                <a key={r.slug} href={`/api/report/${r.slug}`} className="block px-6 py-5 hover:bg-gray-50 transition">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h3 className="text-lg font-semibold text-blue-600">{r.name}</h3>
-                      {r.timeStart && r.timeEnd && (
-                        <p className="text-sm text-gray-500 mt-0.5">{r.timeStart} → {r.timeEnd}</p>
-                      )}
-                      {r.createdAt && (
-                        <p className="text-xs text-gray-400 mt-0.5">
-                          Created: {new Date(r.createdAt).toLocaleString()}
-                        </p>
-                      )}
-                    </div>
-                    <div className="text-right space-y-1">
+                <div key={r.slug} className="flex items-center hover:bg-gray-50 transition">
+                  <a href={`/api/report/${r.slug}`} className="flex-1 block px-6 py-5">
+                    <div className="flex items-center justify-between">
                       <div>
-                        <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs font-medium">
-                          CUSTOM
-                        </span>
+                        <h3 className="text-lg font-semibold text-blue-600">{r.name}</h3>
+                        {r.timeStart && r.timeEnd && (
+                          <p className="text-sm text-gray-500 mt-0.5">{r.timeStart} → {r.timeEnd}</p>
+                        )}
+                        {r.createdAt && (
+                          <p className="text-xs text-gray-400 mt-0.5">
+                            Created: {new Date(r.createdAt).toLocaleString()}
+                          </p>
+                        )}
                       </div>
-                      {r.totalPosts != null && (
-                        <p className="text-xs text-gray-500">
-                          {r.relevantPosts?.toLocaleString()} / {r.totalPosts?.toLocaleString()} posts
-                        </p>
-                      )}
+                      <div className="text-right space-y-1">
+                        <div>
+                          <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs font-medium">
+                            CUSTOM
+                          </span>
+                        </div>
+                        {r.totalPosts != null && (
+                          <p className="text-xs text-gray-500">
+                            {r.relevantPosts?.toLocaleString()} / {r.totalPosts?.toLocaleString()} posts
+                          </p>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                </a>
+                  </a>
+                  {role === 'admin' && (
+                    <button
+                      onClick={() => deleteReport(r.slug, r.name)}
+                      title="Delete report"
+                      className="px-4 py-2 text-red-400 hover:text-red-600 transition text-sm shrink-0"
+                    >
+                      ✕
+                    </button>
+                  )}
+                </div>
               ))}
             </div>
           )}

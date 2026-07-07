@@ -5,9 +5,10 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 const UNSORTED_REPORTS = [
-  { slug: 'q1', label: 'Q1 2026 (Jan-Mar)', created: 1748768973368 }, // 2026-06-09 06:49:33
-  { slug: 'april', label: 'April 2026', created: 1748768974158 }, // 2026-06-09 06:49:34
-  { slug: 'may', label: 'May 2026', created: 1748768974948 }, // 2026-06-09 06:49:34.948
+  { slug: 'q1', label: 'Q1 2026 (Jan-Mar)', created: 1748768973368 },
+  { slug: 'april', label: 'April 2026', created: 1748768974158 },
+  { slug: 'may', label: 'May 2026', created: 1748768974948 },
+  { slug: 'june-2026', label: 'June 2026', created: 1751860000000, url: '/api/report/june-2026' },
   // Note: 'overview' report is hidden from this list - only accessible via /overview page
 ]
 
@@ -95,8 +96,7 @@ export default function Sidebar() {
             <ul className="space-y-2">
               {REPORTS.map(r => (
                 <li key={r.slug}>
-                  {/* Use <a> to force full page load so Next.js rewrites apply */}
-                  <a href={`/${r.slug}`}>
+                  <a href={(r as any).url ?? `/${r.slug}`}>
                     <span className="block px-4 py-2 rounded-lg transition text-sm text-slate-300 hover:bg-slate-800" onClick={() => setIsOpen(false)}>
                       {r.label}
                     </span>
