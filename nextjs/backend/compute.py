@@ -595,8 +595,10 @@ def compute_all(df: pd.DataFrame):
 
     # ── Q5/Q6 heatmap ───────────────────────────────────────────────────────
     neg_df = rel[rel['sentiment'] == 'negative'].copy() if 'sentiment' in rel.columns else rel.iloc[0:0].copy()
-    neg_df['dow']  = neg_df['created_date'].dt.dayofweek
-    neg_df['hour'] = neg_df['created_date'].dt.hour
+    # Convert UTC → Vietnam time (UTC+7) for day-of-week and hour analysis
+    neg_df['_dt_vn'] = neg_df['created_date'] + pd.Timedelta(hours=7)
+    neg_df['dow']    = neg_df['_dt_vn'].dt.dayofweek
+    neg_df['hour']   = neg_df['_dt_vn'].dt.hour
     heatmap = [[int(((neg_df['dow'] == d) & (neg_df['hour'] == h)).sum()) for h in range(24)] for d in range(7)]
     q5_by_day  = [{'day': DAYS_VN[d], 'en': DAYS_EN[d], 'count': sum(heatmap[d])} for d in range(7)]
     q6_by_hour = [{'hour': h, 'count': sum(heatmap[d][h] for d in range(7))} for h in range(24)]
@@ -934,7 +936,7 @@ def compute_all(df: pd.DataFrame):
     # Assemble the aggregates dict that insights.py consumes per-Q.
     rel_for_sampling = rel.copy()
     if 'hour' not in rel_for_sampling.columns and 'created_date' in rel_for_sampling.columns:
-        rel_for_sampling['hour'] = rel_for_sampling['created_date'].dt.hour
+        rel_for_sampling['hour'] = (rel_for_sampling['created_date'] + pd.Timedelta(hours=7)).dt.hour
     soa_rel_for_sampling = rel_for_sampling[rel_for_sampling['group_id'].isin(SOA_IDS)].copy() \
         if 'group_id' in rel_for_sampling.columns else rel_for_sampling.iloc[0:0]
 
