@@ -944,10 +944,26 @@ def compute_all(df: pd.DataFrame):
         'Q14': {'q14_growth': q14_growth, 'soa_total': int(len(soa_rel))},
     }
 
+    # Build a human-readable date range for insight prompts (e.g. "June 2026" or "Jan–Mar 2026")
+    _dr_start = rel['created_date'].min() if len(rel) else None
+    _dr_end   = rel['created_date'].max() if len(rel) else None
+    if _dr_start is not None and pd.notna(_dr_start) and _dr_end is not None and pd.notna(_dr_end):
+        _s = pd.Timestamp(_dr_start)
+        _e = pd.Timestamp(_dr_end)
+        if _s.year == _e.year and _s.month == _e.month:
+            _date_range_str = _s.strftime('%B %Y')
+        elif _s.year == _e.year:
+            _date_range_str = f"{_s.strftime('%b')}–{_e.strftime('%b %Y')}"
+        else:
+            _date_range_str = f"{_s.strftime('%b %Y')}–{_e.strftime('%b %Y')}"
+    else:
+        _date_range_str = ""
+
     try:
         from insights import generate_insights_for_all_qs
         insights, _ = generate_insights_for_all_qs(
             rel_for_sampling, soa_rel_for_sampling, insight_aggregates,
+            date_range=_date_range_str,
         )
     except Exception as e:
         import sys as _sys

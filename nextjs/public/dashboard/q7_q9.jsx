@@ -401,6 +401,16 @@ function Q9() {
   const soaBadge = <span className="badge soa">SOA</span>;
   const ecBadge  = <span className="badge ec">EC</span>;
 
+  if (soa.length === 0 && ec.length === 0) {
+    return (
+      <div className="card" style={{ padding: '32px 24px', textAlign: 'center', color: 'var(--text-3)' }}>
+        <div style={{ fontSize: 32, marginBottom: 12 }}>💬</div>
+        <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--text-2)', marginBottom: 6 }}>No thread data available</div>
+        <div style={{ fontSize: 12 }}>Thread ranking requires post-level thread structure (parent post + comments). This dataset does not include that metadata.</div>
+      </div>
+    );
+  }
+
   return (
     <div className="grid-12">
       <div className="col-6"><Q9ThreadList title="Top 10 most-discussed threads" badge={soaBadge} items={soa} chartId="Q9_SOA" /></div>

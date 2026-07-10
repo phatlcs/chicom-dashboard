@@ -213,6 +213,19 @@ function Q6() {
   const topHour = [...hourly].sort((a, b) => b.count - a.count)[0] || { hour: 0, count: 0 };
   const pw      = D.Q5_PEAK_WINDOW;
 
+  // When all posts fall at hour 0, this dataset has no time-of-day information
+  const totalHourly = hourly.reduce((s, d) => s + d.count, 0);
+  const noTimeData = totalHourly > 0 && ((hourly[0]?.count ?? 0) / totalHourly) > 0.95;
+  if (noTimeData) {
+    return (
+      <div className="card" style={{ padding: '32px 24px', textAlign: 'center', color: 'var(--text-3)' }}>
+        <div style={{ fontSize: 32, marginBottom: 12 }}>⏱</div>
+        <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--text-2)', marginBottom: 6 }}>No hourly breakdown available</div>
+        <div style={{ fontSize: 12 }}>This dataset does not include time-of-day in its timestamps — only dates were recorded. Peak-hour analysis requires datetime-level data.</div>
+      </div>
+    );
+  }
+
   const hasSplit = D.Q6_BY_HOUR_SOA && D.Q6_BY_HOUR_EC;
 
   // Donut for peak-window distribution (stays cross-cutting / combined)

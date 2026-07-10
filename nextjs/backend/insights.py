@@ -361,15 +361,16 @@ You are an expert analyst for the Vietnamese e-commerce community, writing insig
 
 Input:
 - `title`: The research question being analyzed.
-- `aggregate`: Pre-computed numbers and top items from a dataset of 40,000+ Facebook community posts.
+- `date_range`: The calendar period this data covers (e.g. "June 2026" or "Jan–Mar 2026").
+- `aggregate`: Pre-computed numbers and top items from the dataset.
 - `samples`: 4-8 real post snippets from users (often mixing Vietnamese and English).
 
 Task:
 Produce a structured analysis in JSON format. The language of the analysis MUST be English.
-Follow the existing expert_insights.json schema:
+Follow this schema exactly:
 
 {
-  "scope": "Brief string describing the data scope (e.g., 'Scope: SOA (5,461 mentions) · EC (34,794 mentions) · Q1 2026')",
+  "scope": "Brief string describing the data scope (e.g., 'Scope: SOA (5,461 mentions) · EC (34,794 mentions) · June 2026')",
   "stats": [
     { "label": "Short label", "value": "Number/Percentage", "variant": "warn|danger|soa|ec|both", "note": "Brief context like 'Others (16,497)'" }
   ],
@@ -392,10 +393,11 @@ Constraints:
 3. Output ONLY the JSON object. No preamble, no markdown blocks.
 4. Ensure 'variant' choices align with the content (e.g., 'soa' for Amazon-specific findings).
 5. Always provide exactly 4 stats and exactly 3 findings.
+6. In the `scope` field, always use the `date_range` value for the time period — NEVER write "Q1", "Q2", "Q3", or "Q4" as a time period label; those are question numbers, not quarters.
 """
 
 
-def _call_claude(title: str, payload: dict, api_key: str) -> dict | None:
+def _call_claude(title: str, payload: dict, api_key: str, date_range: str = "") -> dict | None:
     """Make one LLM call. Returns dict or None on failure."""
     try:
         from anthropic import Anthropic
@@ -407,6 +409,7 @@ def _call_claude(title: str, payload: dict, api_key: str) -> dict | None:
     client = Anthropic(api_key=api_key)
     user_text = (
         f"title: {title}\n\n"
+        f"date_range: {date_range or 'unknown'}\n\n"
         f"aggregate:\n{json.dumps(payload['aggregate'], ensure_ascii=False, indent=2)}\n\n"
         f"samples:\n"
         + "\n".join(f"- {s}" for s in payload.get("samples", []))
@@ -449,6 +452,7 @@ def generate_insights_for_all_qs(
     soa_rel: pd.DataFrame,
     aggregates: dict,
     skip_llm: bool = False,
+    date_range: str = "",
 ) -> tuple[dict, dict]:
     """
     Return (insights_dict, expert_insights_dict) for all 14 Q sections.
@@ -485,7 +489,7 @@ def generate_insights_for_all_qs(
         agg_for_q = aggregates.get(q_id, {})
         payload = {"aggregate": agg_for_q, "samples": samples}
         # Include a version/schema flag in the hash so refactors trigger a rebuild
-        key = _hash_payload({"model": MODEL_ID, "payload": payload, "title": title, "schema": "v2-structured-en"})
+        key = _hash_payload({"model": MODEL_ID, "payload": payload, "title": title, "schema": "v3-date-aware", "date_range": date_range})
 
         cached = cache.get(q_id)
         if cached and cached.get("hash") == key and cached.get("expert"):
@@ -496,7 +500,7 @@ def generate_insights_for_all_qs(
             hits += 1
             continue
 
-        structured = _call_claude(title, payload, api_key)
+        structured = _call_claude(title, payload, api_key, date_range=date_range)
         if structured:
             cache[q_id] = {"hash": key, "expert": structured}
             expert_results[q_id] = structured
@@ -517,10 +521,12 @@ def generate_insights_for_all_qs(
     }
     final_expert = {**header, **expert_results}
     
-    out_path = _PROJECT_DIR / "dashboard" / "expert_insights.json"
+    # Write to public/dashboard/ so generate_range.py can embed it in custom report HTML
+    out_path = _PROJECT_DIR / "public" / "dashboard" / "expert_insights.json"
     try:
+        out_path.parent.mkdir(parents=True, exist_ok=True)
         out_path.write_text(json.dumps(final_expert, ensure_ascii=False, indent=2), encoding="utf-8")
-        print(f"  [insight] updated {out_path.name}")
+        print(f"  [insight] updated {out_path}")
     except Exception as e:
         print(f"  [insight] failed to write expert_insights.json: {e}", file=sys.stderr)
 
