@@ -64,7 +64,7 @@ def _load_manual() -> dict:
 
 def _load_env() -> None:
     """Tiny .env loader so callers don't need python-dotenv as a hard dep."""
-    for candidate in (_BACKEND_DIR / ".env", _PROJECT_DIR / ".env"):
+    for candidate in (_BACKEND_DIR / ".env", _PROJECT_DIR / ".env", _PROJECT_DIR.parent / ".env"):
         if not candidate.is_file():
             continue
         for line in candidate.read_text(encoding="utf-8").splitlines():
