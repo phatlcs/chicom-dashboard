@@ -76,13 +76,14 @@ def main():
     df['created_date'] = pd.to_datetime(df['created_date'], errors='coerce')
     df['is_relevant'] = df['is_relevant'].apply(coerce_bool) if 'is_relevant' in df.columns else True
 
+    # Map Type → post_type before optional-column defaults
+    if 'Type' in df.columns and 'post_type' not in df.columns:
+        df['post_type'] = df['Type']
+
     optional = ['master_topic', 'sub_topic', 'persona', 'sentiment', 'batch_label', 'post_type']
     for col in optional:
         if col not in df.columns:
             df[col] = None
-    # Map Type → post_type if present
-    if 'Type' in df.columns and 'post_type' not in df.columns:
-        df['post_type'] = df['Type']
 
     df['batch_label'] = df['batch_label'].fillna(batch_label)
 
