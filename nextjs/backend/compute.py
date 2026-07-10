@@ -796,37 +796,50 @@ def compute_all(df: pd.DataFrame):
     # (post + comments) per thread, take top N. Preview + link come from
     # the `fbGroupTopic` row, never from a comment.
     def _top_threads(frame: pd.DataFrame, n: int = 10) -> list[dict]:
-        if 'id_source' not in frame.columns or len(frame) == 0:
+        if 'Type' not in frame.columns or 'post_id' not in frame.columns or len(frame) == 0:
             return []
-        type_col = frame['Type'].astype(str) if 'Type' in frame.columns else pd.Series('', index=frame.index)
-        posts = frame[type_col.eq('fbGroupTopic')]
+        import base64 as _b64
+        type_col = frame['Type'].astype(str)
+        posts = frame[type_col.eq('fbGroupTopic')].copy()
+        comments = frame[type_col.eq('fbGroupComment')].copy()
         if len(posts) == 0:
             return []
-        # Valid post id_sources (i.e. the post row survived filtering).
-        valid_ids = set(posts['id_source'].astype(str))
-        counts = (
-            frame[frame['id_source'].astype(str).isin(valid_ids)]
-            ['id_source'].value_counts().head(n)
+
+        # Decode parent post ID from base64 comment post_id:
+        # e.g. "comment:3510931659084484_3510934109084239" → "3510931659084484"
+        def _parent_id(pid: str) -> str:
+            try:
+                decoded = _b64.b64decode(pid + '==').decode('utf-8', errors='ignore')
+                if decoded.startswith('comment:'):
+                    return decoded.split(':')[1].split('_')[0]
+            except Exception:
+                pass
+            return ''
+
+        comments = comments.copy()
+        comments['_parent_id'] = comments['post_id'].astype(str).map(_parent_id)
+        comments = comments[comments['_parent_id'] != '']
+
+        valid_ids = set(posts['post_id'].astype(str))
+        comment_counts = (
+            comments[comments['_parent_id'].isin(valid_ids)]
+            ['_parent_id'].value_counts().head(n)
         )
-        # Build a quick lookup from id_source → post row
-        posts_by_id = posts.drop_duplicates('id_source').set_index(posts['id_source'].astype(str))
+        posts_by_id = posts.drop_duplicates('post_id').set_index(posts['post_id'].astype(str))
 
         out: list[dict] = []
-        for id_source, count in counts.items():
-            key = str(id_source)
-            if key not in posts_by_id.index:
+        for parent_id, comment_count in comment_counts.items():
+            if parent_id not in posts_by_id.index:
                 continue
-            parent = posts_by_id.loc[key]
+            parent = posts_by_id.loc[parent_id]
             content = str(parent.get('content', '') or '').strip()
             preview = (content[:157] + '…') if len(content) > 160 else content
             gid = int(parent.get('group_id')) if pd.notna(parent.get('group_id')) else None
-            # Count comments (total rows - 1 for the post itself)
-            comments = int(count) - 1
             out.append({
-                'id':           key,
+                'id':           parent_id,
                 'link':         str(parent.get('link', '') or ''),
-                'count':        int(count),
-                'comments':     comments,
+                'count':        int(comment_count) + 1,
+                'comments':     int(comment_count),
                 'preview':      preview,
                 'group_id':     gid,
                 'group_name':   GROUP_INFO.get(gid, {}).get('short', '—') if gid else '—',

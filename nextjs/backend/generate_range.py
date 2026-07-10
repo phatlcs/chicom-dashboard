@@ -24,8 +24,8 @@ def main():
     conn = psycopg2.connect(dbname="chicom_dashboard", user="postgres", host="localhost")
     cur = conn.cursor()
     cur.execute("""
-        SELECT id::text, group_id, created_date, content, master_topic,
-               sub_topic, persona, sentiment, is_relevant, batch_label
+        SELECT post_id, group_id, created_date, content, master_topic,
+               sub_topic, persona, sentiment, is_relevant, batch_label, post_type
         FROM pooled_posts_all
         WHERE created_date BETWEEN %s::date AND %s::date
     """, (start, end))
@@ -34,7 +34,7 @@ def main():
     cur.close(); conn.close()
 
     df = pd.DataFrame(rows, columns=cols)
-    df = df.rename(columns={"is_relevant": "relevant"})
+    df = df.rename(columns={"is_relevant": "relevant", "post_type": "Type"})
 
     if df.empty:
         # Try to find available data range and adjust

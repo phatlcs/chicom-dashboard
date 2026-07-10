@@ -10,6 +10,7 @@ CREATE TABLE IF NOT EXISTS pooled_posts_all (
   sentiment VARCHAR(50),
   is_relevant BOOLEAN DEFAULT TRUE,
   batch_label VARCHAR(100),
+  post_type   VARCHAR(50),
   pooled_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 

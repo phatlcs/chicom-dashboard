@@ -76,10 +76,13 @@ def main():
     df['created_date'] = pd.to_datetime(df['created_date'], errors='coerce').dt.date
     df['is_relevant'] = df['is_relevant'].apply(coerce_bool) if 'is_relevant' in df.columns else True
 
-    optional = ['master_topic', 'sub_topic', 'persona', 'sentiment', 'batch_label']
+    optional = ['master_topic', 'sub_topic', 'persona', 'sentiment', 'batch_label', 'post_type']
     for col in optional:
         if col not in df.columns:
             df[col] = None
+    # Map Type → post_type if present
+    if 'Type' in df.columns and 'post_type' not in df.columns:
+        df['post_type'] = df['Type']
 
     df['batch_label'] = df['batch_label'].fillna(batch_label)
 
@@ -102,8 +105,8 @@ def main():
                 INSERT INTO pooled_posts_all
                   (post_id, group_id, created_date, content,
                    master_topic, sub_topic, persona, sentiment,
-                   is_relevant, batch_label)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                   is_relevant, batch_label, post_type)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                 ON CONFLICT (post_id) DO NOTHING
                 """,
                 (
@@ -117,6 +120,7 @@ def main():
                     str(row['sentiment']) if pd.notna(row.get('sentiment')) else None,
                     coerce_bool(row['is_relevant']),
                     str(row['batch_label']) if pd.notna(row.get('batch_label')) else batch_label,
+                    str(row['post_type']) if pd.notna(row.get('post_type')) else None,
                 ),
             )
             if cur.rowcount > 0:
