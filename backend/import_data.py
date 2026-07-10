@@ -73,7 +73,7 @@ def main():
 
     # --- normalise ---
     df['post_id'] = df['post_id'].astype(str).str.strip()
-    df['created_date'] = pd.to_datetime(df['created_date'], errors='coerce').dt.date
+    df['created_date'] = pd.to_datetime(df['created_date'], errors='coerce')
     df['is_relevant'] = df['is_relevant'].apply(coerce_bool) if 'is_relevant' in df.columns else True
 
     optional = ['master_topic', 'sub_topic', 'persona', 'sentiment', 'batch_label', 'post_type']
