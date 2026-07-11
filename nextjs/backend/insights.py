@@ -394,10 +394,11 @@ Constraints:
 4. Ensure 'variant' choices align with the content (e.g., 'soa' for Amazon-specific findings).
 5. Always provide exactly 4 stats and exactly 3 findings.
 6. In the `scope` field, always use the `date_range` value for the time period — NEVER write "Q1", "Q2", "Q3", or "Q4" as a time period label; those are question numbers, not quarters.
+7. NEVER refer to master topics by their internal codes (MT1, MT2, MT3, etc.). Always use the full topic name from the data (e.g. "Product & Pricing", "Logistics & Fulfillment"). If the aggregate only provides codes, map them to names using the `id` and `vn`/`en` fields in the data.
 """
 
 
-def _call_claude(title: str, payload: dict, api_key: str, date_range: str = "") -> dict | None:
+def _call_claude(title: str, payload: dict, api_key: str, date_range: str = "", mt_legend: str = "") -> dict | None:
     """Make one LLM call. Returns dict or None on failure."""
     try:
         from anthropic import Anthropic
@@ -408,10 +409,11 @@ def _call_claude(title: str, payload: dict, api_key: str, date_range: str = "") 
 
     client = Anthropic(api_key=api_key)
     user_text = (
-        f"title: {title}\n\n"
-        f"date_range: {date_range or 'unknown'}\n\n"
-        f"aggregate:\n{json.dumps(payload['aggregate'], ensure_ascii=False, indent=2)}\n\n"
-        f"samples:\n"
+        (f"master_topic_legend (use these names, never the MT codes):\n{mt_legend}\n\n" if mt_legend else "")
+        + f"title: {title}\n\n"
+        + f"date_range: {date_range or 'unknown'}\n\n"
+        + f"aggregate:\n{json.dumps(payload['aggregate'], ensure_ascii=False, indent=2)}\n\n"
+        + f"samples:\n"
         + "\n".join(f"- {s}" for s in payload.get("samples", []))
     )
 
@@ -478,6 +480,12 @@ def generate_insights_for_all_qs(
     misses = 0
     t0 = time.time()
 
+    # Build MT legend from Q1 master list so LLM always knows code→name mapping
+    mt_legend = ""
+    q1_master = aggregates.get("Q1", {}).get("q1_master", [])
+    if q1_master:
+        mt_legend = "\n".join(f"{m['id']} = {m['en']}" for m in q1_master if m.get('id') and m.get('en'))
+
     for q_id, title, sampler, scope in Q_SPECS:
         frame = soa_rel if scope == "soa_rel" else rel
         try:
@@ -489,7 +497,7 @@ def generate_insights_for_all_qs(
         agg_for_q = aggregates.get(q_id, {})
         payload = {"aggregate": agg_for_q, "samples": samples}
         # Include a version/schema flag in the hash so refactors trigger a rebuild
-        key = _hash_payload({"model": MODEL_ID, "payload": payload, "title": title, "schema": "v3-date-aware", "date_range": date_range})
+        key = _hash_payload({"model": MODEL_ID, "payload": payload, "title": title, "schema": "v4-named-topics", "date_range": date_range, "mt_legend": mt_legend})
 
         cached = cache.get(q_id)
         if cached and cached.get("hash") == key and cached.get("expert"):
@@ -500,7 +508,7 @@ def generate_insights_for_all_qs(
             hits += 1
             continue
 
-        structured = _call_claude(title, payload, api_key, date_range=date_range)
+        structured = _call_claude(title, payload, api_key, date_range=date_range, mt_legend=mt_legend)
         if structured:
             cache[q_id] = {"hash": key, "expert": structured}
             expert_results[q_id] = structured
