@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
   const hardcoded = checkCredentials(username, password)
   if (hardcoded) {
     const res = NextResponse.json({ ok: true })
-    res.cookies.set(AUTH_COOKIE, makeSessionToken(username), {
+    res.cookies.set(AUTH_COOKIE, makeSessionToken(hardcoded.role), {
       httpOnly: true,
       sameSite: 'lax',
       secure: true,

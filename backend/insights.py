@@ -43,6 +43,9 @@ CACHE_PATH      = Path(os.getenv("INSIGHT_CACHE_PATH",
 # Hand-written insights used as a fallback when no API key is available.
 # Loaded into INSIGHTS for any Q that has a non-empty string here.
 MANUAL_PATH     = _BACKEND_DIR / "insights_manual.json"
+# Official Amazon VN knowledge-base feed. The `Month` column (1-12) selects
+# which articles apply to the report being generated (July report → month 7).
+KB_PATH         = _PROJECT_DIR / "AGS_Knowledge_Base.csv"
 
 
 def _load_manual() -> dict:
@@ -58,6 +61,55 @@ def _load_manual() -> dict:
     except Exception as e:
         print(f"  [insight] failed to read {MANUAL_PATH.name}: {e}", file=sys.stderr)
         return {}
+
+
+_KB_COLUMNS = (
+    "Link ID", "Title", "Description", "content_summary",
+    "Short_url (Nexi dùng dẫn link)", "category",
+)
+
+
+def _load_kb_rows(months: set[int]) -> list[dict]:
+    """Return knowledge-base articles whose `Month` matches the report months.
+
+    Reads AGS_Knowledge_Base.csv (project root, next to .env). Rows without a
+    month are skipped so only articles published for this report's month are
+    included in the LLM context. Returns [] if the file is missing.
+    """
+    if not KB_PATH.is_file():
+        print(f"  [insight] {KB_PATH.name} not found — running without KB context",
+              file=sys.stderr)
+        return []
+    try:
+        df = pd.read_csv(KB_PATH, dtype=str, keep_default_na=False)
+    except Exception as e:
+        print(f"  [insight] failed to read {KB_PATH.name}: {e}", file=sys.stderr)
+        return []
+    # CSV headers carry trailing spaces (e.g. "Short_url (Nexi dùng dẫn link) ")
+    df.columns = [str(c).strip() for c in df.columns]
+    if "Month" not in df.columns:
+        print(f"  [insight] {KB_PATH.name} has no 'Month' column — skipping KB", file=sys.stderr)
+        return []
+
+    def _month_key(v: str) -> int | None:
+        v = str(v).strip()
+        if not v.isdigit() or not (1 <= int(v) <= 12):
+            return None
+        return int(v)
+
+    mask = df["Month"].map(_month_key).isin(months)
+    rows = df[mask]
+    cols = [c for c in _KB_COLUMNS if c in rows.columns]
+    return rows[cols].to_dict(orient="records")
+
+
+def _period_label(dts: pd.Series) -> str:
+    """Human label for the report period, e.g. 'July 2026' or 'May 2026 – Jun 2026'."""
+    if dts is None or len(dts) == 0:
+        return ""
+    lo, hi = dts.min(), dts.max()
+    lo_s, hi_s = lo.strftime("%B %Y"), hi.strftime("%B %Y")
+    return lo_s if lo_s == hi_s else f"{lo_s} – {hi_s}"
 
 
 # ── Utility helpers ─────────────────────────────────────────────────────────
@@ -361,15 +413,17 @@ You are an expert analyst for the Vietnamese e-commerce community, writing insig
 
 Input:
 - `title`: The research question being analyzed.
+- `period`: The exact date range this report covers (e.g., "July 2026"). Use it verbatim in the scope string.
 - `aggregate`: Pre-computed numbers and top items from a dataset of 40,000+ Facebook community posts.
 - `samples`: 4-8 real post snippets from users (often mixing Vietnamese and English).
+- `knowledge_base`: Official Amazon VN help-center articles published for this report's month (fields: Link ID, Title, Description, content_summary, category). Use them as authoritative reference material.
 
 Task:
 Produce a structured analysis in JSON format. The language of the analysis MUST be English.
 Follow the existing expert_insights.json schema:
 
 {
-  "scope": "Brief string describing the data scope (e.g., 'Scope: SOA (5,461 mentions) · EC (34,794 mentions) · Q1 2026')",
+  "scope": "Brief string describing the data scope using the actual `period` (e.g., 'Scope: SOA (5,461 mentions) · EC (34,794 mentions) · July 2026')",
   "stats": [
     { "label": "Short label", "value": "Number/Percentage", "variant": "warn|danger|soa|ec|both", "note": "Brief context like 'Others (16,497)'" }
   ],
@@ -392,6 +446,8 @@ Constraints:
 3. Output ONLY the JSON object. No preamble, no markdown blocks.
 4. Ensure 'variant' choices align with the content (e.g., 'soa' for Amazon-specific findings).
 5. Always provide exactly 4 stats and exactly 3 findings.
+6. When a knowledge_base article is directly relevant to a finding or recommendation, cite it by Link ID (e.g., 'LNK_080') so readers can open the official resource. Only cite articles that actually exist in `knowledge_base`.
+7. In the `scope` string, use the report's actual `period` (e.g., 'July 2026'). Never invent a quarter or copy an example date.
 """
 
 
@@ -407,39 +463,52 @@ def _call_claude(title: str, payload: dict, api_key: str) -> dict | None:
     client = Anthropic(api_key=api_key)
     user_text = (
         f"title: {title}\n\n"
+        f"period: {payload.get('period') or 'unknown'}\n\n"
         f"aggregate:\n{json.dumps(payload['aggregate'], ensure_ascii=False, indent=2)}\n\n"
         f"samples:\n"
         + "\n".join(f"- {s}" for s in payload.get("samples", []))
     )
-
-    try:
-        resp = client.messages.create(
-            model=MODEL_ID,
-            max_tokens=MAX_TOKENS + 600,  # Structured JSON needs more tokens
-            temperature=TEMPERATURE,
-            system=[
-                {
-                    "type": "text",
-                    "text": _SYSTEM_PROMPT,
-                    "cache_control": {"type": "ephemeral"},
-                }
-            ],
-            messages=[
-                {"role": "user", "content": user_text},
-            ],
+    kb = payload.get("knowledge_base") or []
+    if kb:
+        user_text += (
+            "\n\nknowledge_base (official Amazon VN articles for this report's month):\n"
+            + json.dumps(kb, ensure_ascii=False, indent=2)
         )
-        text = "".join(
-            b.text for b in resp.content if getattr(b, "type", None) == "text"
-        ).strip()
-        
-        # Strip potential markdown blocks if LLM ignored instructions
-        if text.startswith("```"):
-            text = re.sub(r"^```json\s*|\s*```$", "", text, flags=re.MULTILINE)
-        
-        return json.loads(text)
-    except Exception as e:
-        print(f"  [insight] API error: {e}", file=sys.stderr)
-        return None
+
+    # Retry up to 3 times — LLM JSON output can be truncated (max_tokens) or
+    # wrapped in stray markdown; a fresh call usually returns a valid object.
+    last_err: Exception | None = None
+    for attempt in range(3):
+        try:
+            resp = client.messages.create(
+                model=MODEL_ID,
+                max_tokens=MAX_TOKENS + 600 + 600 * attempt,  # give retries headroom
+                temperature=TEMPERATURE,
+                system=[
+                    {
+                        "type": "text",
+                        "text": _SYSTEM_PROMPT,
+                        "cache_control": {"type": "ephemeral"},
+                    }
+                ],
+                messages=[
+                    {"role": "user", "content": user_text},
+                ],
+            )
+            text = "".join(
+                b.text for b in resp.content if getattr(b, "type", None) == "text"
+            ).strip()
+
+            # Strip potential markdown blocks if LLM ignored instructions
+            if text.startswith("```"):
+                text = re.sub(r"^```json\s*|\s*```$", "", text, flags=re.MULTILINE)
+
+            return json.loads(text)
+        except Exception as e:
+            last_err = e
+            print(f"  [insight] attempt {attempt + 1} failed: {e}", file=sys.stderr)
+    print(f"  [insight] API error: {last_err}", file=sys.stderr)
+    return None
 
 
 # ── Public entry point ─────────────────────────────────────────────────────
@@ -474,6 +543,20 @@ def generate_insights_for_all_qs(
     misses = 0
     t0 = time.time()
 
+    # Knowledge-base context for this report — only articles matching the
+    # months present in the data (July report → rows with Month == 7).
+    if "created_date" in rel.columns and len(rel):
+        _dts = pd.to_datetime(rel["created_date"], errors="coerce").dropna()
+        months = {int(d.month) for d in _dts}
+        period = _period_label(_dts)
+    else:
+        months = set()
+        period = ""
+    kb_rows = _load_kb_rows(months)
+    if kb_rows:
+        print(f"  [insight] KB context: {len(kb_rows)} article(s) for month(s) "
+              f"{sorted(months)}")
+
     for q_id, title, sampler, scope in Q_SPECS:
         frame = soa_rel if scope == "soa_rel" else rel
         try:
@@ -483,9 +566,10 @@ def generate_insights_for_all_qs(
             samples = []
 
         agg_for_q = aggregates.get(q_id, {})
-        payload = {"aggregate": agg_for_q, "samples": samples}
+        payload = {"aggregate": agg_for_q, "samples": samples,
+                   "knowledge_base": kb_rows, "period": period}
         # Include a version/schema flag in the hash so refactors trigger a rebuild
-        key = _hash_payload({"model": MODEL_ID, "payload": payload, "title": title, "schema": "v2-structured-en"})
+        key = _hash_payload({"model": MODEL_ID, "payload": payload, "title": title, "schema": "v4-kb-period"})
 
         cached = cache.get(q_id)
         if cached and cached.get("hash") == key and cached.get("expert"):

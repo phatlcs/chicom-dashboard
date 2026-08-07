@@ -21,6 +21,7 @@ const OFFICIAL_REPORTS = [
   { slug: 'april',      label: 'April 2026',           period: 'Apr 1 – Apr 30, 2026',      url: '/api/report/april' },
   { slug: 'may',        label: 'May 2026',             period: 'May 1 – May 31, 2026',      url: '/api/report/may' },
   { slug: 'june-2026',  label: 'June 2026',            period: 'Jun 1 – Jun 30, 2026',      url: '/api/report/june-2026' },
+  { slug: 'july-2026',  label: 'July 2026',            period: 'Jul 1 – Jul 31, 2026',      url: '/api/report/july-2026' },
 ]
 
 export default function HomePage() {
