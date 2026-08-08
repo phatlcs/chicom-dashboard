@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 export default function GenerateReportPage() {
   const [formData, setFormData] = useState({ name: '', timeStart: '', timeEnd: '' })
@@ -223,6 +223,14 @@ export default function GenerateReportPage() {
           </button>
         </form>
 
+        {exporting && (
+          <div className="mt-3">
+            <div className="h-1.5 w-full bg-gray-200 rounded-full overflow-hidden">
+              <div className="h-full bg-indigo-500 rounded-full" style={{animation:'indeterminate 1.5s ease-in-out infinite'}} />
+            </div>
+            <p className="text-xs text-gray-400 mt-1">Querying database...</p>
+          </div>
+        )}
         {exportError && (
           <div className="mt-3 p-3 bg-red-50 text-red-700 rounded text-sm">{exportError}</div>
         )}
