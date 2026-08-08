@@ -47,7 +47,10 @@ def main():
             batch_label
         FROM pooled_posts_all
         WHERE created_date BETWEEN %(start)s::date AND %(end)s::date
-        ORDER BY created_date, group_id
+        ORDER BY
+            group_id::int,
+            created_date,
+            post_id
     """, conn, params={'start': start, 'end': end})
 
     conn.close()
