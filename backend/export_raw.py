@@ -34,15 +34,15 @@ def main():
 
     df = pd.read_sql("""
         SELECT
-            post_id,
             group_id,
+            post_id,
             created_date,
+            post_type        AS "Type",
             content,
             master_topic,
             sub_topic,
             persona,
             sentiment,
-            post_type        AS "Type",
             is_relevant      AS relevant,
             batch_label
         FROM pooled_posts_all
