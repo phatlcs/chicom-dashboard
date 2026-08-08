@@ -3,7 +3,7 @@ import type { NextRequest } from 'next/server'
 import { AUTH_COOKIE, getRoleFromToken } from '@/lib/auth'
 
 // Only admin may access these paths; viewers are redirected/403'd
-const ADMIN_ONLY = ['/generate-report', '/admin', '/api/upload-data', '/api/pages/create', '/api/admin']
+const ADMIN_ONLY = ['/generate-report', '/admin', '/api/upload-data', '/api/pages/create', '/api/admin', '/api/export-raw']
 
 export function middleware(req: NextRequest) {
   const token = req.cookies.get(AUTH_COOKIE)?.value

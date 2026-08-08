@@ -12,6 +12,11 @@ export default function GenerateReportPage() {
   const [uploadResult, setUploadResult] = useState<{ inserted: number; skipped: number; total: number; errors: number } | null>(null)
   const [uploadError, setUploadError] = useState<string | null>(null)
 
+  const [exportData, setExportData] = useState({ name: '', timeStart: '', timeEnd: '' })
+  const [exporting, setExporting] = useState(false)
+  const [exportError, setExportError] = useState<string | null>(null)
+  const [exportResult, setExportResult] = useState<{ rows: number; filename: string } | null>(null)
+
   async function handleCreateReport(e: React.FormEvent) {
     e.preventDefault()
     setCreating(true)
@@ -61,6 +66,45 @@ export default function GenerateReportPage() {
       setUploadError('Upload error: ' + (err as Error).message)
     } finally {
       setUploading(false)
+    }
+  }
+
+  async function handleExport(e: React.FormEvent) {
+    e.preventDefault()
+    setExporting(true)
+    setExportError(null)
+    setExportResult(null)
+
+    try {
+      const res = await fetch('/api/export-raw', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: exportData.name, timeStart: exportData.timeStart, timeEnd: exportData.timeEnd }),
+      })
+
+      if (!res.ok) {
+        const data = await res.json()
+        setExportError(data.error || 'Export failed')
+        return
+      }
+
+      const rows = parseInt(res.headers.get('X-Row-Count') ?? '0')
+      const disposition = res.headers.get('Content-Disposition') ?? ''
+      const filename = disposition.match(/filename="([^"]+)"/)?.[1] ?? 'export.xlsx'
+
+      const blob = await res.blob()
+      const url = URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = filename
+      a.click()
+      URL.revokeObjectURL(url)
+
+      setExportResult({ rows, filename })
+    } catch (err) {
+      setExportError('Export error: ' + (err as Error).message)
+    } finally {
+      setExporting(false)
     }
   }
 
@@ -127,6 +171,66 @@ export default function GenerateReportPage() {
             {creating ? 'Creating report... (1–2 min)' : 'Create Report'}
           </button>
         </form>
+      </div>
+
+      {/* Export Raw Data */}
+      <div className="border-t border-gray-200 pt-8 mb-10">
+        <h2 className="text-lg font-bold text-gray-900 mb-1">Export Raw Data</h2>
+        <p className="text-sm text-gray-500 mb-4">
+          Download all posts in a date range as an XLSX file — same format as the classified input files.
+        </p>
+
+        <form onSubmit={handleExport} className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">File Name</label>
+            <input
+              type="text"
+              value={exportData.name}
+              onChange={e => setExportData({ ...exportData, name: e.target.value })}
+              placeholder="e.g. July 2026 Raw"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              required
+            />
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Start Date</label>
+              <input
+                type="date"
+                value={exportData.timeStart}
+                onChange={e => setExportData({ ...exportData, timeStart: e.target.value })}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">End Date</label>
+              <input
+                type="date"
+                value={exportData.timeEnd}
+                onChange={e => setExportData({ ...exportData, timeEnd: e.target.value })}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                required
+              />
+            </div>
+          </div>
+          <button
+            type="submit"
+            disabled={exporting}
+            className="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {exporting ? 'Generating...' : '↓ Download XLSX'}
+          </button>
+        </form>
+
+        {exportError && (
+          <div className="mt-3 p-3 bg-red-50 text-red-700 rounded text-sm">{exportError}</div>
+        )}
+        {exportResult && (
+          <div className="mt-3 p-3 bg-indigo-50 text-indigo-800 rounded text-sm">
+            Downloaded <strong>{exportResult.filename}</strong> — <strong>{exportResult.rows.toLocaleString()}</strong> rows
+          </div>
+        )}
       </div>
 
       {/* Update / Add Data — separate section */}
