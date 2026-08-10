@@ -1,0 +1,400 @@
+Month,Link ID,Short_url (Nexi dùng dẫn link) ,Link source 1 (Dùng để học thêm thông tin),Link source 2 (Dùng để học thêm thông tin),Title,Description,content_summary,category
+,LNK_001,https://amzn.to/3e8fHTb,https://sellercentral.amazon.com/help/hub/reference/external/201975730,,Thay đổi địa chỉ doanh nghiệp của bạn,Hướng dẫn thay đổi địa chỉ doanh nghiệp của tài khoản bán hàng,Hướng dẫn gồm 4 bước để nhà bán hàng biết cách Truy cập trang Cài đặt -> Thông tin tài khoản để thay đổi: Địa chỉ doanh nghiệp,update information
+,LNK_002,https://amzn.to/48kngB8,https://sell.amazon.vn/dang-ky-tai-khoan?ld=SOVNSOAFACEBOOK_NSW-AccReg_NULL_FP-Post_ProcessUpdate_2025-11-27,,Đăng ký tài khoản bán hàng trên Amazon,Hướng dẫn từng bước đăng ký tài khoản bán hàng trên Amazon hoàn toàn bằng tiếng Việt,"Hướng dẫn cách tạo tài khoản bán hàng trên Amazon hoàn toàn bằng tiếng Việt, bao gồm quy trình đăng ký chi tiết từng bước, các lỗi thường gặp và cách khắc phục.",account registration
+,LNK_003,https://amzn.to/3MJKFC9,https://m.media-amazon.com/images/G/28/AS/AGS/SU/VN_GS_Account_Registration_Guidance_VN.pdf,,Mô phỏng chi tiết quá trình đăng ký,Hướng dẫn từng bước đăng ký tài khoản bán hàng trên Amazon hoàn toàn bằng tiếng Việt và có hình ảnh minh hoạ,"Mô phỏng quá trình đăng ký tài khoản theo 3 quy trình chính kèm mục hỗ trợ với câu hỏi thường gặp. Từng quy trình được hướng dẫn cụ thể, có hình ảnh minh hoạ kèm ví dụ.",account registration
+,LNK_004,https://amzn.to/3MT87fv,https://sell.amazon.vn/ban-do-hoat-dong-kinh-doanh-cua-thuong-hieu-tren-amazon?ld=SOVNSOA2024BrandingRoadmap_Facebook,,Đăng ký thương hiệu,Bản đồ hoạt động kinh doanh của thương hiệu trên Amazon,"Sơ đồ tóm tắt về phương thức vận hành và các công cụ hỗ trợ dành cho nhà bán hàng có thương hiệu, được giới thiệu chi tiết và hướng dẫn sử dụng một cách hiệu quả hơn 30 công cụ nằm ở 6 module chính trong hành trình xây dựng thương hiệu.",Brand Registry
+,LNK_005,https://amzn.to/4b60EEM,https://sell.amazon.vn/nha-cung-cap-dich-vu/dang-ky-thuong-hieu?ref_=sdvn_soa_grow_BrandregSPN_i,,Danh sách các nhà cung cấp dịch vụ đăng ký thương hiệu,Danh sách nhà cung cấp dịch vụ đăng ký thương hiệu,"Danh sách nhà cung cấp dịch vụ đăng ký thương hiệu kèm theo thông tin giới thiệu, danh sách dịch vụ và thông tin liên hệ",Brand Registry
+,LNK_006,https://amzn.to/3eOyi5A,https://sellercentral.amazon.com/help/hub/reference/external/GWHNLFB8G85QAZ5W,,Cập nhật tài khoản ngân hàng,"Thêm, cập nhật, kiểm tra thông tin tài khoản ngân hàng","Hướng dẫn từng quy trình: thêm thông tin tài khoản ngân hàng, cập nhật thông tin tài khoản ngân hàng hiện có, xem và kiểm tra tài khoản ngân hàng, xoá tài khoản ngân hàng",update information
+,LNK_007,https://amzn.to/2QO1ZMn,https://sellercentral.amazon.com/help/hub/reference/external/201841320,,Cập nhật địa chỉ giao hàng,Hướng dẫn cập nhật địa chỉ giao hàng,"Hướng dẫn từng bước cập nhật địa chỉ giao hàng mặc định, quản lý và xoá ship-from addresses",update information
+,LNK_008, https://amzn.to/3O3Evgg ,https://sellercentral.amazon.com/gp/help/help.html?itemID=64491&language=vi_VN&ref=xx_64491_cont_69034,,Lợi ích của tài khoản Cá nhân/ Chuyên nghiệp,So sánh tài khoản Cá nhân với Chuyên nghiệp,Liệt kê các điểm cần chú ý của từng loại tài khoản để nhà bán hàng có lựa chọn phù hợp với kế hoạch kinh doanh của họ,account registration
+,LNK_009,https://amzn.to/427tDUO,Program Policies,,Chính sách trên Amazon,Các loại chính sách trên Amazon,"Danh sách các loại chính sách trên Amazon bao gồm: chính sách chung, tài sản trí tuệ, yêu cầu về sản phẩm và đăng tải sản phẩm, vận chuyển, thuế và các chính sách khác",policy
+,LNK_010,https://amzn.to/3HeQQe6 ,https://sell.amazon.vn/tin-tuc/cap-nhat-phi-gioi-thieu-va-hoan-thien-don-hang-2024?ref_=sdvn_soa_sell_news_i,,Chính sách mới ,Cập nhật phí Giới thiệu và phí Hoàn thiện đơn hàng bởi Amazon,"Bước vào năm 2024, Amazon triển khai một số thay đổi về phí nhằm hỗ trợ quý Đối tác tiếp tục mang lại dịch vụ khách hàng tốt hơn, đồng thời giảm thiểu chi phí vận hành chung.",policy
+,LNK_011,https://amzn.to/3XIXK43,https://sell.amazon.vn/huong-dan-dang-tai-san-pham?ld=SOVNSOA2025AIlisting_All_Facebook,,Hướng dẫn Listing,Hướng dẫn đăng tải sản phẩm trên Amazon,"Bộ tài liệu chính thức từ A-Z về Đăng tải sản phẩm, hướng dẫn nâng cấp và hoàn thiện Đăng tải sản phẩm, giúp nhà bán hàng mới tạo và tối ưu Đăng tải sản phẩm nhanh chóng, đồng thời hỗ trợ nhà bán hàng lâu năm tự kiểm tra, liên tục cập nhật và tối ưu hóa, tạo được các trang chi tiết sản phẩm chất lượng cao.",listing
+,LNK_012,https://amzn.to/48YwGRw,https://sellercentral.amazon.com/help/hub/reference/external/G201468480?locale=vi-VN,,Hình ảnh sản phẩm,Tạo danh mục sản phẩm cho tài khoản quốc tế,Hướng dẫn tạo danh mục sản phẩm với 5 bước và cách sử dụng công cụ để đăng tải sản phẩm ,listing
+,LNK_013,https://amzn.to/2Y1LonY,https://sell.amazon.vn/bat-dau-ban-hang-tren-amazon,,Danh mục sản phẩm chỉ dành cho người bán chuyên nghiệp,Thư viện kiến thức bán hàng trên Amazon,"Bộ cẩm nang kiến thức bán hàng trên Amazon theo ba giai đoạn chính: Khám phá cơ hội, Đánh giá tiềm năng, và Các bước chuẩn bị trước khi bán hàng",SOA
+,LNK_014,https://amzn.to/3jaSGQR,https://sellercentral.amazon.com/help/hub/reference/external/200426310?locale=vi-VN,,Miễn trừ product ID,Đăng tải những sản phẩm không có Product ID,Hướng dẫn đăng tải đối với những sản phẩm không có Product ID kèm theo các lưu ý,listing
+,LNK_015,https://amzn.to/3sC9FB3,https://sellercentral.amazon.com/help/hub/reference/external/G200211450?locale=vi-VN,,Cách lấy mã sản phẩm,Hướng dẫn lấy mã sản phẩm,Danh sách các loại mã sản phẩm phổ biến nhất và hướng dẫn cách lấy mã sản phẩm,listing
+,LNK_016,https://amzn.to/3O6fwt9,https://sellercentral.amazon.com/help/hub/reference/external/G201844590?locale=vi-VN,,Chính sách tạo ASIN,Các chính sách khi tạo ASIN,Amazon giới hạn việc tạo mã ASIN mới cho một thương hiệu đã đăng ký trong Hệ thống Đăng ký Thương hiệu bởi những người bán không được chỉ định vai trò bán hàng cho thương hiệu đó.,ASIN
+,LNK_017,https://amzn.to/47eZG6e,https://sell.amazon.vn/huong-dan-lua-chon-san-pham?ref_=sdvn_soa_nav_grow_n,,Xu hướng tiêu dùng mới nhất trên Amazon,Hướng dẫn lựa chọn sản phẩm dễ bán hàng trên Amazon,Danh mục các ngành hàng kèm theo guidebook chi tiết hỗ trợ tìm sản phẩm phù hợp thông qua nghiên cứu thị trường và lợi thế cạnh tranh của Việt Nam,product selection
+,LNK_018,https://amzn.to/4912JQM ,https://sell.amazon.vn/huong-dan-lua-chon-san-pham/trinh-kham-pha-co-hoi-san-pham?fbclid=IwAR0VhsZhfsibolZZGIheKm-3rbM8xaoSbRirNX_lTJ5ck4WmSvvd9QgR_Tw,,Chi tiết cách sử dụng công cụ OX,Trình khám phá cơ hội sản phẩm: Giúp việc tìm kiếm cơ hội sản phẩm mới trở nên dễ dàng hơn bao giờ hết,"Không chỉ dừng lại ở thông tin về những danh mục bán chạy, Trình khám phá cơ hội sản phẩm còn mang tới những dữ liệu chuyên sâu về phân khúc tiềm năng. Thông qua công cụ này, bạn có thể biết khách hàng muốn gì và tập trung vào các sản phẩm sẽ bán trên cửa hàng Amazon dựa theo nhu cầu của khách hàng, cụm từ tìm kiếm, xu hướng sản phẩm và các tiêu chí khác.",product selection
+,LNK_019,https://amzn.to/4aCwKb2,https://sell.amazon.vn/huong-dan-lua-chon-san-pham/huong-dan-ve-san-pham-tren-thi-truong,,Tìm hiểu dữ liệu ngành hàng/ nhu cầu sản phẩm toàn cầu,Hướng dẫn về sản phẩm trên thị trường,"MPG là công cụ Hướng dẫn về sản phẩm trên thị trường miễn phí được Amazon tùy chỉnh dành cho người bán, giúp việc lựa chọn sản phẩm trở nên dễ dàng hơn bao giờ hết. Dựa trên danh mục sản phẩm hiện có, Công cụ Hướng dẫn về sản phẩm trên thị trường cung cấp cho người bán một loạt dữ liệu bao gồm đề xuất sản phẩm có nhu cầu cao, sở thích của khách hàng, hiệu suất danh mục, tỷ lệ hoàn trả và phí quảng cáo một cách hiệu quả, giúp người bán đưa ra quyết định tung sản phẩm bán chéo một cách thuận lợi nhất.",product selection
+,LNK_020,https://amzn.to/3Kc5aZE,https://sell.amazon.vn/hoan-thien-don-hang-boi-amazon-fba?ld=SOVNSOAFBAGuideBook2025_All_Facebook,,Giới thiệu về FBA ,"FBA là từ viết tắt của Fulfillment By Amazon, nghĩa là Hoàn thiện đơn hàng bởi Amazon.","Những điều cần biết về FBA - Giới thiệu về FBA, cách thức hoạt động của FBA, các loại phí khi sử dụng FBA và cách đăng ký sử dụng FBA",FBA
+,LNK_021,https://amzn.to/3egWtL0,https://sellercentral.amazon.com/help/hub/reference/external/200140860,,Các sản phẩm bị giới hạn cho dịch vụ FBA,Một số sản phẩm đạt chuẩn trên Amazon nhưng không đạt chuẩn đối với FBA mà nhà bán hàng cần lưu ý,Nội dung liên quan đến các sản phẩm không đạt chuẩn đối với FBA kèm theo link thông tin chi tiết cho từng loại sản phẩm,FBA
+,LNK_022,https://amzn.to/3w90Jlv,https://sellercentral.amazon.com/help/hub/reference/external/201030350?ref=efph_201030350_cont_G3EDYEF6KUCFQTNM&locale=en-US,,Chính sách và hướng dẫn đóng gói,Chính sách và yêu cầu của FBA,"Chi tiết về 4 chính sách và 2 yêu cầu của FBA khi nhà bán hàng sử dụng FBA, kèm theo link thông tin chi tiết cho từng nội dung chính sách/yêu cầu",FBA
+,LNK_023,https://amzn.to/huongdanFBA,https://m.media-amazon.com/images/G/01/AGS/SEA/FBAstepbystepguideVN._CB1535077126_.pdf?ref_=asvn_fba_sg_b_pb,,Tham khảo hướng dẫn đăng ký và sử dụng FBA (tiếng Việt),Tài liệu hướng dẫn chung để bắt đầu với Hoàn thiện đơn hàng bởi Amazon,"Hướng dẫn chi tiết quy trình đăng ký sử dụng FBA, từ bước thiết lập tài khoản, tạo lô hàng cho đến quản lý đơn hàng",FBA
+,LNK_024,https://amzn.to/3AmUEp5,https://sellercentral.amazon.com/help/hub/reference/external/201003400?ref=efph_201003400_cont_G3EDYEF6KUCFQTNM&locale=en-US,,Hướng dẫn về sản phẩm nguy hiểm,Thông tin về các hàng hoá nguy hiểm liên quan đến sản phẩm được bán trên Amazon,"Hàng hóa nguy hiểm (còn gọi là vật liệu nguy hiểm) là các chất hoặc vật liệu có thể gây rủi ro trong quá trình lưu trữ, xử lý hoặc vận chuyển vì chúng chứa các chất dễ cháy, có áp suất, ăn mòn hoặc các chất gây hại khác. Để ngăn ngừa các rủi ro tiềm ẩn về sức khỏe và an toàn, Amazon thu thập thông tin về hàng hóa nguy hiểm liên quan đến bất kỳ sản phẩm nào được bán trên Amazon.",listing
+,LNK_025,https://amzn.to/3OJBu4O,https://sellercentral.amazon.com/help/hub/reference/external/G201074400?locale=vi-VN#wjz_cjc_jcb-3,,Cách tính phí FBA,"Các tính năng, dịch vụ và chi phí của FBA","Giới thiệu tổng quan về FBA. Nội dung chi tiết về các tính năng (dịch vụ khách hàng, bán hàng xuyên biên giới), dịch vụ (vận chuyển, đóng gói, hoàn thiện đơn hàng đa kênh,...), các chi phí (phí lưu kho, phí thu gom và xử lý, phí trả hàng,...)",FBA
+,LNK_026,https://amzn.to/3IIDV58,https://sellercentral.amazon.com/help/hub/reference/external/G201030350?locale=vi-VN,,Các chính sách và yêu cầu khi sử dụng hình thức FBA,Cung cấp thông tin về các chính sách và yêu cầu đối với nhà bán hàng trước khi đăng ký sử dụng FBA,"Nội dung chi tiết về 4 chính sách và 2 yêu cầu của FBA dành cho nhà bán hàng khi sử dụng FBA, kèm theo các link thông tin có liên quan",FBA
+,LNK_027,https://amzn.to/3CjnEjH,https://sellercentral.amazon.com/help/hub/reference/external/G201074410?locale=vi-VN,,Quản lý hàng lưu kho ,Hướng dẫn các thao tác cho hàng lưu kho FBA,"Các thao tác: quản lý lưu kho, gửi danh sách lưu kho đến Amazon, theo dõi và đối chiếu các lô hàng, loại bỏ hàng tồn kho,...",FBA
+,LNK_028,https://amzn.to/4b3Brde,https://sell.amazon.vn/giai-phap-chuoi-cung-ung-cua-amazon?ref_=sdvn_soa_nav_SCA_n,,Giải pháp Chuỗi cung ứng của Amazon (SCA),Dịch vụ chuỗi cung ứng của Amazon,"Giải pháp Chuỗi cung ứng của Amazon (Supply Chain by Amazon) tích hợp các dịch vụ chuỗi cung ứng hoàn toàn tự động giúp nhà bán hàng đưa sản phẩm từ nơi sản xuất tới tận tay khách hàng một cách nhanh chóng, thuận tiện với chi phí tiết kiệm.",logistics
+,LNK_029,https://amzn.to/3M1AbjZ,https://www.facebook.com/photo.php?fbid=1266192735544041&set=pb.100064599796232.-2207520000&type=3,,SEND,Giải pháp vận chuyển xuyên biên giới (SEND),"Amazon mở rộng chương trình vận chuyển SEND - Seller Export and Delivery với việc thêm 2 nhà vận chuyển mới, Amass (Leaping Ape) với hình thức vận chuyển đường biển và KW International với hình thức vận chuyển đường hàng không, chính thức nâng tổng số đối tác của chương trình lên 5 nhà vận chuyển, với 6 dịch vụ vận chuyển.",logistics
+,LNK_030,https://amzn.to/3xcnmvX ,https://sell.amazon.vn/dich-vu-kho-bai-va-phan-phoi,,Dịch vụ Kho bãi và Phân phối của Amazon (AWD),Giải pháp toàn diện giúp Nhà bán hàng lưu kho số lượng lớn với chi phí thấp,"Dịch vụ Kho bãi và Phân phối của Amazon (AWD) là giải pháp toàn diện giúp Nhà bán hàng lưu kho số lượng lớn với chi phí thấp, đảm bảo hàng luôn có sẵn trong kho FBA nhưng vẫn giữ được chi phí vận hành ở mức thấp.",awd
+,LNK_031,https://amzn.to/3KXpmuV,https://m.media-amazon.com/images/G/28/AS/AGS/SU/CN_GS_Self-fulfillment_Basics_1.1_What_is_MFN_VN.pdf,,Giới thiệu về FBM,Nhà bán hàng tự hoàn thiện đơn hàng (FBM),"Fulfillment by Merchant, là hình thức mà nhà bán hàng tự thực hiện việc giao các đơn hàng bán trên Amazon, đồng thời chịu trách nhiệm cho toàn bộ quy trình từ quản lý hàng lưu kho, đóng gói, vận chuyển cho đến chăm sóc khách hàng .",fbm
+,LNK_032,https://amzn.to/2Xm8B4Z,https://sell.amazon.vn/nha-cung-cap-dich-vu/van-chuyen,,Danh sách đối tác vận chuyển Amazon,Nhà cung cấp dịch vụ vận chuyển,"Các nhà cung cấp dịch vụ vận chuyển bên thứ ba có thể giúp bạn xây dựng, quản lý và mở rộng quy mô kinh doanh của mình trên Amazon",spn
+,LNK_033,https://amzn.to/3U39RYF,https://sellercentral.amazon.com/help/hub/reference/external/G200332540?,,Các sản phẩm được bán trên Amazon,Sản phẩm mà người bán được phép và không được phép tạo thông tin đăng tải sản phẩm,"Hướng dẫn giúp bạn hiểu rõ những danh mục sản phẩm bạn có thể bán, các phê duyệt bạn có thể cần và cách thực hiện thành công quy trình đăng ký.",product selection
+,LNK_034,https://amzn.to/3q07FEG,https://sellercentral.amazon.com/help/hub/reference/external/200333160,,Các sản phẩm cần được phê duyệt,Danh mục và sản phẩm yêu cầu phê duyệt,Tìm hiểu danh mục và sản phẩm nào yêu cầu phê duyệt trước khi đăng tải sản phẩm và danh mục trên Amazon. ,listing product
+,LNK_035,https://amzn.to/3Qbr8Nq,https://sellercentral.amazon.com/help/hub/reference/external/200164330,,Các sản phẩm hạn chế kinh doanh,Danh sách các sản phẩm bị hạn chế,"Nghiêm cấm việc bán sản phẩm bất hợp pháp, không an toàn hoặc sản phẩm bị hạn chế khác được liệt kê trên các trang này, bao gồm cả sản phẩm chỉ bán theo đơn của bác sĩ.",product selection
+,LNK_036,https://sell.amazon.vn/nha-cung-cap-dich-vu,https://sell.amazon.vn/nha-cung-cap-dich-vu/?ref_=sdvn_soa_nav_SPN_n,,Nhà cung cấp dịch vụ trên Amazon,Mạng lưới cung cấp dịch vụ hỗ trợ doanh nghiệp mở rộng bán hàng,"Các nhà cung cấp bên thứ ba có thể giúp bạn xây dựng, quản lý và mở rộng quy mô kinh doanh của mình trên Amazon.",spn
+,LNK_037,https://sell.amazon.vn/services-partner/payment,https://sell.amazon.vn/nha-cung-cap-dich-vu/thanh-toan,,Nhà cung cấp dịch vụ thanh toán,Nhà cung cấp dịch vụ thanh toán,"Các nhà cung cấp dịch vụ Thanh toán bên thứ ba có thể giúp bạn xây dựng, quản lý và mở rộng quy mô kinh doanh của mình trên Amazon",spn
+,LNK_038,https://amzn.to/47mpzSf,https://sellercentral.amazon.com/help/hub/reference/external/GKLETRP8MLF7CVFX?locale=vi-VN,,Yêu cầu của một thẻ hợp lệ  ,Tài khoản ngân hàng có thể chấp nhận,Giới hạn đối với các loại tài khoản mà Amazon chấp nhận để giải ngân thu nhập bán hàng của cửa hàng,deposit method
+,LNK_039,https://amzn.to/41Cg1mg ,https://sell.amazon.vn/huong-dan-lua-chon-san-pham?ld=SOVNSOAPS2024_All_Softline_Facebook,,Ngành hàng thời trang,Hướng dẫn cơ hội ngành hàng thời trang trên Amazon,"Nắm bắt và phân tích tổng quan phát triển của ngành, xu hướng tiêu dùng hàng đầu ngành thời trang toàn cầu. Tìm kiếm các ý tưởng và cơ hội kinh doanh cho các sản phẩm bán chạy",product selection
+,LNK_040,https://amzn.to/3DkZ4md ,https://sell.amazon.vn/huong-dan-lua-chon-san-pham?ld=SOVNSOAPS2024_All_Consumable_Facebook,,Ngành hàng tiêu dùng,Hướng dẫn cơ hội ngành hàng tiêu dùng trên Amazon,"Nắm bắt xu hướng & lựa chọn sản phẩm tiềm năng, đón đầu cơ hội bán hàng ngành hàng tiêu dùng",product selection
+,LNK_041,https://amzn.to/4emMZK5,https://sell.amazon.vn/huong-dan-lua-chon-san-pham?ld=SOVNSOAPS2024_All_HomeDecor_Facebook,,Ngành hàng trang trí nhà cửa ,Hướng dẫn cơ hội ngành hàng trang trí nhà cửa trên Amazon,"Nắm bắt xu hướng & lựa chọn sản phẩm tiềm năng, đón đầu cơ hội bán hàng ngành hàng trang trí nhà cửa",product selection
+,LNK_042,https://amzn.to/487C31g ,https://sell.amazon.vn/huong-dan-lua-chon-san-pham?ld=SOVNSOAPS2024_All_FurnitureHandbook_Facebook,,Ngành hàng nội thất,Hướng dẫn cơ hội ngành hàng nội thất trên Amazon,"Nắm bắt xu hướng & lựa chọn sản phẩm tiềm năng, đón đầu cơ hội bán hàng ngành hàng nội thất",product selection
+,LNK_043,https://amzn.to/4cmtTD0 ,https://sell.amazon.vn/huong-dan-lua-chon-san-pham?ld=SOVNSOAPS2024_All_GiftingHandbook_Facebook,,Ngành hàng quà tặng,Hướng dẫn cơ hội ngành hàng quà tặng trên Amazon,"Nắm bắt xu hướng & lựa chọn sản phẩm tiềm năng, đón đầu cơ hội bán hàng ngành hàng tiêu dùng",product selection
+,LNK_044,https://amzn.to/3HtdxyO,https://sell.amazon.vn/huong-dan-lua-chon-san-pham?ld=SOVNSOAGroceryGuide2025_All_Facebook,,Ngành hàng thực phẩm,Hướng dẫn cơ hội ngành hàng thực phẩm trên Amazon,"Nắm bắt xu hướng & lựa chọn sản phẩm tiềm năng, đón đầu cơ hội bán hàng ngành hàng tiêu dùng",product selection
+,LNK_045,https://amzn.to/49KPmaW ,https://sell.amazon.vn/huong-dan-lua-chon-san-pham?ld=SOVNSOAFACEBOOK_SEL-Beauty_NULL_FP-Post_GuidebookLaunch_2025-11-28,,Ngành hàng làm đẹp và chăm sóc cá nhân,Hướng dẫn cơ hội ngành hàng làm đẹp & chăm sóc cá nhân trên Amazon,"Nắm bắt xu hướng & lựa chọn sản phẩm tiềm năng, đón đầu cơ hội bán hàng ngành hàng tiêu dùng",product selection
+,LNK_046,https://amzn.to/3AJnOAR,https://sell.amazon.vn/chi-phi-va-giao-hang,,Tổng quan các chi phí,Chi tiết các loại chi phí khi kinh doanh Amazon,"Nắm chính xác về các loại chi phí khi kinh doanh trên Amazon giúp nhà bán hàng lên kế hoạch tối ưu chi phí, gia tăng doanh thu và lợi nhuận.",cost structure
+,LNK_047,https://amzn.to/43NLNM0,https://sell.amazon.vn/chuong-trinh-uu-dai-san-pham-fba-moi?ld=SOVNSOANSP2024_Facebook,,Chương trình ưu đãi sản phẩm FBA mới (NSP),Ưu đãi cho sản phẩm FBA,"Tìm hiểu ưu đãi cho nhà bán hàng trên các sản phẩm có thương hiệu, phí lưu kho và thanh lý, giúp nhà bán hàng nhanh chóng tăng trưởng doanh thu",incentive
+,LNK_048,https://amzn.to/3U9qkKv ,https://sell.amazon.vn/goi-quyen-loi-nha-ban-hang-moi?ld=SOVNSOANSI2024_Facebook,,Chương trình Ưu đãi dành cho nhà bán mới (NSI),Ưu đãi chi phí cho nhà bán hàng mới,Ưu đãi chi phí cho nhà bán hàng giai đoạn mở bán trên Amazon giúp nhà bán hàng đạt được mức tăng trưởng doanh số nhanh chóng.,incentive
+,LNK_049,https://amzn.to/3u1Egfg,https://sellercentral.amazon.com/help/hub/reference/external/G69126?locale=vi-VN#mnd_2jc_jcb__section_kct_3xv_kvb,,Chi tiết về cách thức đối với hàng trả về,"Hàng trả về do người bán tự hoàn thiện đơn hàng, hoàn tiền, hủy đơn hàng và khiếu nại",Xử lý hàng trả về và hoàn tiền hiệu quả để duy trì sự hài lòng của người mua và tình trạng tài khoản của bạn với tư cách là người bán trên Amazon.,refund
+,LNK_050,https://amzn.to/3tS6EAy,https://sellercentral.amazon.com/help/hub/reference/external/G69126?locale=vi-VN#mnd_2jc_jcb__section_qhs_ccw_kvb,,Hoàn tiền,Chi tiết các loại hoàn tiền cho người mua,Hoàn tiền cho người mua là một khía cạnh quan trọng trong việc bán hàng trên Amazon,refund
+,LNK_051,https://amzn.to/3U5omuQ,https://sellercentral.amazon.com/help/hub/reference/external/G201722390?locale=vi-VN.,,Thời gian và yêu cầu dành cho khách hàng khi huỷ đơn hàng,Hướng dẫn xử lý khi người mua hủy đơn hàng của bạn,Chi tiết tất cả trường hợp hủy đơn hàng của người mua để nhà bán nắm bắt và có hành động phù hợp để bảo vệ cửa hàng của mình,refund
+,LNK_052,https://amzn.to/31mk6ul,https://sell.amazon.vn/quang-cao-tren-amazon/,,Quảng cáo,Hướng dẫn thiết lập Quảng cáo cho cửa hàng của bạn ,"Tăng doanh số với các giải pháp quảng cáo trực tuyến, qua đó giúp tìm kiếm, thu hút và tương tác với khách hàng.",ads
+,LNK_053,https://amzn.to/3nEG0n8,https://advertising.amazon.com/solutions/products/sponsored-products,,Sponsored Products ,Hướng dẫn Quảng cáo theo Hiển thị sản phẩm của bạn vào những khoảnh khắc quan trọng,"Quảng cáo tính chi phí cho mỗi lượt nhấp chuột (CPC), giúp quảng bá thông tin sản phẩm riêng lẻ trên Amazon cũng như trên một số ứng dụng và trang web cao cấp chọn lọc",ads
+,LNK_054,https://amzn.to/3xG5xRm ,https://advertising.amazon.com/solutions/products/sponsored-brands,,Sponsored Brands ,Hướng dẫn Quảng cáo theo giải pháp giúp khách hàng khám phá thương hiệu của bạn trong Gian hàng Amazon. ,"Hướng dẫn thu hút sự chú ý của đối tượng khách hàng với nội dung quảng cáo hiển thị và video sinh động, giúp thương hiệu của bạn trở nên nổi bật",ads
+,LNK_055,https://amzn.to/3tZ0BtN,https://sellercentral.amazon.com/help/hub/reference/external/G3SSMEG6TAHFQ5D6?locale=vi-VN,,Chương trình tiết kiệm chi phí cho người bán,Làm thế nào để giảm chi phí trong cửa hàng Amazon?,"Một số danh mục chương trình và sáng kiến được thiết kế để giúp người bán giảm chi phí mua hàng, vận hành và hoàn thiện đơn hàng nhằm cải thiện lợi nhuận của bạn.",revenue
+,LNK_056,https://amzn.to/491pHaa,https://sellercentral.amazon.com/help/hub/reference/external/G43381?locale=vi-VN,,Tăng doanh số bán hàng,Hướng dẫn tăng doanh số bán hàng từ một số khía cạnh,Hướng dẫn tối ưu các danh mục từ sản phẩm đến vận hành để tối đa doanh thu ,revenue
+,LNK_057,https://amzn.to/HCKN25-FB,https://amazonexteu.qualtrics.com/jfe/form/SV_87JIS1gyWjDAJT0?source=Facebook,,"Khóa học ""Hộ chiếu khởi nghiệp Amazon""","Khóa học cơ bản, hoàn toàn miễn phí, dành cho nhà bán hàng mới chưa đăng ký tài khoản bán hàng trên Amazon","Khóa học cơ bản, hoàn toàn miễn phí, dành cho nhà bán hàng mới chưa đăng ký tài khoản bán hàng trên Amazon, nhằm trang bị những kiến thức cơ bản nhất, hình thức học online
+Thông tin chi tiết: https://sell.amazon.vn/khoa-hoc-ho-chieu-khoi-nghiep",course
+,LNK_058,https://amzn.to/BTKD25-FB,https://amazonexteu.qualtrics.com/jfe/form/SV_9FG4vbU2JFBHMnc?source=Facebook,,"Khóa học ""Bứt tốc cùng Amazon""","Khóa học nâng cao, hoàn toàn miễn phí, dành cho nhà bán hàng mới đã đăng ký tài khoản bán hàng trên Amazon","Khóa học nâng cao, hoàn toàn miễn phí, dành cho nhà bán hàng mới đã đăng ký tài khoản bán hàng trên Amazon. Kết hợp học online và offline, cơ hội thực hành tại lớp cùng chuyên gia hàng đầu, giúp bạn tự tin ra mắt sản phẩm trên Amazon.
+Thông tin chi tiết: https://sell.amazon.vn/khoa-hoc-but-toc-cung-amazon",course
+,LNK_059,https://amzn.to/4hjaftX,https://sell.amazon.vn/chuong-trinh-be-phong-tang-truong?ld=SOVNSOA2025TBAM_Facebook,,"Khóa học ""AtoZ Turbo""",Khóa học toàn diện cho Nhà Bán Hàng từ năm 2 và năm 3,Khóa học sẽ cung cấp kiến thức & công cụ mới nhất từ Amazon giúp tối ưu hóa hoạt động kinh doanh và thúc đẩy tăng trưởng bền vững.,course
+,LNK_060,https://amzn.to/VN-Live-Webinar,https://sell.amazon.vn/lich-dao-tao-va-tai-lieu/?ref_=sdvn_soa_nav_training_n#3,,Lịch đào tạo trực tuyến theo chủ đề,"Lịch đào tạo trực tuyến theo chủ đề, hoàn toàn miễn phí, tổ chức hằng tuần và hằng háng theo các cấp độ.","Lịch đào tạo trực tuyến theo chủ đề, hoàn toàn miễn phí, tổ chức hằng tuần và hằng háng theo các cấp độ.",course
+,LNK_061,https://amzn.to/fbp,https://sell.amazon.vn/quang-cao-tren-amazon?ld=SOVNSOAFACEBOOK_ADS_NULL_FP-Post_AdsMasteryCourse_2026-02-25,,"Khóa học chuyên sâu về quảng cáo hoàn toàn miễn phí ""ADS MASTERY""",Khóa học chuyên sâu về quảng cáo hoàn toàn miễn phí dành cho các nhà bán hàng đã đăng bán sản phẩm trên Amazon,"Khóa học chuyên sâu về quảng cáo hoàn toàn miễn phí dành cho các nhà bán hàng đã đăng bán sản phẩm trên Amazon
+Lịch học: 4 buổi trực tuyến, 14:00 - 15:30, ngày 03, 10, 17, 26 tháng 3 năm 2026.",course
+,LNK_062,https://amzn.to/3LcaqgE,https://sell.amazon.vn/tin-tuc/xac-minh-danh-tinh-truc-tuyen?ld=SOVNSOAFACEBOOK_AHC-VIV_NULL_FP-Post_Guide_2025-12-22,,Tài liệu Tiếng Việt hướng dẫn Xác minh danh tính trực tuyến (Virtual Identity Verification - VIV) ,Hoàn tất VIV theo hướng dẫn để duy trì môi trường kinh doanh an toàn và đáng tin cậy cho khách hàng và nhà bán hàng trên Amazon,"Tài liệu Tiếng Việt hướng dẫn Xác minh danh tính trực tuyến (Virtual Identity Verification - VIV), gồm thông tin Tổng quan về quy trình Xác minh Danh Tính Trực tuyến, Các lưu ý quan trọng khi tham gia Xác minh Danh Tính Trực tuyến, Câu hỏi thường gặp",verification proccess
+,LNK_063,https://amzn.to/3NrFRV4,https://sell.amazon.vn/blog/danh-cho-nguoi-moi/huong-dan-dat-ten-thuong-hieu?ld=SOVNSOAFACEBOOK_BRD-NameGenTool_NULL_FP-Post_NULL_2026-01-20,,Công cụ Amazon AI Brand Name Generator,Tham khảo hướng dẫn từng bước để tạo tên thương hiệu thu hút khách hàng với sức mạnh của AI.,Tham khảo hướng dẫn từng bước để tạo tên thương hiệu thu hút khách hàng với sức mạnh của AI.,tools
+,LNK_064,https://amzn.to/4s7sFDL,https://sell.amazon.vn/khuyen-mai-tuy-chinh-theo-thuong-hieu,,Chương Trình Khuyến Mãi Tùy Chỉnh Theo Thương Hiệu,Công cụ quảng cáo của Amazon giúp người bán có được khách hàng mới và xây dựng lòng trung thành với thương hiệu.,Khuyến mãi tùy chỉnh theo thương hiệu: Tạo khuyến mãi dành riêng cho khách hàng trung thành,tools
+,LNK_065,https://amzn.to/3LwmOp0,https://sell.amazon.vn/thi-truong-bac-my/?ref_=sdvn_soa_nav_SellNA_n,,Hướng dẫn bán hàng tại thị trường Bắc Mỹ,"Hướng dẫn bán hàng tại thị trường Bắc Mỹ với đặc điểm nổi bật về 3 thị trường Hoa Kỳ, Canada, Mexico","Amazon Bắc Mỹ bao gồm ba thị trường là Hoa Kỳ, Canada, Mexico với khả năng tiếp cận gần 500 triệu người mua sắm, sở hữu lượng lớn thành viên Prime*, dịch vụ FBA mạnh mẽ và nguồn lực kinh doanh đa dạng.",market selection
+,LNK_066,https://amzn.to/420ABJR,https://sell.amazon.vn/thi-truong-chau-au/?ref_=sdvn_soa_nav_SellEU_n,,Hướng dẫn bán hàng tại thị trường Châu Âu,Amazon đã phủ sóng tổng 6 thị trường tại Châu Âu với hơn 28 trung tâm hoàn thiện đơn hàng.,"Sau khi mở tài khoản tại thị trường Châu Âu, bạn có thể tiến hành kinh doanh tại cả 6 quốc gia chỉ với một 1 tài khoản, vô cùng tiện lợi.",market selection
+,LNK_067,https://amzn.to/4suyxIa,https://sell.amazon.vn/dich-vu-van-chuyen-amazon-global-logistics-agl?ld=SOVNSOAFACEBOOK_LOG-AGL_NULL_FP-Post_Launch_2026-01-13,,Dịch vụ phân loại vị trí do người bán quản lý (SMP),Giải pháp từ Amazon Global Logistics cho tuyến biển Việt Nam - Hoa Kỳ giúp phân phối hàng hóa đến 5 khu vực trọng điểm tại Hoa Kỳ mà không phát sinh phí phân loại vị trí hàng nhập FBA.,"Dịch vụ Phân loại vị trí do người bán quản lý (SMP) phân phối hàng tồn kho đến các địa điểm nhận hàng tại năm khu vực chính của Hoa Kỳ mà không phát sinh Phí dịch vụ phân loại vị trí hàng nhập FBA. Mỗi lô hàng phải chứa ít nhất năm thùng carton hoặc pallet giống hệt nhau cho mỗi SKU.
+- Miền Tây
+- Miền Trung Bắc
+- Miền Trung Nam
+- Miền Đông Bắc
+- Miền Đông Nam
+4 LỢI THẾ LỚN dành riêng cho nhà bán hàng:
+- Giảm chi phí trực tiếp: Dễ dàng lập kế hoạch gom các lô hàng lẻ (LCL) thành hàng nguyên container (FCL), giúp cân đối khối lượng và tối ưu hóa cước phí vận chuyển.
+- Quản lý cực kỳ đơn giản: Mỗi khu vực được chỉ định một trung tâm hoàn thiện đơn hàng ưu tiên, giúp doanh nghiệp chuẩn bị hàng hóa theo kế hoạch ổn định và dễ kiểm soát.
+- Tối ưu thời gian giao hàng: Tuyến vận chuyển được tinh gọn qua các cảng lớn, rút ngắn thời gian và hỗ trợ quản lý kho hiệu quả ở cả hai bờ nước M.ỹ.
+- Ưu tiên nhập kho: Kho chỉ cách cảng trung bình 55km giúp đảm bảo ưu tiên nhập kho nhanh chóng (không cần mốc thời gian giao hàng DW), kết hợp cùng hệ thống kho dự phòng linh hoạt, không lo tắc nghẽn, nâng cao hiệu suất nhập kho.  ",logistics
+,LNK_068,https://amzn.to/46JmrSo,https://sell.amazon.vn/dang-ky-tai-khoan?ld=SOVNSOAFACEBOOK_NSW-AccReg_NULL_FP-Post_SIV-Review-Rejection_2026-03-06,,Hướng dẫn gỡ rối và khôi phục tài khoản khi rớt Xác minh danh tính (SIV),"Hướng dẫn xử lý hồ sơ SIV bị từ chối, giúp nhà bán hàng giảm tỷ lệ rớt hồ sơ, tránh gián đoạn quy trình mở bán và tận dụng tính năng theo dõi trực tiếp trên Seller Central.","Xác minh danh tính (SIV) là bước quan trọng để bảo vệ tài khoản. Việc hồ sơ chưa được chấp nhận là tình huống khá phổ biến và hoàn toàn có thể giải quyết nhanh chóng nếu đi đúng lộ trình. Hiện tại, giao diện Seller Central mới đã cập nhật tính năng theo dõi trạng thái SIV theo thời gian thực giúp nhà bán hàng dễ dàng ""gỡ rối"".
+
+MỘT SỐ THÔNG TIN QUAN TRỌNG:
+- Theo dõi trực tiếp tình trạng hồ sơ qua Seller Central từ 2-5 ngày làm việc sau khi thực hiện “Quay/Chụp khuôn mặt”.
+- Thực hiện lại quy trình xác minh qua Email hướng dẫn chi tiết nếu vẫn chưa thành công.
+- Lưu ý khi gửi kháng cáo:
++ Đảm bảo đã hoàn thiện các bước đăng ký tài khoản trước đó.
++ Cung cấp lý do kinh doanh chính đáng khi hệ thống báo có nhiều tài khoản.",account registration
+,LNK_069,https://amzn.to/4lu9Sk7,https://sellercentral.amazon.com/help/hub/reference/external/G200285170,,Tỷ lệ lỗi của đơn hàng (ODR),"Tỷ lệ lỗi của đơn hàng (ODR) là một chỉ số quan trọng về khả năng mang đến trải nghiệm tích cực cho khách hàng của bạn. ODR thể hiện tỷ lệ phần trăm của các đơn hàng với một hoặc nhiều chỉ số về dịch vụ khách hàng không tốt trong khoảng thời gian 60 ngày nhất định. Với 3 thành phần:
+- Tỷ lệ phản hồi tiêu cực
+- Tỷ lệ khiếu nại từ A – Z
+- Tỷ lệ yêu cầu bồi hoàn thẻ tín dụng","Để đáp ứng mong đợi của khách hàng, người bán phải duy trì tỷ lệ ODR dưới 1% để bán hàng tại Amazon Store. Tỷ lệ lỗi của đơn hàng trên 1% có thể dẫn đến hạn chế về các đặc quyền bán hàng của bạn, bao gồm ngừng các ưu đãi tự hoàn thiện đơn hàng.
+
+Nếu ưu đãi tự hoàn thiện đơn hàng của bạn có nguy cơ bị hủy kích hoạt, bạn có thể đủ điều kiện tham gia một bài kiểm tra để tránh việc bị hủy kích hoạt. Đối với người bán đủ điều kiện, tùy chọn này sẽ xuất hiện trong biểu ngữ ở đầu trang Tình trạng tài khoản của bạn. Tại trang đó, bạn sẽ có cơ hội tham gia một bài kiểm tra bao gồm năm câu hỏi liên quan đến chính sách về Tỷ lệ đơn hàng nhận phản hồi tiêu cực. 
+
+Bạn có 72 giờ để hoàn thành bài kiểm tra. Nếu bạn vượt qua bài kiểm tra, bạn sẽ không cần gửi kế hoạch hành động (POA) hoặc thông tin đăng tải của bạn sẽ không bị hủy kích hoạt. Chúng tôi khuyên bạn nên tìm và làm bài kiểm tra bất cứ khi nào có thể, vì đây là cách tốt nhất để duy trì tình trạng tài khoản của bạn.",operation
+,LNK_070,https://amzn.to/3Nsrtwd,https://m.media-amazon.com/images/G/01/AGS/SEA/Sponsored_Products_Video_PDF_VN.pdf,,Video Sản phẩm Tài trợ (Sponsored Products video) ,"Video Sản phẩm Tài trợ (Sponsored Products video) là định dạng quảng cáo mới nhất giúp nhà bán hàng tại thị trường Hoa Kỳ tối ưu toàn bộ phễu kinh doanh: Từ thu hút lưu lượng truy cập, tăng tỷ lệ cân nhắc đến bứt phá chuyển đổi nhờ trải nghiệm cá nhân hóa đỉnh cao.","Mẹo tối ưu vận hành cho Nhà bán hàng giúp chiếm lĩnh thị trường từ vạch xuất phát:
+- Cá nhân hóa: Tải lên từ 2 - 5 video để hệ thống AI chọn lọc nội dung sát nhất với nhu cầu khách hàng.
+- Đồng bộ: Tiêu đề và mô tả cần khớp hoàn toàn với tính năng trong video.
+- Thúc đẩy hiển thị: Thiết lập ""Điều chỉnh giá thầu"" (bid adjustment) riêng cho video để tăng khả năng xuất hiện.",ads
+,LNK_071,,,,AI Canvas," AI Canvas - “cộng sự” mới giúp nhà bán hàng hiểu & vận hành kinh doanh dễ hơn ngay từ đầu. Phân tích dữ liệu, gợi ý hành động & tự động hóa ngay trên 1 nền tảng trực quan.","Trải nghiệm AI Canvas từ Amazon ngay trên hệ thống Seller Central (Trung tâm nhà bán hàng). Đây là một bảng điều khiển thông minh, giúp nhà bán theo dõi toàn bộ hoạt động kinh doanh và đưa ra quyết định chính xác dựa trên dữ liệu thực tế theo thời gian thực.
+Nhà bán đã có tài khoản, khám phá ngay AI Canvas tại: https://sellercentral.amazon.com ",tools
+,LNK_072,https://amzn.to/4sgaVG4 ,https://sell.amazon.vn/prime-day-2026?ld=SOVNSOAFACEBOOK_ESM-PrimeDay_NULL_FP-Post_Inventory-Require_2026-04-06,,Prime Day 2026,Lịch gửi hàng vào khi & Đăng ký Deal khuyến mãi,"Nhà bán hàng lưu ý các mốc thời gian quan trọng đưa hàng vào kho Amazon:
+- Lên kế hoạch gửi hàng vào kho: Hàng đi đường biển cần khởi hành trước 10/4/2026, hàng đi đường hàng không khởi hành trước ngày 15/5/2026 để kịp các mốc chốt kho FBA cuối tháng 5 và đầu tháng 6
+- Đăng ký Khuyến mãi: Gửi Deal ngay trên Seller Central để tối đa hóa doanh số. Với ưu đãi $50 phí trả trước khi lên lịch cho Best Deal hoặc Lightning Deal muộn nhất vào ngày 30/4/2026.​",Prime Day
+,LNK_073,,,,Cập nhật thông tin Amazon Global Logistics (AGL) trên Zalo OA,Amazon Global Logistics (AGL) chính thức ra mắt kênh Zalo OA dành riêng cho cộng đồng Nhà bán hàng Việt Nam.,"Nhà bán hàng có thể theo dõi thông tin như:
+- Cập nhật trực tiếp lịch tàu, biến động giá cước để bạn luôn đi trước một bước trong kế hoạch kinh doanh.
+- Hỗ trợ trực tiếp - Giải đáp thắc mắc về Chuỗi cung ứng toàn cầu.
+- Hệ thống hóa kiến thức về thủ tục thông quan và tuân thủ quốc tế, giúp hàng hóa lưu thông thông suốt.
+- Đặc quyền đăng ký sớm các buổi Workshop chuyên sâu và kết nối trực tiếp với đội ngũ chuyên gia AGL.",AGL
+,LNK_074,https://amzn.to/428mUup,https://sell.amazon.vn/amazon-send?ld=SOVNSOAFACEBOOK_LOG-SEND_NULL_FP-Post_Node-Limitation_2026-04-13,,AMAZON SEND PREFERRED FCs ,"Hỗ trợ Nhà bán hàng giảm đến 17% phí vận chuyển bằng cách hợp nhất nhiều điểm đến (kho FBA) thành nhóm một số kho FBA được chọn lọc riêng biệt, chương trình giúp các nhà bán hàng tiết kiệm chi phí đáng kể nhờ tập trung khối lượng hàng hoá nhanh hơn và tối ưu hóa tuyến đường vận chuyển. Tất cả đều được thực hiện tự động mà không yêu cầu thêm bất kỳ thao tác nào từ phía Nhà bán hàng.  ","Những lợi ích vượt trội dành cho Nhà bán hàng:
+- Tiết kiệm lên tới 17% chi phí vận chuyển với mức giá ưu đãi đặc biệt từ Amazon.
+- Tuyến vận chuyển đơn giản, giao hàng nhanh chóng và ổn định hơn.
+- Hệ thống tự động tối ưu hóa lộ trình thông minh.",logistics
+,LNK_075,https://amzn.to/4dA7mXz,https://sell.amazon.vn/dich-vu-kho-bai-va-phan-phoi?ld=SOVNSOAFACEBOOK_LOG-AWD_NULL_FP-Post_Pallet-Promote_2026-04-10,,AWD giới thiệu 2 kho mới ở bờ Tây,"Nhằm hỗ trợ Nhà bán hàng TỐI ƯU HÓA LƯU KHO và PHÂN PHỐI SỐ LƯỢNG LỚN, Dịch vụ Kho bãi và Phân phối của Amazon (AWD) chính thức giới thiệu 2 KHO MỚI tại khu vực Bờ Tây (IUSW và IUTE) ","Siêu ưu đãi hấp dẫn trong năm 2026: 
+- Giảm 25% phí xử lý hàng nhập (chỉ còn $1.05/hộp) cho các lô hàng được nhận tại kho IUSW và IUTE. Áp dụng từ nay đến hết ngày 31/12/2026.
+
+Điều kiện áp dụng ưu đãi - Chương trình dành riêng cho các lô hàng lớn đáp ứng một trong hai hình thức gửi hàng sau:
+- Đóng Pallet: Áp dụng cho Pallet chứa một mã SKU duy nhất (Single SKU) với chiều cao tối đa 60 inches.
+- Floor-loaded Shipment: Lô hàng chứa ít nhất 25 hộp và dưới số lượng SKU tối đa theo quy định.. 
+
+Lưu ý: Chi phí không thay đổi - Cần gửi đủ số lượng SKUs theo yêu cầu - Chỉ chấp nhận hàng số lượng lớn.",AWD
+,LNK_076,https://amzn.to/3ORU8eJ,https://sell.amazon.vn/san-sang-cat-canh-tang-truong-toan-cau-2026?ld=SOVNSOAFACEBOOK_EME-RFTO26_NULL_FP-Post_NULL_2026-04-22,,Mega Event 2026,Chính thức khởi động Hội nghị xuất khẩu thương mại điện tử lớn nhất giữa năm 2026,"Amazon Global Selling Việt Nam chính thức mang đến Hội nghị 2026 với chủ đề: SẴN SÀNG CẤT CÁNH - TĂNG TRƯỞNG TOÀN CẦU:
+- Thời gian: Ngày 02.06.2026
+- Địa điểm: TP. Hồ Chí Minh",Event
+6,LNK_077,https://amzn.to/49Ua2MW,https://sell.amazon.vn/dich-vu-kho-bai-va-phan-phoi?ld=SOVNSOAFACEBOOK_LOG-AWD_NULL_FP-Post_South-East-DC-Promotion_2026-06-12,,Chương trình Khuyến mãi Phí Lưu kho AWD IUSR – Khu vực Đông Nam,"Phí lưu kho AWD thấp nhất từ trước đến nay, chỉ $0.41/cubic foot/tháng!
+Nhà bán mới gửi hàng đến kho AWD Cowpens, South Carolina (IUSR) tự động giảm 15%, không yêu cầu số lượng tối thiểu.","Khám phá ngay Chương trình Khuyến mãi Phí Lưu kho AWD IUSR – Khu vực Đông Nam: 
+⏳ Thời hạn ưu đãi: từ 01/05/2026 - 30/09/2026
+🔸NỘI DUNG CHƯƠNG TRÌNH
+- Giảm 15% phí lưu kho có thời hạn tại kho AWD ở Cowpens, South Carolina (IUSR).
+- Chương trình khuyến mãi với mức phí $0.41/cubic foot/tháng — mức phí lưu kho AWD thấp nhất hiện có.
+- Giảm giá được áp dụng tự động cho tất cả các lô hàng inbound trực tiếp đủ điều kiện trong thời gian khuyến mãi.
+🔸ƯU ĐÃI ĐẶC BIỆT
+- Chỉ cần gửi hàng đến kho IUSR trong thời gian khuyến mãi, phí lưu kho sẽ tự động được giảm
+- Không yêu cầu số lượng tối thiểu
+- Nếu khách hàng đang dùng AMS (Amazon Managed Service), giảm giá sẽ được CỘNG DỒN trên mức $0.41 – nghĩa là bạn còn được giá TỐT HƠN nữa!
+🔸LƯU Ý QUAN TRỌNG
+- Chỉ áp dụng cho hàng nhận tại IUSR từ 01/05/2026 trở đi
+- Hàng đã lưu kho trước 01/05 không được hưởng ưu đãi
+- Sau 30/09/2026, phí sẽ trở về mức chuẩn $0.48/cubic foot/tháng
+- Kết hợp được với khuyến mãi Smart Storage & AMS.",AWD
+6,LNK_078,https://amzn.to/4on8gdk ,https://sell.amazon.vn/blog/danh-cho-nguoi-moi/so-sanh-tu-hoan-thien-fbm-va-fba?ld=SOVNSOAFACEBOOK_LOG-FBM_NULL_FP-Post_Compare-with-FBA_2026-06-11,,So sánh mô hình Tự hoàn thiện đơn hàng FBM với FBA,Từ mô hình Tự hoàn thiện đơn hàng (FBM) sang mô hình Hoàn thiện đơn hàng bởi Amazon (FBA): 3 Bài học thực tế và bí quyết tăng trưởng doanh số cho Nhà bán hàng mới.,"So sánh mô hình FBM (Tự hoàn thiện đơn hàng) và FBA (Hoàn thiện đơn hàng bởi Amazon), kèm 3 bài học thực tế từ Nhà bán hàng đã chuyển đổi thành công. Giải đáp các mối bận tâm thường gặp khi cân nhắc FBA: chi phí, cách chọn sản phẩm, tính toán khả thi lợi nhuận và vận hành thực tế. Ngoài ra có tổng hợp các ưu đãi dành cho Nhà bán hàng FBA mới. Xem chi tiết đầy đủ tại: https://amzn.to/4on8gdk  ",FBA
+6,LNK_079,https://amzn.to/4vrjkc4,https://sell.amazon.vn/blog/phat-trien-kinh-doanh/huong-dan-nang-ty-le-giao-trong-ngay-same-day-delivery?ld=SOVNSOAFACEBOOK_LOG-FBA_NULL_FP-Post_Inventory-Planning_2026-06-22,,Hướng dẫn 4 bước nâng tỷ lệ Giao trong ngày,"Nhằm hỗ trợ Nhà bán hàng TĂNG TỶ LỆ HIỂN THỊ ""GIAO TRONG NGÀY"" và TĂNG DOANH SỐ, Amazon hướng dẫn 4 bước tối ưu tồn kho FBA giúp sản phẩm đạt nhãn Same-day/Next-day Delivery trên Amazon Hoa Kỳ.","Lợi ích chính:
+Sản phẩm hiển thị nhãn ""Giao trong ngày/Ngày hôm sau"" có doanh số tăng trung bình 20%. Áp dụng cho thị trường Hoa Kỳ, dựa trên vị trí tồn kho và khoảng cách đến khách hàng.
+
+4 bước thực hiện - Chương trình áp dụng cho tất cả ASIN, ưu tiên nhóm đầu bảng theo doanh số:
+- Dự trữ đủ: Duy trì tồn kho trên mức hàng lưu kho tối thiểu (MIL). ASIN đầu bảng (top 20% doanh số) nên đạt 6–8 tuần tồn kho khả dụng tại FBA.
+- Bổ sung thường xuyên: Nhập FBA đều đặn, tối thiểu mỗi 3 tuần với ASIN bán chạy. Kết hợp AWD, Amazon SEND/AGL để đảm bảo thời gian giao hàng.
+- Nhập kho đúng cách: Ưu tiên Amazon Optimized Split (5 điểm kho khu vực) thay vì Minimal Split (1 kho). Miễn phí Inbound Placement Fee, hàng lên kệ nhanh hơn.
+- Theo dõi hàng chính xác: Cung cấp đầy đủ Estimated delivery window và mã tracking để được ưu tiên lịch nhập kho tại Trung tâm hoàn thiện đơn hàng (FC).
+
+Kết quả thực tế - Case study nhà bán hàng phụ kiện điện tử (160+ ASIN):
+Tỷ lệ Same-day delivery tăng từ 10% lên 53% trong ~8 tháng, tỷ lệ chuyển đổi tăng 2–4%, coverage tăng 5 lần. Đạt được nhờ phân loại ASIN theo nhóm ưu tiên và giám sát 3 tầng tồn kho toàn chuỗi (FBA in-stock, hàng trên đường, lead time nhà máy VN).
+
+Lưu ý: Không thể ""đăng ký"" nhãn Same-day, hệ thống tự tính theo thời gian thực dựa trên phân bổ tồn kho - Vận chuyển đường biển từ Việt Nam sang Hoa Kỳ mất 5–8 tuần, cần tính ngược kế hoạch nhập hàng trước 10–14 tuần để tránh gián đoạn tồn kho FBA.",INVENTORY
+7,LNK_080,https://amzn.to/3D77oq2,https://sell.amazon.vn/dang-ky-tai-khoan/?ld=SOVNSOA2025AWO_Fanpage,https://m.media-amazon.com/images/G/28/AS/AGS/SU/VN_GS_Account_Registration_Guidance_VN.pdf?ref_=sdvn_soa_sell_PDF_h&initialSessionID=357-3863121-6239702&ld=SOVNSOA2025AWO_Fanpage_SDRP_sell_h&pageName=VN%3AAS%3ASOA-dktk,Trợ lý hỗ trợ đăng ký bằng tiếng Việt cho Nhà bán hàng Việt Nam - Onboarding Assistant ,"Cung cấp hỗ trợ được tích hợp Trí tuệ Nhân tạo Tạo sinh (Gen-AI) cho nhà bán hàng mới trong giai đoạn đăng ký. Các câu trả lời được đưa ra theo thời gian thực bằng ngôn ngữ bản địa, cùng hệ thống kiến thức được tinh chỉnh riêng cho nhà bán hàng Việt Nam.","Giảm bớt các khó khăn, trở ngại khi đăng ký. Nhà bán hàng được giải đáp thắc mắc ngay lập tức 24/7 và hoàn thành việc cài đặt nhanh chóng hơn.  
+
+Đối tượng mục tiêu: Các nhà bán hàng mới ở khu vực Châu Á (RoA - Rest of Asia) đang trong giai đoạn đăng ký và thiết lập.  
+
+Hướng dẫn: Sử dụng Trợ lý (OA) trong lúc đăng ký để nhận giải đáp theo thời gian thực và mở khóa sự hỗ trợ từ trung tâm phát triển nhà bán hàng VN.  
+
+Lợi ích chính:
+- Hỗ trợ tức thì 24/7 bằng ngôn ngữ bản địa.  
+- Hoàn thành quy trình đăng ký nhanh hơn.  
+- Tích hợp sẵn kiến thức nền tảng về thị trường khu vực.  
+
+- Điểm khác biệt: Được thiết kế riêng biệt cho giai đoạn đăng ký (phân biệt với Seller Assistant - Trợ lý Người bán dành cho người bán đang hoạt động). Đây là sự kết hợp của Gen AI cùng kiến thức bản địa và khu vực.  
+
+- Chi phí: Miễn phí.",account registration
+7,LNK_081,https://amzn.to/3D77oq2,https://sell.amazon.vn/dang-ky-tai-khoan/?ld=SOVNSOA2025AWO_Fanpage,https://m.media-amazon.com/images/G/28/AS/AGS/SU/VN_GS_Account_Registration_Guidance_VN.pdf?ref_=sdvn_soa_sell_PDF_h&initialSessionID=357-3863121-6239702&ld=SOVNSOA2025AWO_Fanpage_SDRP_sell_h&pageName=VN%3AAS%3ASOA-dktk,Cổng Thông tin Thiết lập Tài khoản - Onboarding Lounge,"Cổng thông tin Onboarding Lounge cho phép nhà bán hàng mới hoàn thành các tác vụ thiết lập trọng yếu (ví dụ: Đăng ký Thương hiệu, thuế, đào tạo) song song với quá trình đăng ký tài khoản, tất cả quy về một nơi. Chương trình khởi đầu bằng một bảng khảo sát sơ bộ gồm 3 câu hỏi nhanh, giúp điều hướng nhà bán hàng vào một trung tâm tổng hợp ngay từ những bước đầu tiên.","Nhà bán hàng không cần phải đợi tới khi việc đăng ký hoàn tất mới có thể bắt tay vào các bước thiết lập khác. Mọi quy trình đều chạy song song, giúp họ ra mắt gian hàng nhanh hơn với ít thao tác lặp lại hơn.  
+
+Đối tượng mục tiêu: Nhà bán hàng mới trên thị trường Hoa Kỳ ở giai đoạn bắt đầu luồng đăng ký lần đầu tiên.  
+
+Hướng dẫn: Khởi tạo đăng ký thông qua Onboarding Lounge mới; hoàn thành bảng khảo sát sơ bộ và bắt đầu các tác vụ thiết lập (Đăng ký thương hiệu, Học viện Nhà bán hàng - Seller University) đồng thời với việc đăng ký tài khoản.  
+
+Lợi ích chính cho nhà bán hàng:   
+- Tốc độ ra mắt nhanh hơn do các tác vụ thiết lập được chạy song song thay vì phải chờ đợi theo trình tự.  
+- Bắt đầu đơn giản hơn thông qua bảng khảo sát sơ bộ 3 câu hỏi thay vì đối mặt ngay với một luồng đăng ký khô khan.  
+- Hỗ trợ tại Việt Nam (VN): Đăng ký Thương hiệu (Brand registry) và Học viện Nhà bán hàng (Seller University) có thể truy cập ngay từ ngày đầu.  
+- Giữ nguyên quy trình xác minh quen thuộc, nhưng sở hữu giao diện người dùng (UI) gọn gàng và trực quan hơn.  
+
+Điểm khác biệt: Các tài nguyên hỗ trợ thiết lập hiện được nhúng trực tiếp vào luồng đăng ký thay vì cung cấp dưới dạng các bước riêng lẻ sau khi đã đăng ký xong.  
+
+Chi phí: Miễn phí.",account registration
+7,LNK_082,https://amzn.to/3D77oq2,https://sell.amazon.vn/dang-ky-tai-khoan/?ld=SOVNSOA2025AWO_Fanpage,https://m.media-amazon.com/images/G/28/AS/AGS/SU/VN_GS_Account_Registration_Guidance_VN.pdf?ref_=sdvn_soa_sell_PDF_h&initialSessionID=357-3863121-6239702&ld=SOVNSOA2025AWO_Fanpage_SDRP_sell_h&pageName=VN%3AAS%3ASOA-dktk,Tái sử dụng Giấy phép Kinh doanh - Business License Reuse,Tính năng Tái sử dụng Giấy phép Kinh doanh cho phép các nhà bán hàng theo mô hình doanh nghiệp sử dụng lại Giấy phép Kinh doanh (Business License - BL) đã nộp ở bước Xác minh Danh tính Doanh nghiệp (BIV) để đáp ứng luôn yêu cầu Xác minh Địa chỉ (AV) và Xác minh Người liên hệ chính/Thư ủy quyền (LOA). Nhà bán hàng không cần phải tải lên các tài liệu riêng biệt cho từng bước. Trải nghiệm nộp tài liệu duy nhất này giúp quá trình xác minh trở nên tinh gọn.,"Trước đây, nhà bán hàng doanh nghiệp phải nộp ba tài liệu riêng biệt cho BIV, AV và LOA, gây ra nhiều trở ngại và khiến họ bỏ cuộc trước khi quy trình SIV được kích hoạt. Tính năng này giúp loại bỏ việc tải lên chứng từ trùng lặp và lần đầu tiên chấp nhận Giấy phép Kinh doanh như một tài liệu LOA hợp lệ.  
+
+Đối tượng mục tiêu: Các nhà bán hàng là doanh nghiệp trên thị trường Hoa Kỳ đang trong quá trình đăng ký tài khoản, cụ thể là ở giai đoạn xác minh danh tính và thông tin doanh nghiệp.  
+
+Hướng dẫn: Khi được yêu cầu cung cấp địa chỉ doanh nghiệp và thông tin người liên hệ chính, hãy chọn ""Có"" để xác nhận rằng các chi tiết đã có sẵn trong Giấy phép Kinh doanh, từ đó bỏ qua bước tải lại tài liệu cho AV và LOA.  
+
+Lợi ích chính cho nhà bán hàng:   
+Nộp ít tài liệu hơn; một Giấy phép Kinh doanh có thể bao trọn cả yêu cầu cho BIV, AV và LOA.  
+Linh hoạt hơn khi Giấy phép Kinh doanh hiện được chấp nhận làm tài liệu LOA hợp lệ.  
+Đăng ký nhanh hơn vì số lượng tài liệu bắt buộc phải tải lên trước khi SIV kích hoạt đã giảm bớt.  
+Trải nghiệm gọn gàng, trực quan hơn do mọi thủ tục nộp tài liệu được hợp nhất tại trang Tóm tắt Tài liệu.  
+
+Điểm khác biệt: Đây là một cải tiến đáng kể về cơ sở hạ tầng xác minh. Lần đầu tiên, Giấy phép Kinh doanh được chấp nhận làm tài liệu LOA hợp lệ và chứng từ được tự động tái sử dụng cho các bước xác minh thay vì phải yêu cầu tải lại.  
+
+Chi phí: Miễn phí.",account registration
+7,LNK_083,TBU,TBU,,Khám phá Nhu cầu Chưa được đáp ứng (UDM) — Tính năng mới trong Trình khám phá Cơ hội (OX) trên Seller Central.,"Khám phá Nhu cầu Chưa được đáp ứng"" là một tính năng mới thuộc Trình khám phá Cơ hội (OX) trên Seller Central, sử dụng các nhóm Ý định Mua hàng (Purchase Intent clusters) để xác định các thị trường ngách có lượng tìm kiếm cao nhưng tỷ lệ chuyển đổi thấp.  
+DOCX
+Tính năng này giúp nhà bán hàng tìm ra các cơ hội thị trường chưa được khai thác bằng cách chỉ ra chính xác khách hàng đang tìm kiếm gì nhưng chưa mua — từ đó họ có thể ra mắt các sản phẩm lấp đầy khoảng trống đó và nắm bắt lợi thế của người tiên phong.","Hiện tại, nhà bán hàng thường dựa vào dữ liệu đối thủ cạnh tranh có độ trễ và các công cụ bên thứ ba (như Jungle Scout, Helium 10) vốn sử dụng các ước tính từ dữ liệu thu thập (scraped data) — dẫn đến bão hòa thị trường và lãng phí vốn.  
+UDM giải quyết vấn đề này bằng cách đưa ra các tín hiệu nhu cầu thực tế, gốc (first-party) trực tiếp từ dữ liệu tìm kiếm của khách hàng trên Amazon.  
+Thay vì phải phỏng đoán nên bán gì, giờ đây nhà bán hàng có thể nhìn thấy những khoảng trống chuyển đổi đã được chứng minh, nơi mang lại lợi thế rất lớn cho người đi đầu.
+
+Đối tượng mục tiêu:
+- Nhóm Chính: Tất cả các nhà bán hàng đang tìm cách mở rộng danh mục sản phẩm (bao gồm cả nhà bán hàng mới và hiện tại).  
+- Nhóm được quản lý: Các nhà bán hàng do ESM (Enterprise Seller Management) và DSR quản lý đang tích cực mở rộng danh mục lựa chọn.  
+- Nhóm không được quản lý: Các nhà bán hàng tự phục vụ (SSR) và nhà bán hàng không được quản lý đang tìm kiếm cơ hội sản phẩm dựa trên dữ liệu.  
+- Đặc biệt hữu ích đối với các nhà bán hàng đang ở giai đoạn ""Xác định Cơ hội"" trong hành trình lựa chọn sản phẩm của họ.
+
+Lợi ích chính cho nhà bán hàng   
+- Độ chính xác của dữ liệu gốc (First-party data precision): Sử dụng các tín hiệu độc quyền về ""Không có kết quả"" (No-Result) và ""Tìm kiếm bị bỏ dở"" (Abandoned Search) của Amazon, không phải các ước tính thu thập từ bên thứ ba.  
+- Kết quả đã được chứng minh: Những người sử dụng sớm (early adopters) đã ghi nhận tỷ lệ thành công khi chọn sản phẩm tăng 40% và doanh thu hàng năm tăng 50%.  
+- Sân chơi bình đẳng: Nhà bán hàng mới cũng nhận được những thông tin chuyên sâu dựa trên dữ liệu giống hệt như các thương hiệu đã thành danh.  
+- Sử dụng miễn phí: Hoàn toàn miễn phí, được tích hợp ngay trong Seller Central (không cần trả thêm phí đăng ký tài khoản).  
+- Dữ liệu có thể hành động thực tế (Actionable clusters): Hiển thị các nhóm từ khóa tìm kiếm cụ thể có ý định mua cao nhưng nguồn cung thấp, giúp nhà bán hàng biết chính xác nên lấp đầy khoảng trống nào.
+
+Hướng dẫn:
+- Đăng nhập vào Seller Central → Mở Trình khám phá Cơ hội (Opportunity Explorer - OX).  
+- Khám phá các nhóm Ý định Mua hàng mới thuộc mục ""Nhu cầu chưa được đáp ứng"" (Unmet Demand).  
+- Xác định các thị trường ngách có nhu cầu cao / tỷ lệ chuyển đổi thấp phù hợp với khả năng cung ứng của họ.  
+- Sử dụng thông tin chuyên sâu để đưa ra quyết định dựa trên dữ liệu về những sản phẩm nên ra mắt tiếp theo
+
+
+Hoàn toàn miễn phí cho tất cả nhà bán hàng. Tính năng được tích hợp sẵn trong Trình khám phá Cơ hội (OX) trên Seller Central — không có phí thuê bao hay phí bổ sung nào.",account registration
+7,LNK_084,https://amzn.to/4ya9fC1,https://sell.amazon.vn/le-hoi-mua-sam-mua-tuu-truong-2026?ld=SOVNSOAFACEBOOK_ESM-BackToSchool_NULL_FP-Post_BTC-OTC_2026-07-07,,Back to School và Off to College - Mùa Tựu Trường 2026,"Back to School (BTS) và Off to College (OTC) tại Hoa Kỳ mang lại cơ hội kinh doanh trị giá $128,2 tỷ USD vào năm 2026 — một trong 5 sự kiện mua sắm lớn nhất của người tiêu dùng Mỹ hàng năm. 
+
+Đây là cơ hội doanh thu lớn nhất trong nửa cuối năm mà BẤT KỲ Nhà bán hàng nào cũng có thể nắm bắt — bất kể đang bán sản phẩm gì.","Ba lý do khiến BTS/OTC vượt trội hơn mọi sự kiện bán hàng khác: 
+(1) Cửa sổ bán hàng kéo dài 5 tháng (tháng 6–10) cho phép tiếp cận đồng thời hàng triệu Phụ huynh, sinh viên Gen Z, và người mua Gen Y — tệp khách hàng đa thế hệ mà không sự kiện nào khác mang lại.
+(2) Nhu cầu mua sắm trải rộng trên 8+ danh mục sản phẩm — từ điện tử, văn phòng phẩm, gia dụng, đến mỹ phẩm và trang trí nội thất. Khác với mùa quà tặng chỉ tập trung vào vài nhóm hàng, BTS & OTC mang đến cơ hội cho toàn bộ danh mục.
+(3) Khách hàng thu được trong mùa BTS chính là tệp khách hàng trung thành cho Quý 4 — cơ hội bán chéo giữa các sản phẩm, tích lũy đánh giá, và mở rộng tệp khách hàng trước khi Black Friday và Mùa lễ hội cuối năm bắt đầu.
+
+1. Tiềm năng thị trường BTS & OTC 2026
+- Đây là một trong 5 sự kiện mua sắm lớn nhất của người Mỹ, mang lại cơ hội kinh doanh trị giá 128,2 tỷ USD vào năm 2026 (trong đó K-12 chiếm 39,4 tỷ USD và Đại học chiếm 88,8 tỷ USD).
+- Thời gian bán hàng kéo dài 5 tháng (từ tháng 6 đến tháng 10), tiếp cận đa thế hệ khách hàng với nhu cầu mua sắm trải rộng trên 8+ danh mục sản phẩm.
+2. Chân dung và hành vi khách hàng mục tiêu
+- Phụ huynh K-12 (Tiểu học - THPT): Chi tiêu trung bình $858/gia đình. Là nhóm cực kỳ nhạy cảm về giá (75% sẵn sàng đổi thương hiệu nếu giá cao) và có xu hướng mua sắm sớm từ tháng 6 - tháng 7. Chỉ 22% tin tưởng AI, ưu tiên tìm kiếm deal, coupon, combo tiết kiệm và đọc đánh giá (review) thực tế.
+- Sinh viên Đại học và Gen Z: Chi tiêu trung bình mạnh hơn ($1.326/người). Có tới 67% Gen Z sử dụng AI để tìm kiếm và so sánh khi mua sắm. Nhóm này yêu thích sự khác biệt, có xu hướng mua sản phẩm cá nhân hóa (51% thích hàng tùy chỉnh).
+3. Danh mục sản phẩm và xu hướng nổi bật
+- Thiết bị điện tử/máy tính dẫn đầu chi tiêu ở cả hai nhóm khách hàng. Trong khi K-12 tập trung vào 4 nhóm cốt lõi (điện tử, quần áo, giày dép, dụng cụ học tập), thì sinh viên Đại học mua sắm trải rộng 8 ngành hàng, bao gồm cả đồ ký túc xá, chăm sóc cá nhân, thực phẩm.
+- Xu hướng thời trang: Gen Z coi trang phục thể thao là phương tiện thể hiện cá tính với phom rộng rãi, chất liệu thoải mái. Các phong cách dẫn đầu gồm: Classroom Casual, Wellness Fit, Dorm Cozy, và Heritage Sport.
+- Trang trí ký túc xá: 4 phong cách nổi bật là Tối giản tĩnh tâm, Hoài niệm Y2K, Sắc màu Phối hợp và Không gian Gaming ấm cúng.
+- Làm đẹp: K-Beauty bùng nổ (tinh chất peptide, dịch ốc sên, bộ mini), ưu tiên thông điệp chăm sóc phòng ngừa.
+4. Chiến lược Vận hành và Tồn kho
+- 3 giai đoạn bán hàng chính: Giai đoạn 1 mua sớm (15/5 – Prime Day, 23-26/6), Giai đoạn cao điểm 2 (Prime Day – cuối tháng 8), và Giai đoạn 3 mua phút cuối (1–15/9).
+- Tồn kho: Cần chuẩn bị tồn kho FBA từ 60–90 ngày trước mùa cao điểm.
+- Logistics: Chương trình Amazon SEND giúp giảm tới 17% chi phí đường biển (tính năng hợp nhất điểm đến áp dụng từ tháng 4/2026) và ưu đãi đường hàng không chỉ từ 160.000 VND/kg (từ tháng 5/2026).
+5. Tối ưu Listing, Quảng cáo và Khuyến mãi
+- Tối ưu Listing: Thay đổi hình ảnh mang phong cách trường học và chèn các từ khóa tìm kiếm xu hướng vào ""Generic Keyword"" và tiêu đề. (Lưu ý quan trọng: Từ ngày 27/07/2026, tiêu đề sản phẩm bị giới hạn tối đa 75 ký tự, có thể dùng tính năng Item Highlights để thêm 125 ký tự hiển thị bên dưới).
+- Quảng cáo: Nên sử dụng tính năng Sponsored Products video và Sponsored Brands video để trực quan hóa sản phẩm và tăng chuyển đổi. Tùy chỉnh nhắm mục tiêu qua các tập khách hàng có sẵn của Amazon hoặc AMC.
+- Khuyến mãi: Tập trung tung Best Deals, Lightning Deals hoặc Coupons từ Prime Day đến cuối tháng 8. Ví dụ ở ngành hàng Điện tử: Việc kết hợp Coupon với Sponsored Products giúp tăng trung bình 69% doanh số.",
+7,LNK_085,https://amzn.to/49G3Rv1,https://sellercentral.amazon.com/revcalpublic?mons_sel_locale=vi_VN&pageName=US:SC:Trim-hz/fba/profitabilitycalculator/index&fbclid,,Hướng Dẫn Sử Dụng Revenue Calculator - Công cụ ước tính doanh thu và so sánh chi phí fulfillment trên Amazon Seller Central.,"Revenue Calculator là công cụ trên Amazon Seller Central giúp người bán:
+- So sánh chi phí giữa các phương thức fulfillment khác nhau theo thời gian thực
+- Tính toán tổng doanh thu (total proceeds) và lợi nhuận ròng (net profit) trên mỗi đơn vị
+- So sánh đồng thời lên đến 3 chương trình fulfillment
+- Hỗ trợ ước tính đơn lẻ hoặc hàng loạt (estimate in bulk)
+⚠️ Lưu ý: Công cụ này chỉ dùng như hướng dẫn để đánh giá chi phí FBA. Amazon không đảm bảo tính chính xác của các tính toán.","A. Có 2 cách sử dụng ước tính doanh thu:
+1. Cách sử dụng cho sản phẩm đơn lẻ
+2. Cách sử dụng cho nhiều sản phẩm (Ước tính hàng loạt)
+
+1. Cách sử dụng cho sản phẩm đơn lẻ
+- Bước 1 (Có 2 cách): 
++ Bước 1.1: Tìm kiếm sản phẩm (Tab ""Tìm kiếm danh mục Amazon"") - Sử dụng tab này để tìm sản phẩm đã tồn tại trên Amazon
++ Bước 1.2: Xác định sản phẩm (Tab ""Xác định sản phẩm"") - Sử dụng tab này cho sản phẩm chưa có trên Amazon
+=> Tip: Đảm bảo nhập đúng đơn vị đo (cm/in và kg/lb) để kết quả phí chính xác.
+
+- Bước 2: Nhập thông tin chi phí chính xác của sản phẩm: Nhà bán hàng cần điền thêm thông tin về chi phí sản phẩm để hệ thống có thể ước tính được biên lợi nhuận dự tính cho mỗi sản phẩm của nhà bán hàng. Các mục chi phí và lựa chọn NBH cần cung cấp: 
+
+Với Hoàn thiện đơn hàng bởi Amazon - FBA 
++ Chi Phí lưu kho
++ Tùy chọn phân loại vị trí hàng nhập
++ Đơn vị hàng nhập
++ Chi phí vận chuyển ước tính:
++ Removal/Disposal Units: 
++ Chi phí khác (tính trên đơn vị sản phẩm): ví dụ chi phí quảng cáo, tiếp thị, nghiên cứu sản phẩm, đóng gói
++ Giá vốn hàng bán của từng sản phẩm
+
+Với NBH tự hoàn thiện đơn hàng
++ Chi phí hoàn thiện đơn hàng
++ Phân chia chi phí hoàn thiện đơn hàng: bao gồm Nhân công, Vật liệu đóng gói, vận chuyển và dịch vụ khách hàng.
++ Chi phí lưu kho: 
++ Chi phí lưu kho hàng tháng cho mỗi đơn vị: 
++ Số lượng đơn vị lưu kho trung bình và số đơn vị bán ra hàng tháng ước tính.  
++ Chi phí khác (tính trên đơn vị sản phẩm): ví dụ chi phí quảng cáo, tiếp thị, nghiên cứu sản phẩm, đóng gói
++ Giá vốn hàng bán của từng sản phẩm
+
+- Bước 3: Xem ước tính chi phí và lợi nhuận 
++ Nhà bán hàng có thể kiểm tra chi phí cho mỗi đơn vị sản phẩm, hoặc nhập “Doanh số ước tính (theo đơn vị sản phẩm” trong vòng 30 ngày để tính tổng lợi nhuận. 
++ Nhà bán hàng có thể so sánh chi phí và lợi nhuận giữa 2 hình thức hoàn thiện đơn hàng FBA hoặc Nhà bán hàng tự hoàn thiện, cùng với biểu đồ so sánh trong phần tùy chọn.
+
+2. Cách sử dụng cho nhiều sản phẩm (Ước tính hàng loạt)
+Chọn tab ""Estimate in bulk"" để ước tính hàng loạt
+- Bước 1: Chọn hình thức ước tính hàng loạt
+Chọn nguồn cung cấp doanh mục sản phẩm: 
++ Sản phẩm của bạn (dành cho NBH đã bán hàng và có sản phẩm sẵn trên Amazon)
++ Danh mục Amazon: Chọn các sản phẩm đã được bán trên Amazon
++ Sản phẩm mới
+
+- Bước 2: Cung cấp thông tin về sản phẩm
+Cho sản phẩm chưa có trên Amazon:
+- Chọn ""New Products"" trong mục ""Bulk Estimate for"".
+- Click ""Download template"" để tải file mẫu.
+- Đọc tab ""How to use this template"" trong file để hiểu cách nhập.
+- Nhập dữ liệu, lưu lại dưới định dạng .txt
+- Click ""Upload file"" → ""Submit file"" để xử lý.
+ 
+B. Các loại phí bao gồm trong Revenue Calculator
+Referral fees - Phí giới thiệu trên mỗi giao dịch
+FBA fulfillment fees - Phí fulfillment FBA (gồm lithium batteries, special oversize)
+Low inventory level fees - Phí khi mức tồn kho thấp
+FBA inbound placement service fees - Phí dịch vụ inbound placement
+Monthly storage fees - Phí lưu kho hàng tháng
+Long-term storage fees - Phí lưu kho dài hạn
+Removal order fees - Phí rút hàng
+Disposal order fees - Phí hủy hàng
+Liquidation fees - Phí thanh lý hàng
+Coupons fee - Phí coupon/mã giảm giá
+Import fee deposit - Tiền đặt cọc nhập khẩu
+Digital services fee - Phí dịch vụ số
+
+C. Các phí sau KHÔNG được tính trong Revenue Calculator:
+•        Monthly subscription fees - Phí đăng ký bán hàng hàng tháng
+•        Return processing fees - Phí xử lý hoàn trả
+•        Unplanned service fees - Phí dịch vụ ngoài kế hoạch
+•        Refund administration fees - Phí quản lý hoàn tiền
+•        Rental book service fees - Phí cho thuê sách
+•        High volume listing fees - Phí tạo listing số lượng lớn
+•        Các phí khác ít phổ biến
+⚠️ Lưu ý: KHÔNG bao gồm thuế hoặc VAT, trừ khi được ghi rõ.
+",
+7,LNK_086,https://amzn.to/44HtCcn,https://sell.amazon.vn/chinh-sach-tuan-thu-va-suc-khoe-tai-khoan?ld=SOVNSOAFACEBOOK_AHC-Overview_NULL_FP-Post_Master-Page_2026-07-24,,Hướng dẫn Tuân thủ & Sức khỏe Tài khoản,"Việc tuân thủ chính sách là nền tảng để phát triển bền vững trong xuất khẩu qua thương mại điện tử. Khi mở rộng ra thị trường toàn cầu, bạn cầu hiểu rõ yêu cầu tại từng quốc gia và từng nhóm sản phẩm, bao gồm:
+
+1. Trước khi mở gian hàng: Hiểu chính sách bán hàng trên Amazon
+2. Trước khi lựa chọn & đăng tải sản phẩm: Hiểu chính sách tuân thủ của nhóm sản phẩm
+3. Trước khi gửi hàng: Hiểu chính sách của thị trường mục tiêu","1. Mục đích và ý nghĩa của việc tuân thủ: Việc nắm vững các thông tin này giúp hạn chế rủi ro gián đoạn quyền bán hoặc vô hiệu hóa tài khoản, đồng thời góp phần xây dựng niềm tin của khách hàng với thương hiệu.
+
+2. Ba cột mốc tuân thủ quan trọng cần biết
+- Trước khi mở gian hàng: Hiểu chính sách bán hàng trên Amazon.
+- Trước khi lựa chọn & đăng tải sản phẩm: Hiểu chính sách tuân thủ của nhóm sản phẩm.
+- Trước khi gửi hàng: Hiểu chính sách của thị trường mục tiêu.
+
+3. Chính sách bán hàng trên Amazon & Quy tắc ứng xử
+- Yêu cầu: Cung cấp thông tin chính xác (tên doanh nghiệp, phân loại sản phẩm...); hành xử minh bạch, tuân thủ pháp luật; bảo mật thông tin cá nhân của khách hàng (chỉ dùng cho mục đích vận chuyển và phải xóa sau khi hoàn tất).
+- Các hoạt động tuyệt đối tránh: Thao túng đánh giá/review dưới mọi hình thức, gửi tin nhắn tiếp thị khi khách hàng không yêu cầu, điều hướng khách hàng sang các trang web khác, mở nhiều tài khoản bán hàng (trừ khi có lý do hợp lý), nộp khiếu nại vi phạm sở hữu trí tuệ từ tài khoản bán hàng hiện tại.
+
+4. Quản lý sức khỏe tài khoản (Account Health)
+- AHR (Đánh giá sức khỏe tài khoản): Hệ thống điểm từ 0 đến 1000 đánh giá mức độ tuân thủ, sẽ cảnh báo nếu tài khoản có nguy cơ bị vô hiệu hóa.
+- AHA (Chương trình đảm bảo tài khoản): Cơ chế bảo vệ dành cho nhà bán hàng có điểm AHR cao; có 72h để giải quyết vấn đề mà không bị khóa tài khoản.
+- AHS (Hỗ trợ tài khoản): Kênh liên hệ xử lý các sự cố về sức khỏe tài khoản ngay trên Account Health Dashboard.
+- Khôi phục quyền bán hàng: Khi bị tạm ngừng quyền bán, nhà bán hàng có thể nộp Kế hoạch Hành động (Plan of Action) để yêu cầu khôi phục.
+
+5. Các chính sách và an toàn sản phẩm quan trọng khác
+- Chính sách chính: Cần chú ý chính sách Sở hữu trí tuệ (IP), Đánh giá (Review), Trang chi tiết sản phẩm, Sản phẩm bị hạn chế, Tài khoản liên đới, và Chất lượng & tính xác thực của sản phẩm (chống hàng giả).
+- Tuân thủ theo danh mục: Có các quy định rủi ro riêng biệt đối với Đèn chiếu sáng, Điện tử/Pin/Nam châm, Đồ chơi & Trẻ em, Mỹ phẩm, Nội thất, Thực phẩm, Đồ bảo hộ cá nhân (PPE), và Hàng nguy hiểm.
+
+6. Yêu cầu tại thị trường mục tiêu (Ví dụ: Mỹ)
+- Bảo hiểm trách nhiệm thương mại: Bắt buộc đối với gian hàng có mức doanh thu trên 10.000 USD/tháng.
+- Đạo luật Người tiêu dùng (INFORM Act): Yêu cầu xác minh thông tin minh bạch đối với nhà bán hàng.
+- Chính sách FBA: Hệ thống quy định về hàng hóa bị cấm hoặc hạn chế khi lưu kho và vận hành qua trung tâm hoàn thiện đơn hàng Amazon.
+
+7. Công cụ & Giải pháp hỗ trợ tuân thủ
+- Công cụ Quản lý tuân thủ: Hỗ trợ xem yêu cầu, nộp tài liệu, khiếu nại tập trung trên Seller Central.
+- Công cụ Tham khảo: Giúp tra cứu theo từ khóa/danh mục/HS code để biết sản phẩm cần tuân thủ chính sách nào.
+- Nhà cung cấp dịch vụ (SPN): Cung cấp các bên thứ ba hỗ trợ giải pháp tuân thủ, logistics, thuế, vận hành,....",
+8,,,,,Cập nhật tiêu chuẩn kích thước sản phẩm được gửi vào AWD tại Mỹ,"Thông tin về thay đổi điều kiện tiếp nhận hàng vào Amazon Warehousing and Distribution (AWD) tại Mỹ từ ngày 31/07/2026, bao gồm tiêu chuẩn kích thước và trọng lượng của từng sản phẩm, các trường hợp không đủ điều kiện, hướng xử lý đối với hàng oversized và những lưu ý dành cho hàng tồn kho hiện có trong AWD.","Chủ đề: Cập nhật điều kiện sản phẩm được gửi vào Amazon Warehousing and Distribution (AWD) tại Mỹ, có hiệu lực từ ngày 31/07/2026.
+
+Nội dung chính:
+- Từ 31/07/2026, AWD tại Mỹ chỉ tiếp nhận sản phẩm đủ điều kiện phân loại tự động (sortable items).
+- Mỗi đơn vị sản phẩm (unit) trong master box phải nhỏ hơn 18 x 14 x 8 inch & nặng dưới 20 lbs.
+- Nếu sản phẩm vượt quá bất kỳ một trong các giới hạn về chiều dài, chiều rộng, chiều cao hoặc trọng lượng, sản phẩm sẽ không còn đủ điều kiện gửi vào AWD và cần được gửi trực tiếp đến mạng lưới FBA thông qua Send to Amazon (STA).
+
+Những thay đổi cần lưu ý:
+- Đây là thay đổi bắt buộc về chính sách và điều kiện sản phẩm đủ điều kiện gửi vào AWD, không phải chương trình nhà bán có thể lựa chọn tham gia. Tất cả nhà bán sử dụng AWD tại Mỹ có sản phẩm không đủ điều kiện phân loại tự động (non-sort ASINs) đều chịu ảnh hưởng.
+- Quy định đối với thùng hàng (master box) không thay đổi (kích thước tối đa 25 inch ở mỗi cạnh và 50 lbs). Thay đổi mới chỉ áp dụng đối với kích thước của từng đơn vị sản phẩm bên trong thùng hàng (Units inside the master box). Trước đây, AWD không quy định kích thước của từng đơn vị sản phẩm khi nhập kho; từ ngày 31/07/2026, mỗi đơn vị sản phẩm phải đáp ứng tiêu chuẩn về kích thước và trọng lượng để đủ điều kiện gửi vào AWD.
+
+Mục đích của thay đổi: Một phần trong mạng lưới hoàn thiện đơn hàng của Amazon được thiết kế riêng để xử lý các sản phẩm cồng kềnh và quá khổ. Khi các sản phẩm này được gửi trực tiếp đến mạng lưới này thông qua Send to Amazon, hàng hóa sẽ nhanh chóng ở trạng thái sẵn sàng để bán, được phân bổ đến các kho gần khu vực có nhu cầu của khách hàng hơn và hỗ trợ giao hàng nhanh hơn.",Amazon Warehousing and Distribution (AWD)
+8,,,https://sell.amazon.vn/dich-vu-van-chuyen-amazon-global-logistics-agl,,Chính sách cố định giá cước vận chuyển sau khi đặt chỗ của Amazon Global Logistics (AGL),"Thông tin về chính sách khóa giá cước của Amazon Global Logistics (AGL), giúp nhà bán thanh toán đúng mức giá cước vận chuyển đường biển đã xác nhận tại thời điểm đặt chỗ, bất kể giá thị trường có thay đổi sau đó. Miễn là lô hàng đáp ứng các điều kiện về thời gian của chính sách (trong vòng 14 ngày), mức giá đã đặt sẽ được giữ nguyên và không phát sinh chênh lệch do biến động giá cước.","Nội dung chính:
+- Chính sách khóa giá cước vận chuyển của Amazon Global Logistics (AGL) giúp nhà bán thanh toán theo mức giá đã xác nhận tại thời điểm đặt chỗ, ngay cả khi giá cước thị trường thay đổi sau đó, với điều kiện lô hàng đáp ứng các yêu cầu của chính sách.
+- Chính sách áp dụng cho các lô hàng vận chuyển đường biển thông qua AGL và không yêu cầu nhà bán đăng ký riêng.
+
+Điều kiện áp dụng:
+- Để giữ nguyên mức giá đã đặt, lô hàng cần đáp ứng các mốc thời gian quy định đối với từng phương thức vận chuyển:
++ FCL: Hàng phải được đưa vào cảng (gate-in) trong vòng 14 ngày kể từ ngày đặt chỗ
++ LCL: Ngày hàng sẵn sàng (Cargo Ready Date - CRD) phải nằm trong vòng 14 ngày kể từ ngày đặt chỗ và hàng phải được giao đến kho CFS trong vòng 7 ngày kể từ CRD.
+
+Lợi ích:
+- Giúp nhà bán chủ động dự toán chi phí logistics và lập kế hoạch vận chuyển.
+- Giảm rủi ro phát sinh chi phí do biến động giá cước sau khi đặt chỗ.
+- Hỗ trợ lập kế hoạch nhập hàng hiệu quả hơn, đặc biệt trong các giai đoạn cao điểm.
+- Khi kết hợp với chính sách giá cước ổn định theo từng khu vực của AGL (Bờ Tây/Bờ Đông), nhà bán được bảo vệ tốt hơn trước những biến động của giá cước vận chuyển.
+
+Lưu ý:
+- Chính sách được áp dụng tự động cho các lô hàng đủ điều kiện và không phát sinh thêm chi phí.
+- Nếu nhà bán thay đổi Ngày hàng sẵn sàng (Cargo Ready Date - CRD) hoặc không đáp ứng các điều kiện trên, giá cước sẽ được tính lại theo mức giá có hiệu lực tại thời điểm cập nhật.
+- Nhà bán nên lên kế hoạch đặt chỗ và chuẩn bị hàng đúng tiến độ để duy trì mức giá đã xác nhận.",Amazon Global Logistic (AGL)
+8,,,,,Halloween 2026 Sales Peak Prep,,,
+8,,,,,BFCM 2026 Sales Peak Prep,,,
+8,,,,,NSP 2.0,,,

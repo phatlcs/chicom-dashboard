@@ -1,6 +1,7 @@
 *.xlsx
 *.xls
 *.csv
+!nextjs/backend/knowledge_base.csv
 !question_coverage.xlsx
 *.ipynb
 output/

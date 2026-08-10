@@ -364,6 +364,7 @@ Input:
 - `date_range`: The calendar period this data covers (e.g. "June 2026" or "Jan–Mar 2026").
 - `aggregate`: Pre-computed numbers and top items from the dataset.
 - `samples`: 4-8 real post snippets from users (often mixing Vietnamese and English).
+- `background_context` (optional): Amazon Vietnam program/policy updates relevant to the period — provided as supporting context ONLY.
 
 Task:
 Produce a structured analysis in JSON format. The language of the analysis MUST be English.
@@ -395,10 +396,64 @@ Constraints:
 5. Always provide exactly 4 stats and exactly 3 findings.
 6. In the `scope` field, always use the `date_range` value for the time period — NEVER write "Q1", "Q2", "Q3", or "Q4" as a time period label; those are question numbers, not quarters.
 7. NEVER refer to master topics by their internal codes (MT1, MT2, MT3, etc.). Always use the full topic name from the data (e.g. "Product & Pricing", "Logistics & Fulfillment"). If the aggregate only provides codes, map them to names using the `id` and `vn`/`en` fields in the data.
+8. NEVER mention internal resource identifiers (LNK_001, LNK_086, etc.) anywhere in your output. You MAY mention the actual policy name, program name, or topic (e.g. "the Account Health compliance guide", "the Back to School campaign", "the Revenue Calculator tool") — just never the code.
+9. `background_context` is reference material only. Use it to add a sentence of nuance when a policy change, program launch, or market event from that month clearly explains a pattern you already see in the post data (e.g. sellers complaining about account health → a new compliance policy launched that month). Do NOT build recommendations primarily around KB content. Do NOT tell users to consult guides or resources. Insights must be grounded in the `aggregate` and `samples` first.
 """
 
 
-def _call_claude(title: str, payload: dict, api_key: str, date_range: str = "", mt_legend: str = "") -> dict | None:
+def _load_kb_context(date_range: str) -> str:
+    """Load KB rows matching the month in date_range and format as background context."""
+    import re as _re
+    import calendar as _cal
+
+    # Infer month number from date_range string (e.g. "July 2026" → 7)
+    month_num = None
+    month_names = {m.lower(): i for i, m in enumerate(_cal.month_name) if m}
+    abbr_names  = {m.lower(): i for i, m in enumerate(_cal.month_abbr)  if m}
+    for token in _re.split(r"[\s\-–/]", date_range.lower()):
+        if token in month_names:
+            month_num = month_names[token]; break
+        if token in abbr_names:
+            month_num = abbr_names[token]; break
+
+    if month_num is None:
+        return ""
+
+    # Look for KB CSV at known locations
+    kb_candidates = [
+        _BACKEND_DIR / "knowledge_base.csv",
+        _PROJECT_DIR.parent / "backend" / "knowledge_base.csv",
+        _PROJECT_DIR / "knowledge_base.csv",
+    ]
+    kb_path = next((p for p in kb_candidates if p.is_file()), None)
+    if kb_path is None:
+        return ""
+
+    try:
+        import csv
+        rows = []
+        with kb_path.open(encoding="utf-8-sig") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                try:
+                    m = int(str(row.get("Month", "") or "").strip())
+                except ValueError:
+                    continue
+                if m == month_num:
+                    title_vn  = (row.get("Title") or "").strip()
+                    summary   = (row.get("content_summary") or "").strip()
+                    category  = (row.get("category") or "").strip()
+                    if title_vn or summary:
+                        rows.append(f"[{category}] {title_vn}: {summary}" if category else f"{title_vn}: {summary}")
+        if not rows:
+            return ""
+        return "\n".join(rows)
+    except Exception as e:
+        print(f"  [insight] KB load failed: {e}", file=sys.stderr)
+        return ""
+
+
+def _call_claude(title: str, payload: dict, api_key: str, date_range: str = "", mt_legend: str = "", kb_context: str = "") -> dict | None:
     """Make one LLM call. Returns dict or None on failure."""
     try:
         from anthropic import Anthropic
@@ -415,6 +470,7 @@ def _call_claude(title: str, payload: dict, api_key: str, date_range: str = "", 
         + f"aggregate:\n{json.dumps(payload['aggregate'], ensure_ascii=False, indent=2)}\n\n"
         + f"samples:\n"
         + "\n".join(f"- {s}" for s in payload.get("samples", []))
+        + (f"\n\nbackground_context (reference only — do not cite resource codes or recommend specific guides):\n{kb_context}" if kb_context else "")
     )
 
     try:
@@ -486,6 +542,11 @@ def generate_insights_for_all_qs(
     if q1_master:
         mt_legend = "\n".join(f"{m['id']} = {m['en']}" for m in q1_master if m.get('id') and m.get('en'))
 
+    # Load KB context for the period (background reference only)
+    kb_context = _load_kb_context(date_range)
+    if kb_context:
+        print(f"  [insight] KB context loaded: {len(kb_context.splitlines())} entries for '{date_range}'")
+
     for q_id, title, sampler, scope in Q_SPECS:
         frame = soa_rel if scope == "soa_rel" else rel
         try:
@@ -497,7 +558,7 @@ def generate_insights_for_all_qs(
         agg_for_q = aggregates.get(q_id, {})
         payload = {"aggregate": agg_for_q, "samples": samples}
         # Include a version/schema flag in the hash so refactors trigger a rebuild
-        key = _hash_payload({"model": MODEL_ID, "payload": payload, "title": title, "schema": "v4-named-topics", "date_range": date_range, "mt_legend": mt_legend})
+        key = _hash_payload({"model": MODEL_ID, "payload": payload, "title": title, "schema": "v5-kb-context", "date_range": date_range, "mt_legend": mt_legend, "kb_context": kb_context})
 
         cached = cache.get(q_id)
         if cached and cached.get("hash") == key and cached.get("expert"):
@@ -508,7 +569,7 @@ def generate_insights_for_all_qs(
             hits += 1
             continue
 
-        structured = _call_claude(title, payload, api_key, date_range=date_range, mt_legend=mt_legend)
+        structured = _call_claude(title, payload, api_key, date_range=date_range, mt_legend=mt_legend, kb_context=kb_context)
         if structured:
             cache[q_id] = {"hash": key, "expert": structured}
             expert_results[q_id] = structured
