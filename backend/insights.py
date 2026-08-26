@@ -47,6 +47,13 @@ MANUAL_PATH     = _BACKEND_DIR / "insights_manual.json"
 # which articles apply to the report being generated (July report → month 7).
 KB_PATH         = _PROJECT_DIR / "AGS_Knowledge_Base.csv"
 
+# Master-topic ID → full English name mapping (used to scrub codes from LLM input)
+_MT_NAME_MAP = {
+    'mt1': 'Others', 'mt2': 'Selling on Amazon (SOA)', 'mt3': 'Logistics & fulfillment',
+    'mt4': 'Account health', 'mt5': 'Third-party services', 'mt6': 'Account creation',
+    'mt7': 'Advertising', 'mt8': 'Listing & catalog', 'mt9': 'Brand Registry & IP',
+}
+
 
 def _load_manual() -> dict:
     if not MANUAL_PATH.is_file():
@@ -113,6 +120,18 @@ def _period_label(dts: pd.Series) -> str:
 
 
 # ── Utility helpers ─────────────────────────────────────────────────────────
+
+def _scrub_mt_codes(obj):
+    """Recursively replace MT code strings (mt1..mt9) with full topic names
+    so the LLM never sees or echoes internal IDs."""
+    if isinstance(obj, str):
+        return _MT_NAME_MAP.get(obj, obj)
+    if isinstance(obj, dict):
+        return {_scrub_mt_codes(k): _scrub_mt_codes(v) for k, v in obj.items()}
+    if isinstance(obj, list):
+        return [_scrub_mt_codes(v) for v in obj]
+    return obj
+
 
 def _load_env() -> None:
     """Tiny .env loader so callers don't need python-dotenv as a hard dep."""
@@ -565,7 +584,7 @@ def generate_insights_for_all_qs(
             print(f"  [insight] {q_id} sampling failed: {e}", file=sys.stderr)
             samples = []
 
-        agg_for_q = aggregates.get(q_id, {})
+        agg_for_q = _scrub_mt_codes(aggregates.get(q_id, {}))
         payload = {"aggregate": agg_for_q, "samples": samples,
                    "knowledge_base": kb_rows, "period": period}
         # Include a version/schema flag in the hash so refactors trigger a rebuild
