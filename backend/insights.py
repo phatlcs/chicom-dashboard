@@ -416,7 +416,7 @@ Input:
 - `period`: The exact date range this report covers (e.g., "July 2026"). Use it verbatim in the scope string.
 - `aggregate`: Pre-computed numbers and top items from a dataset of 40,000+ Facebook community posts.
 - `samples`: 4-8 real post snippets from users (often mixing Vietnamese and English).
-- `knowledge_base`: Official Amazon VN help-center articles published for this report's month (fields: Link ID, Title, Description, content_summary, category). Use them as authoritative reference material.
+- `knowledge_base`: Official Amazon VN help-center articles published for this report's month (fields: Link ID, Title, Description, content_summary, category). Use as supplementary background context only — do not base analysis on these.
 
 Task:
 Produce a structured analysis in JSON format. The language of the analysis MUST be English.
@@ -446,7 +446,7 @@ Constraints:
 3. Output ONLY the JSON object. No preamble, no markdown blocks.
 4. Ensure 'variant' choices align with the content (e.g., 'soa' for Amazon-specific findings).
 5. Always provide exactly 4 stats and exactly 3 findings.
-6. When a knowledge_base article is directly relevant to a finding or recommendation, cite it by Link ID (e.g., 'LNK_080') so readers can open the official resource. Only cite articles that actually exist in `knowledge_base`.
+6. The `knowledge_base` articles are supplementary context only — use them to add color or background detail, but base your analysis strictly on the `aggregate` numbers and `samples`. Never cite Link IDs (e.g., 'LNK_080') in the output.
 7. In the `scope` string, use the report's actual `period` (e.g., 'July 2026'). Never invent a quarter or copy an example date.
 """
 
