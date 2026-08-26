@@ -109,7 +109,6 @@ LABEL_EN = {
     'Bán hàng và vận hành Amazon':                      'Amazon selling & operations',
     'Thanh toán Amazon qua Payoneer':                   'Amazon payouts via Payoneer',
     'Vấn đề thanh toán quốc tế':                        'International payment issues',
-    'Ưu đãi Helium 10, tool seller Amazon':             'Helium 10 deals & tools',
     # Mentor / Coaching stays in English (commonly used in the community)
     'Mentor / Coaching':                 'Mentor / Coaching',
 }
@@ -118,7 +117,7 @@ LABEL_EN = {
 def translate_label(label):
     """Return English display label for a known VN keyword-map key.
     Unknown labels pass through unchanged (already-English labels like
-    'FBA', 'PPC/Ads', 'Helium 10', 'Seller Central', etc.)."""
+    'FBA', 'PPC/Ads', 'Seller Central', etc.)."""
     if not isinstance(label, str):
         return label
     return LABEL_EN.get(label.strip(), label)
@@ -329,10 +328,6 @@ Q11_TOOL_KW = {
         'brand registry', 'đăng ký brand', 'amazon brand', 'brand protection',
         'registered brand',
     ],
-    'Helium 10': [
-        'helium 10', 'h10', 'cerebro', 'magnet', 'black box',
-        'xray helium',
-    ],
     'Jungle Scout': [
         'jungle scout', 'junglescout', 'js ', 'jungle',
     ],
@@ -496,10 +491,6 @@ Q3_SUB_KW = {
         'wise', 'pingpong', 'ping pong', 'wire transfer',
         'thanh toán quốc tế', 'chuyển tiền', 'remittance',
         'tài khoản ngân hàng mỹ', 'us bank',
-    ],
-    'Ưu đãi Helium 10, tool seller Amazon': [
-        'helium 10', 'helium10', 'h10', 'jungle scout', 'junglescout',
-        'viral launch', 'ưu đãi tool', 'discount tool', 'coupon helium',
     ],
 }
 
