@@ -34,6 +34,7 @@ jobs:
           --exclude='*.pyc' \
           --exclude='output/' \
           --exclude='.insight_cache.json' \
+          --exclude='AGS_Knowledge_Base.csv' \
           --exclude='*.xlsx' \
           --exclude='.env' \
           --exclude='data/' \
