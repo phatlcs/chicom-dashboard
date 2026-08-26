@@ -330,7 +330,7 @@ Q11_TOOL_KW = {
         'registered brand',
     ],
     'Helium 10': [
-        'helium 10', 'helium10', 'h10', 'cerebro', 'magnet', 'black box',
+        'helium 10', 'h10', 'cerebro', 'magnet', 'black box',
         'xray helium',
     ],
     'Jungle Scout': [
