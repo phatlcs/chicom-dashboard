@@ -446,7 +446,7 @@ Constraints:
 3. Output ONLY the JSON object. No preamble, no markdown blocks.
 4. Ensure 'variant' choices align with the content (e.g., 'soa' for Amazon-specific findings).
 5. Always provide exactly 4 stats and exactly 3 findings.
-6. The `knowledge_base` articles are supplementary context only — use them to add color or background detail, but base your analysis strictly on the `aggregate` numbers and `samples`. Never cite Link IDs (e.g., 'LNK_080') in the output.
+6. NEVER output internal link IDs or code names (e.g., 'LNK_080'). If you reference an Amazon policy or program, use its full public name and plain-English description. The `knowledge_base` articles are supplementary background only — base your analysis strictly on `aggregate` and `samples`.
 7. In the `scope` string, use the report's actual `period` (e.g., 'July 2026'). Never invent a quarter or copy an example date.
 """
 
