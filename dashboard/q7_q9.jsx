@@ -331,6 +331,10 @@ function Q9Donut({ title, badge, items, chartId, tt }) {
 }
 
 function Q9ThreadList({ title, badge, items, chartId }) {
+  const GROUP_FB = {1:'chuyennhaban',2:'eagleamazonvietnam',3:'congdongetsyvietnam',4:'aothuncuongphonghoi',5:'etsyatoz',6:'630421913756884',7:'etsytogo',8:'congdongamazonvn',9:'1475740400787432',10:'525802323860711'};
+  const threadUrl = (t) => t.link || (t.group_id && GROUP_FB[t.group_id] && t.id
+    ? `https://www.facebook.com/groups/${GROUP_FB[t.group_id]}/posts/${t.id}/`
+    : '');
   const sentimentDot = (s) => {
     const color = s === 'positive' ? 'oklch(0.62 0.15 155)'
                 : s === 'negative' ? 'oklch(0.60 0.20 25)'
@@ -356,7 +360,7 @@ function Q9ThreadList({ title, badge, items, chartId }) {
           </div>
         )}
         {items.map((t, i) => (
-          <a key={t.id} href={t.link} target="_blank" rel="noopener noreferrer"
+          <a key={t.id} href={threadUrl(t)} target="_blank" rel="noopener noreferrer"
             style={{
               display: 'grid',
               gridTemplateColumns: '28px 1fr 64px',
