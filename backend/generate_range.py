@@ -28,7 +28,8 @@ def main():
     cur = conn.cursor()
     cur.execute("""
         SELECT id::text, group_id, created_date, content, master_topic,
-               sub_topic, persona, sentiment, is_relevant, batch_label
+               sub_topic, persona, sentiment, is_relevant, batch_label,
+               post_type, post_id
         FROM pooled_posts_all
         WHERE created_date BETWEEN %s::date AND %s::date
     """, (start, end))

@@ -29,6 +29,10 @@ GROUP_INFO = {
     7: {'id': 'ec5',  'name': 'Etsy To Go',                          'short': 'Etsy To Go',         'type': 'EC'},
     8: {'id': 'ec6',  'name': 'Etsy E-Z Cộng Đồng Etsy Việt',        'short': 'Etsy E-Z',           'type': 'EC'},
     9: {'id': 'ec7',  'name': 'Cộng đồng ETSY Việt Nam',             'short': 'ETSY VN',            'type': 'EC'},
+    # Additional community observed in newer batches (Aug 2026 onward).
+    # group_id 10 = "Cộng Đồng E-commerce (Group 10)" (also seen as "Cộng Đồng
+    # iSocial" in the classifier).
+    10: {'id': 'ec8', 'name': 'Cộng Đồng E-commerce (Group 10)',    'short': 'E-commerce G10',     'type': 'EC'},
 }
 
 # ────────────────────────────────────────────────────────────────────────────
@@ -97,7 +101,7 @@ DAYS_VN = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN']
 DAYS_EN = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 
 SOA_IDS = [1, 2]
-EC_IDS  = [3, 4, 5, 6, 7, 8, 9]
+EC_IDS  = [3, 4, 5, 6, 7, 8, 9, 10]
 
 SUBTOPICS = {
     # Real sub-topics observed in the Apr 2026 classified dataset, grouped
@@ -268,6 +272,85 @@ def _normalize_sub_topics(series: pd.Series) -> pd.Series:
     return clean.map(match)
 
 
+_FB_POST_ID_RE = re.compile(r'/(?:posts|permalink)/(\d+)')
+
+# Fallback FB group identifier (slug or numeric gid) per internal group_id.
+# Used to rebuild a thread URL for Q9 when the source ships no `link` column
+# (pooled-DB path). Modes extracted from Aug 2026 annotated post links.
+GROUP_FB = {
+    1:  'chuyennhaban',
+    2:  'eagleamazonvietnam',
+    3:  'congdongetsyvietnam',
+    4:  'aothuncuongphonghoi',
+    5:  'etsyatoz',
+    6:  '630421913756884',
+    7:  'etsytogo',
+    8:  'congdongamazonvn',
+    9:  '1475740400787432',
+    10: '525802323860711',
+}
+
+
+def _thread_id_source(frame: pd.DataFrame) -> pd.DataFrame:
+    """Self-heal thread ids for Q9's top-thread ranking.
+
+    The classifier occasionally ships `id_source` as a junk constant (e.g.
+    every row = 'facebook' in several 2026 batches), which collapses all
+    threads into a single bogus bucket. When `id_source` is missing or has
+    ≤1 distinct usable value, rebuild it from what the data still carries:
+
+      - a `fbGroupComment` row's own id is base64('comment:<postId>_<commentId>')
+        → parent post id is the part before the underscore;
+      - a `fbGroupTopic` row's own id is the (numeric) post id;
+      - when neither works, fall back to the numeric id embedded in `link`
+        (`/posts/<id>` or `/permalink/<id>`).
+
+    The `Type` column may arrive as `post_type` on the DB path, so accept both.
+    Returns a copy; untouched frames with real `id_source` pass through intact.
+    """
+    if frame is None or len(frame) == 0:
+        return frame
+    if 'id_source' in frame.columns:
+        src = frame['id_source'].astype(str).str.strip().replace('', pd.NA).dropna()
+        if src.nunique() > 1:
+            return frame  # trust the data (April/May/June-style real ids)
+
+    type_col = frame['Type'] if 'Type' in frame.columns else (
+        frame['post_type'] if 'post_type' in frame.columns else None)
+    if type_col is None:
+        return frame
+    out = frame.copy()
+    is_post = type_col.astype(str).str.contains('Topic', regex=False, na=False)
+
+    # Prefer the real source identity (`post_id`) over the DB row id: on the
+    # pooled DB path `id` is the BIGSERIAL row pk (useless for threads), while
+    # `post_id` holds the original FB post/comment id the heal can decode.
+    own_col = ('post_id' if 'post_id' in out.columns
+               else 'id' if 'id' in out.columns else None)
+    own = (out[own_col].astype(str) if own_col is not None
+           else pd.Series('', index=out.index))
+    link = pd.Series('', index=out.index)
+    if 'link' in out.columns:
+        link = out['link'].astype(str).str.extract(_FB_POST_ID_RE, expand=False).fillna('')
+
+    def _comment_parent(val: str) -> str:
+        if not val or val.startswith('comment:'):
+            return ''
+        try:
+            import base64
+            dec = base64.b64decode(val).decode('utf-8', 'ignore')
+        except Exception:
+            dec = ''
+        m = re.match(r'comment:(\d+)_', dec)
+        return m.group(1) if m else ''
+
+    comment_ids = own.map(_comment_parent)
+    comment_ids = comment_ids.where(comment_ids.ne(''), link)     # link fallback
+    post_ids    = own.where(own.str.isdigit(), link)              # numeric own id, else link
+    out['id_source'] = post_ids.where(is_post, comment_ids).fillna('')
+    return out
+
+
 def compute_all(df: pd.DataFrame, skip_llm: bool = False):
     """
     df: raw DataFrame from uploaded CSV (or from file).
@@ -304,6 +387,18 @@ def compute_all(df: pd.DataFrame, skip_llm: bool = False):
     else:
         rel = df.copy()
 
+    # ── Group universe (dynamic) ────────────────────────────────────────────
+    # Reports cover whatever communities actually appear in the queried range,
+    # not just a fixed 9. GROUP_INFO is the catalog (name/type lookup); the
+    # groups used downstream are only those present in this range's rows.
+    if 'group_id' in df.columns:
+        _present_ids = sorted({
+            int(g) for g in pd.to_numeric(df['group_id'], errors='coerce').dropna().unique()
+        })
+    else:
+        _present_ids = list(SOA_IDS + EC_IDS)
+    GROUPS_PRESENT = {gid: GROUP_INFO[gid] for gid in _present_ids if gid in GROUP_INFO}
+
     # ── KPIs ────────────────────────────────────────────────────────────────
     # Real sub-topic count (after fuzzy normalization, excluding blanks)
     if 'sub_topic' in rel.columns:
@@ -332,10 +427,10 @@ def compute_all(df: pd.DataFrame, skip_llm: bool = False):
         'ecNegativePct':    _sent_pct(ec_rel_kpi,  'negative'),
         'soaRelevant':      int(len(soa_rel_kpi)),
         'ecRelevant':       int(len(ec_rel_kpi)),
-        'activeGroups':     len(GROUP_INFO),
-        'analysedGroups':   len(SOA_IDS) + len(EC_IDS),
-        'soaGroups':        len(SOA_IDS),
-        'ecGroups':         len(EC_IDS),
+        'activeGroups':     len(GROUPS_PRESENT),
+        'analysedGroups':   len(GROUPS_PRESENT),
+        'soaGroups':        sum(1 for g in GROUPS_PRESENT.values() if g['type'] == 'SOA'),
+        'ecGroups':         sum(1 for g in GROUPS_PRESENT.values() if g['type'] == 'EC'),
         'masterTopics':     len(MASTER_TOPICS),
         'subTopics':        n_sub,
     }
@@ -368,7 +463,7 @@ def compute_all(df: pd.DataFrame, skip_llm: bool = False):
 
     # ── Overview (community + persona breakdowns, SOV narrative) ───────────
     comm_counts = []
-    for gid, info in GROUP_INFO.items():
+    for gid, info in GROUPS_PRESENT.items():
         cnt = int((rel['group_id'] == gid).sum()) if 'group_id' in rel.columns else 0
         comm_counts.append({**info, 'count': cnt})
     comm_counts.sort(key=lambda x: -x['count'])
@@ -386,7 +481,7 @@ def compute_all(df: pd.DataFrame, skip_llm: bool = False):
 
     # Persona × Group breakdown for the topline highlight chart
     persona_by_group = []
-    for gid, info in GROUP_INFO.items():
+    for gid, info in GROUPS_PRESENT.items():
         grp = rel[rel['group_id'] == gid] if 'group_id' in rel.columns else rel.iloc[0:0]
         counts = {p['id']: int((grp['persona_id'] == p['id']).sum()) for p in PERSONAS}
         gtotal = sum(counts.values())
@@ -407,8 +502,8 @@ def compute_all(df: pd.DataFrame, skip_llm: bool = False):
         'ecTotal':          int(ec_total),
         'soaPct':           round(soa_total / total_rel * 100),
         'ecPct':            round(ec_total  / total_rel * 100),
-        'soaGroupCount':    len(SOA_IDS),
-        'ecGroupCount':     len(EC_IDS),
+        'soaGroupCount':    sum(1 for g in GROUPS_PRESENT.values() if g['type'] == 'SOA'),
+        'ecGroupCount':     sum(1 for g in GROUPS_PRESENT.values() if g['type'] == 'EC'),
         'monthsCount':      len(months),
         'topCommunity':     top_comm,
         'topCommunityPct':  round(top_comm['count'] / total_rel * 100, 1),
@@ -419,8 +514,8 @@ def compute_all(df: pd.DataFrame, skip_llm: bool = False):
     # ── Q1 weights ──────────────────────────────────────────────────────────
     # Per-group breakdown (used by the heatmap / per-group views)
     q1_weights = {mt['id']: {} for mt in MASTER_TOPICS}
-    for gid in SOA_IDS + EC_IDS:
-        g = GROUP_INFO[gid]
+    for gid in GROUPS_PRESENT:
+        g = GROUPS_PRESENT[gid]
         grp = rel[rel['group_id'] == gid] if 'group_id' in rel.columns else rel.iloc[0:0]
         total = max(1, len(grp))
         for mt in MASTER_TOPICS:
@@ -798,10 +893,15 @@ def compute_all(df: pd.DataFrame, skip_llm: bool = False):
     # (post + comments) per thread, take top N. Preview + link come from
     # the `fbGroupTopic` row, never from a comment.
     def _top_threads(frame: pd.DataFrame, n: int = 10) -> list[dict]:
+        if frame is None or len(frame) == 0:
+            return []
+        frame = _thread_id_source(frame)
         if 'id_source' not in frame.columns or len(frame) == 0:
             return []
-        type_col = frame['Type'].astype(str) if 'Type' in frame.columns else pd.Series('', index=frame.index)
-        posts = frame[type_col.eq('fbGroupTopic')]
+        type_col = (frame['Type'] if 'Type' in frame.columns
+                    else frame['post_type'] if 'post_type' in frame.columns
+                    else pd.Series('', index=frame.index)).astype(str)
+        posts = frame[type_col.str.contains('Topic', na=False)]
         if len(posts) == 0:
             return []
         # Valid post id_sources (i.e. the post row survived filtering).
@@ -811,7 +911,8 @@ def compute_all(df: pd.DataFrame, skip_llm: bool = False):
             ['id_source'].value_counts().head(n)
         )
         # Build a quick lookup from id_source → post row
-        posts_by_id = posts.drop_duplicates('id_source').set_index(posts['id_source'].astype(str))
+        deduped = posts.drop_duplicates('id_source')
+        posts_by_id = deduped.set_index(deduped['id_source'].astype(str))
 
         out: list[dict] = []
         for id_source, count in counts.items():
@@ -824,9 +925,12 @@ def compute_all(df: pd.DataFrame, skip_llm: bool = False):
             gid = int(parent.get('group_id')) if pd.notna(parent.get('group_id')) else None
             # Count comments (total rows - 1 for the post itself)
             comments = int(count) - 1
+            link = str(parent.get('link', '') or '')
+            if not link and gid and gid in GROUP_FB:
+                link = f'https://www.facebook.com/groups/{GROUP_FB[gid]}/posts/{key}/'
             out.append({
                 'id':           key,
-                'link':         str(parent.get('link', '') or ''),
+                'link':         link,
                 'count':        int(count),
                 'comments':     comments,
                 'preview':      preview,
@@ -865,8 +969,8 @@ def compute_all(df: pd.DataFrame, skip_llm: bool = False):
     # Expose SOA-only totals so UI can show 'Tính trên X bài SOA'
     soa_scope = {
         'totalRelevant': int(len(soa_rel)),
-        'groupIds':      list(SOA_IDS),
-        'groupNames':    [GROUP_INFO[g]['short'] for g in SOA_IDS],
+        'groupIds':      [g for g in SOA_IDS if g in GROUPS_PRESENT],
+        'groupNames':    [GROUP_INFO[g]['short'] for g in SOA_IDS if g in GROUPS_PRESENT],
     }
 
     # Weekly Q10 trend — use real 'Product Category' column if populated,
@@ -916,8 +1020,8 @@ def compute_all(df: pd.DataFrame, skip_llm: bool = False):
         })
 
     # ── Groups ──────────────────────────────────────────────────────────────
-    SOA_GROUPS = [GROUP_INFO[g] for g in SOA_IDS]
-    EC_GROUPS  = [GROUP_INFO[g] for g in EC_IDS]
+    SOA_GROUPS = [GROUP_INFO[g] for g in SOA_IDS if g in GROUPS_PRESENT]
+    EC_GROUPS  = [GROUP_INFO[g] for g in EC_IDS if g in GROUPS_PRESENT]
 
     # ── LLM insights (cached by content-hash, skipped if API key missing) ──
     # Assemble the aggregates dict that insights.py consumes per-Q.

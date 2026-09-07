@@ -2,14 +2,22 @@
 
 ## Your EC2 Instance
 
+> **UPDATED (verified via `aws --profile boost ec2 describe-instances`):**
+> the IP and instance name below are the live values. Earlier notes referenced
+> `i-0caf827d54e9a3a45` / `ec2-18-141-25-84` — that host no longer exists.
+
 ```
-Instance ID:  i-0caf827d54e9a3a45
-Name:         Boost-AGS
+Instance ID:  i-050d312aaf6d1ba4e
+Name tag:     ags-social-listening
 Region:       ap-southeast-1 (Singapore)
 Type:         t4g.small (2 vCPU, 2GB RAM)
 OS:           Amazon Linux 2023 ARM64
-Key:          Boost.pem
-Public IP:    ec2-18-141-25-84.ap-southeast-1.compute.amazonaws.com
+Key:          boost-ags.pem   (in this repo root — NOT Boost.pem)
+Public IP:    18.141.231.18
+Hosts:        agsboost.vn  =  ec2-18-141-231-18.ap-southeast-1.compute.amazonaws.com
+Repo root:    /home/ec2-user/app       (NOT ~/chicom-dashboard)
+Backend:      /home/ec2-user/app/backend
+Next.js:      /home/ec2-user/app/nextjs  (pm2 app name `chicom`, not `chicom-admin`)
 ```
 
 ---
@@ -20,18 +28,18 @@ Public IP:    ec2-18-141-25-84.ap-southeast-1.compute.amazonaws.com
 
 ```bash
 # Make key readable
-chmod 400 Boost.pem
+chmod 400 boost-ags.pem
 
-# Connect
-ssh -i Boost.pem ec2-user@ec2-18-141-25-84.ap-southeast-1.compute.amazonaws.com
+# Connect (agsboost.vn resolves to 18.141.231.18)
+ssh -i boost-ags.pem ec2-user@agsboost.vn
 ```
 
 ### Step 2: Run Setup Script
 
 ```bash
-# Clone repo
-git clone https://github.com/phatlcs/chicom-dashboard.git
-cd chicom-dashboard
+# Clone repo (on the live box it lives at /home/ec2-user/app)
+git clone https://github.com/phatlcs/chicom-dashboard.git app
+cd app
 
 # Run setup script
 bash deploy/setup-ec2.sh

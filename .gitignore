@@ -29,3 +29,6 @@ screenshots/
 .vercel
 
 .vercel
+
+# EC2 keys
+*.pem
