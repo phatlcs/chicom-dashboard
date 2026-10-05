@@ -1,11 +1,12 @@
 """
-Spam filter pipeline. Takes a raw Excel input and produces
+Spam filter pipeline. Takes a raw Excel/CSV input and produces
 <base>_annotated.csv (+.xlsx) and <base>_cleaned.csv (+.xlsx)
 in output/filtered/.
 
 Usage as script:
     python run_spam_filter.py                           # uses default v2 input
-    python run_spam_filter.py path/to/input.xlsx       # custom input
+    python run_spam_filter.py path/to/input.xlsx        # custom input
+    python run_spam_filter.py path/to/input.csv         # CSV also supported
 
 Usable as a module — `build_data.py` imports `run()` and invokes it
 conditionally when the annotated CSV is missing or stale.
@@ -121,7 +122,7 @@ ATTACHMENT_RE = re.compile(r'^with attachments?:\s*(https?://\S+)?\s*$', re.IGNO
 
 def run(raw_xlsx_path: str | Path = None) -> Tuple[Path, Path]:
     """
-    Run the spam filter on the given xlsx. Returns (annotated_csv, cleaned_csv).
+    Run the spam filter on the given xlsx/csv. Returns (annotated_csv, cleaned_csv).
     """
     _ensure_packages()
     import pandas as pd
@@ -142,7 +143,10 @@ def run(raw_xlsx_path: str | Path = None) -> Tuple[Path, Path]:
 
     # Load raw
     print(f'[spam] Reading {raw_path.name}…')
-    df_raw = pd.read_excel(raw_path, sheet_name=0)
+    if raw_path.suffix.lower() in ('.csv', '.txt'):
+        df_raw = pd.read_csv(raw_path, encoding='utf-8-sig', low_memory=False)
+    else:
+        df_raw = pd.read_excel(raw_path, sheet_name=0)
     print(f'[spam]   {len(df_raw):,} rows × {len(df_raw.columns)} cols')
 
     # Domain scan
