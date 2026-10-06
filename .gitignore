@@ -1,7 +1,6 @@
 *.xlsx
 *.xls
 *.csv
-!nextjs/backend/knowledge_base.csv
 !question_coverage.xlsx
 *.ipynb
 output/
@@ -26,9 +25,19 @@ screenshots/
 .insight_samples.json
 .claude/
 
-.vercel
-
-.vercel
-
-# EC2 keys
+# EC2 keys — never commit SSH private keys
 *.pem
+
+# ── Dependencies / build output ──────────────────────────────────────────────
+node_modules/
+.next/
+*.tsbuildinfo
+next-env.d.ts
+
+# ── Python bytecode ──────────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+
+# ── Local scratch (moved to archive/scratch on 2026-10-06) ──────────────────
+archive/scratch/
+.ro_cache.json
