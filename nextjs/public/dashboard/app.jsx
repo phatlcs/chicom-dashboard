@@ -70,6 +70,10 @@ function App() {
   const Q7 = window.Q7, Q8 = window.Q8, Q9 = window.Q9, Q10 = window.Q10;
   const Q11 = window.Q11, Q12 = window.Q12, Q13 = window.Q13, Q14 = window.Q14;
 
+  const ALL_GROUPS = (window.ChiComData && window.ChiComData.ALL_GROUPS) || [];
+  const SOA_COUNT = ALL_GROUPS.filter(g => g && g.type === 'SOA').length;
+  const EC_COUNT = ALL_GROUPS.filter(g => g && g.type === 'EC').length;
+
   return (
     <>
       <window.TopBar />
@@ -77,7 +81,7 @@ function App() {
       <div className="page">
         <div className="page-header">
           <h1>Boost — Community Insights Dashboard</h1>
-          <p>Content analysis across 2 SOA (Selling on Amazon) communities and 7 EC (cross-border e-commerce) communities — answering 14 research questions.</p>
+          <p>Content analysis across {SOA_COUNT} SOA (Selling on Amazon) communities and {EC_COUNT} EC (cross-border e-commerce) communities — answering 14 research questions.</p>
           <window.TimeRangeBadge />
         </div>
 
@@ -127,7 +131,7 @@ function App() {
 
         <div style={{ padding: '24px 0', borderTop: '1px solid var(--border)', color: 'var(--text-3)', fontSize: 12, display: 'flex', justifyContent: 'space-between' }}>
           <span>Boost Insights · data from {(window.ChiComData && window.ChiComData.KPI && window.ChiComData.KPI.totalPosts.toLocaleString()) || '—'} mentions</span>
-          <span className="mono">14 questions · {(window.ChiComData && window.ChiComData.ALL_GROUPS && window.ChiComData.ALL_GROUPS.length) || 9} communities</span>
+          <span className="mono">14 questions · {ALL_GROUPS.length || '—'} communities</span>
         </div>
       </div>
 
@@ -136,5 +140,13 @@ function App() {
   );
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+if (window.D && window.D2) {
+  ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+} else {
+  setTimeout(() => {
+    if (window.D && window.D2) {
+      ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+    }
+  }, 100);
+}
 
