@@ -9,6 +9,9 @@ const UNSORTED_REPORTS = [
   { slug: 'april', label: 'April 2026', created: 1748768974158 },
   { slug: 'may', label: 'May 2026', created: 1748768974948 },
   { slug: 'june-2026', label: 'June 2026', created: 1751860000000, url: '/api/report/june-2026' },
+  { slug: 'july-2026', label: 'July 2026', created: 1782864000000, url: '/api/report/july-2026' },
+  { slug: 'aug-2026', label: 'August 2026', created: 1785542400000, url: '/api/report/aug-2026' },
+  { slug: 'sep-2026', label: 'September 2026', created: 1788220800000, url: '/api/report/sep-2026' },
   // Note: 'overview' report is hidden from this list - only accessible via /overview page
 ]
 
