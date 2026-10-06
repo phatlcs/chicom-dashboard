@@ -1,6 +1,5 @@
 ﻿/* global React */
 const { useState, useEffect, useRef, useMemo } = React;
-const D = window.ChiComData;
 
 // ----- shared helpers -----
 const clsx = (...xs) => xs.filter(Boolean).join(' ');
@@ -330,8 +329,8 @@ window.PersonaByGroupChart = PersonaByGroupChart;
 function HighlightsBar() {
   const D1 = window.ChiComData || {};
   const D2 = window.ChiComData2 || {};
-  const q10 = D2.Q10_TOP   || [];
-  const q11 = D2.Q11_TOOLS || [];
+  const q10 = window.D2.Q10_TOP   || [];
+  const q11 = window.D2.Q11_TOOLS || [];
 
   const totalRel = (D1.KPI && D1.KPI.relevantPosts) || 1;
   // Use the sum of matched mentions as the denominator so the topline %

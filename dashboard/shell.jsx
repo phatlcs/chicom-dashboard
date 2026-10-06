@@ -1,6 +1,5 @@
 ﻿/* global React */
 const { useState, useEffect, useRef, useMemo } = React;
-const D_ = window.ChiComData;
 
 // ----- shared helpers -----
 const clsx = (...xs) => xs.filter(Boolean).join(' ');
@@ -555,12 +554,13 @@ function ExpertInsightPanel({ qId }) {
   const data = qId && (window.ExpertInsights || {})[qId];
   if (!data) return null;
 
-  // Fallback: if data is a plain HTML string, render it directly
+  // generate_range.py injects plain HTML strings; handle that before the
+  // structured-object path below.
   if (typeof data === 'string') {
     return (
       <div className="ei-panel">
         <div className="ei-panel-header">
-          <span className="ei-panel-tag">Insights & Recommendations</span>
+          <span className="ei-panel-tag">Insights &amp; Recommendations</span>
         </div>
         <div style={{ padding: '12px 14px', fontSize: 13, lineHeight: 1.65, color: 'var(--text-2)' }}
           dangerouslySetInnerHTML={{ __html: data }} />

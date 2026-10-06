@@ -16,6 +16,27 @@ sys.path.insert(0, ROOT)
 
 from backend import compute as compute_mod
 
+
+def _sync_assets():
+    """Refresh nextjs/public/dashboard/ from dashboard/ before building.
+
+    The generated report loads its JSX from /dashboard/*.jsx, which is served
+    from nextjs/public/dashboard/ (and, on EC2, from the copy CI rsyncs to
+    ~/app/public/). dashboard/ is the source of truth — see
+    scripts/sync_dashboard_assets.py. Best-effort: a report must still be
+    produced if the helper is missing or the checkout is read-only.
+    """
+    script = os.path.join(ROOT, "scripts", "sync_dashboard_assets.py")
+    if not os.path.isfile(script):
+        return
+    try:
+        import subprocess
+        subprocess.run([sys.executable, script], cwd=ROOT, check=True,
+                       stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    except Exception as e:  # noqa: BLE001 — never fail a report over asset sync
+        print(f"  [sync] dashboard asset sync skipped: {e}", file=sys.stderr)
+
+
 def main():
     if len(sys.argv) < 4:
         print("Usage: generate_range.py <start> <end> <slug> [insights]", file=sys.stderr)
@@ -49,6 +70,8 @@ def main():
     # not the string the Postgres VARCHAR column round-trips as.
     df["group_id"] = pd.to_numeric(df["group_id"], errors="coerce").astype("Int64")
 
+    _sync_assets()
+
     js_str, info = compute_mod.compute_all(df, skip_llm=not with_insights)
 
     # The visible "Insights & Recommendations" panel reads window.ExpertInsights,
@@ -58,8 +81,16 @@ def main():
     insights = info.get('insights') or {}
     expert_json = json.dumps({k: v for k, v in insights.items() if v}, ensure_ascii=False)
 
-    # Load the HTML template from the nginx-served public directory
-    template_path = os.path.join(ROOT, "public", "dashboard", "index.html")
+    # Load the HTML template. On EC2 CI rsyncs nextjs/public/ → ~/app/public/,
+    # the directory nginx serves, so that copy wins; locally it does not exist
+    # and the repo's own nextjs/public/dashboard/ is used instead.
+    template_path = next(
+        (p for p in (
+            os.path.join(ROOT, "public", "dashboard", "index.html"),
+            os.path.join(ROOT, "nextjs", "public", "dashboard", "index.html"),
+        ) if os.path.isfile(p)),
+        os.path.join(ROOT, "public", "dashboard", "index.html"),
+    )
     with open(template_path, encoding="utf-8") as f:
         template = f.read()
 

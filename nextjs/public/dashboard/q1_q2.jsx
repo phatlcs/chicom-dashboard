@@ -4,11 +4,11 @@ const { useState, useRef } = React;
 // ============ Q1 ============
 function Q1() {
   const tt = window.useTooltip();
-  const q1 = D.Q1_MASTER;
+  const q1 = window.D.Q1_MASTER;
   const maxW = Math.max(...q1.map(m => m.weight));
-  const soaOrder = D.SOA_GROUPS;
-  const ecOrder = D.EC_GROUPS;
-  const subTopics = D.Q1_SUBTOPICS || [];
+  const soaOrder = window.D.SOA_GROUPS;
+  const ecOrder = window.D.EC_GROUPS;
+  const subTopics = window.D.Q1_SUBTOPICS || [];
   const maxSubW = subTopics.length ? Math.max(...subTopics.map(s => s.weight)) : 1;
 
   const TopicBars = () => (
@@ -37,7 +37,7 @@ function Q1() {
         ))}
       </div>
       <div style={{ marginTop: 14, paddingTop: 12, borderTop: '1px solid var(--border)', fontSize: 11, color: 'var(--text-3)' }}>
-        {D.MASTER_TOPICS.length} Master Topics · {(D.KPI && D.KPI.subTopics) || 0} sub-topics
+        {window.D.MASTER_TOPICS.length} Master Topics · {(window.D.KPI && window.D.KPI.subTopics) || 0} sub-topics
       </div>
       <window.Insight qId="Q1">
         Leading master topic: <b>{q1[0].en || q1[0].vn}</b> ({q1[0].weight}%).
@@ -57,7 +57,7 @@ function Q1() {
     const rowGap = 4;
     const leftPad = 320;    // space for MT full names on the left
     const topPad = 140;     // space for rotated group labels at top
-    const mts = D.MASTER_TOPICS;
+    const mts = window.D.MASTER_TOPICS;
     const svgHeight = topPad + mts.length * (cellH + rowGap) + 20;
     const svgWidth  = leftPad + groups.length * (cellW + 4) + 20;
     const cardMinHeight = svgHeight + 80;
@@ -106,7 +106,7 @@ function Q1() {
             {/* Cells: MT × Group */}
             {mts.map((mt, mi) => (
               groups.map((g, gi) => {
-                const v = D.Q1_WEIGHTS[mt.id][g.id];
+                const v = window.D.Q1_WEIGHTS[mt.id][g.id];
                 const fill = window.binColor(v, bins, accent);
                 const x0 = leftPad + gi * (cellW + 4);
                 const y0 = topPad + mi * (cellH + rowGap);
@@ -135,14 +135,14 @@ function Q1() {
           // Find top (MT, group) cell
           let best = { mt: null, g: null, v: -1 };
           mts.forEach(mt => groups.forEach(g => {
-            const v = D.Q1_WEIGHTS[mt.id][g.id];
+            const v = window.D.Q1_WEIGHTS[mt.id][g.id];
             if (v > best.v) best = { mt, g, v };
           }));
           // Most concentrated group (highest max MT share)
           const grpMax = groups.map(g => ({
             g,
             top: mts.reduce((acc, mt) => {
-              const v = D.Q1_WEIGHTS[mt.id][g.id];
+              const v = window.D.Q1_WEIGHTS[mt.id][g.id];
               return v > acc.v ? { mt, v } : acc;
             }, { mt: null, v: 0 }),
           }));
@@ -208,15 +208,15 @@ function Q1() {
       <div className="grid-12" style={{ marginTop: 16, display: 'grid', gap: 16 }}>
         <div className="col-12">
           <HeatGrid
-            title={<>SOA groups — Weight <span className="badge soa">{D.SOA_GROUPS.length} groups</span></>}
-            groups={D.SOA_GROUPS}
+            title={<>SOA groups — Weight <span className="badge soa">{window.D.SOA_GROUPS.length} groups</span></>}
+            groups={window.D.SOA_GROUPS}
             accent="rose"
           />
         </div>
         <div className="col-12">
           <HeatGrid
-            title={<>EC groups — Weight <span className="badge ec">{D.EC_GROUPS.length} groups</span></>}
-            groups={D.EC_GROUPS}
+            title={<>EC groups — Weight <span className="badge ec">{window.D.EC_GROUPS.length} groups</span></>}
+            groups={window.D.EC_GROUPS}
             accent="teal"
           />
         </div>
@@ -316,12 +316,12 @@ function Q2Heatmap({ matrix, title, badge, accent, chartId, tt, personas, mts })
 
 function Q2() {
   const tt = window.useTooltip();
-  const personas = D.PERSONAS;
-  const mts = D.MASTER_TOPICS;
+  const personas = window.D.PERSONAS;
+  const mts = window.D.MASTER_TOPICS;
 
   // Prefer split matrices when the build pipeline has emitted them.
-  const hasSplit = D.Q2_MATRIX_SOA && D.Q2_MATRIX_EC;
-  const matrixForInsight = D.Q2_MATRIX;
+  const hasSplit = window.D.Q2_MATRIX_SOA && window.D.Q2_MATRIX_EC;
+  const matrixForInsight = window.D.Q2_MATRIX;
 
   // Insight calc uses the global matrix so numbers align with KPIs.
   let best = { p: null, mt: null, v: -1 };
@@ -341,9 +341,9 @@ function Q2() {
         <>
           <div className="col-12">
             <Q2Heatmap
-              matrix={D.Q2_MATRIX_SOA}
+              matrix={window.D.Q2_MATRIX_SOA}
               title="SOA — Master Topics by Persona"
-              badge={<span className="badge soa">{D.SOA_GROUPS.length} groups</span>}
+              badge={<span className="badge soa">{window.D.SOA_GROUPS.length} groups</span>}
               accent="rose"
               chartId="Q2_1"
               tt={tt} personas={personas} mts={mts}
@@ -351,9 +351,9 @@ function Q2() {
           </div>
           <div className="col-12">
             <Q2Heatmap
-              matrix={D.Q2_MATRIX_EC}
+              matrix={window.D.Q2_MATRIX_EC}
               title="EC — Master Topics by Persona"
-              badge={<span className="badge ec">{D.EC_GROUPS.length} groups</span>}
+              badge={<span className="badge ec">{window.D.EC_GROUPS.length} groups</span>}
               accent="teal"
               chartId="Q2_2"
               tt={tt} personas={personas} mts={mts}
@@ -363,7 +363,7 @@ function Q2() {
       ) : (
         <div className="col-12">
           <Q2Heatmap
-            matrix={D.Q2_MATRIX}
+            matrix={window.D.Q2_MATRIX}
             title="Master Topics by Persona"
             badge={null}
             accent="indigo"
