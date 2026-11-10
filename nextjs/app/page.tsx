@@ -17,14 +17,14 @@ interface CustomReport {
 }
 
 const OFFICIAL_REPORTS = [
-  { slug: 'q1',         label: 'Q1 2026 (Jan – Mar)', period: 'Jan 2026 – Mar 2026',       url: '/api/report/q1' },
-  { slug: 'april',      label: 'April 2026',           period: 'Apr 1 – Apr 30, 2026',      url: '/api/report/april' },
-  { slug: 'may',        label: 'May 2026',             period: 'May 1 – May 31, 2026',      url: '/api/report/may' },
-  { slug: 'june-2026',  label: 'June 2026',            period: 'Jun 1 – Jun 30, 2026',      url: '/api/report/june-2026' },
-  { slug: 'july-2026',  label: 'July 2026',            period: 'Jul 1 – Jul 31, 2026',      url: '/api/report/july-2026' },
-  { slug: 'aug-2026',   label: 'August 2026',          period: 'Aug 1 – Aug 31, 2026',      url: '/api/report/aug-2026' },
-  { slug: 'sep-2026',   label: 'September 2026',       period: 'Sep 1 – Sep 30, 2026',      url: '/api/report/sep-2026' },
-  { slug: 'oct-2026',   label: 'October 2026',         period: 'Oct 1 – Oct 31, 2026',      url: '/api/report/oct-2026' },
+  { slug: 'q1',         label: 'Q1 2026 (Jan – Mar)', period: 'Jan 2026 – Mar 2026',       url: '/report/q1' },
+  { slug: 'april',      label: 'April 2026',           period: 'Apr 1 – Apr 30, 2026',      url: '/report/april' },
+  { slug: 'may',        label: 'May 2026',             period: 'May 1 – May 31, 2026',      url: '/report/may' },
+  { slug: 'june-2026',  label: 'June 2026',            period: 'Jun 1 – Jun 30, 2026',      url: '/report/june-2026' },
+  { slug: 'july-2026',  label: 'July 2026',            period: 'Jul 1 – Jul 31, 2026',      url: '/report/july-2026' },
+  { slug: 'aug-2026',  label: 'August 2026',           period: 'Aug 1 – Aug 31, 2026',      url: '/report/aug-2026' },
+  { slug: 'sep-2026',  label: 'September 2026',        period: 'Sep 1 – Sep 30, 2026',      url: '/report/sep-2026' },
+  { slug: 'oct-2026',  label: 'October 2026',          period: 'Oct 1 – Oct 31, 2026',      url: '/report/oct-2026' },
 ]
 
 export default function HomePage() {
