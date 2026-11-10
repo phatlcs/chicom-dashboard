@@ -280,6 +280,34 @@ body {
   .grid-12 .col-4, .grid-12 .col-5, .grid-12 .col-6, .grid-12 .col-7, .grid-12 .col-8 { grid-column: span 12; }
 }
 
+/* ── Explainability boxes (macro evidence + strategic insight) ────────── */
+.explain-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 18px;
+}
+@media (max-width: 900px) {
+  .explain-grid { grid-template-columns: 1fr; }
+}
+.explain-box {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-xs);
+  padding: 14px 16px 16px;
+}
+.explain-box-tag {
+  display: inline-block;
+  font-size: 10px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+  color: #fff; border-radius: 4px; padding: 3px 9px; margin-bottom: 10px;
+}
+.explain-box-tag.evidence { background: oklch(0.50 0.14 265); }
+.explain-box-tag.insight  { background: oklch(0.45 0.12 160); }
+.explain-box-body {
+  font-size: 13px; line-height: 1.65; color: var(--text-2);
+}
+
 /* ── Expert Insight Panel (Nhận định & Khuyến nghị) ─────────────────── */
 .ei-panel {
   margin-top: 18px;

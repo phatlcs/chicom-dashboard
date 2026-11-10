@@ -541,6 +541,7 @@ function Section({ id, num, title, scope, soaOnly, children }) {
       )}
       {children}
       <ExpertInsightPanel qId={id} />
+      <ExplainabilityPanel qId={id} />
     </section>
   );
 }
@@ -633,6 +634,34 @@ function ExpertInsightPanel({ qId }) {
   );
 }
 window.ExpertInsightPanel = ExpertInsightPanel;
+
+// ── Explainability Panel ───────────────────────────────────────────────
+// Two boxes beneath each question: the real-world macro evidence and the
+// strategic insight for Boost & AGS (translated, from the CHICOM briefing).
+// Sourced from window.Explainability, which only report HTML files that
+// opt in define inline (e.g. sep-2026.html) — pages without it render
+// nothing here, so other monthly reports are untouched.
+function ExplainabilityPanel({ qId }) {
+  const d = qId && (window.Explainability || {})[qId];
+  if (!d || (!d.evidence && !d.insight)) return null;
+  return (
+    <div className="explain-grid">
+      {d.evidence && (
+        <div className="explain-box">
+          <div className="explain-box-tag evidence">Macro reality evidence</div>
+          <div className="explain-box-body">{d.evidence}</div>
+        </div>
+      )}
+      {d.insight && (
+        <div className="explain-box">
+          <div className="explain-box-tag insight">Relevant facts for Boost</div>
+          <div className="explain-box-body">{d.insight}</div>
+        </div>
+      )}
+    </div>
+  );
+}
+window.ExplainabilityPanel = ExplainabilityPanel;
 
 function ScopeBadge() {
   // SOA-only scope indicator. Uses SOA purple (hue 290), not red — red is
